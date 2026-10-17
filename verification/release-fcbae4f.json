@@ -1,0 +1,622 @@
+{
+  "checked_at": "2026-10-17T08:02:21.905242+00:00",
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "fcbae4f36168e2321ca6709d135146a434343106",
+    "source_dirty": false,
+    "build_fingerprint": "1c7f1710c0b4ed58",
+    "worker_version": "d114ee3d-0f12-4e4f-9c72-a2ab88668323",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  },
+  "domains_match": true,
+  "content_validation": {
+    "apex": {
+      "source_statuses": {
+        "australia": {
+          "grid": "ok",
+          "quakes": "ok",
+          "jobs": "error",
+          "price": "error",
+          "approvals": "error",
+          "wage": "error",
+          "shop": "error",
+          "people": "error",
+          "spend": "error",
+          "works": "error",
+          "service": "ok",
+          "cash": "ok",
+          "exchange": "ok",
+          "world": "ok",
+          "space": "ok",
+          "bonds": "ok",
+          "commodities": "ok",
+          "laws": "ok",
+          "money": "ok",
+          "credit": "ok",
+          "rba": "ok",
+          "hospital": "ok",
+          "rfs_incidents": "degraded"
+        },
+        "new-zealand": {
+          "prices": "ok",
+          "quakes": "ok",
+          "volcanoes": "ok",
+          "notices": "ok",
+          "stats": "ok",
+          "world": "ok",
+          "space": "ok",
+          "quake_stats": "ok"
+        },
+        "canada": {
+          "jobs": "error",
+          "price_index": "error",
+          "shop": "error",
+          "rate": "ok",
+          "exchange": "ok",
+          "product": "error",
+          "bonds": "ok",
+          "homes": "error",
+          "ontario": "ok",
+          "rivers": "ok",
+          "quakes": "ok",
+          "recalls": "ok",
+          "mortgages": "ok",
+          "posted_rates": "ok",
+          "air": "ok",
+          "demand": "ok",
+          "commodities": "ok"
+        },
+        "united-kingdom": {
+          "people": "error",
+          "job": "error",
+          "price_index": "error",
+          "wage": "error",
+          "product": "error",
+          "trade": "error",
+          "bills": "ok",
+          "laws": "error",
+          "space": "ok",
+          "food_establishments": "ok"
+        },
+        "england": {
+          "food_establishments": "ok",
+          "pupil_absence": "ok",
+          "pharmacies": "ok",
+          "grid": "ok",
+          "carbon": "ok",
+          "job": "error",
+          "people": "error",
+          "price_index": "error",
+          "wage": "error",
+          "product": "error",
+          "shop": "error",
+          "vacancy": "error",
+          "trade": "error",
+          "floods": "ok",
+          "service": "error",
+          "rail": "error",
+          "calendar": "ok",
+          "quakes": "ok"
+        },
+        "scotland": {
+          "people": "error",
+          "job": "error",
+          "next_holiday": "ok",
+          "food_establishments": "ok",
+          "bill_stages": "ok",
+          "river_level": "ok"
+        },
+        "wales": {
+          "people": "error",
+          "job": "error",
+          "next_holiday": "ok",
+          "food_establishments": "ok",
+          "projection": "ok"
+        },
+        "northern-ireland": {
+          "people": "error",
+          "job": "error",
+          "next_holiday": "ok",
+          "food_establishments": "ok",
+          "childhood_bmi": "ok",
+          "assembly_divisions": "ok"
+        }
+      },
+      "stats_nz_rows": 23,
+      "aihw": {
+        "year": "2024-25",
+        "states": 8,
+        "numeric_cells": 40
+      },
+      "wales": {
+        "source": "StatsWales / Welsh Government; ONS national population projections",
+        "source_url": "https://api.stats.gov.wales/v2/20b6276b-92f7-48fd-806e-69c35b54d9e0/data?format=csv",
+        "licence": "Open Government Licence v3.0",
+        "licence_url": "https://www.gov.wales/copyright",
+        "geography": "Wales",
+        "area": "Wales",
+        "period": "Mid-year 2026",
+        "value": 3195431,
+        "unit": "people",
+        "kind": "projection",
+        "base_year": 2024,
+        "meaning": "2024-based national population projection, all ages, persons; not an observed population estimate",
+        "notes": null
+      },
+      "nisra": {
+        "period": "2024/25",
+        "rows": [
+          {
+            "id": "P1BMIOb",
+            "name": "Proportion of P1 children who are obese",
+            "period": "2024/25",
+            "value": 6.3,
+            "unit": "percent",
+            "geography": "Northern Ireland",
+            "sex": "All Persons",
+            "status": "ok"
+          },
+          {
+            "id": "P1BMIOwOb",
+            "name": "Proportion of P1 children who are overweight or obese",
+            "period": "2024/25",
+            "value": 23.2,
+            "unit": "percent",
+            "geography": "Northern Ireland",
+            "sex": "All Persons",
+            "status": "ok"
+          },
+          {
+            "id": "Y8BMIOb",
+            "name": "Proportion of Y8 children who are obese",
+            "period": "2024/25",
+            "value": 6,
+            "unit": "percent",
+            "geography": "Northern Ireland",
+            "sex": "All Persons",
+            "status": "ok"
+          },
+          {
+            "id": "Y8BMIOwOb",
+            "name": "Proportion of Y8 children who are overweight or obese",
+            "period": "2024/25",
+            "value": 26.5,
+            "unit": "percent",
+            "geography": "Northern Ireland",
+            "sex": "All Persons",
+            "status": "ok"
+          }
+        ]
+      },
+      "assembly_divisions": {
+        "source": "Northern Ireland Assembly",
+        "source_url": "https://data.niassembly.gov.uk/plenary.asmx/GetVotesOnDivision_JSON?startDate=2026-09-01&endDate=2026-09-30T23:59:59",
+        "licence": "Open Government Licence v3.0",
+        "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "attribution": "Contains Parliamentary information licensed under the Open Government Licence v3.0.",
+        "geography": "Northern Ireland Assembly",
+        "period": "2026-09",
+        "value": 9,
+        "unit": "recorded divisions",
+        "sitting_dates_with_divisions": 4,
+        "note": "Previous complete calendar month in Europe/London. Counts recorded divisions, not every vote, motion, sitting or enacted law. Recess months can have zero divisions. Subjects, member names and individual votes are not copied."
+      },
+      "pharmacies": {
+        "source": "NHS Business Services Authority",
+        "source_url": "https://opendata.nhsbsa.net/dataset/pharmacy-openings-and-closures",
+        "licence": "Open Government Licence v3.0",
+        "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "attribution": "NHS Business Services Authority, Pharmacy Openings and Closures, NHSBSA Open Data",
+        "geography": "England",
+        "period": "2026-09",
+        "as_at": "2026-09-30",
+        "resource": "PHARMACY_OPENCLOSE_202609",
+        "rows": [
+          {
+            "measure": "total",
+            "value": 10402,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "month-end stock"
+          },
+          {
+            "measure": "excluding_distance_sellers",
+            "value": 9930,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "month-end stock"
+          },
+          {
+            "measure": "distance_sellers",
+            "value": 472,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "month-end stock"
+          },
+          {
+            "measure": "excluding_distance_sellers_opened",
+            "value": 40,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "excluding_distance_sellers_closed",
+            "value": 30,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "excluding_distance_sellers_net_change",
+            "value": 10,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "distance_sellers_opened",
+            "value": 6,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "distance_sellers_closed",
+            "value": 1,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "distance_sellers_net_change",
+            "value": 5,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          }
+        ],
+        "note": "Pharmacies on NHS England Pharmaceutical Lists providing NHS prescriptions and pharmaceutical services. Stocks are at month end; openings, closures and net changes cover that calendar month. Ownership changes count as a closure and an opening. Backdated amendments and group changes can affect comparisons between releases. Counts are premises, not patients or prescription volumes."
+      },
+      "source_status_changes": [
+        {
+          "desk": "england",
+          "source": "pharmacies",
+          "before": null,
+          "after": "ok"
+        },
+        {
+          "desk": "england",
+          "source": "service",
+          "before": "ok",
+          "after": "error"
+        },
+        {
+          "desk": "england",
+          "source": "rail",
+          "before": "ok",
+          "after": "error"
+        }
+      ],
+      "check_errors": []
+    },
+    "www": {
+      "source_statuses": {
+        "australia": {
+          "grid": "ok",
+          "quakes": "ok",
+          "jobs": "error",
+          "price": "error",
+          "approvals": "error",
+          "wage": "error",
+          "shop": "error",
+          "people": "error",
+          "spend": "error",
+          "works": "error",
+          "service": "ok",
+          "cash": "ok",
+          "exchange": "ok",
+          "world": "ok",
+          "space": "ok",
+          "bonds": "ok",
+          "commodities": "ok",
+          "laws": "ok",
+          "money": "ok",
+          "credit": "ok",
+          "rba": "ok",
+          "hospital": "ok",
+          "rfs_incidents": "degraded"
+        },
+        "new-zealand": {
+          "prices": "ok",
+          "quakes": "ok",
+          "volcanoes": "ok",
+          "notices": "ok",
+          "stats": "ok",
+          "world": "ok",
+          "space": "ok",
+          "quake_stats": "ok"
+        },
+        "canada": {
+          "jobs": "error",
+          "price_index": "error",
+          "shop": "error",
+          "rate": "ok",
+          "exchange": "ok",
+          "product": "error",
+          "bonds": "ok",
+          "homes": "error",
+          "ontario": "ok",
+          "rivers": "ok",
+          "quakes": "ok",
+          "recalls": "ok",
+          "mortgages": "ok",
+          "posted_rates": "ok",
+          "air": "ok",
+          "demand": "ok",
+          "commodities": "ok"
+        },
+        "united-kingdom": {
+          "people": "error",
+          "job": "error",
+          "price_index": "error",
+          "wage": "error",
+          "product": "error",
+          "trade": "error",
+          "bills": "ok",
+          "laws": "error",
+          "space": "ok",
+          "food_establishments": "ok"
+        },
+        "england": {
+          "food_establishments": "ok",
+          "pupil_absence": "ok",
+          "pharmacies": "ok",
+          "grid": "ok",
+          "carbon": "ok",
+          "job": "error",
+          "people": "error",
+          "price_index": "error",
+          "wage": "error",
+          "product": "error",
+          "shop": "error",
+          "vacancy": "error",
+          "trade": "error",
+          "floods": "ok",
+          "service": "error",
+          "rail": "error",
+          "calendar": "ok",
+          "quakes": "ok"
+        },
+        "scotland": {
+          "people": "error",
+          "job": "error",
+          "next_holiday": "ok",
+          "food_establishments": "ok",
+          "bill_stages": "ok",
+          "river_level": "ok"
+        },
+        "wales": {
+          "people": "error",
+          "job": "error",
+          "next_holiday": "ok",
+          "food_establishments": "ok",
+          "projection": "ok"
+        },
+        "northern-ireland": {
+          "people": "error",
+          "job": "error",
+          "next_holiday": "ok",
+          "food_establishments": "ok",
+          "childhood_bmi": "ok",
+          "assembly_divisions": "ok"
+        }
+      },
+      "stats_nz_rows": 23,
+      "aihw": {
+        "year": "2024-25",
+        "states": 8,
+        "numeric_cells": 40
+      },
+      "wales": {
+        "source": "StatsWales / Welsh Government; ONS national population projections",
+        "source_url": "https://api.stats.gov.wales/v2/20b6276b-92f7-48fd-806e-69c35b54d9e0/data?format=csv",
+        "licence": "Open Government Licence v3.0",
+        "licence_url": "https://www.gov.wales/copyright",
+        "geography": "Wales",
+        "area": "Wales",
+        "period": "Mid-year 2026",
+        "value": 3195431,
+        "unit": "people",
+        "kind": "projection",
+        "base_year": 2024,
+        "meaning": "2024-based national population projection, all ages, persons; not an observed population estimate",
+        "notes": null
+      },
+      "nisra": {
+        "period": "2024/25",
+        "rows": [
+          {
+            "id": "P1BMIOb",
+            "name": "Proportion of P1 children who are obese",
+            "period": "2024/25",
+            "value": 6.3,
+            "unit": "percent",
+            "geography": "Northern Ireland",
+            "sex": "All Persons",
+            "status": "ok"
+          },
+          {
+            "id": "P1BMIOwOb",
+            "name": "Proportion of P1 children who are overweight or obese",
+            "period": "2024/25",
+            "value": 23.2,
+            "unit": "percent",
+            "geography": "Northern Ireland",
+            "sex": "All Persons",
+            "status": "ok"
+          },
+          {
+            "id": "Y8BMIOb",
+            "name": "Proportion of Y8 children who are obese",
+            "period": "2024/25",
+            "value": 6,
+            "unit": "percent",
+            "geography": "Northern Ireland",
+            "sex": "All Persons",
+            "status": "ok"
+          },
+          {
+            "id": "Y8BMIOwOb",
+            "name": "Proportion of Y8 children who are overweight or obese",
+            "period": "2024/25",
+            "value": 26.5,
+            "unit": "percent",
+            "geography": "Northern Ireland",
+            "sex": "All Persons",
+            "status": "ok"
+          }
+        ]
+      },
+      "assembly_divisions": {
+        "source": "Northern Ireland Assembly",
+        "source_url": "https://data.niassembly.gov.uk/plenary.asmx/GetVotesOnDivision_JSON?startDate=2026-09-01&endDate=2026-09-30T23:59:59",
+        "licence": "Open Government Licence v3.0",
+        "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "attribution": "Contains Parliamentary information licensed under the Open Government Licence v3.0.",
+        "geography": "Northern Ireland Assembly",
+        "period": "2026-09",
+        "value": 9,
+        "unit": "recorded divisions",
+        "sitting_dates_with_divisions": 4,
+        "note": "Previous complete calendar month in Europe/London. Counts recorded divisions, not every vote, motion, sitting or enacted law. Recess months can have zero divisions. Subjects, member names and individual votes are not copied."
+      },
+      "pharmacies": {
+        "source": "NHS Business Services Authority",
+        "source_url": "https://opendata.nhsbsa.net/dataset/pharmacy-openings-and-closures",
+        "licence": "Open Government Licence v3.0",
+        "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "attribution": "NHS Business Services Authority, Pharmacy Openings and Closures, NHSBSA Open Data",
+        "geography": "England",
+        "period": "2026-09",
+        "as_at": "2026-09-30",
+        "resource": "PHARMACY_OPENCLOSE_202609",
+        "rows": [
+          {
+            "measure": "total",
+            "value": 10402,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "month-end stock"
+          },
+          {
+            "measure": "excluding_distance_sellers",
+            "value": 9930,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "month-end stock"
+          },
+          {
+            "measure": "distance_sellers",
+            "value": 472,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "month-end stock"
+          },
+          {
+            "measure": "excluding_distance_sellers_opened",
+            "value": 40,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "excluding_distance_sellers_closed",
+            "value": 30,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "excluding_distance_sellers_net_change",
+            "value": 10,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "distance_sellers_opened",
+            "value": 6,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "distance_sellers_closed",
+            "value": 1,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          },
+          {
+            "measure": "distance_sellers_net_change",
+            "value": 5,
+            "unit": "pharmacies",
+            "geography": "England",
+            "period": "2026-09",
+            "timing": "calendar-month flow"
+          }
+        ],
+        "note": "Pharmacies on NHS England Pharmaceutical Lists providing NHS prescriptions and pharmaceutical services. Stocks are at month end; openings, closures and net changes cover that calendar month. Ownership changes count as a closure and an opening. Backdated amendments and group changes can affect comparisons between releases. Counts are premises, not patients or prescription volumes."
+      },
+      "source_status_changes": [
+        {
+          "desk": "england",
+          "source": "pharmacies",
+          "before": null,
+          "after": "ok"
+        },
+        {
+          "desk": "england",
+          "source": "service",
+          "before": "ok",
+          "after": "error"
+        }
+      ],
+      "check_errors": []
+    }
+  },
+  "unexpected_regressions": [],
+  "smoke": {
+    "apex": {
+      "passed": 15,
+      "failed": []
+    },
+    "www": {
+      "passed": 14,
+      "failed": []
+    }
+  },
+  "notification_state": {
+    "new_release": "NHSBSA England pharmacy aggregates verified on both domains",
+    "known_unresolved": "ABS 403, ONS 403/429, legislation 404, StatCan 406, delayed RFS snapshot; intermittent TfL 429 already known",
+    "policy": "Notify only meaningful new failures, recoveries, validated-data regressions or required user action. Unchanged monthly/annual values are not stale. Do not repeat known alerts."
+  }
+}
