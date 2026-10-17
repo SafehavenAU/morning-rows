@@ -1,0 +1,570 @@
+{
+  "checked_at": "2026-10-17T10:23:11.229578+00:00",
+  "independence": "Separately implemented Python selection from original publisher files, independent of production JavaScript. Same underlying publisher datasets; not independent verification of statistical collection.",
+  "sources": [
+    {
+      "name": "hospital",
+      "url": "https://myhospitalsapi.aihw.gov.au/api/v1/flat-data-extract/MYH-ED-WAITS?skip=0&top=1000&measure_code=MYH0010&reporting_unit_type_code=S&start_date=2023&end_date=2026",
+      "status": "200"
+    },
+    {
+      "name": "bmi",
+      "url": "https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.ReadDataset/CHILDBMILGD/JSON-stat/2.0/en",
+      "status": "200"
+    },
+    {
+      "name": "projection",
+      "url": "https://api.stats.gov.wales/v2/20b6276b-92f7-48fd-806e-69c35b54d9e0/data?format=csv",
+      "status": "200"
+    }
+  ],
+  "hashes": {
+    "hospital": "10b4fda15311fd17095ff09f96739983cf2e0cdccb268a9b8a88668f7a2589db",
+    "bmi": "0460caa4e9d6bab4fa4d92f3176c07baa6e157b4175f6c52bac2d8cddd1f92b2",
+    "projection": "085ee81b8a8b79fd8cbf93388f6be9c730fe9cfcad554a04c95d247f0869e017"
+  },
+  "aihw": [
+    {
+      "reporting_unit_code": "NSW",
+      "reported_measure_code": "MYH-RM0035",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 100.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NSW",
+      "reported_measure_code": "MYH-RM0036",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 76.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NSW",
+      "reported_measure_code": "MYH-RM0037",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 68.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NSW",
+      "reported_measure_code": "MYH-RM0038",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 74.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NSW",
+      "reported_measure_code": "MYH-RM0039",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 90.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Vic",
+      "reported_measure_code": "MYH-RM0035",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 100.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Vic",
+      "reported_measure_code": "MYH-RM0036",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 64.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Vic",
+      "reported_measure_code": "MYH-RM0037",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 69.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Vic",
+      "reported_measure_code": "MYH-RM0038",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 76.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Vic",
+      "reported_measure_code": "MYH-RM0039",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 91.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Qld",
+      "reported_measure_code": "MYH-RM0035",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 100.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Qld",
+      "reported_measure_code": "MYH-RM0036",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 73.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Qld",
+      "reported_measure_code": "MYH-RM0037",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 67.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Qld",
+      "reported_measure_code": "MYH-RM0038",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 78.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Qld",
+      "reported_measure_code": "MYH-RM0039",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 93.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "SA",
+      "reported_measure_code": "MYH-RM0035",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 99.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "SA",
+      "reported_measure_code": "MYH-RM0036",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 50.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "SA",
+      "reported_measure_code": "MYH-RM0037",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 44.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "SA",
+      "reported_measure_code": "MYH-RM0038",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 61.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "SA",
+      "reported_measure_code": "MYH-RM0039",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 84.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "WA",
+      "reported_measure_code": "MYH-RM0035",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 100.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "WA",
+      "reported_measure_code": "MYH-RM0036",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 67.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "WA",
+      "reported_measure_code": "MYH-RM0037",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 29.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "WA",
+      "reported_measure_code": "MYH-RM0038",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 47.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "WA",
+      "reported_measure_code": "MYH-RM0039",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 80.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Tas",
+      "reported_measure_code": "MYH-RM0035",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 100.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Tas",
+      "reported_measure_code": "MYH-RM0036",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 47.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Tas",
+      "reported_measure_code": "MYH-RM0037",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 38.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Tas",
+      "reported_measure_code": "MYH-RM0038",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 52.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "Tas",
+      "reported_measure_code": "MYH-RM0039",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 74.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NT",
+      "reported_measure_code": "MYH-RM0035",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 98.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NT",
+      "reported_measure_code": "MYH-RM0036",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 49.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NT",
+      "reported_measure_code": "MYH-RM0037",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 40.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NT",
+      "reported_measure_code": "MYH-RM0038",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 48.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "NT",
+      "reported_measure_code": "MYH-RM0039",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 82.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "ACT",
+      "reported_measure_code": "MYH-RM0035",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 99.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "ACT",
+      "reported_measure_code": "MYH-RM0036",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 64.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "ACT",
+      "reported_measure_code": "MYH-RM0037",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 51.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "ACT",
+      "reported_measure_code": "MYH-RM0038",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 69.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    },
+    {
+      "reporting_unit_code": "ACT",
+      "reported_measure_code": "MYH-RM0039",
+      "measure_code": "MYH0010",
+      "reporting_start_date": "2024-07-01",
+      "reporting_end_date": "2025-06-30",
+      "units_name": "percent",
+      "value": 89.0,
+      "suppression": null,
+      "suppression_codes": null,
+      "caveat_footnotes": null
+    }
+  ],
+  "wales": [
+    {
+      "Data values": "3195431",
+      "Data description": "Population projections",
+      "Year": "Mid-year 2026",
+      "Area": "Wales",
+      "Age": "All Ages",
+      "Sex": "Persons",
+      "Notes": ""
+    }
+  ],
+  "nisra": [
+    {
+      "selection": {
+        "STATISTIC": "P1BMIOb",
+        "TLIST(A1)": "2024/25",
+        "SEX": "All",
+        "LGD2014": "N92000002"
+      },
+      "flat_index": 539,
+      "value": 6.3,
+      "unit": "%"
+    },
+    {
+      "selection": {
+        "STATISTIC": "P1BMIOwOb",
+        "TLIST(A1)": "2024/25",
+        "SEX": "All",
+        "LGD2014": "N92000002"
+      },
+      "flat_index": 1079,
+      "value": 23.2,
+      "unit": "%"
+    },
+    {
+      "selection": {
+        "STATISTIC": "Y8BMIOb",
+        "TLIST(A1)": "2024/25",
+        "SEX": "All",
+        "LGD2014": "N92000002"
+      },
+      "flat_index": 1619,
+      "value": 6.0,
+      "unit": "%"
+    },
+    {
+      "selection": {
+        "STATISTIC": "Y8BMIOwOb",
+        "TLIST(A1)": "2024/25",
+        "SEX": "All",
+        "LGD2014": "N92000002"
+      },
+      "flat_index": 2159,
+      "value": 26.5,
+      "unit": "%"
+    }
+  ],
+  "licences": {
+    "aihw": "CC BY 4.0, AIHW copyright page",
+    "wales": "OGL v3, Welsh Government copyright",
+    "nisra": "OGL v3, NISRA Crown copyright"
+  }
+}

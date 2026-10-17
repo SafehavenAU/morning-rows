@@ -37,11 +37,21 @@ test('health identity and unknown routes behave without upstream access',async()
  assert.match(response.headers.get('x-source-revision'),/^[0-9a-f]{40}$/);
  assert.equal((await worker.fetch(new Request('https://example.com/missing'))).status,404);
 });
-test('degraded desk uses short cache and ignores user cache-busting query',async t=>{
+test('degraded desk uses short cache; unsupported cache-busting query is explicitly rejected',async t=>{
  const puts=[];globalThis.caches={default:{match:async()=>undefined,put:async(key,response)=>puts.push([key.url,response.headers.get('cache-control')])}};
  t.after(()=>{delete globalThis.caches;});
  t.mock.method(globalThis,'fetch',async url=>url.includes('bank-holidays')?Response.json({scotland:{events:[{title:'Future holiday',date:'2099-01-01'}]}}):new Response('blocked',{status:403}));
- const response=await worker.fetch(new Request('https://example.com/scotland.json?random=1'));
+ const invalid=await worker.fetch(new Request('https://example.com/scotland.json?random=1'));
+ assert.equal(invalid.status,400);assert.equal(puts.length,0);
+ const response=await worker.fetch(new Request('https://example.com/scotland.json'));
  assert.equal(response.headers.get('x-data-status'),'degraded');assert.equal(response.headers.get('cache-control'),'public, max-age=30');
  assert.match(puts[0][0],/\?release=[0-9a-f]{40}-[0-9a-f]{16}$/);assert.ok(!puts[0][0].includes('random'));
+});
+test('expired stored response is re-fetched even when cache headers advertise four hours',async t=>{
+ let requests=0;
+ globalThis.caches={default:{match:async()=>Response.json({country:'wrong cached snapshot'},{headers:{'cache-control':'public, max-age=14400','x-mr-cache-expires-at':String(Date.now()-1)}}),put:async()=>{}}};
+ t.after(()=>{delete globalThis.caches;});
+ t.mock.method(globalThis,'fetch',async()=>{requests++;return new Response('blocked',{status:403});});
+ const response=await worker.fetch(new Request('https://example.com/scotland.json'));const data=await response.json();
+ assert.equal(data.country,'Scotland');assert.ok(requests>0);assert.equal(response.headers.get('cache-control'),'public, max-age=30');
 });

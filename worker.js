@@ -1,3 +1,4 @@
+import { ORIGIN, DESKS, SCHEMA_VERSION, INFORMATION_SCHEMA, catalogue, validateSelection, selectedResponse, finishResponse } from './lib/information.js';
 import { readNzPrices } from './lib/nz-prices.js';
 import { readNzFleet, readScottishTraffic } from './lib/transport-observations.js';
 import { readPharmacies } from './lib/pharmacies.js';
@@ -289,49 +290,29 @@ function page(data) {
 
 const LLMS = `# Morning Rows
 
-> https://morningrows.com. A public data desk for agents. Any official figure from a reliable source, read from a free API when an agent asks. Not a building site. Not a land-lead list. Read the files. Do not scrape the HTML.
+> Official public aggregate data across eight desks. Fetch JSON; human pages are views of the same data. No account required.
 
-## Rules
+## Discover, select, cite, return
 
-- One desk per country. The United Kingdom is split: a UK-wide file, then England, Scotland, Wales, and Northern Ireland.
-- A source must be an official publisher. If its terms forbid copying, it is left out. If the terms say nothing, it is read.
-- Free sources that need a key are listed in [/keys.json](/keys.json). They are not called until a key is saved.
-- Categories come later. Do not guess a category that is not in the file.
+1. [Catalogue](https://morningrows.com/catalog.json) lists eight desks. Follow a desk's catalog link to its existing sources and described measures.
+2. Follow the exact records URL. For example [Canada FX](https://morningrows.com/canada.json?source=exchange) or [Wales projection](https://morningrows.com/wales.json?source=projection&measure=population-2024-based). Full desk URLs remain supported.
+3. Read definition, exact period, value_state, source_url, licence and qualifications before answering. A desk name is not the observation geography. Projections are not estimates. Unknown metadata must remain unknown.
+4. Cite the observation id, version and publisher URL. Observation URLs select only a currently retained period, not an archive. Save the response for historical audit.
+5. Retain ETag and use If-None-Match on the same URL. 304 means unchanged selected content/health within cache policy. Retrieval time is not publication time. Annual/monthly observations need not change daily.
 
-## Read in this order
+[Schema and usage contract](https://morningrows.com/schema.json) defines selectors, identity, comparison rules, missingness and revisions. [Runtime identity](https://morningrows.com/health.json) is separate from data health. [Manual access queue](https://morningrows.com/keys.json) is not deployed coverage.
 
-- [The catalog](/catalog.json): the desks
-- [Australia](/australia.json). [/morning.json](/morning.json) is the same file.
-- [New Zealand](/new-zealand.json)
-- [Canada](/canada.json)
-- [United Kingdom](/united-kingdom.json): UK-wide figures only
-- [England](/england.json)
-- [Scotland](/scotland.json)
-- [Wales](/wales.json)
-- [Northern Ireland](/northern-ireland.json)
+## Limits
 
-## Australia
+Only the selections listed by each desk are served. Historical FX, local claimant histories, NZ rental benchmarks and completed-day AEMO averages from research are not deployed. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
 
-- [The catalog](/catalog.json): what each Australian set is, how often it changes, and the licence
+A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
 
-## Sets
+## Desks
 
-- [The grid](/morning.json): wholesale price and demand for five regions. A new interval about every five minutes. Reuse terms were not read.
-- [The hospital](/morning.json): AIHW emergency-department patients seen on time, by state and triage category. Latest published financial year; CC BY 4.0.
-- [The job](/morning.json): unemployment rate by state, monthly. Creative Commons Attribution 4.0.
-- [The price of living](/morning.json): consumer prices for the eight capitals. Creative Commons Attribution 4.0.
-- [The approval](/morning.json): residential dwelling units approved, by state. Creative Commons Attribution 4.0.
-- [The wage](/morning.json): hourly rates of pay excluding bonuses, Australia. Creative Commons Attribution 4.0.
-- [The shop](/morning.json): retail turnover by state, million dollars. Creative Commons Attribution 4.0.
-- [The people](/morning.json): estimated resident population by state. Creative Commons Attribution 4.0.
-- [The spend](/morning.json): household spending, percent change on the month before. Creative Commons Attribution 4.0.
-- [The works](/morning.json): construction work done by state, billion dollars. Creative Commons Attribution 4.0.
-- [The service running](/morning.json): South East Queensland public transport alerts. Creative Commons Attribution 4.0.
-- [The ground](/morning.json): earthquakes marked as in Australia. Creative Commons Attribution 4.0.
+${Object.entries(DESKS).map(([slug,name])=>`- [${name}](https://morningrows.com/${slug}.json)`).join('\n')}
 
-## Not here
-
-The river and live public transport are not in these files. A phone number, a person's name, and a patient record are not stored.
+Australia's /morning.json alias remains available. Search and agent retrieval are allowed; training crawler restrictions remain in robots.txt.
 `;
 
 const CATALOG = {
@@ -359,21 +340,25 @@ const CATALOG = {
 };
 
 const AI_CATALOG = {
-  name: "Morning Australia",
-  description: "Combined Australian public records an agent can read without an account.",
+  name: "Morning Rows",
+  description: "Eight public aggregate data desks. Discover sources and described measures through the catalogue; do not infer geographic scope from a desk name.",
   auth: { type: "none" },
+  schema_version: SCHEMA_VERSION,
   services: [
-    { name: "records", path: "/morning.json", description: "The grid, the hospital year, and Australian earthquakes.", methods: ["GET"] },
-    { name: "catalog", path: "/catalog.json", description: "What each set contains, how often it changes, and the licence.", methods: ["GET"] },
-    { name: "index", path: "/llms.txt", description: "Short index for an agent.", methods: ["GET"] },
+    { name: "records", path: "/morning.json", description: "Legacy Australia alias. Follow catalog for all eight desks.", methods: ["GET","HEAD"] },
+    { name: "catalog", path: "/catalog.json", description: "Eight desks with source-directory links.", methods: ["GET","HEAD"] },
+    { name: "index", path: "/llms.txt", description: "Discovery, interpretation, citation and repeat-visit instructions.", methods: ["GET","HEAD"] },
+    { name: "schema", path: "/schema.json", description: "Selected-response schema and usage contract.", methods: ["GET","HEAD"] },
+    ...Object.entries(DESKS).map(([slug,name])=>({name,path:`/${slug}.json`,catalog:`/catalog.json?desk=${slug}`,methods:["GET","HEAD"]})),
   ],
 };
 
 const ROBOTS = [
   "# Reading is allowed. Training is not.",
   "User-agent: *",
-  "Content-signal: search=yes, ai-train=no, use=reference",
+  "Content-signal: search=yes, ai-input=yes, ai-train=no, use=reference",
   "Allow: /",
+  "Sitemap: https://morningrows.com/sitemap.xml",
   "",
   "User-agent: Amazonbot",
   "Disallow: /",
@@ -758,18 +743,18 @@ async function readCanadaRate() {
 }
 
 async function readCanadaExchange() {
-  const response = await fetchOfficial("https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXAUDCAD,FXGBPCAD,FXNZDCAD/json?recent=1");
-  const body = await response.json();
-  const last = body.observations[body.observations.length - 1];
-  return {
-    date: last.d,
-    rows: [
-      { name: "US dollar", value: Number(last.FXUSDCAD.v) },
-      { name: "Australian dollar", value: Number(last.FXAUDCAD.v) },
-      { name: "UK pound", value: Number(last.FXGBPCAD.v) },
-      { name: "New Zealand dollar", value: Number(last.FXNZDCAD.v) },
-    ],
-  };
+  const source_url = "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXAUDCAD,FXGBPCAD,FXNZDCAD/json?recent=1";
+  const body = await fetchOfficial(source_url).then(r=>r.json());
+  const last = body.observations?.at(-1);
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(last?.d||'') || !Number.isFinite(Date.parse(last.d)) || new Date(last.d).toISOString().slice(0,10)!==last.d) throw new SourceError('Bank of Canada observation date missing or invalid');
+  const pairs = [['FXUSDCAD','US dollar'],['FXAUDCAD','Australian dollar'],['FXGBPCAD','UK pound'],['FXNZDCAD','New Zealand dollar']];
+  const rows = pairs.map(([series_id,name])=>{
+    const raw=last[series_id]?.v;
+    if(typeof raw!=='string'||!/^\d+(?:\.\d+)?$/.test(raw)||!Number.isFinite(Number(raw))||Number(raw)<=0) throw new SourceError('Bank of Canada exchange observation missing or invalid; not zero');
+    return {name,value:Number(raw),series_id,unit:`CAD per 1 ${series_id.slice(2,5)}`};
+  });
+  return {date:last.d,rows,source:'Bank of Canada',source_url,licence:'Bank of Canada terms; attribution and accurate presentation',licence_url:'https://www.bankofcanada.ca/terms/',
+    note:'Indicative daily averages, Canadian dollars per one unit of foreign currency; not executable quotes. Latest published business date only. No date filtering, holiday carry-forward or historical conversion is supported. Original data is available free from the Bank of Canada.'};
 }
 
 async function ons(path) {
@@ -1148,7 +1133,10 @@ const HOLD_SECONDS = {
 async function held(request, response) {
   const seconds = response.headers.get("x-data-status") === "degraded" ? 30 : HOLD_SECONDS[new URL(request.url).pathname];
   const headers = new Headers(response.headers);
-  if (seconds) headers.set("Cache-Control", `public, max-age=${seconds}`);
+  if (seconds) {
+    headers.set("Cache-Control", `public, max-age=${seconds}`);
+    headers.set("x-mr-cache-expires-at", String(Date.now()+seconds*1000));
+  }
   const stored = new Response(response.body, { status: response.status, headers });
   if (!seconds) return stored;
   try {
@@ -1166,23 +1154,8 @@ const worker = {
     if (url.pathname === "/health.json") return json({ service: "Morning Rows", source_revision: BUILD_REVISION, source_dirty: BUILD_DIRTY, build_fingerprint: BUILD_FINGERPRINT, worker_version: env.WORKER_VERSION?.id || null, note: "Runtime identity only; inspect each desk sources field for data health." });
     if (url.pathname === "/llms.txt") return new Response(LLMS, { headers: { "content-type": "text/plain; charset=utf-8" } });
     if (url.pathname === "/robots.txt") return new Response(ROBOTS, { headers: { "content-type": "text/plain; charset=utf-8" } });
-    if (url.pathname === "/catalog.json") return json({
-      name: "Morning Rows",
-      site: "https://morningrows.com",
-      summary: "Official public figures for agents. One desk per country. The United Kingdom is split. Fetch the index, then one desk file. Do not scrape the HTML.",
-      auth: "none",
-      index: "/llms.txt",
-      countries: [
-        { name: "Australia", page: "/australia", records: "/australia.json", also: "/morning.json" },
-        { name: "New Zealand", page: "/new-zealand", records: "/new-zealand.json" },
-        { name: "Canada", page: "/canada", records: "/canada.json" },
-        { name: "United Kingdom", page: "/united-kingdom", records: "/united-kingdom.json" },
-        { name: "England", page: "/england", records: "/england.json" },
-        { name: "Scotland", page: "/scotland", records: "/scotland.json" },
-        { name: "Wales", page: "/wales", records: "/wales.json" },
-        { name: "Northern Ireland", page: "/northern-ireland", records: "/northern-ireland.json" },
-      ],
-    });
+    if (url.pathname === "/catalog.json") return json(catalogue(url.searchParams.get("desk")));
+    if (url.pathname === "/schema.json") return json(INFORMATION_SCHEMA);
     if (url.pathname === "/.well-known/ai-catalog.json") return json(AI_CATALOG);
     if (url.pathname === "/keys.json") return json({
       site: "https://morningrows.com",
@@ -1249,7 +1222,17 @@ const worker = {
     if (hold && request.method === "GET") {
       try {
         const hit = await caches.default.match(new Request(`${url.origin}${url.pathname}?release=${BUILD_CACHE_KEY}`, { method: "GET" }));
-        if (hit) return hit;
+        if (hit) {
+          const expires=Number(hit.headers.get('x-mr-cache-expires-at'));
+          // Edge/cache configuration can rewrite Cache-Control (observed as
+          // four hours in preview). Enforce our own lifetime before reuse.
+          if(Number.isFinite(expires)&&expires>Date.now()) {
+            const headers=new Headers(hit.headers);
+            const limit=headers.get('x-data-status')==='degraded'?30:hold;
+            headers.set('Cache-Control',`public, max-age=${Math.min(limit,Math.max(0,Math.floor((expires-Date.now())/1000)))}`);
+            return new Response(hit.body,{status:hit.status,headers});
+          }
+        }
       } catch (error) {
         // A miss still reads the source once.
       }
@@ -1356,12 +1339,49 @@ const worker = {
 
 export default {
   async fetch(request, env = {}) {
-    const response = await worker.fetch(request, env);
-    const headers = new Headers(response.headers);
-    headers.set("x-source-revision", BUILD_REVISION);
-    if (env.WORKER_VERSION?.id) headers.set("x-worker-version", env.WORKER_VERSION.id);
-    return new Response(response.body, { status: response.status, headers });
+    const url=new URL(request.url);
+    const selection=validateSelection(url);
+    let response, retrievedAt=null;
+    const canon=new URL(url.pathname+url.search,ORIGIN);
+    if(canon.pathname==='/morning.json') canon.pathname='/australia.json';
+    if(!['GET','HEAD'].includes(request.method)) response=new Response(JSON.stringify({error:'method_not_allowed'}),{status:405,headers:{'content-type':'application/json','Allow':'GET, HEAD'}});
+    else if(selection.status) response=new Response(JSON.stringify({error:selection.code,message:selection.message||'Selection not supported',catalog:`${ORIGIN}/catalog.json`,schema:`${ORIGIN}/schema.json`}),{status:selection.status,headers:{'content-type':'application/json','Cache-Control':'no-store'}});
+    else if(url.pathname==='/sitemap.xml') response=new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/','/catalog.json','/llms.txt',...Object.keys(DESKS).flatMap(d=>[`/${d}`,`/${d}.json`])].map(p=>`<url><loc>${ORIGIN}${p}</loc></url>`).join('')}</urlset>`,{headers:{'content-type':'application/xml; charset=utf-8'}});
+    else {
+      // Only validated selectors reach here. Reuse the existing complete-desk
+      // cache, never cache one selection under another selection's URL.
+      const upstream=new URL(request.url);
+      if(selection.desk) {upstream.search='';upstream.pathname=`/${selection.desk}.json`;}
+      const headers=new Headers(request.headers);headers.delete('If-None-Match');
+      response=await worker.fetch(new Request(upstream,{method:'GET',headers}),env);
+      if(selection.desk&&response.status===200) {
+        const body=await response.json();
+        const times=Object.values(body.sources||{}).map(s=>s.fetched_at).filter(Boolean).sort();
+        retrievedAt=times.at(-1)||null;
+        if(selection.source) {
+          const selected=await selectedResponse(body,selection);
+          canon.href=selected.body.id;
+          retrievedAt=selected.body.retrieval.retrieved_at;
+          response=new Response(JSON.stringify(selected.body),{status:selected.status,headers:{'content-type':'application/json; charset=utf-8','x-data-status':selected.status===200?selected.body.retrieval.status:'error','Cache-Control':selected.status===200?(response.headers.get('Cache-Control')||'public, max-age=30'):'no-store'}});
+        } else {
+          body._meta={schema_version:SCHEMA_VERSION,id:canon.href,catalog:`${ORIGIN}/catalog.json?desk=${selection.desk}`,schema:`${ORIGIN}/schema.json`,retrieved_at:retrievedAt,note:'Desk location does not define observation geography. Source retrieval timestamps are attempt times, not publication times. Follow the catalogue for smaller source/measure responses.'};
+          response=new Response(JSON.stringify(body,null,2),{status:response.status,headers:response.headers});
+        }
+      } else if(response.headers.get('content-type')?.includes('text/html')&&response.status===200) {
+        const html=await response.text();
+        const desk=url.pathname.slice(1),jsonPath=Object.hasOwn(DESKS,desk)?`/${desk}.json`:'/catalog.json';
+        const nav=`<nav aria-label="Data access"><p><a href="${jsonPath}">Machine-readable data</a> · <a href="/catalog.json${Object.hasOwn(DESKS,desk)?'?desk='+desk:''}">Sources and measures</a> · <a href="/schema.json">Data contract and citation rules</a></p><p>Use each figure's geography, reference period, units and source qualifications. Retrieval time is not publication time.</p></nav>`;
+        response=new Response(html.replace('</head>',`<link rel="canonical" href="${ORIGIN}${url.pathname}"><link rel="alternate" type="application/json" href="${ORIGIN}${jsonPath}"></head>`).replace('</body>',nav+'</body>'),{headers:response.headers});
+      }
+    }
+    const headers=new Headers(response.headers);
+    headers.delete('x-mr-cache-expires-at');
+    headers.set('x-source-revision',BUILD_REVISION);
+    if(env.WORKER_VERSION?.id) headers.set('x-worker-version',env.WORKER_VERSION.id);
+    if(url.pathname==='/health.json') headers.set('Cache-Control','no-cache');
+    response=new Response(response.body,{status:response.status,headers});
+    return finishResponse(request,response,canon.href,retrievedAt);
   },
 };
 
-export { readOnsNation, readUnitedKingdom, readEngland, readCanada, readNzPrices, hasFailures };
+export { readOnsNation, readUnitedKingdom, readEngland, readCanada, readCanadaExchange, readNzPrices, hasFailures };
