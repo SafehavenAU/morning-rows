@@ -891,12 +891,13 @@ async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
 }
 
 async function readUnitedKingdom() {
-  const [people, job, price, wage, product, bills, laws, space] = await Promise.all([
+  const [people, job, price, wage, product, trade, bills, laws, space] = await Promise.all([
     ons("/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop"),
     ons("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/mgsx/lms"),
     ons("/economy/inflationandpriceindices/timeseries/d7bt/mm23"),
     ons("/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/lms"),
     ons("/economy/grossdomesticproductgdp/timeseries/ybez/ukea"),
+    ons("/economy/nationalaccounts/balanceofpayments/timeseries/ikbj/pnbp"),
     readBills(),
     readUkLaws(),
     readSpace(),
@@ -910,6 +911,7 @@ async function readUnitedKingdom() {
     price_index: price,
     wage,
     product,
+    trade: { ...trade, meaning: "total trade balance", unit: "not stated on the file" },
     bills,
     laws,
     space,
