@@ -457,53 +457,42 @@ async function readSome(response, max = 65536) {
 async function readStatsNz(env) {
   const key = env && env.STATSNZ_KEY;
   if (!key) return { present: false, rows: [] };
-  const headers = { "Ocp-Apim-Subscription-Key": key, accept: "application/xml,text/csv,*/*" };
-  const catalogue = await fetch("https://api.data.stats.govt.nz/rest/dataflow/STATSNZ/all?detail=allstubs", { headers });
-  if (!catalogue.ok) return { present: true, error: catalogue.status, rows: [] };
-  const xml = await readSome(catalogue, 1500000);
-  const wanted = [
-    ["prices", /consumers price index/i],
-    ["job", /household labour force survey|employment indicator/i],
-    ["shop", /retail trade survey/i],
-    ["people", /estimated resident population/i],
-    ["approvals", /building consents issued/i],
-    ["output", /gross domestic product/i],
+  const headers = { "Ocp-Apim-Subscription-Key": key, accept: "text/csv,*/*" };
+  const tables = [
+    ["people", "POPES_SUB_001", "Subnational population change and median age"],
+    ["wages", "INC_INC_001", "Earnings for people in paid employment"],
+    ["pay", "INC_INC_010", "Gender pay gap"],
+    ["spend", "HES_HES_001", "Household expenditure"],
+    ["firms", "BDS_BDS_004", "Enterprises by industry"],
+    ["output", "PRD_PRD_003", "Productivity, growth in output"],
   ];
-  const chosen = [];
-  const seen = new Set();
-  const pattern = /<str:Dataflow\b[^>]*\bid="([^"]+)"[^>]*>[\s\S]*?<com:Name\b[^>]*>([^<]+)<\/com:Name>/g;
-  let match;
-  while ((match = pattern.exec(xml))) {
-    const id = match[1];
-    const name = match[2].trim();
-    for (const [label, test] of wanted) {
-      if (seen.has(label) || !test.test(name)) continue;
-      seen.add(label);
-      chosen.push({ label, id, name });
-    }
-  }
   const rows = [];
-  for (const item of chosen) {
-    const response = await fetch(`https://api.data.stats.govt.nz/rest/data/STATSNZ,${item.id}?lastNObservations=1&dimensionAtObservation=AllDimensions&format=csvfilewithlabels`, { headers });
+  for (const [label, id, name] of tables) {
+    const response = await fetch(`https://api.data.stats.govt.nz/rest/data/STATSNZ,${id},1.0/all?lastNObservations=1&dimensionAtObservation=AllDimensions&format=csvfilewithlabels`, { headers });
     if (!response.ok) {
-      rows.push({ label: item.label, name: item.name, id: item.id, error: response.status });
+      rows.push({ label, name, id, error: response.status });
       continue;
     }
     const text = await readSome(response);
     const lines = text.split(/\r?\n/).filter((line) => line && !line.startsWith("STRUCTURE"));
     const header = (lines[0] || "").split(",");
     const value = (lines[1] || "").split(",");
-    const periodIndex = header.findIndex((name) => /TIME_PERIOD/i.test(name));
-    const observationIndex = header.findIndex((name) => /OBS_VALUE/i.test(name));
+    const periodIndex = header.findIndex((column) => /TIME_PERIOD/i.test(column));
+    const observationIndex = header.findIndex((column) => /OBS_VALUE/i.test(column));
     rows.push({
-      label: item.label,
-      name: item.name,
-      id: item.id,
+      label,
+      name,
+      id,
       period: periodIndex >= 0 ? value[periodIndex] : "",
       value: observationIndex >= 0 ? value[observationIndex] : "",
     });
   }
-  return { present: true, rows, licence: "Creative Commons Attribution 4.0. Credit Stats NZ." };
+  return {
+    present: true,
+    rows,
+    licence: "Creative Commons Attribution 4.0. Credit Stats NZ.",
+    not_in_this_api: "Consumers price index, the labour force survey, retail trade, and building consents are not in the Aotearoa Data Explorer API yet.",
+  };
 }
 
 async function readNzQuakes() {
@@ -522,7 +511,7 @@ function nzPage(data) {
   const first = data.prices && data.prices[0];
   const official = data.stats || { present: false, rows: [] };
   const statRows = (official.rows || []).map((row) => `<tr><td>${escapeHtml(row.name || row.label)}</td><td>${escapeHtml(row.period || row.error || "")}</td><td>${escapeHtml(row.value || "")}</td></tr>`).join("");
-  const stats = official.present ? (official.error ? "The key was refused, status " + official.error + "." : (official.licence || "Read.")) : "The STATSNZ_KEY binding is not visible to this worker.";
+  const stats = official.present ? (official.error ? "The key was refused, status " + official.error + "." : (official.licence || "Read.") + (official.not_in_this_api ? " " + official.not_in_this_api : "")) : "The STATSNZ_KEY binding is not visible to this worker.";
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Morning New Zealand</title></head><body><main>
     <p>For agents</p><h1>Morning New Zealand</h1>
     <p><a href="/">Countries</a> · <a href="/australia">Australia</a> · <a href="/new-zealand.json">new-zealand.json</a></p>
