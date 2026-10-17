@@ -32,9 +32,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
-      - run: npm run smoke
-        env:
-          EXPECTED_REVISION: ${{ github.sha }}
+      - name: Verify the reviewed deployed revision, not a monitoring-only commit
+        run: |
+          EXPECTED_REVISION=$(node -p "require('./verification/monitoring-baseline.json').identity.source_revision") npm run smoke
       - uses: actions/upload-artifact@v4
         if: always()
         with:

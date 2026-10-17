@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-17T22:12:31.209656+00:00",
+  "isolated_cases": 26,
+  "existing_targeted_tests": 50,
+  "independent_parser_replays": {
+    "aihw_wales_nisra_cells": 45,
+    "historical_nz_node_period_cells": 240
+  },
+  "source_registry_unique": 108,
+  "broken_relative_links": [],
+  "limitations": [
+    "No active scheduler/storage/sender validation",
+    "No new independent agent-client evaluation",
+    "Publisher extraction lineage shared"
+  ],
+  "commands": [
+    "node design/operations-2026-10-18/rehearse.mjs",
+    "node --test test/sources.test.js test/information.test.js test/nz-prices.test.js test/fiscal-observations.test.js test/national-observations.test.js",
+    "python scripts/verify-structure-reference.py",
+    "python scripts/verify-nz-prices.py"
+  ],
+  "final_live_evidence": [
+    "confirmation-audit.json",
+    "final-confirmation.json"
+  ],
+  "direct_new_day_nz_reconciliation": "Blocked HTTP 403; recorded in nz-confirmation.json"
+}

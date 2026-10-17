@@ -1,0 +1,178 @@
+{
+  "executed_at": "2026-10-17T22:12:31.168Z",
+  "scope": "Offline deterministic state/contract demonstration; not independent agent evaluation or a production monitor",
+  "reference": {
+    "path": "verification/structure-2026-10-17/publisher-reference.json",
+    "sha256": "e4ad5048fcbba3c0c815de8d7224da839b366f8e984116b8284ee682eb9f630c",
+    "selected_cells": 40,
+    "licence": "CC BY 4.0; AIHW attribution retained in reference",
+    "lineage": "Separately implemented Python selection from original publisher files, independent of production JavaScript. Same underlying publisher datasets; not independent verification of statistical collection."
+  },
+  "monthly_reference": {
+    "path": "test/fixtures/insolvency.csv",
+    "sha256": "889c53848096f1bbd1be5e02963e27ab60c62d732aa988d1a0a722992189caec",
+    "metadata": "test/fixtures/insolvency-metadata.csv",
+    "licence": "OGL v3"
+  },
+  "checks": [
+    {
+      "name": "Original aggregate specimen has complete 8 × 5 coverage",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "expected": "40 original AIHW cells pass"
+    },
+    {
+      "name": "Unchanged annual data remains valid after 30 days",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "notifications": 0
+    },
+    {
+      "name": "Publication window, unknown schedule and overdue month are distinct",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "note": "Times and 24-hour grace are constructed, not a claimed AIHW schedule."
+    },
+    {
+      "name": "Original monthly zero and component total",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "expected": "Scotland August: 35+30+8+0+0=73; zero retained"
+    },
+    {
+      "name": "Missing required month is coverage failure, not zero",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "expected": "Missing baseline month must produce a coverage incident; no numeric substitute."
+    },
+    {
+      "name": "Explicit publisher suppression retains null and reason",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "notifications": 0,
+      "note": "Constructed suppression, not present in the real 2024–25 reference."
+    },
+    {
+      "name": "missing remains distinct from suppression and retrieval failure",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "expected": "missing"
+    },
+    {
+      "name": "unavailable remains distinct from suppression and retrieval failure",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "expected": "unavailable"
+    },
+    {
+      "name": "Suppression converted to zero is rejected",
+      "passed": true,
+      "kind": "deterministic injected exercise"
+    },
+    {
+      "name": "Wrong geography opens one immediate semantic incident",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "notifications": 1
+    },
+    {
+      "name": "Incompatible units rejected",
+      "passed": true,
+      "kind": "deterministic injected exercise"
+    },
+    {
+      "name": "Mismatched period convention rejected",
+      "passed": true,
+      "kind": "deterministic injected exercise"
+    },
+    {
+      "name": "Well-formed but two-year financial period rejected",
+      "passed": true,
+      "kind": "deterministic injected exercise"
+    },
+    {
+      "name": "Finite but impossible percent rejected; an explicit observed zero is valid",
+      "passed": true,
+      "kind": "deterministic injected exercise"
+    },
+    {
+      "name": "Revision waits for reconciliation; timestamps alone do not change version",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "notifications": 0,
+      "note": "Expected correction recorded; a failed reconciliation instead takes the semantic-failure path."
+    },
+    {
+      "name": "New period identified separately from revision",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "note": "Constructed release dates and copied values, not real publisher data."
+    },
+    {
+      "name": "HTTP-success partial table cannot pass completeness",
+      "passed": true,
+      "kind": "deterministic injected exercise"
+    },
+    {
+      "name": "HTTP-success outage HTML cannot pass parsing",
+      "passed": true,
+      "kind": "deterministic injected exercise"
+    },
+    {
+      "name": "Rate limit confirmation and persistent-alert deduplication",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "notifications": 1,
+      "note": "Retry scheduling/Retry-After enforcement is specified, not implemented in this reducer."
+    },
+    {
+      "name": "Failed refresh preserves last good evidence and successful sibling",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "note": "Sibling uses a constructed generic record set; preservation check, not a Wales contract test."
+    },
+    {
+      "name": "Existing acknowledged incidents survive import and silence unchanged failures",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "imported": 39,
+      "notifications": 0,
+      "note": "NZ later incident overrides older success; rehearsal does not change actual baseline."
+    },
+    {
+      "name": "Recovery needs two spaced good checks and notifies once",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "notifications": 1
+    },
+    {
+      "name": "Flapping and unverified candidate do not close an incident",
+      "passed": true,
+      "kind": "deterministic injected exercise"
+    },
+    {
+      "name": "Semantic escalation of acknowledged access outage emits once",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "notifications": 1
+    },
+    {
+      "name": "Monitor failure uses checkpoint age, not an unchanged HTTP health response",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "note": "Independent scheduler not activated; clock inputs injected."
+    },
+    {
+      "name": "Restart preserves incident and outbox; absent/corrupt checkpoint cannot reset alerts",
+      "passed": true,
+      "kind": "deterministic injected exercise",
+      "notifications_after_restart": 1
+    }
+  ],
+  "limitations": [
+    "Transport, schema and domain-specific validation are preconditions to observe(); caller must enforce them.",
+    "No distributed locking, scheduler, sender, production quarantine or checkpoint artifact API implemented.",
+    "Simulated outbox never sends messages; delivery exactly-once is not established.",
+    "Release-schedule grace values are illustrative, not measured publisher SLAs."
+  ]
+}

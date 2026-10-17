@@ -1,0 +1,399 @@
+{
+  "updated_at": "2026-10-17T22:54:51.173228+00:00",
+  "scope": "Eight live desks; US excluded; ten task targets authorized by uploaded implementation request",
+  "complete": false,
+  "worktree": "/workspace/morning-rows-operations",
+  "source_base": "7231aab",
+  "roles": {
+    "implementation": "Codex in this task",
+    "release": "Codex after verified gates within user authorization",
+    "monitor": "Scheduled deterministic verifier with Codex watchdog, pending installation",
+    "scope_and_unresolved_decisions": "Project owner in this chat; no staffed on-call SLA assumed"
+  },
+  "tasks": [
+    {
+      "id": "AU-ED",
+      "task": "Australia ED triage percentages",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "retained original aggregate specimen; source mapping preserved",
+        "Independent extraction and publisher comparison": "separate Python replay passes; shared publisher lineage, fresh public values compared separately",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "verification/structure-2026-10-17/publisher-reference.json"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ]
+    },
+    {
+      "id": "NZ-STATS23",
+      "task": "23 selected Stats NZ series",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "23 exact series and dimensions validated; existing Worker credential preserved",
+        "Independent extraction and publisher comparison": "gap: no fresh independent extraction of all 23 values using separate official presentation",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ],
+      "blocking_decisions": [
+        "Retain this verification gap; do not treat Worker numeric rows as independent publisher reconciliation"
+      ]
+    },
+    {
+      "id": "NZ-PRICES",
+      "task": "Five NZ price nodes, completed trading day",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "historical specimen retained; current-day direct original CSV blocked",
+        "Independent extraction and publisher comparison": "historical 240-cell comparison passes; current-day independent comparison blocked HTTP 403",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "verification/nz-prices-2026-10-17/README.md"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ],
+      "blocking_decisions": [
+        "Obtain successful official current-day original CSV without keys/proxy/source substitution; no publisher contact"
+      ]
+    },
+    {
+      "id": "CA-FX4",
+      "task": "Four Canadian dollar currency pairs",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "pass: dated necessary aggregate data and definitions retained",
+        "Independent extraction and publisher comparison": "pass: separately extracted official presentation, same underlying publisher lineage explicitly documented",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "verification/operations-2026-10-18/reconciliation/boc.json"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ]
+    },
+    {
+      "id": "UK-CPI",
+      "task": "UK CPI index and annual change, exact same month",
+      "state": "blocked_runtime_access",
+      "gates": {
+        "Original selection and metadata": "D7BT/D7G7 exact response metadata; seasonal-adjustment policy unresolved",
+        "Independent extraction and publisher comparison": "143.6 and 3.1% August 2026 match official bulletin; rounded index-ratio interval checked",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "FAIL: two bounded preview sessions HTTP403, successful siblings retained",
+        "Both production domains and sibling preservation": "existing CPI unavailability retained; no candidate deployment",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "operations/UK-CPI-CONTRACT.md",
+        "verification/operations-2026-10-18/preview/united-kingdom-cpi.json",
+        "verification/operations-2026-10-18/preview/england-cpi.json"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js",
+        "lib/uk-cpi.js (unreleased candidate)",
+        "test/uk-cpi.test.js"
+      ],
+      "blocking_decisions": [
+        "Original public ONS endpoint must pass actual Cloudflare reader; no substitute or credentials change",
+        "Verify seasonal adjustment metadata",
+        "Review access no earlier than 2026-10-25 Brisbane absent new evidence"
+      ]
+    },
+    {
+      "id": "EN-PHARM9",
+      "task": "Nine England pharmacy stock/flow measures",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "pass: dated necessary aggregate data and definitions retained",
+        "Independent extraction and publisher comparison": "pass: separately extracted official presentation, same underlying publisher lineage explicitly documented",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "verification/operations-2026-10-18/reconciliation-second/pharmacies.json"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ]
+    },
+    {
+      "id": "SC-INSOLVENCY",
+      "task": "Six Scottish insolvency counts",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "pass: dated necessary aggregate data and definitions retained",
+        "Independent extraction and publisher comparison": "pass: separately extracted official presentation, same underlying publisher lineage explicitly documented",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "verification/operations-2026-10-18/reconciliation-second/insolvencies.json"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ]
+    },
+    {
+      "id": "WA-PROJECTION",
+      "task": "Wales all-persons/all-ages projection",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "retained original aggregate specimen; source mapping preserved",
+        "Independent extraction and publisher comparison": "separate Python replay passes; shared publisher lineage, fresh public values compared separately",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "verification/structure-2026-10-17/publisher-reference.json"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ]
+    },
+    {
+      "id": "NI-BMI4",
+      "task": "Four national NI childhood BMI percentages",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "retained original aggregate specimen; source mapping preserved",
+        "Independent extraction and publisher comparison": "separate Python replay passes; shared publisher lineage, fresh public values compared separately",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "verification/structure-2026-10-17/publisher-reference.json"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ]
+    },
+    {
+      "id": "NI-INSOLVENCY",
+      "task": "Six NI insolvency counts",
+      "state": "pending_acceptance",
+      "gates": {
+        "Original selection and metadata": "pass: dated necessary aggregate data and definitions retained",
+        "Independent extraction and publisher comparison": "pass: separately extracted official presentation, same underlying publisher lineage explicitly documented",
+        "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
+        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
+        "Both production domains and sibling preservation": "pass at preflight; later partial whole-desk 503 checks remain incomplete",
+        "Durable monitor contract and incident exercises": "local deterministic exercises pass; remote persistence pending",
+        "Seven elapsed days of shadow operation": "pending"
+      },
+      "evidence": [
+        "verification/operations-2026-10-18/preflight.json",
+        "test/monitor.test.js",
+        "verification/operations-2026-10-18/reconciliation-second/insolvencies.json"
+      ],
+      "commitment": "Existing bounded plan target; no scope expansion",
+      "dependencies": [
+        "Shared durable monitor and seven elapsed days",
+        "Source-specific evidence gates below"
+      ],
+      "verification": "Run npm run check; collect both domains with scripts/monitor.mjs; compare selected values and dimensions against listed publisher evidence; confirm recovery twice at least 15 minutes apart",
+      "components": [
+        "lib/monitor-contracts.js",
+        "lib/information.js",
+        "worker.js"
+      ]
+    }
+  ],
+  "operations": {
+    "baseline_import": {
+      "state": "implemented_locally; remote gate pending",
+      "evidence": [
+        "test/monitor.test.js",
+        "operations/README.md"
+      ]
+    },
+    "source_registry_108": {
+      "state": "implemented_locally; remote gate pending",
+      "evidence": [
+        "test/monitor.test.js",
+        "operations/README.md"
+      ]
+    },
+    "collector": {
+      "state": "implemented_locally; remote gate pending",
+      "evidence": [
+        "test/monitor.test.js",
+        "operations/README.md"
+      ]
+    },
+    "durable_checkpoint": {
+      "state": "pending",
+      "evidence": []
+    },
+    "crash_recovery": {
+      "state": "implemented_locally; remote gate pending",
+      "evidence": [
+        "test/monitor.test.js",
+        "operations/README.md"
+      ]
+    },
+    "safe_workflow_delivery": {
+      "state": "user-confirmed disconnected; verify unchanged production after push",
+      "evidence": [
+        "User reply disconnected, 2026-10-18 Australia/Brisbane",
+        "Cloudflare official Builds disconnect documentation"
+      ],
+      "limitation": "Builds API remains403; no claim of API verification"
+    },
+    "publisher_budget": {
+      "state": "daily fallback selected; hourly blocked",
+      "evidence": [
+        "verification/operations-2026-10-18/operating-load.json"
+      ],
+      "limits": [
+        "CPU and account bill unknown",
+        "Publisher quotas unknown",
+        "Observed fan-out is not a global upper bound"
+      ]
+    },
+    "independent_watchdog": {
+      "state": "pending",
+      "evidence": []
+    },
+    "notification_acknowledgment": {
+      "state": "pending",
+      "evidence": []
+    },
+    "seven_day_shadow": {
+      "state": "pending scheduled operation; cannot compress elapsed time",
+      "required": "Seven elapsed days, at least eight complete daily scheduled checkpoints, maximum26h gap, external watchdog and delivery test"
+    }
+  },
+  "corrections": [
+    "Period mismatch risk is in England UK-labelled CPI; UK native section currently contains index only. Shared reader will preserve legacy fields and explicitly qualify both.",
+    "Remote main is 2cb3ffd; no Actions workflows/runs installed. Do not push main until Workers Builds delivery safety is established."
+  ],
+  "status": "implementation; remote activation pending"
+}

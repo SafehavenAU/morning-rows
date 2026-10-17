@@ -1064,9 +1064,20 @@
   "last_notified_state": {
     "nz_prices": {
       "state": "ok",
-      "recovered_by": "2026-10-17T10:37:12Z",
+      "recovered_at": "2026-10-17T22:10:53.965Z",
       "notified_in_this_task": true,
-      "prior_outage": "Timeout from both domains and direct publisher directory, first observed 10:13 UTC before structure change; no old prices substituted."
+      "evidence": "design/operations-2026-10-18/final-confirmation.json",
+      "validation": "Five same-day node observations with units, geography, interval and interim status pass on both domains; repeated reads over 15 minutes. Direct new-day independent CSV fetch is blocked 403; no independent new-day numeric reconciliation claimed.",
+      "previous_incident": {
+        "state": "error",
+        "first_observed": "2026-10-17T11:02:17Z",
+        "confirmed_at": "2026-10-17T11:14:38Z",
+        "notified_in_this_task": true,
+        "error": "Source request timed out on both domains; no old prices substituted. All 23 Stats NZ rows still valid.",
+        "previous_recovered_by": "2026-10-17T10:37:12Z",
+        "evidence": "research/us-onboarding-2026-10-17/production-status.json",
+        "prior_outage": "Timeout from both domains and direct publisher directory, first observed 10:13 UTC before structure change; no old prices substituted."
+      }
     },
     "known_degradations": [
       {
@@ -1131,41 +1142,6 @@
         "status": "degraded",
         "http_status": null,
         "error": null
-      },
-      {
-        "desk": "/canada.json",
-        "source": "jobs",
-        "status": "error",
-        "http_status": 406,
-        "error": "www150.statcan.gc.ca returned HTTP 406"
-      },
-      {
-        "desk": "/canada.json",
-        "source": "price_index",
-        "status": "error",
-        "http_status": 406,
-        "error": "www150.statcan.gc.ca returned HTTP 406"
-      },
-      {
-        "desk": "/canada.json",
-        "source": "shop",
-        "status": "error",
-        "http_status": 406,
-        "error": "www150.statcan.gc.ca returned HTTP 406"
-      },
-      {
-        "desk": "/canada.json",
-        "source": "product",
-        "status": "error",
-        "http_status": 406,
-        "error": "www150.statcan.gc.ca returned HTTP 406"
-      },
-      {
-        "desk": "/canada.json",
-        "source": "homes",
-        "status": "error",
-        "http_status": 406,
-        "error": "www150.statcan.gc.ca returned HTTP 406"
       },
       {
         "desk": "/united-kingdom.json",
@@ -1336,8 +1312,92 @@
         "error": "www.ons.gov.uk returned HTTP 429"
       }
     ],
-    "tfl": "service/rail/roads intermittent 429; previously acknowledged even when last snapshot happens to succeed"
+    "tfl": "service/rail/roads intermittent 429; previously acknowledged even when last snapshot happens to succeed",
+    "statcan": {
+      "state": "ok",
+      "sources": [
+        "jobs",
+        "price_index",
+        "shop",
+        "product",
+        "homes"
+      ],
+      "recovered_at": "2026-10-17T22:10:53.965Z",
+      "notified_in_this_task": true,
+      "evidence": "design/operations-2026-10-18/final-confirmation.json",
+      "qualification": "Native retrieval recovered, not independent semantic certification. Apex still within one-hour valid cache; www performed a fresh successful fetch.",
+      "previous_incidents": [
+        {
+          "desk": "/canada.json",
+          "source": "jobs",
+          "status": "error",
+          "http_status": 406,
+          "error": "www150.statcan.gc.ca returned HTTP 406"
+        },
+        {
+          "desk": "/canada.json",
+          "source": "price_index",
+          "status": "error",
+          "http_status": 406,
+          "error": "www150.statcan.gc.ca returned HTTP 406"
+        },
+        {
+          "desk": "/canada.json",
+          "source": "shop",
+          "status": "error",
+          "http_status": 406,
+          "error": "www150.statcan.gc.ca returned HTTP 406"
+        },
+        {
+          "desk": "/canada.json",
+          "source": "product",
+          "status": "error",
+          "http_status": 406,
+          "error": "www150.statcan.gc.ca returned HTTP 406"
+        },
+        {
+          "desk": "/canada.json",
+          "source": "homes",
+          "status": "error",
+          "http_status": 406,
+          "error": "www150.statcan.gc.ca returned HTTP 406"
+        }
+      ]
+    }
   },
-  "notification_policy": "Notify only meaningful new failure, recovery, validated-data regression, required user action or persistent inability to check. Deduplicate by source and semantic state against last notified state; unchanged ABS/ONS/StatCan/legislation/TfL/RFS failures stay quiet. No daily-change staleness rule for monthly or annual observations. A new period requires publisher context; retrieval time is not publication time. NZ EMI is now recovered; notify only a meaningful new outage or data regression, not its already-notified recovery.",
-  "independent_agent_evaluation": "Unavailable due to separate CLI login failure; no repeated alert required."
+  "notification_policy": "Notify only meaningful new failure, recovery, validated-data regression, required user action or persistent inability to check. Deduplicate by source and semantic state against last notified state; unchanged ABS/ONS/StatCan/legislation/TfL/RFS failures stay quiet. No daily-change staleness rule for monthly or annual observations. A new period requires publisher context; retrieval time is not publication time. NZ EMI and five StatCan sections recovered in the 22:10 UTC design-task recheck and were notified once. Do not repeat these recovery notices. Preserve their previous incidents; alert only on a meaningful new regression/recovery or required action.",
+  "independent_agent_evaluation": "Unavailable due to separate CLI login failure; no repeated alert required.",
+  "latest_supplemental_check": {
+    "checked_at": "2026-10-17T11:43:59.855Z",
+    "evidence": "research/us-onboarding-2026-10-17/rehearsal/production-status.json",
+    "note": "Planning-only recheck: both domains retain the same clean source/Worker identity and eight-desk core contracts. Known NZ EMI price gate still fails; no new incident or repeated notification. US remains unreleased. Original full source_status is historical; retain last-notified EMI error state."
+  },
+  "latest_implementation_identity_check": {
+    "checked_at": "2026-10-17T12:12:34.482479+00:00",
+    "evidence": "verification/us-build-2026-10-17/production-current.json",
+    "scope": "Identity and discovery only, not a new full source-health snapshot",
+    "production_unchanged": true,
+    "us_released": false,
+    "note": "Local candidate built; live BLS access fails in protected preview. Preserve prior production source status and last-notified state; do not create a production US monitor entry."
+  },
+  "latest_operations_design_check": {
+    "checked_at": "2026-10-17T22:10:53.965Z",
+    "evidence": "design/operations-2026-10-18/confirmation-audit.json",
+    "targeted_confirmation": "design/operations-2026-10-18/final-confirmation.json",
+    "identity_unchanged": true,
+    "eight_desks": true,
+    "core_contracts_pass_both_domains": true,
+    "note": "NZ prices and five StatCan sections recovered and notified once. Ontario www 520 and UK apex bills timeout were isolated and then healthy; no sustained incident. Known unchanged ABS/ONS/legislation/RFS and intermittent TfL remain quiet. Original source_status is historical; apply this and last_notified_state overrides. Existing watch configuration was not changed."
+  },
+  "operations_implementation": {
+    "checked_at": "2026-10-17T22:56:01.838495+00:00",
+    "production_changed": false,
+    "current_evidence": "verification/operations-2026-10-18/monitor-third/report.json",
+    "complete_public_collection": true,
+    "known_alerts_repeated": false,
+    "publisher_reconciliations": "verification/operations-2026-10-18/reconciled-production.json",
+    "shadow_status": "not started; scheduled execution required",
+    "cadence": "Daily collector fallback; hourly independent checkpoint watch planned",
+    "whole_desk_503": "First two manual collections incomplete; third all20 probes succeeded. No persistent alert emitted."
+  }
 }

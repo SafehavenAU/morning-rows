@@ -1,3 +1,9 @@
+# Operations implementation — 18 October 2026 (Brisbane)
+
+See [operations/README.md](operations/README.md), [acceptance ledger](operations/acceptance.json) and [measured load](verification/operations-2026-10-18/operating-load.json). This is an operational implementation in progress, not completed seven-day acceptance. The eight-desk production Worker remains unchanged. UK CPI is a separately parked candidate after two actual preview403 results. The US candidate remains in the original workspace and is excluded here.
+
+The user confirmed Cloudflare Workers Builds disconnected in this chat. Monitoring delivery may now use GitHub without that automatic Worker deployment path; preserve versioned Wrangler promotion and credentials. Monitoring chooses the design-permitted daily fallback because hourly cold fan-out, publisher quota and CPU gates remain unresolved. The independent watchdog is intended to read durable checkpoint artifacts hourly. Check the ledger for actual installation/delivery/shadow status.
+
 # Handoff
 
 Date: 2026-10-17. Site: https://morningrows.com. Repository: SafehavenAU/morning-rows. Baseline before local recovery: `2cb3ffd457c6eae7e5b5310049217f9d71b45ab2`.

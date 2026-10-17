@@ -1,0 +1,83 @@
+# User confirmed Workers Builds disconnected in this chat on 2026-10-18 Brisbane.
+# Daily fallback: publisher quotas and CPU gate block hourly full-desk reads.
+name: Morning Rows shadow monitor
+on:
+  schedule:
+    - cron: '17 23 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [collect, bootstrap, acknowledge, test-delivery]
+        default: collect
+      event_id:
+        type: string
+        required: false
+      receipt:
+        type: string
+        required: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: morning-rows-monitor-state
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+      MONITOR_STATE_DIR: ${{ runner.temp }}/morning-rows-monitor
+      MONITOR_OUTPUT_DIR: ${{ runner.temp }}/morning-rows-monitor-output
+      MONITOR_EVENT_ID: ${{ inputs.event_id }}
+      MONITOR_RECEIPT: ${{ inputs.receipt }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Restore existing checkpoint
+        if: inputs.mode != 'bootstrap'
+        run: node scripts/monitor-artifact.mjs "$MONITOR_STATE_DIR"
+      - name: Explicit first bootstrap
+        if: inputs.mode == 'bootstrap'
+        run: |
+          node scripts/monitor-artifact.mjs "$MONITOR_STATE_DIR" --bootstrap-guard
+          node scripts/monitor.mjs bootstrap --state "$MONITOR_STATE_DIR/state.json" --baseline verification/monitoring-baseline.json
+      - name: Preserve restored checkpoint before collection
+        run: |
+          mkdir -p "$MONITOR_OUTPUT_DIR"
+          cp "$MONITOR_STATE_DIR/state.json" "$MONITOR_OUTPUT_DIR/checkpoint.json"
+      - name: Collect public observations in shadow mode
+        if: inputs.mode != 'acknowledge' && inputs.mode != 'test-delivery'
+        run: node scripts/monitor.mjs run --state "$MONITOR_STATE_DIR/state.json" --output "$MONITOR_OUTPUT_DIR" --approvals operations/approved-observations.json
+      - name: Queue authorized notification-path test
+        if: inputs.mode == 'test-delivery'
+        run: |
+          node scripts/monitor.mjs test-delivery --state "$MONITOR_STATE_DIR/state.json"
+          cp "$MONITOR_STATE_DIR/state.json" "$MONITOR_OUTPUT_DIR/checkpoint.json"
+      - name: Persist an authorized delivery receipt
+        if: inputs.mode == 'acknowledge'
+        run: |
+          node scripts/monitor.mjs ack --state "$MONITOR_STATE_DIR/state.json" --event "$MONITOR_EVENT_ID" --receipt "$MONITOR_RECEIPT"
+          cp "$MONITOR_STATE_DIR/state.json" "$MONITOR_OUTPUT_DIR/checkpoint.json"
+      - name: Checkpoint
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morning-rows-monitor-checkpoint
+          path: ${{ runner.temp }}/morning-rows-monitor-output/checkpoint.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morning-rows-monitor-evidence
+          path: |
+            ${{ runner.temp }}/morning-rows-monitor-output/report.json
+            ${{ runner.temp }}/morning-rows-monitor-output/summary.json
+            ${{ runner.temp }}/morning-rows-monitor/restored.json
+          if-no-files-found: warn
+          retention-days: 7

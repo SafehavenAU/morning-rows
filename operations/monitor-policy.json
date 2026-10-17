@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "mode": "shadow",
+  "collection_interval_minutes": 1440,
+  "watchdog_grace_minutes": 120,
+  "cadence_reason": "Daily fallback allowed by SYSTEM.md: measured cold fan-out is high, publisher quotas and Cloudflare CPU usage are not established. Hourly full-desk collection is not activated.",
+  "max_parallel_requests": 2,
+  "max_public_requests_per_collection": 20,
+  "collection_timeout_minutes": 11,
+  "max_checkpoint_bytes": 4194304,
+  "hourly_checkpoint_retention_days": 7,
+  "daily_checkpoint_retention_days": 30,
+  "evidence_retention_days": 7,
+  "shadow_elapsed_days": 7,
+  "alert_delivery": "disabled until destination delivery and acknowledgment test passes; shadow events remain in durable outbox",
+  "release_lateness": "Assert only from a reviewed publisher release schedule, grace and cache interval. Unknown dates are verification gaps, not stale-data alerts."
+}
