@@ -4,9 +4,9 @@ Date: 2026-10-17. Site: https://morningrows.com. Repository: SafehavenAU/morning
 
 Read [AGENTS.md](AGENTS.md) first. This file is what has been built. It is not a new set of rules.
 
-## Prepared national observations — 17 October 2026
+## National-observation release candidate — 17 October 2026
 
-Four additional no-key readers in `lib/national-observations.js`: UK `gilts_in_issue`, England `influenza_positivity`, Scotland `weekly_deaths`, Northern Ireland `assembly_divisions`. Source methods, exact periods, licences, exclusions and the next candidate queue are documented in pass 04 of [SOURCE_PASSES.md](SOURCE_PASSES.md). All 49 tests and dry-run build pass; actual readers also pass inside local workerd using the inherited proxy. The smoke suite now permanently validates AIHW, Wales and NISRA contracts. Deployment and both-domain verification pending. No main push or secret changes.
+Northern Ireland `assembly_divisions` is the new active reader. Three tested candidates in `lib/national-observations.js` (DMO, UKHSA and NRS) are disabled after production access checks failed, including explicit Accept headers. Their failures are logged in `/keys.json`; no fallback values are embedded. Source methods, exact periods, licences, exclusions and the next candidate queue are documented in pass 04 of [SOURCE_PASSES.md](SOURCE_PASSES.md). All 49 tests and dry-run build pass; actual readers also pass inside local workerd using the inherited proxy. The smoke suite now permanently validates AIHW, Wales and NISRA contracts. A new independent Statistics Canada outage was confirmed: JSON requests return 406, and its ordinary endpoint displays a website-unavailable page. Existing Canadian readers remain enabled for recovery. Final release and both-domain verification pending. No main push or secret changes.
 
 ## Released no-key additions — 17 October 2026
 

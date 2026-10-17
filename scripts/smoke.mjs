@@ -59,10 +59,7 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     const n=d.childhood_bmi;
     if(n?.rows?.length!==4||n.rows.some(r=>r.status!=='ok'||!Number.isFinite(r.value)||r.geography!=='Northern Ireland'||r.sex!=='All Persons'||!/^\d{4}\/\d{2}$/.test(r.period||'')||r.period!==n.period||r.unit!=='percent'))throw Error('NISRA requires four national all-persons academic-year aggregates');
    }
-   if(process.env.CHECK_NATIONAL_ADDITIONS==='1') {
-    if(path==='/united-kingdom.json'&&(!Number.isSafeInteger(d.gilts_in_issue?.value)||d.gilts_in_issue.value<=0||d.gilts_in_issue.by_type?.reduce((sum,r)=>sum+r.value,0)!==d.gilts_in_issue.value))throw Error('DMO gilt instrument counts missing');
-    if(path==='/england.json'&&(!Number.isFinite(d.influenza_positivity?.value)||d.influenza_positivity.geography!=='England'||!d.influenza_positivity.period))throw Error('UKHSA England test positivity missing');
-    if(path==='/scotland.json'&&(d.weekly_deaths?.rows?.length!==5||d.weekly_deaths.rows.some(r=>!Number.isSafeInteger(r.value)||r.geography!=='Scotland'||!/^\d{4}-W\d{2}$/.test(r.period))))throw Error('NRS national weekly deaths missing');
+   if(process.env.CHECK_ASSEMBLY_ADDITION==='1') {
     if(path==='/northern-ireland.json'&&(!Number.isSafeInteger(d.assembly_divisions?.value)||d.assembly_divisions.value<0||!/^\d{4}-\d{2}$/.test(d.assembly_divisions.period||'')))throw Error('NI Assembly monthly aggregate missing');
    }
    // Enable for release validation of the prepared no-key additions. Existing

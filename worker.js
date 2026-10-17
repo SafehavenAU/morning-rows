@@ -4,7 +4,7 @@ import { readStatsNz } from './lib/stats-nz.js';
 import { readHospital, readWalesProjection, readNiChildhoodBmi, readUkActs } from './lib/public-data.js';
 import { readFoodAuthorities, readScottishBills, readCanadianRecalls } from './lib/discovery-feeds.js';
 import { readRfsIncidents, readPupilAbsence, readSepaRiverLevel } from './lib/open-observations.js';
-import { readWeeklyDeaths, readGiltsInIssue, readAssemblyDivisions, readInfluenzaPositivity } from './lib/national-observations.js';
+import { readAssemblyDivisions } from './lib/national-observations.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -815,7 +815,7 @@ async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
     job: async () => ({ ...await ons(jobPath), ...meta, unit: "percent" }),
     next_holiday: () => nextHoliday(holidayDivision),
     food_establishments: () => readFoodAuthorities(name),
-    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel, weekly_deaths: readWeeklyDeaths } : {}),
+    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel } : {}),
     ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi, assembly_divisions: readAssemblyDivisions } : {}),
   });
   return { site: "https://morningrows.com", country: name, page: `/${slug}`, ...data };
@@ -831,7 +831,7 @@ async function readUnitedKingdom() {
     trade: ["/economy/nationalaccounts/balanceofpayments/timeseries/ikbj/pnbp", "GBP million"],
   };
   const tasks = Object.fromEntries(Object.entries(series).map(([name, [path, unit]]) => [name, async () => ({ ...await ons(path), unit, geography: "United Kingdom", source: "Office for National Statistics", licence: "Open Government Licence" })]));
-  const data = await readSections({ ...tasks, gilts_in_issue: readGiltsInIssue, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
+  const data = await readSections({ ...tasks, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
   return { site: "https://morningrows.com", country: "United Kingdom", page: "/united-kingdom", ...data, nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"] };
 }
 
@@ -840,7 +840,6 @@ async function readEngland() {
   const data = await readSections({
     food_establishments: () => readFoodAuthorities("England"),
     pupil_absence: readPupilAbsence,
-    influenza_positivity: readInfluenzaPositivity,
     grid: async () => {
       for (let back = 0; back < 3; back++) {
         const day = new Date(Date.now() - back * 86400000).toISOString().slice(0, 10);
@@ -1238,6 +1237,10 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "Canada", source: "Statistics Canada WDS temporary outage", status: 406, checked: "2026-10-17", url: "https://www150.statcan.gc.ca/t1/wds/rest/getChangedSeriesList", note: "New outage verified independently from the workspace: JSON requests return 406; ordinary HTML requests display Statistics Canada website currently unavailable. Five existing sections retain explicit errors while other Canadian sources continue. Keep readers enabled for recovery." },
+        { country: "Scotland", source: "NRS weekly deaths CSV from Cloudflare Workers", status: 403, checked: "2026-10-17", url: "https://data.gov.scot/dataset/weekly_deaths", note: "Official CSV and parser work in the workspace; production returns 403 even with text/csv Accept. Candidate reader retained for future validation, but not enabled on the desk." },
+        { country: "England", source: "UKHSA influenza test-positivity API from Cloudflare Workers", status: 403, checked: "2026-10-17", url: "https://ukhsa-dashboard.data.gov.uk/access-our-data/getting-started", note: "National test-positivity API works without authentication in the workspace but returns 403 from Workers, including application/json Accept. Candidate reader is not enabled on the desk." },
+        { country: "United Kingdom", source: "DMO Gilts in Issue XML from Cloudflare Workers", status: "invalid_response", checked: "2026-10-17", url: "https://www.dmo.gov.uk/data/XmlDataReport?reportCode=D1A", note: "Workspace returns valid XML with 105 instruments; Worker response fails XML validation even with application/xml Accept. Candidate reader is not enabled; no figures embedded as fallback." },
         { country: "New Zealand", source: "MBIE weekly fuel price CSV", status: 200, checked: "2026-10-17", url: "https://www.mbie.govt.nz/assets/Data-Files/Energy/Weekly-fuel-price-monitoring/weekly-table.csv", note: "Workspace request returned an Incapsula HTML challenge instead of CSV. No price values copied or challenge bypass attempted." },
         { country: "Wales", source: "Senedd meeting and calendar web service", status: 403, checked: "2026-10-17", url: "https://business.senedd.wales/mgwebservice.asmx", note: "Official open-data directory documents OGL XML/JSON service, but the service returned Forbidden from the workspace. No meeting data copied." },
         { country: "England", source: "UKHSA influenza hospital and ICU/HDU admission-rate metrics", status: "delayed", checked: "2026-10-17", url: "https://ukhsa-dashboard.data.gov.uk/metrics-documentation/influenza-healthcare-hospital-admission-rate-by-week", note: "2026 national all-age/all-sex queries stop at 20 April 2026 despite active metric documentation. Not added as current hospital observations; the separate test-positivity series is available." },
