@@ -1,5 +1,20 @@
 # Official-source discovery passes
 
+## Pass 2026-10-17-03 — requested no-key additions, prepared locally
+
+This is a targeted continuation of the requested sources, not a completed empty discovery pass. Production deployment is pending Cloudflare authentication in the reloaded session.
+
+| Desk | Source and terms | Result |
+| --- | --- | --- |
+| Australia | [NSW RFS RSS](https://www.rfs.nsw.gov.au/feeds/majorIncidents.xml), [feed terms](https://www.rfs.nsw.gov.au/news-and-media/stay-up-to-date/feeds) | Added `rfs_incidents`: whole-feed incident counts by alert level and type, with original publication time, CC BY 4.0 and requested attribution. No incident names, addresses or contacts. Coverage explicitly includes neighbouring ACT. Snapshot checked: nine incidents, published 16 October 2026 08:15:40 UTC; delayed flag retained rather than describing this as live warnings. |
+| England | [DfE EES API](https://api.education.gov.uk/statistics/docs/getting-started/), [publication](https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england), OGL v3.0 | Added `pupil_absence`: resolves the published persistent/severe absence dataset, selects England `E92000001`, total school types and latest academic year, pins metadata and query to the same version. Five measures: total enrolments, persistent count/percentage, severe count/percentage. Exact dimensions and complete result coverage required. Suppressed or unavailable values remain null with publisher symbols. Current validated year: 2024/25. |
+| Scotland | [SEPA documented last-value query](https://timeseriesdoc.sepa.org.uk/api-documentation/api-endpoint-examples/time-series-data-queries/), [access and OGL terms](https://timeseriesdoc.sepa.org.uk/api-documentation/before-you-start/what-controls-there-are-on-access/) | Added `river_level`: anonymous single latest observation at Galashiels, series `61573010`, station `9683`. Exact station, metre units, timestamp and publisher quality code retained. Validated 0.185 metres at 17 October 05:00 UTC. Shared anonymous quotas can fail; registered access is recommended by SEPA for web products, but not required for this permitted anonymous request. No registration, identity rotation or quota bypass. |
+| United Kingdom | [DBT API](https://data.api.trade.gov.uk/), latest quota metadata and its advertised report | Catalogue/metadata respond and state OGL v3.0. The latest report resolves to `v1.0.994` but the CSV returns HTTP 404 `NoSuchKey`. Documented filtered requests return headers without observations. Logged this specific report as blocked, not the whole API; no empty trade observations added. |
+
+The RFS fire-danger XML was also inspected. It labels periods only as “today”/“tomorrow” without a publication timestamp in the body; it was not promoted into dated observations. Existing keyed candidates remain uncalled. Existing working integrations are untouched; adding these sources does not resolve ABS/ONS or legislation restrictions.
+
+Validation: 41 deterministic tests passed, including suppression versus zero, incomplete/duplicate rows, exact geography and dates, malformed RSS, delayed snapshots, and source failure isolation. Wrangler dry-run passed. A local workerd harness executed all three actual readers against official endpoints using curl through the inherited proxy, with all three returning HTTP 200 and the expected data; RFS correctly retained its delayed status. This is not edge-preview or production verification. Release smoke checks can require all three new sections with `CHECK_OPEN_ADDITIONS=1`.
+
 ## Pass 2026-10-17-01 — released and production-verified
 
 Baseline: `2cb3ffd457c6eae7e5b5310049217f9d71b45ab2`. Checked 17 October 2026. Each publisher below was absent from the corresponding desk and log when this pass began. Counts describe distinct integrations or log entries, not individual observations.

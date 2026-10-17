@@ -4,6 +4,14 @@ Date: 2026-10-17. Site: https://morningrows.com. Repository: SafehavenAU/morning
 
 Read [AGENTS.md](AGENTS.md) first. This file is what has been built. It is not a new set of rules.
 
+## Prepared no-key additions — 17 October 2026 (not deployed)
+
+`lib/open-observations.js` adds three isolated readers: Australia `rfs_incidents` (aggregate NSW RFS feed counts, including neighbouring ACT), England `pupil_absence` (five national full-academic-year measures), and Scotland `river_level` (one explicitly named Galashiels gauge, not a national aggregate). No new secrets or registrations are needed. RFS uses CC BY 4.0 with the requested attribution; DfE and SEPA use OGL v3.0. Bounded responses, explicit selections, dataset-version pinning and missing-value handling prevent partial or mislabelled observations. The RFS snapshot is flagged degraded when its publication timestamp is more than six hours old; annual education data has no daily freshness test.
+
+Live endpoint/parser checks returned nine RFS incidents in the delayed 16 October 08:15:40 UTC snapshot; 2024/25 England totals of 7,388,150 enrolments, 1,340,437 persistent absentees (18.14307%), and 176,361 severe absentees (2.38708%); Galashiels 0.185 metres at 17 October 05:00 UTC. These are verification observations, not embedded fallback values. DBT's advertised latest quota report returns a missing-object 404, so only a narrowly scoped blocked entry was added. The combined NSW emergency/SLIP key entry now correctly excludes the public RFS feed.
+
+The test suite has 41 tests. All passed, and the Wrangler dry-run build passed. All three new readers also returned the validated data inside local workerd using a curl transport through the inherited workspace proxy (runtime parsing, not Cloudflare edge validation). A direct `wrangler dev --local` network check encountered outbound fetch failures/timeouts in this proxy-only workspace, including on inherited sources; do not mistake those local failures for production outages. `wrangler whoami` reports unauthenticated and `wrangler auth list` finds no saved profiles, so production remains the release documented below. Complete authenticated remote validation and run `CHECK_OPEN_ADDITIONS=1 npm run smoke` before declaring these additions live. Do not replace the existing `STATSNZ_KEY` or push main to trigger the unverified build pipeline.
+
 ## Verified production release — 17 October 2026
 
 The first batch (`540a3f7`) repairs Stats NZ's 23 explicit series, failure isolation and build verification, and adds FSA food counts, Scottish bill stages and Canadian recalls. Cloudflare preview validated all 23 Stats NZ rows and all eight desks retaining their healthy sources.

@@ -3,6 +3,7 @@ import { fetchOfficial, readSections, describeError, SourceError, mapLimit, hasF
 import { readStatsNz } from './lib/stats-nz.js';
 import { readHospital, readWalesProjection, readNiChildhoodBmi, readUkActs } from './lib/public-data.js';
 import { readFoodAuthorities, readScottishBills, readCanadianRecalls } from './lib/discovery-feeds.js';
+import { readRfsIncidents, readPupilAbsence, readSepaRiverLevel } from './lib/open-observations.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -336,6 +337,7 @@ const CATALOG = {
   records: "/morning.json",
   index: "/llms.txt",
   sets: [
+    { name: "RFS incidents", changes: "publisher feed normally updates every 30 minutes; publication time retained", licence: "CC BY 4.0", contains: "aggregate incident counts within NSW RFS feed coverage, including neighbouring ACT; delayed snapshots explicitly flagged" },
     { name: "The grid", changes: "about every five minutes", licence: "AEMO public summary. Reuse terms were not read.", contains: "wholesale price and demand for five regions" },
     { name: "The hospital", changes: "annually; fetched from AIHW on request with a short cache", licence: "CC BY 4.0", contains: "emergency patients seen on time, by state and triage category; latest published financial year" },
     { name: "The job", changes: "monthly", licence: "CC BY 4.0", contains: "unemployment rate by state. Territory rows are original, not seasonally adjusted." },
@@ -812,7 +814,7 @@ async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
     job: async () => ({ ...await ons(jobPath), ...meta, unit: "percent" }),
     next_holiday: () => nextHoliday(holidayDivision),
     food_establishments: () => readFoodAuthorities(name),
-    ...(slug === "scotland" ? { bill_stages: readScottishBills } : {}),
+    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel } : {}),
     ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi } : {}),
   });
   return { site: "https://morningrows.com", country: name, page: `/${slug}`, ...data };
@@ -836,6 +838,7 @@ async function readEngland() {
   const onsPoint = async (path, geography, unit) => ({ ...await ons(path), geography, unit, source: "Office for National Statistics", licence: "Open Government Licence" });
   const data = await readSections({
     food_establishments: () => readFoodAuthorities("England"),
+    pupil_absence: readPupilAbsence,
     grid: async () => {
       for (let back = 0; back < 3; back++) {
         const day = new Date(Date.now() - back * 86400000).toISOString().slice(0, 10);
@@ -1215,7 +1218,7 @@ const worker = {
         { country: "United Kingdom", source: "HMRC Trade Tariff API Developer Hub", would_unlock: "Hub-managed API subscriptions; separately assess open Department for Business and Trade datasets", checked: "2026-10-17", evidence: "https://hub.trade-tariff.service.gov.uk/" },
         { country: "Australia", source: "Bureau of Meteorology", would_unlock: "forecasts, observations, and warnings" },
         { country: "Australia", source: "AEMO developer portal", would_unlock: "registered market APIs, not the public grid files" },
-        { country: "Australia", source: "NSW emergency feeds and Western Australia SLIP", would_unlock: "some fire and warning feeds" },
+        { country: "Australia", source: "Western Australia SLIP subscription datasets", would_unlock: "Dataset-specific licensed spatial services; public SLIP services and NSW RFS incident feeds do not require a key" },
         { country: "Australia", source: "Australian Business Register", would_unlock: "a business lookup" },
         { country: "New Zealand", source: "LINZ Data Service", would_unlock: "addresses, parcels, and place names" },
         { country: "New Zealand", source: "MetService", would_unlock: "the national forecast" },
@@ -1232,6 +1235,7 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "United Kingdom", source: "DBT UK trade quotas latest report", status: 404, checked: "2026-10-17", url: "https://data.api.trade.gov.uk/v1/datasets/uk-trade-quotas/versions/latest/reports/quotas-including-current-volumes/data?format=csv", note: "Catalogue and metadata respond, but latest v1.0.994 report returns NoSuchKey; filtered queries returned headers without observations. No empty quota series published." },
         { country: "United Kingdom", source: "The National Archives legislation Atom feeds from Cloudflare Workers", status: 404, checked: "2026-10-17", url: "https://www.legislation.gov.uk/new/ukpga/data.feed", note: "The documented UK Public General Acts feed returns Atom from the development workspace but HTTP 404 from Workers, including with the Atom Accept header. Logged as a runtime-specific failure; no feed titles are invented." },
         { country: "Australia", source: "Australian Financial Security Authority quarterly insolvency statistics discovery page", status: 503, checked: "2026-10-17", url: "https://www.afsa.gov.au/about-us/statistics-and-insights/headline-statistics/quarterly-personal-insolvency-statistics", note: "The discovery page returned HTTP 503 from the workspace. An official CSV link was not resolved; this does not establish that its underlying dataset is unavailable." },
         { country: "Australia", source: "ABS SDMX API from Cloudflare Workers", status: 403, checked: "2026-10-17", note: "CloudFront refuses Worker requests. The same API responds from the development workspace. No workaround or stored figures substituted." },
@@ -1322,8 +1326,8 @@ const worker = {
     if (url.pathname !== "/australia" && url.pathname !== "/australia.json" && url.pathname !== "/morning.json") {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
-    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle(), readHospital()]);
-    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba", "hospital"];
+    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle(), readHospital(), readRfsIncidents()]);
+    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba", "hospital", "rfs_incidents"];
     const sources = Object.fromEntries(settled.map((result, index) => [sourceNames[index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }]));
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
@@ -1350,7 +1354,8 @@ const worker = {
     const credit = settled[19].status === "fulfilled" ? settled[19].value : null;
     const rba = settled[20].status === "fulfilled" ? settled[20].value : null;
     const hospital = settled[21].status === "fulfilled" ? settled[21].value : { states: [], year: null, ...describeError(settled[21].reason) };
-    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, catalog: CATALOG.sets, also };
+    const rfs_incidents = settled[22].status === "fulfilled" ? settled[22].value : null;
+    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, rfs_incidents, catalog: CATALOG.sets, also };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }));
   },

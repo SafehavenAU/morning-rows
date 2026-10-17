@@ -46,6 +46,22 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     const rows=d.stats?.rows||[];
     if(!d.stats?.present||rows.length!==23||rows.some(row=>row.status!=='ok'||!row.period||!Number.isFinite(row.value)||!row.geography||!row.unit))throw Error('Stats NZ requires 23 valid, described observations');
    }
+   // Enable for release validation of the prepared no-key additions. Existing
+   // production health checks remain usable until this version is deployed.
+   if(process.env.CHECK_OPEN_ADDITIONS==='1') {
+    if(path==='/australia.json') {
+     const r=d.rfs_incidents;
+     if(!r||!Number.isSafeInteger(r.value)||r.value<0||!r.period||!r.geography?.includes('ACT')||!Array.isArray(r.by_alert_level)||r.by_alert_level.reduce((n,row)=>n+row.value,0)!==r.value)throw Error('RFS aggregate or coverage missing');
+    }
+    if(path==='/england.json') {
+     const r=d.pupil_absence;
+     if(!r||r.rows?.length!==5||r.rows.some(row=>row.status!=='ok'||!Number.isFinite(row.value)||row.geography!=='England'||row.period_code!=='AY'||!row.period||!row.unit))throw Error('Five validated national education measures missing');
+    }
+    if(path==='/scotland.json') {
+     const r=d.river_level;
+     if(!r||!Number.isFinite(r.value)||r.station_number!=='9683'||r.geography!=='Galashiels, Scotland'||r.unit!=='metres'||!r.period)throw Error('Validated Galashiels observation missing');
+    }
+   }
   }
   report.checks.push({path,status:'pass'});
  } catch(e){failed=true;report.checks.push({path,status:'fail',error:e.message});}
