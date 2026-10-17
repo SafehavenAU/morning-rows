@@ -473,18 +473,21 @@ async function readStatsNz(env) {
       rows.push({ label, name, id, error: response.status });
       continue;
     }
-    const text = await readSome(response);
-    const lines = text.split(/\r?\n/).filter((line) => line && !line.startsWith("STRUCTURE"));
-    const header = (lines[0] || "").split(",");
-    const value = (lines[1] || "").split(",");
-    const periodIndex = header.findIndex((column) => /TIME_PERIOD/i.test(column));
-    const observationIndex = header.findIndex((column) => /OBS_VALUE/i.test(column));
+    const text = await readSome(response, 200000);
+    const lines = text.split(/\r?\n/).filter((line) => line && !line.startsWith("STRUCTURE") && !line.startsWith("<?xml"));
+    const headerLine = lines.find((line) => /TIME_PERIOD|time period|OBS_VALUE|observation value/i.test(line)) || lines[0] || "";
+    const headerAt = lines.indexOf(headerLine);
+    const header = headerLine.split(",");
+    const value = (lines[headerAt + 1] || "").split(",");
+    const periodIndex = header.findIndex((column) => /TIME_PERIOD|time period/i.test(column));
+    const observationIndex = header.findIndex((column) => /OBS_VALUE|observation value/i.test(column));
     rows.push({
       label,
       name,
       id,
-      period: periodIndex >= 0 ? value[periodIndex] : "",
-      value: observationIndex >= 0 ? value[observationIndex] : "",
+      period: periodIndex >= 0 ? value[periodIndex].replace(/^"|"$/g, "") : "",
+      value: observationIndex >= 0 ? value[observationIndex].replace(/^"|"$/g, "") : "",
+      header: periodIndex < 0 || observationIndex < 0 ? headerLine.slice(0, 180) : undefined,
     });
   }
   return {
