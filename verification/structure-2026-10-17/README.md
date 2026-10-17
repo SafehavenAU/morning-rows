@@ -2,6 +2,8 @@
 
 17 October 2026. Existing eight desks; no source integration or infrastructure added.
 
+**Released:** clean source `021dc2f462586f940d295e8181fd883eaaef0805`, Worker `1ca121f4-49b9-400b-8725-75720f27949e`, both public domains. [Production requests and assertions](production.json), [release and source-health evidence](../release-021dc2f.json), [monitoring state](../monitoring-baseline.json). 95 local tests, dry-run build, 24 Cloudflare preview checks and 129 production information checks pass. All eight desks retain working sources and the four requested statistical contracts pass. The additional NZ electricity gate fails on both domains due to the publisher timeout reproduced before implementation; this is retained as an acknowledged upstream limitation, not reported as a green source.
+
 The [pre-implementation contract](CONTRACT.md) specifies identities, dimensions, missingness, timing, compatibility and acceptance criteria. The public `/schema.json` documents and validates catalogue, full-desk and selected-response structures. `lib/inventory.js` maps every existing reader section; `lib/information.js` provides explicit measure definitions and representation logic. Existing readers and full JSON fields remain available.
 
 ## Evidence, not assumed demand

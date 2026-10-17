@@ -1,5 +1,9 @@
 # Official-source discovery passes
 
+## Structure pass — 17 October 2026
+
+No catalogue expansion. Released source `021dc2f462586f940d295e8181fd883eaaef0805` implements eight-desk discovery, source/measure selection, explicit unsupported-query errors, semantic validators and bounded cache expiry. [Evidence and limitations](verification/structure-2026-10-17/README.md). Original source queue and demand recommendations remain pending. Current production identity and acknowledged pre-existing NZ EMI timeout are recorded in [HANDOFF.md](HANDOFF.md) and [monitoring baseline](verification/monitoring-baseline.json); do not repeatedly alert unchanged upstream failures.
+
 ## Research pass 2026-10-17-10 — demand assessment across all eight desks (no integration)
 
 [Project-wide evidence record](research/project-demand-2026-10-17/README.md), [data contracts](research/project-demand-2026-10-17/CONTRACTS.md), and [manual-access register](research/project-demand-2026-10-17/manual-key-register.json). Four task families cover all eight desks: local rent (reuse pass 09), monthly claimant briefs (UK and four nations), completed-day wholesale price history (AU), dated reference FX (CA). At most three candidate sources per family; alternative formats are not counted as independent sources.

@@ -17,8 +17,10 @@ async function request(origin,path,headers={}) {
  }
  const record={origin,path,status,bytes:Buffer.byteLength(text),headers:publicHeaders};records.push(record);
  let data;try{data=JSON.parse(text);}catch{}
- bodies[origin+path]=data;
- await writeFile(`${out}/${origin.includes('www.')?'www':'apex'}-${encodeURIComponent(path)}.body`,text);
+ if(status!==304) {
+  bodies[origin+path]=data;
+  await writeFile(`${out}/${origin.includes('www.')?'www':'apex'}-${encodeURIComponent(path)}.body`,text);
+ }
  return {record,data,text};
 }
 const checks=[];
@@ -51,7 +53,7 @@ for(const origin of ['https://morningrows.com','https://www.morningrows.com']) {
  const robots=await request(origin,'/robots.txt');check(`${origin} robots retrieval guidance`,robots.record.status===200&&robots.text.includes('ai-input=yes')&&robots.text.includes('Sitemap: https://morningrows.com/sitemap.xml'));
 }
 const apex=bodies['https://morningrows.com/health.json'],www=bodies['https://www.morningrows.com/health.json'];check('domains have identical release',apex?.worker_version===www?.worker_version&&apex?.source_revision===www?.source_revision);
-const status={};for(const [key,body] of Object.entries(bodies))if(body?.sources&&!Array.isArray(body.sources))status[key]=body.sources;
+const status={};for(const [key,body] of Object.entries(bodies))if(body?.sources&&!Array.isArray(body.sources))status[key]={...body.sources,...Object.fromEntries(Object.entries(body.also?.sources||{}).map(([k,v])=>['also.'+k,v]))};
 const report={checked_at:new Date().toISOString(),pass:checks.every(c=>c.pass),identity:apex,checks,requests:records,source_status:status};
 await writeFile(`${out}/report.json`,JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({pass:report.pass,checks:checks.length,failures:checks.filter(c=>!c.pass),identity:apex},null,2));
