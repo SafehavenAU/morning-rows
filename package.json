@@ -1,6 +1,20 @@
 {
   "name": "morning-rows",
   "private": true,
-  "scripts": { "deploy": "wrangler deploy" },
-  "devDependencies": { "wrangler": "4.151.1" }
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node scripts/build-info.mjs && node --check worker.js && node --test",
+    "build": "npm run check && wrangler deploy --dry-run --outdir dist --config wrangler.toml",
+    "deploy": "npm run check && wrangler deploy --config wrangler.toml",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.1"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.11.2"
+  }
 }

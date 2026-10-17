@@ -1,4 +1,16 @@
+import { BUILD_REVISION, BUILD_CACHE_KEY, BUILD_DIRTY, BUILD_FINGERPRINT } from './.generated/build-info.js';
+import { fetchOfficial, readSections, describeError, SourceError, mapLimit, hasFailures } from './lib/sources.js';
+import { readStatsNz } from './lib/stats-nz.js';
+import { readFoodAuthorities, readScottishBills, readCanadianRecalls } from './lib/discovery-feeds.js';
+
 const HOSPITAL = {
+  status: "degraded",
+  error: "Legacy static table: the repository does not record its publisher URL, so these figures and the claimed upload date have not been independently reverified.",
+  geography: "Australian states and territories",
+  unit: "percent of emergency department presentations seen within the recommended triage time",
+  source: "Publisher not recorded in the original table",
+  licence: "Original table labelled CC BY 3.0; attribution and source require verification",
+  refresh: "Static table embedded in source; not fetched on request",
   year: "2024-25",
   uploaded: "2026-08-19",
   states: [
@@ -17,7 +29,7 @@ const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urge
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
 
 async function readGrid() {
-  const response = await fetch("https://visualisations.aemo.com.au/aemo/apps/api/report/ELEC_NEM_SUMMARY", { headers: { accept: "application/json" } });
+  const response = await fetchOfficial("https://visualisations.aemo.com.au/aemo/apps/api/report/ELEC_NEM_SUMMARY", { headers: { accept: "application/json" } });
   if (!response.ok) throw new Error("grid");
   const body = await response.json();
   return body.ELEC_NEM_SUMMARY.map((row) => ({
@@ -31,7 +43,7 @@ async function readGrid() {
 }
 
 async function readQuakes() {
-  const response = await fetch("https://earthquakes.ga.gov.au/cache/recent-earthquakes.json");
+  const response = await fetchOfficial("https://earthquakes.ga.gov.au/cache/recent-earthquakes.json");
   if (!response.ok) throw new Error("quakes");
   const body = await response.json();
   const rows = [];
@@ -63,7 +75,7 @@ const JOBS = [
 ];
 
 async function abs(url) {
-  const response = await fetch(url, { headers: { accept: "application/vnd.sdmx.data+json" } });
+  const response = await fetchOfficial(url, { headers: { accept: "application/vnd.sdmx.data+json" } });
   if (!response.ok) throw new Error("abs");
   return response.json();
 }
@@ -225,7 +237,7 @@ async function readWorks() {
   return rows.map((row) => ({ ...row, value: Math.round((row.value / 1000000) * 10) / 10 }));
 }
 async function readService() {
-  const response = await fetch("https://gtfsrt.api.translink.com.au/api/realtime/SEQ/alerts");
+  const response = await fetchOfficial("https://gtfsrt.api.translink.com.au/api/realtime/SEQ/alerts");
   if (!response.ok) throw new Error("service");
   const headlines = protoFields(new Uint8Array(await response.arrayBuffer()))
     .filter((item) => item.field === 2 && item.bytes)
@@ -277,7 +289,7 @@ function page(data) {
     <h2>The service running</h2><p>${data.service ? data.service.count : 0} South East Queensland alerts. Not the whole country. Creative Commons Attribution 4.0.</p>
     <ul>${((data.service && data.service.headlines) || []).map((line) => `<li>${String(line).replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">")}</li>`).join("")}</ul>
     <h2>The grid</h2><p>Read ${data.read_at}. The reuse terms on the AEMO feed were not read.</p><div class="grid">${cards}</div>
-    <h2>The hospital</h2><p>Share seen within the recommended time. No patient is named. Creative Commons Attribution 3.0. Uploaded ${HOSPITAL.uploaded}.</p>
+    <h2>The hospital</h2><p>Share seen within the recommended time. Legacy static table for ${HOSPITAL.year}. ${escapeHtml(HOSPITAL.error)}</p>
     <table><thead><tr><th>State</th>${heads}</tr></thead><tbody>${hospital}</tbody></table>
     <h2>The ground</h2><p>${data.quakes.length} earthquakes marked as in Australia. Creative Commons Attribution 4.0.</p>
     <table><thead><tr><th>When, UTC</th><th>Place</th><th>Magnitude</th><th>Depth</th></tr></thead><tbody>${quakes}</tbody></table>
@@ -319,7 +331,7 @@ const LLMS = `# Morning Rows
 ## Sets
 
 - [The grid](/morning.json): wholesale price and demand for five regions. A new interval about every five minutes. Reuse terms were not read.
-- [The hospital](/morning.json): emergency patients seen on time, by state, for 2024-25. Creative Commons Attribution 3.0. No patient is named.
+- [The hospital](/morning.json): legacy static emergency-department table for 2024-25; publisher attribution and values await verification. Read its error field before use.
 - [The job](/morning.json): unemployment rate by state, monthly. Creative Commons Attribution 4.0.
 - [The price of living](/morning.json): consumer prices for the eight capitals. Creative Commons Attribution 4.0.
 - [The approval](/morning.json): residential dwelling units approved, by state. Creative Commons Attribution 4.0.
@@ -345,7 +357,7 @@ const CATALOG = {
   index: "/llms.txt",
   sets: [
     { name: "The grid", changes: "about every five minutes", licence: "AEMO public summary. Reuse terms were not read.", contains: "wholesale price and demand for five regions" },
-    { name: "The hospital", changes: "when the next official year is uploaded", licence: "CC BY 3.0", contains: "emergency patients seen on time, by state, 2024-25. No patient is named." },
+    { name: "The hospital", changes: "static legacy table; not fetched on request", licence: HOSPITAL.licence, contains: "emergency patients seen on time, by state, 2024-25; source and values await verification" },
     { name: "The job", changes: "monthly", licence: "CC BY 4.0", contains: "unemployment rate by state. Territory rows are original, not seasonally adjusted." },
     { name: "The price of living", changes: "quarterly", licence: "CC BY 4.0", contains: "all groups consumer price index for the eight capitals" },
     { name: "The approval", changes: "monthly", licence: "CC BY 4.0", contains: "residential dwelling units approved, by state" },
@@ -403,7 +415,7 @@ const ROBOTS = [
 ].join("\n");
 
 function json(body) {
-  return new Response(JSON.stringify(body, null, 2), { headers: { "content-type": "application/json; charset=utf-8" } });
+  return new Response(JSON.stringify(body, null, 2), { headers: { "content-type": "application/json; charset=utf-8", "x-data-status": hasFailures(body) ? "degraded" : "ok" } });
 }
 
 const DESK = `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="canonical" href="https://morningrows.com/"><title>Morning Rows</title></head><body>
@@ -431,8 +443,9 @@ async function readNzPrices() {
   for (let back = 0; back < 4 && !text; back += 1) {
     const day = new Date(start.getTime() - back * 86400000).toISOString().slice(0, 10).replaceAll("-", "");
     for (const suffix of ["_I", ""]) {
-      const response = await fetch(`https://www.emi.ea.govt.nz/Wholesale/Datasets/DispatchAndPricing/FinalEnergyPrices/${day}_FinalEnergyPrices${suffix}.csv`);
+      const response = await fetchOfficial(`https://www.emi.ea.govt.nz/Wholesale/Datasets/DispatchAndPricing/FinalEnergyPrices/${day}_FinalEnergyPrices${suffix}.csv`, { allowStatuses: [404] });
       if (response.ok) { text = await response.text(); break; }
+      await response.body?.cancel();
     }
   }
   if (!text) throw new Error("grid");
@@ -696,73 +709,8 @@ function splitCsv(line) {
   return cells;
 }
 
-function statNzFromCsv(text) {
-  const lines = text.split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !line.startsWith("DATAFLOW") && !line.startsWith("STRUCTURE") && !line.startsWith("<?xml"));
-  const headerAt = lines.findIndex((line) => /OBS_VALUE|TIME_PERIOD/i.test(line));
-  if (headerAt < 0) return { period: "", value: "", header: (lines[0] || "").slice(0, 180) };
-  const header = splitCsv(lines[headerAt]);
-  const dataLine = lines[headerAt + 1] || "";
-  const value = splitCsv(dataLine);
-  const periodIndex = header.findIndex((column) => /TIME_PERIOD/i.test(column));
-  const observationIndex = header.findIndex((column) => /OBS_VALUE/i.test(column));
-  return {
-    period: periodIndex >= 0 ? (value[periodIndex] || "").replace(/^"|"$/g, "") : "",
-    value: observationIndex >= 0 ? (value[observationIndex] || "").replace(/^"|"$/g, "") : "",
-    header: periodIndex < 0 || observationIndex < 0 ? lines[headerAt].slice(0, 180) : undefined,
-  };
-}
-
-async function readStatsNz(env) {
-  const key = env && env.STATSNZ_KEY;
-  if (!key) return { present: false, rows: [] };
-  const headers = { "Ocp-Apim-Subscription-Key": key, accept: "text/csv,*/*" };
-  const tables = [
-    ["farm", "AGR_AGR_001", "Forestry by region"],
-    ["farm", "AGR_AGR_002", "Horticulture by region"],
-    ["farm", "AGR_AGR_003", "Livestock by region"],
-    ["firms", "BDS_BDS_004", "Enterprises by industry"],
-    ["justice", "CORR_FIS_005", "Sentenced prisoners"],
-    ["spend", "HES_HES_001", "Household expenditure"],
-    ["wages", "INC_INC_001", "Earnings for people in paid employment"],
-    ["pay", "INC_INC_010", "Gender pay gap"],
-    ["income", "INC_INC_011", "Household income"],
-    ["harm", "INJ_INJ_001", "Fatal and serious injuries"],
-    ["iwi", "IWI18_GRP_001", "Iwi grouping, 2018"],
-    ["justice", "JUS_FIS_001", "Adults convicted in court"],
-    ["work", "LEED_AP1_001", "Source of taxable income"],
-    ["wages", "LEED_AP1_002", "Median annual earnings"],
-    ["work", "LEED_Q1W_001", "Jobs and earnings by age"],
-    ["people", "POPES_SUB_001", "Subnational population change and median age"],
-    ["people", "POPES_ERP_005", "National population by ethnic group"],
-    ["people", "POPPR_NAT_007", "National population projections"],
-    ["job", "POPPR_LAB_003", "National labour force projections"],
-    ["people", "POPPR_FHH_003", "National household projections"],
-    ["output", "PRD_PRD_001", "Industry productivity"],
-    ["output", "PRD_PRD_002", "Labour productivity"],
-    ["output", "PRD_PRD_003", "Output growth"],
-  ];
-  const rows = [];
-  const settled = await Promise.all(tables.map(async ([label, id, name]) => {
-    const response = await fetch(`https://api.data.stats.govt.nz/rest/data/STATSNZ,${id},1.0/all?lastNObservations=1&dimensionAtObservation=AllDimensions&format=csv`, { headers });
-    if (!response.ok) return { label, name, id, error: response.status };
-    const text = await readSome(response, 800000);
-    const point = statNzFromCsv(text);
-    return { label, name, id, period: point.period, value: point.value, header: point.header };
-  }));
-  rows.push(...settled);
-  return {
-    present: true,
-    rows,
-    licence: "Creative Commons Attribution 4.0. Credit Stats NZ.",
-    catalogue: STATS_CATALOGUE,
-    catalogue_count: STATS_CATALOGUE.length,
-    census_tables_not_copied: 705,
-    not_in_this_api: "Consumers price index, the labour force survey, retail trade, and building consents are not in this API. The 705 census cross-tabs are not copied. Every other table name is in catalogue.",
-  };
-}
-
 async function readNzQuakes() {
-  const response = await fetch("https://api.geonet.org.nz/quake?MMI=4", { headers: { accept: "application/json" } });
+  const response = await fetchOfficial("https://api.geonet.org.nz/quake?MMI=4", { headers: { accept: "application/json" } });
   if (!response.ok) throw new Error("quakes");
   const body = await response.json();
   return body.features.slice(0, 12).map((feature) => {
@@ -776,7 +724,7 @@ function nzPage(data) {
   const quakes = (data.quakes || []).map((row) => `<tr><td>${row.when}</td><td>${row.place}</td><td>${row.magnitude}</td><td>${row.depth_km} km</td></tr>`).join("");
   const first = data.prices && data.prices[0];
   const official = data.stats || { present: false, rows: [] };
-  const statRows = (official.rows || []).map((row) => `<tr><td>${escapeHtml(row.name || row.label)}</td><td>${escapeHtml(row.period || row.error || "")}</td><td>${escapeHtml(row.value || "")}</td></tr>`).join("");
+  const statRows = (official.rows || []).map((row) => `<tr><td>${escapeHtml(row.name || row.label)}</td><td>${escapeHtml(row.period || row.error || "")}</td><td>${escapeHtml(row.value ?? "")}</td></tr>`).join("");
   const stats = official.present ? (official.error ? "The key was refused, status " + official.error + "." : (official.licence || "Read.") + (official.not_in_this_api ? " " + official.not_in_this_api : "")) : "The STATSNZ_KEY binding is not visible to this worker.";
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Morning New Zealand</title></head><body><main>
     <p>For agents</p><h1>Morning New Zealand</h1>
@@ -798,7 +746,7 @@ function escapeHtml(value) {
 }
 
 async function statcan(payload) {
-  const response = await fetch("https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods", {
+  const response = await fetchOfficial("https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods", {
     method: "POST",
     headers: { "content-type": "application/json", accept: "application/json" },
     body: JSON.stringify(payload),
@@ -809,74 +757,52 @@ async function statcan(payload) {
 
 async function readCanada() {
   const provinces = ["Canada", "Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia", "New Brunswick", "Quebec", "Ontario", "Manitoba", "Saskatchewan", "Alberta", "British Columbia"];
-  const [jobs, price, shop, quakes, rate, exchange, product, bonds, homes, ontarioText, rivers] = await Promise.all([
-    statcan(provinces.map((_, index) => ({ productId: 14100287, coordinate: `${index + 1}.7.1.1.1.1.0.0.0.0`, latestN: 1 }))),
-    statcan([{ productId: 18100004, coordinate: "2.2.0.0.0.0.0.0.0.0", latestN: 1 }]),
-    statcan([{ productId: 20100056, coordinate: "1.1.1.2.0.0.0.0.0.0", latestN: 1 }]),
-    fetch("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=8&minmagnitude=2.5&minlatitude=48&maxlatitude=70&minlongitude=-141&maxlongitude=-52&orderby=time").then((response) => response.json()),
-    readCanadaRate(),
-    readCanadaExchange(),
-    statcan([{ productId: 36100104, coordinate: "1.1.1.30.0.0.0.0.0.0", latestN: 2 }]),
-    fetch("https://www.bankofcanada.ca/valet/observations/BD.CDN.2YR.DQ.YLD,BD.CDN.10YR.DQ.YLD/json?recent=1").then((response) => response.json()),
-    statcan([{ productId: 34100136, coordinate: "1.1.1.0.0.0.0.0.0.0", latestN: 1 }]),
-    fetch("https://reports-public.ieso.ca/public/RealtimeOntarioZonalPrice/PUB_RealtimeOntarioZonalPrice.xml").then((response) => response.text()),
-    Promise.all(["08MF005", "02KF005", "02OA016"].map((code) => fetch(`https://api.weather.gc.ca/collections/hydrometric-realtime/items?f=json&limit=1&STATION_NUMBER=${code}`).then((response) => response.json()))),
-  ]);
-  return {
-    site: "https://morningrows.com",
-    country: "Canada",
-    page: "/canada",
-    jobs: jobs.map((row, index) => ({ name: provinces[index], rate: row.object.vectorDataPoint[0].value, period: row.object.vectorDataPoint[0].refPer.slice(0, 7) })),
-    price_index: { period: price[0].object.vectorDataPoint[0].refPer.slice(0, 7), index: price[0].object.vectorDataPoint[0].value },
-    shop: { period: shop[0].object.vectorDataPoint[0].refPer.slice(0, 7), thousand_dollars: shop[0].object.vectorDataPoint[0].value },
-    rate,
-    exchange,
-    product: (() => {
-      const points = product[0].object.vectorDataPoint;
-      const previous = points[0].value;
-      const latest = points[points.length - 1];
-      return { period: latest.refPer.slice(0, 7), level: latest.value, quarter_change: Math.round((latest.value / previous - 1) * 10000) / 100 };
-    })(),
-    bonds: { date: bonds.observations.at(-1).d, two_year: Number(bonds.observations.at(-1)["BD.CDN.2YR.DQ.YLD"].v), ten_year: Number(bonds.observations.at(-1)["BD.CDN.10YR.DQ.YLD"].v) },
-    homes: { period: homes[0].object.vectorDataPoint[0].refPer.slice(0, 7), starts: homes[0].object.vectorDataPoint[0].value },
-    ontario: (() => {
-      const prices = [...ontarioText.matchAll(/<ZonalPrice>[\s\S]*?<Interval>(\d+)<\/Interval>[\s\S]*?<LmpCap>([^<]*)<\/LmpCap>/g)].filter((match) => match[2] !== "");
-      const latest = prices[prices.length - 1];
-      return {
-        date: ontarioText.match(/<DeliveryDate>([^<]+)<\/DeliveryDate>/)?.[1] ?? null,
-        hour: ontarioText.match(/<DeliveryHour>([^<]+)<\/DeliveryHour>/)?.[1] ?? null,
-        interval: latest ? Number(latest[1]) : null,
-        price: latest ? Number(latest[2]) : null,
-        hour_average: Number(ontarioText.match(/<AveragePrice>[\s\S]*?<LmpCap>([^<]+)<\/LmpCap>/)?.[1]),
-        geography: "Ontario",
-      };
-    })(),
-    rivers: rivers.map((body) => {
-      const item = body.features[0].properties;
-      return { name: item.STATION_NAME, province: item.PROV_TERR_STATE_LOC, when: item.DATETIME, level_m: item.LEVEL, discharge: item.DISCHARGE };
-    }),
-    quakes: (quakes.features || []).map((feature) => ({ place: feature.properties.place, when: new Date(feature.properties.time).toISOString(), magnitude: feature.properties.mag })),
-    mortgages: await readCanadaMortgages().catch(() => null),
-    posted_rates: await readPostedRates().catch(() => null),
-    air: await readAir().catch(() => null),
-    demand: await readOntarioDemand().catch(() => null),
-    commodities: await readCommodityIndex().catch(() => null),
-    also: {
-      world: await readWorld("CA"),
-      space: await readSpace(),
+  const point = async (productId, coordinate) => (await statcan([{ productId, coordinate, latestN: 1 }]))[0].object.vectorDataPoint[0];
+  const data = await readSections({
+    jobs: async () => (await statcan(provinces.map((_, index) => ({ productId: 14100287, coordinate: `${index + 1}.7.1.1.1.1.0.0.0.0`, latestN: 1 })))).map((row, index) => ({ name: provinces[index], rate: row.object.vectorDataPoint[0].value, period: row.object.vectorDataPoint[0].refPer.slice(0, 7), source: "Statistics Canada", licence: "Statistics Canada Open Licence" })),
+    price_index: async () => { const p = await point(18100004, "2.2.0.0.0.0.0.0.0.0"); return { period: p.refPer.slice(0, 7), index: p.value }; },
+    shop: async () => { const p = await point(20100056, "1.1.1.2.0.0.0.0.0.0"); return { period: p.refPer.slice(0, 7), thousand_dollars: p.value }; },
+    rate: readCanadaRate,
+    exchange: readCanadaExchange,
+    product: async () => {
+      const points = (await statcan([{ productId: 36100104, coordinate: "1.1.1.30.0.0.0.0.0.0", latestN: 2 }]))[0].object.vectorDataPoint;
+      const last = points.at(-1);
+      return { period: last.refPer.slice(0,7), level: last.value, quarter_change: Math.round((last.value / points[0].value - 1) * 10000) / 100 };
     },
-  };
+    bonds: async () => {
+      const last = (await fetchOfficial("https://www.bankofcanada.ca/valet/observations/BD.CDN.2YR.DQ.YLD,BD.CDN.10YR.DQ.YLD/json?recent=1").then(r => r.json())).observations.at(-1);
+      return { date: last.d, two_year: Number(last["BD.CDN.2YR.DQ.YLD"].v), ten_year: Number(last["BD.CDN.10YR.DQ.YLD"].v) };
+    },
+    homes: async () => { const p = await point(34100136, "1.1.1.0.0.0.0.0.0.0"); return { period: p.refPer.slice(0,7), starts: p.value }; },
+    ontario: async () => {
+      const xml = await fetchOfficial("https://reports-public.ieso.ca/public/RealtimeOntarioZonalPrice/PUB_RealtimeOntarioZonalPrice.xml").then(r => r.text());
+      const latest = [...xml.matchAll(/<ZonalPrice>[\s\S]*?<Interval>(\d+)<\/Interval>[\s\S]*?<LmpCap>([^<]*)<\/LmpCap>/g)].filter(m => m[2] !== "").at(-1);
+      if (!latest) throw new SourceError("No Ontario price returned");
+      return { date: xml.match(/<DeliveryDate>([^<]+)<\/DeliveryDate>/)?.[1] ?? null, hour: xml.match(/<DeliveryHour>([^<]+)<\/DeliveryHour>/)?.[1] ?? null, interval: Number(latest[1]), price: Number(latest[2]), hour_average: Number(xml.match(/<AveragePrice>[\s\S]*?<LmpCap>([^<]+)<\/LmpCap>/)?.[1]), geography: "Ontario" };
+    },
+    rivers: async () => {
+      const stations = await readSections(Object.fromEntries(["08MF005", "02KF005", "02OA016"].map(code => [code, async () => {
+        const item = (await fetchOfficial(`https://api.weather.gc.ca/collections/hydrometric-realtime/items?f=json&limit=1&STATION_NUMBER=${code}`).then(r => r.json())).features[0].properties;
+        return { name: item.STATION_NAME, province: item.PROV_TERR_STATE_LOC, when: item.DATETIME, level_m: item.LEVEL, discharge: item.DISCHARGE };
+      }])));
+      return Object.entries(stations.sources).map(([code, health]) => stations[code] || { station: code, ...health });
+    },
+    quakes: async () => (await fetchOfficial("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=8&minmagnitude=2.5&minlatitude=48&maxlatitude=70&minlongitude=-141&maxlongitude=-52&orderby=time").then(r => r.json())).features.map(f => ({ place: f.properties.place, when: new Date(f.properties.time).toISOString(), magnitude: f.properties.mag, geography: "Bounding box around Canada; may include neighbouring territories", source: "USGS" })),
+    recalls: readCanadianRecalls, mortgages: readCanadaMortgages, posted_rates: readPostedRates, air: readAir, demand: readOntarioDemand, commodities: readCommodityIndex,
+  });
+  const also = await readSections({ world: () => readWorld("CA"), space: readSpace });
+  return { site: "https://morningrows.com", country: "Canada", page: "/canada", ...data, also };
 }
 
 async function readCanadaRate() {
-  const response = await fetch("https://www.bankofcanada.ca/valet/observations/V39079/json?recent=1");
+  const response = await fetchOfficial("https://www.bankofcanada.ca/valet/observations/V39079/json?recent=1");
   const body = await response.json();
   const last = body.observations[body.observations.length - 1];
   return { date: last.d, rate: Number(last.V39079.v) };
 }
 
 async function readCanadaExchange() {
-  const response = await fetch("https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXAUDCAD,FXGBPCAD,FXNZDCAD/json?recent=1");
+  const response = await fetchOfficial("https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXAUDCAD,FXGBPCAD,FXNZDCAD/json?recent=1");
   const body = await response.json();
   const last = body.observations[body.observations.length - 1];
   return {
@@ -891,7 +817,7 @@ async function readCanadaExchange() {
 }
 
 async function ons(path) {
-  const response = await fetch(`https://www.ons.gov.uk/generator?format=csv&uri=${path}`);
+  const response = await fetchOfficial(`https://www.ons.gov.uk/generator?format=csv&uri=${path}`);
   if (!response.ok) throw new Error("ons");
   const lines = (await response.text()).split("\n").map((line) => line.split(",").map((cell) => cell.replaceAll("\"", "")));
   const dated = lines.filter((row) => row.length >= 2 && /^\d{4}/.test(row[0]) && row[1] !== "");
@@ -900,114 +826,75 @@ async function ons(path) {
 }
 
 async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
-  const [people, job, holiday] = await Promise.all([
-    ons(peoplePath),
-    jobPath ? ons(jobPath) : Promise.resolve(null),
-    holidayDivision ? nextHoliday(holidayDivision) : Promise.resolve(null),
-  ]);
-  return {
-    site: "https://morningrows.com",
-    country: name,
-    page: `/${slug}`,
-    people: { ...people, source: "Office for National Statistics", licence: "Open Government Licence" },
-    job: job ? { ...job, source: "Office for National Statistics", licence: "Open Government Licence" } : null,
-    next_holiday: holiday,
-  };
+  const meta = { source: "Office for National Statistics", licence: "Open Government Licence", geography: name };
+  const data = await readSections({
+    people: async () => ({ ...await ons(peoplePath), ...meta, unit: "people" }),
+    job: async () => ({ ...await ons(jobPath), ...meta, unit: "percent" }),
+    next_holiday: () => nextHoliday(holidayDivision),
+    food_establishments: () => readFoodAuthorities(name),
+    ...(slug === "scotland" ? { bill_stages: readScottishBills } : {}),
+  });
+  return { site: "https://morningrows.com", country: name, page: `/${slug}`, ...data };
 }
 
 async function readUnitedKingdom() {
-  const [people, job, price, wage, product, trade, bills, laws, space] = await Promise.all([
-    ons("/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop"),
-    ons("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/mgsx/lms"),
-    ons("/economy/inflationandpriceindices/timeseries/d7bt/mm23"),
-    ons("/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/lms"),
-    ons("/economy/grossdomesticproductgdp/timeseries/ybez/ukea"),
-    ons("/economy/nationalaccounts/balanceofpayments/timeseries/ikbj/pnbp"),
-    readBills(),
-    readUkLaws(),
-    readSpace(),
-  ]);
-  return {
-    site: "https://morningrows.com",
-    country: "United Kingdom",
-    page: "/united-kingdom",
-    people: { ...people, source: "Office for National Statistics" },
-    job: { ...job, meaning: "unemployment rate, aged 16 and over" },
-    price_index: price,
-    wage,
-    product,
-    trade: { ...trade, meaning: "total trade balance", unit: "not stated on the file" },
-    bills,
-    laws,
-    space,
-    nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"],
+  const series = {
+    people: ["/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop", "people"],
+    job: ["/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/mgsx/lms", "percent"],
+    price_index: ["/economy/inflationandpriceindices/timeseries/d7bt/mm23", "index"],
+    wage: ["/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/lms", "GBP per week"],
+    product: ["/economy/grossdomesticproductgdp/timeseries/ybez/ukea", "GBP million"],
+    trade: ["/economy/nationalaccounts/balanceofpayments/timeseries/ikbj/pnbp", "GBP million"],
   };
+  const tasks = Object.fromEntries(Object.entries(series).map(([name, [path, unit]]) => [name, async () => ({ ...await ons(path), unit, geography: "United Kingdom", source: "Office for National Statistics", licence: "Open Government Licence" })]));
+  const data = await readSections({ ...tasks, bills: readBills, laws: readUkLaws, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
+  return { site: "https://morningrows.com", country: "United Kingdom", page: "/united-kingdom", ...data, nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"] };
 }
 
 async function readEngland() {
-  const start = new Date();
-  let price = null;
-  for (let back = 0; back < 3 && !price; back += 1) {
-    const day = new Date(start.getTime() - back * 86400000).toISOString().slice(0, 10);
-    const response = await fetch(`https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/${day}`);
-    if (!response.ok) continue;
-    const body = await response.json();
-    if (body.data?.length) price = body.data[body.data.length - 1];
-  }
-  const [carbonBody, job, cpi, rate, wage, product, people, shop, vacancy, trade, floods, service, rail, calendar, quakeText] = await Promise.all([
-    fetch("https://api.carbonintensity.org.uk/regional").then((response) => response.json()),
-    ons("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnl/lms"),
-    ons("/economy/inflationandpriceindices/timeseries/d7bt/mm23"),
-    ons("/economy/inflationandpriceindices/timeseries/d7g7/mm23"),
-    ons("/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/lms"),
-    ons("/economy/grossdomesticproductgdp/timeseries/ybez/ukea"),
-    ons("/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/enpop/pop"),
-    ons("/businessindustryandtrade/retailindustry/timeseries/j45u/drsi"),
-    ons("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/jpc5/lms"),
-    ons("/economy/nationalaccounts/balanceofpayments/timeseries/ikbd/pnbp"),
-    fetch("https://environment.data.gov.uk/flood-monitoring/id/floods").then((response) => response.json()),
-    fetch("https://api.tfl.gov.uk/Line/Mode/tube,elizabeth-line,overground,dlr/Status").then((response) => response.json()),
-    fetch("https://api.tfl.gov.uk/Line/Mode/national-rail/Status").then((response) => response.json()),
-    fetch("https://www.gov.uk/bank-holidays.json").then((response) => response.json()),
-    fetch("http://quakes.bgs.ac.uk/feeds/MhSeismology.xml").then((response) => response.text()),
-  ]);
-  const slot = carbonBody.data[0];
-  const england = slot.regions.find((region) => region.shortname === "England");
-  const quakes = [...quakeText.matchAll(/<title>([^<]*Earthquake alert[^<]*)<\/title>/g)].slice(0, 8).map((match) => match[1].replace(/\s+/g, " ").trim());
-  return {
-    site: "https://morningrows.com",
-    country: "England",
-    page: "/england",
-    grid: price ? { date: price.settlementDate, period: price.settlementPeriod, pounds_per_mwh: price.systemBuyPrice, geography: "Great Britain" } : null,
-    carbon: { from: slot.from, grams_per_kwh: england.intensity.forecast, band: england.intensity.index, geography: "England" },
-    job: { ...job, geography: "England" },
-    price_index: { ...cpi, year_change: rate.value, geography: "United Kingdom" },
-    wage: { ...wage, geography: "United Kingdom", unit: "pounds a week" },
-    product: { ...product, geography: "United Kingdom" },
-    people: { ...people, geography: "England" },
-    shop: { ...shop, geography: "United Kingdom" },
-    vacancy: { ...vacancy, geography: "United Kingdom", meaning: "unemployed people per vacancy" },
-    trade: { ...trade, geography: "United Kingdom", unit: "million pounds", meaning: "trade in services balance" },
-    floods: { count: (floods.items || []).length, rows: (floods.items || []).slice(0, 8).map((item) => ({ severity: item.severity, description: item.description })) },
-    service: (service || []).map((line) => ({ name: line.name, status: line.lineStatuses[0].statusSeverityDescription, geography: "London" })),
-    rail: { count: (rail || []).length, not_good: (rail || []).filter((line) => line.lineStatuses[0].statusSeverityDescription !== "Good Service").map((line) => ({ name: line.name, status: line.lineStatuses[0].statusSeverityDescription })) },
-    calendar: (calendar["england-and-wales"].events || []).filter((event) => event.date >= new Date().toISOString().slice(0, 10)).slice(0, 4),
-    quakes,
-    also: {
-      world: await readWorld("GB"),
-      police: await readPolice(),
-      health: await readNhs(),
-      rainfall: await readRain(),
-      rivers: await readLevels(),
-      roads: await readRoads(),
-      crime_data_current_to: await fetch("https://data.police.uk/api/crime-last-updated").then((response) => response.ok ? response.json() : null).catch(() => null),
-      space: await readSpace(),
+  const onsPoint = async (path, geography, unit) => ({ ...await ons(path), geography, unit, source: "Office for National Statistics", licence: "Open Government Licence" });
+  const data = await readSections({
+    food_establishments: () => readFoodAuthorities("England"),
+    grid: async () => {
+      for (let back = 0; back < 3; back++) {
+        const day = new Date(Date.now() - back * 86400000).toISOString().slice(0, 10);
+        const body = await fetchOfficial(`https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/${day}`).then(r => r.json());
+        const price = body.data?.at(-1);
+        if (price) return { date: price.settlementDate, period: price.settlementPeriod, pounds_per_mwh: price.systemBuyPrice, geography: "Great Britain", source: "Elexon", licence: "Elexon open data licence", licence_url: "https://www.elexon.co.uk/bsc/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/", attribution: `Contains BMRS data © Elexon Limited copyright and database right ${day.slice(0, 4)}.` };
+      }
+      throw new SourceError("No recent system price returned");
     },
-  };
+    carbon: async () => {
+      const body = await fetchOfficial("https://api.carbonintensity.org.uk/regional").then(r => r.json());
+      const slot = body.data[0], region = slot.regions.find(r => r.shortname === "England");
+      return { from: slot.from, grams_per_kwh: region.intensity.forecast, band: region.intensity.index, geography: "England", source: "National Energy System Operator", source_url: "https://api.carbonintensity.org.uk/", licence: "CC BY 4.0" };
+    },
+    job: () => onsPoint("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnl/lms", "England", "percent"),
+    people: () => onsPoint("/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/enpop/pop", "England", "people"),
+    price_index: async () => ({ ...await onsPoint("/economy/inflationandpriceindices/timeseries/d7bt/mm23", "United Kingdom", "index"), year_change: (await ons("/economy/inflationandpriceindices/timeseries/d7g7/mm23")).value }),
+    wage: () => onsPoint("/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/lms", "United Kingdom", "GBP per week"),
+    product: () => onsPoint("/economy/grossdomesticproductgdp/timeseries/ybez/ukea", "United Kingdom", "GBP million"),
+    shop: () => onsPoint("/businessindustryandtrade/retailindustry/timeseries/j45u/drsi", "United Kingdom", "index"),
+    vacancy: () => onsPoint("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/jpc5/lms", "United Kingdom", "unemployed people per vacancy"),
+    trade: () => onsPoint("/economy/nationalaccounts/balanceofpayments/timeseries/ikbd/pnbp", "United Kingdom", "GBP million; services balance"),
+    floods: async () => {
+      const body = await fetchOfficial("https://environment.data.gov.uk/flood-monitoring/id/floods").then(r => r.json());
+      return { count: (body.items || []).length, rows: (body.items || []).slice(0, 8).map(i => ({ severity: i.severity, description: i.description })), source: "Environment Agency", licence: "Open Government Licence", geography: "England" };
+    },
+    service: async () => (await fetchOfficial("https://api.tfl.gov.uk/Line/Mode/tube,elizabeth-line,overground,dlr/Status").then(r => r.json())).map(line => ({ name: line.name, status: line.lineStatuses[0].statusSeverityDescription, geography: "London" })),
+    rail: async () => {
+      const lines = await fetchOfficial("https://api.tfl.gov.uk/Line/Mode/national-rail/Status").then(r => r.json());
+      return { count: lines.length, not_good: lines.filter(line => line.lineStatuses[0].statusSeverityDescription !== "Good Service").map(line => ({ name: line.name, status: line.lineStatuses[0].statusSeverityDescription })) };
+    },
+    calendar: async () => (await fetchOfficial("https://www.gov.uk/bank-holidays.json").then(r => r.json()))["england-and-wales"].events.filter(e => e.date >= new Date().toISOString().slice(0,10)).slice(0,4),
+    quakes: async () => [...(await fetchOfficial("http://quakes.bgs.ac.uk/feeds/MhSeismology.xml").then(r => r.text())).matchAll(/<title>([^<]*Earthquake alert[^<]*)<\/title>/g)].slice(0,8).map(m => m[1].replace(/\s+/g," ").trim()),
+  });
+  const also = await readSections({ world: () => readWorld("GB"), police: readPolice, health: readNhs, rainfall: readRain, rivers: readLevels, roads: readRoads, crime_data_current_to: () => fetchOfficial("https://data.police.uk/api/crime-last-updated").then(r => r.json()), space: readSpace });
+  return { site: "https://morningrows.com", country: "England", page: "/england", ...data, also };
 }
 
 async function readAustraliaExchange() {
-  const response = await fetch("https://www.rba.gov.au/statistics/tables/csv/f11.1-data.csv");
+  const response = await fetchOfficial("https://www.rba.gov.au/statistics/tables/csv/f11.1-data.csv");
   const lines = (await response.text()).replace(/^\uFEFF/, "").split("\n");
   const dated = lines.filter((line) => /^\d{2}-[A-Za-z]{3}-\d{4},/.test(line));
   const last = dated[dated.length - 1].split(",");
@@ -1025,7 +912,7 @@ async function readAustraliaExchange() {
 }
 
 async function readRbaTable(url) {
-  const response = await fetch(url);
+  const response = await fetchOfficial(url);
   if (!response.ok) throw new Error("rba");
   const lines = (await response.text()).replace(/^\uFEFF/, "").split("\n");
   const title = lines.find((line) => line.startsWith("Title,"));
@@ -1062,18 +949,18 @@ async function readRbaBundle() {
     ["banks", "b2"],
     ["cards", "c2"],
   ];
-  const pairs = await Promise.all(tables.map(async ([name, file]) => {
+  const pairs = await mapLimit(tables, 4, async ([name, file]) => {
     try {
       return [name, await readRbaTable(`https://www.rba.gov.au/statistics/tables/csv/${file}-data.csv`)];
     } catch (error) {
-      return [name, { error: "not read" }];
+      return [name, { ...describeError(error) }];
     }
-  }));
+  });
   return Object.fromEntries(pairs);
 }
 
 async function readPostedRates() {
-  const response = await fetch("https://www.bankofcanada.ca/valet/observations/group/CHARTERED_BANK_INTEREST/json?recent=1");
+  const response = await fetchOfficial("https://www.bankofcanada.ca/valet/observations/group/CHARTERED_BANK_INTEREST/json?recent=1");
   if (!response.ok) throw new Error("posted");
   const body = await response.json();
   const last = body.observations[body.observations.length - 1];
@@ -1088,7 +975,7 @@ async function readAir() {
   const names = ["Toronto", "Vancouver", "Calgary"];
   const rows = await Promise.all(names.map(async (name) => {
     try {
-      const response = await fetch(`https://api.weather.gc.ca/collections/aqhi-forecasts-realtime/items?f=json&limit=1&location_name_en=${encodeURIComponent(name)}`);
+      const response = await fetchOfficial(`https://api.weather.gc.ca/collections/aqhi-forecasts-realtime/items?f=json&limit=1&location_name_en=${encodeURIComponent(name)}`);
       if (!response.ok) return { name, error: response.status };
       const body = await response.json();
       const item = body.features && body.features[0] && body.features[0].properties;
@@ -1102,7 +989,7 @@ async function readAir() {
 }
 
 async function readQuakeStats() {
-  const response = await fetch("https://api.geonet.org.nz/quake/stats");
+  const response = await fetchOfficial("https://api.geonet.org.nz/quake/stats");
   if (!response.ok) throw new Error("stats");
   const body = await response.json();
   return { days: 365, by_magnitude: body.magnitudeCount && body.magnitudeCount.days365, source: "GeoNet" };
@@ -1110,51 +997,51 @@ async function readQuakeStats() {
 
 async function readAuLaws() {
   try {
-    const response = await fetch("https://api.prod.legislation.gov.au/v1/titles?search=bill&limit=8");
+    const response = await fetchOfficial("https://api.prod.legislation.gov.au/v1/titles?search=bill&limit=8");
     if (!response.ok) return { error: response.status };
     const body = await response.json();
     return { source: "Federal Register of Legislation", rows: (body.value || []).slice(0, 8).map((item) => ({ name: item.name, when: item.makingDate || "" })) };
   } catch (error) {
-    return { error: "not read" };
+    return { ...describeError(error) };
   }
 }
 
 async function readUkLaws() {
   try {
-    const response = await fetch("https://www.legislation.gov.uk/new/data.feed");
+    const response = await fetchOfficial("https://www.legislation.gov.uk/new/data.feed");
     if (!response.ok) return { error: response.status };
     const text = await response.text();
     return { source: "legislation.gov.uk", rows: [...text.matchAll(/<title[^>]*>([^<]+)<\/title>/g)].slice(1, 9).map((match) => match[1]) };
   } catch (error) {
-    return { error: "not read" };
+    return { ...describeError(error) };
   }
 }
 
 async function readRoads() {
   try {
-    const response = await fetch("https://api.tfl.gov.uk/Road");
+    const response = await fetchOfficial("https://api.tfl.gov.uk/Road");
     if (!response.ok) return [];
     const body = await response.json();
     return body.map((road) => ({ name: road.displayName, status: road.statusSeverityDescription }));
   } catch (error) {
-    return [];
+    throw error;
   }
 }
 
 async function nextHoliday(division) {
   try {
-    const response = await fetch("https://www.gov.uk/bank-holidays.json");
+    const response = await fetchOfficial("https://www.gov.uk/bank-holidays.json");
     if (!response.ok) return null;
     const body = await response.json();
     const today = new Date().toISOString().slice(0, 10);
     return ((body[division] && body[division].events) || []).find((event) => event.date >= today) || null;
   } catch (error) {
-    return null;
+    throw error;
   }
 }
 
 async function readCommodityIndex() {
-  const response = await fetch("https://www.bankofcanada.ca/valet/observations/group/BCPI_WEEKLY/json?recent=1");
+  const response = await fetchOfficial("https://www.bankofcanada.ca/valet/observations/group/BCPI_WEEKLY/json?recent=1");
   if (!response.ok) throw new Error("commodity");
   const body = await response.json();
   const last = body.observations[body.observations.length - 1];
@@ -1166,7 +1053,7 @@ async function readCommodityIndex() {
 }
 
 async function readOntarioDemand() {
-  const response = await fetch("https://reports-public.ieso.ca/public/Demand/PUB_Demand.csv");
+  const response = await fetchOfficial("https://reports-public.ieso.ca/public/Demand/PUB_Demand.csv");
   if (!response.ok) throw new Error("demand");
   const lines = (await response.text()).split("\n").filter((line) => /^\d{4}-\d{2}-\d{2},/.test(line));
   const last = lines[lines.length - 1].split(",");
@@ -1174,7 +1061,7 @@ async function readOntarioDemand() {
 }
 
 async function readCanadaMortgages() {
-  const response = await fetch("https://www.bankofcanada.ca/valet/observations/group/A4_RATES_MORTGAGES/json?recent=1");
+  const response = await fetchOfficial("https://www.bankofcanada.ca/valet/observations/group/A4_RATES_MORTGAGES/json?recent=1");
   if (!response.ok) throw new Error("mortgages");
   const body = await response.json();
   const last = body.observations[body.observations.length - 1];
@@ -1187,40 +1074,40 @@ async function readCanadaMortgages() {
 
 async function readLevels() {
   try {
-    const response = await fetch("https://environment.data.gov.uk/flood-monitoring/id/measures?parameter=level&_limit=6");
+    const response = await fetchOfficial("https://environment.data.gov.uk/flood-monitoring/id/measures?parameter=level&_limit=6");
     if (!response.ok) return [];
     const body = await response.json();
     return (body.items || []).map((item) => ({ label: item.label, when: item.latestReading && item.latestReading.dateTime, metres: item.latestReading && item.latestReading.value }));
   } catch (error) {
-    return [];
+    throw error;
   }
 }
 
 async function readWalesPopulation() {
   try {
-    const response = await fetch("https://api.stats.gov.wales/v2/20b6276b-92f7-48fd-806e-69c35b54d9e0/data?format=json");
+    const response = await fetchOfficial("https://api.stats.gov.wales/v2/20b6276b-92f7-48fd-806e-69c35b54d9e0/data?format=json");
     if (!response.ok) return null;
     const rows = await response.json();
     const row = rows.find((item) => item.Age === "All Ages" && item.Sex === "Persons") || rows[0];
     return { source: "StatsWales", period: row.Year, value: row["Data values"], area: row.Area, meaning: "national population projection" };
   } catch (error) {
-    return null;
+    throw error;
   }
 }
 
 async function readRain() {
   try {
-    const response = await fetch("https://environment.data.gov.uk/flood-monitoring/id/measures?parameter=rainfall&_limit=8");
+    const response = await fetchOfficial("https://environment.data.gov.uk/flood-monitoring/id/measures?parameter=rainfall&_limit=8");
     if (!response.ok) return [];
     const body = await response.json();
     return (body.items || []).map((item) => ({ label: item.label, when: item.latestReading && item.latestReading.dateTime, mm: item.latestReading && item.latestReading.value }));
   } catch (error) {
-    return [];
+    throw error;
   }
 }
 
 async function readCash() {
-  const response = await fetch("https://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv");
+  const response = await fetchOfficial("https://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv");
   if (!response.ok) throw new Error("cash");
   const lines = (await response.text()).replace(/^\uFEFF/, "").split("\n");
   const dated = lines.filter((line) => /^\d{2}\/\d{2}\/\d{4},/.test(line));
@@ -1230,100 +1117,62 @@ async function readCash() {
 
 async function readWorld(code) {
   const indicators = [["population", "SP.POP.TOTL"], ["gdp_usd", "NY.GDP.MKTP.CD"], ["inflation", "FP.CPI.TOTL.ZG"], ["unemployment", "SL.UEM.TOTL.ZS"], ["life_years", "SP.DYN.LE00.IN"]];
-  try {
-    const rows = await Promise.all(indicators.map(async ([name, id]) => {
-      const response = await fetch(`https://api.worldbank.org/v2/country/${code}/indicator/${id}?format=json&mrnev=1`);
-      if (!response.ok) return { name, error: response.status };
-      const body = await response.json();
-      const point = body[1] && body[1][0];
-      return point ? { name, year: point.date, value: point.value } : { name, value: null };
-    }));
-    return { source: "World Bank", rows };
-  } catch (error) {
-    return { source: "World Bank", rows: [] };
-  }
-}
-
-async function readWeather(cities) {
-  try {
-    const rows = await Promise.all(cities.map(async ([name, lat, lon]) => {
-      const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,precipitation,wind_speed_10m`);
-      if (!response.ok) return { name, error: response.status };
-      const body = await response.json();
-      const current = body.current || {};
-      return { name, when: current.time, degrees_c: current.temperature_2m, rain_mm: current.precipitation, wind_kmh: current.wind_speed_10m };
-    }));
-    return { source: "Open-Meteo", rows };
-  } catch (error) {
-    return { source: "Open-Meteo", rows: [] };
-  }
-}
-
-async function readBom() {
-  const stations = [
-    ["Sydney", "https://reg.bom.gov.au/fwo/IDN60901/IDN60901.94768.json"],
-    ["Brisbane", "https://reg.bom.gov.au/fwo/IDQ60901/IDQ60901.94576.json"],
-  ];
-  const rows = [];
-  for (const [name, url] of stations) {
+  const rows = await mapLimit(indicators, 3, async ([name, id]) => {
     try {
-      const response = await fetch(url);
-      if (!response.ok) { rows.push({ name, error: response.status }); continue; }
-      const body = await response.json();
-      const last = body.observations.data[0];
-      rows.push({ name: last.name || name, when: last.local_date_time, degrees_c: last.air_temp, wind_kmh: last.wind_spd_kmh, rain_mm: last.rain_trace });
-    } catch (error) {
-      rows.push({ name, error: "not read" });
-    }
-  }
-  return { source: "Bureau of Meteorology", rows };
+      const body = await fetchOfficial(`https://api.worldbank.org/v2/country/${code}/indicator/${id}?format=json&mrnev=1`).then(r => r.json());
+      const point = body[1]?.[0];
+      if (!point || point.value == null) throw new SourceError("No published observation returned");
+      return { name, year: point.date, value: point.value, geography: point.country.value, source: "World Bank", licence: "CC BY 4.0" };
+    } catch (error) { return { name, ...describeError(error) }; }
+  });
+  return { source: "World Bank", status: rows.some(row => row.error) ? "degraded" : "ok", rows };
 }
 
 async function readSpace() {
   try {
-    const response = await fetch("https://services.swpc.noaa.gov/products/noaa-scales.json");
+    const response = await fetchOfficial("https://services.swpc.noaa.gov/products/noaa-scales.json");
     if (!response.ok) return { error: response.status };
     const body = await response.json();
     const today = body["0"] || {};
     return { source: "NOAA space weather", date: today.DateStamp, radio: today.R && today.R.Scale, solar: today.S && today.S.Scale, geomagnetic: today.G && today.G.Scale };
   } catch (error) {
-    return { error: "not read" };
+    return { ...describeError(error) };
   }
 }
 
 async function readPolice() {
   try {
-    const response = await fetch("https://data.police.uk/api/crimes-street/all-crime?lat=51.5074&lng=-0.1278");
+    const response = await fetchOfficial("https://data.police.uk/api/crimes-street/all-crime?lat=51.5074&lng=-0.1278");
     if (!response.ok) return { error: response.status };
     const body = await response.json();
     const counts = {};
     for (const row of body) counts[row.category] = (counts[row.category] || 0) + 1;
     return { source: "data.police.uk", place: "Westminster", month: body[0] && body[0].month, counts };
   } catch (error) {
-    return { error: "not read" };
+    return { ...describeError(error) };
   }
 }
 
 async function readBills() {
   try {
-    const response = await fetch("https://bills-api.parliament.uk/api/v1/Bills?Take=8");
+    const response = await fetchOfficial("https://bills-api.parliament.uk/api/v1/Bills?Take=8");
     if (!response.ok) return { error: response.status };
     const body = await response.json();
     return { source: "UK Parliament", rows: (body.items || []).map((item) => ({ id: item.billId, title: item.shortTitle })) };
   } catch (error) {
-    return { error: "not read" };
+    return { ...describeError(error) };
   }
 }
 
 async function readNhs() {
   try {
-    const response = await fetch("https://www.england.nhs.uk/feed/");
+    const response = await fetchOfficial("https://www.england.nhs.uk/feed/");
     if (!response.ok) return { error: response.status };
     const text = await response.text();
     const rows = [...text.matchAll(/<title>([^<]+)<\/title>/g)].slice(1, 6).map((match) => match[1]);
     return { source: "NHS England", rows };
   } catch (error) {
-    return { error: "not read" };
+    return { ...describeError(error) };
   }
 }
 
@@ -1360,23 +1209,24 @@ const HOLD_SECONDS = {
 };
 
 async function held(request, response) {
-  const seconds = HOLD_SECONDS[new URL(request.url).pathname];
+  const seconds = response.headers.get("x-data-status") === "degraded" ? 30 : HOLD_SECONDS[new URL(request.url).pathname];
   const headers = new Headers(response.headers);
   if (seconds) headers.set("Cache-Control", `public, max-age=${seconds}`);
   const stored = new Response(response.body, { status: response.status, headers });
   if (!seconds) return stored;
   try {
     const url = new URL(request.url);
-    await caches.default.put(new Request(`${url.origin}${url.pathname}`, { method: "GET" }), stored.clone());
+    await caches.default.put(new Request(`${url.origin}${url.pathname}?release=${BUILD_CACHE_KEY}`, { method: "GET" }), stored.clone());
   } catch (error) {
     return stored;
   }
   return stored;
 }
 
-export default {
+const worker = {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/health.json") return json({ service: "Morning Rows", source_revision: BUILD_REVISION, source_dirty: BUILD_DIRTY, build_fingerprint: BUILD_FINGERPRINT, worker_version: env.WORKER_VERSION?.id || null, note: "Runtime identity only; inspect each desk sources field for data health." });
     if (url.pathname === "/llms.txt") return new Response(LLMS, { headers: { "content-type": "text/plain; charset=utf-8" } });
     if (url.pathname === "/robots.txt") return new Response(ROBOTS, { headers: { "content-type": "text/plain; charset=utf-8" } });
     if (url.pathname === "/catalog.json") return json({
@@ -1400,12 +1250,15 @@ export default {
     if (url.pathname === "/keys.json") return json({
       site: "https://morningrows.com",
       note: "needs_a_key is collected for later and is not called. blocked is a feed that refused. Keep looking for another open feed from the same publisher.",
+      configured: [{ country: "New Zealand", source: "Stats NZ", binding: "STATSNZ_KEY", status: "Existing integration; see new-zealand.json for live health" }],
       needs_a_key: [
+        { country: "New Zealand", source: "Auckland Transport", would_unlock: "Registered transport APIs, including real-time service data", checked: "2026-10-17", evidence: "https://dev-portal.at.govt.nz/" },
+        { country: "Wales", source: "Natural Resources Wales", would_unlock: "Flood warnings and rainfall, river and sea-level API data", checked: "2026-10-17", evidence: "https://api-portal.naturalresources.wales/" },
+        { country: "United Kingdom", source: "HMRC Trade Tariff API Developer Hub", would_unlock: "Hub-managed API subscriptions; separately assess open Department for Business and Trade datasets", checked: "2026-10-17", evidence: "https://hub.trade-tariff.service.gov.uk/" },
         { country: "Australia", source: "Bureau of Meteorology", would_unlock: "forecasts, observations, and warnings" },
         { country: "Australia", source: "AEMO developer portal", would_unlock: "registered market APIs, not the public grid files" },
         { country: "Australia", source: "NSW emergency feeds and Western Australia SLIP", would_unlock: "some fire and warning feeds" },
         { country: "Australia", source: "Australian Business Register", would_unlock: "a business lookup" },
-        { country: "New Zealand", source: "Stats NZ", would_unlock: "already bound as STATSNZ_KEY when the secret is present" },
         { country: "New Zealand", source: "LINZ Data Service", would_unlock: "addresses, parcels, and place names" },
         { country: "New Zealand", source: "MetService", would_unlock: "the national forecast" },
         { country: "New Zealand", source: "NIWA", would_unlock: "climate stations and forecasts" },
@@ -1421,6 +1274,9 @@ export default {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "Australia", source: "Australian Financial Security Authority quarterly insolvency statistics discovery page", status: 503, checked: "2026-10-17", url: "https://www.afsa.gov.au/about-us/statistics-and-insights/headline-statistics/quarterly-personal-insolvency-statistics", note: "The discovery page returned HTTP 503 from the workspace. An official CSV link was not resolved; this does not establish that its underlying dataset is unavailable." },
+        { country: "Australia", source: "ABS SDMX API from Cloudflare Workers", status: 403, checked: "2026-10-17", note: "CloudFront refuses Worker requests. The same API responds from the development workspace. No workaround or stored figures substituted." },
+        { country: "United Kingdom, England, Scotland, Wales, Northern Ireland", source: "ONS CSV and timeseries API from Cloudflare Workers", status: 403, checked: "2026-10-17", note: "Publisher firewall refuses Worker requests. Other desk sources remain independent." },
         { country: "New Zealand", source: "Reserve Bank of New Zealand", status: 403, note: "The statistics pages refused the read. No open file was found." },
         { country: "New Zealand", source: "MetService", status: 403, note: "Missing authentication token. Listed under needs_a_key." },
         { country: "New Zealand", source: "NIWA", status: 401, note: "A key is required. Listed under needs_a_key." },
@@ -1438,7 +1294,7 @@ export default {
     const hold = HOLD_SECONDS[url.pathname];
     if (hold && request.method === "GET") {
       try {
-        const hit = await caches.default.match(new Request(`${url.origin}${url.pathname}`, { method: "GET" }));
+        const hit = await caches.default.match(new Request(`${url.origin}${url.pathname}?release=${BUILD_CACHE_KEY}`, { method: "GET" }));
         if (hit) return hit;
       } catch (error) {
         // A miss still reads the source once.
@@ -1448,23 +1304,24 @@ export default {
       const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult] = await Promise.allSettled([
         readNzPrices(),
         readNzQuakes(),
-        fetch("https://api.geonet.org.nz/volcano/val").then((response) => response.json()),
-        fetch("https://api.geonet.org.nz/news/geonet").then((response) => response.json()),
-        readStatsNz(env),
+        fetchOfficial("https://api.geonet.org.nz/volcano/val").then(response => response.json()).then(body => body.features.map(feature => ({ name: feature.properties.volcanoTitle, colour: feature.properties.acc, level: feature.properties.level }))),
+        fetchOfficial("https://api.geonet.org.nz/news/geonet").then(response => response.json()).then(body => body.feed.slice(0,3).map(item => ({ when: item.published, title: item.title }))),
+        readStatsNz(env, STATS_CATALOGUE),
         readWorld("NZ"),
         readSpace(),
         readQuakeStats(),
       ]);
       const nz = {
+        sources: Object.fromEntries([priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult].map((result, index) => [["prices", "quakes", "volcanoes", "notices", "stats", "world", "space", "quake_stats"][index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }])),
         site: "https://morningrows.com",
         country: "New Zealand",
         page: "/new-zealand",
         prices: priceResult.status === "fulfilled" ? priceResult.value : [],
         quakes: quakeResult.status === "fulfilled" ? quakeResult.value : [],
-        volcanoes: volcanoResult.status === "fulfilled" ? volcanoResult.value.features.map((feature) => ({ name: feature.properties.volcanoTitle, colour: feature.properties.acc, level: feature.properties.level })) : [],
-        notices: noticeResult.status === "fulfilled" ? noticeResult.value.feed.slice(0, 3).map((item) => ({ when: item.published, title: item.title })) : [],
+        volcanoes: volcanoResult.status === "fulfilled" ? volcanoResult.value : [],
+        notices: noticeResult.status === "fulfilled" ? noticeResult.value : [],
         quake_stats: quakeStatsResult.status === "fulfilled" ? quakeStatsResult.value : null,
-        stats: statsResult.status === "fulfilled" ? statsResult.value : { present: false, rows: [] },
+        stats: statsResult.status === "fulfilled" ? statsResult.value : { present: Boolean(env?.STATSNZ_KEY), status: "error", rows: [], ...describeError(statsResult.reason) },
         also: {
           world: worldResult.status === "fulfilled" ? worldResult.value : { rows: [] },
           space: spaceResult.status === "fulfilled" ? spaceResult.value : {},
@@ -1493,7 +1350,7 @@ export default {
     if (nations[nationKey]) {
       const [name, slug, peoplePath, jobPath, holidayDivision] = nations[nationKey];
       const nation = await readOnsNation(name, slug, peoplePath, jobPath, holidayDivision).catch(() => ({ site: "https://morningrows.com", country: name, error: "not read" }));
-      if (slug === "wales") nation.projection = await readWalesPopulation();
+      if (slug === "wales") { const projection = await readSections({ projection: readWalesPopulation }); nation.projection = projection.projection; nation.sources = { ...nation.sources, ...projection.sources }; }
       if (url.pathname.endsWith(".json")) return held(request, json(nation));
       return held(request, new Response(simplePage(`Morning ${name}`, `<p>The file is <a href="/${slug}.json">${slug}.json</a>. UK-wide figures are on <a href="/united-kingdom">the United Kingdom desk</a>.</p><p>People ${nation.people ? nation.people.value : ""}. Unemployment ${nation.job ? nation.job.value : "not read on this desk"}.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
     }
@@ -1507,6 +1364,8 @@ export default {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
     const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle()]);
+    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba"];
+    const sources = Object.fromEntries(settled.map((result, index) => [sourceNames[index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }]));
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
     const quakes = quakeResult.status === "fulfilled" ? quakeResult.value : [];
@@ -1531,8 +1390,21 @@ export default {
     const money = settled[18].status === "fulfilled" ? settled[18].value : null;
     const credit = settled[19].status === "fulfilled" ? settled[19].value : null;
     const rba = settled[20].status === "fulfilled" ? settled[20].value : null;
-    const body = { site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital: HOSPITAL, catalog: CATALOG.sets, also };
+    sources.hospital = { status: "degraded", error: HOSPITAL.error, reference_period: HOSPITAL.year };
+    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital: HOSPITAL, catalog: CATALOG.sets, also };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }));
   },
 };
+
+export default {
+  async fetch(request, env = {}) {
+    const response = await worker.fetch(request, env);
+    const headers = new Headers(response.headers);
+    headers.set("x-source-revision", BUILD_REVISION);
+    if (env.WORKER_VERSION?.id) headers.set("x-worker-version", env.WORKER_VERSION.id);
+    return new Response(response.body, { status: response.status, headers });
+  },
+};
+
+export { readOnsNation, readUnitedKingdom, readEngland, readCanada, readNzPrices, hasFailures };

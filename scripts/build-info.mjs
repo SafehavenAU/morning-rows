@@ -1,0 +1,11 @@
+import { execFileSync } from 'node:child_process';
+import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+const revision = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+const dirty = Boolean(execFileSync('git', ['status', '--porcelain'], { encoding: 'utf8' }).trim());
+const files = [...new Set(execFileSync('git', ['ls-files', '-co', '--exclude-standard', '-z'], { encoding: 'utf8' }).split('\0').filter(Boolean))].sort();
+const hash = createHash('sha256');
+for (const file of files) if (existsSync(file)) hash.update(file + '\0').update(readFileSync(file)).update('\0');
+const fingerprint = hash.digest('hex').slice(0, 16);
+mkdirSync('.generated', { recursive: true });
+writeFileSync('.generated/build-info.js', `export const BUILD_REVISION = ${JSON.stringify(revision)};\nexport const BUILD_DIRTY = ${dirty};\nexport const BUILD_FINGERPRINT = ${JSON.stringify(fingerprint)};\nexport const BUILD_CACHE_KEY = ${JSON.stringify(revision + '-' + fingerprint)};\n`);
