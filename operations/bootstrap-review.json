@@ -1,0 +1,12 @@
+{
+  "reviewed_at": "2026-10-17T23:00:00Z",
+  "failed_before_state_creation": [
+    {
+      "run_id": 39077226833,
+      "revision": "b766f1fbddb8c99c8d308e3ede152c0c4d755ba2",
+      "evidence": "https://github.com/SafehavenAU/morning-rows/actions/runs/39077226833",
+      "finding": "Guard rejected unrelated non-main invalid workflow history before monitor bootstrap command ran. Preserve/collect/ack steps skipped; no checkpoint artifact. Explicitly reviewed for one first-bootstrap retry. No acknowledged state ever existed remotely."
+    }
+  ],
+  "rule": "Never add a run that may have collected, acknowledged, or committed state. Artifact existence always forbids bootstrap regardless of this review."
+}

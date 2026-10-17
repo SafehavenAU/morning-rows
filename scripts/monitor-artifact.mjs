@@ -1,7 +1,7 @@
 // Public aggregate checkpoint transport. GH_TOKEN stays in the environment.
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {decodeCheckpoint} from '../lib/monitor-store.js';
 import {chooseCheckpoint,assertFirstBootstrap,CHECKPOINT_NAME} from '../lib/monitor-artifact.js';
@@ -18,7 +18,9 @@ if(mode==='--bootstrap-guard'){
  // Query workflow-specific history as well: unrelated runs must not crowd out
  // old monitor runs from the first page. A missing workflow is a setup error.
  const monitor=await api('actions/workflows/monitor.yml/runs?per_page=2');
- assertFirstBootstrap(artifacts,[...runs,...(monitor.workflow_runs||[])],process.env.GITHUB_RUN_ID);
+ const review=JSON.parse(await readFile(new URL('../operations/bootstrap-review.json',import.meta.url),'utf8'));
+ const reviewed=new Set(review.failed_before_state_creation.map(r=>r.run_id));
+ assertFirstBootstrap(artifacts,[...runs,...(monitor.workflow_runs||[])].filter(r=>!reviewed.has(r.id)),process.env.GITHUB_RUN_ID);
  console.log('Explicit first bootstrap permitted; no prior monitor history.');
 }else{
  const {artifact:latest,producer:run}=chooseCheckpoint(artifacts,runs,process.env.GITHUB_RUN_ID);
