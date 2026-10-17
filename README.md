@@ -1,9 +1,5 @@
 # Morning Rows
 
-Public data pages for morningrows.com. This repository is only the website worker.
+Website worker for https://morningrows.com. Read [AGENTS.md](AGENTS.md) before changing anything.
 
-The land-lead system stays in SafehavenAU/ngin. Do not add keys to this repository. STATSNZ_KEY belongs in the Cloudflare worker secret.
-
-Deploy trigger for the connected Cloudflare project.
-
-Build trigger so the saved secret can be attached.
+This repository is only the public data desk. The land-lead system stays in SafehavenAU/ngin. Do not put API keys in this repository.
