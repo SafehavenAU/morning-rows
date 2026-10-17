@@ -4,13 +4,13 @@ Reviewed 17 October 2026, Australia/Brisbane. Follow `AGENTS.md` for source elig
 
 ## Implementation status — 17 October 2026
 
-The starting-point review below is historical. The local implementation now includes Stats NZ series selection and parsing repairs, per-source failure isolation, bounded requests, 23 deterministic tests, pinned dependencies and lockfile, GitHub checks, production content checks, sampled observability, and release identity/cache fingerprints. All 23 Stats NZ observations and the NZ price fallback passed Cloudflare preview checks. ABS and ONS refusal responses remain visible source failures.
+The starting-point review below is historical. The recovery implementation includes Stats NZ dimension selection and parsing, per-source isolation, bounded requests, 32 deterministic tests, reproducible dependencies, CI and production smoke checks, observability, release identity and cache fingerprints. All 23 Stats NZ rows passed Cloudflare preview. ABS and ONS refusals remain explicit errors.
 
-Three new feed integrations have passed preview checks; see [SOURCE_PASSES.md](SOURCE_PASSES.md) for the full eight-desk pass and exact additions. The legacy static hospital table is now explicitly marked unverified because its original source URL is missing. Other inherited readers still need a broader measure-by-measure provenance and selection audit; a passing HTTP request is not that audit.
+The initial discovery batch adds FSA counts, Scottish bill stages and Canadian recalls. The second batch replaces the static hospital table with verified request-time AIHW data, repairs StatsWales selection/pagination, and adds national NISRA aggregates. The legislation feed remains unavailable from Workers and is logged. See [SOURCE_PASSES.md](SOURCE_PASSES.md) for source evidence and the unfinished second pass.
 
-**Release gate remains open:** Cloudflare Workers Builds watches main, but the current OAuth grant receives HTTP 403 from its settings API. The user has been asked to save Build command `npm run check` and Deploy command `npx wrangler deploy --config wrangler.toml`, removing secret-write steps, or choose direct deployment. Until resolved, do not push main or claim production is repaired. No runtime secret has been changed.
+The current OAuth grant cannot inspect Workers Builds settings (HTTP 403). Release proceeds through the authenticated Wrangler CLI, preserving the existing runtime secret. Main-branch pushes remain on hold until the automatic commands are verified as `npm run check` and `npx wrangler deploy --config wrangler.toml` without secret-writing steps. This is a pipeline-settings limitation, not a restriction on the separately authenticated Worker deployment operation.
 
-Stages 1–2 are implemented and preview-tested, with the inherited-data audit limitations above. Stage 3 is implemented locally but awaits deployment verification. The first Stage 4 batch is prepared, not released; the required empty pass has not occurred. Stage 5 and a daily monitor remain pending. CI runs on pushes/PRs once this change reaches GitHub; it is not already active on the remote repository.
+Stages 1–2 are implemented and preview-tested, with a broader inherited-series audit still open. Stage 3 awaits production verification of the direct release. Stage 4 has not reached a completed empty pass. Categories and a daily monitor remain pending. Prepared GitHub CI is not active remotely until these commits are pushed.
 
 ## Verified starting point
 
@@ -108,4 +108,4 @@ The development loop advances through small verified changes; it is separate fro
 
 Once implemented, run deterministic checks on every change and bounded production checks after deployment. A daily content monitor should check source health and publication cadence, notifying only on meaningful new failures, recovery, or required action. Do not label monthly or annual data stale merely because it did not change today. A recurring monitor or autonomous build job has not been created by this plan.
 
-The immediate next action is to resolve the deployment-command gate, release this prepared batch, and run the production content check. Then continue the logged discovery queue and provenance audit. A refusal from one publisher never stops the wider discovery pass.
+The immediate next action is to release this verified batch through Wrangler and run the production content check. Then continue the logged discovery queue and provenance audit. A refusal from one publisher never stops the wider discovery pass.

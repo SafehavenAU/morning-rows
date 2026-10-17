@@ -1,29 +1,8 @@
 import { BUILD_REVISION, BUILD_CACHE_KEY, BUILD_DIRTY, BUILD_FINGERPRINT } from './.generated/build-info.js';
 import { fetchOfficial, readSections, describeError, SourceError, mapLimit, hasFailures } from './lib/sources.js';
 import { readStatsNz } from './lib/stats-nz.js';
+import { readHospital, readWalesProjection, readNiChildhoodBmi, readUkActs } from './lib/public-data.js';
 import { readFoodAuthorities, readScottishBills, readCanadianRecalls } from './lib/discovery-feeds.js';
-
-const HOSPITAL = {
-  status: "degraded",
-  error: "Legacy static table: the repository does not record its publisher URL, so these figures and the claimed upload date have not been independently reverified.",
-  geography: "Australian states and territories",
-  unit: "percent of emergency department presentations seen within the recommended triage time",
-  source: "Publisher not recorded in the original table",
-  licence: "Original table labelled CC BY 3.0; attribution and source require verification",
-  refresh: "Static table embedded in source; not fetched on request",
-  year: "2024-25",
-  uploaded: "2026-08-19",
-  states: [
-    { code: "NSW", name: "New South Wales", Resuscitation: 100, Emergency: 76, Urgent: 68, "Semi-urgent": 74, "Non-urgent": 90 },
-    { code: "Vic", name: "Victoria", Resuscitation: 100, Emergency: 64, Urgent: 69, "Semi-urgent": 76, "Non-urgent": 91 },
-    { code: "Qld", name: "Queensland", Resuscitation: 100, Emergency: 73, Urgent: 67, "Semi-urgent": 78, "Non-urgent": 93 },
-    { code: "WA", name: "Western Australia", Resuscitation: 100, Emergency: 67, Urgent: 29, "Semi-urgent": 47, "Non-urgent": 80 },
-    { code: "SA", name: "South Australia", Resuscitation: 99, Emergency: 50, Urgent: 44, "Semi-urgent": 61, "Non-urgent": 84 },
-    { code: "Tas", name: "Tasmania", Resuscitation: 100, Emergency: 47, Urgent: 38, "Semi-urgent": 52, "Non-urgent": 74 },
-    { code: "ACT", name: "Australian Capital Territory", Resuscitation: 99, Emergency: 64, Urgent: 51, "Semi-urgent": 69, "Non-urgent": 89 },
-    { code: "NT", name: "Northern Territory", Resuscitation: 98, Emergency: 49, Urgent: 40, "Semi-urgent": 48, "Non-urgent": 82 },
-  ],
-};
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -249,7 +228,8 @@ async function readService() {
 function page(data) {
   const cards = data.grid.map((row) => `<article><h3>${row.region}</h3><p class="price">$${row.price.toFixed(2)}</p><p>per megawatt hour</p><p>${row.demand_mw.toLocaleString("en-AU")} MW demand</p><p>${row.status}</p></article>`).join("");
   const heads = TRIAGE.map((name) => `<th>${name}</th>`).join("");
-  const hospital = HOSPITAL.states.map((row) => `<tr><td>${row.name}</td>${TRIAGE.map((name) => `<td>${row[name]}%</td>`).join("")}</tr>`).join("");
+  const hospitalData = data.hospital || { states: [], year: "unavailable" };
+  const hospital = hospitalData.states.map((row) => `<tr><td>${row.name}</td>${TRIAGE.map((name) => `<td>${row[name] == null ? "unavailable" : row[name] + "%"}</td>`).join("")}</tr>`).join("");
   const quakes = data.quakes.map((row) => `<tr><td>${row.when}</td><td>${row.place}</td><td>${row.magnitude} ${row.magnitude_type}</td><td>${row.depth_km} km</td></tr>`).join("");
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Morning Australia</title><style>
     body{margin:0;font-family:Segoe UI,sans-serif;background:#f4f6f8;color:#13213a}
@@ -262,7 +242,7 @@ function page(data) {
     th{background:#dbe7f6} .note{background:#f8f1e3;border:1px solid #d5dee8;border-radius:.5rem;padding:.75rem}
   </style></head><body><main>
     <p>For agents</p><h1>Morning Australia</h1>
-    <p>Combined public records. Not the land-lead list. The grid and the ground are read on each request. The hospital year is ${HOSPITAL.year}.</p>
+    <p>Combined public records. Not the land-lead list. The grid and the ground are read on each request. The hospital year is ${hospitalData.year}.</p>
     <p><a href="/">Countries</a> · <a href="/new-zealand">New Zealand</a> · <a href="/morning.json">morning.json</a> · <a href="/llms.txt">llms.txt</a></p>
     <h2>Come back when this changes</h2>
     <p>The grid moves about every five minutes. The ground moves when a new Australian earthquake is published. The job is monthly. Prices are quarterly. The hospital year does not move until the next official upload.</p>
@@ -289,7 +269,7 @@ function page(data) {
     <h2>The service running</h2><p>${data.service ? data.service.count : 0} South East Queensland alerts. Not the whole country. Creative Commons Attribution 4.0.</p>
     <ul>${((data.service && data.service.headlines) || []).map((line) => `<li>${String(line).replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">")}</li>`).join("")}</ul>
     <h2>The grid</h2><p>Read ${data.read_at}. The reuse terms on the AEMO feed were not read.</p><div class="grid">${cards}</div>
-    <h2>The hospital</h2><p>Share seen within the recommended time. Legacy static table for ${HOSPITAL.year}. ${escapeHtml(HOSPITAL.error)}</p>
+    <h2>The hospital</h2><p>Share seen within the recommended time. AIHW MyHospitals API, ${hospitalData.year}. CC BY 4.0. ${escapeHtml(hospitalData.error || "")}</p>
     <table><thead><tr><th>State</th>${heads}</tr></thead><tbody>${hospital}</tbody></table>
     <h2>The ground</h2><p>${data.quakes.length} earthquakes marked as in Australia. Creative Commons Attribution 4.0.</p>
     <table><thead><tr><th>When, UTC</th><th>Place</th><th>Magnitude</th><th>Depth</th></tr></thead><tbody>${quakes}</tbody></table>
@@ -331,7 +311,7 @@ const LLMS = `# Morning Rows
 ## Sets
 
 - [The grid](/morning.json): wholesale price and demand for five regions. A new interval about every five minutes. Reuse terms were not read.
-- [The hospital](/morning.json): legacy static emergency-department table for 2024-25; publisher attribution and values await verification. Read its error field before use.
+- [The hospital](/morning.json): AIHW emergency-department patients seen on time, by state and triage category. Latest published financial year; CC BY 4.0.
 - [The job](/morning.json): unemployment rate by state, monthly. Creative Commons Attribution 4.0.
 - [The price of living](/morning.json): consumer prices for the eight capitals. Creative Commons Attribution 4.0.
 - [The approval](/morning.json): residential dwelling units approved, by state. Creative Commons Attribution 4.0.
@@ -357,7 +337,7 @@ const CATALOG = {
   index: "/llms.txt",
   sets: [
     { name: "The grid", changes: "about every five minutes", licence: "AEMO public summary. Reuse terms were not read.", contains: "wholesale price and demand for five regions" },
-    { name: "The hospital", changes: "static legacy table; not fetched on request", licence: HOSPITAL.licence, contains: "emergency patients seen on time, by state, 2024-25; source and values await verification" },
+    { name: "The hospital", changes: "annually; fetched from AIHW on request with a short cache", licence: "CC BY 4.0", contains: "emergency patients seen on time, by state and triage category; latest published financial year" },
     { name: "The job", changes: "monthly", licence: "CC BY 4.0", contains: "unemployment rate by state. Territory rows are original, not seasonally adjusted." },
     { name: "The price of living", changes: "quarterly", licence: "CC BY 4.0", contains: "all groups consumer price index for the eight capitals" },
     { name: "The approval", changes: "monthly", licence: "CC BY 4.0", contains: "residential dwelling units approved, by state" },
@@ -833,6 +813,7 @@ async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
     next_holiday: () => nextHoliday(holidayDivision),
     food_establishments: () => readFoodAuthorities(name),
     ...(slug === "scotland" ? { bill_stages: readScottishBills } : {}),
+    ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi } : {}),
   });
   return { site: "https://morningrows.com", country: name, page: `/${slug}`, ...data };
 }
@@ -847,7 +828,7 @@ async function readUnitedKingdom() {
     trade: ["/economy/nationalaccounts/balanceofpayments/timeseries/ikbj/pnbp", "GBP million"],
   };
   const tasks = Object.fromEntries(Object.entries(series).map(([name, [path, unit]]) => [name, async () => ({ ...await ons(path), unit, geography: "United Kingdom", source: "Office for National Statistics", licence: "Open Government Licence" })]));
-  const data = await readSections({ ...tasks, bills: readBills, laws: readUkLaws, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
+  const data = await readSections({ ...tasks, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
   return { site: "https://morningrows.com", country: "United Kingdom", page: "/united-kingdom", ...data, nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"] };
 }
 
@@ -1006,17 +987,6 @@ async function readAuLaws() {
   }
 }
 
-async function readUkLaws() {
-  try {
-    const response = await fetchOfficial("https://www.legislation.gov.uk/new/data.feed");
-    if (!response.ok) return { error: response.status };
-    const text = await response.text();
-    return { source: "legislation.gov.uk", rows: [...text.matchAll(/<title[^>]*>([^<]+)<\/title>/g)].slice(1, 9).map((match) => match[1]) };
-  } catch (error) {
-    return { ...describeError(error) };
-  }
-}
-
 async function readRoads() {
   try {
     const response = await fetchOfficial("https://api.tfl.gov.uk/Road");
@@ -1078,18 +1048,6 @@ async function readLevels() {
     if (!response.ok) return [];
     const body = await response.json();
     return (body.items || []).map((item) => ({ label: item.label, when: item.latestReading && item.latestReading.dateTime, metres: item.latestReading && item.latestReading.value }));
-  } catch (error) {
-    throw error;
-  }
-}
-
-async function readWalesPopulation() {
-  try {
-    const response = await fetchOfficial("https://api.stats.gov.wales/v2/20b6276b-92f7-48fd-806e-69c35b54d9e0/data?format=json");
-    if (!response.ok) return null;
-    const rows = await response.json();
-    const row = rows.find((item) => item.Age === "All Ages" && item.Sex === "Persons") || rows[0];
-    return { source: "StatsWales", period: row.Year, value: row["Data values"], area: row.Area, meaning: "national population projection" };
   } catch (error) {
     throw error;
   }
@@ -1274,6 +1232,7 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "United Kingdom", source: "The National Archives legislation Atom feeds from Cloudflare Workers", status: 404, checked: "2026-10-17", url: "https://www.legislation.gov.uk/new/ukpga/data.feed", note: "The documented UK Public General Acts feed returns Atom from the development workspace but HTTP 404 from Workers, including with the Atom Accept header. Logged as a runtime-specific failure; no feed titles are invented." },
         { country: "Australia", source: "Australian Financial Security Authority quarterly insolvency statistics discovery page", status: 503, checked: "2026-10-17", url: "https://www.afsa.gov.au/about-us/statistics-and-insights/headline-statistics/quarterly-personal-insolvency-statistics", note: "The discovery page returned HTTP 503 from the workspace. An official CSV link was not resolved; this does not establish that its underlying dataset is unavailable." },
         { country: "Australia", source: "ABS SDMX API from Cloudflare Workers", status: 403, checked: "2026-10-17", note: "CloudFront refuses Worker requests. The same API responds from the development workspace. No workaround or stored figures substituted." },
         { country: "United Kingdom, England, Scotland, Wales, Northern Ireland", source: "ONS CSV and timeseries API from Cloudflare Workers", status: 403, checked: "2026-10-17", note: "Publisher firewall refuses Worker requests. Other desk sources remain independent." },
@@ -1350,7 +1309,7 @@ const worker = {
     if (nations[nationKey]) {
       const [name, slug, peoplePath, jobPath, holidayDivision] = nations[nationKey];
       const nation = await readOnsNation(name, slug, peoplePath, jobPath, holidayDivision).catch(() => ({ site: "https://morningrows.com", country: name, error: "not read" }));
-      if (slug === "wales") { const projection = await readSections({ projection: readWalesPopulation }); nation.projection = projection.projection; nation.sources = { ...nation.sources, ...projection.sources }; }
+      if (slug === "wales") { const projection = await readSections({ projection: readWalesProjection }); nation.projection = projection.projection; nation.sources = { ...nation.sources, ...projection.sources }; }
       if (url.pathname.endsWith(".json")) return held(request, json(nation));
       return held(request, new Response(simplePage(`Morning ${name}`, `<p>The file is <a href="/${slug}.json">${slug}.json</a>. UK-wide figures are on <a href="/united-kingdom">the United Kingdom desk</a>.</p><p>People ${nation.people ? nation.people.value : ""}. Unemployment ${nation.job ? nation.job.value : "not read on this desk"}.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
     }
@@ -1363,8 +1322,8 @@ const worker = {
     if (url.pathname !== "/australia" && url.pathname !== "/australia.json" && url.pathname !== "/morning.json") {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
-    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle()]);
-    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba"];
+    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle(), readHospital()]);
+    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba", "hospital"];
     const sources = Object.fromEntries(settled.map((result, index) => [sourceNames[index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }]));
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
@@ -1390,8 +1349,8 @@ const worker = {
     const money = settled[18].status === "fulfilled" ? settled[18].value : null;
     const credit = settled[19].status === "fulfilled" ? settled[19].value : null;
     const rba = settled[20].status === "fulfilled" ? settled[20].value : null;
-    sources.hospital = { status: "degraded", error: HOSPITAL.error, reference_period: HOSPITAL.year };
-    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital: HOSPITAL, catalog: CATALOG.sets, also };
+    const hospital = settled[21].status === "fulfilled" ? settled[21].value : { states: [], year: null, ...describeError(settled[21].reason) };
+    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, catalog: CATALOG.sets, also };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }));
   },
