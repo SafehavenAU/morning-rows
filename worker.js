@@ -1,3 +1,4 @@
+import { readPharmacies } from './lib/pharmacies.js';
 import { BUILD_REVISION, BUILD_CACHE_KEY, BUILD_DIRTY, BUILD_FINGERPRINT } from './.generated/build-info.js';
 import { fetchOfficial, readSections, describeError, SourceError, mapLimit, hasFailures } from './lib/sources.js';
 import { readStatsNz } from './lib/stats-nz.js';
@@ -840,6 +841,7 @@ async function readEngland() {
   const data = await readSections({
     food_establishments: () => readFoodAuthorities("England"),
     pupil_absence: readPupilAbsence,
+    pharmacies: readPharmacies,
     grid: async () => {
       for (let back = 0; back < 3; back++) {
         const day = new Date(Date.now() - back * 86400000).toISOString().slice(0, 10);
@@ -1214,6 +1216,7 @@ const worker = {
       note: "needs_a_key is collected for later and is not called. blocked is a feed that refused. Keep looking for another open feed from the same publisher.",
       configured: [{ country: "New Zealand", source: "Stats NZ", binding: "STATSNZ_KEY", status: "Existing integration; see new-zealand.json for live health" }],
       needs_a_key: [
+        { country: "Scotland", source: "Traffic Scotland DATEX II and live camera feeds", would_unlock: "Trunk-road traffic and travel feeds; developer registration and approval are required. Access credentials must be obtained manually.", url: "https://www.traffic.gov.scot/traffic-scotland-developer-hub" },
         { country: "New Zealand", source: "Ministry for the Environment Koordinates API", would_unlock: "Environmental geospatial datasets via MfE Data Service APIs; downloadable public files may have separate access", checked: "2026-10-17", evidence: "https://data.mfe.govt.nz/terms-of-use/" },
         { country: "New Zealand", source: "Auckland Transport", would_unlock: "Registered transport APIs, including real-time service data", checked: "2026-10-17", evidence: "https://dev-portal.at.govt.nz/" },
         { country: "Wales", source: "Natural Resources Wales", would_unlock: "Flood warnings and rainfall, river and sea-level API data", checked: "2026-10-17", evidence: "https://api-portal.naturalresources.wales/" },
@@ -1237,6 +1240,9 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "England", source: "NHSBSA Prescription Cost Analysis SQL aggregate", status: 500, note: "The no-key monthly SQL aggregate works in the workspace but returns an internal-server-error envelope from Cloudflare preview using GET and POST. Pharmacy aggregates use a separate working datastore reader.", url: "https://opendata.nhsbsa.net/dataset/prescription-cost-analysis-pca-monthly-data" },
+        { country: "New Zealand", source: "Ministry of Transport network-performance discovery page", status: 200, note: "The page returned an Incapsula HTML challenge in the workspace; no CSV observations were validated. Other ministry downloads remain candidates.", url: "https://www.transport.govt.nz/area-of-interest/strategy-and-direction/transport-network-performance" },
+        { country: "Northern Ireland", source: "OpenDataNI traffic-count catalogue page", status: 403, note: "The admin.opendatani.gov.uk traffic-count dataset page refused the workspace request. DfI direct publications remain candidates.", url: "https://admin.opendatani.gov.uk/dataset/northern-ireland-traffic-count-data" },
         { country: "Canada", source: "Statistics Canada WDS temporary outage", status: 406, checked: "2026-10-17", url: "https://www150.statcan.gc.ca/t1/wds/rest/getChangedSeriesList", note: "New outage verified independently from the workspace: JSON requests return 406; ordinary HTML requests display Statistics Canada website currently unavailable. Five existing sections retain explicit errors while other Canadian sources continue. Keep readers enabled for recovery." },
         { country: "Scotland", source: "NRS weekly deaths CSV from Cloudflare Workers", status: 403, checked: "2026-10-17", url: "https://data.gov.scot/dataset/weekly_deaths", note: "Official CSV and parser work in the workspace; production returns 403 even with text/csv Accept. Candidate reader retained for future validation, but not enabled on the desk." },
         { country: "England", source: "UKHSA influenza test-positivity API from Cloudflare Workers", status: 403, checked: "2026-10-17", url: "https://ukhsa-dashboard.data.gov.uk/access-our-data/getting-started", note: "National test-positivity API works without authentication in the workspace but returns 403 from Workers, including application/json Accept. Candidate reader is not enabled on the desk." },

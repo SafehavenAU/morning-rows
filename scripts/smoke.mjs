@@ -59,6 +59,10 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     const n=d.childhood_bmi;
     if(n?.rows?.length!==4||n.rows.some(r=>r.status!=='ok'||!Number.isFinite(r.value)||r.geography!=='Northern Ireland'||r.sex!=='All Persons'||!/^\d{4}\/\d{2}$/.test(r.period||'')||r.period!==n.period||r.unit!=='percent'))throw Error('NISRA requires four national all-persons academic-year aggregates');
    }
+   if(process.env.CHECK_PHARMACY_ADDITION==='1' && path==='/england.json') {
+    const p=d.pharmacies;
+    if(p?.rows?.length!==9||p.geography!=='England'||!/^\d{4}-\d{2}$/.test(p.period||'')||p.rows.some(r=>!Number.isSafeInteger(r.value)||r.geography!=='England'||r.period!==p.period||r.unit!=='pharmacies'))throw Error('Nine NHSBSA national pharmacy observations missing');
+   }
    if(process.env.CHECK_ASSEMBLY_ADDITION==='1') {
     if(path==='/northern-ireland.json'&&(!Number.isSafeInteger(d.assembly_divisions?.value)||d.assembly_divisions.value<0||!/^\d{4}-\d{2}$/.test(d.assembly_divisions.period||'')))throw Error('NI Assembly monthly aggregate missing');
    }

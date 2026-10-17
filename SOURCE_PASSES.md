@@ -1,5 +1,24 @@
 # Official-source discovery passes
 
+## Pass 2026-10-17-05 — new publishers and pre-release edge checks
+
+This pass considered all eight desks. Discovery remains open; an unsuccessful candidate does not imply all publisher data are blocked. A new authenticated remote-dev checker (`scripts/remote-check.mjs`) uses Wrangler's preview event and the workspace proxy without changing production routes. Ephemeral preview credentials stay in memory/stdin; saved reports contain public responses only. Recheck its unstable API when upgrading pinned Wrangler 4.151.1.
+
+| Desk | Evidence and outcome |
+| --- | --- |
+| Australia | [Australian Antarctic Data Centre AWS](https://data.aad.gov.au/aws) and [metadata](https://data.aad.gov.au/metadata/records/antarctic_aws_raw): public station downloads identified, but endpoint and station-specific geography/licence selection remain unfinished. Do not describe Antarctic measurements as mainland Australia. |
+| New Zealand | [Ministry of Transport network performance](https://www.transport.govt.nz/area-of-interest/strategy-and-direction/transport-network-performance): discovery page returned an Incapsula challenge. Logged only that page. Official fleet CSVs and NZTA daily traffic counts remain candidates. |
+| Canada | [Transport Canada Vehicle Recalls Database](https://open.canada.ca/data/en/dataset/1ec92326-47ef-4110-b7ca-959fab03f96d), Open Government Licence–Canada: the no-key API works on Cloudflare. `/recall/year-range/2026-2026?format=json` returned 25 model records. The year filter is **vehicle model year**, not recall year. Pagination/completeness and ordering are not yet established, so no misleading annual recall total was published. Documentation DOCX download timed out. |
+| United Kingdom | [Electoral Commission data download](https://www.electoralcommission.org.uk/media/8355) resolves to a 2016 Scottish Parliament ZIP, not current UK-wide results. No incorrect UK series added. Locate a UK-wide administrative aggregate and verify terms next. |
+| England | [NHSBSA pharmacy openings and closures](https://opendata.nhsbsa.net/dataset/pharmacy-openings-and-closures), OGL v3: national monthly stock/flow reader added, resolving latest release metadata and checking complete response, exact month-end, missing values and stock/flow reconciliation. Latest September 2026 has 10,402 total pharmacies, including 472 distance sellers. Nine measures; no pharmacy/patient/person records. Reuse terms explicitly allow free attributed use; contact suggestions do not override that licence, and no publisher was contacted. Separately, PCA monthly SQL totals work in the workspace but return HTTP 500 from Cloudflare with GET and POST; logged specifically and not enabled. |
+| Scotland | [Traffic Scotland developer hub](https://www.traffic.gov.scot/traffic-scotland-developer-hub): DATEX II and camera feeds require registration and approval. Added to the manual-credentials list without registering or calling them. Open annual Transport Scotland traffic tables remain candidates. |
+| Wales | [Public Health Wales PHOF data](https://phw.nhs.wales/data/public-health-outcomes-framework-reporting-tool-data/): September 2026 complete Excel workbook located. National dimension, terms and bounded workbook reader remain unvalidated. No invented API block or stale label. |
+| Northern Ireland | [OpenDataNI traffic counts](https://admin.opendatani.gov.uk/dataset/northern-ireland-traffic-count-data) returned 403; narrowly logged. [DfI/NISRA road network report 2024–25](https://datavis.nisra.gov.uk/infrastructure/northern-ireland-road-network-and-condition-statistics-2425.html) has embedded CSV download links; direct dataset discovery and vintage checks remain queued. |
+
+Validation: 54 deterministic tests and Wrangler dry-run pass. The pharmacy reader passed as an isolated Cloudflare preview and inside the complete England desk. One intermediate preview returned NHSBSA HTTP 500; later complete reads passed, so source failure isolation remains essential. The separate prescription-cost SQL reader is not enabled. No production release is asserted by a preview result.
+
+Next: finish the shortlisted direct files above before moving to new publishers. No category pages or exhaustion claim. Monthly/annual observations are dated by their publication period, not required to change daily.
+
 ## Pass 2026-10-17-04 — eight-desk continuation, released
 
 All eight desks were considered in this pass. This pass is non-empty: four tested candidates with one active no-key integration, one key requirement, seven narrowly scoped blocked/delayed entries (including a newly observed StatCan outage), and two reuse exclusions. It does not establish that discovery is exhausted. No category pages, registrations, publisher messages or secret changes.
