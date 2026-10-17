@@ -678,6 +678,40 @@ const STATS_CATALOGUE = [
   ["PRD_PRD_003", "Productivity Statistics - Growth accounting for output ANZSIC06"],
 ];
 
+function splitCsv(line) {
+  const cells = [];
+  let current = "";
+  let quoted = false;
+  for (let index = 0; index < line.length; index += 1) {
+    const char = line[index];
+    if (char === "\"") {
+      if (quoted && line[index + 1] === "\"") { current += "\""; index += 1; }
+      else quoted = !quoted;
+    } else if (char === "," && !quoted) {
+      cells.push(current);
+      current = "";
+    } else current += char;
+  }
+  cells.push(current);
+  return cells;
+}
+
+function statNzFromCsv(text) {
+  const lines = text.split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !line.startsWith("DATAFLOW") && !line.startsWith("STRUCTURE") && !line.startsWith("<?xml"));
+  const headerAt = lines.findIndex((line) => /OBS_VALUE|TIME_PERIOD/i.test(line));
+  if (headerAt < 0) return { period: "", value: "", header: (lines[0] || "").slice(0, 180) };
+  const header = splitCsv(lines[headerAt]);
+  const dataLine = lines[headerAt + 1] || "";
+  const value = splitCsv(dataLine);
+  const periodIndex = header.findIndex((column) => /TIME_PERIOD/i.test(column));
+  const observationIndex = header.findIndex((column) => /OBS_VALUE/i.test(column));
+  return {
+    period: periodIndex >= 0 ? (value[periodIndex] || "").replace(/^"|"$/g, "") : "",
+    value: observationIndex >= 0 ? (value[observationIndex] || "").replace(/^"|"$/g, "") : "",
+    header: periodIndex < 0 || observationIndex < 0 ? lines[headerAt].slice(0, 180) : undefined,
+  };
+}
+
 async function readStatsNz(env) {
   const key = env && env.STATSNZ_KEY;
   if (!key) return { present: false, rows: [] };
@@ -709,24 +743,11 @@ async function readStatsNz(env) {
   ];
   const rows = [];
   const settled = await Promise.all(tables.map(async ([label, id, name]) => {
-    const response = await fetch(`https://api.data.stats.govt.nz/rest/data/STATSNZ,${id},1.0/all?lastNObservations=1&dimensionAtObservation=AllDimensions&format=csvfilewithlabels`, { headers });
+    const response = await fetch(`https://api.data.stats.govt.nz/rest/data/STATSNZ,${id},1.0/all?lastNObservations=1&dimensionAtObservation=AllDimensions&format=csv`, { headers });
     if (!response.ok) return { label, name, id, error: response.status };
-    const text = await readSome(response, 200000);
-    const lines = text.split(/\r?\n/).filter((line) => line && !line.startsWith("STRUCTURE") && !line.startsWith("<?xml"));
-    const headerLine = lines.find((line) => /TIME_PERIOD|time period|OBS_VALUE|observation value/i.test(line)) || lines[0] || "";
-    const headerAt = lines.indexOf(headerLine);
-    const header = headerLine.split(",");
-    const value = (lines[headerAt + 1] || "").split(",");
-    const periodIndex = header.findIndex((column) => /TIME_PERIOD|time period/i.test(column));
-    const observationIndex = header.findIndex((column) => /OBS_VALUE|observation value/i.test(column));
-    return {
-      label,
-      name,
-      id,
-      period: periodIndex >= 0 ? value[periodIndex].replace(/^"|"$/g, "") : "",
-      value: observationIndex >= 0 ? value[observationIndex].replace(/^"|"$/g, "") : "",
-      header: periodIndex < 0 || observationIndex < 0 ? headerLine.slice(0, 180) : undefined,
-    };
+    const text = await readSome(response, 800000);
+    const point = statNzFromCsv(text);
+    return { label, name, id, period: point.period, value: point.value, header: point.header };
   }));
   rows.push(...settled);
   return {
