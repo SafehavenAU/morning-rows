@@ -23,6 +23,8 @@ Continued the new-publisher queue across eight desks. Three new desk sections an
 
 Neither annual nor monthly data is labelled stale simply because it did not change today. Three actual readers passed Cloudflare preview; fixtures contain only published aggregate values under the above OGL licences. Six new deterministic tests cover the definitions and failure boundaries. No credentials registered, publishers contacted, secrets written or main-branch pushes performed.
 
+Production validation: source `605d1dd`, Worker `8120bd02-5bda-469f-b63b-2307fe294f52`. All 68 tests and dry-run passed; three full-desk previews retained existing working sources. Both public domains match, source clean, 15 apex/14 www smoke checks pass with all gates. All prior validated contracts remain intact and the three new sections are successful. Intermittent TfL response changes remain within the known baseline. [Release evidence](verification/release-605d1dd.json).
+
 Next: validate the NI energy workbook and changed denominator; continue CMHC/StatCan bulk downloads, Scottish Funding Council aggregate tables, CQC national aggregates and direct AER datasets. Source discovery is unfinished; categories remain deferred.
 
 ## Pass 2026-10-17-06 — transport workbook additions
