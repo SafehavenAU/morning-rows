@@ -1,8 +1,8 @@
 # Official-source discovery passes
 
-## Pass 2026-10-17-03 — requested no-key additions, prepared locally
+## Pass 2026-10-17-03 — requested no-key additions, released
 
-This is a targeted continuation of the requested sources, not a completed empty discovery pass. Production deployment is pending Cloudflare authentication in the reloaded session.
+This is a targeted continuation of the requested sources, not a completed empty discovery pass. Cloudflare authentication was restored and source `e7d364c` was deployed as Worker `85da384d-4ab4-491a-a0d4-7d4d35c6cbb9` on both production domains.
 
 | Desk | Source and terms | Result |
 | --- | --- | --- |
@@ -13,7 +13,7 @@ This is a targeted continuation of the requested sources, not a completed empty 
 
 The RFS fire-danger XML was also inspected. It labels periods only as “today”/“tomorrow” without a publication timestamp in the body; it was not promoted into dated observations. Existing keyed candidates remain uncalled. Existing working integrations are untouched; adding these sources does not resolve ABS/ONS or legislation restrictions.
 
-Validation: 41 deterministic tests passed, including suppression versus zero, incomplete/duplicate rows, exact geography and dates, malformed RSS, delayed snapshots, and source failure isolation. Wrangler dry-run passed. A local workerd harness executed all three actual readers against official endpoints using curl through the inherited proxy, with all three returning HTTP 200 and the expected data; RFS correctly retained its delayed status. This is not edge-preview or production verification. Release smoke checks can require all three new sections with `CHECK_OPEN_ADDITIONS=1`.
+Validation: 41 deterministic tests passed, including suppression versus zero, incomplete/duplicate rows, exact geography and dates, malformed RSS, delayed snapshots, and source failure isolation. Wrangler dry-run passed. A local workerd harness executed all three actual readers against official endpoints using curl through the inherited proxy, with all three returning HTTP 200 and the expected data; RFS correctly retained its delayed status. Subsequent remote-dev proxy transport failed, but production verification passed: all 15 smoke checks with `CHECK_OPEN_ADDITIONS=1`, plus content checks on all eight desks on both domains. All three additions return the expected observations; SEPA advanced to 06:00 UTC, while RFS correctly remains delayed. Stats NZ, AIHW, Wales and NISRA baseline contracts remain valid. See [release evidence](verification/release-e7d364c.json). No secret writes or repository pushes were performed.
 
 ## Pass 2026-10-17-01 — released and production-verified
 
