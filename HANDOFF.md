@@ -6,7 +6,7 @@ Read [AGENTS.md](AGENTS.md) first. This file is what has been built. It is not a
 
 ## Prepared pass 05 — pharmacy aggregates and edge verification
 
-Added `pharmacies` to England: nine NHSBSA national monthly stock/flow measures, dynamically selected latest release, OGL attribution, exact month-end dates and complete-response/reconciliation checks. September 2026: 10,402 total pharmacies, 9,930 excluding distance sellers and 472 distance sellers. All 54 tests and dry-run pass; isolated and full-desk remote previews passed. The new `scripts/remote-check.mjs` solves the workspace proxy problem without deploying candidate feeds first. Pass 05 in SOURCE_PASSES.md records eight-desk research, Traffic Scotland manual-access credentials and three narrow endpoint blocks. Release evidence will record the production revision after deployment. Discovery is unfinished.
+Added `pharmacies` to England: nine NHSBSA national monthly stock/flow measures, dynamically selected latest release, OGL attribution, exact month-end dates and complete-response/reconciliation checks. September 2026: 10,402 total pharmacies, 9,930 excluding distance sellers and 472 distance sellers. All 55 tests and dry-run pass; isolated and full-desk remote previews passed. The new `scripts/remote-check.mjs` solves the workspace proxy problem without deploying candidate feeds first. Pass 05 in SOURCE_PASSES.md records eight-desk research, Traffic Scotland manual-access credentials and three narrow endpoint blocks. Release evidence will record the production revision after deployment. Discovery is unfinished.
 
 ## Current production — NI Assembly and validation improvements, 17 October 2026
 

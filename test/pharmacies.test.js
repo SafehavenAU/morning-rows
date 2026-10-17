@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pharmacyResource, pharmacyObservations } from '../lib/pharmacies.js';
+import { pharmacyResource, pharmacyObservations, pharmacyCsv } from '../lib/pharmacies.js';
 const now = new Date('2026-10-17T00:00:00Z');
 const id = '2acd7cb9-7e15-40e0-bf36-593495a6e643';
-const metadata = () => ({ success: true, result: { license_id: 'OGL-UK-3.0', resources: [{ id, name: 'PHARMACY_OPENCLOSE_202609' }] } });
+const metadata = () => ({ success: true, result: { license_id: 'OGL-UK-3.0', resources: [{ id, url: `https://opendata.nhsbsa.net/dataset/pharmacies/resource/${id}/download/pharmacies.csv`, name: 'PHARMACY_OPENCLOSE_202609' }] } });
 const resource = () => pharmacyResource(metadata(), now);
 const body = () => ({ success: true, result: { resource_id: id, total: 1, records: [{ DATE: 20260930, TOTAL_PHARMACIES: 10402, TOTAL_PHARMACIES_EXCLUDING_DISTANCE_SELLERS: 9930, TOTAL_DISTANCE_SELLING_PHARMACIES: 472, TOTAL_PHARMACIES_EXCLUDING_DISTANCE_SELLERS_OPENED: 40, TOTAL_PHARMACIES_EXCLUDING_DISTANCE_SELLERS_CLOSED: 30, PHARMACIES_EXCLUDING_DISTANCE_SELLERS_NET_CHANGE: 10, DISTANCE_SELLERS_OPENED: 6, DISTANCE_SELLERS_CLOSED: 1, DISTANCE_SELLERS_NET_CHANGE: 5 }] } });
 const read = b => pharmacyObservations(b, resource(), now);
@@ -24,4 +24,13 @@ test('suppressed pharmacy counts cannot become zero; true zero and negative net 
 });
 test('pharmacy totals and flows must reconcile', () => {
  for(const field of ['TOTAL_PHARMACIES','DISTANCE_SELLERS_NET_CHANGE','PHARMACIES_EXCLUDING_DISTANCE_SELLERS_NET_CHANGE']){const b=body();b.result.records[0][field]++;assert.throws(()=>read(b));}
+});
+
+test('official CSV preserves zeros and rejects suppression, partial rows and untrusted links', () => {
+ const row = body().result.records[0], header = Object.keys(row), values = Object.values(row);
+ const csv = header.join(',')+'\n'+values.join(',')+'\n';
+ assert.equal(pharmacyCsv(csv,resource(),now).rows[0].value,10402);
+ assert.throws(()=>pharmacyCsv(csv.replace(',10402,',',*, '),resource(),now));
+ assert.throws(()=>pharmacyCsv(csv+'20260930,1\n',resource(),now));
+ const m=metadata();m.result.resources[0].url='https://example.com/file.csv';assert.throws(()=>pharmacyResource(m,now));
 });
