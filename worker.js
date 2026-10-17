@@ -4,6 +4,7 @@ import { readStatsNz } from './lib/stats-nz.js';
 import { readHospital, readWalesProjection, readNiChildhoodBmi, readUkActs } from './lib/public-data.js';
 import { readFoodAuthorities, readScottishBills, readCanadianRecalls } from './lib/discovery-feeds.js';
 import { readRfsIncidents, readPupilAbsence, readSepaRiverLevel } from './lib/open-observations.js';
+import { readWeeklyDeaths, readGiltsInIssue, readAssemblyDivisions, readInfluenzaPositivity } from './lib/national-observations.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -773,7 +774,7 @@ async function readCanada() {
     recalls: readCanadianRecalls, mortgages: readCanadaMortgages, posted_rates: readPostedRates, air: readAir, demand: readOntarioDemand, commodities: readCommodityIndex,
   });
   const also = await readSections({ world: () => readWorld("CA"), space: readSpace });
-  return { site: "https://morningrows.com", country: "Canada", page: "/canada", ...data, also };
+  return { site: "https://morningrows.com", country: "Canada", page: "/canada", ...data, also, omitted_sources: [{ source: "Elections Canada 2025 turnout CSV", reason: "Not republished: general terms require prior written permission for commercial redistribution; an unrestricted dataset-specific licence was not established.", terms_url: "https://www.elections.ca/content.aspx?section=pri&document=index&lang=e" }] };
 }
 
 async function readCanadaRate() {
@@ -814,8 +815,8 @@ async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
     job: async () => ({ ...await ons(jobPath), ...meta, unit: "percent" }),
     next_holiday: () => nextHoliday(holidayDivision),
     food_establishments: () => readFoodAuthorities(name),
-    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel } : {}),
-    ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi } : {}),
+    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel, weekly_deaths: readWeeklyDeaths } : {}),
+    ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi, assembly_divisions: readAssemblyDivisions } : {}),
   });
   return { site: "https://morningrows.com", country: name, page: `/${slug}`, ...data };
 }
@@ -830,7 +831,7 @@ async function readUnitedKingdom() {
     trade: ["/economy/nationalaccounts/balanceofpayments/timeseries/ikbj/pnbp", "GBP million"],
   };
   const tasks = Object.fromEntries(Object.entries(series).map(([name, [path, unit]]) => [name, async () => ({ ...await ons(path), unit, geography: "United Kingdom", source: "Office for National Statistics", licence: "Open Government Licence" })]));
-  const data = await readSections({ ...tasks, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
+  const data = await readSections({ ...tasks, gilts_in_issue: readGiltsInIssue, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
   return { site: "https://morningrows.com", country: "United Kingdom", page: "/united-kingdom", ...data, nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"] };
 }
 
@@ -839,6 +840,7 @@ async function readEngland() {
   const data = await readSections({
     food_establishments: () => readFoodAuthorities("England"),
     pupil_absence: readPupilAbsence,
+    influenza_positivity: readInfluenzaPositivity,
     grid: async () => {
       for (let back = 0; back < 3; back++) {
         const day = new Date(Date.now() - back * 86400000).toISOString().slice(0, 10);
@@ -1213,6 +1215,7 @@ const worker = {
       note: "needs_a_key is collected for later and is not called. blocked is a feed that refused. Keep looking for another open feed from the same publisher.",
       configured: [{ country: "New Zealand", source: "Stats NZ", binding: "STATSNZ_KEY", status: "Existing integration; see new-zealand.json for live health" }],
       needs_a_key: [
+        { country: "New Zealand", source: "Ministry for the Environment Koordinates API", would_unlock: "Environmental geospatial datasets via MfE Data Service APIs; downloadable public files may have separate access", checked: "2026-10-17", evidence: "https://data.mfe.govt.nz/terms-of-use/" },
         { country: "New Zealand", source: "Auckland Transport", would_unlock: "Registered transport APIs, including real-time service data", checked: "2026-10-17", evidence: "https://dev-portal.at.govt.nz/" },
         { country: "Wales", source: "Natural Resources Wales", would_unlock: "Flood warnings and rainfall, river and sea-level API data", checked: "2026-10-17", evidence: "https://api-portal.naturalresources.wales/" },
         { country: "United Kingdom", source: "HMRC Trade Tariff API Developer Hub", would_unlock: "Hub-managed API subscriptions; separately assess open Department for Business and Trade datasets", checked: "2026-10-17", evidence: "https://hub.trade-tariff.service.gov.uk/" },
@@ -1235,6 +1238,9 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "New Zealand", source: "MBIE weekly fuel price CSV", status: 200, checked: "2026-10-17", url: "https://www.mbie.govt.nz/assets/Data-Files/Energy/Weekly-fuel-price-monitoring/weekly-table.csv", note: "Workspace request returned an Incapsula HTML challenge instead of CSV. No price values copied or challenge bypass attempted." },
+        { country: "Wales", source: "Senedd meeting and calendar web service", status: 403, checked: "2026-10-17", url: "https://business.senedd.wales/mgwebservice.asmx", note: "Official open-data directory documents OGL XML/JSON service, but the service returned Forbidden from the workspace. No meeting data copied." },
+        { country: "England", source: "UKHSA influenza hospital and ICU/HDU admission-rate metrics", status: "delayed", checked: "2026-10-17", url: "https://ukhsa-dashboard.data.gov.uk/metrics-documentation/influenza-healthcare-hospital-admission-rate-by-week", note: "2026 national all-age/all-sex queries stop at 20 April 2026 despite active metric documentation. Not added as current hospital observations; the separate test-positivity series is available." },
         { country: "United Kingdom", source: "DBT UK trade quotas latest report", status: 404, checked: "2026-10-17", url: "https://data.api.trade.gov.uk/v1/datasets/uk-trade-quotas/versions/latest/reports/quotas-including-current-volumes/data?format=csv", note: "Catalogue and metadata respond, but latest v1.0.994 report returns NoSuchKey; filtered queries returned headers without observations. No empty quota series published." },
         { country: "United Kingdom", source: "The National Archives legislation Atom feeds from Cloudflare Workers", status: 404, checked: "2026-10-17", url: "https://www.legislation.gov.uk/new/ukpga/data.feed", note: "The documented UK Public General Acts feed returns Atom from the development workspace but HTTP 404 from Workers, including with the Atom Accept header. Logged as a runtime-specific failure; no feed titles are invented." },
         { country: "Australia", source: "Australian Financial Security Authority quarterly insolvency statistics discovery page", status: 503, checked: "2026-10-17", url: "https://www.afsa.gov.au/about-us/statistics-and-insights/headline-statistics/quarterly-personal-insolvency-statistics", note: "The discovery page returned HTTP 503 from the workspace. An official CSV link was not resolved; this does not establish that its underlying dataset is unavailable." },
@@ -1355,7 +1361,7 @@ const worker = {
     const rba = settled[20].status === "fulfilled" ? settled[20].value : null;
     const hospital = settled[21].status === "fulfilled" ? settled[21].value : { states: [], year: null, ...describeError(settled[21].reason) };
     const rfs_incidents = settled[22].status === "fulfilled" ? settled[22].value : null;
-    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, rfs_incidents, catalog: CATALOG.sets, also };
+    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, rfs_incidents, catalog: CATALOG.sets, also, omitted_sources: [{ source: "ARPANSA UV observations", reason: "Not republished: developer terms restrict redistribution and commercial use without written approval.", terms_url: "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation-monitoring/ultraviolet-radation-data-information" }] };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }));
   },

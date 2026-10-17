@@ -46,6 +46,25 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     const rows=d.stats?.rows||[];
     if(!d.stats?.present||rows.length!==23||rows.some(row=>row.status!=='ok'||!row.period||!Number.isFinite(row.value)||!row.geography||!row.unit))throw Error('Stats NZ requires 23 valid, described observations');
    }
+   if(path==='/australia.json') {
+    const h=d.hospital,triage=['Resuscitation','Emergency','Urgent','Semi-urgent','Non-urgent'];
+    const states=['NSW','Vic','Qld','WA','SA','Tas','ACT','NT'];
+    if(!h?.source_url?.startsWith('https://myhospitalsapi.aihw.gov.au/')||!/^\d{4}-\d{2}$/.test(h.year||'')||!h.unit||h.states?.length!==8||new Set(h.states.map(r=>r.code)).size!==8||h.states.some(r=>!states.includes(r.code)||triage.some(k=>!Number.isFinite(r[k])||r[k]<0||r[k]>100)))throw Error('AIHW requires eight jurisdictions and 40 numeric triage percentages; suppression is not zero');
+   }
+   if(path==='/wales.json') {
+    const p=d.projection;
+    if(!Number.isFinite(p?.value)||p.kind!=='projection'||p.geography!=='Wales'||p.period!==`Mid-year ${new Date().getUTCFullYear()}`||!p.meaning?.includes('all ages, persons')||!p.unit)throw Error('Wales requires a current-year all-persons/all-ages projection with explicit geography');
+   }
+   if(path==='/northern-ireland.json') {
+    const n=d.childhood_bmi;
+    if(n?.rows?.length!==4||n.rows.some(r=>r.status!=='ok'||!Number.isFinite(r.value)||r.geography!=='Northern Ireland'||r.sex!=='All Persons'||!/^\d{4}\/\d{2}$/.test(r.period||'')||r.period!==n.period||r.unit!=='percent'))throw Error('NISRA requires four national all-persons academic-year aggregates');
+   }
+   if(process.env.CHECK_NATIONAL_ADDITIONS==='1') {
+    if(path==='/united-kingdom.json'&&(!Number.isSafeInteger(d.gilts_in_issue?.value)||d.gilts_in_issue.value<=0||d.gilts_in_issue.by_type?.reduce((sum,r)=>sum+r.value,0)!==d.gilts_in_issue.value))throw Error('DMO gilt instrument counts missing');
+    if(path==='/england.json'&&(!Number.isFinite(d.influenza_positivity?.value)||d.influenza_positivity.geography!=='England'||!d.influenza_positivity.period))throw Error('UKHSA England test positivity missing');
+    if(path==='/scotland.json'&&(d.weekly_deaths?.rows?.length!==5||d.weekly_deaths.rows.some(r=>!Number.isSafeInteger(r.value)||r.geography!=='Scotland'||!/^\d{4}-W\d{2}$/.test(r.period))))throw Error('NRS national weekly deaths missing');
+    if(path==='/northern-ireland.json'&&(!Number.isSafeInteger(d.assembly_divisions?.value)||d.assembly_divisions.value<0||!/^\d{4}-\d{2}$/.test(d.assembly_divisions.period||'')))throw Error('NI Assembly monthly aggregate missing');
+   }
    // Enable for release validation of the prepared no-key additions. Existing
    // production health checks remain usable until this version is deployed.
    if(process.env.CHECK_OPEN_ADDITIONS==='1') {

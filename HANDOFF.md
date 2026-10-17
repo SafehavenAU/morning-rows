@@ -4,6 +4,10 @@ Date: 2026-10-17. Site: https://morningrows.com. Repository: SafehavenAU/morning
 
 Read [AGENTS.md](AGENTS.md) first. This file is what has been built. It is not a new set of rules.
 
+## Prepared national observations — 17 October 2026
+
+Four additional no-key readers in `lib/national-observations.js`: UK `gilts_in_issue`, England `influenza_positivity`, Scotland `weekly_deaths`, Northern Ireland `assembly_divisions`. Source methods, exact periods, licences, exclusions and the next candidate queue are documented in pass 04 of [SOURCE_PASSES.md](SOURCE_PASSES.md). All 49 tests and dry-run build pass; actual readers also pass inside local workerd using the inherited proxy. The smoke suite now permanently validates AIHW, Wales and NISRA contracts. Deployment and both-domain verification pending. No main push or secret changes.
+
 ## Released no-key additions — 17 October 2026
 
 `lib/open-observations.js` adds three isolated readers: Australia `rfs_incidents` (aggregate NSW RFS feed counts, including neighbouring ACT), England `pupil_absence` (five national full-academic-year measures), and Scotland `river_level` (one explicitly named Galashiels gauge, not a national aggregate). No new secrets or registrations are needed. RFS uses CC BY 4.0 with the requested attribution; DfE and SEPA use OGL v3.0. Bounded responses, explicit selections, dataset-version pinning and missing-value handling prevent partial or mislabelled observations. The RFS snapshot is flagged degraded when its publication timestamp is more than six hours old; annual education data has no daily freshness test.
