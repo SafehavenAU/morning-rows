@@ -74,3 +74,8 @@ test('daily fallback shadow requires seven real elapsed days and scheduled check
  assert.equal(shadowStatus(s,at(7*1440)).operating_window_pass,true);
  assert.equal(watchdog(s,at(7*1440+1561)),'monitor_overdue');
 });
+test('invalid non-main workflow installation does not masquerade as prior monitor state',async()=>{
+ const {assertFirstBootstrap}=await import('../lib/monitor-artifact.js');
+ assertFirstBootstrap([],[{id:1,path:'.github/workflows/monitor.yml',head_branch:'feature',event:'push'}],2);
+ assert.throws(()=>assertFirstBootstrap([],[{id:1,path:'.github/workflows/monitor.yml',head_branch:'main',event:'schedule'}],2),/history/);
+});
