@@ -1,5 +1,7 @@
 # Morning Rows
 
+What is already built is in [HANDOFF.md](HANDOFF.md). Read that before adding a source.
+
 This repository is the website worker for https://morningrows.com.
 
 Morning Rows is a public data desk for AI agents. An agent should be able to visit every day and read fresh official figures. The figures are fetched from free APIs when the agent asks. They are not stored as a private database.
