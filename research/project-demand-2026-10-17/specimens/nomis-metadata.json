@@ -1,0 +1,1302 @@
+{
+  "nomis-metadata": {
+    "keyfamily": [
+      {
+        "agencyid": "NOMIS",
+        "annotations": {
+          "annotation": [
+            {
+              "annotationtext": "Current (being actively updated)",
+              "annotationtitle": "Status"
+            },
+            {
+              "annotationtext": "Persons",
+              "annotationtitle": "Units"
+            },
+            {
+              "annotationtext": "cc",
+              "annotationtitle": "contenttype/sources"
+            },
+            {
+              "annotationtext": "previously unavailable",
+              "annotationtitle": "SubDescription"
+            },
+            {
+              "annotationtext": "ucjsa",
+              "annotationtitle": "Mnemonic"
+            },
+            {
+              "annotationtext": "2015-06-17 09:30:00",
+              "annotationtitle": "FirstReleased"
+            },
+            {
+              "annotationtext": "2026-09-15 07:00:00",
+              "annotationtitle": "LastUpdated"
+            },
+            {
+              "annotationtext": "2026-09-15 07:00:00",
+              "annotationtitle": "LastRevised"
+            }
+          ]
+        },
+        "id": "NM_162_1",
+        "components": {
+          "attribute": [
+            {
+              "assignmentstatus": "Mandatory",
+              "attachmentlevel": "Observation",
+              "codelist": "CL_OBS_STATUS",
+              "conceptref": "OBS_STATUS"
+            },
+            {
+              "assignmentstatus": "Conditional",
+              "attachmentlevel": "Observation",
+              "codelist": "CL_OBS_CONF",
+              "conceptref": "OBS_CONF"
+            },
+            {
+              "assignmentstatus": "Conditional",
+              "attachmentlevel": "Observation",
+              "codelist": "CL_OBS_ROUND",
+              "conceptref": "OBS_ROUND"
+            },
+            {
+              "assignmentstatus": "Conditional",
+              "attachmentlevel": "Series",
+              "codelist": "CL_UNIT_MULT",
+              "conceptref": "UNIT_MULTIPLIER"
+            },
+            {
+              "assignmentstatus": "Mandatory",
+              "attachmentlevel": "Series",
+              "codelist": "CL_TIME_FORMAT",
+              "conceptref": "TIME_FORMAT"
+            },
+            {
+              "assignmentstatus": "Mandatory",
+              "attachmentlevel": "Series",
+              "codelist": "CL_UNIT",
+              "conceptref": "UNIT"
+            },
+            {
+              "assignmentstatus": "Mandatory",
+              "attachmentlevel": "Series",
+              "conceptref": "TITLE_COMPL"
+            }
+          ],
+          "dimension": [
+            {
+              "codelist": "CL_162_1_GEOGRAPHY",
+              "conceptref": "GEOGRAPHY"
+            },
+            {
+              "codelist": "CL_162_1_GENDER",
+              "conceptref": "GENDER"
+            },
+            {
+              "codelist": "CL_162_1_AGE",
+              "conceptref": "AGE"
+            },
+            {
+              "codelist": "CL_162_1_MEASURE",
+              "conceptref": "MEASURE"
+            },
+            {
+              "codelist": "CL_162_1_MEASURES",
+              "conceptref": "MEASURES"
+            },
+            {
+              "codelist": "CL_162_1_FREQ",
+              "conceptref": "FREQ",
+              "isfrequencydimension": "true"
+            }
+          ],
+          "primarymeasure": {
+            "conceptref": "OBS_VALUE"
+          },
+          "timedimension": {
+            "codelist": "CL_162_1_TIME",
+            "conceptref": "TIME"
+          }
+        },
+        "description": {
+          "value": "The Claimant Count - the stock of Universal Credit and Job Seekers Allowance claimants broken down by sex, age and type of benefit being claimed. Claimant count proportions are available but not when the figures are not broken down by age.",
+          "lang": "en"
+        },
+        "name": {
+          "value": "Claimant count by sex and age",
+          "lang": "en"
+        },
+        "uri": "Nm-162d1",
+        "version": 1.0
+      }
+    ]
+  },
+  "nomis-geographies": {
+    "codelist": [
+      {
+        "agencyid": "NOMIS",
+        "id": "CL_162_1_GEOGRAPHY",
+        "code": [
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "countries",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 499,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": "K02000001",
+                  "annotationtitle": "GeogCode"
+                }
+              ]
+            },
+            "description": {
+              "value": "United Kingdom",
+              "lang": "en"
+            },
+            "value": 2092957697
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "countries",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 499,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": "K03000001",
+                  "annotationtitle": "GeogCode"
+                }
+              ]
+            },
+            "description": {
+              "value": "Great Britain",
+              "lang": "en"
+            },
+            "value": 2092957698
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "countries",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 499,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": "E92000001",
+                  "annotationtitle": "GeogCode"
+                }
+              ]
+            },
+            "description": {
+              "value": "England",
+              "lang": "en"
+            },
+            "value": 2092957699
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "countries",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 499,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": "W92000004",
+                  "annotationtitle": "GeogCode"
+                }
+              ]
+            },
+            "parentcode": 2092957700,
+            "description": {
+              "value": "Wales",
+              "lang": "en"
+            },
+            "value": 2092957700
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "countries",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 499,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": "S92000003",
+                  "annotationtitle": "GeogCode"
+                }
+              ]
+            },
+            "parentcode": 2092957701,
+            "description": {
+              "value": "Scotland",
+              "lang": "en"
+            },
+            "value": 2092957701
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "countries",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 499,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": "N92000002",
+                  "annotationtitle": "GeogCode"
+                }
+              ]
+            },
+            "parentcode": 2092957702,
+            "description": {
+              "value": "Northern Ireland",
+              "lang": "en"
+            },
+            "value": 2092957702
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "countries",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 499,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": "K04000001",
+                  "annotationtitle": "GeogCode"
+                }
+              ]
+            },
+            "description": {
+              "value": "England and Wales",
+              "lang": "en"
+            },
+            "value": 2092957703
+          }
+        ],
+        "name": {
+          "value": "geography",
+          "lang": "en"
+        },
+        "uri": ""
+      }
+    ]
+  },
+  "nomis-gender": {
+    "codelist": [
+      {
+        "agencyid": "NOMIS",
+        "id": "CL_162_1_GENDER",
+        "code": [
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "Total of all genders",
+                  "annotationtitle": "Description"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 1,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "IsTotal"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "IsDefault"
+                },
+                {
+                  "annotationtext": "Sex",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 0,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "description": {
+              "value": "Total",
+              "lang": "en"
+            },
+            "value": 0
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "Sex",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 1,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "parentcode": 0,
+            "description": {
+              "value": "Male",
+              "lang": "en"
+            },
+            "value": 1
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "Sex",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 1,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "parentcode": 0,
+            "description": {
+              "value": "Female",
+              "lang": "en"
+            },
+            "value": 2
+          }
+        ],
+        "name": {
+          "value": "Gender",
+          "lang": "en"
+        },
+        "uri": ""
+      }
+    ]
+  },
+  "nomis-age": {
+    "codelist": [
+      {
+        "agencyid": "NOMIS",
+        "id": "CL_162_1_AGE",
+        "code": [
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 4,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 1,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 2000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "IsTotal"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "IsDefault"
+                },
+                {
+                  "annotationtext": "Ageband",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 2000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 0,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "false",
+                  "annotationtitle": "UI_SuggestSorting"
+                },
+                {
+                  "annotationtext": "false",
+                  "annotationtitle": "UI_SuggestReview"
+                },
+                {
+                  "annotationtext": "false",
+                  "annotationtitle": "UI_SuggestSearch"
+                },
+                {
+                  "annotationtext": 4,
+                  "annotationtitle": "UI_SuggestExpandDepth"
+                },
+                {
+                  "annotationtext": "false",
+                  "annotationtitle": "UI_SuggestContextMenus"
+                }
+              ]
+            },
+            "description": {
+              "value": "All categories: Age 16+",
+              "lang": "en"
+            },
+            "value": 0
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "Ageband",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 2000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 1,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "parentcode": 0,
+            "description": {
+              "value": "Age unknown (clerical claims)",
+              "lang": "en"
+            },
+            "value": 1
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 10,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Ageband",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 2000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 1,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "parentcode": 0,
+            "description": {
+              "value": "Aged 16-24",
+              "lang": "en"
+            },
+            "value": 2
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 100,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 2,
+            "description": {
+              "value": "Aged 16-17",
+              "lang": "en"
+            },
+            "value": 10
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 4,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 30,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 4000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "UI_SuggestExpandDepth"
+                }
+              ]
+            },
+            "parentcode": 2,
+            "description": {
+              "value": "Aged 18-24",
+              "lang": "en"
+            },
+            "value": 11
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 4,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 102,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Sublevel",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 4000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 3,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 11,
+            "description": {
+              "value": "Aged 18-21",
+              "lang": "en"
+            },
+            "value": 30
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 12,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Ageband",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 2000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 1,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "parentcode": 0,
+            "description": {
+              "value": "Aged 25-49",
+              "lang": "en"
+            },
+            "value": 3
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 109,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 3,
+            "description": {
+              "value": "Aged 25-29",
+              "lang": "en"
+            },
+            "value": 12
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 114,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 3,
+            "description": {
+              "value": "Aged 30-34",
+              "lang": "en"
+            },
+            "value": 13
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 119,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 3,
+            "description": {
+              "value": "Aged 35-39",
+              "lang": "en"
+            },
+            "value": 14
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 124,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 3,
+            "description": {
+              "value": "Aged 40-44",
+              "lang": "en"
+            },
+            "value": 15
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 129,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 3,
+            "description": {
+              "value": "Aged 45-49",
+              "lang": "en"
+            },
+            "value": 16
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 4,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 17,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Ageband",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 2000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 1,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "parentcode": 0,
+            "description": {
+              "value": "Aged 50+",
+              "lang": "en"
+            },
+            "value": 4
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 134,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 4,
+            "description": {
+              "value": "Aged 50-54",
+              "lang": "en"
+            },
+            "value": 17
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 139,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 4,
+            "description": {
+              "value": "Aged 55-59",
+              "lang": "en"
+            },
+            "value": 18
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 5,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 144,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 4,
+            "description": {
+              "value": "Aged 60-64",
+              "lang": "en"
+            },
+            "value": 19
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": 7,
+                  "annotationtitle": "ChildCount"
+                },
+                {
+                  "annotationtext": 149,
+                  "annotationtitle": "FirstChildCode"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "FirstChildTypeCode"
+                },
+                {
+                  "annotationtext": "Quinary",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 3000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 2,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "isDerived"
+                }
+              ]
+            },
+            "parentcode": 4,
+            "description": {
+              "value": "Aged 65+",
+              "lang": "en"
+            },
+            "value": 20
+          }
+        ],
+        "name": {
+          "value": "Age",
+          "lang": "en"
+        },
+        "uri": ""
+      }
+    ]
+  },
+  "nomis-measure": {
+    "codelist": [
+      {
+        "agencyid": "NOMIS",
+        "id": "CL_162_1_MEASURE",
+        "code": [
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "Number of claimants",
+                  "annotationtitle": "Description"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "IsDefault"
+                },
+                {
+                  "annotationtext": "measures",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 0,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "description": {
+              "value": "Claimant count",
+              "lang": "en"
+            },
+            "value": 1
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "measures",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 0,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "description": {
+              "value": "Claimants as a proportion of residents aged 16-64",
+              "lang": "en"
+            },
+            "value": 2
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "measures",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 0,
+                  "annotationtitle": "Level"
+                },
+                {
+                  "annotationtext": "line-above-solid",
+                  "annotationtitle": "UI_SuggestStyle"
+                }
+              ]
+            },
+            "description": {
+              "value": "Claimants as a proportion of economically active residents aged 16+",
+              "lang": "en"
+            },
+            "value": 3
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "measures",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 1000,
+                  "annotationtitle": "TypeCode"
+                },
+                {
+                  "annotationtext": 0,
+                  "annotationtitle": "Level"
+                }
+              ]
+            },
+            "description": {
+              "value": "Claimants as a proportion of the workforce",
+              "lang": "en"
+            },
+            "value": 4
+          }
+        ],
+        "name": {
+          "value": "measure",
+          "lang": "en"
+        },
+        "uri": ""
+      }
+    ]
+  },
+  "nomis-measures": {
+    "codelist": [
+      {
+        "agencyid": "NOMIS",
+        "id": "CL_162_1_MEASURES",
+        "code": [
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "Value",
+                  "annotationtitle": "Description"
+                },
+                {
+                  "annotationtext": "True",
+                  "annotationtitle": "IsDefault"
+                },
+                {
+                  "annotationtext": "value",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 0,
+                  "annotationtitle": "TypeCode"
+                }
+              ]
+            },
+            "description": {
+              "value": "value",
+              "lang": "en"
+            },
+            "value": 20100
+          },
+          {
+            "annotations": {
+              "annotation": [
+                {
+                  "annotationtext": "Percent",
+                  "annotationtitle": "Description"
+                },
+                {
+                  "annotationtext": "percent",
+                  "annotationtitle": "TypeName"
+                },
+                {
+                  "annotationtext": 0,
+                  "annotationtitle": "TypeCode"
+                }
+              ]
+            },
+            "description": {
+              "value": "percent",
+              "lang": "en"
+            },
+            "value": 20301
+          }
+        ],
+        "name": {
+          "value": "measures",
+          "lang": "en"
+        },
+        "uri": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "observed_on": "2026-10-17",
+  "scope": "Research specimens only; no production integration",
+  "attribution": "Ministry of Business, Innovation and Employment",
+  "licence": "https://creativecommons.org/licenses/by/3.0/nz/",
+  "methodology": "https://www.tenancy.govt.nz/rent-bond-and-bills/market-rent/market-rent-explained/",
+  "specimens": [
+    {
+      "file": "specimens/avondale.html",
+      "selection": "Unmodified heading and first Apartment table from JSON Table field; other dwelling tables omitted",
+      "saved_at": "2026-10-17T08:53:30.735310+00:00",
+      "full_response_bytes": 9262,
+      "full_response_sha256": "3ff4d93b4da2234679119ec0e0d6cafa9df7c9235dd05ee30dbeb381eafafa76",
+      "selected_bytes": 1072,
+      "sha256": "7da5031932eea9e82a3edaff3a737bb47aab949616bef460584acb493e5d25e3"
+    },
+    {
+      "file": "specimens/kelburn.html",
+      "selection": "Unmodified heading and first Apartment table from JSON Table field; other dwelling tables omitted",
+      "saved_at": "2026-10-17T08:53:44.508035+00:00",
+      "full_response_bytes": 9928,
+      "full_response_sha256": "cb97168d865b35bce345ce7176c1e9a76b7f3e25a17f91fd495acdc97cc603fe",
+      "selected_bytes": 1219,
+      "sha256": "751b6947aa803b4f3752023b1f4a8ee32613c28def8f8e90d50d28e54489be22"
+    },
+    {
+      "file": "specimens/avondale-official-page.html",
+      "source_url": "https://www.tenancy.govt.nz/rent-bond-and-bills/market-rent/?location=Auckland%20-%20Avondale&period=42&action_doSearchValues=Find%20Rent",
+      "selection": "Location heading and Apartment table from separate full-page GET; same publisher lineage",
+      "sha256": "508e40c038ce0496aa0e1a0df9ea3a6f2f1cc16ed106cfe9cdaf4af58fa882cd",
+      "selected_bytes": 1719
+    }
+  ],
+  "other_probes": [
+    {
+      "url": "https://portal.api.business.govt.nz/api/market-rent",
+      "checked_at": "2026-10-17T08:57:14.687613+00:00",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 25047
+    },
+    {
+      "url": "https://www.tenancy.govt.nz/rent-bond-and-bills/market-rent/updateMarketValueLocation/?ajax_city=Auckland&ajax_suburb=Avondale",
+      "checked_at": "2026-10-17T08:57:16.464630+00:00",
+      "status": 404,
+      "content_type": "text/plain;charset=UTF-8",
+      "bytes": 67
+    },
+    {
+      "url": "https://api.business.govt.nz/gateway/tenancy-services/market-rent/v2/area-definitions",
+      "checked_at": "2026-10-17T08:57:19.404954+00:00",
+      "status": 401,
+      "content_type": "application/json",
+      "bytes": 152
+    },
+    {
+      "url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+      "method": "POST",
+      "body": [
+        {
+          "productId": 34100133
+        }
+      ],
+      "status": 200,
+      "actual_body": "Outage HTML; not metadata JSON",
+      "sha256": "2d5dcded54703de68e8ef32ee6ac9409ab5c39499256a55338c82b51fa19cdfb"
+    },
+    {
+      "url": "https://www150.statcan.gc.ca/n1/tbl/csv/34100133-eng.zip",
+      "status": 200,
+      "actual_body": "HTML; ZIP signature validation failed",
+      "sha256": "2d5dcded54703de68e8ef32ee6ac9409ab5c39499256a55338c82b51fa19cdfb"
+    },
+    {
+      "url": "https://www.tenancy.govt.nz/market-rent-api/updateMarketValueLocation?ajax_city=Auckland&ajax_suburb=Avondale",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 9262
+    },
+    {
+      "url": "https://www.tenancy.govt.nz/assets/Uploads/Tenancy/Rental-bond-data/detailed-monthly-tla-tenancy-october.csv?m=e7e9c47ce8c12eedd40ee1e4534398d28f5643e2",
+      "validation": "CSV valid; no bedroom/property dimensions",
+      "bytes": 2360379,
+      "sha256": "7d163430409c6ebdeec52b28ebd3fb65787ca68e7c65551c62648a094bec756b"
+    },
+    {
+      "url": "https://www.tenancy.govt.nz/assets/Uploads/Tenancy/Rental-bond-data/Detailed-Quarterly-Tenancy-Q1-2020-Q3-2026.csv?m=5766222a0dc2d94c11545872be77333e32f7c999",
+      "validation": "CSV valid; actual periods 2020-01-01 through 2026-04-01",
+      "bytes": 13199634,
+      "sha256": "b40a39a0ce899362df5da729ed38cf8962cc31058910693aa2301feb9d0be80e"
+    },
+    {
+      "url": "https://www.ons.gov.uk/file?uri=/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics/16september2026/priceindexofprivaterentsukmonthlypricestatistics.xlsx",
+      "validation": "Valid XLSX ZIP; Table 1 Manchester selected cells retained",
+      "bytes": 18640156,
+      "sha256": "ab1fdfbb27738b20cd1762521a19489c9274dedae1e39926e734ac1cf867f2de"
+    }
+  ],
+  "demand_documents": [
+    {
+      "url": "https://github.com/thecolab-ai/.skills/blob/main/skills/rental-bond-nz/SKILL.md",
+      "retrieved_sha256": "fd30048f7cc99e8f637ff4cdce441d6ac3c88e2a649edab0bfabfd9b067e1d9a"
+    },
+    {
+      "url": "https://github.com/thecolab-ai/.skills/blob/main/skills/rental-bond-nz/scripts/cli.py",
+      "retrieved_sha256": "f757851cada1bc93f1f6a6189cb5a63559d8775e96670529df6b0887b711b855"
+    },
+    {
+      "url": "https://github.com/shayeeboy/Financial-Intelligence-Strategy-Agent",
+      "retrieved_sha256": "c87444706117bfb24c8238e2f55daa5f6dfe1818e5ebe762bfa37bbc878ceda3"
+    },
+    {
+      "url": "https://github.com/shayeeboy/Financial-Intelligence-Strategy-Agent/blob/main/src/mcp/adapters/cmhc.js",
+      "retrieved_sha256": "6d1df47e80d38ede51bfc0398b3d4a9803872858c44caed5bcdc9227532f9515"
+    },
+    {
+      "url": "https://github.com/summerstateofmind/cityparity",
+      "retrieved_sha256": "15913f31a6a18df60b13828ca51457bae3e7226155483036cd345fd16762174e"
+    }
+  ],
+  "catalogue": {
+    "url": "https://morningrows.com/catalog.json",
+    "desks": [
+      "Australia",
+      "New Zealand",
+      "Canada",
+      "United Kingdom",
+      "England",
+      "Scotland",
+      "Wales",
+      "Northern Ireland"
+    ],
+    "sha256": "76562c805011058a287ce57162ff3710d7d0e1d41c1e9fb28a2afdda17cc0b59"
+  }
+}

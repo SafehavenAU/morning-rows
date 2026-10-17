@@ -1,5 +1,21 @@
 # Official-source discovery passes
 
+## Research pass 2026-10-17-10 — demand assessment across all eight desks (no integration)
+
+[Project-wide evidence record](research/project-demand-2026-10-17/README.md), [data contracts](research/project-demand-2026-10-17/CONTRACTS.md), and [manual-access register](research/project-demand-2026-10-17/manual-key-register.json). Four task families cover all eight desks: local rent (reuse pass 09), monthly claimant briefs (UK and four nations), completed-day wholesale price history (AU), dated reference FX (CA). At most three candidate sources per family; alternative formats are not counted as independent sources.
+
+Nomis is the highest-priority new integration candidate: a public agent example confuses JSA-only data with the combined claimant measure; `NM_162_1` supplies the required geography/age/sex/month selection. All nine tested geographies × 13 months validate; separate NISRA detailed cells agree for NI/Belfast. AEMO original monthly files support a dated 288-interval calendar day and selected dispatch comparisons, not a live rolling window or household bill. BoC history/holiday handling works, but a correctly used native API is already compact, so its added Morning Rows value is modest. NZ rents retain the prior recommendation and limitations.
+
+All 14 new checks pass and live replay matches specimens. Demand is qualitative: direct integration request, public agent workflows and explicitly labelled proxies; no invented end-user volume or synthetic demand. Met Office DataPoint is confirmed retired; replacement/manual options are recorded locally without registering keys or changing the deployed key list. No runtime/deployment/baseline change, no repeated known-failure alerts. Existing NI energy, SFC, CQC, AER and CMHC leads remain queued; no discovery-exhaustion claim.
+
+## Research pass 2026-10-17-09 — demand-led rental-budget benchmarks (no integration)
+
+Inspected the eight-desk catalogue, current readers and unfinished queue; no local bedroom-by-dwelling rent benchmark exists in the readers. Evaluated only MBIE/Tenancy Services, ONS PIPR and CMHC/StatCan for one recurring task. [Full evidence, primary demand examples, tested routes, sample answers and reproduction commands](research/rent-demand-2026-10-17/README.md).
+
+MBIE is the recommended next candidate, with unproven usage scale: public NZ agent wrapper, a separate Canadian scheduled agent workflow and a relocation MCP proxy provide qualitative demand evidence. Original NZ website route works without a key; old community route 404, headerless access failures and JSON served as `text/html` expose integration friction. Two-bedroom apartment medians are NZ$550/week for both Avondale and Kelburn, March–August 2026; quartiles and counts differ. Eleven checks and live replay pass. Separate official page presentation agrees but shares upstream lineage. Data is provisional during bond-system migration; no growth/valuation/listing claim. Quarterly CSV's actual latest period is April 2026 despite its Q3 filename.
+
+Record the documented MBIE API for optional manual subscription-key setup, without changing published key lists. ONS original workbook succeeds (monthly GBP; separate bedroom/property margins); CMHC metadata POST and bulk ZIP both return HTTP 200 outage HTML. CMHC reuse terms require further resolution. No publisher contacted, integration deployed, credentials changed, monitoring alert repeated or production baseline superseded. The remaining discovery queue is preserved.
+
 ## Depth pass 2026-10-17-08 — existing NZ electricity-price reader
 
 One bounded correctness repair, following the user's depth-first instruction. No additional publisher, country or subject coverage. The active reader could coerce blank prices to zero, mix independently selected node periods, accept partial node coverage and omit interim/final status. This risk took priority over the unfinished discovery queue.
