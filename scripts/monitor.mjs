@@ -15,7 +15,7 @@ export async function publicRead(url){
  let data;try{data=JSON.parse(body);}catch{}return {status,headers,bytes:Buffer.byteLength(body),body_digest:fingerprint(body),data};
 }
 export async function collect({read=publicRead,now=()=>new Date().toISOString(),id=crypto.randomUUID(),deadlineMs=11*60000}={}){
- const run={id,started_at:now(),scheduled:process.env.GITHUB_ACTIONS==='true'&&process.env.GITHUB_EVENT_NAME==='schedule',producer:{kind:process.env.GITHUB_ACTIONS==='true'?'github-actions':'manual',revision:process.env.GITHUB_SHA||null,workflow_run:process.env.GITHUB_RUN_ID||null},requests:[],results:{},probe_errors:[],identities:{},complete:true};const start=Date.now();
+ const run={id,started_at:now(),scheduled:process.env.GITHUB_ACTIONS==='true'&&process.env.GITHUB_EVENT_NAME==='schedule',producer:{kind:process.env.GITHUB_ACTIONS==='true'?'github-actions':'manual',revision:process.env.GITHUB_SHA||null,workflow_run:process.env.GITHUB_RUN_ID||null},requests:[],results:{},probe_errors:[],identities:{},complete:true};const start=Date.now(),cpuStart=process.cpuUsage();
  const desks=[...new Set(REGISTRY.map(r=>r.desk))],tasks=ORIGINS.flatMap(origin=>['/health.json','/catalog.json',...desks.map(d=>`/${d}.json`)].map(path=>({origin,path})));
  let next=0;
  await Promise.all(Array.from({length:2},async()=>{while(next<tasks.length){const {origin,path}=tasks[next++],url=origin+path;
@@ -32,7 +32,7 @@ export async function collect({read=publicRead,now=()=>new Date().toISOString(),
  }}));
  if(Object.keys(run.results).length!==108||Object.values(run.results).some(v=>Object.keys(v).length!==2))run.complete=false;
  const identities=Object.values(run.identities);if(identities.length!==2||identities[0].worker_version!==identities[1].worker_version||identities[0].source_revision!==identities[1].source_revision){run.complete=false;run.probe_errors.push({reason:'Both-domain release identity mismatch or unavailable'});}
- run.finished_at=now();run.elapsed_ms=Date.now()-start;return run;
+ const cpu=process.cpuUsage(cpuStart);run.collector_cpu_ms=(cpu.user+cpu.system)/1000;run.collector_peak_rss_bytes=process.resourceUsage().maxRSS*1024;run.finished_at=now();run.elapsed_ms=Date.now()-start;return run;
 }
 async function main(){
  const [command,...args]=process.argv.slice(2),option=(name,fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[i+1];};
