@@ -289,15 +289,26 @@ function page(data) {
 
 const LLMS = `# Morning Rows
 
-> https://morningrows.com. Public records for an agent, one country at a time. Read the files. Do not scrape the HTML.
+> https://morningrows.com. A public data desk for agents. Any official figure from a reliable source, read from a free API when an agent asks. Not a building site. Not a land-lead list. Read the files. Do not scrape the HTML.
+
+## Rules
+
+- One desk per country. The United Kingdom is split: a UK-wide file, then England, Scotland, Wales, and Northern Ireland.
+- A source must be an official publisher. If its terms forbid copying, it is left out. If the terms say nothing, it is read.
+- Free sources that need a key are listed in [/keys.json](/keys.json). They are not called until a key is saved.
+- Categories come later. Do not guess a category that is not in the file.
 
 ## Read in this order
 
-- [The catalog](/catalog.json): the countries and how often each set changes
-- [Australia](/australia.json): the Australian rows. [/morning.json](/morning.json) is the same file.
-- [New Zealand](/new-zealand.json): wholesale prices at five grid points, and earthquakes
-- [Canada](/canada.json): unemployment, prices, retail sales, and earthquakes
-- [England](/england.json): the system price, carbon intensity, the job, prices, the wage, and earthquakes
+- [The catalog](/catalog.json): the desks
+- [Australia](/australia.json). [/morning.json](/morning.json) is the same file.
+- [New Zealand](/new-zealand.json)
+- [Canada](/canada.json)
+- [United Kingdom](/united-kingdom.json): UK-wide figures only
+- [England](/england.json)
+- [Scotland](/scotland.json)
+- [Wales](/wales.json)
+- [Northern Ireland](/northern-ireland.json)
 
 ## Australia
 
@@ -395,11 +406,12 @@ function json(body) {
 
 const DESK = `<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="canonical" href="https://morningrows.com/"><title>Morning Rows</title></head><body>
 <main><p>For agents</p><h1>Morning Rows</h1>
-<p>The address is morningrows.com. Read the files. Do not scrape the HTML.</p>
+<p>A public data desk. Any official figure from a reliable source, fetched from a free API when you ask. Not a building site.</p>
 <ol>
-<li><a href="/llms.txt">/llms.txt</a>, the index.</li>
-<li><a href="/catalog.json">/catalog.json</a>, the countries and how often each set changes.</li>
-<li>One country file. <a href="/australia.json">/australia.json</a>, <a href="/new-zealand.json">/new-zealand.json</a>, <a href="/canada.json">/canada.json</a>, or <a href="/england.json">/england.json</a>.</li>
+<li><a href="/llms.txt">/llms.txt</a>, the index and the rules.</li>
+<li><a href="/catalog.json">/catalog.json</a>, the desks.</li>
+<li><a href="/keys.json">/keys.json</a>, free sources that still need a key.</li>
+<li>One desk. <a href="/australia.json">Australia</a>, <a href="/new-zealand.json">New Zealand</a>, <a href="/canada.json">Canada</a>, <a href="/united-kingdom.json">United Kingdom</a>, <a href="/england.json">England</a>, <a href="/scotland.json">Scotland</a>, <a href="/wales.json">Wales</a>, or <a href="/northern-ireland.json">Northern Ireland</a>.</li>
 </ol>
 </main></body></html>`;
 
@@ -823,7 +835,6 @@ async function readCanada() {
     quakes: (quakes.features || []).map((feature) => ({ place: feature.properties.place, when: new Date(feature.properties.time).toISOString(), magnitude: feature.properties.mag })),
     also: {
       world: await readWorld("CA"),
-      weather: await readWeather([["Toronto", 43.65, -79.38], ["Vancouver", 49.28, -123.12], ["Montreal", 45.5, -73.57], ["Calgary", 51.05, -114.07]]),
       space: await readSpace(),
     },
   };
@@ -858,6 +869,45 @@ async function ons(path) {
   const dated = lines.filter((row) => row.length >= 2 && /^\d{4}/.test(row[0]) && row[1] !== "");
   const last = dated[dated.length - 1];
   return { period: last[0], value: last[1] };
+}
+
+async function readOnsNation(name, slug, peoplePath, jobPath) {
+  const [people, job] = await Promise.all([
+    ons(peoplePath),
+    jobPath ? ons(jobPath) : Promise.resolve(null),
+  ]);
+  return {
+    site: "https://morningrows.com",
+    country: name,
+    page: `/${slug}`,
+    people: { ...people, source: "Office for National Statistics", licence: "Open Government Licence" },
+    job: job ? { ...job, source: "Office for National Statistics", licence: "Open Government Licence" } : null,
+  };
+}
+
+async function readUnitedKingdom() {
+  const [people, job, price, wage, product, bills, space] = await Promise.all([
+    ons("/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop"),
+    ons("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/mgsx/lms"),
+    ons("/economy/inflationandpriceindices/timeseries/d7bt/mm23"),
+    ons("/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/lms"),
+    ons("/economy/grossdomesticproductgdp/timeseries/ybez/ukea"),
+    readBills(),
+    readSpace(),
+  ]);
+  return {
+    site: "https://morningrows.com",
+    country: "United Kingdom",
+    page: "/united-kingdom",
+    people: { ...people, source: "Office for National Statistics" },
+    job: { ...job, meaning: "unemployment rate, aged 16 and over" },
+    price_index: price,
+    wage,
+    product,
+    bills,
+    space,
+    nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"],
+  };
 }
 
 async function readEngland() {
@@ -911,9 +961,7 @@ async function readEngland() {
     quakes,
     also: {
       world: await readWorld("GB"),
-      weather: await readWeather([["London", 51.51, -0.13], ["Manchester", 53.48, -2.24], ["Birmingham", 52.48, -1.9]]),
       police: await readPolice(),
-      bills: await readBills(),
       health: await readNhs(),
       space: await readSpace(),
     },
@@ -1049,8 +1097,9 @@ async function readNhs() {
 function alsoSection(also) {
   if (!also) return "";
   const world = ((also.world && also.world.rows) || []).map((row) => `<tr><td>${escapeHtml(row.name)}</td><td>${escapeHtml(row.year || "")}</td><td>${escapeHtml(row.value ?? "")}</td></tr>`).join("");
-  const weather = ((also.weather && also.weather.rows) || []).map((row) => `<tr><td>${escapeHtml(row.name)}</td><td>${escapeHtml(row.degrees_c ?? "")}</td><td>${escapeHtml(row.wind_kmh ?? "")}</td></tr>`).join("");
-  return `<h2>Also on this read</h2><p>Not sorted yet. World Bank figures are the latest published year. Weather is the current hour.</p><table><thead><tr><th>World Bank</th><th>Year</th><th>Value</th></tr></thead><tbody>${world}</tbody></table><table><thead><tr><th>Place</th><th>Degrees</th><th>Wind, km/h</th></tr></thead><tbody>${weather}</tbody></table>`;
+  const weatherRows = (also.weather && also.weather.rows) || [];
+  const weather = weatherRows.length ? `<table><thead><tr><th>Place</th><th>Degrees</th><th>Wind, km/h</th></tr></thead><tbody>${weatherRows.map((row) => `<tr><td>${escapeHtml(row.name)}</td><td>${escapeHtml(row.degrees_c ?? "")}</td><td>${escapeHtml(row.wind_kmh ?? "")}</td></tr>`).join("")}</tbody></table>` : "";
+  return `<h2>Also on this read</h2><p>Not sorted yet. World Bank figures are the latest published year.</p><table><thead><tr><th>World Bank</th><th>Year</th><th>Value</th></tr></thead><tbody>${world}</tbody></table>${weather}`;
 }
 
 function simplePage(title, body) {
@@ -1065,6 +1114,14 @@ const HOLD_SECONDS = {
   "/new-zealand.json": 120,
   "/england": 600,
   "/england.json": 600,
+  "/united-kingdom": 600,
+  "/united-kingdom.json": 600,
+  "/scotland": 600,
+  "/scotland.json": 600,
+  "/wales": 600,
+  "/wales.json": 600,
+  "/northern-ireland": 600,
+  "/northern-ireland.json": 600,
   "/canada": 3600,
   "/canada.json": 3600,
 };
@@ -1092,14 +1149,18 @@ export default {
     if (url.pathname === "/catalog.json") return json({
       name: "Morning Rows",
       site: "https://morningrows.com",
-      summary: "Public records, one country at a time. Fetch the index, then one country file. Do not scrape the HTML.",
+      summary: "Official public figures for agents. One desk per country. The United Kingdom is split. Fetch the index, then one desk file. Do not scrape the HTML.",
       auth: "none",
       index: "/llms.txt",
       countries: [
         { name: "Australia", page: "/australia", records: "/australia.json", also: "/morning.json" },
         { name: "New Zealand", page: "/new-zealand", records: "/new-zealand.json" },
         { name: "Canada", page: "/canada", records: "/canada.json" },
+        { name: "United Kingdom", page: "/united-kingdom", records: "/united-kingdom.json" },
         { name: "England", page: "/england", records: "/england.json" },
+        { name: "Scotland", page: "/scotland", records: "/scotland.json" },
+        { name: "Wales", page: "/wales", records: "/wales.json" },
+        { name: "Northern Ireland", page: "/northern-ireland", records: "/northern-ireland.json" },
       ],
     });
     if (url.pathname === "/.well-known/ai-catalog.json") return json(AI_CATALOG);
@@ -1134,14 +1195,13 @@ export default {
       }
     }
     if (url.pathname === "/new-zealand" || url.pathname === "/new-zealand.json") {
-      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, weatherResult, spaceResult] = await Promise.allSettled([
+      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult] = await Promise.allSettled([
         readNzPrices(),
         readNzQuakes(),
         fetch("https://api.geonet.org.nz/volcano/val").then((response) => response.json()),
         fetch("https://api.geonet.org.nz/news/geonet").then((response) => response.json()),
         readStatsNz(env),
         readWorld("NZ"),
-        readWeather([["Auckland", -36.85, 174.76], ["Wellington", -41.29, 174.78], ["Christchurch", -43.53, 172.64]]),
         readSpace(),
       ]);
       const nz = {
@@ -1155,7 +1215,6 @@ export default {
         stats: statsResult.status === "fulfilled" ? statsResult.value : { present: false, rows: [] },
         also: {
           world: worldResult.status === "fulfilled" ? worldResult.value : { rows: [] },
-          weather: weatherResult.status === "fulfilled" ? weatherResult.value : { rows: [] },
           space: spaceResult.status === "fulfilled" ? spaceResult.value : {},
         },
       };
@@ -1168,6 +1227,23 @@ export default {
       const rows = (canada.jobs || []).map((row) => `<tr><td>${escapeHtml(row.name)}</td><td>${row.rate}%</td></tr>`).join("");
       return held(request, new Response(simplePage("Morning Canada", `<p>The file is <a href="/canada.json">canada.json</a>.</p><h2>The job</h2><table>${rows}</table><h2>The price of living</h2><p>${canada.price_index ? canada.price_index.index : ""}</p><h2>The shop</h2><p>${canada.shop ? canada.shop.thousand_dollars : ""} thousand dollars</p>${alsoSection(canada.also)}`), { headers: { "content-type": "text/html; charset=utf-8" } }));
     }
+    if (url.pathname === "/united-kingdom" || url.pathname === "/united-kingdom.json") {
+      const uk = await readUnitedKingdom().catch(() => ({ site: "https://morningrows.com", country: "United Kingdom", error: "not read" }));
+      if (url.pathname === "/united-kingdom.json") return held(request, json(uk));
+      return held(request, new Response(simplePage("Morning United Kingdom", `<p>UK-wide figures only. The nations are <a href="/england">England</a>, <a href="/scotland">Scotland</a>, <a href="/wales">Wales</a>, and <a href="/northern-ireland">Northern Ireland</a>.</p><p>People ${uk.people ? uk.people.value : ""}. Unemployment ${uk.job ? uk.job.value : ""}%. The file is <a href="/united-kingdom.json">united-kingdom.json</a>.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
+    }
+    const nations = {
+      "/scotland": ["Scotland", "scotland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/scpop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnn/lms"],
+      "/wales": ["Wales", "wales", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/wapop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnm/lms"],
+      "/northern-ireland": ["Northern Ireland", "northern-ireland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/nipop/pop", null],
+    };
+    const nationKey = url.pathname.endsWith(".json") ? url.pathname.slice(0, -5) : url.pathname;
+    if (nations[nationKey]) {
+      const [name, slug, peoplePath, jobPath] = nations[nationKey];
+      const nation = await readOnsNation(name, slug, peoplePath, jobPath).catch(() => ({ site: "https://morningrows.com", country: name, error: "not read" }));
+      if (url.pathname.endsWith(".json")) return held(request, json(nation));
+      return held(request, new Response(simplePage(`Morning ${name}`, `<p>The file is <a href="/${slug}.json">${slug}.json</a>. UK-wide figures are on <a href="/united-kingdom">the United Kingdom desk</a>.</p><p>People ${nation.people ? nation.people.value : ""}. Unemployment ${nation.job ? nation.job.value : "not read on this desk"}.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
+    }
     if (url.pathname === "/england" || url.pathname === "/england.json") {
       const england = await readEngland().catch(() => ({ site: "https://morningrows.com", country: "England", error: "not read" }));
       if (url.pathname === "/england.json") return held(request, json(england));
@@ -1177,7 +1253,7 @@ export default {
     if (url.pathname !== "/australia" && url.pathname !== "/australia.json" && url.pathname !== "/morning.json") {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
-    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readWeather([["Sydney", -33.87, 151.21], ["Melbourne", -37.81, 144.96], ["Brisbane", -27.47, 153.03], ["Perth", -31.95, 115.86], ["Adelaide", -34.93, 138.6], ["Hobart", -42.88, 147.33], ["Darwin", -12.46, 130.84], ["Canberra", -35.28, 149.13]]), readBom(), readSpace()]);
+    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace()]);
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
     const quakes = quakeResult.status === "fulfilled" ? quakeResult.value : [];
@@ -1194,9 +1270,7 @@ export default {
     const exchange = exchangeResult.status === "fulfilled" ? exchangeResult.value : null;
     const also = {
       world: settled[13].status === "fulfilled" ? settled[13].value : { rows: [] },
-      weather: settled[14].status === "fulfilled" ? settled[14].value : { rows: [] },
-      observations: settled[15].status === "fulfilled" ? settled[15].value : { rows: [] },
-      space: settled[16].status === "fulfilled" ? settled[16].value : {},
+      space: settled[14].status === "fulfilled" ? settled[14].value : {},
     };
     const body = { site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, hospital: HOSPITAL, catalog: CATALOG.sets, also };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
