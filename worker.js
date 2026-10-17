@@ -432,6 +432,80 @@ async function readNzPrices() {
   return NZ_NODES.map(([code, name]) => ({ code, name, ...latest.get(code) })).filter((row) => row.price !== undefined);
 }
 
+async function readSome(response, max = 65536) {
+  const reader = response.body.getReader();
+  const chunks = [];
+  let size = 0;
+  while (size < max) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value);
+    size += value.byteLength;
+  }
+  try { await reader.cancel(); } catch (error) { /* The first slice is enough. */ }
+  const bytes = new Uint8Array(Math.min(size, max));
+  let offset = 0;
+  for (const chunk of chunks) {
+    const take = Math.min(chunk.byteLength, bytes.length - offset);
+    bytes.set(chunk.subarray(0, take), offset);
+    offset += take;
+    if (offset >= bytes.length) break;
+  }
+  return new TextDecoder().decode(bytes);
+}
+
+async function readStatsNz(env) {
+  const key = env && env.STATSNZ_KEY;
+  if (!key) return { present: false, rows: [] };
+  const headers = { "Ocp-Apim-Subscription-Key": key, accept: "application/xml,text/csv,*/*" };
+  const catalogue = await fetch("https://api.data.stats.govt.nz/rest/dataflow/STATSNZ/all?detail=allstubs", { headers });
+  if (!catalogue.ok) return { present: true, error: catalogue.status, rows: [] };
+  const xml = await readSome(catalogue, 1500000);
+  const wanted = [
+    ["prices", /consumers price index/i],
+    ["job", /household labour force survey|employment indicator/i],
+    ["shop", /retail trade survey/i],
+    ["people", /estimated resident population/i],
+    ["approvals", /building consents issued/i],
+    ["output", /gross domestic product/i],
+  ];
+  const chosen = [];
+  const seen = new Set();
+  const pattern = /<str:Dataflow\b[^>]*\bid="([^"]+)"[^>]*>[\s\S]*?<com:Name\b[^>]*>([^<]+)<\/com:Name>/g;
+  let match;
+  while ((match = pattern.exec(xml))) {
+    const id = match[1];
+    const name = match[2].trim();
+    for (const [label, test] of wanted) {
+      if (seen.has(label) || !test.test(name)) continue;
+      seen.add(label);
+      chosen.push({ label, id, name });
+    }
+  }
+  const rows = [];
+  for (const item of chosen) {
+    const response = await fetch(`https://api.data.stats.govt.nz/rest/data/STATSNZ,${item.id}?lastNObservations=1&dimensionAtObservation=AllDimensions&format=csvfilewithlabels`, { headers });
+    if (!response.ok) {
+      rows.push({ label: item.label, name: item.name, id: item.id, error: response.status });
+      continue;
+    }
+    const text = await readSome(response);
+    const lines = text.split(/\r?\n/).filter((line) => line && !line.startsWith("STRUCTURE"));
+    const header = (lines[0] || "").split(",");
+    const value = (lines[1] || "").split(",");
+    const periodIndex = header.findIndex((name) => /TIME_PERIOD/i.test(name));
+    const observationIndex = header.findIndex((name) => /OBS_VALUE/i.test(name));
+    rows.push({
+      label: item.label,
+      name: item.name,
+      id: item.id,
+      period: periodIndex >= 0 ? value[periodIndex] : "",
+      value: observationIndex >= 0 ? value[observationIndex] : "",
+    });
+  }
+  return { present: true, rows, licence: "Creative Commons Attribution 4.0. Credit Stats NZ." };
+}
+
 async function readNzQuakes() {
   const response = await fetch("https://api.geonet.org.nz/quake?MMI=4", { headers: { accept: "application/json" } });
   if (!response.ok) throw new Error("quakes");
@@ -446,14 +520,20 @@ function nzPage(data) {
   const cards = (data.prices || []).map((row) => `<article><h3>${row.name}</h3><p class="price">$${row.price.toFixed(2)}</p><p>per megawatt hour</p></article>`).join("");
   const quakes = (data.quakes || []).map((row) => `<tr><td>${row.when}</td><td>${row.place}</td><td>${row.magnitude}</td><td>${row.depth_km} km</td></tr>`).join("");
   const first = data.prices && data.prices[0];
+  const official = data.stats || { present: false, rows: [] };
+  const statRows = (official.rows || []).map((row) => `<tr><td>${escapeHtml(row.name || row.label)}</td><td>${escapeHtml(row.period || row.error || "")}</td><td>${escapeHtml(row.value || "")}</td></tr>`).join("");
+  const stats = official.present ? (official.error ? "The key was refused, status " + official.error + "." : (official.licence || "Read.")) : "The STATSNZ_KEY binding is not visible to this worker.";
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Morning New Zealand</title></head><body><main>
     <p>For agents</p><h1>Morning New Zealand</h1>
     <p><a href="/">Countries</a> · <a href="/australia">Australia</a> · <a href="/new-zealand.json">new-zealand.json</a></p>
     <h2>The grid</h2><p>${first ? first.date + ", period " + first.period : "Not read"}. The reuse terms on the Electricity Authority file were not read.</p><div class="grid">${cards}</div>
     <h2>The ground</h2><p>${(data.quakes || []).length} earthquakes. Creative Commons Attribution.</p>
     <table><thead><tr><th>When, UTC</th><th>Place</th><th>Magnitude</th><th>Depth</th></tr></thead><tbody>${quakes}</tbody></table>
+    <h2>Stats NZ</h2>
+    <p>${stats}</p>
+    <table><thead><tr><th>Set</th><th>Period</th><th>Value</th></tr></thead><tbody>${statRows}</tbody></table>
     <h2>Not on this read</h2>
-    <p>Stats NZ series need a subscription key, so the job, prices, approvals, wages, the shop, population, spending and construction are not copied. A national hospital table, a river summary, and a national service-alert feed were not found.</p>
+    <p>A national hospital table, a river summary, and a national service-alert feed were not found.</p>
   </main></body></html>`;
 }
 
@@ -665,7 +745,7 @@ async function held(request, response) {
 }
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === "/llms.txt") return new Response(LLMS, { headers: { "content-type": "text/plain; charset=utf-8" } });
     if (url.pathname === "/robots.txt") return new Response(ROBOTS, { headers: { "content-type": "text/plain; charset=utf-8" } });
@@ -691,7 +771,7 @@ export default {
         { country: "Australia", source: "AEMO developer portal", would_unlock: "registered market APIs, not the public grid files" },
         { country: "Australia", source: "NSW emergency feeds and Western Australia SLIP", would_unlock: "some fire and warning feeds" },
         { country: "Australia", source: "Australian Business Register", would_unlock: "a business lookup" },
-        { country: "New Zealand", source: "Stats NZ", would_unlock: "job, prices, wages, retail, population, consents, and output" },
+        { country: "New Zealand", source: "Stats NZ", would_unlock: "already bound as STATSNZ_KEY when the secret is present" },
         { country: "New Zealand", source: "LINZ Data Service", would_unlock: "addresses, parcels, and place names" },
         { country: "New Zealand", source: "MetService", would_unlock: "the national forecast" },
         { country: "Canada", source: "AESO", would_unlock: "the Alberta pool price as JSON. A free key. The publisher limits use." },
@@ -714,11 +794,12 @@ export default {
       }
     }
     if (url.pathname === "/new-zealand" || url.pathname === "/new-zealand.json") {
-      const [priceResult, quakeResult, volcanoResult, noticeResult] = await Promise.allSettled([
+      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult] = await Promise.allSettled([
         readNzPrices(),
         readNzQuakes(),
         fetch("https://api.geonet.org.nz/volcano/val").then((response) => response.json()),
         fetch("https://api.geonet.org.nz/news/geonet").then((response) => response.json()),
+        readStatsNz(env),
       ]);
       const nz = {
         site: "https://morningrows.com",
@@ -728,6 +809,7 @@ export default {
         quakes: quakeResult.status === "fulfilled" ? quakeResult.value : [],
         volcanoes: volcanoResult.status === "fulfilled" ? volcanoResult.value.features.map((feature) => ({ name: feature.properties.volcanoTitle, colour: feature.properties.acc, level: feature.properties.level })) : [],
         notices: noticeResult.status === "fulfilled" ? noticeResult.value.feed.slice(0, 3).map((item) => ({ when: item.published, title: item.title })) : [],
+        stats: statsResult.status === "fulfilled" ? statsResult.value : { present: false, rows: [] },
       };
       if (url.pathname === "/new-zealand.json") return held(request, json(nz));
       return held(request, new Response(nzPage(nz), { headers: { "content-type": "text/html; charset=utf-8" } }));
