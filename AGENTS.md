@@ -65,3 +65,18 @@ The runtime secret, when one is required, is set in Cloudflare under the worker'
 - Do not merge this repository into SafehavenAU/ngin.
 - Do not add a source because it is interesting if it fails the rules above.
 - Do not categorise ahead of the data.
+
+
+## Continuous build
+
+Do not stop because one feed refuses or asks for a key. That is a note, not the end of the search.
+
+A pass looks for official, free, no-key feeds for Australia, New Zealand, Canada, the United Kingdom, England, Scotland, Wales, and Northern Ireland. For each feed:
+
+- If it returns the figures, add them to that desk. Keep the publisher, the period, the geography, and the licence.
+- If it needs a key, add one line to `needs_a_key` in `keys.json` and keep looking.
+- If it is blocked, stale, or gone, add one line to `blocked` in `keys.json` and keep looking.
+- If the terms forbid copying, do not copy it. Note that on the desk. If the terms say nothing, it may be read.
+- Do not label a figure with the wrong country.
+
+Done means one full pass adds no new open feed, no new key line, and no new blocked line. Until that happens, the next pass starts from the log and looks for publishers that are not on a desk and not in the log. Do not start category pages before that pass.
