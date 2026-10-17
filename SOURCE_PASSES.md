@@ -1,5 +1,30 @@
 # Official-source discovery passes
 
+## Pass 2026-10-17-07 — WRA tax and national company-insolvency aggregates
+
+Continued the new-publisher queue across eight desks. Three new desk sections and one narrow discovery-page block; this is not an empty pass and discovery remains open.
+
+| Desk | Evidence and outcome |
+| --- | --- |
+| Australia | [Australian Energy Regulator market-statistics directory](https://www.aer.gov.au/industry/registers/market-statistics) returned HTTP 503 from the workspace. Added a page-specific blocked entry; direct published datasets remain unvalidated. |
+| New Zealand | [Electricity Authority EMI final-price files](https://www.emi.ea.govt.nz/Wholesale/Datasets/DispatchAndPricing/FinalEnergyPrices) investigated. The existing `prices` reader already uses EMI; do not count that publisher as a new addition. Other Ministry for the Environment aggregates remain queued. |
+| Canada | [CMHC monthly housing tables](https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-data/data-tables/housing-market-data/monthly-housing-starts-construction-data-tables) identified. Official bulk StatCan table 34-10-0158 is a possible independently testable transport during the current API outage; not yet validated or enabled. Transport Canada completeness remains unresolved. |
+| United Kingdom | [Insolvency Service collection API](https://www.gov.uk/api/content/government/collections/company-insolvency-statistics-releases) and latest release attachments validated without credentials. Combined England-and-Wales figures are not a UK national total; no UK section added. |
+| England | [CQC using-data guidance](https://www.cqc.org.uk/about-us/transparency/using-cqc-data) permits OGL reuse with attribution. No aggregate-only reader or confirmed API credential requirement established, so no speculative key entry. The Insolvency Service's combined England-and-Wales series is not labelled England. |
+| Scotland | Added `company_insolvencies`: six Scotland-only, non-seasonally-adjusted monthly counts. Scottish Funding Council college-statistics background tables remain a research lead. |
+| Wales | Added `land_transaction_tax`: four national WRA annual tax-due measures, via [StatsWales dataset](https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1) and its full CSV. OGL reuse confirmed by [Welsh Government copyright](https://www.gov.wales/copyright). Existing population projection remains independent. |
+| Northern Ireland | Added six distinct national `company_insolvencies` measures. [Department for the Economy electricity report](https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html) embeds downloads; the exported CSV encoding and exact workbook coverage need more validation. Its March 2026 methodology change to gross final electricity consumption must be retained. No energy reader enabled. |
+
+### Definitions and validation
+
+**WRA:** Latest available completed financial year 2025–26. The annual total includes restricted-detail transactions: **£371 million** tax due. The other three measures exclude untypical/undisclosed transactions: all transactions **£370.8 million**, residential **£294 million**, non-residential **£76.8 million**. These overlap; never add the inclusive total to its components. No confidential residual is inferred. The figures are tax due by effective financial year, not cash receipts or property values; refunds and other revisions can change earlier periods. Publisher-rounded values and revision notes remain explicit. The reader rejects missing/suppressed selected totals, duplicate observations, changed units, incomplete financial years and inconsistent component totals. It discovers the latest completed financial year from the full bounded CSV.
+
+**Insolvency Service:** Latest monthly release is dynamically discovered from the official GOV.UK collection, then its aggregate CSV and metadata attachments are verified. [August 2026 release](https://www.gov.uk/government/statistics/company-insolvencies-august-2026), published 18 September; metadata expiry/next release 20 October 2026. Scotland **73 = 35 compulsory liquidations + 30 creditors voluntary liquidations + 8 administrations + 0 CVAs + 0 administrative receiverships**. Northern Ireland **7 = 2 + 5 + 0 + 0 + 0**. Zero is retained only when explicitly numeric; `[x]`, blanks and invalid counts fail. These are calendar-month administrative counts, not people or seasonally adjusted rates. Moratoriums, restructuring plans and administration-to-CVL conversions are separate series, excluded from these totals. Metadata confirms OGL 3.0, national geography, adjustment and definitions. Withdrawn releases, unexpected attachment hosts, wrong months, duplicates, mismatched metadata and non-reconciling counts fail within the section and preserve other sources.
+
+Neither annual nor monthly data is labelled stale simply because it did not change today. Three actual readers passed Cloudflare preview; fixtures contain only published aggregate values under the above OGL licences. Six new deterministic tests cover the definitions and failure boundaries. No credentials registered, publishers contacted, secrets written or main-branch pushes performed.
+
+Next: validate the NI energy workbook and changed denominator; continue CMHC/StatCan bulk downloads, Scottish Funding Council aggregate tables, CQC national aggregates and direct AER datasets. Source discovery is unfinished; categories remain deferred.
+
 ## Pass 2026-10-17-06 — transport workbook additions
 
 Targeted continuation of pass 05’s unfinished files; this is not a completed empty eight-desk pass.

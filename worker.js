@@ -1,5 +1,6 @@
 import { readNzFleet, readScottishTraffic } from './lib/transport-observations.js';
 import { readPharmacies } from './lib/pharmacies.js';
+import { readWalesTax, readCompanyInsolvencies } from './lib/fiscal-observations.js';
 import { BUILD_REVISION, BUILD_CACHE_KEY, BUILD_DIRTY, BUILD_FINGERPRINT } from './.generated/build-info.js';
 import { fetchOfficial, readSections, describeError, SourceError, mapLimit, hasFailures } from './lib/sources.js';
 import { readStatsNz } from './lib/stats-nz.js';
@@ -819,6 +820,7 @@ async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
     food_establishments: () => readFoodAuthorities(name),
     ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel, road_traffic: readScottishTraffic } : {}),
     ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi, assembly_divisions: readAssemblyDivisions } : {}),
+    ...(["scotland", "northern-ireland"].includes(slug) ? { company_insolvencies: () => readCompanyInsolvencies(name) } : {}),
   });
   return { site: "https://morningrows.com", country: name, page: `/${slug}`, ...data };
 }
@@ -1241,6 +1243,7 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "Australia", source: "Australian Energy Regulator market-statistics discovery page", status: 503, note: "The official directory returned HTTP 503 in the workspace on 17 October 2026. No individual data file was validated; this does not establish a block on all AER datasets.", url: "https://www.aer.gov.au/industry/registers/market-statistics" },
         { country: "Australia", source: "Australian Antarctic Data Centre Macquarie Island AWS", status: "delayed", note: "The public station API reported its latest Macquarie Island observation at 2026-09-14T22:15:10Z when checked on 17 October. Not enabled as current weather; other stations have separate dates.", url: "https://data.aad.gov.au/aws/api/station" },
         { country: "United Kingdom", source: "Electoral Commission 2024 election report discovery page", status: 403, note: "The official report page refused the workspace request. No UK-wide data endpoint was validated; this does not cover all Commission downloads.", url: "https://www.electoralcommission.org.uk/research-reports-and-data/our-reports-and-data-past-elections-and-referendums/report-2024-uk-parliamentary-general-election-and-may-2024-elections" },
         { country: "England", source: "NHSBSA Prescription Cost Analysis SQL aggregate", status: 500, note: "The no-key monthly SQL aggregate works in the workspace but returns an internal-server-error envelope from Cloudflare preview using GET and POST. Pharmacy aggregates use the separately published complete CSV.", url: "https://opendata.nhsbsa.net/dataset/prescription-cost-analysis-pca-monthly-data" },
@@ -1333,7 +1336,7 @@ const worker = {
     if (nations[nationKey]) {
       const [name, slug, peoplePath, jobPath, holidayDivision] = nations[nationKey];
       const nation = await readOnsNation(name, slug, peoplePath, jobPath, holidayDivision).catch(() => ({ site: "https://morningrows.com", country: name, error: "not read" }));
-      if (slug === "wales") { nation.omitted_sources = [{ source: "Public Health Wales downloadable datasets", reason: "Not republished: current website terms require permission for republication; no unrestricted dataset-specific licence was established.", terms_url: "https://phw.nhs.wales/terms-of-use/" }]; const projection = await readSections({ projection: readWalesProjection }); nation.projection = projection.projection; nation.sources = { ...nation.sources, ...projection.sources }; }
+      if (slug === "wales") { nation.omitted_sources = [{ source: "Public Health Wales downloadable datasets", reason: "Not republished: current website terms require permission for republication; no unrestricted dataset-specific licence was established.", terms_url: "https://phw.nhs.wales/terms-of-use/" }]; const additions = await readSections({ projection: readWalesProjection, land_transaction_tax: readWalesTax }); nation.projection = additions.projection; nation.land_transaction_tax = additions.land_transaction_tax; nation.sources = { ...nation.sources, ...additions.sources }; }
       if (url.pathname.endsWith(".json")) return held(request, json(nation));
       return held(request, new Response(simplePage(`Morning ${name}`, `<p>The file is <a href="/${slug}.json">${slug}.json</a>. UK-wide figures are on <a href="/united-kingdom">the United Kingdom desk</a>.</p><p>People ${nation.people ? nation.people.value : ""}. Unemployment ${nation.job ? nation.job.value : "not read on this desk"}.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
     }

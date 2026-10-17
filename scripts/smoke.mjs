@@ -59,6 +59,16 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     const n=d.childhood_bmi;
     if(n?.rows?.length!==4||n.rows.some(r=>r.status!=='ok'||!Number.isFinite(r.value)||r.geography!=='Northern Ireland'||r.sex!=='All Persons'||!/^\d{4}\/\d{2}$/.test(r.period||'')||r.period!==n.period||r.unit!=='percent'))throw Error('NISRA requires four national all-persons academic-year aggregates');
    }
+   if(process.env.CHECK_FISCAL_ADDITIONS==='1') {
+    if(path==='/wales.json') {
+     const t=d.land_transaction_tax;
+     if(t?.rows?.length!==4||t.geography!=='Wales'||!/^\d{4}-\d{2}$/.test(t.period||'')||t.rows.some(r=>!Number.isFinite(r.value)||r.value<0||r.unit!=='GBP million'||r.geography!=='Wales'||r.period!==t.period)||!t.rows[0].coverage.includes('Annual total')||Math.abs(t.rows[2].value+t.rows[3].value-t.rows[1].value)>0.21)throw Error('Four validated WRA tax observations missing');
+    }
+    if(['/scotland.json','/northern-ireland.json'].includes(path)) {
+     const i=d.company_insolvencies,g=path==='/scotland.json'?'Scotland':'Northern Ireland';
+     if(i?.rows?.length!==6||i.geography!==g||!/^\d{4}-(0[1-9]|1[0-2])$/.test(i.period||'')||i.rows.some(r=>!Number.isSafeInteger(r.value)||r.value<0||r.geography!==g||r.period!==i.period||r.unit!=='company insolvencies'||r.seasonally_adjusted!==false)||i.rows.slice(1).reduce((n,r)=>n+r.value,0)!==i.rows[0].value)throw Error('Six validated national company-insolvency observations missing');
+    }
+   }
    if(process.env.CHECK_TRANSPORT_ADDITIONS==='1') {
     if(path==='/new-zealand.json') {
      const f=d.vehicle_fleet;
