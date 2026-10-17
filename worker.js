@@ -836,6 +836,8 @@ async function readCanada() {
     }),
     quakes: (quakes.features || []).map((feature) => ({ place: feature.properties.place, when: new Date(feature.properties.time).toISOString(), magnitude: feature.properties.mag })),
     mortgages: await readCanadaMortgages().catch(() => null),
+    posted_rates: await readPostedRates().catch(() => null),
+    air: await readAir().catch(() => null),
     also: {
       world: await readWorld("CA"),
       space: await readSpace(),
@@ -1004,11 +1006,72 @@ async function readRbaTable(url) {
   const title = lines.find((line) => line.startsWith("Title,"));
   const headers = title ? title.split(",").slice(1) : [];
   const dated = lines.filter((line) => /^\d{2}[/-](?:[A-Za-z]{3}|\d{2})[/-]\d{4},-?\d/.test(line));
+  if (!dated.length) return { date: null, rows: [] };
   const last = dated[dated.length - 1].split(",");
   return {
     date: last[0],
     rows: headers.slice(0, last.length - 1).map((name, index) => ({ name: name.replace(/^"|"$/g, ""), value: Number(last[index + 1]) })).filter((row) => Number.isFinite(row.value)),
   };
+}
+
+async function readRbaBundle() {
+  const tables = [
+    ["balance_sheet", "a1"],
+    ["policy", "a2"],
+    ["institutions", "b1"],
+    ["lending", "d2"],
+    ["deposits", "f4"],
+    ["housing_rates", "f6"],
+    ["business_rates", "f7"],
+    ["inflation", "g1"],
+    ["expectations", "g3"],
+    ["product", "h1"],
+    ["activity", "h3"],
+  ];
+  const pairs = await Promise.all(tables.map(async ([name, file]) => {
+    try {
+      return [name, await readRbaTable(`https://www.rba.gov.au/statistics/tables/csv/${file}-data.csv`)];
+    } catch (error) {
+      return [name, { error: "not read" }];
+    }
+  }));
+  return Object.fromEntries(pairs);
+}
+
+async function readPostedRates() {
+  const response = await fetch("https://www.bankofcanada.ca/valet/observations/group/CHARTERED_BANK_INTEREST/json?recent=1");
+  if (!response.ok) throw new Error("posted");
+  const body = await response.json();
+  const last = body.observations[body.observations.length - 1];
+  return {
+    date: last.d,
+    source: "Bank of Canada",
+    rows: Object.entries(body.seriesDetail).map(([id, detail]) => ({ name: detail.label, rate: Number(last[id].v) })),
+  };
+}
+
+async function readAir() {
+  const names = ["Toronto", "Vancouver", "Calgary"];
+  const rows = await Promise.all(names.map(async (name) => {
+    try {
+      const response = await fetch(`https://api.weather.gc.ca/collections/aqhi-forecasts-realtime/items?f=json&limit=1&location_name_en=${encodeURIComponent(name)}`);
+      if (!response.ok) return { name, error: response.status };
+      const body = await response.json();
+      const item = body.features && body.features[0] && body.features[0].properties;
+      if (!item) return { name, error: "none" };
+      return { name: item.location_name_en, when: item.forecast_datetime, index: item.aqhi };
+    } catch (error) {
+      return { name, error: "not read" };
+    }
+  }));
+  return { source: "Environment and Climate Change Canada", rows };
+}
+
+async function readQuakeStats() {
+  const response = await fetch("https://api.geonet.org.nz/quake/stats");
+  if (!response.ok) throw new Error("stats");
+  const body = await response.json();
+  return { days: 365, by_magnitude: body.magnitudeCount && body.magnitudeCount.days365, source: "GeoNet" };
 }
 
 async function readAuLaws() {
@@ -1292,7 +1355,7 @@ export default {
       }
     }
     if (url.pathname === "/new-zealand" || url.pathname === "/new-zealand.json") {
-      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult] = await Promise.allSettled([
+      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult] = await Promise.allSettled([
         readNzPrices(),
         readNzQuakes(),
         fetch("https://api.geonet.org.nz/volcano/val").then((response) => response.json()),
@@ -1300,6 +1363,7 @@ export default {
         readStatsNz(env),
         readWorld("NZ"),
         readSpace(),
+        readQuakeStats(),
       ]);
       const nz = {
         site: "https://morningrows.com",
@@ -1309,6 +1373,7 @@ export default {
         quakes: quakeResult.status === "fulfilled" ? quakeResult.value : [],
         volcanoes: volcanoResult.status === "fulfilled" ? volcanoResult.value.features.map((feature) => ({ name: feature.properties.volcanoTitle, colour: feature.properties.acc, level: feature.properties.level })) : [],
         notices: noticeResult.status === "fulfilled" ? noticeResult.value.feed.slice(0, 3).map((item) => ({ when: item.published, title: item.title })) : [],
+        quake_stats: quakeStatsResult.status === "fulfilled" ? quakeStatsResult.value : null,
         stats: statsResult.status === "fulfilled" ? statsResult.value : { present: false, rows: [] },
         also: {
           world: worldResult.status === "fulfilled" ? worldResult.value : { rows: [] },
@@ -1332,7 +1397,7 @@ export default {
     const nations = {
       "/scotland": ["Scotland", "scotland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/scpop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnn/lms", "scotland"],
       "/wales": ["Wales", "wales", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/wapop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnm/lms", "england-and-wales"],
-      "/northern-ireland": ["Northern Ireland", "northern-ireland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/nipop/pop", null, "northern-ireland"],
+      "/northern-ireland": ["Northern Ireland", "northern-ireland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/nipop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/zsfb/lms", "northern-ireland"],
     };
     const nationKey = url.pathname.endsWith(".json") ? url.pathname.slice(0, -5) : url.pathname;
     if (nations[nationKey]) {
@@ -1350,7 +1415,7 @@ export default {
     if (url.pathname !== "/australia" && url.pathname !== "/australia.json" && url.pathname !== "/morning.json") {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
-    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv")]);
+    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle()]);
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
     const quakes = quakeResult.status === "fulfilled" ? quakeResult.value : [];
@@ -1374,7 +1439,8 @@ export default {
     const laws = settled[17].status === "fulfilled" ? settled[17].value : null;
     const money = settled[18].status === "fulfilled" ? settled[18].value : null;
     const credit = settled[19].status === "fulfilled" ? settled[19].value : null;
-    const body = { site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, laws, hospital: HOSPITAL, catalog: CATALOG.sets, also };
+    const rba = settled[20].status === "fulfilled" ? settled[20].value : null;
+    const body = { site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital: HOSPITAL, catalog: CATALOG.sets, also };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }));
   },
