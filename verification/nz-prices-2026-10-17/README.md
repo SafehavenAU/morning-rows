@@ -34,3 +34,16 @@ All 240 values and all status labels match a separately presented official repor
 The price reader deliberately requires complete data for the five selected nodes only; it does not certify the other 241 nodes. Its day calculation is for the current post-November-2022 regime in Pacific/Auckland. It is not a historical pre-regime reader. Cached desk responses can briefly show an earlier valid read; a failed latest request never causes the reader to select an older release. Upstream changes can make the section unavailable while other successful sources remain visible.
 
 The initial preview caught EMI's scripts appearing after `</html>`. The directory check now accepts that observed layout while still requiring the document terminator; a regression test retains the case. The original positional reader's prior-day fallback test has been replaced with tests of published-release discovery and explicit failure rather than retained as an incorrect expectation.
+
+## Production replay
+
+Run the existing public smoke suite with every retained contract gate:
+
+```sh
+EXPECTED_REVISION=a9bc9e06d083b5fb2211d045a3fc06dc80f72672 CHECK_NZ_PRICES=1 CHECK_OPEN_ADDITIONS=1 CHECK_ASSEMBLY_ADDITION=1 CHECK_PHARMACY_ADDITION=1 CHECK_TRANSPORT_ADDITIONS=1 CHECK_FISCAL_ADDITIONS=1 REPORT_PATH=/tmp/morning-rows-price-check/apex-smoke.json npm run smoke
+SITE_URL=https://www.morningrows.com EXPECTED_REVISION=a9bc9e06d083b5fb2211d045a3fc06dc80f72672 CHECK_NZ_PRICES=1 CHECK_OPEN_ADDITIONS=1 CHECK_ASSEMBLY_ADDITION=1 CHECK_PHARMACY_ADDITION=1 CHECK_TRANSPORT_ADDITIONS=1 CHECK_FISCAL_ADDITIONS=1 REPORT_PATH=/tmp/morning-rows-price-check/www-smoke.json npm run smoke
+```
+
+Create the report directory first if replaying these separately from the specimen download commands. On a later deployed release, set `EXPECTED_REVISION` to that verified release; the smoke check deliberately refuses to certify a mismatched version. The dynamic price gate checks semantics and coverage without freezing future prices to this historical specimen.
+
+Production acceptance on 17 October 2026: both domains match clean source `a9bc9e0` / Worker `4c7e5234-469a-415e-8b5c-a233e7987ab9`; 15 apex and 14 www checks passed. Full NZ preview and public responses contain all five described prices and 23 valid Stats NZ rows. All eight desks and established core/addition contracts passed. A transient Australian grid timeout recovered on a fresh read; the initial failure and successful recheck are retained in [release evidence](../release-a9bc9e0.json). The HTML view also shows the explicit interim status and verified attribution. No unresolved unexpected regression remains.
