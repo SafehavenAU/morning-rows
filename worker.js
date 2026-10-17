@@ -835,6 +835,7 @@ async function readCanada() {
       return { name: item.STATION_NAME, province: item.PROV_TERR_STATE_LOC, when: item.DATETIME, level_m: item.LEVEL, discharge: item.DISCHARGE };
     }),
     quakes: (quakes.features || []).map((feature) => ({ place: feature.properties.place, when: new Date(feature.properties.time).toISOString(), magnitude: feature.properties.mag })),
+    mortgages: await readCanadaMortgages().catch(() => null),
     also: {
       world: await readWorld("CA"),
       space: await readSpace(),
@@ -873,10 +874,11 @@ async function ons(path) {
   return { period: last[0], value: last[1] };
 }
 
-async function readOnsNation(name, slug, peoplePath, jobPath) {
-  const [people, job] = await Promise.all([
+async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
+  const [people, job, holiday] = await Promise.all([
     ons(peoplePath),
     jobPath ? ons(jobPath) : Promise.resolve(null),
+    holidayDivision ? nextHoliday(holidayDivision) : Promise.resolve(null),
   ]);
   return {
     site: "https://morningrows.com",
@@ -884,6 +886,7 @@ async function readOnsNation(name, slug, peoplePath, jobPath) {
     page: `/${slug}`,
     people: { ...people, source: "Office for National Statistics", licence: "Open Government Licence" },
     job: job ? { ...job, source: "Office for National Statistics", licence: "Open Government Licence" } : null,
+    next_holiday: holiday,
   };
 }
 
@@ -968,6 +971,7 @@ async function readEngland() {
       police: await readPolice(),
       health: await readNhs(),
       rainfall: await readRain(),
+      roads: await readRoads(),
       space: await readSpace(),
     },
   };
@@ -1025,6 +1029,41 @@ async function readUkLaws() {
   } catch (error) {
     return { error: "not read" };
   }
+}
+
+async function readRoads() {
+  try {
+    const response = await fetch("https://api.tfl.gov.uk/Road");
+    if (!response.ok) return [];
+    const body = await response.json();
+    return body.map((road) => ({ name: road.displayName, status: road.statusSeverityDescription }));
+  } catch (error) {
+    return [];
+  }
+}
+
+async function nextHoliday(division) {
+  try {
+    const response = await fetch("https://www.gov.uk/bank-holidays.json");
+    if (!response.ok) return null;
+    const body = await response.json();
+    const today = new Date().toISOString().slice(0, 10);
+    return ((body[division] && body[division].events) || []).find((event) => event.date >= today) || null;
+  } catch (error) {
+    return null;
+  }
+}
+
+async function readCanadaMortgages() {
+  const response = await fetch("https://www.bankofcanada.ca/valet/observations/group/A4_RATES_MORTGAGES/json?recent=1");
+  if (!response.ok) throw new Error("mortgages");
+  const body = await response.json();
+  const last = body.observations[body.observations.length - 1];
+  return {
+    date: last.d,
+    source: "Bank of Canada",
+    rows: Object.entries(body.seriesDetail).slice(0, 6).map(([id, detail]) => ({ name: detail.label, rate: Number(last[id].v) })),
+  };
 }
 
 async function readRain() {
@@ -1227,6 +1266,7 @@ export default {
         { country: "New Zealand", source: "Stats NZ", would_unlock: "already bound as STATSNZ_KEY when the secret is present" },
         { country: "New Zealand", source: "LINZ Data Service", would_unlock: "addresses, parcels, and place names" },
         { country: "New Zealand", source: "MetService", would_unlock: "the national forecast" },
+        { country: "New Zealand", source: "NIWA", would_unlock: "climate stations and forecasts" },
         { country: "Canada", source: "AESO", would_unlock: "the Alberta pool price as JSON. A free key. The publisher limits use." },
         { country: "Canada", source: "IESO participant APIs", would_unlock: "registered Ontario market tools, not the public reports" },
         { country: "Australia", source: "Service NSW FuelCheck", would_unlock: "published fuel prices" },
@@ -1288,14 +1328,14 @@ export default {
       return held(request, new Response(simplePage("Morning United Kingdom", `<p>UK-wide figures only. The nations are <a href="/england">England</a>, <a href="/scotland">Scotland</a>, <a href="/wales">Wales</a>, and <a href="/northern-ireland">Northern Ireland</a>.</p><p>People ${uk.people ? uk.people.value : ""}. Unemployment ${uk.job ? uk.job.value : ""}%. The file is <a href="/united-kingdom.json">united-kingdom.json</a>.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
     }
     const nations = {
-      "/scotland": ["Scotland", "scotland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/scpop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnn/lms"],
-      "/wales": ["Wales", "wales", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/wapop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnm/lms"],
-      "/northern-ireland": ["Northern Ireland", "northern-ireland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/nipop/pop", null],
+      "/scotland": ["Scotland", "scotland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/scpop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnn/lms", "scotland"],
+      "/wales": ["Wales", "wales", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/wapop/pop", "/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnm/lms", "england-and-wales"],
+      "/northern-ireland": ["Northern Ireland", "northern-ireland", "/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/nipop/pop", null, "northern-ireland"],
     };
     const nationKey = url.pathname.endsWith(".json") ? url.pathname.slice(0, -5) : url.pathname;
     if (nations[nationKey]) {
-      const [name, slug, peoplePath, jobPath] = nations[nationKey];
-      const nation = await readOnsNation(name, slug, peoplePath, jobPath).catch(() => ({ site: "https://morningrows.com", country: name, error: "not read" }));
+      const [name, slug, peoplePath, jobPath, holidayDivision] = nations[nationKey];
+      const nation = await readOnsNation(name, slug, peoplePath, jobPath, holidayDivision).catch(() => ({ site: "https://morningrows.com", country: name, error: "not read" }));
       if (url.pathname.endsWith(".json")) return held(request, json(nation));
       return held(request, new Response(simplePage(`Morning ${name}`, `<p>The file is <a href="/${slug}.json">${slug}.json</a>. UK-wide figures are on <a href="/united-kingdom">the United Kingdom desk</a>.</p><p>People ${nation.people ? nation.people.value : ""}. Unemployment ${nation.job ? nation.job.value : "not read on this desk"}.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
     }
@@ -1308,7 +1348,7 @@ export default {
     if (url.pathname !== "/australia" && url.pathname !== "/australia.json" && url.pathname !== "/morning.json") {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
-    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws()]);
+    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv")]);
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
     const quakes = quakeResult.status === "fulfilled" ? quakeResult.value : [];
@@ -1330,7 +1370,9 @@ export default {
     const bonds = settled[15].status === "fulfilled" ? settled[15].value : null;
     const commodities = settled[16].status === "fulfilled" ? settled[16].value : null;
     const laws = settled[17].status === "fulfilled" ? settled[17].value : null;
-    const body = { site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, laws, hospital: HOSPITAL, catalog: CATALOG.sets, also };
+    const money = settled[18].status === "fulfilled" ? settled[18].value : null;
+    const credit = settled[19].status === "fulfilled" ? settled[19].value : null;
+    const body = { site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, laws, hospital: HOSPITAL, catalog: CATALOG.sets, also };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }));
   },
