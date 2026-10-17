@@ -4,7 +4,7 @@ Date: 2026-10-17. Site: https://morningrows.com. Repository: SafehavenAU/morning
 
 Read [AGENTS.md](AGENTS.md) first. This file is what has been built. It is not a new set of rules.
 
-## Recovery release preparation — 17 October 2026
+## Verified production release — 17 October 2026
 
 The first batch (`540a3f7`) repairs Stats NZ's 23 explicit series, failure isolation and build verification, and adds FSA food counts, Scottish bill stages and Canadian recalls. Cloudflare preview validated all 23 Stats NZ rows and all eight desks retaining their healthy sources.
 
@@ -14,9 +14,9 @@ ABS and ONS still refuse Workers requests (403/429). The National Archives Atom 
 
 Release uses the authenticated Wrangler CLI while the Cloudflare Builds settings API returns 403. Do not push main until the automatic build commands are verified to contain no secret-writing steps. The direct CLI release does not run the inaccessible pipeline or write `STATSNZ_KEY`. Prior production version for rollback: `21631712-c553-444c-9fdb-647d1cb6c92e`.
 
-Build commands: `npm ci`, `npm run check`, `npm run build`, and `npm run smoke`. There are 32 deterministic tests. `/health.json` exposes source SHA, dirty-worktree state, content fingerprint and Worker version; desk `sources` and `x-data-status` describe data health. Production verification and the release version will be recorded below once deployment completes.
+Build commands: `npm ci`, `npm run check`, `npm run build`, and `npm run smoke`. There are 32 deterministic tests. `/health.json` exposes source SHA, dirty-worktree state, content fingerprint and Worker version; desk `sources` and `x-data-status` describe data health. Production release `29a2d4ea1ac657b63b08a9a5310664bc8233d3f7` is served by Worker version `9de05f20-66c4-48d9-ae39-52e14fbbc5c4` on both domains. All 15 smoke checks passed, including discovery files, eight desks, Australia alias, both domains and the missing-route 404. Stats NZ returned 23 validated rows using the existing secret. Targeted production checks confirmed all 40 AIHW cells, the corrected Wales projection and four NISRA rows. [Verification report](verification/release-29a2d4e.json) records release identity and the remaining source errors. A passing smoke check means the desk contracts and core data passed; it does not mean every upstream source is healthy.
 
-The second discovery pass is in progress, not empty. Categories, the broader inherited-series audit and daily monitoring remain pending. CI is prepared locally but will not run remotely until the commits are pushed.
+The second discovery pass is in progress, not empty. Categories and the broader inherited-series audit remain pending. The daily **Check Morning Rows** health watch is active, using Australia/Brisbane as the personal timezone. It is read-only and stays quiet unless there is a meaningful new failure, recovery or required action. CI is prepared locally but will not run remotely until the commits are pushed.
 
 ## What this is
 
@@ -41,11 +41,11 @@ World Bank rows and space weather sit under `also` on the country files that hav
 
 ## Known unfinished items
 
-- Complete release verification and reconcile the repository with the automatic build pipeline.
+- Reconcile the local release commits with the automatic build pipeline after its secret-safe commands can be verified. No main-branch push was made.
 - ABS and ONS refuse Worker requests. Publisher access remains unresolved; do not disguise missing data or substitute unrelated geography.
 - The hospital source and date are now verified against AIHW. Other inherited readers still need a broader unit, provenance and selection audit.
 - Supplementary England fields labelled United Kingdom or Great Britain must retain those labels.
-- Source discovery has not reached a complete empty pass. Categories and daily monitoring remain pending.
+- Source discovery has not reached a complete empty pass; pass 02 remains in progress. Categories remain pending. Daily monitoring is enabled.
 
 ## Log
 

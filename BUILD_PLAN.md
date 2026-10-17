@@ -10,7 +10,7 @@ The initial discovery batch adds FSA counts, Scottish bill stages and Canadian r
 
 The current OAuth grant cannot inspect Workers Builds settings (HTTP 403). Release proceeds through the authenticated Wrangler CLI, preserving the existing runtime secret. Main-branch pushes remain on hold until the automatic commands are verified as `npm run check` and `npx wrangler deploy --config wrangler.toml` without secret-writing steps. This is a pipeline-settings limitation, not a restriction on the separately authenticated Worker deployment operation.
 
-Stages 1–2 are implemented and preview-tested, with a broader inherited-series audit still open. Stage 3 awaits production verification of the direct release. Stage 4 has not reached a completed empty pass. Categories and a daily monitor remain pending. Prepared GitHub CI is not active remotely until these commits are pushed.
+Stages 1–2 are implemented and preview-tested, with a broader inherited-series audit still open. The direct release in Stage 3 is verified on both domains: source `29a2d4e`, Worker `9de05f20-66c4-48d9-ae39-52e14fbbc5c4`, all 15 content/route checks pass. Automatic pipeline settings and repository synchronization remain open. Stage 4 has not reached a completed empty pass. Categories remain pending. The daily **Check Morning Rows** read-only monitor is active and notifies only on meaningful changes or required action. Prepared GitHub CI is not active remotely until these commits are pushed.
 
 ## Verified starting point
 
@@ -106,6 +106,6 @@ After the empty-pass condition, build a measure-by-desk matrix from verified dat
 
 The development loop advances through small verified changes; it is separate from request-time fetching. Routine new source observations do not require rebuilding the Worker. Keep the public desks request-driven with short caches and no private records database.
 
-Once implemented, run deterministic checks on every change and bounded production checks after deployment. A daily content monitor should check source health and publication cadence, notifying only on meaningful new failures, recovery, or required action. Do not label monthly or annual data stale merely because it did not change today. A recurring monitor or autonomous build job has not been created by this plan.
+Once implemented, run deterministic checks on every change and bounded production checks after deployment. A daily content monitor should check source health and publication cadence, notifying only on meaningful new failures, recovery, or required action. Do not label monthly or annual data stale merely because it did not change today. The daily health monitor is now active. An autonomous code-building job has not been scheduled; code changes still follow the verified build/release process.
 
-The immediate next action is to release this verified batch through Wrangler and run the production content check. Then continue the logged discovery queue and provenance audit. A refusal from one publisher never stops the wider discovery pass.
+Continue the unfinished second discovery pass and inherited-source audit, and reconcile the automatic main-branch pipeline when its commands can be verified. The direct release and its production content check are complete. A refusal from one publisher never stops the wider discovery pass.

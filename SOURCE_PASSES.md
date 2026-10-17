@@ -1,6 +1,6 @@
 # Official-source discovery passes
 
-## Pass 2026-10-17-01 — prepared and preview-tested, awaiting release
+## Pass 2026-10-17-01 — released and production-verified
 
 Baseline: `2cb3ffd457c6eae7e5b5310049217f9d71b45ab2`. Checked 17 October 2026. Each publisher below was absent from the corresponding desk and log when this pass began. Counts describe distinct integrations or log entries, not individual observations.
 
@@ -23,13 +23,13 @@ Prepared additions: **3 distinct feed integrations across 7 desk sections, 3 key
 - **Scottish Parliament:** [copyright licence](https://www.parliament.scot/about/copyright) permits republication with the included attribution. Bill titles and stage dates are legislative facts; future/undated stages are excluded. No implication that a dated stage means enactment.
 - **Health Canada:** the official [open-data catalogue entry](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3) specifies the Open Government Licence – Canada. The RSS feed has no explicit timezone on its publication timestamps; they are preserved without appending a fabricated UTC offset. The feed is a current subset, not an exhaustive recall history.
 
-All three readers returned usable data in an authenticated Cloudflare remote preview. Deterministic tests cover malformed/truncated responses, country boundaries, duplicate authority records, missing bill joins, future dates, RSS entities, official link restrictions and removal of nonessential fields. Preview checks do not establish production deployment.
+All three readers returned usable data in an authenticated Cloudflare remote preview and in the production release. Deterministic tests cover malformed/truncated responses, country boundaries, duplicate authority records, missing bill joins, future dates, RSS entities, official link restrictions and removal of nonessential fields. Preview checks do not establish production deployment.
 
 ### Next pass and release gate
 
-This pass is **not empty** and does not satisfy the repository's stopping condition. Release and content verification are pending while the Workers Builds commands cannot be inspected with the current OAuth scope (HTTP 403). No claim of completed continuous discovery is made.
+This pass is **not empty** and does not satisfy the repository's stopping condition. The batch was released through Wrangler as source `29a2d4e`, Worker `9de05f20-66c4-48d9-ae39-52e14fbbc5c4`; production content verification passed. Workers Builds commands still cannot be inspected with the current OAuth scope (HTTP 403), so main-branch pushes remain on hold. No claim of completed continuous discovery is made.
 
-After release, start pass `2026-10-17-02` (or the actual subsequent date), again covering all eight desks. Start with the new-publisher queue below, inspect official terms and concrete endpoints, and log every outcome. Do not retest the same successful publisher to manufacture an empty pass.
+Pass `2026-10-17-02` has started below, again covering all eight desks. Start with the new-publisher queue below, inspect official terms and concrete endpoints, and log every outcome. Do not retest the same successful publisher to manufacture an empty pass.
 
 - Australia: ABS-independent official aggregate environmental or economic publishers; AFSA direct dataset link only if officially published.
 - New Zealand: Ministry for the Environment open aggregate datasets.
@@ -58,3 +58,5 @@ Baseline: `540a3f749330226db7a3a7b3a98c4e906be618c1`. This is **not a completed 
 | Northern Ireland | [NISRA Childhood BMI JSON-stat](https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.ReadDataset/CHILDBMILGD/JSON-stat/2.0/en) | Added four national all-persons aggregate measures, latest academic year 2024/25. Exact dimensions select Northern Ireland (`N92000002`), not a district or individual. Preview values: 6.3%, 23.2%, 6.0%, 26.5%. [NISRA terms](https://www.nisra.gov.uk/crown-copyright) permit reuse under OGL; attribution and methodology caveats included. No contacts or individual health records are published. |
 
 Added in this batch: two official API integrations (AIHW replaces a static table; NISRA is new), one existing projection repair, and one runtime-specific legislation block entry. HTTP error wrapping now preserves the original status code. The remaining candidate validations above must be finished before counting this pass as complete.
+
+The implemented portions of pass 02 are now live in release `29a2d4e`. Production checks confirm AIHW, Wales and NISRA data; legislation remains an explicit 404. Further source discovery continues from the unvalidated candidates in this table.
