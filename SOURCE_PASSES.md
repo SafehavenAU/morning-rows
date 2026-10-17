@@ -2,7 +2,7 @@
 
 ## Structure pass — 17 October 2026
 
-No catalogue expansion. Released source `021dc2f462586f940d295e8181fd883eaaef0805` implements eight-desk discovery, source/measure selection, explicit unsupported-query errors, semantic validators and bounded cache expiry. [Evidence and limitations](verification/structure-2026-10-17/README.md). Original source queue and demand recommendations remain pending. Current production identity and acknowledged pre-existing NZ EMI timeout are recorded in [HANDOFF.md](HANDOFF.md) and [monitoring baseline](verification/monitoring-baseline.json); do not repeatedly alert unchanged upstream failures.
+No catalogue expansion. Released source `7d614e2e78a63fc16f705b67e35ed0438baa7d87` implements eight-desk discovery, source/measure selection, explicit unsupported-query errors, semantic validators and bounded cache expiry. [Evidence and limitations](verification/structure-2026-10-17/README.md). Original source queue and demand recommendations remain pending. Current production identity and resolved pre-existing NZ EMI interruption are recorded in [HANDOFF.md](HANDOFF.md) and [monitoring baseline](verification/monitoring-baseline.json); do not repeatedly alert unchanged upstream failures.
 
 ## Research pass 2026-10-17-10 — demand assessment across all eight desks (no integration)
 

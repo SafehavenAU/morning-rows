@@ -54,7 +54,8 @@ for(const origin of ['https://morningrows.com','https://www.morningrows.com']) {
 }
 const apex=bodies['https://morningrows.com/health.json'],www=bodies['https://www.morningrows.com/health.json'];check('domains have identical release',apex?.worker_version===www?.worker_version&&apex?.source_revision===www?.source_revision);
 const status={};for(const [key,body] of Object.entries(bodies))if(body?.sources&&!Array.isArray(body.sources))status[key]={...body.sources,...Object.fromEntries(Object.entries(body.also?.sources||{}).map(([k,v])=>['also.'+k,v]))};
-const report={checked_at:new Date().toISOString(),pass:checks.every(c=>c.pass),identity:apex,checks,requests:records,source_status:status};
+const release_mismatches=process.env.EXPECTED_REVISION?records.filter(r=>r.headers['x-source-revision']!==process.env.EXPECTED_REVISION).map(r=>({origin:r.origin,path:r.path,observed_revision:r.headers['x-source-revision']})):[];
+const report={checked_at:new Date().toISOString(),pass:checks.every(c=>c.pass)&&release_mismatches.length===0,identity:apex,checks,requests:records,source_status:status,release_mismatches};
 await writeFile(`${out}/report.json`,JSON.stringify(report,null,2)+'\n');
-console.log(JSON.stringify({pass:report.pass,checks:checks.length,failures:checks.filter(c=>!c.pass),identity:apex},null,2));
+console.log(JSON.stringify({pass:report.pass,checks:checks.length,failures:checks.filter(c=>!c.pass),release_mismatches,identity:apex},null,2));
 if(!report.pass)process.exitCode=1;
