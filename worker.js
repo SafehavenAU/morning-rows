@@ -1,3 +1,4 @@
+import { readNzFleet, readScottishTraffic } from './lib/transport-observations.js';
 import { readPharmacies } from './lib/pharmacies.js';
 import { BUILD_REVISION, BUILD_CACHE_KEY, BUILD_DIRTY, BUILD_FINGERPRINT } from './.generated/build-info.js';
 import { fetchOfficial, readSections, describeError, SourceError, mapLimit, hasFailures } from './lib/sources.js';
@@ -816,7 +817,7 @@ async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
     job: async () => ({ ...await ons(jobPath), ...meta, unit: "percent" }),
     next_holiday: () => nextHoliday(holidayDivision),
     food_establishments: () => readFoodAuthorities(name),
-    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel } : {}),
+    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel, road_traffic: readScottishTraffic } : {}),
     ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi, assembly_divisions: readAssemblyDivisions } : {}),
   });
   return { site: "https://morningrows.com", country: name, page: `/${slug}`, ...data };
@@ -1240,6 +1241,8 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "Australia", source: "Australian Antarctic Data Centre Macquarie Island AWS", status: "delayed", note: "The public station API reported its latest Macquarie Island observation at 2026-09-14T22:15:10Z when checked on 17 October. Not enabled as current weather; other stations have separate dates.", url: "https://data.aad.gov.au/aws/api/station" },
+        { country: "United Kingdom", source: "Electoral Commission 2024 election report discovery page", status: 403, note: "The official report page refused the workspace request. No UK-wide data endpoint was validated; this does not cover all Commission downloads.", url: "https://www.electoralcommission.org.uk/research-reports-and-data/our-reports-and-data-past-elections-and-referendums/report-2024-uk-parliamentary-general-election-and-may-2024-elections" },
         { country: "England", source: "NHSBSA Prescription Cost Analysis SQL aggregate", status: 500, note: "The no-key monthly SQL aggregate works in the workspace but returns an internal-server-error envelope from Cloudflare preview using GET and POST. Pharmacy aggregates use the separately published complete CSV.", url: "https://opendata.nhsbsa.net/dataset/prescription-cost-analysis-pca-monthly-data" },
         { country: "New Zealand", source: "Ministry of Transport network-performance discovery page", status: 200, note: "The page returned an Incapsula HTML challenge in the workspace; no CSV observations were validated. Other ministry downloads remain candidates.", url: "https://www.transport.govt.nz/area-of-interest/strategy-and-direction/transport-network-performance" },
         { country: "Northern Ireland", source: "OpenDataNI traffic-count catalogue page", status: 403, note: "The admin.opendatani.gov.uk traffic-count dataset page refused the workspace request. DfI direct publications remain candidates.", url: "https://admin.opendatani.gov.uk/dataset/northern-ireland-traffic-count-data" },
@@ -1279,7 +1282,7 @@ const worker = {
       }
     }
     if (url.pathname === "/new-zealand" || url.pathname === "/new-zealand.json") {
-      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult] = await Promise.allSettled([
+      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult, fleetResult] = await Promise.allSettled([
         readNzPrices(),
         readNzQuakes(),
         fetchOfficial("https://api.geonet.org.nz/volcano/val").then(response => response.json()).then(body => body.features.map(feature => ({ name: feature.properties.volcanoTitle, colour: feature.properties.acc, level: feature.properties.level }))),
@@ -1288,9 +1291,10 @@ const worker = {
         readWorld("NZ"),
         readSpace(),
         readQuakeStats(),
+        readNzFleet(),
       ]);
       const nz = {
-        sources: Object.fromEntries([priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult].map((result, index) => [["prices", "quakes", "volcanoes", "notices", "stats", "world", "space", "quake_stats"][index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }])),
+        sources: Object.fromEntries([priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult, fleetResult].map((result, index) => [["prices", "quakes", "volcanoes", "notices", "stats", "world", "space", "quake_stats", "vehicle_fleet"][index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }])),
         site: "https://morningrows.com",
         country: "New Zealand",
         page: "/new-zealand",
@@ -1298,6 +1302,7 @@ const worker = {
         quakes: quakeResult.status === "fulfilled" ? quakeResult.value : [],
         volcanoes: volcanoResult.status === "fulfilled" ? volcanoResult.value : [],
         notices: noticeResult.status === "fulfilled" ? noticeResult.value : [],
+        vehicle_fleet: fleetResult.status === "fulfilled" ? fleetResult.value : null,
         quake_stats: quakeStatsResult.status === "fulfilled" ? quakeStatsResult.value : null,
         stats: statsResult.status === "fulfilled" ? statsResult.value : { present: Boolean(env?.STATSNZ_KEY), status: "error", rows: [], ...describeError(statsResult.reason) },
         also: {
@@ -1328,7 +1333,7 @@ const worker = {
     if (nations[nationKey]) {
       const [name, slug, peoplePath, jobPath, holidayDivision] = nations[nationKey];
       const nation = await readOnsNation(name, slug, peoplePath, jobPath, holidayDivision).catch(() => ({ site: "https://morningrows.com", country: name, error: "not read" }));
-      if (slug === "wales") { const projection = await readSections({ projection: readWalesProjection }); nation.projection = projection.projection; nation.sources = { ...nation.sources, ...projection.sources }; }
+      if (slug === "wales") { nation.omitted_sources = [{ source: "Public Health Wales downloadable datasets", reason: "Not republished: current website terms require permission for republication; no unrestricted dataset-specific licence was established.", terms_url: "https://phw.nhs.wales/terms-of-use/" }]; const projection = await readSections({ projection: readWalesProjection }); nation.projection = projection.projection; nation.sources = { ...nation.sources, ...projection.sources }; }
       if (url.pathname.endsWith(".json")) return held(request, json(nation));
       return held(request, new Response(simplePage(`Morning ${name}`, `<p>The file is <a href="/${slug}.json">${slug}.json</a>. UK-wide figures are on <a href="/united-kingdom">the United Kingdom desk</a>.</p><p>People ${nation.people ? nation.people.value : ""}. Unemployment ${nation.job ? nation.job.value : "not read on this desk"}.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
     }

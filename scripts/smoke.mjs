@@ -59,6 +59,16 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     const n=d.childhood_bmi;
     if(n?.rows?.length!==4||n.rows.some(r=>r.status!=='ok'||!Number.isFinite(r.value)||r.geography!=='Northern Ireland'||r.sex!=='All Persons'||!/^\d{4}\/\d{2}$/.test(r.period||'')||r.period!==n.period||r.unit!=='percent'))throw Error('NISRA requires four national all-persons academic-year aggregates');
    }
+   if(process.env.CHECK_TRANSPORT_ADDITIONS==='1') {
+    if(path==='/new-zealand.json') {
+     const f=d.vehicle_fleet;
+     if(f?.rows?.length!==8||f.geography!=='New Zealand'||f.period!=='2024'||f.rows.some(r=>!Number.isSafeInteger(r.value)||r.value<0||r.unit!=='vehicles'||r.geography!=='New Zealand'||r.period!==f.period))throw Error('Eight validated NZ fleet observations missing');
+    }
+    if(path==='/scotland.json') {
+     const t=d.road_traffic;
+     if(t?.rows?.length!==4||t.geography!=='Scotland'||t.period!=='2024'||t.rows.some(r=>!Number.isFinite(r.value)||r.value<0||r.unit!=='million vehicle kilometres'||r.geography!=='Scotland'||r.period!==t.period))throw Error('Four validated Scottish traffic observations missing');
+    }
+   }
    if(process.env.CHECK_PHARMACY_ADDITION==='1' && path==='/england.json') {
     const p=d.pharmacies;
     if(p?.rows?.length!==9||p.geography!=='England'||!/^\d{4}-\d{2}$/.test(p.period||'')||p.rows.some(r=>!Number.isSafeInteger(r.value)||r.geography!=='England'||r.period!==p.period||r.unit!=='pharmacies'))throw Error('Nine NHSBSA national pharmacy observations missing');
