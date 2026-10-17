@@ -1,0 +1,441 @@
+{
+  "evaluated_at": "2026-10-17T10:28:43.039Z",
+  "method": "Deterministic handler replay on fixed dated aggregate fixtures; no independent agent answers or retention measurement.",
+  "reference_limits": "AIHW/Wales/NISRA: original publisher responses selected independently in Python. Canada: prior research JSON/CSV/official table. Remaining values: previously verified reader output and existing regression evidence, not a new independent upstream reconciliation.",
+  "conditions": {
+    "before_source": {
+      "service": "Morning Rows",
+      "source_revision": "a9bc9e06d083b5fb2211d045a3fc06dc80f72672",
+      "source_dirty": false,
+      "build_fingerprint": "ab4f1608d6e8c4da",
+      "worker_version": "4c7e5234-469a-415e-8b5c-a233e7987ab9",
+      "note": "Runtime identity only; inspect each desk sources field for data health."
+    },
+    "after_source": "Working tree; release identity in release evidence",
+    "transport": "Worker fetch handler with cached fixtures; HTTP headers/status/body asserted. Edge behavior checked separately in remote preview and production.",
+    "cold_discovery": "Before: llms + root catalogue + full desk = 3 requests. After: llms + root catalogue + desk directory + selected response = 4. Source discovery adds one hop. Repeat visit needs one conditional request."
+  },
+  "tasks": [
+    {
+      "desk": "canada",
+      "set": "development",
+      "source": "exchange",
+      "measure": "FXUSDCAD",
+      "checks": {
+        "correct_value": true,
+        "exact_period": true,
+        "explicit_geography": true,
+        "explicit_unit": true,
+        "publisher_citation": true,
+        "stable_observation_url": true,
+        "qualified_context": true,
+        "zero_not_missing": true
+      },
+      "answer": {
+        "value": 1.4154,
+        "unit": "CAD per 1 USD",
+        "geography": "Currency pair; not subnational geography",
+        "period": "2026-10-16",
+        "kind": "observation",
+        "citation": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD/json?recent=1"
+      },
+      "before_full_desk_bytes": 11706,
+      "after_selected_bytes": 2158,
+      "saved_body_percent": 82,
+      "repeat": {
+        "status": 304,
+        "body_bytes": 0
+      },
+      "trace": [
+        {
+          "url": "https://morningrows.com/llms.txt",
+          "status": 200,
+          "body_bytes": 2737,
+          "etag": "W/\"a6ebf70fe5e25ce4ac8c72ff07849dfac7d20734fe566317d6154736a4ff9147\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json",
+          "status": 200,
+          "body_bytes": 2662,
+          "etag": "W/\"ff0c229865b4d7a741303df5c6d5638a1e2dfc06ca15fb2df0118480a984d1a7\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json?desk=canada",
+          "status": 200,
+          "body_bytes": 12042,
+          "etag": "W/\"8675e5bb4db74c1864c04c298aa91625c977de1e4e11719c3c4f015b2b8c9989\""
+        },
+        {
+          "url": "https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD",
+          "status": 200,
+          "body_bytes": 2158,
+          "etag": "W/\"bccdd5a4e29742ceb1ff1d428cf655fe823e9b2f8ba000dedc9826d781606d63\""
+        }
+      ]
+    },
+    {
+      "desk": "wales",
+      "set": "development",
+      "source": "projection",
+      "measure": "population-2024-based",
+      "checks": {
+        "correct_value": true,
+        "exact_period": true,
+        "explicit_geography": true,
+        "explicit_unit": true,
+        "publisher_citation": true,
+        "stable_observation_url": true,
+        "qualified_context": true,
+        "zero_not_missing": true
+      },
+      "answer": {
+        "value": 3195431,
+        "unit": "people",
+        "geography": "Wales",
+        "period": "Mid-year 2026",
+        "kind": "projection",
+        "citation": "https://api.stats.gov.wales/v2/20b6276b-92f7-48fd-806e-69c35b54d9e0/data?format=csv"
+      },
+      "before_full_desk_bytes": 8582,
+      "after_selected_bytes": 3343,
+      "saved_body_percent": 61,
+      "repeat": {
+        "status": 304,
+        "body_bytes": 0
+      },
+      "trace": [
+        {
+          "url": "https://morningrows.com/llms.txt",
+          "status": 200,
+          "body_bytes": 2737,
+          "etag": "W/\"a6ebf70fe5e25ce4ac8c72ff07849dfac7d20734fe566317d6154736a4ff9147\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json",
+          "status": 200,
+          "body_bytes": 2662,
+          "etag": "W/\"ff0c229865b4d7a741303df5c6d5638a1e2dfc06ca15fb2df0118480a984d1a7\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json?desk=wales",
+          "status": 200,
+          "body_bytes": 4174,
+          "etag": "W/\"dafdf566b47f0ac81f7603f496183c95c93c85d430b9d380de7f9fb198de4a37\""
+        },
+        {
+          "url": "https://morningrows.com/wales.json?source=projection&measure=population-2024-based",
+          "status": 200,
+          "body_bytes": 3343,
+          "etag": "W/\"48433c6f24bc8f0690512cc275806e0be05fdc5ae2246f7d4b2ba5b064bd49e9\""
+        }
+      ]
+    },
+    {
+      "desk": "new-zealand",
+      "set": "development",
+      "source": "stats",
+      "measure": "CORR_FIS_005",
+      "checks": {
+        "correct_value": true,
+        "exact_period": true,
+        "explicit_geography": true,
+        "explicit_unit": true,
+        "publisher_citation": true,
+        "stable_observation_url": true,
+        "qualified_context": true,
+        "zero_not_missing": true
+      },
+      "answer": {
+        "value": 8199,
+        "unit": "people",
+        "geography": "New Zealand",
+        "period": "2025",
+        "kind": "observation",
+        "citation": "https://api.data.stats.govt.nz/rest/data/STATSNZ,CORR_FIS_005,1.0/.X.X.X.X.X?dimensionAtObservation=AllDimensions&format=csv"
+      },
+      "before_full_desk_bytes": 61288,
+      "after_selected_bytes": 3891,
+      "saved_body_percent": 94,
+      "repeat": {
+        "status": 304,
+        "body_bytes": 0
+      },
+      "trace": [
+        {
+          "url": "https://morningrows.com/llms.txt",
+          "status": 200,
+          "body_bytes": 2737,
+          "etag": "W/\"a6ebf70fe5e25ce4ac8c72ff07849dfac7d20734fe566317d6154736a4ff9147\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json",
+          "status": 200,
+          "body_bytes": 2662,
+          "etag": "W/\"ff0c229865b4d7a741303df5c6d5638a1e2dfc06ca15fb2df0118480a984d1a7\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json?desk=new-zealand",
+          "status": 200,
+          "body_bytes": 12784,
+          "etag": "W/\"e57d921f47a17afcb1d4bc9882c31e1a3292c069949e25fb44d0575a27f97dac\""
+        },
+        {
+          "url": "https://morningrows.com/new-zealand.json?source=stats&measure=CORR_FIS_005",
+          "status": 200,
+          "body_bytes": 3891,
+          "etag": "W/\"cf9f74dfecfff9ffd1771ab816634da16e75364d128107cb5e291fac96479dc2\""
+        }
+      ]
+    },
+    {
+      "desk": "scotland",
+      "set": "development",
+      "source": "company_insolvencies",
+      "measure": "total-company-insolvencies",
+      "checks": {
+        "correct_value": true,
+        "exact_period": true,
+        "explicit_geography": true,
+        "explicit_unit": true,
+        "publisher_citation": true,
+        "stable_observation_url": true,
+        "qualified_context": true,
+        "zero_not_missing": true
+      },
+      "answer": {
+        "value": 73,
+        "unit": "company insolvencies",
+        "geography": "Scotland",
+        "period": "2026-08",
+        "kind": "observation",
+        "citation": "https://assets.publishing.service.gov.uk/media/6aa95b092f29b388848184fd/Long-Run_Series_in_CSV_Format_-_Company_Insolvency_Statistics_August_2026.csv"
+      },
+      "before_full_desk_bytes": 14934,
+      "after_selected_bytes": 4403,
+      "saved_body_percent": 71,
+      "repeat": {
+        "status": 304,
+        "body_bytes": 0
+      },
+      "trace": [
+        {
+          "url": "https://morningrows.com/llms.txt",
+          "status": 200,
+          "body_bytes": 2737,
+          "etag": "W/\"a6ebf70fe5e25ce4ac8c72ff07849dfac7d20734fe566317d6154736a4ff9147\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json",
+          "status": 200,
+          "body_bytes": 2662,
+          "etag": "W/\"ff0c229865b4d7a741303df5c6d5638a1e2dfc06ca15fb2df0118480a984d1a7\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json?desk=scotland",
+          "status": 200,
+          "body_bytes": 7081,
+          "etag": "W/\"957d485d15d2a592f7d021530464b9bbe6b0431b54f40a6920a7405b5cb2d07e\""
+        },
+        {
+          "url": "https://morningrows.com/scotland.json?source=company_insolvencies&measure=total-company-insolvencies",
+          "status": 200,
+          "body_bytes": 4403,
+          "etag": "W/\"4f49e74fbbf761985012138187eeba8b0f4c5d6eb1f0a4b07f044b399875b9db\""
+        }
+      ]
+    },
+    {
+      "desk": "northern-ireland",
+      "set": "held_out",
+      "source": "childhood_bmi",
+      "measure": "Y8BMIOwOb",
+      "checks": {
+        "correct_value": true,
+        "exact_period": true,
+        "explicit_geography": true,
+        "explicit_unit": true,
+        "publisher_citation": true,
+        "stable_observation_url": true,
+        "qualified_context": true,
+        "zero_not_missing": true
+      },
+      "answer": {
+        "value": 26.5,
+        "unit": "percent",
+        "geography": "Northern Ireland",
+        "period": "2024/25",
+        "kind": "observation",
+        "citation": "https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.ReadDataset/CHILDBMILGD/JSON-stat/2.0/en"
+      },
+      "before_full_desk_bytes": 9831,
+      "after_selected_bytes": 4126,
+      "saved_body_percent": 58,
+      "repeat": {
+        "status": 304,
+        "body_bytes": 0
+      },
+      "trace": [
+        {
+          "url": "https://morningrows.com/llms.txt",
+          "status": 200,
+          "body_bytes": 2737,
+          "etag": "W/\"a6ebf70fe5e25ce4ac8c72ff07849dfac7d20734fe566317d6154736a4ff9147\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json",
+          "status": 200,
+          "body_bytes": 2662,
+          "etag": "W/\"ff0c229865b4d7a741303df5c6d5638a1e2dfc06ca15fb2df0118480a984d1a7\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json?desk=northern-ireland",
+          "status": 200,
+          "body_bytes": 7907,
+          "etag": "W/\"c721099fbd10507ee06ec7d555ac0623dd779cdaccb888f39044bb560c615084\""
+        },
+        {
+          "url": "https://morningrows.com/northern-ireland.json?source=childhood_bmi&measure=Y8BMIOwOb",
+          "status": 200,
+          "body_bytes": 4126,
+          "etag": "W/\"0bb965996f9318fb78a1fcbe82bbb9efacf582ba299426a9c1dcc1103587c214\""
+        }
+      ]
+    },
+    {
+      "desk": "england",
+      "set": "held_out",
+      "source": "pharmacies",
+      "measure": "total",
+      "checks": {
+        "correct_value": true,
+        "exact_period": true,
+        "explicit_geography": true,
+        "explicit_unit": true,
+        "publisher_citation": true,
+        "stable_observation_url": true,
+        "qualified_context": true,
+        "zero_not_missing": true
+      },
+      "answer": {
+        "value": 10402,
+        "unit": "pharmacies",
+        "geography": "England",
+        "period": "2026-09",
+        "kind": "observation",
+        "citation": "https://opendata.nhsbsa.net/dataset/pharmacy-openings-and-closures"
+      },
+      "before_full_desk_bytes": 71042,
+      "after_selected_bytes": 3457,
+      "saved_body_percent": 95,
+      "repeat": {
+        "status": 304,
+        "body_bytes": 0
+      },
+      "trace": [
+        {
+          "url": "https://morningrows.com/llms.txt",
+          "status": 200,
+          "body_bytes": 2737,
+          "etag": "W/\"a6ebf70fe5e25ce4ac8c72ff07849dfac7d20734fe566317d6154736a4ff9147\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json",
+          "status": 200,
+          "body_bytes": 2662,
+          "etag": "W/\"ff0c229865b4d7a741303df5c6d5638a1e2dfc06ca15fb2df0118480a984d1a7\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json?desk=england",
+          "status": 200,
+          "body_bytes": 17705,
+          "etag": "W/\"b7b9b33c80953e027c68962dfde699e714ecfbf7c1494bb3efd933eefd6ee28f\""
+        },
+        {
+          "url": "https://morningrows.com/england.json?source=pharmacies&measure=total",
+          "status": 200,
+          "body_bytes": 3457,
+          "etag": "W/\"ffdecbb03de3e034fb0faa7828192305bbd45966487f637ef003578def1d46f5\""
+        }
+      ]
+    },
+    {
+      "desk": "australia",
+      "set": "held_out",
+      "source": "hospital",
+      "measure": "WA.MYH-RM0037",
+      "checks": {
+        "correct_value": true,
+        "exact_period": true,
+        "explicit_geography": true,
+        "explicit_unit": true,
+        "publisher_citation": true,
+        "stable_observation_url": true,
+        "qualified_context": true,
+        "zero_not_missing": true
+      },
+      "answer": {
+        "value": 29,
+        "unit": "percent",
+        "geography": "Western Australia, Australia",
+        "period": "2024-25",
+        "kind": "observation",
+        "citation": "https://myhospitalsapi.aihw.gov.au/api/v1/flat-data-extract/MYH-ED-WAITS?skip=0&top=1000&measure_code=MYH0010&reporting_unit_type_code=S&start_date=2023&end_date=2026"
+      },
+      "before_full_desk_bytes": 61998,
+      "after_selected_bytes": 3874,
+      "saved_body_percent": 94,
+      "repeat": {
+        "status": 304,
+        "body_bytes": 0
+      },
+      "trace": [
+        {
+          "url": "https://morningrows.com/llms.txt",
+          "status": 200,
+          "body_bytes": 2737,
+          "etag": "W/\"a6ebf70fe5e25ce4ac8c72ff07849dfac7d20734fe566317d6154736a4ff9147\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json",
+          "status": 200,
+          "body_bytes": 2662,
+          "etag": "W/\"ff0c229865b4d7a741303df5c6d5638a1e2dfc06ca15fb2df0118480a984d1a7\""
+        },
+        {
+          "url": "https://morningrows.com/catalog.json?desk=australia",
+          "status": 200,
+          "body_bytes": 26208,
+          "etag": "W/\"6e37067cb6527bc7ee96ba3c11469a3e2f612395f0cc690207ec3bb3d3797f78\""
+        },
+        {
+          "url": "https://morningrows.com/australia.json?source=hospital&measure=WA.MYH-RM0037",
+          "status": 200,
+          "body_bytes": 3874,
+          "etag": "W/\"47eb27050cbf4d3b790f951e638b309cebdc7c31ba297588750922fe01072a8e\""
+        }
+      ]
+    }
+  ],
+  "unsupported_date": {
+    "before": {
+      "test": "unsupported-filter",
+      "path": "/canada.json?date=2026-10-12",
+      "status": "200",
+      "bytes": 11706
+    },
+    "after": {
+      "status": 400,
+      "body": {
+        "error": "unsupported_query",
+        "message": "Unknown, empty or duplicate selector. No date/geography/history filter is silently ignored.",
+        "catalog": "https://morningrows.com/catalog.json",
+        "schema": "https://morningrows.com/schema.json"
+      }
+    }
+  },
+  "discovery": {
+    "before_advertised_desks": 1,
+    "after_advertised_desks": 8
+  },
+  "pass": true
+}

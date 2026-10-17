@@ -1,0 +1,775 @@
+{
+  "checked_at": "2026-10-17T10:32:37.570Z",
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "021dc2f462586f940d295e8181fd883eaaef0805",
+    "source_dirty": false,
+    "build_fingerprint": "cf7daccb4570428a",
+    "worker_version": "1ca121f4-49b9-400b-8725-75720f27949e",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  },
+  "previous_worker": "4c7e5234-469a-415e-8b5c-a233e7987ab9",
+  "workflow": "Wrangler versions upload then versions deploy at 100%; no main push, automatic Builds or secret writes",
+  "local_tests": {
+    "passed": 95,
+    "failed": 0
+  },
+  "preview_checks": 24,
+  "production_information": {
+    "pass": true,
+    "checks": 129
+  },
+  "apex_smoke": {
+    "checked_at": "2026-10-17T10:31:57.687Z",
+    "base": "https://morningrows.com",
+    "checks": [
+      {
+        "path": "/health.json",
+        "status": "pass"
+      },
+      {
+        "path": "/llms.txt",
+        "status": "pass"
+      },
+      {
+        "path": "/catalog.json",
+        "status": "pass"
+      },
+      {
+        "path": "/keys.json",
+        "status": "pass"
+      },
+      {
+        "path": "/australia.json",
+        "status": "pass"
+      },
+      {
+        "path": "/new-zealand.json",
+        "status": "fail",
+        "error": "NZ electricity prices require five described, same-period observations with explicit release status"
+      },
+      {
+        "path": "/canada.json",
+        "status": "pass"
+      },
+      {
+        "path": "/united-kingdom.json",
+        "status": "pass"
+      },
+      {
+        "path": "/england.json",
+        "status": "pass"
+      },
+      {
+        "path": "/scotland.json",
+        "status": "pass"
+      },
+      {
+        "path": "/wales.json",
+        "status": "pass"
+      },
+      {
+        "path": "/northern-ireland.json",
+        "status": "pass"
+      },
+      {
+        "path": "/morning.json",
+        "status": "pass"
+      },
+      {
+        "path": "/missing-route-check",
+        "status": "pass"
+      },
+      {
+        "path": "www health",
+        "status": "pass"
+      }
+    ],
+    "degraded": [
+      {
+        "desk": "/australia.json",
+        "path": "sources.grid",
+        "error": "Source request timed out"
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.jobs",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.price",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.approvals",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.wage",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.shop",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.people",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.spend",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.works",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/new-zealand.json",
+        "path": "sources.prices",
+        "error": "Source request timed out"
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.jobs",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.price_index",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.shop",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.product",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.homes",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.price_index",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.wage",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.product",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.trade",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.laws",
+        "error": "www.legislation.gov.uk returned HTTP 404",
+        "http_status": 404
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.price_index",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.wage",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.product",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.shop",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.vacancy",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.trade",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "also.sources.roads",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/scotland.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/scotland.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/wales.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/wales.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/northern-ireland.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/northern-ireland.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.grid",
+        "error": "Source request timed out"
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.jobs",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.price",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.approvals",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.wage",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.shop",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.people",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.spend",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.works",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      }
+    ],
+    "identity": {
+      "source_revision": "021dc2f462586f940d295e8181fd883eaaef0805",
+      "source_dirty": false,
+      "worker_version": "1ca121f4-49b9-400b-8725-75720f27949e",
+      "build_fingerprint": "cf7daccb4570428a"
+    }
+  },
+  "www_smoke": {
+    "checked_at": "2026-10-17T10:31:59.054Z",
+    "base": "https://www.morningrows.com",
+    "checks": [
+      {
+        "path": "/health.json",
+        "status": "pass"
+      },
+      {
+        "path": "/llms.txt",
+        "status": "pass"
+      },
+      {
+        "path": "/catalog.json",
+        "status": "pass"
+      },
+      {
+        "path": "/keys.json",
+        "status": "pass"
+      },
+      {
+        "path": "/australia.json",
+        "status": "pass"
+      },
+      {
+        "path": "/new-zealand.json",
+        "status": "fail",
+        "error": "NZ electricity prices require five described, same-period observations with explicit release status"
+      },
+      {
+        "path": "/canada.json",
+        "status": "pass"
+      },
+      {
+        "path": "/united-kingdom.json",
+        "status": "pass"
+      },
+      {
+        "path": "/england.json",
+        "status": "pass"
+      },
+      {
+        "path": "/scotland.json",
+        "status": "pass"
+      },
+      {
+        "path": "/wales.json",
+        "status": "pass"
+      },
+      {
+        "path": "/northern-ireland.json",
+        "status": "pass"
+      },
+      {
+        "path": "/morning.json",
+        "status": "pass"
+      },
+      {
+        "path": "/missing-route-check",
+        "status": "pass"
+      }
+    ],
+    "degraded": [
+      {
+        "desk": "/australia.json",
+        "path": "sources.jobs",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.price",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.approvals",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.wage",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.shop",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.people",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.spend",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/australia.json",
+        "path": "sources.works",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/new-zealand.json",
+        "path": "sources.prices",
+        "error": "Source request timed out"
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.jobs",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.price_index",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.shop",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.product",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/canada.json",
+        "path": "sources.homes",
+        "error": "www150.statcan.gc.ca returned HTTP 406",
+        "http_status": 406
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.price_index",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.wage",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.product",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.trade",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/united-kingdom.json",
+        "path": "sources.laws",
+        "error": "www.legislation.gov.uk returned HTTP 404",
+        "http_status": 404
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.price_index",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.wage",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.product",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.shop",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.vacancy",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.trade",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.service",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "sources.rail",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/england.json",
+        "path": "also.sources.roads",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/scotland.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/scotland.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/wales.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/wales.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/northern-ireland.json",
+        "path": "sources.people",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/northern-ireland.json",
+        "path": "sources.job",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.jobs",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.price",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.approvals",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.wage",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.shop",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.people",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.spend",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      {
+        "desk": "/morning.json",
+        "path": "sources.works",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      }
+    ],
+    "identity": {
+      "source_revision": "021dc2f462586f940d295e8181fd883eaaef0805",
+      "source_dirty": false,
+      "worker_version": "1ca121f4-49b9-400b-8725-75720f27949e",
+      "build_fingerprint": "cf7daccb4570428a"
+    }
+  },
+  "supplemental": [
+    {
+      "domain": "apex",
+      "stats_nz_23": "pass",
+      "nz_fleet_8": "pass",
+      "prices": {
+        "status": "error",
+        "fetched_at": "2026-10-17T10:32:26.858Z",
+        "error": "Source request timed out"
+      }
+    },
+    {
+      "domain": "www",
+      "stats_nz_23": "pass",
+      "nz_fleet_8": "pass",
+      "prices": {
+        "status": "error",
+        "fetched_at": "2026-10-17T10:32:27.831Z",
+        "error": "Source request timed out"
+      }
+    }
+  ],
+  "status_changes_vs_before": [
+    {
+      "desk": "https://morningrows.com/england.json",
+      "source": "also.roads",
+      "before": "ok",
+      "after": "error",
+      "error": "api.tfl.gov.uk returned HTTP 429"
+    },
+    {
+      "desk": "https://www.morningrows.com/england.json",
+      "source": "service",
+      "before": "ok",
+      "after": "error",
+      "error": "api.tfl.gov.uk returned HTTP 429"
+    },
+    {
+      "desk": "https://www.morningrows.com/england.json",
+      "source": "rail",
+      "before": "ok",
+      "after": "error",
+      "error": "api.tfl.gov.uk returned HTTP 429"
+    },
+    {
+      "desk": "https://www.morningrows.com/england.json",
+      "source": "also.roads",
+      "before": "ok",
+      "after": "error",
+      "error": "api.tfl.gov.uk returned HTTP 429"
+    }
+  ],
+  "known_limitations": [
+    "NZ EMI price reader times out on both domains and direct publisher access; reproduced before this implementation. No old prices substituted.",
+    "Independent Codex client authentication failed before any answer. Deterministic checks are not autonomous-agent evaluation.",
+    "Native-only sources retain incomplete metadata and no standard observation IDs. Selected requests still fetch/reuse complete desks.",
+    "Unknown query parameters now return 400 intentionally; consumers must remove cache-busting parameters."
+  ],
+  "public_head_and_robots": "Six HEAD requests with validators; robots permit OAI-SearchBot/ChatGPT-User and disallow GPTBot."
+}

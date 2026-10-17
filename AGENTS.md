@@ -55,9 +55,9 @@ Do not sign agents up for API keys. Do not put a key, a token, or a password in 
 
 ## Code and deploy
 
-The worker is `worker.js`. The Wrangler config is `wrangler.toml`. Cloudflare project `morning-rows` builds this repository's `main` branch.
+The worker is `worker.js`. The Wrangler config is `wrangler.toml`. Cloudflare project `morning-rows` previously built this repository's `main` branch. On 18 October 2026 (Brisbane), the user confirmed disconnecting Workers Builds. Preserve that separation for monitoring delivery; use the established versioned Wrangler release workflow.
 
-A push to `main` starts the build. The deploy command is `npx wrangler deploy --config wrangler.toml`. Do not pipe a secret into `wrangler secret put` from the build. That has stored an empty secret before.
+Before that disconnection a push to `main` started a build. Do not reconnect automatic Builds without reviewing its commands and authorization. The legacy deploy command was `npx wrangler deploy --config wrangler.toml`. Do not pipe a secret into `wrangler secret put` from the build. That has stored an empty secret before.
 
 The runtime secret, when one is required, is set in Cloudflare under the worker's Variables and Secrets, type Secret. The only secret in use is `STATSNZ_KEY`, for the Stats NZ Aotearoa Data Explorer.
 

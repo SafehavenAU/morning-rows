@@ -9,3 +9,20 @@ custom_domain = true
 [[routes]]
 pattern = "www.morningrows.com"
 custom_domain = true
+
+[version_metadata]
+binding = "WORKER_VERSION"
+
+[observability]
+enabled = true
+head_sampling_rate = 0.1
+
+[observability.logs]
+enabled = true
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 0.01
+
+[build]
+command = "node scripts/build-info.mjs"
