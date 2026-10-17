@@ -838,6 +838,7 @@ async function readCanada() {
     mortgages: await readCanadaMortgages().catch(() => null),
     posted_rates: await readPostedRates().catch(() => null),
     air: await readAir().catch(() => null),
+    demand: await readOntarioDemand().catch(() => null),
     also: {
       world: await readWorld("CA"),
       space: await readSpace(),
@@ -1127,6 +1128,14 @@ async function nextHoliday(division) {
   }
 }
 
+async function readOntarioDemand() {
+  const response = await fetch("https://reports-public.ieso.ca/public/Demand/PUB_Demand.csv");
+  if (!response.ok) throw new Error("demand");
+  const lines = (await response.text()).split("\n").filter((line) => /^\d{4}-\d{2}-\d{2},/.test(line));
+  const last = lines[lines.length - 1].split(",");
+  return { date: last[0], hour: Number(last[1]), market_mw: Number(last[2]), ontario_mw: Number(last[3]), source: "IESO" };
+}
+
 async function readCanadaMortgages() {
   const response = await fetch("https://www.bankofcanada.ca/valet/observations/group/A4_RATES_MORTGAGES/json?recent=1");
   if (!response.ok) throw new Error("mortgages");
@@ -1353,7 +1362,7 @@ export default {
     if (url.pathname === "/.well-known/ai-catalog.json") return json(AI_CATALOG);
     if (url.pathname === "/keys.json") return json({
       site: "https://morningrows.com",
-      note: "Collect these later. Open feeds are not listed.",
+      note: "needs_a_key is collected for later and is not called. blocked is a feed that refused. Keep looking for another open feed from the same publisher.",
       needs_a_key: [
         { country: "Australia", source: "Bureau of Meteorology", would_unlock: "forecasts, observations, and warnings" },
         { country: "Australia", source: "AEMO developer portal", would_unlock: "registered market APIs, not the public grid files" },
@@ -1373,6 +1382,16 @@ export default {
         { country: "United Kingdom", source: "Ordnance Survey", would_unlock: "detailed addresses and maps" },
         { country: "United Kingdom", source: "Transport for London", would_unlock: "a higher rate limit. The current lines work without it." },
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
+      ],
+      blocked: [
+        { country: "New Zealand", source: "Reserve Bank of New Zealand", status: 403, note: "The statistics pages refused the read. No open file was found." },
+        { country: "New Zealand", source: "MetService", status: 403, note: "Missing authentication token. Listed under needs_a_key." },
+        { country: "New Zealand", source: "NIWA", status: 401, note: "A key is required. Listed under needs_a_key." },
+        { country: "New Zealand", source: "LINZ feature download", status: 404, note: "The layer list is public. A feature download was not found without a key." },
+        { country: "United Kingdom", source: "Companies House", status: 401, note: "An empty authorisation header was refused. Listed under needs_a_key." },
+        { country: "United Kingdom", source: "Bank of England database", status: 200, note: "The CSV address returned an HTML page, not the series. Not copied." },
+        { country: "Scotland", source: "statistics.gov.scot", status: "closed", note: "The SPARQL service closed the connection. No rows were read." },
+        { country: "Australia", source: "Parliament of Australia bills", status: 403, note: "The site firewall refused the read." },
       ],
     });
     if (url.pathname === "/" ) return new Response(DESK, { headers: { "content-type": "text/html; charset=utf-8" } });
