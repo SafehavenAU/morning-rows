@@ -281,6 +281,8 @@ function page(data) {
     <table><thead><tr><th>State</th>${heads}</tr></thead><tbody>${hospital}</tbody></table>
     <h2>The ground</h2><p>${data.quakes.length} earthquakes marked as in Australia. Creative Commons Attribution 4.0.</p>
     <table><thead><tr><th>When, UTC</th><th>Place</th><th>Magnitude</th><th>Depth</th></tr></thead><tbody>${quakes}</tbody></table>
+    <h2>The bond</h2><p>${data.bonds ? data.bonds.date : "Not read"}. Australian government bond yields, percent. Reserve Bank of Australia.</p>
+    <table><thead><tr><th>Bond</th><th>Yield</th></tr></thead><tbody>${((data.bonds && data.bonds.rows) || []).map((row) => `<tr><td>${escapeHtml(row.name)}</td><td>${row.value}</td></tr>`).join("")}</tbody></table>
     <h2>Not on this read</h2>
     <div class="note"><strong>The river.</strong> Capital-city storage percentages are published by the Bureau of Meteorology. The Bureau's terms are not a Creative Commons licence, so those percentages are not copied here.</div>
     ${alsoSection(data.also)}
@@ -886,13 +888,14 @@ async function readOnsNation(name, slug, peoplePath, jobPath) {
 }
 
 async function readUnitedKingdom() {
-  const [people, job, price, wage, product, bills, space] = await Promise.all([
+  const [people, job, price, wage, product, bills, laws, space] = await Promise.all([
     ons("/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop"),
     ons("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/mgsx/lms"),
     ons("/economy/inflationandpriceindices/timeseries/d7bt/mm23"),
     ons("/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/lms"),
     ons("/economy/grossdomesticproductgdp/timeseries/ybez/ukea"),
     readBills(),
+    readUkLaws(),
     readSpace(),
   ]);
   return {
@@ -905,6 +908,7 @@ async function readUnitedKingdom() {
     wage,
     product,
     bills,
+    laws,
     space,
     nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"],
   };
@@ -963,6 +967,7 @@ async function readEngland() {
       world: await readWorld("GB"),
       police: await readPolice(),
       health: await readNhs(),
+      rainfall: await readRain(),
       space: await readSpace(),
     },
   };
@@ -984,6 +989,53 @@ async function readAustraliaExchange() {
       { name: "Trade-weighted index", value: Number(last[2]) },
     ],
   };
+}
+
+async function readRbaTable(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("rba");
+  const lines = (await response.text()).replace(/^\uFEFF/, "").split("\n");
+  const title = lines.find((line) => line.startsWith("Title,"));
+  const headers = title ? title.split(",").slice(1) : [];
+  const dated = lines.filter((line) => /^\d{2}[/-](?:[A-Za-z]{3}|\d{2})[/-]\d{4},-?\d/.test(line));
+  const last = dated[dated.length - 1].split(",");
+  return {
+    date: last[0],
+    rows: headers.slice(0, last.length - 1).map((name, index) => ({ name: name.replace(/^"|"$/g, ""), value: Number(last[index + 1]) })).filter((row) => Number.isFinite(row.value)),
+  };
+}
+
+async function readAuLaws() {
+  try {
+    const response = await fetch("https://api.prod.legislation.gov.au/v1/titles?search=bill&limit=8");
+    if (!response.ok) return { error: response.status };
+    const body = await response.json();
+    return { source: "Federal Register of Legislation", rows: (body.value || []).slice(0, 8).map((item) => ({ name: item.name, when: item.makingDate || "" })) };
+  } catch (error) {
+    return { error: "not read" };
+  }
+}
+
+async function readUkLaws() {
+  try {
+    const response = await fetch("https://www.legislation.gov.uk/new/data.feed");
+    if (!response.ok) return { error: response.status };
+    const text = await response.text();
+    return { source: "legislation.gov.uk", rows: [...text.matchAll(/<title[^>]*>([^<]+)<\/title>/g)].slice(1, 9).map((match) => match[1]) };
+  } catch (error) {
+    return { error: "not read" };
+  }
+}
+
+async function readRain() {
+  try {
+    const response = await fetch("https://environment.data.gov.uk/flood-monitoring/id/measures?parameter=rainfall&_limit=8");
+    if (!response.ok) return [];
+    const body = await response.json();
+    return (body.items || []).map((item) => ({ label: item.label, when: item.latestReading && item.latestReading.dateTime, mm: item.latestReading && item.latestReading.value }));
+  } catch (error) {
+    return [];
+  }
 }
 
 async function readCash() {
@@ -1177,11 +1229,14 @@ export default {
         { country: "New Zealand", source: "MetService", would_unlock: "the national forecast" },
         { country: "Canada", source: "AESO", would_unlock: "the Alberta pool price as JSON. A free key. The publisher limits use." },
         { country: "Canada", source: "IESO participant APIs", would_unlock: "registered Ontario market tools, not the public reports" },
-        { country: "England", source: "Companies House", would_unlock: "company search and filings" },
-        { country: "England", source: "Met Office DataPoint", would_unlock: "forecasts and observations" },
-        { country: "England", source: "Energy Performance of Buildings", would_unlock: "home energy certificates" },
-        { country: "England", source: "Ordnance Survey", would_unlock: "detailed addresses and maps" },
-        { country: "England", source: "Transport for London", would_unlock: "a higher rate limit. The current lines work without it." },
+        { country: "Australia", source: "Service NSW FuelCheck", would_unlock: "published fuel prices" },
+        { country: "New Zealand", source: "Companies Office and NZBN", would_unlock: "a business lookup" },
+        { country: "United Kingdom", source: "Companies House", would_unlock: "company search and filings" },
+        { country: "United Kingdom", source: "Met Office DataPoint", would_unlock: "forecasts and observations" },
+        { country: "United Kingdom", source: "Energy Performance of Buildings", would_unlock: "home energy certificates" },
+        { country: "United Kingdom", source: "Ordnance Survey", would_unlock: "detailed addresses and maps" },
+        { country: "United Kingdom", source: "Transport for London", would_unlock: "a higher rate limit. The current lines work without it." },
+        { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
     });
     if (url.pathname === "/" ) return new Response(DESK, { headers: { "content-type": "text/html; charset=utf-8" } });
@@ -1253,7 +1308,7 @@ export default {
     if (url.pathname !== "/australia" && url.pathname !== "/australia.json" && url.pathname !== "/morning.json") {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
-    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace()]);
+    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws()]);
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
     const quakes = quakeResult.status === "fulfilled" ? quakeResult.value : [];
@@ -1272,7 +1327,10 @@ export default {
       world: settled[13].status === "fulfilled" ? settled[13].value : { rows: [] },
       space: settled[14].status === "fulfilled" ? settled[14].value : {},
     };
-    const body = { site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, hospital: HOSPITAL, catalog: CATALOG.sets, also };
+    const bonds = settled[15].status === "fulfilled" ? settled[15].value : null;
+    const commodities = settled[16].status === "fulfilled" ? settled[16].value : null;
+    const laws = settled[17].status === "fulfilled" ? settled[17].value : null;
+    const body = { site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, laws, hospital: HOSPITAL, catalog: CATALOG.sets, also };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }));
   },
