@@ -10,6 +10,7 @@ import { readHospital, readWalesProjection, readNiChildhoodBmi, readUkActs } fro
 import { readFoodAuthorities, readScottishBills, readCanadianRecalls } from './lib/discovery-feeds.js';
 import { readRfsIncidents, readPupilAbsence, readSepaRiverLevel } from './lib/open-observations.js';
 import { readAssemblyDivisions } from './lib/national-observations.js';
+import { readUkCpi } from './lib/uk-cpi.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -790,7 +791,7 @@ async function readUnitedKingdom() {
     trade: ["/economy/nationalaccounts/balanceofpayments/timeseries/ikbj/pnbp", "GBP million"],
   };
   const tasks = Object.fromEntries(Object.entries(series).map(([name, [path, unit]]) => [name, async () => ({ ...await ons(path), unit, geography: "United Kingdom", source: "Office for National Statistics", licence: "Open Government Licence" })]));
-  const data = await readSections({ ...tasks, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
+  const data = await readSections({ ...tasks, price_index: readUkCpi, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
   return { site: "https://morningrows.com", country: "United Kingdom", page: "/united-kingdom", ...data, nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"] };
 }
 
@@ -816,7 +817,7 @@ async function readEngland() {
     },
     job: () => onsPoint("/employmentandlabourmarket/peoplenotinwork/unemployment/timeseries/ycnl/lms", "England", "percent"),
     people: () => onsPoint("/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/enpop/pop", "England", "people"),
-    price_index: async () => ({ ...await onsPoint("/economy/inflationandpriceindices/timeseries/d7bt/mm23", "United Kingdom", "index"), year_change: (await ons("/economy/inflationandpriceindices/timeseries/d7g7/mm23")).value }),
+    price_index: readUkCpi,
     wage: () => onsPoint("/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/lms", "United Kingdom", "GBP per week"),
     product: () => onsPoint("/economy/grossdomesticproductgdp/timeseries/ybez/ukea", "United Kingdom", "GBP million"),
     shop: () => onsPoint("/businessindustryandtrade/retailindustry/timeseries/j45u/drsi", "United Kingdom", "index"),
