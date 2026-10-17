@@ -975,6 +975,7 @@ async function readEngland() {
       police: await readPolice(),
       health: await readNhs(),
       rainfall: await readRain(),
+      rivers: await readLevels(),
       roads: await readRoads(),
       space: await readSpace(),
     },
@@ -1027,6 +1028,13 @@ async function readRbaBundle() {
     ["expectations", "g3"],
     ["product", "h1"],
     ["activity", "h3"],
+    ["demand", "h2"],
+    ["costs", "h4"],
+    ["labour", "h5"],
+    ["balance", "e1"],
+    ["household", "e2"],
+    ["personal_rates", "f8"],
+    ["prices", "g2"],
   ];
   const pairs = await Promise.all(tables.map(async ([name, file]) => {
     try {
@@ -1129,6 +1137,29 @@ async function readCanadaMortgages() {
     source: "Bank of Canada",
     rows: Object.entries(body.seriesDetail).slice(0, 6).map(([id, detail]) => ({ name: detail.label, rate: Number(last[id].v) })),
   };
+}
+
+async function readLevels() {
+  try {
+    const response = await fetch("https://environment.data.gov.uk/flood-monitoring/id/measures?parameter=level&_limit=6");
+    if (!response.ok) return [];
+    const body = await response.json();
+    return (body.items || []).map((item) => ({ label: item.label, when: item.latestReading && item.latestReading.dateTime, metres: item.latestReading && item.latestReading.value }));
+  } catch (error) {
+    return [];
+  }
+}
+
+async function readWalesPopulation() {
+  try {
+    const response = await fetch("https://api.stats.gov.wales/v2/20b6276b-92f7-48fd-806e-69c35b54d9e0/data?format=json");
+    if (!response.ok) return null;
+    const rows = await response.json();
+    const row = rows.find((item) => item.Age === "All Ages" && item.Sex === "Persons") || rows[0];
+    return { source: "StatsWales", period: row.Year, value: row["Data values"], area: row.Area, meaning: "national population projection" };
+  } catch (error) {
+    return null;
+  }
 }
 
 async function readRain() {
@@ -1403,6 +1434,7 @@ export default {
     if (nations[nationKey]) {
       const [name, slug, peoplePath, jobPath, holidayDivision] = nations[nationKey];
       const nation = await readOnsNation(name, slug, peoplePath, jobPath, holidayDivision).catch(() => ({ site: "https://morningrows.com", country: name, error: "not read" }));
+      if (slug === "wales") nation.projection = await readWalesPopulation();
       if (url.pathname.endsWith(".json")) return held(request, json(nation));
       return held(request, new Response(simplePage(`Morning ${name}`, `<p>The file is <a href="/${slug}.json">${slug}.json</a>. UK-wide figures are on <a href="/united-kingdom">the United Kingdom desk</a>.</p><p>People ${nation.people ? nation.people.value : ""}. Unemployment ${nation.job ? nation.job.value : "not read on this desk"}.</p>`), { headers: { "content-type": "text/html; charset=utf-8" } }));
     }
