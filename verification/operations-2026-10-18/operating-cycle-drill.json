@@ -1,0 +1,65 @@
+{
+  "kind": "constructed fault injection and simulated transitions; not scheduled operation, live release or actual notification",
+  "original_aggregate": "verification/structure-2026-10-17/publisher-reference.json",
+  "trace": [
+    {
+      "step": "detect and diagnose",
+      "at": "2026-10-18T00:01:00.000Z",
+      "incident_id": "e765d5fe8a8b840a40ca63e1d7efc1eff2ede9162f6bcd064cd0c9fb029eb046",
+      "reason": "described_measure_coverage",
+      "repair": {
+        "incident_id": "e765d5fe8a8b840a40ca63e1d7efc1eff2ede9162f6bcd064cd0c9fb029eb046",
+        "source": "australia/hospital",
+        "reason": "described_measure_coverage; described_measure_coverage",
+        "created_at": "2026-10-18T00:01:00.000Z",
+        "state": "open",
+        "evidence": {
+          "https://morningrows.com": {
+            "retrieved_at": "2026-10-17T10:13:25.121Z",
+            "http_status": null,
+            "assurance": "described contract",
+            "kind": "semantic",
+            "reason": "described_measure_coverage"
+          },
+          "https://www.morningrows.com": {
+            "retrieved_at": "2026-10-17T10:13:25.121Z",
+            "http_status": null,
+            "assurance": "described contract",
+            "kind": "semantic",
+            "reason": "described_measure_coverage"
+          }
+        },
+        "scope": "Repair existing contract only; no new source authorized"
+      },
+      "sibling_preserved": true,
+      "prior_verified_timestamp_preserved": true
+    },
+    {
+      "step": "restart after injected interrupted write and notification-delivery failure",
+      "state_digest": "34103877fec497c7b5b09c61e81cc34f233ecdc8c01fcb22485495fe1888c406",
+      "event_status": "pending",
+      "incident_preserved": true
+    },
+    {
+      "step": "candidate verification and simulated release checks",
+      "publisher_reference": "verification/structure-2026-10-17/publisher-reference.json",
+      "checks": "Restored exact measure, dimensions and values; both simulated domain results healthy twice, 20 minutes apart",
+      "incident_closed_at": "2026-10-18T00:40:00.000Z",
+      "production_release_executed": false
+    },
+    {
+      "step": "simulated acknowledgment persisted",
+      "event_id": "c05075bc5649c7de1516f1ff75a7c527bb3736f627dd8358d474335c75769d3c",
+      "receipt_kind": "constructed test only",
+      "recovery_event_pending": true,
+      "state_digest": "04a2545458f2c3de6fd47ad1d59ad44fc6b416dd489cf1a5c960286ae64ce5db"
+    },
+    {
+      "step": "independent-check predicate",
+      "at": "2026-10-18T05:00:00.000Z",
+      "result": "monitor_overdue",
+      "scheduled_check_executed": false
+    }
+  ],
+  "limitations": "Actual GitHub restart has separate evidence. Actual notification receipt and independent scheduled watchdog remain separate gates. No simulated time counts toward shadow days."
+}

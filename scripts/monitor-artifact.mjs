@@ -5,7 +5,9 @@ import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {decodeCheckpoint} from '../lib/monitor-store.js';
 import {chooseCheckpoint,assertFirstBootstrap,CHECKPOINT_NAME} from '../lib/monitor-artifact.js';
-const exec=promisify(execFile),repo=process.env.GITHUB_REPOSITORY||'SafehavenAU/morning-rows';
+const rawExec=promisify(execFile);
+const exec=async(...args)=>{try{return await rawExec(...args);}catch{throw Error('Checkpoint transport command failed; signed URLs and credentials withheld; state not reset');}};
+const repo=process.env.GITHUB_REPOSITORY||'SafehavenAU/morning-rows';
 if(repo!=='SafehavenAU/morning-rows')throw Error('Unexpected monitor repository');
 const [directory,mode]=process.argv.slice(2);if(!directory)throw Error('State directory required');
 async function api(path){return JSON.parse((await exec('gh',['api',`repos/${repo}/${path}`],{maxBuffer:2*1024*1024})).stdout);}
