@@ -1,5 +1,15 @@
 # Official-source discovery passes
 
+## Depth pass 2026-10-17-08 — existing NZ electricity-price reader
+
+One bounded correctness repair, following the user's depth-first instruction. No additional publisher, country or subject coverage. The active reader could coerce blank prices to zero, mix independently selected node periods, accept partial node coverage and omit interim/final status. This risk took priority over the unfinished discovery queue.
+
+The [pre-implementation contract](verification/nz-prices-2026-10-17/CONTRACT.md) defines the exact five nodes, NZ-local trading calendar, currency/units, release preference and failure semantics. The [verification record](verification/nz-prices-2026-10-17/README.md) contains original aggregate specimens, independent Python replay, hashes, URLs and limitations. All 240 node-period prices agree with five separately presented official EMI reports. This is independent extraction with shared upstream pricing lineage, not independent market calculation. Original pricing-manager archive access timed out; no additional corroboration is claimed.
+
+`prices` retains its array and existing fields. The reader now uses named CSV columns, requires every period for all five nodes, discovers the newest listed completed local day, prefers a final file for the same day, preserves numeric zero and negative prices, and refuses blank/unknown markers, duplicates and incomplete data. Explicit file, interim/final status, licence, geography, units, UTC interval and publication lag accompany every observation. Daylight-saving days have 46/50 periods. A failed newest listed release cannot cause an older-release fallback. The HTML view carries the same status and verified attribution.
+
+All 76 tests and dry-run pass. Full Cloudflare NZ preview validates the repaired prices, 23 Stats NZ rows, eight fleet rows and all existing NZ source statuses. New adversarial tests cover corruption and release transitions; failure isolation preserves other sources. Production verification is recorded after release. Unfinished NI energy/CMHC/SFC/CQC/AER discovery remains queued; this task does not claim source exhaustion or add categories.
+
 ## Pass 2026-10-17-07 — WRA tax and national company-insolvency aggregates
 
 Continued the new-publisher queue across eight desks. Three new desk sections and one narrow discovery-page block; this is not an empty pass and discovery remains open.

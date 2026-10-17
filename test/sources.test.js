@@ -45,8 +45,3 @@ test('degraded desk uses short cache and ignores user cache-busting query',async
  assert.equal(response.headers.get('x-data-status'),'degraded');assert.equal(response.headers.get('cache-control'),'public, max-age=30');
  assert.match(puts[0][0],/\?release=[0-9a-f]{40}-[0-9a-f]{16}$/);assert.ok(!puts[0][0].includes('random'));
 });
-test('NZ price lookup tolerates unpublished daily files and selects a prior day',async t=>{
- const {readNzPrices}=await import('../worker.js');let calls=0;
- t.mock.method(globalThis,'fetch',async()=>++calls<3?new Response('not published',{status:404}):new Response('date,period,node,price\n2026-10-16,48,OTA2201,101.38\n'));
- const rows=await readNzPrices();assert.equal(calls,3);assert.equal(rows[0].price,101.38);
-});

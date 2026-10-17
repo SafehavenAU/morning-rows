@@ -1,3 +1,4 @@
+import { readNzPrices } from './lib/nz-prices.js';
 import { readNzFleet, readScottishTraffic } from './lib/transport-observations.js';
 import { readPharmacies } from './lib/pharmacies.js';
 import { readWalesTax, readCompanyInsolvencies } from './lib/fiscal-observations.js';
@@ -415,37 +416,6 @@ const DESK = `<!doctype html><html lang="en"><head><meta charset="utf-8"><link r
 </ol>
 </main></body></html>`;
 
-const NZ_NODES = [
-  ["OTA2201", "Otahuhu, Auckland"],
-  ["HAY2201", "Haywards, Wellington"],
-  ["ISL2201", "Islington, Christchurch"],
-  ["BEN2201", "Benmore"],
-  ["INV2201", "Invercargill"],
-];
-
-async function readNzPrices() {
-  const start = new Date();
-  let text = "";
-  for (let back = 0; back < 4 && !text; back += 1) {
-    const day = new Date(start.getTime() - back * 86400000).toISOString().slice(0, 10).replaceAll("-", "");
-    for (const suffix of ["_I", ""]) {
-      const response = await fetchOfficial(`https://www.emi.ea.govt.nz/Wholesale/Datasets/DispatchAndPricing/FinalEnergyPrices/${day}_FinalEnergyPrices${suffix}.csv`, { allowStatuses: [404] });
-      if (response.ok) { text = await response.text(); break; }
-      await response.body?.cancel();
-    }
-  }
-  if (!text) throw new Error("grid");
-  const latest = new Map();
-  for (const line of text.split("\n").slice(1)) {
-    const [date, period, code, price] = line.split(",");
-    if (!NZ_NODES.some((node) => node[0] === code)) continue;
-    const trading = Number(period);
-    const current = latest.get(code);
-    if (!current || trading > current.period) latest.set(code, { code, price: Number(price), period: trading, date });
-  }
-  return NZ_NODES.map(([code, name]) => ({ code, name, ...latest.get(code) })).filter((row) => row.price !== undefined);
-}
-
 async function readSome(response, max = 65536) {
   const reader = response.body.getReader();
   const chunks = [];
@@ -715,7 +685,7 @@ function nzPage(data) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Morning New Zealand</title></head><body><main>
     <p>For agents</p><h1>Morning New Zealand</h1>
     <p><a href="/">Countries</a> · <a href="/australia">Australia</a> · <a href="/new-zealand.json">new-zealand.json</a></p>
-    <h2>The grid</h2><p>${first ? first.date + ", period " + first.period : "Not read"}. The reuse terms on the Electricity Authority file were not read.</p><div class="grid">${cards}</div>
+    <h2>The grid</h2><p>${first ? escapeHtml(first.date) + ", period " + first.period + " (Pacific/Auckland), " + escapeHtml(first.price_status) : "Not read"}. Wholesale nodal prices in NZD per megawatt hour. CC BY 4.0; www.emi.ea.govt.nz provided by the Electricity Authority (New Zealand).</p><div class="grid">${cards}</div>
     <h2>The ground</h2><p>${(data.quakes || []).length} earthquakes. Creative Commons Attribution.</p>
     <table><thead><tr><th>When, UTC</th><th>Place</th><th>Magnitude</th><th>Depth</th></tr></thead><tbody>${quakes}</tbody></table>
     <h2>Stats NZ</h2>

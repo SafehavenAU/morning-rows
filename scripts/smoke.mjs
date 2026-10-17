@@ -45,6 +45,10 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
    if(path==='/new-zealand.json') {
     const rows=d.stats?.rows||[];
     if(!d.stats?.present||rows.length!==23||rows.some(row=>row.status!=='ok'||!row.period||!Number.isFinite(row.value)||!row.geography||!row.unit))throw Error('Stats NZ requires 23 valid, described observations');
+    if(process.env.CHECK_NZ_PRICES==='1') {
+     const p=d.prices,codes=['OTA2201','HAY2201','ISL2201','BEN2201','INV2201'];
+     if(d.sources.prices?.status!=='ok'||p?.length!==5||new Set(p.map(r=>r.code)).size!==5||p.some(r=>!codes.includes(r.code)||!Number.isFinite(r.price)||r.unit!=='NZD per megawatt hour'||!r.geography?.includes('point of connection, New Zealand')||r.timezone!=='Pacific/Auckland'||!['interim','final'].includes(r.price_status)||r.date!==p[0].date||r.period!==p[0].period||r.price_status!==p[0].price_status||![46,48,50].includes(r.period)||r.periods!==r.period||Date.parse(r.period_end)-Date.parse(r.period_start)!==1800000||!Number.isInteger(r.publication_lag_days)||r.publication_lag_days<0||!r.source_url?.startsWith('https://www.emi.ea.govt.nz/Wholesale/Datasets/DispatchAndPricing/FinalEnergyPrices/')||r.licence!=='CC BY 4.0'))throw Error('NZ electricity prices require five described, same-period observations with explicit release status');
+    }
    }
    if(path==='/australia.json') {
     const h=d.hospital,triage=['Resuscitation','Emergency','Urgent','Semi-urgent','Non-urgent'];
