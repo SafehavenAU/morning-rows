@@ -28,11 +28,13 @@ jobs:
     timeout-minutes: 12
     env:
       GH_TOKEN: ${{ github.token }}
-      MONITOR_STATE_DIR: ${{ runner.temp }}/morning-rows-monitor
-      MONITOR_OUTPUT_DIR: ${{ runner.temp }}/morning-rows-monitor-output
       MONITOR_EVENT_ID: ${{ inputs.event_id }}
       MONITOR_RECEIPT: ${{ inputs.receipt }}
     steps:
+      - name: Set private runner paths
+        run: |
+          printf 'MONITOR_STATE_DIR=%s/morning-rows-monitor\n' "$RUNNER_TEMP" >> "$GITHUB_ENV"
+          printf 'MONITOR_OUTPUT_DIR=%s/morning-rows-monitor-output\n' "$RUNNER_TEMP" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
