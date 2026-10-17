@@ -839,6 +839,7 @@ async function readCanada() {
     posted_rates: await readPostedRates().catch(() => null),
     air: await readAir().catch(() => null),
     demand: await readOntarioDemand().catch(() => null),
+    commodities: await readCommodityIndex().catch(() => null),
     also: {
       world: await readWorld("CA"),
       space: await readSpace(),
@@ -978,6 +979,7 @@ async function readEngland() {
       rainfall: await readRain(),
       rivers: await readLevels(),
       roads: await readRoads(),
+      crime_data_current_to: await fetch("https://data.police.uk/api/crime-last-updated").then((response) => response.ok ? response.json() : null).catch(() => null),
       space: await readSpace(),
     },
   };
@@ -1036,6 +1038,8 @@ async function readRbaBundle() {
     ["household", "e2"],
     ["personal_rates", "f8"],
     ["prices", "g2"],
+    ["banks", "b2"],
+    ["cards", "c2"],
   ];
   const pairs = await Promise.all(tables.map(async ([name, file]) => {
     try {
@@ -1126,6 +1130,18 @@ async function nextHoliday(division) {
   } catch (error) {
     return null;
   }
+}
+
+async function readCommodityIndex() {
+  const response = await fetch("https://www.bankofcanada.ca/valet/observations/group/BCPI_WEEKLY/json?recent=1");
+  if (!response.ok) throw new Error("commodity");
+  const body = await response.json();
+  const last = body.observations[body.observations.length - 1];
+  return {
+    date: last.d,
+    source: "Bank of Canada",
+    rows: Object.entries(body.seriesDetail).map(([id, detail]) => ({ name: detail.label, value: Number(last[id].v) })),
+  };
 }
 
 async function readOntarioDemand() {
@@ -1392,6 +1408,9 @@ export default {
         { country: "United Kingdom", source: "Bank of England database", status: 200, note: "The CSV address returned an HTML page, not the series. Not copied." },
         { country: "Scotland", source: "statistics.gov.scot", status: "closed", note: "The SPARQL service closed the connection. No rows were read." },
         { country: "Australia", source: "Parliament of Australia bills", status: 403, note: "The site firewall refused the read." },
+        { country: "Australia", source: "Geoscience Australia hazard map", status: 403, note: "The map service refused the read. Earthquake rows already come from the open quake feed." },
+        { country: "Canada", source: "IESO yearly price file", status: "stale", note: "The public file stops at 2025-04-30. It was not copied as a current price." },
+        { country: "United Kingdom", source: "coronavirus.data.gov.uk", status: "gone", note: "The hostname did not resolve." },
       ],
     });
     if (url.pathname === "/" ) return new Response(DESK, { headers: { "content-type": "text/html; charset=utf-8" } });
