@@ -24,6 +24,8 @@ npm ci
 npm run check
 node --test test/monitor-artifact.test.js
 node scripts/rehearse-checkpoint-recovery.mjs
+# After remote evidence is present:
+node scripts/verify-checkpoint-recovery.mjs
 ```
 
 The test suite includes the original failing selector as a regression control. `rehearsal.json` is produced by the actual restoration adapter with simulated GitHub API transport and the original ZIP bytes. The simulated transport moves only expiry forward so the offline rehearsal remains repeatable; it cannot establish that the real artifact has not expired. `changed_fields: []` means the entire checkpoint envelope and state are byte-identical. Synthetic current run 99 is never scheduled evidence. No real notification, acknowledgment or network request occurs in rehearsal.
