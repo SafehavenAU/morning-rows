@@ -50,3 +50,15 @@ test('current discovery, human view, schema and sitemap point to the same bounde
  const page=await get('/united-states');assert.match(await page.text(),/2025-10.*unavailable/);const schema=await get('/schema.v2.json');assert.match((await schema.json()).$id,/schema.v2.json/);
  for(const desk of Object.keys(DESKS))assert.ok(catalogue(desk).sources.length);
 });
+test('JSON response fast path preserves standard ETags, HEAD and failure semantics',async()=>{
+ const {finishV2Response}=await import('../lib/information-v2.js');
+ const body={retrieved_at:'2026-10-18T00:00:00Z',data:{b:2,a:1},observations:[{value:null,value_state:'unavailable'}]};
+ const url='https://morningrows.com/united-states.json';
+ const baseline=await finishV2Response(new Request(url),Response.json(body),url);
+ for(const status of [200,503])for(const method of ['GET','HEAD'])for(const match of [null,baseline.headers.get('etag'),'*']){
+  const req=new Request(url,{method,headers:match?{'If-None-Match':match}:{}});
+  const a=await finishV2Response(req,Response.json(body,{status}),url,'2026-10-18T00:00:00Z');
+  const b=await finishV2Response(req,Response.json(body,{status}),url,'2026-10-18T00:00:00Z',body);
+  assert.equal(b.status,a.status);assert.deepEqual([...b.headers],[...a.headers]);assert.equal(await b.text(),await a.text());
+ }
+});
