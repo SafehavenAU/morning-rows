@@ -62,3 +62,12 @@ test('JSON response fast path preserves standard ETags, HEAD and failure semanti
   assert.equal(b.status,a.status);assert.deepEqual([...b.headers],[...a.headers]);assert.equal(await b.text(),await a.text());
  }
 });
+test('optimized v2 fingerprints retain the established hash format and semantic changes',async()=>{
+ const {usDigest}=await import('../lib/us-fingerprint.js');
+ const {digest}=await import('../lib/information.js');
+ const {CPI_DEFINITION}=await import('../lib/us-cpi.js');
+ const row={period:'2026-09',value:336.94,value_text:'336.940',value_state:'observed',definition:CPI_DEFINITION,footnotes:[],retrieved_at:'2026-10-18T00:00:00Z'};
+ for(const value of [row,{rows:[row,{...row,value:null,value_text:'-',value_state:'unavailable',footnotes:[{code:'X',text:'Data unavailable due to the 2025 lapse in appropriations'}]}]},JSON.parse('{"__proto__":{"b":2,"a":1},"constructor":0,"unicode":"£é","2":2,"1":1}'),null,[]])assert.equal(await usDigest(value),await digest(value));
+ assert.equal(await usDigest({...row,retrieved_at:'2026-10-19T00:00:00Z'}),await usDigest(row));
+ assert.notEqual(await usDigest({...row,value:336.941,value_text:'336.941'}),await usDigest(row));
+});
