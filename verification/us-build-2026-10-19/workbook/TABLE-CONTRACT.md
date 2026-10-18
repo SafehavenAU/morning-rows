@@ -32,3 +32,21 @@ headers, two relevant year rows and original footnotes, plus original response h
 All presentations share BLS statistical lineage. Re-run actual Worker error/cache/
 conditional tests and cold CPU measurement. <=10 ms is required before activation;
 HTTP success or a wall-clock improvement does not waive this gate.
+
+## Bounded-year request amendment — 19 October, before implementation
+
+The native bounded-byte candidate still measured12ms cold CPU. The official
+database form supports `years_option=specific_years`, `from_year`, and `to_year`.
+Request the earliest year required by the index-selected13-month window through
+one year after the later of the acquisition UTC year and the selected edition
+year. This removes irrelevant earlier history without using the machine clock
+to choose an observation period or impose age-since-change staleness. A stale
+index still requests every subsequent year through the acquisition horizon;
+newer returned rows/months must fail the existing edition-mismatch checks.
+
+Read the index first, then this bounded original table; no fixed edition, cached
+specimen or older-release fallback. Retain exact requested URL and original
+response hash. Require all13 values/states, dimensions, columns and footnotes
+to match the independent original-workbook/bulk evidence exactly. First-request
+failures may now make one upstream call rather than two. All existing semantic,
+missingness, revision, cache and <=10ms CPU requirements remain unchanged.
