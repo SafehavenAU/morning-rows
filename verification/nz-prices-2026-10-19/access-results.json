@@ -1,0 +1,117 @@
+{
+  "checked_at": "2026-10-18T16:48:06.181Z",
+  "reports": [
+    {
+      "code": "OTA2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=OTA2201",
+      "status": 302,
+      "redirect_path": "/Wholesale/Reports/CLA3WR",
+      "tables": []
+    },
+    {
+      "code": "HAY2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=HAY2201",
+      "status": 302,
+      "redirect_path": "/Wholesale/Reports/CLA3WR",
+      "tables": []
+    },
+    {
+      "code": "ISL2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=ISL2201",
+      "status": 302,
+      "redirect_path": "/Wholesale/Reports/CLA3WR",
+      "tables": []
+    },
+    {
+      "code": "BEN2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=BEN2201",
+      "status": 302,
+      "redirect_path": "/Wholesale/Reports/CLA3WR",
+      "tables": []
+    },
+    {
+      "code": "INV2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=INV2201",
+      "status": 302,
+      "redirect_path": "/Wholesale/Reports/CLA3WR",
+      "tables": []
+    }
+  ],
+  "production": [
+    {
+      "url": "https://morningrows.com/new-zealand.json?source=prices",
+      "status": 522,
+      "retrieved_at": "2026-10-18T16:48:06.142Z",
+      "body_sha256": "c8b9f348c8635d7ffcd5d16ad4b9c65289302dc6c4fe2e0210346b23013fb280"
+    },
+    {
+      "url": "https://www.morningrows.com/new-zealand.json?source=prices",
+      "status": 522,
+      "retrieved_at": "2026-10-18T16:48:06.181Z",
+      "body_sha256": "c8b9f348c8635d7ffcd5d16ad4b9c65289302dc6c4fe2e0210346b23013fb280"
+    }
+  ],
+  "first_diagnostic": [
+    {
+      "code": "OTA2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=OTA2201",
+      "status": null,
+      "failure_class": "redirect_loop",
+      "table_count": 0
+    },
+    {
+      "code": "HAY2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=HAY2201",
+      "status": null,
+      "failure_class": "redirect_loop",
+      "table_count": 0
+    },
+    {
+      "code": "ISL2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=ISL2201",
+      "status": null,
+      "failure_class": "diagnostic_subrequest_limit",
+      "table_count": 0
+    },
+    {
+      "code": "BEN2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=BEN2201",
+      "status": null,
+      "failure_class": "diagnostic_subrequest_limit",
+      "table_count": 0
+    },
+    {
+      "code": "INV2201",
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=INV2201",
+      "status": null,
+      "failure_class": "diagnostic_subrequest_limit",
+      "table_count": 0
+    }
+  ],
+  "first_diagnostic_limitation": "Following report redirects exhausted the protected-preview request budget after two report loops; later failures were diagnostic limits, not confirmed publisher failures. The final probe disables redirects and obtains each report first response separately.",
+  "workspace_probes": [
+    {
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Datasets/DispatchAndPricing/FinalEnergyPrices/20261017_FinalEnergyPrices_I.csv",
+      "retrieved_at": "2026-10-18T16:46:33.859047+00:00",
+      "error": "URLError"
+    },
+    {
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Reports/CLA3WR?DateFrom=20261017&DateTo=20261017&POC=OTA2201",
+      "retrieved_at": "2026-10-18T16:46:33.859674+00:00",
+      "status": 302,
+      "redirect_path": "/Wholesale/Reports/CLA3WR"
+    },
+    {
+      "url": "https://morningrows.com/new-zealand.json?source=prices",
+      "retrieved_at": "2026-10-18T16:46:34.194153+00:00",
+      "status": 403,
+      "redirect_path": ""
+    },
+    {
+      "url": "https://www.morningrows.com/new-zealand.json?source=prices",
+      "retrieved_at": "2026-10-18T16:46:34.408557+00:00",
+      "status": 403,
+      "redirect_path": ""
+    }
+  ]
+}
