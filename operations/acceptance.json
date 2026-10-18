@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T00:36:51.680780+00:00",
+  "updated_at": "2026-10-18T16:51:07.955212+00:00",
   "scope": "Eight live desks; US excluded; ten task targets authorized by uploaded implementation request",
   "complete": false,
   "worktree": "/workspace/morning-rows-operations",
@@ -78,18 +78,19 @@
       "task": "Five NZ price nodes, completed trading day",
       "state": "pending_acceptance",
       "gates": {
-        "Original selection and metadata": "historical specimen retained; current-day direct original CSV blocked",
-        "Independent extraction and publisher comparison": "historical 240-cell comparison passes; current-day independent comparison blocked HTTP 403",
+        "Original selection and metadata": "Fresh protected Cloudflare acquisition of latest listed completed day 17 October interim; 240 necessary aggregate cells retained; one-day publication lag explicit",
+        "Independent extraction and publisher comparison": "Independent Python extraction validates 240 original CSV cells and all five preview outputs; separate CLA3WR table unavailable due redirects; acceptance blocked",
         "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
-        "Actual Cloudflare reader validation": "existing production validated; reader unchanged in monitoring release",
-        "Both production domains and sibling preservation": "pass: fresh complete local collection and two successful remote20-request collections;70 publisher value/period cells reconciled separately",
+        "Actual Cloudflare reader validation": "Actual unchanged parser matches original CSV in protected preview on 19 October Brisbane; no reader release",
+        "Both production domains and sibling preservation": "Prior operations evidence passed both-domain collections and sibling checks; current 19 October comparison is unverified (workspace403/protected-preview522), not acceptance of the new specimen",
         "Durable monitor contract and incident exercises": "local failure exercises pass; actual GitHub checkpoint restore passed in second run",
         "Seven elapsed days of shadow operation": "pending"
       },
       "evidence": [
         "verification/operations-2026-10-18/preflight.json",
         "test/monitor.test.js",
-        "verification/nz-prices-2026-10-17/README.md"
+        "verification/nz-prices-2026-10-17/README.md",
+        "verification/nz-prices-2026-10-19/README.md"
       ],
       "commitment": "Existing bounded plan target; no scope expansion",
       "dependencies": [
@@ -103,8 +104,14 @@
         "worker.js"
       ],
       "blocking_decisions": [
-        "Obtain successful official current-day original CSV without keys/proxy/source substitution; no publisher contact"
-      ]
+        "Obtain exact official date/node/status CLA3WR table/export without changing credentials or registering keys",
+        "Reconcile revisions and obtain matching both-domain responses before acceptance"
+      ],
+      "current_verification": {
+        "evidence": "verification/nz-prices-2026-10-19/README.md",
+        "production_comparison": "not established in this pass: workspace403 and protected-preview522; previous verified baseline preserved",
+        "accepted": false
+      }
     },
     {
       "id": "CA-FX4",
@@ -440,5 +447,25 @@
     "Period mismatch risk is in England UK-labelled CPI; UK native section currently contains index only. Shared reader will preserve legacy fields and explicitly qualify both.",
     "Remote main is 2cb3ffd; no Actions workflows/runs installed. Do not push main until Workers Builds delivery safety is established."
   ],
-  "status": "daily shadow system installed; initial remote runs verified; scheduled window pending"
+  "status": "daily shadow system installed; initial remote runs verified; scheduled window pending",
+  "bounded_verification_continuation": {
+    "task_id": "scheduled-cycle-and-one-verification-gap-2026-10-18",
+    "phase": "blocked_external_evidence",
+    "selected_contract": "NZ-PRICES",
+    "contract": "verification/nz-prices-2026-10-19/CONTRACT.md",
+    "authorization": "User go now after explicit explanation of scheduled prerequisite; start data verification now, retain scheduled proof as unresolved",
+    "scheduled_cycle_verified": false,
+    "reader_release": false,
+    "scope": "One existing five-node completed-day price contract; no additional source, desk or infrastructure",
+    "updated_at": "2026-10-18T16:51:07.955212+00:00",
+    "evidence": "verification/nz-prices-2026-10-19/README.md",
+    "original_cells_verified": 240,
+    "preview_terminal_values_matched": 5,
+    "contract_accepted": false,
+    "blockers": [
+      "Separate official CLA3WR presentation redirects to unqualified report; no independent table obtained",
+      "Current public-domain comparison unavailable through tested workspace/protected-preview paths"
+    ],
+    "resume_condition": "Usable official dated report/export or new permitted access evidence; retain NZ-PRICES selection, no broader coverage"
+  }
 }

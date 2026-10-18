@@ -47,7 +47,7 @@ The `acknowledge` workflow dispatch records a delivered event ID and concrete re
 - The separate Python extractions share publishers' statistical lineage. No independent agent evaluation or administrative-record audit is claimed.
 - `operating-load.json` and `preview`: real Cloudflare fetch counts, warm/concurrent cache experiments and source outcomes. Wall time is measured; CPU and a final account bill are not.
 - CPI D7BT/D7G7 reconciliation and tests pass locally, but both preview investigations returned ONS 403. The repair is parked and must not be promoted until actual runtime success, cold/failed-refresh behavior and both-domain release checks pass. Seasonal-adjustment metadata remains a stated evidence gap. Revisit access no earlier than weekly unless a new official access route is supplied.
-- Current-day NZ price independent CSV reconciliation remains blocked although public retrieval has recovered. Stats NZ 23-row structural validation is not independent re-extraction with an unprovided credential.
+- NZ price verification on 19 October Brisbane independently re-extracts 240 original CSV cells for the latest listed completed day (17 October interim) and matches five actual-parser values in protected Cloudflare preview. Separate official report access and current both-domain comparison remain blocked; this is partial evidence, not acceptance. See `verification/nz-prices-2026-10-19/README.md`. Stats NZ 23-row structural validation is not independent re-extraction with an unprovided credential.
 
 ## Delivery and rollback
 

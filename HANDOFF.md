@@ -1,3 +1,15 @@
+# Bounded verification continuation — 19 October 2026 Brisbane
+
+Selected `NZ-PRICES` only, under the user’s subsequent “go now” instruction.
+[Contract and risk ranking](verification/nz-prices-2026-10-19/CONTRACT.md) precede
+implementation. Phase: blocked on separate official report evidence and current
+production comparison. [Reproducible evidence](verification/nz-prices-2026-10-19/README.md)
+validates 240 original CSV cells and five unchanged-reader values in Cloudflare;
+no reader defect demonstrated, no deployment. Resume NZ-PRICES only when the
+documented access/evidence condition changes. Scheduled-cycle proof,
+seven-day SHADOW and the actual delivery receipt remain pending. No collector
+dispatch, checkpoint reset or automatic release. Resume this same selection.
+
 # Checkpoint restoration repair — 18 October 2026 (Brisbane)
 
 [Recovery contract](operations/CHECKPOINT-RECOVERY.md) and [reproducible incident evidence](verification/checkpoint-recovery-2026-10-18/README.md). The original scheduled collector failed before state mutation because artifact IDs were treated as chronological. The repair selects the latest eligible workflow execution and its exact artifact, with an explicit, pinned recovery for failed run 39078664324/attempt 1. No source or Worker changes.
