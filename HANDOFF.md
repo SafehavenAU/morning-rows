@@ -1,3 +1,9 @@
+# Checkpoint restoration repair — 18 October 2026 (Brisbane)
+
+[Recovery contract](operations/CHECKPOINT-RECOVERY.md) and [reproducible incident evidence](verification/checkpoint-recovery-2026-10-18/README.md). The original scheduled collector failed before state mutation because artifact IDs were treated as chronological. The repair selects the latest eligible workflow execution and its exact artifact, with an explicit, pinned recovery for failed run 39078664324/attempt 1. No source or Worker changes.
+
+Local rehearsal preserves the full predecessor checkpoint byte for byte, including 33 incidents, two pending evidence repairs and the already-announced pending delivery test. Remote recovery and the next actual scheduled collection remain pending at this commit. Do not repeat the test or acknowledge it without the user's actual reply. Seven-day SHADOW acceptance is separate; UK CPI/US remain parked.
+
 # Operations implementation — 18 October 2026 (Brisbane)
 
 See [operations/README.md](operations/README.md), [acceptance ledger](operations/acceptance.json) and [measured load](verification/operations-2026-10-18/operating-load.json). This is an operational implementation in progress, not completed seven-day acceptance. The eight-desk production Worker remains unchanged. UK CPI is a separately parked candidate after two actual preview403 results. The US candidate remains in the original workspace and is excluded here.

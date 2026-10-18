@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-17T23:05:59.565524+00:00",
+  "updated_at": "2026-10-18T00:31:17.188208+00:00",
   "scope": "Eight live desks; US excluded; ten task targets authorized by uploaded implementation request",
   "complete": false,
   "worktree": "/workspace/morning-rows-operations",
@@ -396,7 +396,7 @@
       ]
     },
     "independent_watchdog": {
-      "state": "registered; connector artifact-read path validated; first independently scheduled wake pending",
+      "state": "actual independent wake detected scheduled checkpoint failure; incident notified once",
       "automation_id": "6ad2f1fd41e481918b13871769eedd0f",
       "cadence": "hourly; begins09:10 Brisbane18October",
       "evidence": [
@@ -404,7 +404,7 @@
       ]
     },
     "notification_acknowledgment": {
-      "state": "explicit test event durably queued; real delivery and user receipt pending",
+      "state": "delivery test announced once in chat; actual user acknowledgment still pending",
       "evidence": [
         "https://github.com/SafehavenAU/morning-rows/actions/runs/39077529097"
       ],
@@ -419,6 +419,15 @@
       "evidence": [
         "verification/operations-2026-10-18/rollback-readiness.json"
       ]
+    },
+    "checkpoint_recovery": {
+      "state": "local tests and byte-identical adapter rehearsal pass; remote recovery and actual scheduled validation pending",
+      "incident_run": 39078664324,
+      "evidence": [
+        "operations/CHECKPOINT-RECOVERY.md",
+        "verification/checkpoint-recovery-2026-10-18/README.md"
+      ],
+      "completion_gate": "Independent verification of a complete actual scheduled run following recovery"
     }
   },
   "corrections": [

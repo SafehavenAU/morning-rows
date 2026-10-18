@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "reason": "Artifact ID order selected older run4 instead of run5; run6 failed before any state-producing step. Explicit recovery permitted only for this exact first attempt.",
+  "failed": {
+    "id": 39078664324,
+    "workflow_id": 388034330,
+    "run_number": 6,
+    "run_attempt": 1,
+    "path": ".github/workflows/monitor.yml",
+    "head_branch": "main",
+    "head_sha": "5d1651cedc4aad5bf5ead050272e24931af0b3c1",
+    "event": "schedule",
+    "status": "completed",
+    "conclusion": "failure",
+    "run_started_at": "2026-10-17T23:20:48Z",
+    "updated_at": "2026-10-17T23:20:56Z"
+  },
+  "predecessor": {
+    "run_id": 39077529097,
+    "run_attempt": 1,
+    "revision": "4766ee8025a99e2ddc053d207423ed8d44a0a3f4",
+    "artifact_id": 12117561506,
+    "archive_digest": "sha256:d944d4c165be36829cdfaacda42a02d96a36f7573f7c25aa2c1e80434dc74e23",
+    "checkpoint_digest": "f0bb849f17ca59b57e831b7c9162d783142d18854478adb49b38d0d068314210",
+    "previous_digest": "edae7e24157bedb98f010e0c15bff3e0ed0297efcd3d9df19236cd587f1a5ff0",
+    "sequence": 2
+  },
+  "job": {
+    "id": 117530966663,
+    "name": "collect",
+    "run_id": 39078664324,
+    "run_attempt": 1,
+    "head_sha": "5d1651cedc4aad5bf5ead050272e24931af0b3c1",
+    "status": "completed",
+    "conclusion": "failure",
+    "started_at": "2026-10-17T23:20:50Z",
+    "completed_at": "2026-10-17T23:20:55Z",
+    "steps": [
+      {
+        "number": 1,
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 2,
+        "name": "Set private runner paths",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 3,
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 4,
+        "name": "Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 5,
+        "name": "Restore existing checkpoint",
+        "status": "completed",
+        "conclusion": "failure"
+      },
+      {
+        "number": 6,
+        "name": "Explicit first bootstrap",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "number": 7,
+        "name": "Preserve restored checkpoint before collection",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "number": 8,
+        "name": "Collect public observations in shadow mode",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "number": 9,
+        "name": "Queue authorized notification-path test",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "number": 10,
+        "name": "Persist an authorized delivery receipt",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "number": 11,
+        "name": "Checkpoint",
+        "status": "completed",
+        "conclusion": "failure"
+      },
+      {
+        "number": 12,
+        "name": "Evidence",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 23,
+        "name": "Post Run actions/setup-node@v4",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "number": 24,
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "number": 25,
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "evidence": "verification/checkpoint-recovery-2026-10-18/github-evidence.json"
+}
