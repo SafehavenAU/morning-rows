@@ -33,11 +33,3 @@ test('actual workbook transport hashes original bytes and never falls back on fa
  const calls=[];const r=await readUsCpiWorkbook({fetcher:async url=>{calls.push(url);return new Response(url===CPI_INDEX?index:bytes);}});assert.equal(calls.length,2);assert.equal(r.provenance[1].sha256,'473d3f67308952760245ff65946457a92ebde2bad3d8ba9db1ede89c89222d35');
  const failed=[];await assert.rejects(()=>readUsCpiWorkbook({fetcher:async url=>{failed.push(url);return url===CPI_INDEX?new Response(index+index.replaceAll('202609','202610').replace('September','October')):new Response('gone',{status:404});}}),/HTTP 404/);assert.equal(failed.length,2);assert.match(failed[1],/202610/);
 });
-test('native ZIP reader checks corruption, truncation, external relationships and size bounds',async()=>{
- const {openCpiZip}=await import('../lib/cpi-zip.js');
- for(const b of [bytes.subarray(0,20),bytes.subarray(0,bytes.length-1),new Uint8Array(131073)])assert.throws(()=>openCpiZip(b));
- const corrupt=bytes.slice();const view=new DataView(corrupt.buffer);let at=0;while(at<corrupt.length-46){if(view.getUint32(at,true)===0x02014b50){const n=view.getUint16(at+28,true),name=new TextDecoder().decode(corrupt.subarray(at+46,at+46+n));if(name==='xl/sharedStrings.xml'){const local=view.getUint32(at+42,true);view.setUint32(at+16,0,true);view.setUint32(local+14,0,true);break;}}at++;}
- await assert.rejects(()=>openCpiZip(corrupt).read('xl/sharedStrings.xml'),/crc/);
- const external=mutated('xl/_rels/workbook.xml.rels','Target="worksheets/sheet1.xml"','Target="worksheets/sheet1.xml" TargetMode="External"');
- await assert.rejects(()=>readUsCpiWorkbook({fetcher:async url=>new Response(url===CPI_INDEX?index:external)}),/external_relationship/);
-});

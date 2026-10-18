@@ -9,10 +9,10 @@ import {INFORMATION_SCHEMA_V2} from '../lib/information-v2.js';
 import {readUnitedStates} from '../lib/us-cpi.js';
 const out=process.env.US_REPORT_DIR||'/tmp/morning-rows-us-contract';mkdirSync(out,{recursive:true});
 const json=path=>JSON.parse(readFileSync(new URL(path,import.meta.url)));
-const fixture=json('../test/fixtures/us-cpi-workbook.json');
+const fixture=json('../test/fixtures/us-cpi-table.json');
 const snapshot=json('../verification/structure-2026-10-17/selected-snapshot.json');
 const prior=json('../research/us-onboarding-2026-10-17/rehearsal/compatibility-results.json');
-const us=await readUnitedStates({fetcher:async url=>new Response(url.endsWith('home.htm')?fixture.index:Buffer.from(fixture.workbook_base64,'base64'))});
+const us=await readUnitedStates({fetcher:async url=>new Response(url.endsWith('home.htm')?fixture.index:fixture.table)});
 globalThis.fetch=()=>{throw Error('External fetch forbidden during offline contract replay');};
 globalThis.caches={default:{match:async request=>{
  let desk=new URL(request.url).pathname.slice(1).replace(/\.json$/,'');if(desk==='morning')desk='australia';

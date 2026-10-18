@@ -2,8 +2,7 @@
 import worker from '../../worker.js';
 import {handleUsRequest} from '../../lib/us-desk.js';
 import {readUnitedStates} from '../../lib/us-cpi.js';
-import fixture from '../../test/fixtures/us-cpi-workbook.json';
-import {unzipSync,zipSync,strFromU8,strToU8} from 'fflate';
+import fixture from '../../test/fixtures/us-cpi-table.json';
 export default {async fetch(request,env){
  const url=new URL(request.url),live=url.pathname.startsWith('/live/');
  if(live){url.pathname=url.pathname.slice(5);return worker.fetch(new Request(url,request),env);}
@@ -19,13 +18,9 @@ export default {async fetch(request,env){
   if(fault==='timeout')return new Promise((_,reject)=>signal.addEventListener('abort',()=>reject(new DOMException('Aborted','AbortError')),{once:true}));
   if(fault==='oversize')return new Response('x'.repeat(262145));
   if(input.endsWith('home.htm'))return new Response(fault==='new-period'?fixture.index.replaceAll('202609','202610').replace('September','October'):fixture.index);
-  let body=Uint8Array.from(atob(fixture.workbook_base64),c=>c.charCodeAt(0));
-  if(fault==='revision'||fault==='new-period'){
-   const files=unzipSync(body),part='xl/worksheets/sheet1.xml';let xml=strFromU8(files[part]);
-   if(fault==='revision')xml=xml.replace('<v>336.94</v>','<v>336.941</v>');
-   if(fault==='new-period')xml=xml.replace('<c r="L119" s="4" t="s"><v>130</v></c>','<c r="L119" s="7"><v>337</v></c>');
-   files[part]=strToU8(xml);body=zipSync(files);
-  }
+  let body=fixture.table;
+  if(fault==='revision')body=body.replace('336.940','336.941');
+  if(fault==='new-period')body=body.replace('<TD>336.940</TD><TD>&nbsp;</TD>','<TD>336.940</TD><TD>337.000</TD>');
   return new Response(body);
  }});
  // Explicit constructed faults force a fresh fill; subsequent requests see its real cache state.
