@@ -1,3 +1,38 @@
+# Latest continuation — runtime budget validation
+
+BLS access is resolved for the tested runtime: `Accept: */*` with the same truthful
+Morning Rows User-Agent returned the original bulk files. The actual reader
+passed all **22/22** integrated preview scenarios (`integration-preview-accept-any.json`).
+Repeated independent cold reads returned identical current original rows. A full
+nine-desk preview passed after extending the checker to use the documented US
+one-hour cache limit; all four existing core contracts were healthy.
+
+The user subsequently confirmed **Workers Free / 10 ms CPU**. That is the active
+release gate. Pinned Wrangler 4.151.1 disables the inspector for remote dev and
+uploads previews without CPU limits. No numeric CPU events were available from
+its existing tail transport. The protected-preview successes do not prove the
+Free CPU budget. `runtime-budget/` preserves this evidence; wall times are not
+labelled CPU. Subscription lookup returned 403; Worker settings were readable and
+showed standard usage with no explicit override. No credentials are retained.
+
+A small bulk-parser allocation correction is now under validation. The official
+historical CPI workbook (24,238 bytes) was also found accessible; it is not an
+activated fallback or a changed statistical contract. No production activation.
+
+The optional ninth-desk collector retains v1-eight discovery, adds v2-nine and
+US CPI checks, and uses 24 public probes / 109 source obligations when enabled.
+`operations/us-release-review.json` is disabled. Exact reviewed identity matching
+updates only the release identity and request budget through the existing
+serialized collection. Original incidents, repairs, receipts and SHADOW start
+are retained; US scheduled observation starts only from an actual scheduled run.
+The new tests also prevent the known unavailable October from becoming a false
+numeric-loss incident merely because other months are numeric.
+
+The sections below retain the initial candidate findings; the continuation above
+supersedes their current BLS-access status. Their reports remain immutable.
+
+---
+
 # USA desk candidate — 19 October 2026 Brisbane
 
 Implemented on main `51254f51e20a2afed572763045467e5b24c9003c` after the

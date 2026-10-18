@@ -1,8 +1,14 @@
 # USA candidate resumed — 19 October 2026 Brisbane
 
-The user explicitly authorized USA development. The prior parking instruction is superseded for this candidate; UK CPI stays parked. The draft integrates the existing one-series BLS CPI-U implementation onto current main. [Current evidence and release gates](verification/us-build-2026-10-19/README.md). All 153 Node tests, 20 independent Python cases, 315 legacy comparisons and 221 schema responses pass. Fresh original BLS/API/FRED/official-release reconciliation agrees across 13 slots. Protected Cloudflare preview still receives BLS HTTP 406, so live release is blocked. No Worker deployment, credential change or checkpoint mutation.
+The user explicitly authorized USA development and continued building. UK CPI stays parked. The one-series BLS CPI-U candidate is on draft PR8. [Evidence and release gates](verification/us-build-2026-10-19/README.md).
 
-Production and its independent watchdog still cover the existing eight desks. The NZ-PRICES contract remains selected and blocked separately; this USA task does not satisfy its acceptance gates. Preserve the scheduled-cycle and seven-day SHADOW evidence. Do not merge/promote this candidate until its live-source and remaining release gates pass. Historical US evidence from 17 October is retained separately.
+Original-source access now works in Cloudflare with truthful Morning Rows identification and `Accept: */*`. All 22 integration scenarios passed, followed by a complete nine-desk preview with all four established core contracts healthy. These checks precede the latest allocation optimization; its repeat validation is pending. The original 406 evidence is retained. No BLS API, mirror or retained-data fallback was introduced.
+
+The user confirmed **Workers Free, 10 ms CPU** in this chat. Runtime budget validation is now the active release gate: protected remote dev has no production CPU limits, and the pinned Wrangler disables its remote inspector. Successful HTTP responses and wall time are not CPU measurements. The parser now avoids allocating unrelated bulk rows; this must be evaluated under the actual limit before traffic moves. The official 24 KB historical workbook is an evaluated alternative, not an activated fallback.
+
+Nine-desk monitoring and a reviewed identity transition are staged behind `operations/us-release-review.json`, currently **disabled**. Existing 108 obligations, incidents, repairs, outbox and original SHADOW start are preserved. The transition requires both domains to match exact reviewed clean identities after complete collection; it never bootstraps a checkpoint or supplies a receipt. Tests cover the known missing October, corrections, new months, failed retrieval, unchanged state and retained notification history.
+
+Production and the independently scheduled watchdog remain eight-desk. The NZ-PRICES contract is separately blocked; scheduled-cycle proof, seven-day SHADOW and a real delivery acknowledgment remain unresolved. No source alerts are enabled. No production deployment, credential change or checkpoint mutation has occurred.
 
 # Bounded verification continuation — 19 October 2026 Brisbane
 

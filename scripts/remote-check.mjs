@@ -70,7 +70,7 @@ try {
    if(repeat.status!==304||repeat.body.length)process.exitCode=1;
   }
   if(path.includes('?source=')&&response.status===200) {
-   const maximum=path.startsWith('/canada')?3600:path.startsWith('/new-zealand')?120:path.startsWith('/australia')?300:600;
+   const maximum=path.startsWith('/canada')||path.startsWith('/united-states')?3600:path.startsWith('/new-zealand')?120:path.startsWith('/australia')?300:600;
    const age=response.headers['cache-control']?.match(/max-age=(\d+)/)?.[1];
    if(age===undefined||Number(age)>maximum)process.exitCode=1;
   }

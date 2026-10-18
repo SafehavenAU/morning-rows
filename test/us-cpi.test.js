@@ -58,3 +58,15 @@ test('reader failure remains a failed source with no snapshot fallback',async t=
  assert.equal(d.sources.cpi.status,'error');assert.equal(d.sources.cpi.http_status,403);assert.equal(d.cpi,null);
  const selected=await selectedUsResponse(d,{source:'cpi'});assert.equal(selected.status,503);assert.deepEqual(selected.body.observations,[]);
 });
+test('bulk selection keeps exact identifiers, reordered fields and malformed selected records',()=>{
+ const expected=parseCpi(fixture);
+ const extra={...fixture,data:fixture.data+'CUUR0000SA01\t2026\tM10\t999.000\t\nXCUUR0000SA0\t2026\tM10\t999.000\t\n'};
+ assert.deepEqual(parseCpi(extra),expected);
+ const reordered={...fixture};
+ for(const kind of ['data','series'])reordered[kind]=fixture[kind].trimEnd().split(/\r?\n/).map(line=>{const cells=line.split('\t');return [cells[1],cells[0],...cells.slice(2)].join('\t');}).join('\n')+'\n';
+ // Keep the empty last footnote field on the final data row.
+ reordered.data=fixture.data.split(/\r?\n/).filter(Boolean).map(line=>{const c=line.split('\t');return [c[1],c[0],...c.slice(2)].join('\t');}).join('\n')+'\n';
+ assert.deepEqual(parseCpi(reordered),expected);
+ assert.throws(()=>parseCpi({...fixture,data:fixture.data+'CUUR0000SA0\n'}),/truncated_record/);
+ assert.deepEqual(parseCpi({...fixture,data:fixture.data.replaceAll('\n','\r\n')}),expected);
+});

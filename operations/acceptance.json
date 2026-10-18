@@ -471,19 +471,21 @@
   "us_desk_candidate": {
     "task_id": "US-CPI-resumption-2026-10-19",
     "authorization": "User explicitly asked can you build the USA data; previous US parking instruction superseded for this candidate only",
-    "phase": "implemented_release_blocked",
+    "phase": "runtime_budget_validation",
     "contract": "research/us-onboarding-2026-10-17/CONTRACT.md",
     "evidence": "verification/us-build-2026-10-19/README.md",
     "source": "BLS CUUR0000SA0, national urban all-items NSA CPI-U, 13 calendar months",
-    "live_source_http_status": 406,
+    "live_source_http_status": 200,
     "deployed": false,
-    "monitoring_scope": "Existing eight live desks; no registry/checkpoint/receipt changes",
+    "monitoring_scope": "Eight active desks; nine-desk collector and exact identity transition staged, disabled",
     "remaining_release_gates": [
-      "Repeated successful original-source cold reads in Cloudflare",
-      "Real transfer and parsing resource budget",
-      "Final full live preview and nine-desk monitoring integration",
-      "Versioned release and both-domain acceptance"
+      "Actual Free-plan CPU budget for final reader",
+      "Final validation after any resource correction",
+      "Versioned release and both-domain acceptance; enable reviewed ninth-desk monitoring only afterward"
     ],
-    "resume_condition": "Verified permitted original BLS access from Cloudflare; no source substitution or embedded specimen"
+    "resume_condition": "Continue actual CPU budget evaluation; no upgrade, billing change, source substitution or embedded specimen authorized",
+    "workers_plan": "Free",
+    "cpu_limit_ms": 10,
+    "plan_evidence": "Actual user reply in this chat: Workers Free, 10-millisecond CPU limit"
   }
 }

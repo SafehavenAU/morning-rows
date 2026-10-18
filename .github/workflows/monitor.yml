@@ -59,7 +59,7 @@ jobs:
           cp "$MONITOR_STATE_DIR/state.json" "$MONITOR_OUTPUT_DIR/checkpoint.json"
       - name: Collect public observations in shadow mode
         if: inputs.mode != 'acknowledge' && inputs.mode != 'test-delivery' && inputs.mode != 'recover'
-        run: node scripts/monitor.mjs run --state "$MONITOR_STATE_DIR/state.json" --output "$MONITOR_OUTPUT_DIR" --approvals operations/approved-observations.json
+        run: node scripts/monitor.mjs run --state "$MONITOR_STATE_DIR/state.json" --output "$MONITOR_OUTPUT_DIR" --approvals operations/approved-observations.json --release-review operations/us-release-review.json
       - name: Queue authorized notification-path test
         if: inputs.mode == 'test-delivery'
         run: |
