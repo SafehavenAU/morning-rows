@@ -2,7 +2,7 @@
 
 [Recovery contract](operations/CHECKPOINT-RECOVERY.md) and [reproducible incident evidence](verification/checkpoint-recovery-2026-10-18/README.md). The original scheduled collector failed before state mutation because artifact IDs were treated as chronological. The repair selects the latest eligible workflow execution and its exact artifact, with an explicit, pinned recovery for failed run 39078664324/attempt 1. No source or Worker changes.
 
-Local rehearsal preserves the full predecessor checkpoint byte for byte, including 33 incidents, two pending evidence repairs and the already-announced pending delivery test. Remote recovery and the next actual scheduled collection remain pending at this commit. Do not repeat the test or acknowledge it without the user's actual reply. Seven-day SHADOW acceptance is separate; UK CPI/US remain parked.
+Local rehearsal preserves the full predecessor checkpoint byte for byte, including 33 incidents, two pending evidence repairs and the already-announced pending delivery test. Remote recovery39083194151 and subsequent complete manual collection39083249445 now pass independent artifact/digest checks. The next actual scheduled collection remains pending. Sequence3 digest644b38393bbd76e98ad77f4cf9dcb97595f273d2a9c0ed730a72e558f1bd93d9 links to the preserved predecessor. The hourly watchdog has the recovery bridge and next scheduled gate. Do not repeat the test or acknowledge it without the user's actual reply. Seven-day SHADOW acceptance is separate; UK CPI/US remain parked.
 
 # Operations implementation — 18 October 2026 (Brisbane)
 

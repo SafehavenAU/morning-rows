@@ -1,0 +1,24 @@
+// Reproduce the actual recovery/continuation comparison from retained public evidence.
+import {readFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+import {validateArchive,validateRestoredText} from '../lib/monitor-artifact.js';
+import {applyRun} from '../lib/monitor-state.js';
+const root=new URL('../verification/checkpoint-recovery-2026-10-18/',import.meta.url);
+const text=p=>readFileSync(new URL(p,root),'utf8'),json=p=>JSON.parse(text(p));
+const review=JSON.parse(readFileSync(new URL('../operations/checkpoint-recovery-review.json',import.meta.url)));
+const meta=json('github-evidence.json');
+validateArchive(readFileSync(new URL('predecessor.zip',root)),meta.artifacts.find(a=>a.id===review.predecessor.artifact_id));
+const prior=validateRestoredText(text('12117561506.json'),review);
+assert.equal(text('recovered-checkpoint.json'),text('12117561506.json'));
+const audit=json('remote-restored.json');assert.equal(audit.recovery.failed_run,review.failed.id);assert.equal(audit.digest,prior.digest);
+const after=validateRestoredText(text('manual-collection/checkpoint.json'));
+assert.equal(after.previous_digest,prior.digest);assert.equal(after.state.sequence,prior.state.sequence+1);
+const report=json('manual-collection/report.json');assert.equal(report.complete,true);assert.equal(report.scheduled,false);
+const approvals=JSON.parse(readFileSync(new URL('../operations/approved-observations.json',import.meta.url)));
+assert.deepEqual(after.state,applyRun(prior.state,report,{approvedVersions:approvals}));
+assert.deepEqual(after.state.outbox,prior.state.outbox);assert.deepEqual(after.state.approved_identity,prior.state.approved_identity);
+for(const id of Object.keys(prior.state.incidents))assert.ok(after.state.incidents[id]);
+for(const id of Object.keys(prior.state.repairs))assert.ok(after.state.repairs[id]);
+assert.equal(after.state.started_shadow_at,null);
+assert.equal(json('manual-collection/restored.json').producer_run,json('remote-recovery.json').recovery.id);
+console.log(JSON.stringify({recovery_byte_identical:true,manual_collection_full_state_replay:true,digest:after.digest,previous_digest:after.previous_digest,sequence:after.state.sequence,scheduled_successes:0,repair_scheduled_gate:'pending',delivery_test:'pending; no receipt invented'},null,2));
