@@ -30,3 +30,13 @@ Correcting selection alone must still reject run #6's missing checkpoint. A spec
 - Seven elapsed days and all other evidence/access gates remain separate. Ordinary source alerts stay disabled. Do not repeat the pending delivery-test notification.
 
 Cloudflare Builds separation relies on the user's explicit disconnection confirmation in this chat and repository instructions; the Builds API previously returned 403. No claim of new API verification. The GitHub workflows contain no Worker deploy or secret writes; `check.yml` only dry-runs the build and reads production.
+
+## Subsequent scheduled evidence — 19 October 2026 Brisbane
+
+The first genuine scheduled cycle now passes independent artifact, lineage and
+full-state replay verification. See [scheduled-cycle evidence](../verification/scheduled-cycle-2026-10-19/README.md).
+This supersedes only the scheduled-gate-pending statements above. Seven-day
+SHADOW, the actual delivery receipt and NZ-PRICES separate-presentation evidence
+remain unresolved. New both-domain18October prices are a different release from
+the retained17October specimen; no independent numerical certification or reader
+release follows. Keep the same selected contract and existing quiet watchdog.

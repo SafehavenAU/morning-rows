@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T16:51:07.955212+00:00",
+  "updated_at": "2026-10-18T23:35:49.498322+00:00",
   "scope": "Eight live desks; US excluded; ten task targets authorized by uploaded implementation request",
   "complete": false,
   "worktree": "/workspace/morning-rows-operations",
@@ -7,7 +7,7 @@
   "roles": {
     "implementation": "Codex in this task",
     "release": "Codex after verified gates within user authorization",
-    "monitor": "Scheduled deterministic verifier with Codex watchdog, pending installation",
+    "monitor": "Daily GitHub collector with independent hourly Codex watchdog; first scheduled cycle verified",
     "scope_and_unresolved_decisions": "Project owner in this chat; no staffed on-call SLA assumed"
   },
   "tasks": [
@@ -82,7 +82,7 @@
         "Independent extraction and publisher comparison": "Independent Python extraction validates 240 original CSV cells and all five preview outputs; separate CLA3WR table unavailable due redirects; acceptance blocked",
         "Safe missingness/geography/unit/period behavior": "deterministic checks pass; real unchanged baseline observed",
         "Actual Cloudflare reader validation": "Actual unchanged parser matches original CSV in protected preview on 19 October Brisbane; no reader release",
-        "Both production domains and sibling preservation": "Prior operations evidence passed both-domain collections and sibling checks; current 19 October comparison is unverified (workspace403/protected-preview522), not acceptance of the new specimen",
+        "Both production domains and sibling preservation": "Scheduled run39176195113 retains both-domain 18 October interim values and eight-desk sibling success. Original verified specimen is 17 October; matched-period independent comparison remains unverified.",
         "Durable monitor contract and incident exercises": "local failure exercises pass; actual GitHub checkpoint restore passed in second run",
         "Seven elapsed days of shadow operation": "pending"
       },
@@ -90,7 +90,8 @@
         "verification/operations-2026-10-18/preflight.json",
         "test/monitor.test.js",
         "verification/nz-prices-2026-10-17/README.md",
-        "verification/nz-prices-2026-10-19/README.md"
+        "verification/nz-prices-2026-10-19/README.md",
+        "verification/scheduled-cycle-2026-10-19/README.md"
       ],
       "commitment": "Existing bounded plan target; no scope expansion",
       "dependencies": [
@@ -403,11 +404,12 @@
       ]
     },
     "independent_watchdog": {
-      "state": "independent wake detected original failure; handoff updated with verified manual recovery, awaiting scheduled verification",
+      "state": "pass: independent hourly wake verified first genuine scheduled checkpoint, lineage and full state replay",
       "automation_id": "6ad2f1fd41e481918b13871769eedd0f",
       "cadence": "hourly; begins09:10 Brisbane18October",
       "evidence": [
-        "Connected GitHub artifact downloaded via connector and checksum envelope parsed; local gh Azure redirect403 is a separate workspace limitation"
+        "Connected GitHub artifact downloaded via connector and checksum envelope parsed; local gh Azure redirect403 is a separate workspace limitation",
+        "verification/scheduled-cycle-2026-10-19/README.md"
       ]
     },
     "notification_acknowledgment": {
@@ -418,8 +420,14 @@
       "limits": "No exactly-once claim. Failed delivery leaves event pending."
     },
     "seven_day_shadow": {
-      "state": "zero successful scheduled collections; next due23:17UTC18October/09:17Brisbane19October; manual recovery does not start window",
-      "required": "Seven elapsed days, at least eight complete daily scheduled checkpoints, maximum26h gap, external watchdog and delivery test"
+      "state": "in progress: one complete actual scheduled collection; seven elapsed days and delivery evidence not satisfied",
+      "required": "Seven elapsed days, at least eight complete daily scheduled checkpoints, maximum26h gap, external watchdog and delivery test",
+      "started_at": "2026-10-18T23:22:22.161Z",
+      "first_scheduled_run_started_at": "2026-10-18T23:21:47Z",
+      "complete_scheduled_runs": 1,
+      "evidence": [
+        "verification/scheduled-cycle-2026-10-19/README.md"
+      ]
     },
     "rollback_readiness": {
       "state": "verified target available; not exercised on live service",
@@ -428,45 +436,51 @@
       ]
     },
     "checkpoint_recovery": {
-      "state": "released and manually verified; actual scheduled validation pending",
+      "state": "pass: reviewed recovery followed by independently verified complete scheduled run",
       "incident_run": 39078664324,
       "evidence": [
         "operations/CHECKPOINT-RECOVERY.md",
-        "verification/checkpoint-recovery-2026-10-18/README.md"
+        "verification/checkpoint-recovery-2026-10-18/README.md",
+        "verification/scheduled-cycle-2026-10-19/README.md"
       ],
       "completion_gate": "Independent verification of a complete actual scheduled run following recovery",
       "repair_pr": "https://github.com/SafehavenAU/morning-rows/pull/5",
       "recovery_run": 39083194151,
       "complete_manual_collection": 39083249445,
-      "sequence": 3,
-      "next_scheduled_local": "2026-10-19 09:17 Australia/Brisbane (GitHub delay possible)",
-      "actual_scheduled_success": false
+      "sequence": 4,
+      "actual_scheduled_success": true,
+      "scheduled_run": 39176195113,
+      "scheduled_attempt": 1,
+      "scheduled_producer": "51254f51e20a2afed572763045467e5b24c9003c",
+      "scheduled_gate_verified_at": "2026-10-18T23:35:49.498322+00:00",
+      "digest": "aba5cf8b893790843e6d92468cb6d09c67b286c90edc2f70443d8fcf977f68a0"
     }
   },
   "corrections": [
     "Period mismatch risk is in England UK-labelled CPI; UK native section currently contains index only. Shared reader will preserve legacy fields and explicitly qualify both.",
     "Remote main is 2cb3ffd; no Actions workflows/runs installed. Do not push main until Workers Builds delivery safety is established."
   ],
-  "status": "daily shadow system installed; initial remote runs verified; scheduled window pending",
+  "status": "first complete scheduled cycle independently verified; seven-day SHADOW and delivery receipt pending; NZ-PRICES evidence blocked",
   "bounded_verification_continuation": {
     "task_id": "scheduled-cycle-and-one-verification-gap-2026-10-18",
     "phase": "blocked_external_evidence",
     "selected_contract": "NZ-PRICES",
     "contract": "verification/nz-prices-2026-10-19/CONTRACT.md",
     "authorization": "User go now after explicit explanation of scheduled prerequisite; start data verification now, retain scheduled proof as unresolved",
-    "scheduled_cycle_verified": false,
+    "scheduled_cycle_verified": true,
     "reader_release": false,
     "scope": "One existing five-node completed-day price contract; no additional source, desk or infrastructure",
-    "updated_at": "2026-10-18T16:51:07.955212+00:00",
+    "updated_at": "2026-10-18T23:35:49.498322+00:00",
     "evidence": "verification/nz-prices-2026-10-19/README.md",
     "original_cells_verified": 240,
     "preview_terminal_values_matched": 5,
     "contract_accepted": false,
     "blockers": [
       "Separate official CLA3WR presentation redirects to unqualified report; no independent table obtained",
-      "Current public-domain comparison unavailable through tested workspace/protected-preview paths"
+      "Collector now retains both-domain 18 October prices, but original verified specimen is 17 October; matched-period publisher-to-production reconciliation remains open"
     ],
-    "resume_condition": "Usable official dated report/export or new permitted access evidence; retain NZ-PRICES selection, no broader coverage"
+    "resume_condition": "Usable official dated report/export or new permitted access evidence; retain NZ-PRICES selection, no broader coverage",
+    "scheduled_evidence": "verification/scheduled-cycle-2026-10-19/README.md"
   },
   "us_desk_candidate": {
     "task_id": "US-CPI-resumption-2026-10-19",
