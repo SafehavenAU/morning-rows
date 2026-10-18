@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://morningrows.com/schema.json",
+  "title": "Morning Rows catalogue, desk and selected-response contracts",
+  "type": "object",
+  "$defs": {
+    "retrieval": {
+      "type": "object",
+      "required": [
+        "status",
+        "retrieved_at"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "ok",
+            "degraded",
+            "error"
+          ]
+        },
+        "retrieved_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "id",
+        "measure",
+        "value",
+        "value_state",
+        "period",
+        "definition",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "measure": {
+          "type": "string",
+          "format": "uri"
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "value_state": {
+          "enum": [
+            "observed",
+            "suppressed",
+            "missing",
+            "unavailable"
+          ]
+        },
+        "period": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "object"
+        },
+        "version": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher_updated_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "next_expected_update": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "selected": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "id",
+        "retrieval",
+        "data",
+        "observations"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0"
+        },
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source": {
+          "type": "string",
+          "format": "uri"
+        },
+        "data": {
+          "description": "Existing native section, or the selected native row. Null on failed retrieval. Caveats are also retained in context."
+        },
+        "context": {
+          "type": "object"
+        },
+        "retrieval": {
+          "$ref": "#/$defs/retrieval"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observation"
+          }
+        }
+      }
+    },
+    "desk": {
+      "type": "object",
+      "required": [
+        "site",
+        "country",
+        "sources",
+        "_meta"
+      ],
+      "properties": {
+        "site": {
+          "const": "https://morningrows.com"
+        },
+        "country": {
+          "enum": [
+            "Australia",
+            "New Zealand",
+            "Canada",
+            "United Kingdom",
+            "England",
+            "Scotland",
+            "Wales",
+            "Northern Ireland"
+          ]
+        },
+        "sources": {
+          "type": "object"
+        },
+        "_meta": {
+          "type": "object",
+          "required": [
+            "schema_version",
+            "id",
+            "catalog"
+          ],
+          "properties": {
+            "schema_version": {
+              "const": "1.0"
+            },
+            "id": {
+              "type": "string",
+              "format": "uri"
+            },
+            "catalog": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      }
+    },
+    "catalogue": {
+      "type": "object",
+      "required": [
+        "name",
+        "schema_version"
+      ],
+      "properties": {
+        "name": {
+          "const": "Morning Rows"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "countries": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8
+        },
+        "sources": {
+          "type": "array"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "countries"
+          ]
+        },
+        {
+          "required": [
+            "sources"
+          ]
+        }
+      ]
+    }
+  },
+  "x-usage": {
+    "selectors": "GET or HEAD. catalogue accepts desk. Desks accept source, measure and observation; observation requires measure; measure requires source. Values are case sensitive. Unknown/duplicate query keys return 400; unknown IDs 404; requested period not currently retained 404; retrieval/representation failure 503.",
+    "compatibility": "Full desks retain existing fields with additive _meta. Native fields are not standardized observations. This schema validates catalogues, full desks and successful opt-in selected responses; error responses are documented separately by their error codes. Additional fields are allowed. Breaking changes require a new major version.",
+    "identity": "Canonical apex JSON URL identifies desk; source selector identifies reader section; measure selector identifies fixed dimensions; observation selector identifies exact source period. IDs never depend on value or array position. These URLs are not permanent observation archives.",
+    "missingness": "Zero is observed. Null is never zero. Suppressed requires explicit evidence; otherwise retain missing/unavailable. Retrieval failure is separate, with no observation fabricated. A source may have successful rows and unavailable rows.",
+    "times": "Observation period is not publication time. published_at is null when unknown. publisher_updated_at retains dataset/upload meaning, not guaranteed first publication. retrieved_at is the retained attempt time, not response render time. next_expected_update is null unless a publication date is established; cache TTL is not cadence.",
+    "revisits": "Weak ETag excludes fetched_at/retrieved_at only, retaining value, period, caveats, publisher version and errors. Compare observation id and version: same id/version unchanged; same id/different version revision or metadata correction; different period newly available observation. Official release classification requires publisher evidence. No daily-change staleness rule.",
+    "comparison": "Require matching measure definitions, geography, population, units, adjustment and period convention. Unknown adjustment or coverage is a verification gap. Overlapping components and projections must not be added to totals or treated as estimates.",
+    "scope": "Described measures: Stats NZ 23 selections, AIHW 40 cells, Wales projection, NISRA 4 BMI aggregates, BoC 4 currencies, Scotland/NI 6 insolvency measures each, England 9 pharmacy measures. All other existing sections remain discoverable with native fields and explicit metadata limitations.",
+    "citation": "Cite observation id + version + source_url and period/definition; retain the response for historical audit. Row pointer is a locator in that response, not a stable identity. Publication URLs, methodological caveats and licence are retained in context."
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/selected"
+    },
+    {
+      "$ref": "#/$defs/desk"
+    },
+    {
+      "$ref": "#/$defs/catalogue"
+    }
+  ]
+}

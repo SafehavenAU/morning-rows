@@ -1,0 +1,99 @@
+{
+  "at": "2026-10-17T11:45:07.308604+00:00",
+  "git_revision": "7231aab5475c03e3c8075bffdba2c994c0eebf04",
+  "node": "v24.19.0",
+  "python": "Python 3.12.14",
+  "jsonschema": "4.26.0",
+  "wrangler": "4.151.1",
+  "configured_wrangler": "/workspace/.morning-rows-tools/node_modules/.bin/wrangler",
+  "configured_auth_directory": "/workspace/.morning-rows-tools/config",
+  "auth_check": "whoami successful; identity and credentials not retained",
+  "checks": {
+    "existing_node_tests": {
+      "passed": 95,
+      "failed": 0
+    },
+    "python_semantic_tests": {
+      "passed": 20,
+      "failed": 0
+    },
+    "fresh_workspace_source_to_answer_equal": true,
+    "independent_statistical_lineage": false
+  },
+  "comparison": {
+    "api_slots_equal": 13,
+    "fred_slots_equal": 13,
+    "official_table_cells": [
+      {
+        "period": "2025-09",
+        "value": "324.800",
+        "header_id": "cpipress1.h.2.3",
+        "match": true
+      },
+      {
+        "period": "2026-08",
+        "value": "334.980",
+        "header_id": "cpipress1.h.2.4",
+        "match": true
+      },
+      {
+        "period": "2026-09",
+        "value": "336.940",
+        "header_id": "cpipress1.h.2.5",
+        "match": true
+      }
+    ],
+    "computed_year_percent": "3.737684729064039408866995100",
+    "official_rounded_percent": "3.7",
+    "rounding_tolerance_percentage_points": "0.05",
+    "release_timing_verified": true,
+    "lineage": "Independent parsers/presentations, same underlying BLS estimates; FRED is a republication, not independent statistical corroboration.",
+    "totals": "Not applicable: an index is non-additive; no category/region sum or average-of-months substitution is valid."
+  },
+  "annual_answer": {
+    "base_period": "2025-09",
+    "target_period": "2026-09",
+    "base_index": "324.800",
+    "target_index": "336.940",
+    "factor": "1.037376847290640394088669951",
+    "percent_change": "3.737684729064039408866995100",
+    "percent_change_display_2dp": "3.74",
+    "citations": [
+      {
+        "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-09",
+        "version": "46326e6a465ce09e8c4864a3ceb6b96b98cf4fabf4d572d506b9a969cd6cdeeb"
+      },
+      {
+        "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-09",
+        "version": "0556f343f40bafadb6172f2923f773fca972eb14350a4e9619beef35353e0a86"
+      }
+    ],
+    "publisher": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+    "release": "https://www.bls.gov/news.release/archives/cpi_10142026.htm",
+    "definition": {
+      "series_id": "CUUR0000SA0",
+      "name": "CPI-U, all items, U.S. city average",
+      "geography": "U.S. city average",
+      "area_code": "0000",
+      "population": "All urban consumers; see BLS population exclusions",
+      "unit": "index",
+      "base_period": "1982-84=100",
+      "adjustment": "not seasonally adjusted",
+      "period_convention": "calendar month",
+      "uncertainty": null,
+      "uncertainty_note": "No confidence interval supplied in this selected index extract; not zero uncertainty.",
+      "boundary_note": "National urban target in 50 states and DC, excludes territories; no subnational output. Sample design: 2018 redesign, 2010 Census/2013 OMB CBSAs.",
+      "revision_policy": "NSA: no routine seasonal revision; corrections possible; latest values, not vintage history."
+    },
+    "qualification": "Arithmetic from published NSA index levels; no contract clause, monetary rounding rule or CPI substitution inferred.",
+    "constructed_money_example": {
+      "base_usd": "1000.00",
+      "reference_usd": "1037.38",
+      "assumption": "No cap/floor; only final USD amount rounded half-up to cents. Not an observed agreement or legal recommendation."
+    }
+  },
+  "limitations": [
+    "No independent agent trial: prior separate client authentication failed before tool execution.",
+    "Cloudflare original-source access failed despite workspace replay success."
+  ]
+}

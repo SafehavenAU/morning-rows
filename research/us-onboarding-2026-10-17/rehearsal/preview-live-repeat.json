@@ -1,0 +1,77 @@
+{
+  "started_at": "2026-10-17T11:40:22.623Z",
+  "environment": "Cloudflare remote dev; protected preview token not retained",
+  "checks": [
+    {
+      "label": "live cold",
+      "path": "/live?run=r1792237224569",
+      "status": 503,
+      "expected": 200,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "etag": "W/\"8854ccaf6017c1bca4a4e8fbc09d1e01746edf3cf0b268e8fe6e106c8f4a09d5\"",
+        "link": "<https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-17T11:40:24.793Z",
+        "x-probe-bytes": "{}",
+        "x-probe-cache": "miss",
+        "x-probe-colo": "ORD",
+        "x-probe-elapsed-ms": "107",
+        "x-probe-fetches": "3",
+        "x-probe-kind": "original publisher",
+        "x-probe-transport": "{\"series\":{\"status\":403},\"data\":{\"status\":403},\"footnotes\":{\"status\":403}}"
+      },
+      "bytes": 1132,
+      "body": {
+        "schema_version": "2.0",
+        "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "data": null,
+        "context": {
+          "definition": {
+            "series_id": "CUUR0000SA0",
+            "geography": "U.S. city average",
+            "population": "All urban consumers; see BLS population exclusions",
+            "unit": "index",
+            "base_period": "1982-84=100",
+            "adjustment": "not seasonally adjusted",
+            "period_convention": "calendar month",
+            "boundary_note": "2018 CPI design: 2010 Census / 2013 OMB frame; national urban target in 50 states and DC, excludes territories; no subnational output.",
+            "uncertainty": null,
+            "uncertainty_note": "Not supplied in this selected extract; not zero uncertainty.",
+            "revision_policy": "NSA has no routine seasonal revision; corrections possible; no vintage archive."
+          },
+          "source_url": null,
+          "licence": null,
+          "coverage": "13 calendar slots, not 13 numeric values",
+          "published_at": null,
+          "next_expected_update": null,
+          "timing_qualification": "Not established by this runtime rehearsal; dated release reconciliation is separate."
+        },
+        "retrieval": {
+          "status": "error",
+          "retrieved_at": "2026-10-17T11:40:24.793Z",
+          "error": "upstream_http_403"
+        },
+        "observations": [],
+        "error": "retrieval_failed"
+      },
+      "pass": false
+    }
+  ],
+  "limitations": [
+    "Single observed location; no global publisher-request ceiling established.",
+    "Accelerated 10s success / 2s failure TTL, not elapsed-hour validation.",
+    "Faults are constructed, not observed publisher incidents."
+  ],
+  "all_statuses_pass": false,
+  "finished_at": "2026-10-17T11:40:24.824Z",
+  "code_sha256": {
+    "reader.js": "7b55596aa5f3a94fd98e1a9cbb74cf434845ba30c1b378ad2d93677ed059b213",
+    "representation.js": "722ff86938188a519623812436125f0c14eac786fba2feca80e9234aa64ae13d",
+    "preview-worker.js": "d8f773b0937b1f93b51c2e286058fbf020352a4f78d56c04e8c3edf7917657c4",
+    "fixture.js": "82757c24cfe00ed61eb9e9880f4ff1a9cad2ef658cc6e030d0d52ff16100d097",
+    "wrangler.toml": "bf776d654b8b069e965f760c2cd203cd7699d50c6ebfe24162e0fedf146657f5",
+    "run-preview.mjs": "f7b6890d5214312bd527f8c272cba10c1929dd20af8e8578bee1266450f5d097"
+  }
+}

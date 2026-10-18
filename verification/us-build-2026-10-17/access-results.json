@@ -1,0 +1,56 @@
+{
+  "started_at": "2026-10-17T12:00:56.145Z",
+  "environment": "Cloudflare remote dev; protected preview token not retained",
+  "checks": [
+    {
+      "label": "official source access",
+      "path": "/access",
+      "status": 200,
+      "expected": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "bytes": 486,
+      "body": {
+        "checked_at": "2026-10-17T12:00:59.117Z",
+        "request_identification": "MorningRows/1.0 (+https://morningrows.com)",
+        "all_accessible": false,
+        "results": [
+          {
+            "name": "data",
+            "url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "status": 406,
+            "elapsed_ms": 125
+          },
+          {
+            "name": "series",
+            "url": "https://download.bls.gov/pub/time.series/cu/cu.series",
+            "status": 406,
+            "elapsed_ms": 40
+          },
+          {
+            "name": "footnotes",
+            "url": "https://download.bls.gov/pub/time.series/cu/cu.footnote",
+            "status": 406,
+            "elapsed_ms": 58
+          }
+        ]
+      },
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Single observed location; no global publisher-request ceiling established.",
+    "Accelerated 10s success / 2s failure TTL, not elapsed-hour validation.",
+    "Faults are constructed, not observed publisher incidents."
+  ],
+  "all_statuses_pass": true,
+  "finished_at": "2026-10-17T12:00:59.138Z",
+  "code_sha256": {
+    "access-worker.js": "86782699ec7499ecf64003e33b2f01f33d2985d7d18df68d2701effea9189881",
+    "wrangler.toml": "142ca84af1cd012dba727f41927d5fbfa7ee565a33efdce5c368a37f9e289861",
+    "check-access.mjs": "0121dd7963261de81f94a93d0da8eabd95c743be8e5e6eb33b38fb2095f2390a"
+  },
+  "live_access_pass": false,
+  "interpretation": "Probe envelope HTTP 200 is transport-only; live_access_pass is the release gate and is false."
+}
