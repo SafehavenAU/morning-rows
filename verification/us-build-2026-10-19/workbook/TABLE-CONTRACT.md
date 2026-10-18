@@ -50,3 +50,8 @@ response hash. Require all13 values/states, dimensions, columns and footnotes
 to match the independent original-workbook/bulk evidence exactly. First-request
 failures may now make one upstream call rather than two. All existing semantic,
 missingness, revision, cache and <=10ms CPU requirements remain unchanged.
+
+The bounded-year experiment passed data checks but measured29ms cold CPU; it is
+not retained in runtime. The candidate continues using the all-years table and
+parallel index/table acquisition. The dated bounded-table evidence is retained
+for review, not represented as the deployed transport.

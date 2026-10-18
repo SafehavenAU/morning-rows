@@ -16,9 +16,3 @@ test('actual table transport preserves original hashes and rejects stale table a
  await assert.rejects(()=>readUsCpiTable({fetcher:async u=>new Response(u.endsWith('home.htm')?f.index.replaceAll('202609','202610'):f.table)}),/latest_missing/);
  await assert.rejects(()=>readUsCpiTable({fetcher:async()=>new Response('blocked',{status:429})}),/429/);
 });
-test('bounded year request retains the exact window and exposes later years when the index lags',async()=>{
- const calls=[];const get=async u=>{calls.push(u);return new Response(u.endsWith('home.htm')?f.index:f.table)};
- const r=await readUsCpiTable({fetcher:get,now:()=>new Date('2027-01-01T00:00:00Z')});
- const u=new URL(calls[1]);assert.equal(u.searchParams.get('years_option'),'specific_years');assert.equal(u.searchParams.get('from_year'),'2025');assert.equal(u.searchParams.get('to_year'),'2028');assert.equal(r.latest_period,'2026-09');
- await assert.rejects(()=>readUsCpiTable({fetcher:async u=>new Response(u.endsWith('home.htm')?f.index:f.table.replace('</TBODY>','<TR><TH scope="row">2027</TH></TR></TBODY>')),now:()=>new Date('2027-01-01T00:00:00Z')}),/edition_mismatch/);
-});
