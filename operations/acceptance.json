@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T00:31:17.188208+00:00",
+  "updated_at": "2026-10-18T00:36:51.680780+00:00",
   "scope": "Eight live desks; US excluded; ten task targets authorized by uploaded implementation request",
   "complete": false,
   "worktree": "/workspace/morning-rows-operations",
@@ -396,7 +396,7 @@
       ]
     },
     "independent_watchdog": {
-      "state": "actual independent wake detected scheduled checkpoint failure; incident notified once",
+      "state": "independent wake detected original failure; handoff updated with verified manual recovery, awaiting scheduled verification",
       "automation_id": "6ad2f1fd41e481918b13871769eedd0f",
       "cadence": "hourly; begins09:10 Brisbane18October",
       "evidence": [
@@ -411,7 +411,7 @@
       "limits": "No exactly-once claim. Failed delivery leaves event pending."
     },
     "seven_day_shadow": {
-      "state": "daily schedule installed; first scheduled collection due23:17UTC17October/09:17Brisbane18October; no elapsed-day substitution",
+      "state": "zero successful scheduled collections; next due23:17UTC18October/09:17Brisbane19October; manual recovery does not start window",
       "required": "Seven elapsed days, at least eight complete daily scheduled checkpoints, maximum26h gap, external watchdog and delivery test"
     },
     "rollback_readiness": {
@@ -421,13 +421,19 @@
       ]
     },
     "checkpoint_recovery": {
-      "state": "local tests and byte-identical adapter rehearsal pass; remote recovery and actual scheduled validation pending",
+      "state": "released and manually verified; actual scheduled validation pending",
       "incident_run": 39078664324,
       "evidence": [
         "operations/CHECKPOINT-RECOVERY.md",
         "verification/checkpoint-recovery-2026-10-18/README.md"
       ],
-      "completion_gate": "Independent verification of a complete actual scheduled run following recovery"
+      "completion_gate": "Independent verification of a complete actual scheduled run following recovery",
+      "repair_pr": "https://github.com/SafehavenAU/morning-rows/pull/5",
+      "recovery_run": 39083194151,
+      "complete_manual_collection": 39083249445,
+      "sequence": 3,
+      "next_scheduled_local": "2026-10-19 09:17 Australia/Brisbane (GitHub delay possible)",
+      "actual_scheduled_success": false
     }
   },
   "corrections": [

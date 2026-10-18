@@ -1,6 +1,6 @@
 # Checkpoint restoration incident — 18 October 2026
 
-Status at repair commit: local validation complete; remote recovery and scheduled proof pending.
+Status: monitoring repair released via PR5; actual recovery and subsequent manual collection independently verified. Actual scheduled proof remains pending.
 
 ## Original evidence
 
@@ -37,3 +37,14 @@ Use the reviewed GitHub PR workflow with Cloudflare automatic Builds remaining d
 The next daily cron is 23:17 UTC on 18 October / 09:17 Brisbane on 19 October, subject to GitHub delay. Only an actual successful scheduled collection and independent verification complete the repair gate. Seven elapsed shadow days and publisher/CPI evidence gates remain outstanding. The pending test was already announced in this chat; no actual acknowledgment exists. Do not repeat it or fabricate a receipt.
 
 Known limitations: GitHub permissions are the authenticity boundary, not the hashes. Reruns and a full history above 1,000 entries fail closed for review. GitHub's serialized queue is not guaranteed FIFO; contradictory execution order fails rather than guessing. Missing future checkpoints require new exact evidence review, not reuse of this exception. Builds API access remains unavailable; user confirmation is the evidence for separation. No public Worker release is part of this repair.
+
+## Actual GitHub recovery and continuation
+
+- [PR5](https://github.com/SafehavenAU/morning-rows/pull/5) merged as `5518c55d65ae71ccf7063bfd9de4ca9377ecffe2`; hosted build checks and main production smoke passed. All 132 local tests and actionlint passed.
+- [Recovery run 39083194151](https://github.com/SafehavenAU/morning-rows/actions/runs/39083194151), manual mode `recover`, completed successfully. Connector download of artifact12120092285 validates its archive hash; its checkpoint is byte-identical to artifact12117561506. `remote-recovery.json`, `remote-restored.json` and `recovered-checkpoint.json` retain the evidence. No checkpoint field, incident, repair or receipt changed.
+- [Continuation run 39083249445](https://github.com/SafehavenAU/morning-rows/actions/runs/39083249445), manual mode `collect`, restored that recovered artifact and completed all20 requests in25.924seconds,637469responsebytes. Checkpoint artifact12120081333 independently validates, advances sequence2 to3, and points to the recovered digest. The entire resulting state equals a separate deterministic replay of `applyRun` with the retained report and approved observations.
+- All33 prior incidents and both prior evidence-review repairs remain. The collector added33 repair records for existing acknowledged incidents after its confirmation interval; no new outbox notification was added. The only outbox event remains the already-announced delivery test, still pending. These are collector transitions, not recovery mutations. See `manual-collection/comparison.json` for all changed top-level fields, replay verification and core contracts.
+- Both domains retain the approved production identity; the same collection validates23 Stats NZ rows,40 AIHW observations, the Wales projection and4 NISRA observations per domain. No Worker deployment occurred.
+- The existing hourly independent watchdog (6ad2f1fd41e481918b13871769eedd0f) was updated with the exact recovery bridge, sequence3 digest and pending-test notification state. Its next actual scheduled wake must independently assess progress. No second monitoring system or source alert was enabled.
+
+The last complete collection is2026-10-18T00:34:54.149Z; its26-hour deadline is2026-10-19T02:34:54.149Z. Zero successful scheduled collections have occurred. The next daily cron is09:17Brisbane19October. The repair's final scheduling gate, real user receipt and seven-day window are still pending; no completion or exactly-once-delivery claim.
