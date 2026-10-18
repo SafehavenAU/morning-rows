@@ -66,6 +66,10 @@ test('all history pages are read; incomplete or changing history fails closed',a
  await assert.rejects(readPages(async()=>({total_count:1001,artifacts:[]}),'a','artifacts'),/ceiling/);
  await assert.rejects(readPages(async()=>({total_count:2,artifacts:[{id:1},{id:1}]}),'a','artifacts'),/Duplicate/);
 });
+test('an older incomplete execution cannot be hidden by a newer completed producer',()=>{
+ const history=clone(runs);history.find(r=>r.id===39077382567).status='in_progress';
+ assert.throws(()=>choose(fixture.artifacts,history),/Incomplete or overlapping/);
+});
 test('expired, missing, duplicate, wrong-revision and wrong-attempt artifacts never fall back',()=>{
  for(const mutate of [a=>a.expired=true,a=>a.digest=null,a=>a.workflow_run.head_sha='a'.repeat(40),a=>a.workflow_run.head_repository_id=1,a=>a.created_at='2026-10-17T22:00:00Z',a=>a.size_in_bytes=5000000]){
   const a=clone(fixture.artifacts);mutate(a.find(x=>x.id===12117561506));assert.throws(()=>choose(a));
