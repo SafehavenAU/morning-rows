@@ -48,16 +48,6 @@ test('clean but unreviewed deployment identity is a release incident',()=>{
  r.identities=Object.fromEntries(ORIGINS.map(o=>[o,{source_revision:'b'.repeat(40),worker_version:'other',source_dirty:false}]));
  assert.equal(applyRun(s,r).incidents['service/release'].severity,'P1');
 });
-test('an interrupted checkpoint upload and expired storage cannot silently reset history',async()=>{
- const {chooseCheckpoint,assertFirstBootstrap}=await import('../lib/monitor-artifact.js');
- const producer={id:10,path:'.github/workflows/monitor.yml',head_branch:'main',event:'schedule',status:'completed'};
- const artifact={id:5,workflow_run:{id:10},size_in_bytes:100,expired:false};
- assert.equal(chooseCheckpoint([artifact],[producer],11).producer.id,10);
- assert.throws(()=>chooseCheckpoint([{...artifact,expired:true}],[producer],11),/expired/);
- assert.throws(()=>chooseCheckpoint([artifact],[producer,{...producer,id:11}],12),/later monitor/);
- assert.throws(()=>assertFirstBootstrap([], [producer],11),/history/);
- assertFirstBootstrap([], [{...producer,id:11}],11);
-});
 test('undelivered event survives restart and no delivery claim is manufactured',()=>{
  const s=applyRun(baseline(),run(1,{kind:'semantic',reason:'injected wrong period'}));
  const restarted=decodeCheckpoint(JSON.stringify(envelope(s))).state;

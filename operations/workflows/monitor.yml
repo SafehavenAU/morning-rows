@@ -8,7 +8,7 @@ on:
     inputs:
       mode:
         type: choice
-        options: [collect, bootstrap, acknowledge, test-delivery]
+        options: [collect, bootstrap, acknowledge, test-delivery, recover]
         default: collect
       event_id:
         type: string
@@ -28,6 +28,7 @@ jobs:
     timeout-minutes: 12
     env:
       GH_TOKEN: ${{ github.token }}
+      MONITOR_MODE: ${{ inputs.mode }}
       MONITOR_EVENT_ID: ${{ inputs.event_id }}
       MONITOR_RECEIPT: ${{ inputs.receipt }}
     steps:
@@ -41,7 +42,12 @@ jobs:
           node-version-file: .node-version
       - name: Restore existing checkpoint
         if: inputs.mode != 'bootstrap'
-        run: node scripts/monitor-artifact.mjs "$MONITOR_STATE_DIR"
+        run: |
+          if [ "$MONITOR_MODE" = recover ]; then
+            node scripts/monitor-artifact.mjs "$MONITOR_STATE_DIR" --recover
+          else
+            node scripts/monitor-artifact.mjs "$MONITOR_STATE_DIR"
+          fi
       - name: Explicit first bootstrap
         if: inputs.mode == 'bootstrap'
         run: |
@@ -52,7 +58,7 @@ jobs:
           mkdir -p "$MONITOR_OUTPUT_DIR"
           cp "$MONITOR_STATE_DIR/state.json" "$MONITOR_OUTPUT_DIR/checkpoint.json"
       - name: Collect public observations in shadow mode
-        if: inputs.mode != 'acknowledge' && inputs.mode != 'test-delivery'
+        if: inputs.mode != 'acknowledge' && inputs.mode != 'test-delivery' && inputs.mode != 'recover'
         run: node scripts/monitor.mjs run --state "$MONITOR_STATE_DIR/state.json" --output "$MONITOR_OUTPUT_DIR" --approvals operations/approved-observations.json
       - name: Queue authorized notification-path test
         if: inputs.mode == 'test-delivery'
