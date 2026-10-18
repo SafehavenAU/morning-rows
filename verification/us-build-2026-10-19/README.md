@@ -1,3 +1,9 @@
+# Current status — release blocked by CPU budget
+
+See [the final continuation and evidence](CONTINUATION.md). The table reader passes data/interface checks but uses 27 ms cold CPU against the user-confirmed 10 ms Free limit. Production remains the approved eight-desk version. Earlier sections below are dated history, not current access or release claims.
+
+---
+
 # Latest continuation — runtime budget validation
 
 BLS access is resolved for the tested runtime: `Accept: */*` with the same truthful

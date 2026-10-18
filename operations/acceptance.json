@@ -471,9 +471,9 @@
   "us_desk_candidate": {
     "task_id": "US-CPI-resumption-2026-10-19",
     "authorization": "User explicitly asked can you build the USA data; previous US parking instruction superseded for this candidate only",
-    "phase": "runtime_budget_validation",
+    "phase": "blocked_runtime_cpu",
     "contract": "research/us-onboarding-2026-10-17/CONTRACT.md",
-    "evidence": "verification/us-build-2026-10-19/README.md",
+    "evidence": "verification/us-build-2026-10-19/CONTINUATION.md",
     "source": "BLS CUUR0000SA0, national urban all-items NSA CPI-U, 13 calendar months",
     "live_source_http_status": 200,
     "deployed": false,
@@ -483,17 +483,22 @@
       "Final validation after any resource correction",
       "Versioned release and both-domain acceptance; enable reviewed ninth-desk monitoring only afterward"
     ],
-    "resume_condition": "Continue actual CPU budget evaluation; no upgrade, billing change, source substitution or embedded specimen authorized",
+    "resume_condition": "Reviewed CPU-budget decision or further optimization with actual measured <=10 ms on Free. No billing change or automatic release authorized.",
     "workers_plan": "Free",
     "cpu_limit_ms": 10,
     "plan_evidence": "Actual user reply in this chat: Workers Free, 10-millisecond CPU limit",
-    "transport": "Latest linked official BLS historical CPI-U workbook; no older-edition fallback",
+    "transport": "Original BLS database table plus latest linked publication index",
     "bulk_cpu_measured_ms": 87,
     "staging": {
-      "bulk_version": "658e23e9-6533-4510-983d-b73c35c2a99d",
-      "traffic_percent": 0,
+      "complete": true,
+      "candidate_in_active_deployment": false,
+      "final_test_version": "08940f49-9a42-4329-8609-5d04aeb5545d",
       "approved_version": "739b9031-305c-4bc7-afc5-79a82c654ac7",
-      "approved_traffic_percent": 100
-    }
+      "approved_traffic_percent": 100,
+      "final_deployment_id": "360597ed-1238-4cb0-bedb-981a6140fc38"
+    },
+    "final_cold_cpu_ms": 27,
+    "release_accepted": false,
+    "updated_at": "2026-10-18T23:26:22.825549+00:00"
   }
 }

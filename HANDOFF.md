@@ -1,21 +1,23 @@
-# USA candidate — workbook resource validation, 19 October Brisbane
+# USA CPI candidate — blocked on measured CPU budget
 
-User confirmed Workers Free / 10 ms CPU. Bulk candidate 658e23e9 from clean
-6a16977 measured **87 ms cold CPU** via a version-filtered tail and fails the gate.
-It is staged at **0%**; approved 739b9031 remains at **100%** for normal traffic.
-No broad release or monitor activation. No credentials or source alerts changed.
+The one-series USA implementation is on draft PR8. The user confirmed Workers
+Free / 10 ms CPU. Actual cold reads measured 87 ms bulk, 38 ms workbook, 50 ms
+native ZIP and **27 ms for the final original BLS database-table reader**.
+The final reader passes all 168 local tests, 22 actual Cloudflare integration
+scenarios, independent 13-slot reconciliation and schema/legacy checks.
+[Final evidence and reproducible continuation](verification/us-build-2026-10-19/CONTINUATION.md).
 
-The resource correction uses the latest linked official BLS historical workbook,
-with the same CUUR0000SA0 national urban NSA definition and exact 13-month window.
-[Contract and independent evidence](verification/us-build-2026-10-19/workbook/CONTRACT.md)
-precede implementation. Separate Python ZIP/XML/Decimal extraction matches all
-13 original bulk slots. The actual workbook reader passes preview failure/cache
-scenarios; actual production CPU validation is next. No older-edition fallback.
+All candidates were tested at 0% using explicit version overrides. Testing has
+ended: approved Worker739b9031 is again the sole active version at 100%. The USA
+desk is **not released**. Resume the same candidate after a resource-budget
+decision or further measured optimization; no billing/plan upgrade is authorized.
+No new sources, credentials, infrastructure, collector dispatch or source alerts.
 
-Nine-desk monitoring remains staged and disabled. Existing incidents, pending
-repairs, delivery event and SHADOW history remain intact. Actual delivery receipt,
-seven scheduled days and NZ-PRICES independent report evidence remain separate
-unresolved gates. UK CPI stays parked. Resume this same USA CPI scope.
+Nine-desk monitoring is staged and disabled. A constructed replay preserves all
+33 incidents, 35 pending repairs and the original outbox from verified sequence3.
+No delivery receipt, checkpoint write or scheduled proof was invented. The hourly
+watchdog remains enabled. Scheduled cycle, seven-day SHADOW, actual delivery
+acknowledgment, NZ-PRICES external evidence and parked UK CPI remain separate.
 
 # Bounded verification continuation — 19 October 2026 Brisbane
 
