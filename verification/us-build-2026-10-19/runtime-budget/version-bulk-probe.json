@@ -1,0 +1,1236 @@
+{
+  "started_at": "2026-10-18T23:13:38.020Z",
+  "version": "658e23e9-6533-4510-983d-b73c35c2a99d",
+  "production_traffic_percent": 0,
+  "events": [
+    {
+      "outcome": "ok",
+      "cpu_ms": 3,
+      "wall_ms": 3,
+      "event_timestamp": 1792365222127,
+      "script_version": {
+        "id": "658e23e9-6533-4510-983d-b73c35c2a99d"
+      },
+      "exception_names": [],
+      "keys": [
+        "wallTime",
+        "cpuTime",
+        "truncated",
+        "executionModel",
+        "outcome",
+        "scriptVersion",
+        "scriptName",
+        "diagnosticsChannelEvents",
+        "exceptions",
+        "logs",
+        "eventTimestamp",
+        "event"
+      ]
+    },
+    {
+      "outcome": "ok",
+      "cpu_ms": 87,
+      "wall_ms": 241,
+      "event_timestamp": 1792365222302,
+      "script_version": {
+        "id": "658e23e9-6533-4510-983d-b73c35c2a99d"
+      },
+      "exception_names": [],
+      "keys": [
+        "wallTime",
+        "cpuTime",
+        "truncated",
+        "executionModel",
+        "outcome",
+        "scriptVersion",
+        "scriptName",
+        "diagnosticsChannelEvents",
+        "exceptions",
+        "logs",
+        "eventTimestamp",
+        "event"
+      ]
+    },
+    {
+      "outcome": "ok",
+      "cpu_ms": 6,
+      "wall_ms": 32,
+      "event_timestamp": 1792365222745,
+      "script_version": {
+        "id": "658e23e9-6533-4510-983d-b73c35c2a99d"
+      },
+      "exception_names": [],
+      "keys": [
+        "wallTime",
+        "cpuTime",
+        "truncated",
+        "executionModel",
+        "outcome",
+        "scriptVersion",
+        "scriptName",
+        "diagnosticsChannelEvents",
+        "exceptions",
+        "logs",
+        "eventTimestamp",
+        "event"
+      ]
+    },
+    {
+      "outcome": "ok",
+      "cpu_ms": 1,
+      "wall_ms": 2,
+      "event_timestamp": 1792365222976,
+      "script_version": {
+        "id": "658e23e9-6533-4510-983d-b73c35c2a99d"
+      },
+      "exception_names": [],
+      "keys": [
+        "wallTime",
+        "cpuTime",
+        "truncated",
+        "executionModel",
+        "outcome",
+        "scriptVersion",
+        "scriptName",
+        "diagnosticsChannelEvents",
+        "exceptions",
+        "logs",
+        "eventTimestamp",
+        "event"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "path": "/health.json",
+      "override": true,
+      "status": 200,
+      "headers": {
+        "cache-control": "no-cache",
+        "etag": "W/\"0ff026c2e6208c3a601bab66e3bef516840623581cabb67381f7ebf008963acd\"",
+        "x-source-revision": "6a16977cf68fd5266ef3e73d0f46edf65c3079c2",
+        "x-worker-version": "658e23e9-6533-4510-983d-b73c35c2a99d"
+      },
+      "body": {
+        "service": "Morning Rows",
+        "source_revision": "6a16977cf68fd5266ef3e73d0f46edf65c3079c2",
+        "source_dirty": false,
+        "build_fingerprint": "833f1a7a438c7776",
+        "worker_version": "658e23e9-6533-4510-983d-b73c35c2a99d",
+        "note": "Runtime identity only; inspect each desk sources field for data health."
+      },
+      "at": "2026-10-18T23:13:42.186Z"
+    },
+    {
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "override": true,
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=3599",
+        "etag": "W/\"96e795173a1c08db55eade99e636a1a294f2716be40c7e1c8a288c74326f0445\"",
+        "x-source-revision": "6a16977cf68fd5266ef3e73d0f46edf65c3079c2",
+        "x-worker-version": "658e23e9-6533-4510-983d-b73c35c2a99d"
+      },
+      "body": {
+        "schema_version": "2.0",
+        "schema": "https://morningrows.com/schema.v2.json",
+        "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "desk": "https://morningrows.com/united-states.json",
+        "source": "https://morningrows.com/united-states.json?source=cpi",
+        "retrieval": {
+          "status": "ok",
+          "retrieved_at": "2026-10-18T23:13:42.362Z"
+        },
+        "context": {
+          "definition": {
+            "id": "CUUR0000SA0",
+            "name": "CPI-U, all items, U.S. city average",
+            "geography": "U.S. city average",
+            "area_code": "0000",
+            "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+            "unit": "index",
+            "base_period": "1982-84=100",
+            "adjustment": "not seasonally adjusted",
+            "period_convention": "Calendar month YYYY-MM",
+            "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+            "dimensions": {
+              "series_id": "CUUR0000SA0",
+              "area_code": "0000",
+              "item_code": "SA0",
+              "seasonal": "U",
+              "periodicity_code": "R",
+              "base_code": "S"
+            },
+            "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+            "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+            "uncertainty": null,
+            "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+            "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+            "publisher": "US Bureau of Labor Statistics",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "licence_url": "https://www.bls.gov/bls/linksite.htm",
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+            "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+          },
+          "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+          "licence": "US public domain; cite US Bureau of Labor Statistics",
+          "licence_url": "https://www.bls.gov/bls/linksite.htm",
+          "limitations": "One national urban CPI-U series and 13 calendar slots, including unavailable months. Exact retained periods only; no state/DC-only data, other CPI definitions, annual averages, arbitrary history, inferred contract terms or substitute months.",
+          "timing_note": "Publication and next-release timestamps are unverified in this reader; consult the linked official schedule. Retrieval time is not publication time. Unchanged monthly observations remain valid."
+        },
+        "data": [
+          {
+            "period": "2025-09",
+            "value": 324.8,
+            "value_text": "324.800",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2025-10",
+            "value": null,
+            "value_text": "-",
+            "value_state": "unavailable",
+            "footnotes": [
+              {
+                "code": "X",
+                "text": "Data unavailable due to the 2025 lapse in appropriations"
+              }
+            ]
+          },
+          {
+            "period": "2025-11",
+            "value": 324.122,
+            "value_text": "324.122",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2025-12",
+            "value": 324.054,
+            "value_text": "324.054",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-01",
+            "value": 325.252,
+            "value_text": "325.252",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-02",
+            "value": 326.785,
+            "value_text": "326.785",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-03",
+            "value": 330.213,
+            "value_text": "330.213",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-04",
+            "value": 333.02,
+            "value_text": "333.020",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-05",
+            "value": 335.123,
+            "value_text": "335.123",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-06",
+            "value": 333.952,
+            "value_text": "333.952",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-07",
+            "value": 333.918,
+            "value_text": "333.918",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-08",
+            "value": 334.98,
+            "value_text": "334.980",
+            "value_state": "observed",
+            "footnotes": []
+          },
+          {
+            "period": "2026-09",
+            "value": 336.94,
+            "value_text": "336.940",
+            "value_state": "observed",
+            "footnotes": []
+          }
+        ],
+        "observations": [
+          {
+            "period": "2025-09",
+            "value": 324.8,
+            "value_text": "324.800",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-09",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "aff208f4539ad9e23bdee5e898a54b1c86e552dac8ade57c33b93a6bb0a5b064"
+          },
+          {
+            "period": "2025-10",
+            "value": null,
+            "value_text": "-",
+            "value_state": "unavailable",
+            "footnotes": [
+              {
+                "code": "X",
+                "text": "Data unavailable due to the 2025 lapse in appropriations"
+              }
+            ],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-10",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "daaa291be37026ebe657bae3bdda18b6d4861227b4a89ff484228d65c370b075"
+          },
+          {
+            "period": "2025-11",
+            "value": 324.122,
+            "value_text": "324.122",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-11",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "8a9a1f7536a149d2c4456c14792c2259660a5876641eac41bdd549e6d9926867"
+          },
+          {
+            "period": "2025-12",
+            "value": 324.054,
+            "value_text": "324.054",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-12",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "95b2dc2e8c899f70a2e36d3af105710c40f0f06fdc73caecb24260faa8df90e6"
+          },
+          {
+            "period": "2026-01",
+            "value": 325.252,
+            "value_text": "325.252",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-01",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "ea638181d853dc97e168626cd9744333a3b572162eb7dd55b11ea27b79c1077e"
+          },
+          {
+            "period": "2026-02",
+            "value": 326.785,
+            "value_text": "326.785",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-02",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "4ac0b7e531983bdef9132dc460544c926216665e04032dc4abd25b82eab33bee"
+          },
+          {
+            "period": "2026-03",
+            "value": 330.213,
+            "value_text": "330.213",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-03",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "77a3604c6660c7b791a91a2723d7d85a366ddf3366fe63a74018c16f1202007f"
+          },
+          {
+            "period": "2026-04",
+            "value": 333.02,
+            "value_text": "333.020",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-04",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "0d05c7f53f88e6d1ee3571d3e4270fec1b143fd2d74614bdf24ac1844f24c72d"
+          },
+          {
+            "period": "2026-05",
+            "value": 335.123,
+            "value_text": "335.123",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-05",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "11720281b458dbedfbe94adf7d7160b07212823d25c2fd8d780be56354fb47ae"
+          },
+          {
+            "period": "2026-06",
+            "value": 333.952,
+            "value_text": "333.952",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-06",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "2d2771116fda3a68f9327b463182793252fbbedf4cb33ed47a1b080314e02efa"
+          },
+          {
+            "period": "2026-07",
+            "value": 333.918,
+            "value_text": "333.918",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-07",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "f62654a50b4144c77f123b8f47273074688005e1733e7772f5ff2796092de18c"
+          },
+          {
+            "period": "2026-08",
+            "value": 334.98,
+            "value_text": "334.980",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-08",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "714991f299e34c4e1cef72338507c137ee63c9fbbfb0788124df51e332045363"
+          },
+          {
+            "period": "2026-09",
+            "value": 336.94,
+            "value_text": "336.940",
+            "value_state": "observed",
+            "footnotes": [],
+            "id": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-09",
+            "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+            "definition": {
+              "id": "CUUR0000SA0",
+              "name": "CPI-U, all items, U.S. city average",
+              "geography": "U.S. city average",
+              "area_code": "0000",
+              "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+              "unit": "index",
+              "base_period": "1982-84=100",
+              "adjustment": "not seasonally adjusted",
+              "period_convention": "Calendar month YYYY-MM",
+              "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+              "dimensions": {
+                "series_id": "CUUR0000SA0",
+                "area_code": "0000",
+                "item_code": "SA0",
+                "seasonal": "U",
+                "periodicity_code": "R",
+                "base_code": "S"
+              },
+              "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+              "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+              "uncertainty": null,
+              "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+              "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+              "publisher": "US Bureau of Labor Statistics",
+              "licence": "US public domain; cite US Bureau of Labor Statistics",
+              "licence_url": "https://www.bls.gov/bls/linksite.htm",
+              "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+              "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+            },
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "published_at": null,
+            "publisher_updated_at": null,
+            "next_expected_update": null,
+            "version": "8dacff29b7df13ffbecf1e34f13d36651c891a40f78d84dec13526674f9e498b"
+          }
+        ],
+        "content_version": "b9f9e00788dc78a7cf9a7bd217c3debc17f3bbd7e5d6d8d463d48fb637cb7403"
+      },
+      "at": "2026-10-18T23:13:42.590Z"
+    },
+    {
+      "path": "/united-states.json",
+      "override": true,
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=3599",
+        "etag": "W/\"34c4da7cf3b87f56fa2baec58222295f570f3d24b27651b68ac0ae1428d99a2b\"",
+        "x-source-revision": "6a16977cf68fd5266ef3e73d0f46edf65c3079c2",
+        "x-worker-version": "658e23e9-6533-4510-983d-b73c35c2a99d"
+      },
+      "body": {
+        "site": "https://morningrows.com",
+        "country": "United States",
+        "cpi": {
+          "present": true,
+          "series_id": "CUUR0000SA0",
+          "definition": {
+            "id": "CUUR0000SA0",
+            "name": "CPI-U, all items, U.S. city average",
+            "geography": "U.S. city average",
+            "area_code": "0000",
+            "population": "All urban consumers; excludes rural nonmetropolitan residents, farm households, military installations, religious communities and institutions as defined by BLS.",
+            "unit": "index",
+            "base_period": "1982-84=100",
+            "adjustment": "not seasonally adjusted",
+            "period_convention": "Calendar month YYYY-MM",
+            "cadence": "Monthly; normally released the following month at 08:30 America/New_York. Consult the official schedule for changes.",
+            "dimensions": {
+              "series_id": "CUUR0000SA0",
+              "area_code": "0000",
+              "item_code": "SA0",
+              "seasonal": "U",
+              "periodicity_code": "R",
+              "base_code": "S"
+            },
+            "boundary": "National urban target in the 50 states and DC, excluding territories. No state, county, metro or DC-only output.",
+            "sample_design": "2018 geographic redesign, 2010 Census population / 2013 OMB CBSAs; not an expenditure-weight vintage.",
+            "uncertainty": null,
+            "uncertainty_note": "Survey-derived index; confidence intervals are not supplied in this extract. Unknown is not zero uncertainty.",
+            "revision_policy": "NSA CPI-U has no routine seasonal revision; corrections remain possible. Latest publisher values only, not a vintage archive.",
+            "publisher": "US Bureau of Labor Statistics",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "licence_url": "https://www.bls.gov/bls/linksite.htm",
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "definition_url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+            "schedule_url": "https://www.bls.gov/schedule/news_release/cpi.htm"
+          },
+          "latest_period": "2026-09",
+          "window": {
+            "first": "2025-09",
+            "last": "2026-09",
+            "slots": 13
+          },
+          "rows": [
+            {
+              "period": "2025-09",
+              "value": 324.8,
+              "value_text": "324.800",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2025-10",
+              "value": null,
+              "value_text": "-",
+              "value_state": "unavailable",
+              "footnotes": [
+                {
+                  "code": "X",
+                  "text": "Data unavailable due to the 2025 lapse in appropriations"
+                }
+              ]
+            },
+            {
+              "period": "2025-11",
+              "value": 324.122,
+              "value_text": "324.122",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2025-12",
+              "value": 324.054,
+              "value_text": "324.054",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-01",
+              "value": 325.252,
+              "value_text": "325.252",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-02",
+              "value": 326.785,
+              "value_text": "326.785",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-03",
+              "value": 330.213,
+              "value_text": "330.213",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-04",
+              "value": 333.02,
+              "value_text": "333.020",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-05",
+              "value": 335.123,
+              "value_text": "335.123",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-06",
+              "value": 333.952,
+              "value_text": "333.952",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-07",
+              "value": 333.918,
+              "value_text": "333.918",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-08",
+              "value": 334.98,
+              "value_text": "334.980",
+              "value_state": "observed",
+              "footnotes": []
+            },
+            {
+              "period": "2026-09",
+              "value": 336.94,
+              "value_text": "336.940",
+              "value_state": "observed",
+              "footnotes": []
+            }
+          ],
+          "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+          "publisher": "US Bureau of Labor Statistics",
+          "licence": "US public domain; cite US Bureau of Labor Statistics",
+          "licence_url": "https://www.bls.gov/bls/linksite.htm",
+          "published_at": null,
+          "publisher_updated_at": null,
+          "next_expected_update": null,
+          "timing_note": "Publication and next-release timestamps are unverified in this reader; consult the linked official schedule. Retrieval time is not publication time. Unchanged monthly observations remain valid.",
+          "limitations": "Only exact retained calendar months. No annual-average, daily, local, CPI-W, chained/core/SA CPI, arbitrary history or contractual substitutions. Index levels are not USD, percentages or additive totals. Refuse calculations involving a nonnumeric month.",
+          "provenance": [
+            {
+              "kind": "data",
+              "url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+              "bytes": 2690809,
+              "sha256": "f3c22c8592d9134fa5ab305fa2df6e37dfd2388f10168985fdbc84082deb4ff0",
+              "hash_basis": "Decoded UTF-8 source text; all rows, not just this series"
+            },
+            {
+              "kind": "series",
+              "url": "https://download.bls.gov/pub/time.series/cu/cu.series",
+              "bytes": 1339447,
+              "sha256": "96d68bb334cc2a4bc3b4a9509179dc9dc692d60c3b727c30431278753cdcc68f",
+              "hash_basis": "Decoded UTF-8 source text; all rows, not just this series"
+            },
+            {
+              "kind": "footnotes",
+              "url": "https://download.bls.gov/pub/time.series/cu/cu.footnote",
+              "bytes": 100,
+              "sha256": "d92c2f0b60f9a52f9184f366f9d5b61fc6659181959be718fa332e43f9983903",
+              "hash_basis": "Decoded UTF-8 source text; all rows, not just this series"
+            }
+          ]
+        },
+        "sources": {
+          "cpi": {
+            "name": "US Bureau of Labor Statistics",
+            "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "licence": "US public domain; cite US Bureau of Labor Statistics",
+            "status": "ok",
+            "fetched_at": "2026-10-18T23:13:42.362Z"
+          }
+        },
+        "_meta": {
+          "schema_version": "2.0",
+          "id": "https://morningrows.com/united-states.json",
+          "catalog": "https://morningrows.com/catalog.v2.json?desk=united-states",
+          "schema": "https://morningrows.com/schema.v2.json",
+          "retrieved_at": "2026-10-18T23:13:42.362Z",
+          "note": "One national urban CPI-U series and 13 calendar slots, including unavailable months. Exact retained periods only; no state/DC-only data, other CPI definitions, annual averages, arbitrary history, inferred contract terms or substitute months."
+        }
+      },
+      "at": "2026-10-18T23:13:42.840Z"
+    },
+    {
+      "path": "/catalog.v2.json",
+      "override": true,
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=300",
+        "etag": "W/\"4a004816bcf9387908c6bb3f1bd678504a4271f7f2bb14c5585b5f70b69a709b\"",
+        "x-source-revision": "6a16977cf68fd5266ef3e73d0f46edf65c3079c2",
+        "x-worker-version": "658e23e9-6533-4510-983d-b73c35c2a99d"
+      },
+      "body": {
+        "name": "Morning Rows",
+        "site": "https://morningrows.com",
+        "schema_version": "2.0",
+        "schema": "https://morningrows.com/schema.v2.json",
+        "auth": "none",
+        "index": "/llms.txt",
+        "id": "https://morningrows.com/catalog.v2.json",
+        "countries": [
+          {
+            "name": "Australia",
+            "id": "https://morningrows.com/australia.json",
+            "page": "/australia",
+            "records": "/australia.json",
+            "catalog": "/catalog.json?desk=australia",
+            "source_count": 23,
+            "also": "/morning.json",
+            "resource_schema_version": "1.0",
+            "resource_schema": "https://morningrows.com/schema.json"
+          },
+          {
+            "name": "New Zealand",
+            "id": "https://morningrows.com/new-zealand.json",
+            "page": "/new-zealand",
+            "records": "/new-zealand.json",
+            "catalog": "/catalog.json?desk=new-zealand",
+            "source_count": 9,
+            "resource_schema_version": "1.0",
+            "resource_schema": "https://morningrows.com/schema.json"
+          },
+          {
+            "name": "Canada",
+            "id": "https://morningrows.com/canada.json",
+            "page": "/canada",
+            "records": "/canada.json",
+            "catalog": "/catalog.json?desk=canada",
+            "source_count": 19,
+            "resource_schema_version": "1.0",
+            "resource_schema": "https://morningrows.com/schema.json"
+          },
+          {
+            "name": "United Kingdom",
+            "id": "https://morningrows.com/united-kingdom.json",
+            "page": "/united-kingdom",
+            "records": "/united-kingdom.json",
+            "catalog": "/catalog.json?desk=united-kingdom",
+            "source_count": 10,
+            "resource_schema_version": "1.0",
+            "resource_schema": "https://morningrows.com/schema.json"
+          },
+          {
+            "name": "England",
+            "id": "https://morningrows.com/england.json",
+            "page": "/england",
+            "records": "/england.json",
+            "catalog": "/catalog.json?desk=england",
+            "source_count": 26,
+            "resource_schema_version": "1.0",
+            "resource_schema": "https://morningrows.com/schema.json"
+          },
+          {
+            "name": "Scotland",
+            "id": "https://morningrows.com/scotland.json",
+            "page": "/scotland",
+            "records": "/scotland.json",
+            "catalog": "/catalog.json?desk=scotland",
+            "source_count": 8,
+            "resource_schema_version": "1.0",
+            "resource_schema": "https://morningrows.com/schema.json"
+          },
+          {
+            "name": "Wales",
+            "id": "https://morningrows.com/wales.json",
+            "page": "/wales",
+            "records": "/wales.json",
+            "catalog": "/catalog.json?desk=wales",
+            "source_count": 6,
+            "resource_schema_version": "1.0",
+            "resource_schema": "https://morningrows.com/schema.json"
+          },
+          {
+            "name": "Northern Ireland",
+            "id": "https://morningrows.com/northern-ireland.json",
+            "page": "/northern-ireland",
+            "records": "/northern-ireland.json",
+            "catalog": "/catalog.json?desk=northern-ireland",
+            "source_count": 7,
+            "resource_schema_version": "1.0",
+            "resource_schema": "https://morningrows.com/schema.json"
+          },
+          {
+            "name": "United States",
+            "id": "https://morningrows.com/united-states.json",
+            "page": "/united-states",
+            "records": "/united-states.json",
+            "catalog": "/catalog.v2.json?desk=united-states",
+            "source_count": 1,
+            "resource_schema_version": "2.0",
+            "resource_schema": "https://morningrows.com/schema.v2.json"
+          }
+        ],
+        "compatibility": "The legacy /catalog.json and /schema.json retain eight v1 desks. Follow each entry's catalog and resource_schema; only the US desk uses v2. No v1 redirect or sunset.",
+        "usage": {
+          "source": "https://morningrows.com/united-states.json?source=cpi",
+          "measure": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+          "observation": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=YYYY-MM",
+          "revisions": "Compare observation IDs and versions. A new retrieval timestamp alone is not a revision. Read retrieval status even when using cached responses."
+        }
+      },
+      "at": "2026-10-18T23:13:43.012Z"
+    },
+    {
+      "path": "/health.json",
+      "override": false,
+      "status": 200,
+      "headers": {
+        "cache-control": "no-cache",
+        "etag": "W/\"9a7cd8c8d42a1c17c3a2170c45f4137e88026271cb10992d0f8781f329464f4f\"",
+        "x-source-revision": "7d614e2e78a63fc16f705b67e35ed0438baa7d87",
+        "x-worker-version": "739b9031-305c-4bc7-afc5-79a82c654ac7"
+      },
+      "body": {
+        "service": "Morning Rows",
+        "source_revision": "7d614e2e78a63fc16f705b67e35ed0438baa7d87",
+        "source_dirty": false,
+        "build_fingerprint": "44967a5319167783",
+        "worker_version": "739b9031-305c-4bc7-afc5-79a82c654ac7",
+        "note": "Runtime identity only; inspect each desk sources field for data health."
+      },
+      "at": "2026-10-18T23:13:43.182Z"
+    }
+  ],
+  "finished_at": "2026-10-18T23:13:46.186Z"
+}

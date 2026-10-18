@@ -1,14 +1,21 @@
-# USA candidate resumed — 19 October 2026 Brisbane
+# USA candidate — workbook resource validation, 19 October Brisbane
 
-The user explicitly authorized USA development and continued building. UK CPI stays parked. The one-series BLS CPI-U candidate is on draft PR8. [Evidence and release gates](verification/us-build-2026-10-19/README.md).
+User confirmed Workers Free / 10 ms CPU. Bulk candidate 658e23e9 from clean
+6a16977 measured **87 ms cold CPU** via a version-filtered tail and fails the gate.
+It is staged at **0%**; approved 739b9031 remains at **100%** for normal traffic.
+No broad release or monitor activation. No credentials or source alerts changed.
 
-Original-source access now works in Cloudflare with truthful Morning Rows identification and `Accept: */*`. All 22 integration scenarios passed, followed by a complete nine-desk preview with all four established core contracts healthy. These checks precede the latest allocation optimization; its repeat validation is pending. The original 406 evidence is retained. No BLS API, mirror or retained-data fallback was introduced.
+The resource correction uses the latest linked official BLS historical workbook,
+with the same CUUR0000SA0 national urban NSA definition and exact 13-month window.
+[Contract and independent evidence](verification/us-build-2026-10-19/workbook/CONTRACT.md)
+precede implementation. Separate Python ZIP/XML/Decimal extraction matches all
+13 original bulk slots. The actual workbook reader passes preview failure/cache
+scenarios; actual production CPU validation is next. No older-edition fallback.
 
-The user confirmed **Workers Free, 10 ms CPU** in this chat. Runtime budget validation is now the active release gate: protected remote dev has no production CPU limits, and the pinned Wrangler disables its remote inspector. Successful HTTP responses and wall time are not CPU measurements. The parser now avoids allocating unrelated bulk rows; this must be evaluated under the actual limit before traffic moves. The official 24 KB historical workbook is an evaluated alternative, not an activated fallback.
-
-Nine-desk monitoring and a reviewed identity transition are staged behind `operations/us-release-review.json`, currently **disabled**. Existing 108 obligations, incidents, repairs, outbox and original SHADOW start are preserved. The transition requires both domains to match exact reviewed clean identities after complete collection; it never bootstraps a checkpoint or supplies a receipt. Tests cover the known missing October, corrections, new months, failed retrieval, unchanged state and retained notification history.
-
-Production and the independently scheduled watchdog remain eight-desk. The NZ-PRICES contract is separately blocked; scheduled-cycle proof, seven-day SHADOW and a real delivery acknowledgment remain unresolved. No source alerts are enabled. No production deployment, credential change or checkpoint mutation has occurred.
+Nine-desk monitoring remains staged and disabled. Existing incidents, pending
+repairs, delivery event and SHADOW history remain intact. Actual delivery receipt,
+seven scheduled days and NZ-PRICES independent report evidence remain separate
+unresolved gates. UK CPI stays parked. Resume this same USA CPI scope.
 
 # Bounded verification continuation — 19 October 2026 Brisbane
 
