@@ -1,0 +1,137 @@
+{
+  "environment": "Node CPU sampling profile in workspace; not Cloudflare CPU acceptance",
+  "iterations": 400,
+  "sampling_interval_microseconds": 100,
+  "input_sha256": {
+    "mr-cpi-index.html": "05b0c665e2d4eb6c889e80e4ec603b0f45c013eac4bc672500e8723b7d7454d4",
+    "mr-bls-all.html": "7b6318de5bdaa6a6c0af7723c28af78eb0a08a83c3cb9cc2c0c9242eb69af81e"
+  },
+  "workload": "Actual handleUsRequest selected measure; cache null; actual readUnitedStates with retained original response bodies as transport; no publisher requests during loop",
+  "producer_revision": "37010e1",
+  "self_time_milliseconds_top20": [
+    {
+      "function": "asyncDigest",
+      "file": "hash",
+      "line": 214,
+      "ms": 127.699
+    },
+    {
+      "function": "digest",
+      "file": "information.js",
+      "line": 94,
+      "ms": 123.102
+    },
+    {
+      "function": "(idle)",
+      "file": "",
+      "line": 0,
+      "ms": 117.239
+    },
+    {
+      "function": "encode",
+      "file": "encoding",
+      "line": 355,
+      "ms": 101.537
+    },
+    {
+      "function": "semantic",
+      "file": "information.js",
+      "line": 89,
+      "ms": 87.247
+    },
+    {
+      "function": "encodeUtf8String",
+      "file": "",
+      "line": 0,
+      "ms": 59.797
+    },
+    {
+      "function": "serializeJavascriptValueToJSONString",
+      "file": "undici",
+      "line": 4413,
+      "ms": 43.436
+    },
+    {
+      "function": "(program)",
+      "file": "",
+      "line": 0,
+      "ms": 37.959
+    },
+    {
+      "function": "(garbage collector)",
+      "file": "",
+      "line": 0,
+      "ms": 37.676
+    },
+    {
+      "function": "selectCpiWorkbook",
+      "file": "us-cpi-workbook.js",
+      "line": 18,
+      "ms": 36.151
+    },
+    {
+      "function": "finishResponse",
+      "file": "information.js",
+      "line": 170,
+      "ms": 33.64
+    },
+    {
+      "function": "parseCpiTable",
+      "file": "us-cpi-table.js",
+      "line": 8,
+      "ms": 27.256
+    },
+    {
+      "function": "",
+      "file": "information.js",
+      "line": 91,
+      "ms": 25.942
+    },
+    {
+      "function": "RegExp: <table\\b([^>]*\\bid=\"table0\"[^>]*)>([\\s\\S]*?)<\\/table>",
+      "file": "",
+      "line": 0,
+      "ms": 24.274
+    },
+    {
+      "function": "RegExp: <li\\b[^>]*>([\\s\\S]*?)<\\/li>",
+      "file": "",
+      "line": 0,
+      "ms": 24.063
+    },
+    {
+      "function": "parse",
+      "file": "",
+      "line": 0,
+      "ms": 22.395
+    },
+    {
+      "function": "jobPromise",
+      "file": "util",
+      "line": 731,
+      "ms": 22.213
+    },
+    {
+      "function": "",
+      "file": "",
+      "line": 0,
+      "ms": 21.812
+    },
+    {
+      "function": "RegExp: <table\\b[^>]*\\bid=\"catalog0\"[^>]*>([\\s\\S]*?)<\\/table>",
+      "file": "",
+      "line": 0,
+      "ms": 18.504
+    },
+    {
+      "function": "compileForInternalLoader",
+      "file": "realm",
+      "line": 383,
+      "ms": 15.486
+    }
+  ],
+  "limitations": [
+    "Warm repeated fixture workload identifies compute and allocation candidates; not an edge cold-start budget proof.",
+    "Original HTML full bodies used temporarily; data already independently reconciled in retained table/workbook evidence."
+  ]
+}
