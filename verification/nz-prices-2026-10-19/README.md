@@ -142,3 +142,13 @@ own dated specimen; do not relabel this historical specimen as current.
 Scheduled-cycle proof, actual delivery acknowledgment, seven-day SHADOW operation
 and UK CPI's separate access/metadata gates remain outstanding. No maintenance
 completion, new source alert or exactly-once delivery claim follows from this work.
+
+## Subsequent scheduled evidence — 19 October 2026 Brisbane
+
+The first genuine scheduled cycle now passes independent artifact, lineage and
+full-state replay verification. See [scheduled-cycle evidence](../scheduled-cycle-2026-10-19/README.md).
+This supersedes only the scheduled-gate-pending statements above. Seven-day
+SHADOW, the actual delivery receipt and NZ-PRICES separate-presentation evidence
+remain unresolved. New both-domain18October prices are a different release from
+the retained17October specimen; no independent numerical certification or reader
+release follows. Keep the same selected contract and existing quiet watchdog.

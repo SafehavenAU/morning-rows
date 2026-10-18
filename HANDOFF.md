@@ -1,3 +1,28 @@
+# First scheduled cycle verified — 19 October 2026 Brisbane
+
+[Reproducible scheduled proof](verification/scheduled-cycle-2026-10-19/README.md):
+actual scheduled run39176195113, #9/attempt1, began09:21:47 Brisbane and completed
+09:22:22.161. The independent hourly watchdog wake at09:30:22 verified artifact
+12154666619, sequence4, digestaba5cf8b893790843e6d92468cb6d09c67b286c90edc2f70443d8fcf977f68a0,
+predecessor644b38393bbd76e98ad77f4cf9dcb97595f273d2a9c0ed730a72e558f1bd93d9,
+and an exact full-state replay. All33 incidents,35 repair records and the pending
+delivery event remain. Production identity and eight desks are unchanged.
+Scheduled checkpoint-repair gate passed and reported once; no new source alert.
+
+SHADOW starts at actual completion2026-10-18T23:22:22.161Z, not a manual run or
+nominal cron time. Only one scheduled cycle is verified; seven-day acceptance,
+actual delivery receipt and broader data/CPI gates remain open. Next complete
+checkpoint deadline2026-10-20T01:22:22.161Z. Keep the existing hourly watch and
+daily collector; do not accelerate, reset or re-notify the delivery test.
+
+Task scheduled-cycle-and-one-verification-gap-2026-10-18 remains selected on
+NZ-PRICES, phase blocked_external_evidence, not complete. The scheduled report
+now has both-domain18October prices, whereas the original independently extracted
+specimen covers17October. Do not silently rebase it. Separate official CLA3WR
+presentation and matched-period reconciliation remain required. Resume only the
+same bounded contract when its documented evidence condition changes. No reader
+change or release; UK CPI/US remain outside this monitoring continuation.
+
 # Bounded verification continuation — 19 October 2026 Brisbane
 
 Selected `NZ-PRICES` only, under the user’s subsequent “go now” instruction.
@@ -6,7 +31,7 @@ implementation. Phase: blocked on separate official report evidence and current
 production comparison. [Reproducible evidence](verification/nz-prices-2026-10-19/README.md)
 validates 240 original CSV cells and five unchanged-reader values in Cloudflare;
 no reader defect demonstrated, no deployment. Resume NZ-PRICES only when the
-documented access/evidence condition changes. Scheduled-cycle proof,
+documented access/evidence condition changes. The scheduled-cycle gate now passes (see above);
 seven-day SHADOW and the actual delivery receipt remain pending. No collector
 dispatch, checkpoint reset or automatic release. Resume this same selection.
 
@@ -14,7 +39,7 @@ dispatch, checkpoint reset or automatic release. Resume this same selection.
 
 [Recovery contract](operations/CHECKPOINT-RECOVERY.md) and [reproducible incident evidence](verification/checkpoint-recovery-2026-10-18/README.md). The original scheduled collector failed before state mutation because artifact IDs were treated as chronological. The repair selects the latest eligible workflow execution and its exact artifact, with an explicit, pinned recovery for failed run 39078664324/attempt 1. No source or Worker changes.
 
-Local rehearsal preserves the full predecessor checkpoint byte for byte, including 33 incidents, two pending evidence repairs and the already-announced pending delivery test. Remote recovery39083194151 and subsequent complete manual collection39083249445 now pass independent artifact/digest checks. The next actual scheduled collection remains pending. Sequence3 digest644b38393bbd76e98ad77f4cf9dcb97595f273d2a9c0ed730a72e558f1bd93d9 links to the preserved predecessor. The hourly watchdog has the recovery bridge and next scheduled gate. Do not repeat the test or acknowledge it without the user's actual reply. Seven-day SHADOW acceptance is separate; UK CPI/US remain parked.
+Local rehearsal preserves the full predecessor checkpoint byte for byte, including 33 incidents, two pending evidence repairs and the already-announced pending delivery test. Remote recovery39083194151 and subsequent complete manual collection39083249445 now pass independent artifact/digest checks. The first actual scheduled collection is independently verified above. Sequence3 digest644b38393bbd76e98ad77f4cf9dcb97595f273d2a9c0ed730a72e558f1bd93d9 links to the preserved predecessor. The hourly watchdog has the recovery bridge and next scheduled gate. Do not repeat the test or acknowledge it without the user's actual reply. Seven-day SHADOW acceptance is separate; UK CPI/US remain parked.
 
 # Operations implementation — 18 October 2026 (Brisbane)
 

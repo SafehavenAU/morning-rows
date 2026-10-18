@@ -50,3 +50,13 @@ Known limitations: GitHub permissions are the authenticity boundary, not the has
 - The existing hourly independent watchdog (6ad2f1fd41e481918b13871769eedd0f) was updated with the exact recovery bridge, sequence3 digest and pending-test notification state. Its next actual scheduled wake must independently assess progress. No second monitoring system or source alert was enabled.
 
 The last complete collection is2026-10-18T00:34:54.149Z; its26-hour deadline is2026-10-19T02:34:54.149Z. Zero successful scheduled collections have occurred. The next daily cron is09:17Brisbane19October. The repair's final scheduling gate, real user receipt and seven-day window are still pending; no completion or exactly-once-delivery claim.
+
+## Subsequent scheduled evidence — 19 October 2026 Brisbane
+
+The first genuine scheduled cycle now passes independent artifact, lineage and
+full-state replay verification. See [scheduled-cycle evidence](../scheduled-cycle-2026-10-19/README.md).
+This supersedes only the scheduled-gate-pending statements above. Seven-day
+SHADOW, the actual delivery receipt and NZ-PRICES separate-presentation evidence
+remain unresolved. New both-domain18October prices are a different release from
+the retained17October specimen; no independent numerical certification or reader
+release follows. Keep the same selected contract and existing quiet watchdog.
