@@ -70,3 +70,20 @@ test('bulk selection keeps exact identifiers, reordered fields and malformed sel
  assert.throws(()=>parseCpi({...fixture,data:fixture.data+'CUUR0000SA0\n'}),/truncated_record/);
  assert.deepEqual(parseCpi({...fixture,data:fixture.data.replaceAll('\n','\r\n')}),expected);
 });
+
+test('native bounded reader hashes the same decoded UTF-8 including BOM and Unicode',async()=>{
+ for(const text of ['plain CPI text','é index 😀','\ufeffé index','\ufeff\ufeffdata']){
+  const input=new TextEncoder().encode(text);let cancelled=false,released=false;
+  const reader={readAtLeast:async(n,view)=>{assert.equal(n,65);assert.equal(view.length,65);return {value:input};},cancel:async()=>{cancelled=true;},releaseLock:()=>{released=true;}};
+  const response={ok:true,headers:new Headers(),body:{getReader:()=>reader}};
+  const got=await readCpiText(response,64);
+  assert.equal(got.bytes,input.length);assert.equal(cancelled&&released,true);
+  assert.deepEqual(got.hashBytes,new TextEncoder().encode(got.text));
+ }
+ for(const input of [new Uint8Array([0xff]),new Uint8Array(65),new Uint8Array(0)]){
+  let cancelled=false;
+  const reader={readAtLeast:async()=>({value:input}),cancel:async()=>{cancelled=true;},releaseLock:()=>{}};
+  await assert.rejects(()=>readCpiText({ok:true,headers:new Headers(),body:{getReader:()=>reader}},64));
+  assert.equal(cancelled,true);
+ }
+});
