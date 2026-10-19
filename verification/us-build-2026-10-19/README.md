@@ -1,6 +1,12 @@
-# Current status — release blocked by CPU budget
+# Current status — Free-plan CPU gate remains blocked
 
-See [the final continuation and evidence](CONTINUATION.md). The table reader passes data/interface checks but uses 27 ms cold CPU against the user-confirmed 10 ms Free limit. Production remains the approved eight-desk version. Earlier sections below are dated history, not current access or release claims.
+The user chose “Keep Free; pursue further optimization”. The additional pass is
+complete:169 tests,20 independent Python tests and22 actual Cloudflare scenarios
+pass, but best coldCPU12ms and final confirmation29ms both exceed10ms. No USA
+release. Approved eight-desk production is the sole active version at100% and
+both domains match. [Reproducible continuation and all results](CONTINUATION.md).
+First scheduled-cycle proof is now merged in PR9; seven-day acceptance and the
+actual delivery receipt remain separate. Earlier sections below are dated history.
 
 ---
 

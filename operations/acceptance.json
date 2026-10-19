@@ -497,7 +497,7 @@
       "Final validation after any resource correction",
       "Versioned release and both-domain acceptance; enable reviewed ninth-desk monitoring only afterward"
     ],
-    "resume_condition": "Reviewed CPU-budget decision or further optimization with actual measured <=10 ms on Free. No billing change or automatic release authorized.",
+    "resume_condition": "Same contract; measured CPU bottleneck and justified correction on Free. Final cold capture plus two fresh complete confirmation captures <=10ms required. No billing change; no repeated unchanged uploads seeking a passing result.",
     "workers_plan": "Free",
     "cpu_limit_ms": 10,
     "plan_evidence": "Actual user reply in this chat: Workers Free, 10-millisecond CPU limit",
@@ -506,13 +506,27 @@
     "staging": {
       "complete": true,
       "candidate_in_active_deployment": false,
-      "final_test_version": "08940f49-9a42-4329-8609-5d04aeb5545d",
+      "final_test_version": "b8c7eb23-bade-40d0-a35d-5496165ecde1",
       "approved_version": "739b9031-305c-4bc7-afc5-79a82c654ac7",
       "approved_traffic_percent": 100,
-      "final_deployment_id": "360597ed-1238-4cb0-bedb-981a6140fc38"
+      "final_deployment_id": "99833025-0360-45e2-9a2f-700de2c1c4b3",
+      "ended_at": "2026-10-19T00:07:43.583441Z"
     },
-    "final_cold_cpu_ms": 27,
+    "final_cold_cpu_ms": 29,
     "release_accepted": false,
-    "updated_at": "2026-10-18T23:26:22.825549+00:00"
+    "updated_at": "2026-10-19T00:09:09.908294+00:00",
+    "optimization_decision": "Actual user reply: Keep Free; pursue further optimization",
+    "optimization_pass_complete": true,
+    "best_observed_cold_cpu_ms": 12,
+    "final_test_source": "e48695d",
+    "cpu_evidence": "verification/us-build-2026-10-19/runtime-budget/optimization-summary.json",
+    "validation": {
+      "node_tests": 169,
+      "independent_python_tests": 20,
+      "actual_cloudflare_scenarios": 22,
+      "legacy_cases": 315,
+      "schema_responses": 221,
+      "publisher_slots": 13
+    }
   }
 }

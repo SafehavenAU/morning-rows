@@ -1,23 +1,23 @@
-# USA CPI candidate — blocked on measured CPU budget
+# USA CPI candidate — Free-plan optimization pass complete; release blocked
 
-The one-series USA implementation is on draft PR8. The user confirmed Workers
-Free / 10 ms CPU. Actual cold reads measured 87 ms bulk, 38 ms workbook, 50 ms
-native ZIP and **27 ms for the final original BLS database-table reader**.
-The final reader passes all 168 local tests, 22 actual Cloudflare integration
-scenarios, independent 13-slot reconciliation and schema/legacy checks.
-[Final evidence and reproducible continuation](verification/us-build-2026-10-19/CONTINUATION.md).
+The user chose **Keep Free; pursue further optimization**. Draft PR8 retains the
+one-series USA candidate.169 Node tests,20 independent Python tests,22 actual
+Cloudflare integration scenarios,315 legacy cases and13 independent publisher
+slots pass. Cold CPU still exceeds the10ms limit: best12ms, final confirmation
+**29ms**. No reproducible reduction or release acceptance is claimed.
+[All measurements and continuation](verification/us-build-2026-10-19/CONTINUATION.md).
 
-All candidates were tested at 0% using explicit version overrides. Testing has
-ended: approved Worker739b9031 is again the sole active version at 100%. The USA
-desk is **not released**. Resume the same candidate after a resource-budget
-decision or further measured optimization; no billing/plan upgrade is authorized.
-No new sources, credentials, infrastructure, collector dispatch or source alerts.
+Retain the simpler lexical sort, JSON fast path, bounded native byte read and
+minified build. Unsuccessful extra hashing/transport experiments are removed;
+evidence remains. Resume the same contract only with a justified measured CPU
+correction, not repeated uploads looking for a passing sample. No billing change.
 
-Nine-desk monitoring is staged and disabled. A constructed replay preserves all
-33 incidents, 35 pending repairs and the original outbox from verified sequence3.
-No delivery receipt, checkpoint write or scheduled proof was invented. The hourly
-watchdog remains enabled. Scheduled cycle, seven-day SHADOW, actual delivery
-acknowledgment, NZ-PRICES external evidence and parked UK CPI remain separate.
+Testing ended with approved Worker739b9031 as sole active version at100%,
+deployment99833025-0360-45e2-9a2f-700de2c1c4b3. Both domains match clean source
+7d614e2. USA is **not released**; nine-desk monitoring stays staged and disabled.
+Constructed replay from verified sequence4 preserves33 incidents,35 repairs,
+outbox and actual SHADOW start. No delivery receipt or checkpoint write invented.
+The hourly watchdog/daily collector continue; no source alerts or new infrastructure.
 
 # First scheduled cycle verified — 19 October 2026 Brisbane
 
