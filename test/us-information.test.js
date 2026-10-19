@@ -62,38 +62,3 @@ test('JSON response fast path preserves standard ETags, HEAD and failure semanti
   assert.equal(b.status,a.status);assert.deepEqual([...b.headers],[...a.headers]);assert.equal(await b.text(),await a.text());
  }
 });
-test('optimized v2 fingerprints retain the established hash format and semantic changes',async()=>{
- const {usDigest}=await import('../lib/us-fingerprint.js');
- const {digest}=await import('../lib/information.js');
- const {CPI_DEFINITION}=await import('../lib/us-cpi.js');
- const row={period:'2026-09',value:336.94,value_text:'336.940',value_state:'observed',definition:CPI_DEFINITION,footnotes:[],retrieved_at:'2026-10-18T00:00:00Z'};
- for(const value of [row,{rows:[row,{...row,value:null,value_text:'-',value_state:'unavailable',footnotes:[{code:'X',text:'Data unavailable due to the 2025 lapse in appropriations'}]}]},JSON.parse('{"__proto__":{"b":2,"a":1},"constructor":0,"unicode":"£é","2":2,"1":1}'),null,[]])assert.equal(await usDigest(value),await digest(value));
- assert.equal(await usDigest({...row,retrieved_at:'2026-10-19T00:00:00Z'}),await usDigest(row));
- assert.notEqual(await usDigest({...row,value:336.941,value_text:'336.941'}),await usDigest(row));
-});
-
-test('composed selected fingerprints bind every payload while preserving observation hashes',async()=>{
- const {digest}=await import('../lib/information.js');
- const base=native(),selection={source:'cpi',measure:CPI_SERIES};
- const original=await selectedUsResponse(base,selection);
- const check=async body=>{
-  const r=await selectedUsResponse(body,selection);assert.equal(r.status,200);
-  for(const {version,...record} of r.body.observations)assert.equal(version,await digest(record));
-  const expected={data:r.body.data,context:r.body.context,retrieval:r.body.retrieval,observations:r.body.observations.map(o=>({id:o.id,version:o.version}))};
-  assert.equal(r.body.content_version,await digest(expected));
-  const copy={...r.body};for(const k of ['data','context','retrieval','observations'])delete copy[k];
-  assert.deepEqual(r.etagMaterial,copy);
-  return r;
- };
- await check(base);
- for(const mutate of [b=>{b.cpi.rows[0].value+=.001;b.cpi.rows[0].value_text=b.cpi.rows[0].value.toFixed(3);},b=>{Object.assign(b.cpi.rows[0],{value:null,value_text:'-',value_state:'missing'});},b=>{b.cpi.rows[0].footnotes=[{code:'R',text:'Revised'}];},b=>{b.cpi.provenance=[{url:'https://www.bls.gov/example',sha256:'new-original-response'}];},b=>{b.cpi.timing_note='Publisher timing is unverified; new qualification';}]){
-  const changed=structuredClone(base);mutate(changed);const r=await check(changed);
-  assert.notEqual(r.body.content_version,original.body.content_version);
-  assert.notEqual(await digest(r.etagMaterial),await digest(original.etagMaterial));
-  const before=await get('/united-states.json?source=cpi&measure='+CPI_SERIES);
-  const after=await handleUsRequest(new Request(US_MEASURE_URL,{headers:{'If-None-Match':before.headers.get('etag')}}),{cache:null,read:async()=>changed});
-  assert.equal(after.status,200);assert.notEqual(after.headers.get('etag'),before.headers.get('etag'));
- }
- const later=structuredClone(base);later.sources.cpi.fetched_at='2026-10-19T00:00:00Z';
- const unchanged=await check(later);assert.deepEqual(unchanged.etagMaterial,original.etagMaterial);
-});

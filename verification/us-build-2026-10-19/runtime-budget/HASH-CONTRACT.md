@@ -29,3 +29,17 @@ hashes with independently rebuilt reference inputs in tests; preserve exact
 GET/HEAD/conditional behavior and legacy responses. Actual Cloudflare CPU must
 be <=10ms, with fresh confirmation captures, before any release. Retain every
 sample, including failures; this amendment cannot waive the resource gate.
+
+## Outcome
+
+This experiment is **not retained in runtime**. It passed172 local tests and22
+protected Cloudflare integration scenarios, but cold CPU measured19ms. The later
+full-desk/catalogue override requests reached the approved production version
+instead, so the capture is explicitly incomplete and cannot pass any release
+gate. The matching cold selected-request trace itself records19ms. Deployment
+metadata still showed approved100%/candidate0%; no unauthorized promotion occurred.
+The previous response fingerprint algorithm is restored. The extra generic hash
+helper and raw-byte hashing experiments are also removed: their captures measured
+14ms and17ms respectively, with no demonstrated budget improvement. Their exact
+reports remain retained. The simpler lexical-sort, JSON fast path, bounded native
+byte read and minification optimizations remain; best observed coldCPU12ms.
