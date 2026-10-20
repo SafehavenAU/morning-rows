@@ -72,3 +72,24 @@ The CPI candidate is preserved in [draft PR 2](https://github.com/SafehavenAU/mo
 Scheduled run 39078664324 failed before collection. Artifact IDs were not chronological; the previous selector chose the older collection checkpoint over the newer delivery-test checkpoint. See [the recovery contract](CHECKPOINT-RECOVERY.md) and `verification/checkpoint-recovery-2026-10-18/README.md`. Mode `recover` is constrained to that exact failed attempt and original predecessor. It republishes identical state, never bootstraps or acknowledges events. Normal restores reject missing newer checkpoints. Run attempts above one and pagination beyond 1,000 entries deliberately require review. Rehearsal and manual recovery do not satisfy the scheduled-run or seven-day gates.
 
 Actual recovery39083194151 republished byte-identical state, followed by complete manual collection39083249445 (sequence3). Both artifacts were independently downloaded and verified; full state replay matches. The next actual scheduled run remains the repair completion gate; the hourly watchdog was updated to verify it. See the recovery evidence record for exact hashes and remaining acceptance gates.
+
+## Read-only shadow-window audit
+
+Run `node scripts/audit-shadow-window.mjs CHECKPOINT CHECKED_AT_ISO` on the
+connector-downloaded checkpoint. It validates the envelope digest and prints
+scheduled completion span, count, gaps, deadline and whether a delivery receipt
+is recorded. Exit 0 means those recorded gates are satisfied; 1 means pending;
+2 means invalid input or corrupt evidence. It never writes state or sends alerts.
+
+Elapsed hours now mean the span between actual scheduled completions. Advancing
+the observer clock cannot create evidence, and a later manual collection cannot
+refresh the scheduled deadline. Duplicate IDs, non-increasing/future timestamps,
+invalid cadence, missing start anchor, incomplete cycles and excessive gaps fail
+closed. The existing daily cadence and 26-hour budget are unchanged.
+
+A checkpoint's `scheduled` flag and receipt string are not independently
+authenticated by this command. A passing recorded window still requires original
+GitHub run/attempt metadata, artifact attribution, full transition replay,
+independent watchdog evidence and the actual user reply. Other data-verification
+gates remain separate. Old evidence verifiers must use their pinned producer
+modules: this calculation change does not rewrite historical summaries.
