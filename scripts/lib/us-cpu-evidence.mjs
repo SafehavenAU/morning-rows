@@ -16,7 +16,8 @@ export function stagingMatches(deployment,version,approved) {
 export function identityMatches(check,expected) {
  const h=check.headers||{},b=check.body||{};
  return check.status===200&&b.worker_version===expected.worker_version&&b.source_revision===expected.source_revision&&b.source_dirty===false&&b.build_fingerprint===expected.build_fingerprint&&
-  h['x-worker-version']===expected.worker_version&&h['x-source-revision']===expected.source_revision&&h['x-source-dirty']==='false'&&h['x-build-fingerprint']===expected.build_fingerprint;
+  h['x-worker-version']===expected.worker_version&&h['x-source-revision']===expected.source_revision&&
+  (h['x-source-dirty']===undefined||h['x-source-dirty']==='false')&&(h['x-build-fingerprint']===undefined||h['x-build-fingerprint']===expected.build_fingerprint);
 }
 export function evaluateCpuEvidence(report,approved) {
  const target=report.checks.filter(c=>c.override),cold=target.find(c=>c.path===CPU_PATHS[1]);
@@ -30,7 +31,7 @@ export function evaluateCpuEvidence(report,approved) {
  }));
  const health=target.find(c=>c.path==='/health.json');
  const candidate={...health?.body,worker_version:report.version};
- const candidate_identity_confirmed=Boolean(/^[a-f0-9]{40}$/.test(candidate.source_revision||'')&&/^[a-f0-9]{16}$/.test(candidate.build_fingerprint||'')&&identityMatches(health||{},candidate)&&target.every(c=>c.status===200&&c.headers?.['x-worker-version']===report.version&&c.headers?.['x-source-dirty']==='false'&&c.headers?.['x-source-revision']===candidate.source_revision&&c.headers?.['x-build-fingerprint']===candidate.build_fingerprint));
+ const candidate_identity_confirmed=Boolean(/^[a-f0-9]{40}$/.test(candidate.source_revision||'')&&/^[a-f0-9]{16}$/.test(candidate.build_fingerprint||'')&&identityMatches(health||{},candidate)&&target.every(c=>c.status===200&&c.headers?.['x-worker-version']===report.version&&c.headers?.['x-source-revision']===candidate.source_revision&&(c.headers?.['x-source-dirty']===undefined||c.headers['x-source-dirty']==='false')&&(c.headers?.['x-build-fingerprint']===undefined||c.headers['x-build-fingerprint']===candidate.build_fingerprint)));
  const events_valid=report.events.length===CPU_PATHS.length&&report.events.every(e=>Number.isFinite(e.cpu_ms)&&e.cpu_ms>=0&&e.cpu_ms<=10&&e.outcome==='ok'&&Array.isArray(e.exception_names)&&e.exception_names.length===0);
  const data_valid=target.find(c=>c.path==='/united-states.json')?.body?.sources?.cpi?.status==='ok';
  return {cold_retrieval_confirmed,complete_event_coverage,deployment_unchanged,production_identity_confirmed,candidate_identity_confirmed,

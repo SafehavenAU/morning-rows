@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {CPU_PATHS,PRODUCTION_ORIGINS,latestDeployment,evaluateCpuEvidence} from '../scripts/lib/us-cpu-evidence.mjs';
+import {CPU_PATHS,PRODUCTION_ORIGINS,latestDeployment,identityMatches,evaluateCpuEvidence} from '../scripts/lib/us-cpu-evidence.mjs';
 const approved={worker_version:'production',source_revision:'a'.repeat(40),source_dirty:false,build_fingerprint:'1'.repeat(16)};
 const candidate={...approved,worker_version:'candidate',source_revision:'b'.repeat(40)};
-const headers=id=>({'x-worker-version':id.worker_version,'x-source-revision':id.source_revision,'x-source-dirty':'false','x-build-fingerprint':id.build_fingerprint});
+const headers=id=>({'x-worker-version':id.worker_version,'x-source-revision':id.source_revision});
 function fixture(){
  const deployment={id:'deployment',versions:[{version_id:'production',percentage:100},{version_id:'candidate',percentage:0}]};
  return {version:'candidate',deployment_before:structuredClone(deployment),deployment_after:structuredClone(deployment),checks:[
@@ -20,7 +20,7 @@ test('complete correlated CPU evidence requires clean candidate, zero traffic an
   r=>r.checks[1].body.retrieval.retrieved_at='2026-10-19T00:00:00Z',
   r=>r.checks[1].body.retrieval.retrieved_at='2026-10-21T00:00:00Z',
   r=>r.checks[2].body.sources.cpi.status='error',r=>r.checks[1].headers['x-source-dirty']='true',
-  r=>r.checks[1].headers['x-source-revision']='c'.repeat(40),r=>r.checks.pop(),
+  r=>r.checks[1].headers['x-source-revision']='c'.repeat(40),r=>r.checks[1].headers['x-build-fingerprint']='wrong',r=>r.checks[0].body.source_dirty=true,r=>r.checks.pop(),
   r=>r.checks.at(-1).headers['x-worker-version']='other',r=>r.checks.at(-1).body.source_dirty=true,
   r=>r.deployment_after.id='changed',r=>r.deployment_before.versions[1].percentage=1,
   r=>r.checks[3].path=CPU_PATHS[2],r=>r.tail_command_error=true,
@@ -31,4 +31,16 @@ test('deployment ordering uses timestamps and rejects ambiguous metadata',()=>{
  assert.equal(latestDeployment([a,b]).id,'new');assert.equal(latestDeployment([b,a]).id,'new');
  assert.throws(()=>latestDeployment([a,{...a,id:'tie'}]),/ambiguous/);
  assert.throws(()=>latestDeployment([]),/invalid/);assert.throws(()=>latestDeployment([{...a,created_on:'invalid'}]),/invalid/);
+});
+
+test('recorded production health accepts the real header contract without invented headers',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const capture=JSON.parse(await readFile(new URL('../verification/us-build-2026-10-19/runtime-budget/version-final-confirmation.json',import.meta.url)));
+ const baseline=JSON.parse(await readFile(new URL('../verification/us-build-2026-10-19/runtime-budget/final-production-identity.json',import.meta.url))).domains[0].health;
+ const check=capture.checks.find(c=>!c.override&&c.path==='/health.json');
+ assert.equal(check.headers['x-source-dirty'],undefined);assert.equal(check.headers['x-build-fingerprint'],undefined);
+ assert.equal(identityMatches(check,baseline),true);
+ for(const key of ['source_revision','worker_version','build_fingerprint','source_dirty']){
+  const changed=structuredClone(check);changed.body[key]=key==='source_dirty'?true:'wrong';assert.equal(identityMatches(changed,baseline),false);
+ }
 });

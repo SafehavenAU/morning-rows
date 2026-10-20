@@ -1,3 +1,16 @@
+# Further USA investigation — 20 October 2026 Brisbane
+
+PR10 merged at936e552 and passed main build/production verification. This branch
+includes the scheduled-span acceptance fix. The USA canonical-string reuse
+experiment showed no reliable cold benefit and is retained only as diagnostic
+evidence; no reader or deployment change. The current reader remains blocked by
+the Free 10 ms limit.
+
+The CPU evidence guard now uses the actual response contract: clean/fingerprint
+from the health body, version/revision from emitted headers. Independent review
+and a regression using retained production evidence verify the correction.
+See `verification/us-build-2026-10-19/CONTINUATION.md` for reproduction and limits.
+
 # Shadow acceptance arithmetic repair — 20 October 2026 Brisbane
 
 Added an offline checkpoint audit and fixed `shadowStatus`: seven days must be

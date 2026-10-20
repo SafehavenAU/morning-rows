@@ -125,8 +125,8 @@ the daily collector nor restarts incidents or the SHADOW clock.
 The next build pass strengthened the verifier without changing the reader. The
 probe now reads actual deployment metadata before any HTTP probe, requires the
 exact candidate at 0% alongside approved production at 100%, and rechecks the
-same deployment afterward. Both domains must match the approved clean identity
-in headers and body before and after testing. Every candidate response must
+same deployment afterward. Both domains must match the approved clean identity in the health body and
+emitted version/revision headers before and after testing. Every candidate response must
 match one clean build; negative/nonfinite CPU, exceptions, missing/duplicate
 traces and future or cached retrieval timestamps fail.
 
@@ -136,3 +136,26 @@ production. No candidate HTTP requests, uploads or deployments were made.
 `runtime-budget/guard-preflight.json` retains that bounded result. Mutation tests
 exercise synthetic passing evidence and rejection cases. This is verifier
 validation, not a new CPU measurement; the 29 ms release blocker remains.
+
+## Further cold-path investigation — 20 October 2026 Brisbane
+
+A distinct canonical-string reuse experiment preserved the tested response bytes
+and hashes. Local repeated-route median CPU fell from 2.731 to 2.514 ms, but
+fresh-process first-request median regressed from 44.409 to 46.294 ms. After
+initializing Node HTTP support first, the first CPI request changed only from
+16.928 to 16.478 ms with overlapping ranges. These are local diagnostic numbers,
+not Cloudflare CPU evidence. The complexity is rejected; no reader change,
+version upload or edge trial follows from it. Inputs, prototype and measurements
+are retained in `runtime-budget/serialization-experiment/`.
+
+Independent review also caught a false rejection in the new CPU verifier:
+production does not emit dirty/fingerprint headers. The verifier now checks those
+fields in the health body, binds requests through the actual version/revision
+headers, and rejects conflicting optional headers if present. A retained actual
+production response is a regression fixture, so fabricated headers cannot hide
+this error again. The corrected verifier is not a new successful CPU capture.
+
+PR10's scheduled-span arithmetic and offline audit are merged at936e552; its main
+build and production verification passed. This branch includes that merge.
+Operational SHADOW, delivery acknowledgment and data-verification gates remain
+independent of these implementation checks.
