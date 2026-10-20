@@ -1,15 +1,44 @@
-# Current continuation — user confirmed Workers upgrade
+# Current continuation — USA release complete, operational observation pending
 
-The user replied “worker upgraded” on20October2026. The same USA CPI reader now
-continues under the [paid-plan contract](../us-paid-2026-10-20/CONTRACT.md):100ms
-USA acceptance,1,000ms whole-Worker ceiling, three fresh captures and complete
-release validation. Billing API access remains403; operational Paid entitlement
-will be checked through the staged custom limit. USA is not yet released.
-Prior Free measurements below remain historical failures under10ms.
+The user confirmed “worker upgraded” on 20 October 2026. The same USA CPI reader
+is now released as clean source `c6a96283743476af730dc2ff4bd915463e47d03c`,
+Worker `e0224d26-6bcb-4f96-a580-460919a0d195`, fingerprint `42edef0b385e972f`,
+matching on both domains. Rollback remains
+`739b9031-305c-4bc7-afc5-79a82c654ac7`.
+[Full Paid release evidence](../us-paid-2026-10-20/README.md) supersedes the
+historical continuation instructions below.
+
+Three fresh CPU captures measured **23 / 12 / 13 ms** against **100 ms USA
+acceptance**. The legacy maximum was **292 ms**; the separate whole-Worker safety
+ceiling is **1,000 ms**, not a monthly spending cap. Cloudflare accepted and
+returned the custom limit; subscription API access remains 403, so no invoice
+or billing-total verification is claimed. The earlier 16 Free captures retain
+their original failed or incomplete 10 ms outcomes.
+
+All 187 tests and the build passed. Final staging passed 137 interface assertions,
+50 semantic checks and nine actual desk schemas. Settled production passed
+151 checks / 104 requests without revision mismatches and smoke checks 18/18
+apex and 17/17 www. The initial mixed-revision propagation check remains retained
+as a separate non-passing observation. No credential or automatic Builds change.
+
+The reviewed daily collector transition uses 24 probes / 109 obligations.
+Its constructed replay is not a real collection: latest actual checkpoint
+sequence 5 remains run `39341442350`, completed `2026-10-19T23:26:10.163Z`,
+with 33 incidents, 36 repairs, two scheduled cycles and no USA scheduled
+observation. The next checkpoint deadline is `2026-10-21T01:26:10.163Z`.
+Preserve the original SHADOW start, hourly watchdog, daily collector and disabled
+ordinary source alerts. Seven-day acceptance and the unacknowledged delivery
+test remain unresolved; do not repeat the test. NZ-PRICES remains blocked on
+external evidence, and UK CPI remains parked. This reader release does not
+complete the broader maintenance plan.
+
+All sections below are historical snapshots. Their former Free-plan choice,
+unreleased status and active-version statements apply only to their recorded
+dates; retain the measurements without restarting those trials.
 
 ---
 
-# USA CPI continuation — release blocked by measured Free CPU budget
+# Historical USA CPI continuation — measured Free CPU gate
 
 The user confirmed Workers Free, 10 ms CPU. The original BLS access failure is
 resolved with truthful Morning Rows identification and `Accept: */*`. The final

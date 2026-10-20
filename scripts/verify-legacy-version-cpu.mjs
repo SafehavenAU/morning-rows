@@ -6,6 +6,7 @@ import {spawn,execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {readFile,writeFile} from 'node:fs/promises';
 import {latestDeployment,stagingMatches,identityMatches,PRODUCTION_ORIGINS} from './lib/us-cpu-evidence.mjs';
+import {LEGACY_COUNTRIES,LEGACY_CPU_PATHS,evaluateLegacyCpuEvidence} from './lib/legacy-cpu-evidence.mjs';
 
 const repo='/workspace/morning-rows-us';
 const wrangler='/workspace/.morning-rows-tools/node_modules/.bin/wrangler';
@@ -13,17 +14,7 @@ const env={...process.env,XDG_CONFIG_HOME:'/workspace/.morning-rows-tools/config
 const [version,output,expectedRevision]=process.argv.slice(2);
 if(process.argv.length!==5||!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(version||'')||!output||!/^[a-f0-9]{40}$/.test(expectedRevision||''))throw Error('Usage: VERSION OUTPUT EXPECTED_REVISION');
 const approved=JSON.parse(await readFile(repo+'/verification/monitoring-baseline.json','utf8')).identity;
-const countries={
- '/australia.json':'Australia',
- '/new-zealand.json':'New Zealand',
- '/canada.json':'Canada',
- '/united-kingdom.json':'United Kingdom',
- '/england.json':'England',
- '/scotland.json':'Scotland',
- '/wales.json':'Wales',
- '/northern-ireland.json':'Northern Ireland',
-};
-const paths=['/health.json',...Object.keys(countries)];
+const countries=LEGACY_COUNTRIES,paths=LEGACY_CPU_PATHS;
 const report={
  started_at:new Date().toISOString(),kind:'Actual staged-version legacy cold CPU capture',version,
  expected_source_revision:expectedRevision,cpu_limit_ms:500,approved_identity:approved,
@@ -122,30 +113,7 @@ try{
   report.deployment_after=await deployment();
  }catch{report.error ||= 'production_postflight_failed';}
  report.finished_at=new Date().toISOString();
- const target=report.checks.filter(check=>check.override);
- const health=target.find(check=>check.path==='/health.json');
- const identity={...health?.body,worker_version:version,source_revision:expectedRevision};
- report.candidate_identity_confirmed=Boolean(/^[a-f0-9]{16}$/.test(identity.build_fingerprint||'')&&identityMatches(health||{},identity)&&target.length===paths.length&&target.every(check=>check.status===200&&check.json_valid&&check.headers['x-worker-version']===version&&check.headers['x-source-revision']===expectedRevision&&(check.headers['x-source-dirty']===undefined||check.headers['x-source-dirty']==='false')&&(check.headers['x-build-fingerprint']===undefined||check.headers['x-build-fingerprint']===identity.build_fingerprint)));
- report.production_identity_confirmed=['before','after'].every(phase=>PRODUCTION_ORIGINS.every(origin=>{
-  const checks=report.checks.filter(check=>!check.override&&check.phase===phase&&check.origin===origin&&check.path==='/health.json');
-  return checks.length===1&&identityMatches(checks[0],approved);
- }));
- report.deployment_unchanged=Boolean(stagingMatches(report.deployment_before,version,approved)&&stagingMatches(report.deployment_after,version,approved)&&report.deployment_before.id===report.deployment_after.id);
- report.complete_event_coverage=target.length===paths.length&&report.events.length===paths.length&&paths.every(path=>target.filter(check=>check.path===path).length===1)&&target.every(check=>correlations(check).length===1);
- report.events_valid=report.events.length===paths.length&&report.events.every(event=>Number.isFinite(event.cpu_ms)&&event.cpu_ms>=0&&event.cpu_ms<=500&&event.outcome==='ok'&&Array.isArray(event.exception_names)&&event.exception_names.length===0);
- report.desk_freshness=Object.entries(countries).map(([path,country])=>{
-  const checks=target.filter(check=>check.path===path),check=checks[0],body=check?.body;
-  const groups=[['sources',body?.sources],...(body?.also===undefined?[]:[['also.sources',body?.also?.sources]])];
-  const groups_valid=groups.every(([,sources])=>sources&&typeof sources==='object'&&!Array.isArray(sources)&&Object.keys(sources).length>0);
-  const sources=groups.flatMap(([group,values])=>Object.entries(values||{}).map(([name,value])=>{
-   const at=Date.parse(value?.fetched_at);
-   return {source:group+'.'+name,status:value?.status,fetched_at:value?.fetched_at,fresh:Number.isFinite(at)&&at>=Date.parse(check?.started_at)&&at<=Date.parse(check?.at)};
-  }));
-  return {path,country,source_count:sources.length,sources,pass:checks.length===1&&body?.country===country&&body?._meta?.schema_version==='1.0'&&groups_valid&&sources.length>0&&sources.every(source=>source.fresh&&['ok','degraded','error'].includes(source.status))&&sources.some(source=>source.status==='ok')};
- });
- report.cold_retrieval_confirmed=report.desk_freshness.length===8&&report.desk_freshness.every(desk=>desk.pass);
- report.budget_pass=Boolean(!report.error&&!report.tail_command_error&&!report.tail_parse_error&&report.candidate_identity_confirmed&&report.production_identity_confirmed&&report.deployment_unchanged&&report.complete_event_coverage&&report.events_valid&&report.cold_retrieval_confirmed);
- report.cpu_by_path=Object.fromEntries(paths.map(path=>[path,report.events.filter(event=>event.request_path===path).map(event=>event.cpu_ms)]));
+ Object.assign(report,evaluateLegacyCpuEvidence(report,approved,version,expectedRevision));
  await save();
  console.log(JSON.stringify({output,cpu_limit_ms:500,cpu_by_path:report.cpu_by_path,cold_retrieval_confirmed:report.cold_retrieval_confirmed,complete_event_coverage:report.complete_event_coverage,candidate_identity_confirmed:report.candidate_identity_confirmed,production_identity_confirmed:report.production_identity_confirmed,deployment_unchanged:report.deployment_unchanged,budget_pass:report.budget_pass}));
  if(!report.budget_pass)process.exitCode=1;

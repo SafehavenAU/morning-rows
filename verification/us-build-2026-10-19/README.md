@@ -1,16 +1,32 @@
-# Current status — Free-plan CPU gate remains blocked
+# Current status — USA CPI released on 20 October 2026
 
-The user chose “Keep Free; pursue further optimization”. The additional pass is
-complete:169 tests,20 independent Python tests and22 actual Cloudflare scenarios
-pass, but best coldCPU12ms and final confirmation29ms both exceed10ms. No USA
-release. Approved eight-desk production is the sole active version at100% and
-both domains match. [Reproducible continuation and all results](CONTINUATION.md).
-First scheduled-cycle proof is now merged in PR9; seven-day acceptance and the
-actual delivery receipt remain separate. Earlier sections below are dated history.
+After the user confirmed “worker upgraded”, the same single-series reader passed
+the [Paid release contract and evidence](../us-paid-2026-10-20/README.md).
+Both domains match clean source `c6a96283743476af730dc2ff4bd915463e47d03c`,
+Worker `e0224d26-6bcb-4f96-a580-460919a0d195`, fingerprint `42edef0b385e972f`.
+Rollback remains Worker `739b9031-305c-4bc7-afc5-79a82c654ac7`.
+
+Fresh USA CPU captures **23 / 12 / 13 ms** passed the **100 ms gate**; the
+legacy maximum was **292 ms** under the separate **1,000 ms Worker ceiling**.
+The release passed 187 tests and the build, staged 137 interface / 50 semantic
+checks and nine desk schemas, settled production 151 checks / 104 requests
+without revision mismatches, and smoke checks 18/18 apex and 17/17 www.
+The v1 catalogue preserves eight desks; v2 discovers the USA desk alongside them.
+
+The reviewed collector transition is 24 probes / 109 obligations through the
+existing daily workflow. Latest actual checkpoint sequence 5 still has two
+scheduled cycles and no USA scheduled observation; hourly watch, SHADOW and
+disabled source alerts remain. Seven-day acceptance, the real delivery receipt,
+NZ-PRICES external evidence and parked UK CPI remain separate unresolved gates.
+See [the current handoff](../../HANDOFF.md) for exact checkpoint and deadline.
+
+Everything below is historical evidence with its original release gate. The
+Free-plan failures remain failed or incomplete under 10 ms; former “not released”
+and “disabled review” statements do not describe current production.
 
 ---
 
-# Latest continuation — runtime budget validation
+# Historical continuation — runtime budget validation
 
 BLS access is resolved for the tested runtime: `Accept: */*` with the same truthful
 Morning Rows User-Agent returned the original bulk files. The actual reader

@@ -1,5 +1,8 @@
 # Paid validation progress
 
+Current outcome: released and validated; see [the final evidence record](README.md).
+The paragraphs below retain the ordered staging history.
+
 The first clean staged candidate4c7d025/582c0124 hit upstream503. An early follow-up
 returned the same cached error retrieval timestamp; it is retained and explicitly
 not an independent confirmation. One real post-expiry confirmation returned fresh

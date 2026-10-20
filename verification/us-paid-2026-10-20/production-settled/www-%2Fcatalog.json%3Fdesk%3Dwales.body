@@ -1,0 +1,89 @@
+{
+  "name": "Morning Rows",
+  "site": "https://morningrows.com",
+  "schema_version": "1.0",
+  "schema": "https://morningrows.com/schema.json",
+  "auth": "none",
+  "index": "/llms.txt",
+  "id": "https://morningrows.com/catalog.json?desk=wales",
+  "desk": "Wales",
+  "records": "https://morningrows.com/wales.json",
+  "sources": [
+    {
+      "id": "https://morningrows.com/wales.json?source=people",
+      "key": "people",
+      "name": "Population estimates",
+      "records": "https://morningrows.com/wales.json?source=people",
+      "data_pointer": "/people",
+      "health_pointer": "/sources/people",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/wales.json?source=job",
+      "key": "job",
+      "name": "Unemployment rate",
+      "records": "https://morningrows.com/wales.json?source=job",
+      "data_pointer": "/job",
+      "health_pointer": "/sources/job",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/wales.json?source=next_holiday",
+      "key": "next_holiday",
+      "name": "next holiday",
+      "records": "https://morningrows.com/wales.json?source=next_holiday",
+      "data_pointer": "/next_holiday",
+      "health_pointer": "/sources/next_holiday",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/wales.json?source=food_establishments",
+      "key": "food_establishments",
+      "name": "Food hygiene service establishment counts",
+      "records": "https://morningrows.com/wales.json?source=food_establishments",
+      "data_pointer": "/food_establishments",
+      "health_pointer": "/sources/food_establishments",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/wales.json?source=projection",
+      "key": "projection",
+      "name": "2024-based all-persons/all-ages population projection",
+      "records": "https://morningrows.com/wales.json?source=projection",
+      "data_pointer": "/projection",
+      "health_pointer": "/sources/projection",
+      "representation": "described_measures",
+      "measure_count": 1,
+      "measures": [
+        {
+          "id": "population-2024-based",
+          "name": "All-persons/all-ages projected population",
+          "geography": "Wales",
+          "unit": "people",
+          "kind": "projection",
+          "records": "https://morningrows.com/wales.json?source=projection&measure=population-2024-based"
+        }
+      ]
+    },
+    {
+      "id": "https://morningrows.com/wales.json?source=land_transaction_tax",
+      "key": "land_transaction_tax",
+      "name": "land transaction tax",
+      "records": "https://morningrows.com/wales.json?source=land_transaction_tax",
+      "data_pointer": "/land_transaction_tax",
+      "health_pointer": "/sources/land_transaction_tax",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    }
+  ],
+  "limits": "Only existing selections. No arbitrary history, local claimant counts, rent benchmarks, daily price averages or cross-country comparability is implied. Native sections may have incomplete metadata."
+}

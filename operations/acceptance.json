@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T23:35:49.498322+00:00",
-  "scope": "Eight live desks; US excluded; ten task targets authorized by uploaded implementation request",
+  "updated_at": "2026-10-20T04:22:51.119716+00:00",
+  "scope": "Eight existing desks and their original ten task targets, plus separately authorized USA CPI release; broader acceptance incomplete",
   "complete": false,
   "worktree": "/workspace/morning-rows-operations",
   "source_base": "7231aab",
@@ -420,14 +420,17 @@
       "limits": "No exactly-once claim. Failed delivery leaves event pending."
     },
     "seven_day_shadow": {
-      "state": "in progress: one complete actual scheduled collection; seven elapsed days and delivery evidence not satisfied",
+      "state": "in progress: two actual complete scheduled collections; seven elapsed days and delivery evidence not satisfied",
       "required": "Seven elapsed days, at least eight complete daily scheduled checkpoints, maximum26h gap, external watchdog and delivery test",
       "started_at": "2026-10-18T23:22:22.161Z",
       "first_scheduled_run_started_at": "2026-10-18T23:21:47Z",
-      "complete_scheduled_runs": 1,
+      "complete_scheduled_runs": 2,
       "evidence": [
-        "verification/scheduled-cycle-2026-10-19/README.md"
-      ]
+        "verification/scheduled-cycle-2026-10-19/README.md",
+        "verification/us-paid-2026-10-20/checkpoint-predecessor/comparison.json"
+      ],
+      "last_complete_scheduled_at": "2026-10-19T23:26:10.163Z",
+      "next_complete_checkpoint_deadline": "2026-10-21T01:26:10.163Z"
     },
     "rollback_readiness": {
       "state": "verified target available; not exercised on live service",
@@ -454,6 +457,14 @@
       "scheduled_producer": "51254f51e20a2afed572763045467e5b24c9003c",
       "scheduled_gate_verified_at": "2026-10-18T23:35:49.498322+00:00",
       "digest": "aba5cf8b893790843e6d92468cb6d09c67b286c90edc2f70443d8fcf977f68a0"
+    },
+    "source_registry_109": {
+      "state": "109 obligations configured after validated USA release; first actual collection under expanded scope pending",
+      "evidence": [
+        "operations/source-contract-registry.json",
+        "operations/us-release-review.json",
+        "verification/us-paid-2026-10-20/monitor-transition-replay.json"
+      ]
     }
   },
   "corrections": [
@@ -485,67 +496,104 @@
   "us_desk_candidate": {
     "task_id": "US-CPI-resumption-2026-10-19",
     "authorization": "User explicitly asked can you build the USA data; previous US parking instruction superseded for this candidate only",
-    "phase": "validating_paid_runtime",
+    "phase": "released_observing",
     "contract": "research/us-onboarding-2026-10-17/CONTRACT.md",
-    "evidence": "verification/us-build-2026-10-19/CONTINUATION.md",
+    "evidence": "verification/us-paid-2026-10-20/README.md",
     "source": "BLS CUUR0000SA0, national urban all-items NSA CPI-U, 13 calendar months",
     "live_source_http_status": 200,
-    "deployed": false,
-    "monitoring_scope": "Eight active desks; nine-desk collector and exact identity transition staged, disabled",
-    "remaining_release_gates": [
-      "Three complete100ms USA CPU captures",
-      "Final legacy cold sweep<=500ms and full semantic acceptance",
-      "Versioned release and both-domain acceptance; reviewed monitoring transition afterward"
-    ],
-    "resume_condition": "Same contract under user-confirmed Paid plan; no reinterpretation of Free failures",
+    "deployed": true,
+    "monitoring_scope": "Eight legacy desks plus the separately authorized USA CPI desk; exact release review enabled for normal serialized daily collection",
+    "remaining_release_gates": [],
+    "resume_condition": "Release accepted. Observe existing daily collector; no repeated release or expansion as routine monitoring.",
     "workers_plan": "Paid (user confirmed; custom limit accepted)",
     "cpu_limit_ms": 1000,
     "plan_evidence": "verification/us-paid-2026-10-20/paid-entitlement.json",
     "transport": "Original BLS database table plus latest linked publication index",
-    "bulk_cpu_measured_ms": 87,
-    "staging": {
-      "complete": true,
-      "candidate_in_active_deployment": false,
-      "final_test_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
-      "approved_version": "739b9031-305c-4bc7-afc5-79a82c654ac7",
-      "approved_traffic_percent": 100,
-      "final_deployment_id": "baebe78f-5094-41c8-aa46-8a96d2b131cf",
-      "ended_at": "2026-10-20T03:42:38.694344Z"
-    },
-    "final_cold_cpu_ms": 21,
-    "release_accepted": false,
-    "updated_at": "2026-10-20T04:08:27.322810+00:00",
-    "optimization_decision": "Actual user reply: Keep Free; pursue further optimization",
-    "optimization_pass_complete": true,
-    "best_observed_cold_cpu_ms": 12,
-    "final_test_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
-    "cpu_evidence": "verification/us-build-2026-10-19/runtime-budget/optimization-summary.json",
+    "release_accepted": true,
+    "updated_at": "2026-10-20T04:22:51.119716+00:00",
     "validation": {
-      "node_tests": 180,
+      "node_tests": 187,
       "independent_python_tests": 20,
       "actual_cloudflare_scenarios": 22,
       "legacy_cases": 315,
       "schema_responses": 221,
-      "publisher_slots": 13
-    },
-    "latest_optimization_investigation": {
-      "state": "blocked_runtime_cpu",
-      "date": "2026-10-20",
-      "result": "Combined exact-fragment/table-boundary candidate measured21ms cold; failed10ms gate. Runtime experiment removed, evidence and generic fingerprint regression coverage retained.",
-      "evidence": "verification/us-build-2026-10-19/runtime-budget/version-cold-fragments-probe.json",
-      "candidate_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
-      "worker_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
-      "edge_cpu_measurement": true,
-      "cold_cpu_ms": 21,
-      "runtime_optimization_retained": false,
-      "production_restoration_evidence": "verification/us-build-2026-10-19/runtime-budget/cold-fragments-production-restored.json"
+      "publisher_slots": 13,
+      "staged_interface_checks": 137,
+      "staged_semantic_checks": 50,
+      "staged_desk_schemas": 9,
+      "production_information_checks": 151,
+      "production_semantic_checks": 100,
+      "production_schema_documents": 24,
+      "production_publisher_slot_comparisons": 26,
+      "apex_smoke_checks": 18,
+      "www_smoke_checks": 17
     },
     "user_decision": "worker upgraded",
     "paid_plan_contract": "verification/us-paid-2026-10-20/CONTRACT.md",
     "cpu_acceptance_ms": 100,
     "worker_cpu_ceiling_ms": 1000,
-    "candidate_released": false,
-    "paid_plan_verification": "Cloudflare accepted1000ms custom CPU limit"
+    "candidate_released": true,
+    "paid_plan_verification": "Cloudflare accepted1000ms custom CPU limit",
+    "historical_free_validation": {
+      "optimization_decision": "Actual user reply: Keep Free; pursue further optimization",
+      "optimization_pass_complete": true,
+      "best_observed_cold_cpu_ms": 12,
+      "final_test_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
+      "cpu_evidence": "verification/us-build-2026-10-19/runtime-budget/optimization-summary.json",
+      "latest_optimization_investigation": {
+        "state": "blocked_runtime_cpu",
+        "date": "2026-10-20",
+        "result": "Combined exact-fragment/table-boundary candidate measured21ms cold; failed10ms gate. Runtime experiment removed, evidence and generic fingerprint regression coverage retained.",
+        "evidence": "verification/us-build-2026-10-19/runtime-budget/version-cold-fragments-probe.json",
+        "candidate_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
+        "worker_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
+        "edge_cpu_measurement": true,
+        "cold_cpu_ms": 21,
+        "runtime_optimization_retained": false,
+        "production_restoration_evidence": "verification/us-build-2026-10-19/runtime-budget/cold-fragments-production-restored.json"
+      },
+      "staging": {
+        "complete": true,
+        "candidate_in_active_deployment": false,
+        "final_test_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
+        "approved_version": "739b9031-305c-4bc7-afc5-79a82c654ac7",
+        "approved_traffic_percent": 100,
+        "final_deployment_id": "baebe78f-5094-41c8-aa46-8a96d2b131cf",
+        "ended_at": "2026-10-20T03:42:38.694344Z"
+      },
+      "final_cold_cpu_ms": 21,
+      "bulk_cpu_measured_ms": 87
+    },
+    "remaining_operational_gates": [
+      "First genuine USA scheduled observation",
+      "At least eight complete daily USA scheduled checkpoints spanning seven elapsed days, no gap over26h",
+      "Actual delivery acknowledgment and the independent original operational gates remain unresolved"
+    ],
+    "final_test_source": "c6a96283743476af730dc2ff4bd915463e47d03c",
+    "final_worker_version": "e0224d26-6bcb-4f96-a580-460919a0d195",
+    "final_cold_cpu_ms": 13,
+    "successful_cold_captures_ms": [
+      23,
+      12,
+      13
+    ],
+    "legacy_cold_max_ms": 292,
+    "cpu_evidence": [
+      "verification/us-paid-2026-10-20/cpu1-pass.json",
+      "verification/us-paid-2026-10-20/cpu2-pass.json",
+      "verification/us-paid-2026-10-20/cpu3-pass.json",
+      "verification/us-paid-2026-10-20/legacy-cpu-reviewed.json"
+    ],
+    "staging": {
+      "complete": true,
+      "candidate_in_active_deployment": true,
+      "traffic_percent": 100,
+      "final_deployment_id": "916e97b8-e062-4fe9-9a21-a12a8f713fe9",
+      "promoted_at": "2026-10-20T04:16:49.474606Z"
+    },
+    "checkpoint_transition": "review enabled in repository only; next normal serialized run must apply it; predecessor sequence5 remains unchanged",
+    "us_complete_scheduled_runs": 0,
+    "us_shadow_started_at": null
   },
   "shadow_audit_tooling": {
     "state": "implemented; not operational acceptance",

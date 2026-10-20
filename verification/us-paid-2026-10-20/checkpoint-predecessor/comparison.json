@@ -1,0 +1,90 @@
+{
+  "checked_at": "2026-10-20T00:39:12.582Z",
+  "run": 39341442350,
+  "sequence": 5,
+  "digest": "665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f",
+  "previous_digest": "aba5cf8b893790843e6d92468cb6d09c67b286c90edc2f70443d8fcf977f68a0",
+  "full_state_replay_match": true,
+  "last_complete": "2026-10-19T23:26:10.163Z",
+  "deadline": "2026-10-21T01:26:10.163Z",
+  "incidents": 33,
+  "repairs": 36,
+  "changed_repairs": [
+    {
+      "key": "verify:new-zealand/prices",
+      "prior": {
+        "source": "new-zealand/prices",
+        "state": "evidence_review",
+        "kind": "new_period",
+        "version": "c53784643fc8da609205956c3222b8b42f20bdf7cf824d7c1e32c581f1094746",
+        "created_at": "2026-10-18T23:22:22.161Z",
+        "scope": "Reconcile original publisher evidence; no automatic source substitution"
+      },
+      "next": {
+        "source": "new-zealand/prices",
+        "state": "evidence_review",
+        "kind": "new_period",
+        "version": "7b29b04dc6f862c49b4b13e321b5d36dda7e32e069b9ad200c53422052b75023",
+        "created_at": "2026-10-19T23:26:10.163Z",
+        "scope": "Reconcile original publisher evidence; no automatic source substitution"
+      }
+    },
+    {
+      "key": "verify:canada/exchange",
+      "prior": null,
+      "next": {
+        "source": "canada/exchange",
+        "state": "evidence_review",
+        "kind": "new_period",
+        "version": "4308c5eb47b8c400791c26f528f33f8ad355e71dc7e47d40f23acde5ffa3ae86",
+        "created_at": "2026-10-19T23:26:10.163Z",
+        "scope": "Reconcile original publisher evidence; no automatic source substitution"
+      }
+    }
+  ],
+  "outbox_unchanged": true,
+  "production_identity_unchanged": true,
+  "per_desk": {
+    "new-zealand": {
+      "success": 9,
+      "failure": 0
+    },
+    "united-kingdom": {
+      "success": 3,
+      "failure": 7
+    },
+    "australia": {
+      "success": 13,
+      "failure": 10
+    },
+    "northern-ireland": {
+      "success": 5,
+      "failure": 2
+    },
+    "wales": {
+      "success": 4,
+      "failure": 2
+    },
+    "scotland": {
+      "success": 6,
+      "failure": 2
+    },
+    "england": {
+      "success": 15,
+      "failure": 11
+    },
+    "canada": {
+      "success": 18,
+      "failure": 1
+    }
+  },
+  "watchdog": "monitor_recent",
+  "shadow": {
+    "elapsed_hours": 25.2806725,
+    "complete_runs": 2,
+    "incomplete_runs": 0,
+    "max_gap_minutes": 1443.8000333333334,
+    "seven_days_elapsed": false,
+    "operating_window_pass": false
+  }
+}

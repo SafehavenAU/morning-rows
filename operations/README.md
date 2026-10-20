@@ -1,12 +1,31 @@
-# Operational implementation — 18 October 2026 (Brisbane)
+# Operational state — 20 October 2026
 
-Status: implementation and activation in progress, **not complete**. The acceptance ledger is `operations/acceptance.json`. Existing production remains source `7d614e2e78a63fc16f705b67e35ed0438baa7d87`, Worker `739b9031-305c-4bc7-afc5-79a82c654ac7`; US remains unpublished.
+The USA CPI reader is released. Both domains match clean source
+`c6a96283743476af730dc2ff4bd915463e47d03c`, Worker
+`e0224d26-6bcb-4f96-a580-460919a0d195`, fingerprint `42edef0b385e972f`.
+The [release evidence](../verification/us-paid-2026-10-20/README.md) records
+three fresh USA CPU captures of **23 / 12 / 13 ms** against the **100 ms gate**,
+a legacy maximum of **292 ms**, and the separate **1,000 ms Worker safety ceiling**.
+Validation passed 187 tests and the build, staged 137 interface / 50 semantic
+checks and nine desk schemas, then settled production 151 checks / 104 requests
+with no revision mismatches and smoke checks 18/18 apex and 17/17 www.
+
+Maintenance acceptance remains **incomplete**; see `operations/acceptance.json`.
+The latest actual checkpoint is sequence 5 from scheduled run `39341442350`,
+completed `2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
+retaining 33 incidents and 36 pending repairs. Two scheduled cycles are verified;
+there is no USA scheduled observation yet. SHADOW retains its actual start
+`2026-10-18T23:22:22.161Z`, and the next complete checkpoint deadline is
+`2026-10-21T01:26:10.163Z`. The delivery receipt remains unresolved; do not repeat
+the already-announced test. NZ-PRICES remains blocked on separate official
+evidence for the selected 17 October specimen, and UK CPI remains parked.
 
 ## What runs
 
-`node scripts/monitor.mjs` checks both health/catalogue pairs and all eight desks in 20 public requests, concurrency two, reusing each desk response for 108 source obligations. Existing 93 described observations plus the five NZ nodes have semantic checks; native sections receive availability, parse, presence and observed-provenance-loss checks. They are not independently certified by their HTTP status. No collector request needs a publisher key or Cloudflare write access.
+The reviewed USA transition lets `node scripts/monitor.mjs` check both health and v1/v2 catalogue pairs and all nine desks in **24 public requests**, concurrency two, reusing desk responses for **109 source obligations**. It takes effect only through an enabled exact-identity review and the existing serialized collection; the latest actual checkpoint above still records the prior eight-desk scope of 20 requests / 108 obligations. Existing 93 described observations plus the five NZ nodes retain their semantic checks, and the USA transition adds the single CPI contract. Native sections receive availability, parse, presence and observed-provenance-loss checks. They are not independently certified by their HTTP status. No collector request needs a publisher key or Cloudflare write access.
 
-`operations/monitor-policy.json` selects the plan's **daily fallback**, at 23:17 UTC (09:17 Brisbane). Cold preview measurements show substantial publisher fan-out. Hourly full-desk collection is withheld because publisher quotas and CPU usage remain unverified. This is a slower detection goal, not an hourly service claim. The independent hourly watchdog reads checkpoint evidence instead of repeating the desk sweep. It flags no successful complete collection for 26 hours, corrupt/missing state, or failed workflow/artifact delivery. Seven elapsed shadow days at this cadence require at least eight scheduled complete checkpoints and no interval over 26 hours. Manual dispatches do not satisfy scheduled-run evidence.
+`operations/monitor-policy.json` selects the plan's **daily fallback**, at 23:17 UTC (09:17 Brisbane). Cold preview measurements show substantial publisher fan-out. The bounded Paid CPU samples do not establish publisher capacity for hourly full-desk collection, so the daily cadence is unchanged. This is a slower detection goal, not an hourly service claim. The independent hourly watchdog reads checkpoint evidence instead of repeating the desk sweep. It flags no successful complete collection for 26 hours, corrupt/missing state, or failed workflow/artifact delivery. Seven elapsed shadow days at this cadence require at least eight scheduled complete checkpoints, seven days spanned by their actual completion timestamps, no interval over 26 hours, and genuine delivery evidence. Manual dispatches do not satisfy scheduled-run evidence. Ordinary source alerts remain disabled.
 
 ## State and incident contract
 
@@ -37,7 +56,11 @@ For remote operation, restore with `node scripts/monitor-artifact.mjs /tmp/mr-re
 
 The `acknowledge` workflow dispatch records a delivered event ID and concrete receipt. Never acknowledge an attempted or uncertain delivery. A user reply confirming the delivery test is acceptable receipt evidence. Watchdog writes must dispatch this one serialized workflow; they must not upload a competing checkpoint.
 
-## Evidence and limits
+## Initial implementation evidence and continuing limits
+
+The 18–19 October measurements below retain their original scope and evidence
+boundary. Current production identity and scheduled progress are stated above;
+the later Paid release evidence does not rewrite these historical measurements.
 
 - `verification/operations-2026-10-18/preflight.json`: fresh both-domain core contracts and source baseline.
 - `monitor-first` and `monitor-second`: real public collections, with occasional whole-desk 503 responses explicitly incomplete. Successful sibling evidence survived. These are manual runs, not shadow days.
@@ -53,9 +76,13 @@ The `acknowledge` workflow dispatch records a delivered event ID and concrete re
 
 The user confirmed disconnecting Morning Rows Workers Builds in this chat on 18 October 2026 (Brisbane). This resolves the previous unsafe push path; the Builds API itself remains 403. GitHub monitoring workflows have read-only repository/actions permissions and no Cloudflare token, deploy command or secret-write command. `check.yml` dry-runs the Worker and checks the reviewed deployed baseline; a documentation/monitor commit is not represented as a production version.
 
-Monitoring changes need no Worker deployment. To stop collection, disable only the monitor workflow; retain its last checkpoint and outbox. To restore collector code, use a reviewed Git revision, preserving checkpoint schema and receipts. A Worker rollback is separate and only relevant to a later reader release: the current verified version above is the rollback target. Do not issue an actual rollback merely to test availability. Validate its existence and bindings before promoting a future version. No US rollout, key registration, secret change or publisher contact is authorized here.
+Monitoring changes need no Worker deployment. To stop collection, disable only the monitor workflow; retain its last checkpoint and outbox. To restore collector code, use a reviewed Git revision, preserving checkpoint schema and receipts. The released USA reader's Worker rollback target is `739b9031-305c-4bc7-afc5-79a82c654ac7`, source `7d614e2e78a63fc16f705b67e35ed0438baa7d87`. Do not issue an actual rollback merely to test availability. Routine monitoring does not authorize another reader release, key registration, secret change or publisher contact.
 
-## Remote activation evidence
+## Historical remote activation evidence — 18 October 2026
+
+This section records initial activation. Its then-pending independent wake is
+superseded by the verified scheduled evidence above; the delivery receipt remains
+unresolved. These manual runs are not additional scheduled cycles.
 
 PRs [1](https://github.com/SafehavenAU/morning-rows/pull/1) and [3](https://github.com/SafehavenAU/morning-rows/pull/3) installed the monitor without deploying the Worker. Initial bootstrap [39077382567](https://github.com/SafehavenAU/morning-rows/actions/runs/39077382567) and restart [39077460651](https://github.com/SafehavenAU/morning-rows/actions/runs/39077460651) both succeeded. The second run restored sequence 1 from artifact 12117109140, then completed all 20 public requests in 22.47 seconds,635,590 response bytes, and persisted sequence 2 with 33 acknowledged incidents and no notifications. The actual full hosted job took 33 seconds. These were manual dispatches and do not count as scheduled shadow days.
 
@@ -67,11 +94,11 @@ The CPI candidate is preserved in [draft PR 2](https://github.com/SafehavenAU/mo
 
 `node scripts/exercise-maintenance.mjs` reproduces a complete constructed incident cycle against retained real AIHW aggregates: wrong-measure detection, bounded repair record, successful sibling preservation, injected interrupted write and failed delivery, reviewed candidate checks, two spaced simulated healthy checks, closure and a simulated receipt. Its output explicitly distinguishes fixture time and fake receipts from the separate real GitHub/notification evidence. No real release or notification is performed by the drill.
 
-## Checkpoint incident and bounded recovery
+## Historical checkpoint incident and bounded recovery
 
 Scheduled run 39078664324 failed before collection. Artifact IDs were not chronological; the previous selector chose the older collection checkpoint over the newer delivery-test checkpoint. See [the recovery contract](CHECKPOINT-RECOVERY.md) and `verification/checkpoint-recovery-2026-10-18/README.md`. Mode `recover` is constrained to that exact failed attempt and original predecessor. It republishes identical state, never bootstraps or acknowledges events. Normal restores reject missing newer checkpoints. Run attempts above one and pagination beyond 1,000 entries deliberately require review. Rehearsal and manual recovery do not satisfy the scheduled-run or seven-day gates.
 
-Actual recovery39083194151 republished byte-identical state, followed by complete manual collection39083249445 (sequence3). Both artifacts were independently downloaded and verified; full state replay matches. The next actual scheduled run remains the repair completion gate; the hourly watchdog was updated to verify it. See the recovery evidence record for exact hashes and remaining acceptance gates.
+Actual recovery39083194151 republished byte-identical state, followed by complete manual collection39083249445 (sequence3). Both artifacts were independently downloaded and verified; full state replay matches. The repair's scheduled gate subsequently passed with independently verified run39176195113, as retained in [the scheduled-cycle evidence](../verification/scheduled-cycle-2026-10-19/README.md), and was reported once. Do not repeat that transition. Current scheduled progress and the separate unresolved seven-day and delivery gates are stated above.
 
 ## Read-only shadow-window audit
 

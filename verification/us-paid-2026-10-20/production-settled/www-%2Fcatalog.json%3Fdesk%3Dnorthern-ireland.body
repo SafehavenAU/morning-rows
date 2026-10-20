@@ -1,0 +1,173 @@
+{
+  "name": "Morning Rows",
+  "site": "https://morningrows.com",
+  "schema_version": "1.0",
+  "schema": "https://morningrows.com/schema.json",
+  "auth": "none",
+  "index": "/llms.txt",
+  "id": "https://morningrows.com/catalog.json?desk=northern-ireland",
+  "desk": "Northern Ireland",
+  "records": "https://morningrows.com/northern-ireland.json",
+  "sources": [
+    {
+      "id": "https://morningrows.com/northern-ireland.json?source=people",
+      "key": "people",
+      "name": "Population estimates",
+      "records": "https://morningrows.com/northern-ireland.json?source=people",
+      "data_pointer": "/people",
+      "health_pointer": "/sources/people",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/northern-ireland.json?source=job",
+      "key": "job",
+      "name": "Unemployment rate",
+      "records": "https://morningrows.com/northern-ireland.json?source=job",
+      "data_pointer": "/job",
+      "health_pointer": "/sources/job",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/northern-ireland.json?source=next_holiday",
+      "key": "next_holiday",
+      "name": "next holiday",
+      "records": "https://morningrows.com/northern-ireland.json?source=next_holiday",
+      "data_pointer": "/next_holiday",
+      "health_pointer": "/sources/next_holiday",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/northern-ireland.json?source=food_establishments",
+      "key": "food_establishments",
+      "name": "Food hygiene service establishment counts",
+      "records": "https://morningrows.com/northern-ireland.json?source=food_establishments",
+      "data_pointer": "/food_establishments",
+      "health_pointer": "/sources/food_establishments",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/northern-ireland.json?source=childhood_bmi",
+      "key": "childhood_bmi",
+      "name": "National childhood BMI aggregates",
+      "records": "https://morningrows.com/northern-ireland.json?source=childhood_bmi",
+      "data_pointer": "/childhood_bmi",
+      "health_pointer": "/sources/childhood_bmi",
+      "representation": "described_measures",
+      "measure_count": 4,
+      "measures": [
+        {
+          "id": "P1BMIOb",
+          "name": "Primary 1 children obese",
+          "geography": "Northern Ireland",
+          "unit": "percent",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=childhood_bmi&measure=P1BMIOb"
+        },
+        {
+          "id": "P1BMIOwOb",
+          "name": "Primary 1 children overweight or obese",
+          "geography": "Northern Ireland",
+          "unit": "percent",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=childhood_bmi&measure=P1BMIOwOb"
+        },
+        {
+          "id": "Y8BMIOb",
+          "name": "Year 8 children obese",
+          "geography": "Northern Ireland",
+          "unit": "percent",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=childhood_bmi&measure=Y8BMIOb"
+        },
+        {
+          "id": "Y8BMIOwOb",
+          "name": "Year 8 children overweight or obese",
+          "geography": "Northern Ireland",
+          "unit": "percent",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=childhood_bmi&measure=Y8BMIOwOb"
+        }
+      ]
+    },
+    {
+      "id": "https://morningrows.com/northern-ireland.json?source=assembly_divisions",
+      "key": "assembly_divisions",
+      "name": "assembly divisions",
+      "records": "https://morningrows.com/northern-ireland.json?source=assembly_divisions",
+      "data_pointer": "/assembly_divisions",
+      "health_pointer": "/sources/assembly_divisions",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/northern-ireland.json?source=company_insolvencies",
+      "key": "company_insolvencies",
+      "name": "company insolvencies",
+      "records": "https://morningrows.com/northern-ireland.json?source=company_insolvencies",
+      "data_pointer": "/company_insolvencies",
+      "health_pointer": "/sources/company_insolvencies",
+      "representation": "described_measures",
+      "measure_count": 6,
+      "measures": [
+        {
+          "id": "total-company-insolvencies",
+          "name": "Total company insolvencies",
+          "geography": "Northern Ireland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=company_insolvencies&measure=total-company-insolvencies"
+        },
+        {
+          "id": "compulsory-liquidations",
+          "name": "Compulsory liquidations",
+          "geography": "Northern Ireland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=company_insolvencies&measure=compulsory-liquidations"
+        },
+        {
+          "id": "creditors-voluntary-liquidations",
+          "name": "Creditors voluntary liquidations",
+          "geography": "Northern Ireland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=company_insolvencies&measure=creditors-voluntary-liquidations"
+        },
+        {
+          "id": "administrations",
+          "name": "Administrations",
+          "geography": "Northern Ireland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=company_insolvencies&measure=administrations"
+        },
+        {
+          "id": "company-voluntary-arrangements",
+          "name": "Company voluntary arrangements",
+          "geography": "Northern Ireland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=company_insolvencies&measure=company-voluntary-arrangements"
+        },
+        {
+          "id": "administrative-receiverships",
+          "name": "Administrative receiverships",
+          "geography": "Northern Ireland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/northern-ireland.json?source=company_insolvencies&measure=administrative-receiverships"
+        }
+      ]
+    }
+  ],
+  "limits": "Only existing selections. No arbitrary history, local claimant counts, rent benchmarks, daily price averages or cross-country comparability is implied. Native sections may have incomplete metadata."
+}

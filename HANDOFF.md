@@ -1,11 +1,53 @@
-# USA paid-plan continuation — 20 October2026
+# Current release — 20 October 2026
 
-User confirmed “worker upgraded”. Resume the same simpler CPI reader under
-[the explicit paid-plan contract](verification/us-paid-2026-10-20/CONTRACT.md).
-USA100ms acceptance and whole-Worker1,000ms safety ceiling are separate.
-Release remains gated on fresh actual CPU and full final acceptance.
-All Free failures below remain valid historical evidence. No monitoring state,
-source alerts, credentials or automatic Builds changes.
+The USA CPI reader is released after the user confirmed “worker upgraded”.
+Both domains match clean source `c6a96283743476af730dc2ff4bd915463e47d03c`,
+Worker `e0224d26-6bcb-4f96-a580-460919a0d195`, and fingerprint
+`42edef0b385e972f`. The rollback target remains
+`739b9031-305c-4bc7-afc5-79a82c654ac7` (source
+`7d614e2e78a63fc16f705b67e35ed0438baa7d87`).
+See [the release evidence](verification/us-paid-2026-10-20/README.md).
+
+The same single BLS series, `CUUR0000SA0`, is available through the USA desk
+and v2 catalogue; the v1 catalogue preserves its eight desks. Three fresh USA
+CPU captures measured **23 / 12 / 13 ms**, passing the **100 ms USA gate**.
+The whole-Worker **1,000 ms safety ceiling** is separate; the legacy cold sweep
+peaked at **292 ms**. This ceiling is not a monthly spending cap. All earlier
+Free-plan failures remain failed or incomplete evidence under their 10 ms gate.
+
+Validation passed **187 tests** and the build, **137 staged interface assertions**,
+**50 staged semantic checks**, and **nine actual desk schemas**. Settled production
+passed **151 checks over 104 requests** with no revision mismatches, plus smoke
+checks **18/18 on the apex domain and 17/17 on www**. The initial propagation
+check with mixed revisions is retained separately and is not a passing result.
+Credentials and disconnected automatic Builds are preserved.
+
+The reviewed collector transition adds USA through the existing serialized daily
+collection: **24 public probes / 109 source obligations**, retaining the v1 checks.
+It does not create a scheduled observation by itself. The latest actual checkpoint
+is still **sequence 5**, scheduled run `39341442350`, completed
+`2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
+with **33 incidents and 36 pending repairs**. There are **two actual scheduled
+cycles and no USA scheduled observation**. SHADOW started at
+`2026-10-18T23:22:22.161Z`; the next complete checkpoint deadline is
+`2026-10-21T01:26:10.163Z`. Keep the hourly watchdog, daily collector and disabled
+ordinary source alerts.
+
+Seven-day acceptance still requires at least eight daily scheduled checkpoints,
+seven elapsed days spanned by scheduled completions, no gap over 26 hours and a
+genuine delivery receipt. The already-announced delivery test remains unacknowledged;
+do not repeat it. NZ-PRICES remains `blocked_external_evidence` on the selected
+17 October specimen; UK CPI remains parked. This release does not complete those
+gates or the broader maintenance plan.
+
+---
+
+# Historical snapshots
+
+All sections below record their stated dates. The current release and monitoring
+state above supersede their former “unreleased”, Free-plan, scheduled-count and
+deadline statements. Preserve their evidence; do not restart those release trials.
 
 # USA cold-path edge trial — 20 October 2026
 
