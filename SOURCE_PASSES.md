@@ -191,3 +191,17 @@ Baseline: `540a3f749330226db7a3a7b3a98c4e906be618c1`. This is **not a completed 
 Added in this batch: two official API integrations (AIHW replaces a static table; NISRA is new), one existing projection repair, and one runtime-specific legislation block entry. HTTP error wrapping now preserves the original status code. The remaining candidate validations above must be finished before counting this pass as complete.
 
 The implemented portions of pass 02 are now live in release `29a2d4e`. Production checks confirm AIHW, Wales and NISRA data; legislation remains an explicit 404. Further source discovery continues from the unvalidated candidates in this table.
+
+
+## 20 October 2026 — bounded rent release and correctness queue
+
+Released two-locality MBIE/Tenancy Services market rent on the existing NZ desk.
+All29 reported tuples/116cells match separate official presentations; both-domain
+acceptance and limitations are in [the release record](verification/nz-market-rent-2026-10-20/README.md).
+Fresh claimant September data and August revisions were independently reconciled
+during release. This adds no country, key or infrastructure.
+
+The nine-desk [gap ledger](GAP-LEDGER.md) remains open. Existing Canada GDP
+semantics and parser guards are the next bounded correctness task. AEMO daily
+prices, dated BoC FX and remaining evidence gaps stay separately qualified;
+this is not a completed empty discovery pass.

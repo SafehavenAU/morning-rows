@@ -12,6 +12,7 @@ offline, and all expected requests are derived independently of report.pass.
 import argparse
 from collections import Counter
 import copy
+from datetime import date, datetime
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -37,6 +38,65 @@ def require(ok, message):
 
 def digest(value):
     return sha256(value).hexdigest()
+
+
+def valid_date_time(value):
+    """Timezone-required ISO/RFC3339 subset used by captured acquisition clocks."""
+    if not isinstance(value, str) or not re.fullmatch(
+        r"\d{4}-\d{2}-\d{2}[Tt]\d{2}:\d{2}:[0-5]\d(?:\.\d+)?(?:[Zz]|[+-](?:[01]\d|2[0-3]):[0-5]\d)", value
+    ):
+        return False
+    try:
+        parsed = datetime.fromisoformat(value.replace("t", "T").replace("z", "Z").replace("Z", "+00:00"))
+        return parsed.tzinfo is not None
+    except ValueError:
+        return False
+
+
+def valid_uri(value):
+    """Absolute ASCII URI syntax without optional jsonschema dependencies."""
+    if not isinstance(value, str) or not value.isascii() or not re.fullmatch(r"[A-Za-z][A-Za-z0-9+.-]*:\S+", value):
+        return False
+    if re.search(r'[\x00-\x20\x7f-\uffff<>"{}|\\^`]', value) or re.search(r"%(?![0-9A-Fa-f]{2})", value):
+        return False
+    try:
+        parsed = urlsplit(value)
+        if parsed.scheme.lower() in ("http", "https") and not parsed.netloc:
+            return False
+        if parsed.netloc:
+            if not parsed.hostname:
+                return False
+            parsed.port  # Validate malformed and out-of-range port numbers.
+        return True
+    except ValueError:
+        return False
+
+
+def capture_format_checker():
+    # jsonschema silently ignores formats whose optional packages are absent.
+    # Register the formats used by this evidence contract explicitly.
+    checker = FormatChecker()
+
+    @checker.checks("date-time")
+    def date_time(value):
+        return not isinstance(value, str) or valid_date_time(value)
+
+    @checker.checks("uri")
+    def uri(value):
+        return not isinstance(value, str) or valid_uri(value)
+
+    @checker.checks("date")
+    def calendar_date(value):
+        if not isinstance(value, str):
+            return True
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+            return False
+        try:
+            return date.fromisoformat(value).isoformat() == value
+        except ValueError:
+            return False
+
+    return checker
 
 
 def reject_remote_refs(node):
@@ -92,6 +152,7 @@ def verify(directory, reference_file, revision, version, domains):
         "pass": False,
         "method": "Offline original-capture status/identity/hash binding and schema validation; numeric reconciliation to separately extracted official AJAX/full-page reference, no runtime reader imported",
         "expected_revision": revision, "expected_version": version, "domains": domains,
+        "format_validation": "Explicit dependency-free URI/date/date-time checks; acquisition timestamps require a timezone, valid calendar date and seconds 00-59.",
         "inputs": inputs, "checks": checks, "transport": transport,
         "schema_checks": schema_checks, "schema_negative_controls": schema_negatives,
         "native_comparisons": comparisons, "selected_comparisons": selected_comparisons,
@@ -268,7 +329,8 @@ def verify(directory, reference_file, revision, version, domains):
                 require(item.get("url") == places[item["location_id"]]["source_url"]
                         and re.fullmatch(r"[a-f0-9]{64}", item.get("sha256", ""))
                         and type(item.get("bytes")) is int and 0 < item["bytes"] <= 131072
-                        and isinstance(item.get("retrieved_at"), str),
+                        and valid_date_time(item.get("retrieved_at"))
+                        and valid_uri(item.get("url")),
                         "Invalid original acquisition provenance")
 
         def validate_native(native):
@@ -325,6 +387,8 @@ def verify(directory, reference_file, revision, version, domains):
 
         def validate_selected(document, path):
             require(document.get("retrieval", {}).get("status") == "ok", "Selected retrieval is not healthy")
+            require(valid_date_time(document.get("retrieval", {}).get("retrieved_at")),
+                    "Selected retrieval timestamp is missing, invalid or unzoned")
             require(document.get("id") == canonical(path), "Selected canonical identity differs")
             validate_metadata(document.get("context"))
             query = parse_qs(urlsplit(path).query)
@@ -360,7 +424,7 @@ def verify(directory, reference_file, revision, version, domains):
                     "Wrong captured schema dialect or identity")
             reject_remote_refs(schema)
             Draft202012Validator.check_schema(schema)
-            validator = Draft202012Validator(schema, format_checker=FormatChecker())
+            validator = Draft202012Validator(schema, format_checker=capture_format_checker())
             full = one(origin, "/new-zealand.json")
             checked(origin + " native semantic contract", lambda: (
                 require(full.get("country") == "New Zealand"
@@ -423,6 +487,10 @@ def verify(directory, reference_file, revision, version, domains):
                 ("observation_unknown_id", selected, lambda d: d["observations"][0]["definition"].update(id="unknown")),
                 ("observation_missing_definition", selected, lambda d: d["observations"][0].pop("definition")),
                 ("observation_non_numeric_value", selected, lambda d: d["observations"][0].update(value="470")),
+                ("native_provenance_invalid_datetime", full, lambda d: d["market_rent"]["provenance"][0].update(retrieved_at="unknown")),
+                ("native_provenance_unzoned_datetime", full, lambda d: d["market_rent"]["provenance"][0].update(retrieved_at="2026-10-20T07:05:00")),
+                ("observation_relative_uri", selected, lambda d: d["observations"][0].update(id="/new-zealand.json")),
+                ("selected_id_malformed_uri", selected, lambda d: d.update(id="https://morningrows.com/%ZZ")),
             ]
             for name, original, change in mutations:
                 mutated = copy.deepcopy(original)

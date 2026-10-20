@@ -1,9 +1,9 @@
 # New Zealand local market-rent benchmarks
 
-**20 October 2026 — implementation and independent publisher evidence prepared;
-live acceptance and release are pending.** This record does not claim a deployed
-reader, successful Cloudflare acquisition, production acceptance or a new
-scheduled monitoring observation.
+**20 October 2026 — deployed and accepted on both production domains.** Rent,
+claimant, core, schema, semantic, CPU and smoke checks pass for the bounded
+release described here. This record does not create a new scheduled monitoring
+observation or complete the broader maintenance plan.
 
 The bounded task adds weekly rent quartiles and a separately defined active-bond
 count for **Auckland - Avondale** and **Wellington - Kelburn** to the existing New
@@ -123,17 +123,136 @@ negative responses, HEAD and conditional GET semantics, validates against the
 captured `/schema.json`, and reconciles actual response cells to the independent
 publisher reference. It refuses existing output paths.
 
-Its tooling rehearsal used explicitly labelled **constructed offline captures**,
-not a remote preview: 31 requests, 116 native cells, 19 selected responses
-containing 134 observation cells, 21 schema documents and 20 schema negative
-controls passed. Six explicit refusals and two bodyless responses were checked.
-The replay does not establish real HTTP behaviour or count as publisher
-acquisition, Cloudflare execution, production evidence or a scheduled run.
+The initial tooling rehearsal used explicitly labelled **constructed offline
+captures**, not a remote preview. Subsequent [format controls](format-validation-controls.json)
+confirmed that this Python installation lacked optional URI and date-time
+checkers. The verifier now registers explicit dependency-free checks and
+separately validates timezone-aware retrieval/provenance timestamps. All
+**19 format controls** passed; its updated offline rehearsal passed **24 schema
+negative controls**. These rehearsals are tooling evidence, not publisher
+acquisition, production evidence or scheduled runs.
 
-**Still pending:** actual protected-reader fault checks, live versioned preview,
-the paid CPU gates, full-nine-desk preservation checks, exact production release
-identity and both-domain acceptance. Those outcomes must be recorded from their
-original retained captures before this task is described as released.
+The existing claimant capture runner now accepts an explicitly selected
+`CLAIMANT_REFERENCE`, retaining the historical default. It validates the
+independent reference's 65 cells and thirteen consecutive national months,
+records the resolved path and hash, and refuses capture overwrites.
+[Fifteen offline controls](claimant-reference-controls.json) pass. A constructed
+next-window control is labelled as such; it is not a new official reference.
+
+## Actual staged Cloudflare results
+
+The zero-percent candidate has clean source
+`f85224e6a9ee601d9e706ffab2cd133d3697c272`, Worker
+`b2a562a7-d137-4376-a6ca-54f29f1415ad` and fingerprint
+`d06c032d78d73a12`. All results in this section concern this candidate or the
+explicitly identified protected fault harness; they do not establish a
+production promotion.
+
+[Local validation](local-validation.json) passed **287 tests** and the build.
+The [actual protected Cloudflare harness](fault-preview.json) passed **21
+constructed scenarios**. These include normal and exact selections, unretained
+and absent tuples, a single-statistic revision, numeric zero, one-locality
+failure with the healthy sibling preserved, and rejected transport, malformed
+payload, geography, category, currency, quartile and period faults. The revised
+median changes only that statistic's version; zero remains observed. These are
+21 scenarios, not 21 independently observed publisher failures. Source and
+fixture hashes were unchanged during the harness run.
+
+| Actual candidate CPU measurement | Measured CPU | Separate acceptance budget | Evidence |
+| --- | ---: | ---: | --- |
+| Cold USA CPI selected request | 9 ms | 100 ms | [USA](usa-cpu.json) |
+| Maximum across the eight legacy full desks, on New Zealand | 296 ms | 500 ms | [Legacy desks](legacy-cpu.json) |
+| Fresh selected rent acquisition on www | 361 ms | 500 ms | [Rent source](rent-source-cpu.json) |
+
+The CPU evidence confirms matching candidate identities, cold/fresh acquisitions
+and unchanged deployment allocation. These measured budgets are separate from
+the configured Worker ceiling and are not spend forecasts.
+
+The [actual staged rent interface](staged-rent/rent-interface-report.json)
+passed **112 checks over 31 requests**, from **07:31:27.349 to 07:31:35.035 UTC**.
+The returned source provenance records Avondale and Kelburn acquisitions at
+**07:31:30.803** and **07:31:30.683 UTC**, with original response hashes matching
+the independently retained publisher specimens.
+
+[Offline reconciliation of those original captures](staged-rent-validation.json)
+passes **116 native numeric cells across 29 tuples**, **19 successful selected
+responses containing 134 observation cells**, **21 captured schema documents**
+and **24 schema negative controls**. It validates all request/body hashes and
+identities, six explicit refusals, and matching-ETag empty HEAD/304 responses.
+The refusals cover a known absent apartment tuple, unsupported Christchurch
+locality, an unretained window, incompatible geography/date filters and a
+duplicate source selector. No existing failed capture was overwritten.
+
+The [captured nine-desk semantic suite](staged-semantic.json) passes **50
+checks**, including all 23 Stats NZ values, 40 AIHW jurisdiction/triage cells,
+the Wales projection, four NISRA aggregates, NZ prices, USA CPI and the
+established earlier additions. Those bounded checks do not certify every
+native field or imply all publishers are healthy.
+
+## Production results and claimant release refresh
+
+Deployment `663484b4-bf7d-4d3e-8b66-1320fcdd8876` promoted Worker
+`b2a562a7-d137-4376-a6ca-54f29f1415ad` to **100% at
+2026-10-20T07:35:25.569148Z**, preserving clean source
+`f85224e6a9ee601d9e706ffab2cd133d3697c272` and fingerprint
+`d06c032d78d73a12`. Both production-domain captures match that identity.
+The rollback target is the prior claimant release: Worker
+`21582063-b7df-456b-ba2f-4f629f9cc63d`, source
+`983904912d512b054ae3a7fa1cd1e6a65c353036`, fingerprint
+`5a0a0fe53d5f160c`.
+
+The [production rent interface](production-rent/rent-interface-report.json)
+passed **224 checks over 62 requests**, from **07:35:51.929 to
+07:36:04.874 UTC**. [Independent capture validation](production-rent-validation.json)
+passes **232 native numeric cells across 58 tuples**, **38 selected responses
+containing 268 observation cells**, **42 captured schema documents** and **48
+schema negative controls** across apex and www. All twelve explicit refusals
+and four HEAD/304 responses satisfy their expected status, body, identity and
+ETag checks. The rent window remains March–August 2026; production did not
+substitute a different period or locality.
+
+During validation, Nomis legitimately advanced the existing claimant reader to
+**September 2025–September 2026**. The
+[separate refreshed evidence](claimant-refresh/README.md) independently matches
+all **65 national CSV/JSON cells** and their reference/revision metadata, and
+matches the already acquired cold candidate bodies. September is revision 0;
+August is revised from version 0 to version 1. The publisher release string
+`2026-10-20 07:00:00` remains unzoned because its timezone is not established.
+The prior August-vintage evidence remains unchanged.
+
+A separately extracted official NISRA October workbook verifies the one directly
+comparable September NI aggregate, **34,225**, against Nomis. This is one
+independent presentation with shared administrative lineage, not thirteen exact
+NI historical matches or an independent population enumeration. It does not
+alter the administrative, non-seasonally-adjusted, age-16-plus claimant-count
+definition or turn these values into unemployment estimates.
+
+The [staged claimant reconciliation](staged-claimant-validation.json) passes
+65 cells, 20 successful selectors and 15 negative responses, with
+[25 schema documents and 185 negative controls](staged-claimant-schemas.json).
+The [production claimant interface](production-claimants/claimant-interface-report.json)
+passes **366 checks over 112 requests**.
+[Production reconciliation](production-claimant-validation.json) passes **130
+cells, 40 successful selectors and 30 negative responses**.
+[Final production schema validation](production-claimant-schemas-final.json)
+passes **50 documents and 370 negative controls**. The
+[initial schema attempt](production-claimant-schemas.json) is retained: it read
+the wrong schema-capture directory and stopped before checking any documents.
+Correcting that input path required no reader change; the failed attempt was
+not overwritten.
+
+The [general production interface](production-core/report.json) passes **151
+checks over 104 requests**. Its [schema/reference and source-state review](production-core-validation.json)
+passes **24 schema documents**, **26 USA CPI calendar slots** and **230 source
+state comparisons**. The four changes are acknowledged intermittent TfL
+availability changes; none remains classified as requiring review. Source
+availability comparisons do not independently certify every native value.
+
+The [apex](production-apex-semantic.json) and
+[www](production-www-semantic.json) semantic suites each pass **50 checks**.
+Final smoke passes **18 checks on [apex](smoke-apex.json)** and **17 checks on
+[www](smoke-www.json)**. These complete the bounded production release gates;
+SHADOW, delivery and unrelated evidence gates remain unresolved separately.
 
 ## Reproduction
 
@@ -164,3 +283,10 @@ alerts, change the hourly watchdog/daily collector or create scheduled evidence.
 ## Runtime preparation
 
 The full local build and 287 Node tests pass. [Protected Cloudflare testing](fault-preview.json) passes21 constructed cases through the actual reader/selector, including per-place failure isolation, explicit zero, a single-cell revision, bad units/geography, mixed/future windows and transport/parse failures. The checked code hashes stayed unchanged. This is not live publisher or production acceptance. [Local validation](local-validation.json) records the completed preparation gates.
+
+Final evidence/configuration integration passes **288 repository tests and the build**.
+The source candidate passed287 tests before upload. The additional constructed
+replay harness initially used mutable active review inputs and failed after
+activation; it now pins the retained pre-rent review/approvals matching its
+historical August fixture. This was a test-fixture correction, with no runtime
+change. [Final local validation](final-local-validation.json) retains the boundary.

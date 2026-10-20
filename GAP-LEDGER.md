@@ -12,7 +12,7 @@ and readiness must be checked under each next contract.
 | Desk | Existing boundary and next useful depth |
 | --- | --- |
 | Australia | Current five-region AEMO snapshot cannot answer a completed day's price history. AEMO completed-day summaries are the next build. Preserve AIHW and other existing sources. |
-| New Zealand | Two-locality market rent is **in progress**, under its [own contract](verification/nz-market-rent-2026-10-20/CONTRACT.md); this ledger does not mark it released. Stats NZ's 23-series independent reconciliation remains open. Selected NZ-PRICES verification remains blocked. |
+| New Zealand | Two-locality market rent is **released and awaiting scheduled observation**, under its [own contract](verification/nz-market-rent-2026-10-20/CONTRACT.md); both-domain release evidence is retained with that contract. Stats NZ's 23-series independent reconciliation remains open. Selected NZ-PRICES verification remains blocked. |
 | Canada | Four latest BoC currency pairs are released and qualified. Bounded dated FX history is next after AEMO; preserve the existing latest response. |
 | United Kingdom | Thirteen-month national claimant history is released. UK CPI remains parked. No additional UK series is selected here. |
 | England | National claimant history and pharmacy measures are established. UK-wide series already labelled as such must not become England-specific answers. CQC remains an unvalidated aggregate-task lead. |
@@ -28,6 +28,14 @@ those gates. Preserve the hourly watchdog, daily collector, disabled ordinary
 source alerts, disconnected Builds and serialized reviewed release lineage.
 
 ## Ranked next contracts
+
+Priority update after the live rent release: the existing Canada GDP contract is
+selected next because its correct sampled values lack essential unit/annual-rate
+and quarter metadata, and its parser trusts response ordering. Fresh official
+metadata and dated release tables establish a bounded correction. AEMO remains
+the next new coverage candidate; its sampled independent dispatch comparison
+covers16/576 cells and its midnight cache boundary requires implementation.
+
 
 1. **AEMO completed-day wholesale prices — medium effort, highest next build
    value.** Begin with SA1 and VIC1, one explicitly selected calendar day in fixed
@@ -78,7 +86,31 @@ source alerts, disconnected Builds and serialized reviewed release lineage.
    public-evidence lookup is pending at this audit timestamp. No reader defect
    or completed 23-series verification is claimed.
 
-4. **Wales WRA typed depth — small implementation, separate evidence gate.**
+4. **Recovered StatCan headline readers — high existing correctness priority,
+   currently unverified semantics.** The five existing `jobs`, `price_index`,
+   `shop`, `product` and `homes` readers in [worker.js](worker.js) use fixed
+   coordinates and positional API results. They do not currently validate the
+   returned series identity, units/scalar factors, status flags or all selected
+   period relationships. The jobs reader labels results by response-array
+   position; the GDP calculation assumes two compatible points in chronological
+   order. A healthy response could therefore produce a plausible but wrongly
+   labelled value or quarterly change. This is a code-supported risk, **not a
+   demonstrated wrong current observation**; no publisher requests were made
+   for this audit. Monitor recovery proves transport resumed, not numerical or
+   semantic correctness: these sections currently receive native-availability
+   checks without independently approved observation versions.
+   Start one bounded contract after the rent release, preferably the existing
+   GDP level and quarterly-change calculation for table `36-10-0104` at
+   coordinate `1.1.1.30.0.0.0.0.0.0`. Establish the exact economic measure,
+   price basis, units/scalar, adjustment, reference-quarter convention and
+   revision behaviour from original metadata, then reconcile the two exact
+   selected values with a separately presented official table. Test reversed
+   and duplicate periods, response reordering, wrong coordinates, missing or
+   suppressed values, incompatible units and zero/invalid denominators.
+   Preserve the existing Canadian siblings and do not substitute another
+   series before that evidence exists.
+
+5. **Wales WRA typed depth — small implementation, separate evidence gate.**
    Define stable measures for the four existing completed-financial-year cells
    in [the reader](lib/fiscal-observations.js). Inclusive and restricted-detail
    totals overlap; these are GBP million tax due, not receipts or property
@@ -86,7 +118,7 @@ source alerts, disconnected Builds and serialized reviewed release lineage.
    [fixture](test/fixtures/wra-tax.csv) supports deterministic checks; additional
    independent publisher presentation is required before stronger assurance.
 
-5. **NZ fleet and Scottish traffic edition discovery — bounded maintenance.**
+6. **NZ fleet and Scottish traffic edition discovery — bounded maintenance.**
    Check for replacement editions for the same eight fleet and four traffic
    measures in [the existing readers](lib/transport-observations.js). Preserve
    the old named-release evidence and revise only after matching table,

@@ -1,0 +1,53 @@
+{
+  "enabled": true,
+  "scope": "eight-legacy-plus-us-cpi",
+  "from": {
+    "source_revision": "7d614e2e78a63fc16f705b67e35ed0438baa7d87",
+    "source_dirty": false,
+    "build_fingerprint": "44967a5319167783",
+    "worker_version": "739b9031-305c-4bc7-afc5-79a82c654ac7"
+  },
+  "to": {
+    "source_revision": "c6a96283743476af730dc2ff4bd915463e47d03c",
+    "source_dirty": false,
+    "build_fingerprint": "42edef0b385e972f",
+    "worker_version": "e0224d26-6bcb-4f96-a580-460919a0d195"
+  },
+  "evidence": "verification/us-paid-2026-10-20/README.md",
+  "reason": "Exact validated USA CPI release; preserve existing state; actual transition only in serialized collector",
+  "continuations": [
+    {
+      "from": {
+        "source_revision": "c6a96283743476af730dc2ff4bd915463e47d03c",
+        "source_dirty": false,
+        "build_fingerprint": "42edef0b385e972f",
+        "worker_version": "e0224d26-6bcb-4f96-a580-460919a0d195"
+      },
+      "to": {
+        "source_revision": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+        "source_dirty": false,
+        "build_fingerprint": "5a0a0fe53d5f160c",
+        "worker_version": "21582063-b7df-456b-ba2f-4f629f9cc63d"
+      },
+      "scope": "nine-desks-plus-claimants",
+      "evidence": "verification/claimant-count-2026-10-20/README.md"
+    },
+    {
+      "from": {
+        "source_revision": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+        "source_dirty": false,
+        "build_fingerprint": "5a0a0fe53d5f160c",
+        "worker_version": "21582063-b7df-456b-ba2f-4f629f9cc63d"
+      },
+      "to": {
+        "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+        "source_dirty": false,
+        "build_fingerprint": "d06c032d78d73a12",
+        "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad"
+      },
+      "scope": "nine-desks-plus-claimants-and-nz-rent",
+      "evidence": "verification/nz-market-rent-2026-10-20/README.md"
+    }
+  ],
+  "proposal_only": "Constructed prerelease input. Active operations review unchanged; does not authorize or establish production acceptance."
+}

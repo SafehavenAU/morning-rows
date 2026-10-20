@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-20T07:36:51.412512+00:00",
+  "method": "Offline Draft 2020-12 and format assertions against captured schema.json; semantic mutations of actual captured responses",
+  "capture_directory": "/workspace/morning-rows-rent/verification/nz-market-rent-2026-10-20/production-claimants",
+  "schema_capture_directory": "/workspace/morning-rows-rent/verification/nz-market-rent-2026-10-20/staged-core",
+  "inputs": [
+    {
+      "file": "/workspace/morning-rows-rent/verification/nz-market-rent-2026-10-20/production-claimants/claimant-interface-report.json",
+      "bytes": 182231,
+      "sha256": "424a062735276891425471f385ce7159797f074f3f6e47ef5d71336166f10afe"
+    }
+  ],
+  "schema_checks": [],
+  "negative_contracts": [],
+  "windows": [],
+  "limitations": [
+    "This checks retained capture consistency, schema behavior and bounded history. It makes no HTTP requests and cannot independently authenticate a supplied capture.",
+    "Schema acceptance is separate from publisher numerical reconciliation, CPU acceptance, production promotion and sustained monitoring.",
+    "Negative cases are mutations of actual captures, not additional publisher observations.",
+    "Historical fixtures and constructed fault previews are not used as actual-release proof."
+  ],
+  "pass": false,
+  "capture_kind": "Production interface",
+  "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+  "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad",
+  "error": "[Errno 2] No such file or directory: '/workspace/morning-rows-rent/verification/nz-market-rent-2026-10-20/staged-core/report.json'"
+}

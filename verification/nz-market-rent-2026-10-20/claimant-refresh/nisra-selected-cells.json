@@ -1,0 +1,83 @@
+{
+  "source_url": "https://www.nisra.gov.uk/system/files/statistics/2026-10/lmr-claimant-count-tables-october-2026.xlsx",
+  "source_sha256": "9d7d881f0d68767182f2636e3bf28b04eba391f0d8d95d5325c739254c3e61cb",
+  "nomis_csv_sha256": "c95b1b549d43219577f1beb8f90996c217e1027b07bc410770fe7de1c96267d0",
+  "nomis_time_sha256": "6e72bef5d71345f012148f50758553cd58410eb1c798234e8b41480f1549ac6b",
+  "workbook_latest_period": "2026-09",
+  "nomis_latest_period": "2026-09",
+  "nomis_reference_date": "2026-09-10",
+  "nomis_release_as_supplied": "2026-10-20 07:00:00",
+  "nomis_revision": 0,
+  "nomis_publication_timezone": "Not supplied in the retained annotation",
+  "published_as_supplied": "The data tables within this spreadsheet were published at 7.00am on 20 October 2026",
+  "publication_timezone": "Not supplied by this workbook; do not append a timezone",
+  "extraction": "Independent Python stdlib XLSX relationships/shared-string extraction; reused historical extractor helper, no runtime reader",
+  "attribution": "NISRA; Crown copyright / Open Government Licence",
+  "licence_url": "https://www.nisra.gov.uk/crown-copyright",
+  "licence_evidence": "Reuse the same-day 04:41 UTC acquisition in verification/claimant-count-2026-10-20/original/nisra-acquisition.json; no additional permission endpoint requested",
+  "selected_cells": {
+    "Cover Sheet": {
+      "A1": "Claimant Count Tables, October 2026",
+      "A5": "The data tables within this spreadsheet were published at 7.00am on 20 October 2026"
+    },
+    "LGD_11": {
+      "A1": "Table 3a: Claimant Count by Local Government District (LGD) (experimental statistics) [notes 1, 2, 4, 5, 6, 7]",
+      "A4": "This dataset only includes claimant records with information to sufficiently classify them within the dataset.",
+      "A5": "Totals from this dataset may not tally with the total number of claim records shown in Table 1 as a small number of records do not have this information.",
+      "A6": "Totals are rounded to the nearest 5 and may not sum due to rounding. Rates are based on unrounded totals.",
+      "A7": "Local Government District",
+      "D7": "Total number of claimants",
+      "A19": "Northern Ireland",
+      "D19": "34225"
+    },
+    "Headline": {
+      "A5": "Five week months are denoted by a [2], (r) is revised and (p) is provisional",
+      "I6": "Table 1b: Non seasonally adjusted claimant count by sex in thousands",
+      "N7": "Claimant count all people",
+      "I360": "2026 Aug [r] [2]",
+      "N360": "33.514",
+      "I361": "2026 Sep [p]",
+      "N361": "34.228"
+    },
+    "Notes": {
+      "B3": "The experimental Claimant Count consists of claimants of Jobseekers Allowance (JSA) and some Universal Credit (UC) Claimants. The UC claimants that are included are those claimants of Universal Credit who are required to search for work, i.e. within the Searching for Work conditionality regime as defined by the Department for Communities (DfC).",
+      "B4": "Under certain circumstances, some people are able to claim both contribution-based Jobseekers Allowance and Universal Credit at the same time. We do not currently have timely enough information to identify these individuals prior to producing the Claimant Count. Consequently, there has been a small amount of double counting. Information from DWP suggests this double counting increased at the start of the pandemic and has stabilised at approximately 1.0 to 1.5% of the Claimant Count. We will monitor this rate and provide further updates if the rate shifts outside of these boundaries.",
+      "B7": "The experimental claimant count is subject to revisions as the measure continues to be developed. Due to a change in the methodology used to identify appropriate UC cases, the seasonally adjusted series have been revised back to January 2016, and the non-seasonally adjusted revised back to September 2017.",
+      "B8": "The experimental claimant count series includes all JSA and those UC claimants who were claiming principally for the reason of being unemployed. The estimates are based on the UC information available at the time of producing each figure and revised one month after initial publication. The residence-based rate is calculated by expressing the numbers of claimants as a percentage of the resident working age population (16-64) at mid 2022. Universal credit rollout timetable is available on the NI Direct website on the link below"
+    }
+  },
+  "exact_comparisons": [
+    {
+      "period": "2026-09",
+      "geography": "Northern Ireland",
+      "geography_code": "N92000002",
+      "nisra_cell": "LGD_11!D19",
+      "nisra_value": 34225,
+      "nomis_value": 34225,
+      "difference": 0,
+      "unit": "persons, rounded to nearest five",
+      "adjustment": "not seasonally adjusted",
+      "coverage": "Geographically classified claimant records; insufficient-geography records can be excluded",
+      "pass": true
+    }
+  ],
+  "headline_context": {
+    "period": "2026-09",
+    "period_cell": "Headline!I361",
+    "value_cell": "Headline!N361",
+    "raw_thousands": "34.228",
+    "count": 34228,
+    "difference_from_geographically_classified_rounded_nomis": 3,
+    "comparison_kind": "context_only_different_geographical_classification_and_rounding",
+    "previous_month_revision_label": "2026 Aug [r] [2]",
+    "previous_month_raw_thousands": "33.514"
+  },
+  "limitations": [
+    "Exactly one comparable latest Northern Ireland observation; not thirteen like-for-like historical confirmations.",
+    "Headline 34,228 is context only, not an alternative to geographically classified rounded 34,225.",
+    "NISRA and Nomis share upstream administrative statistics; separate publication/extraction is not independent population measurement.",
+    "September 2026 is provisional and August is revised in this October vintage; older retained August evidence is not overwritten.",
+    "Administrative JSA/relevant UC claimant count, not ILO unemployment or available recruits.",
+    "Workbook and release-page originals remain outside the repository; staff contacts are omitted."
+  ]
+}

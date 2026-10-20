@@ -1,0 +1,197 @@
+{
+  "task_id": "nz-local-market-rent-2026-10-20",
+  "phase": "released_observing",
+  "authorization": "User: keep building dont stop; find all gaps and keep filling them",
+  "scope": "Two fixed NZ localities: Auckland - Avondale and Wellington - Kelburn; weekly rent quartiles and separately defined active-bond counts",
+  "contract": "verification/nz-market-rent-2026-10-20/CONTRACT.md",
+  "evidence": "verification/nz-market-rent-2026-10-20/README.md",
+  "release_accepted": true,
+  "deployed": true,
+  "identity": {
+    "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+    "source_dirty": false,
+    "build_fingerprint": "d06c032d78d73a12",
+    "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad"
+  },
+  "deployment_id": "663484b4-bf7d-4d3e-8b66-1320fcdd8876",
+  "promoted_at": "2026-10-20T07:35:25.569148Z",
+  "accepted_at": "2026-10-20T07:40:49.489780+00:00",
+  "rollback_identity": {
+    "source_revision": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+    "source_dirty": false,
+    "build_fingerprint": "5a0a0fe53d5f160c",
+    "worker_version": "21582063-b7df-456b-ba2f-4f629f9cc63d"
+  },
+  "initial_verified_window": {
+    "start": "2026-03-01",
+    "end": "2026-08-31",
+    "localities": 2,
+    "reported_rows": 29,
+    "numeric_cells": 116,
+    "supported_definitions": 200,
+    "production_native_cells": 232,
+    "production_selected_cells": 268
+  },
+  "independence_limit": "Separate extraction of official AJAX and separately selected full-page tables matches every reported tuple/cell; shared MBIE administrative/statistical lineage, not independent underlying statistical estimation. Provisional migration and revision caveats remain.",
+  "validation": {
+    "node_tests": 288,
+    "protected_fault_cases": 21,
+    "general_interface_checks": 151,
+    "rent_interface_checks": 224,
+    "rent_schema_documents": 42,
+    "rent_schema_negatives": 48,
+    "claimant_interface_checks": 366,
+    "claimant_original_cells": 65,
+    "claimant_production_cells": 130,
+    "claimant_schema_documents": 50,
+    "claimant_schema_negatives": 370,
+    "existing_schema_documents": 24,
+    "existing_semantic_checks": 100,
+    "usa_reference_slots": 26,
+    "apex_smoke_checks": 18,
+    "www_smoke_checks": 17,
+    "usa_cold_ms": 9,
+    "cold_legacy_max_ms": 296,
+    "fresh_rent_source_ms": 361,
+    "legacy_cpu_gate_ms": 500,
+    "usa_cpu_gate_ms": 100,
+    "worker_cpu_ceiling_ms": 1000,
+    "source_commit_node_tests": 287
+  },
+  "monitor_obligations": 115,
+  "public_probes": 24,
+  "source_alerts_enabled": false,
+  "checkpoint_mutated": false,
+  "complete_market_rent_scheduled_runs": 0,
+  "market_rent_shadow_started_at": null,
+  "remaining_operational_gates": [
+    "First actual scheduled collection under reviewed rent scope",
+    "At least eight complete daily scheduled checkpoints spanning seven elapsed days, no gap over26h",
+    "Independent watchdog proof and genuine delivery receipt; existing NZ-PRICES/CPI evidence gates remain unresolved"
+  ],
+  "resume_condition": "Observe normal serialized daily collector; routine monitoring does not authorize repeated release or new implementation.",
+  "evidence_files": [
+    {
+      "file": "verification/nz-market-rent-2026-10-20/local-validation.json",
+      "sha256": "e8b0e83954d70907b8b7d7c71b9ecb898824ccb1819581599d08a51a69a857d7"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/fault-preview.json",
+      "sha256": "8cb7fe1dea7df110f4228c6bf956e6ae2d8ae6574840ff798941f1573b705c6d"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/staged-core/staged-preview-report.json",
+      "sha256": "874fabb265c0400f8addfd7cfdee05ea097fe2a7754e7d31b070dddfa7513243"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/staged-semantic.json",
+      "sha256": "8065f459dfa780f9a2026cf1e4f3c9cd6a61c3502aa20c5c7f53105ed832cd64"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/staged-desk-schemas.json",
+      "sha256": "2ea1ca7b34f4cb77260d7977eb6af23a82d57e4f57598cd7244b61d63aa00362"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/staged-rent/rent-interface-report.json",
+      "sha256": "3f82db7363a538ab3d0a40ce548bb643f0a28118ded5253453caba8052075287"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/staged-rent-validation.json",
+      "sha256": "297ce21bcb9375b8c4e5c3e584298b63f5cf65c7fdb731ce6bd8332b294c2886"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/staged-claimant-validation.json",
+      "sha256": "f1c8bc5ca4223a5879ff9ae3dbc5331c1dd47b1d3adb4fd6de596ff40c6bd3b3"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/staged-claimant-schemas.json",
+      "sha256": "f26e17671ed9214f8de0f47214003a79bda3f3269fd8d029e1b5f90e8725093e"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/report.json",
+      "sha256": "3024286af4568f2b3e4aa79ef6ea8976df06a883bfda1bb02a9f72098f6b475e"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core-validation.json",
+      "sha256": "5f44144aea70fcf26076d68f28798e0fb10268a1e177c3f44e696d5373e0d018"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-apex-semantic.json",
+      "sha256": "49f08cd63f3fe591d2aec0d0cfb6c9103e5b56df1179518a6e902bef6c4c31ff"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-www-semantic.json",
+      "sha256": "4e6a895b811116298799a922ebcdaabaa623cd46dcfdcae536c920ab0aadd058"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-rent/rent-interface-report.json",
+      "sha256": "aa93212545ea3899121f2a2fe3f79dfda2f2f89c01312a028aa13a77c7776814"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-rent-validation.json",
+      "sha256": "b583abf92f5ef76187c67d6d1bc2ab2f2640fbc58a7f89435b1112236319c0e7"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-claimants/claimant-interface-report.json",
+      "sha256": "424a062735276891425471f385ce7159797f074f3f6e47ef5d71336166f10afe"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-claimant-validation.json",
+      "sha256": "49756e77c84b45494ea7cfb78ce08f08ba56725dc42f09c1595c5a6e8491c2de"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-claimant-schemas-final.json",
+      "sha256": "f5e9fcdb2e662cde61c2818712d3495412f3376fc78c1c0061e0a01e8344698a"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/usa-cpu.json",
+      "sha256": "bbb92247edf01fded6bb7fb35d6d4d41a4757b1cd4ad8dbf19e5332cfcde0e7a"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/legacy-cpu.json",
+      "sha256": "c04fd8910bb624102bb3c511f207071271db7c5520dddb8d68e92e4b7827109c"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/rent-source-cpu.json",
+      "sha256": "88c6de1d0fa36cdf76d9592e64c33dfdd1bdfb83b1acb521bb6bc66719ab7314"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/smoke-apex.json",
+      "sha256": "401e02f4bebb1b27b47d61839ec21db7ef3c18e998e623df9d57ca9ea0fc6c61"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/smoke-www.json",
+      "sha256": "73532cd5b143b2e9efb8367c8db2499e9bc94bfa3a39d689202feb28a2bc6ae1"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/independent-report.json",
+      "sha256": "c4f5e6a571d0f2d47f60d9e746eb54ac6826b7c784f762516b0da1ac399b2b55"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+      "sha256": "6e35c48d68fb0f072bf697f0b520c755e231334f0b2e5168a94514faefd62d0e"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/final-local-validation.json",
+      "sha256": "299fe7404ac8b57705bd019522133691820d6f580de3b399e12efefb297d6285"
+    }
+  ],
+  "pass": true,
+  "claimant_refresh": {
+    "period_start": "2025-09",
+    "period_end": "2026-09",
+    "reference": "verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+    "reference_sha256": "6e35c48d68fb0f072bf697f0b520c755e231334f0b2e5168a94514faefd62d0e",
+    "original_cells": 65,
+    "production_cells": 130,
+    "separate_NISRA_comparable_cells": 1,
+    "note": "New September month plus all five August revisions independently reconciled. Prior August release proof retained; shared administrative lineage.",
+    "identity": {
+      "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+      "source_dirty": false,
+      "build_fingerprint": "d06c032d78d73a12",
+      "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad"
+    }
+  },
+  "retained_tooling_failure": "production-claimant-schemas.json is an initial wrong schema-directory invocation; it validated zero bodies. Correct same original captures pass in production-claimant-schemas-final.json; no runtime failure is hidden."
+}

@@ -1,0 +1,256 @@
+{
+  "name": "Morning Rows",
+  "site": "https://morningrows.com",
+  "schema_version": "1.0",
+  "schema": "https://morningrows.com/schema.json",
+  "auth": "none",
+  "index": "/llms.txt",
+  "id": "https://morningrows.com/catalog.json?desk=canada",
+  "desk": "Canada",
+  "records": "https://morningrows.com/canada.json",
+  "sources": [
+    {
+      "id": "https://morningrows.com/canada.json?source=jobs",
+      "key": "jobs",
+      "name": "Unemployment by state or province",
+      "records": "https://morningrows.com/canada.json?source=jobs",
+      "data_pointer": "/jobs",
+      "health_pointer": "/sources/jobs",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=price_index",
+      "key": "price_index",
+      "name": "Consumer price index",
+      "records": "https://morningrows.com/canada.json?source=price_index",
+      "data_pointer": "/price_index",
+      "health_pointer": "/sources/price_index",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=shop",
+      "key": "shop",
+      "name": "Retail sales",
+      "records": "https://morningrows.com/canada.json?source=shop",
+      "data_pointer": "/shop",
+      "health_pointer": "/sources/shop",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=rate",
+      "key": "rate",
+      "name": "rate",
+      "records": "https://morningrows.com/canada.json?source=rate",
+      "data_pointer": "/rate",
+      "health_pointer": "/sources/rate",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=exchange",
+      "key": "exchange",
+      "name": "Exchange rates",
+      "records": "https://morningrows.com/canada.json?source=exchange",
+      "data_pointer": "/exchange",
+      "health_pointer": "/sources/exchange",
+      "representation": "described_measures",
+      "measure_count": 4,
+      "measures": [
+        {
+          "id": "FXUSDCAD",
+          "name": "US dollar to Canadian dollar daily average",
+          "geography": "Currency pair; not subnational geography",
+          "unit": "CAD per 1 USD",
+          "kind": "observation",
+          "records": "https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD"
+        },
+        {
+          "id": "FXAUDCAD",
+          "name": "Australian dollar to Canadian dollar daily average",
+          "geography": "Currency pair; not subnational geography",
+          "unit": "CAD per 1 AUD",
+          "kind": "observation",
+          "records": "https://morningrows.com/canada.json?source=exchange&measure=FXAUDCAD"
+        },
+        {
+          "id": "FXGBPCAD",
+          "name": "UK pound to Canadian dollar daily average",
+          "geography": "Currency pair; not subnational geography",
+          "unit": "CAD per 1 GBP",
+          "kind": "observation",
+          "records": "https://morningrows.com/canada.json?source=exchange&measure=FXGBPCAD"
+        },
+        {
+          "id": "FXNZDCAD",
+          "name": "New Zealand dollar to Canadian dollar daily average",
+          "geography": "Currency pair; not subnational geography",
+          "unit": "CAD per 1 NZD",
+          "kind": "observation",
+          "records": "https://morningrows.com/canada.json?source=exchange&measure=FXNZDCAD"
+        }
+      ]
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=product",
+      "key": "product",
+      "name": "Gross domestic product",
+      "records": "https://morningrows.com/canada.json?source=product",
+      "data_pointer": "/product",
+      "health_pointer": "/sources/product",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=bonds",
+      "key": "bonds",
+      "name": "bonds",
+      "records": "https://morningrows.com/canada.json?source=bonds",
+      "data_pointer": "/bonds",
+      "health_pointer": "/sources/bonds",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=homes",
+      "key": "homes",
+      "name": "homes",
+      "records": "https://morningrows.com/canada.json?source=homes",
+      "data_pointer": "/homes",
+      "health_pointer": "/sources/homes",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=ontario",
+      "key": "ontario",
+      "name": "ontario",
+      "records": "https://morningrows.com/canada.json?source=ontario",
+      "data_pointer": "/ontario",
+      "health_pointer": "/sources/ontario",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=rivers",
+      "key": "rivers",
+      "name": "rivers",
+      "records": "https://morningrows.com/canada.json?source=rivers",
+      "data_pointer": "/rivers",
+      "health_pointer": "/sources/rivers",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=quakes",
+      "key": "quakes",
+      "name": "quakes",
+      "records": "https://morningrows.com/canada.json?source=quakes",
+      "data_pointer": "/quakes",
+      "health_pointer": "/sources/quakes",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=recalls",
+      "key": "recalls",
+      "name": "recalls",
+      "records": "https://morningrows.com/canada.json?source=recalls",
+      "data_pointer": "/recalls",
+      "health_pointer": "/sources/recalls",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=mortgages",
+      "key": "mortgages",
+      "name": "mortgages",
+      "records": "https://morningrows.com/canada.json?source=mortgages",
+      "data_pointer": "/mortgages",
+      "health_pointer": "/sources/mortgages",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=posted_rates",
+      "key": "posted_rates",
+      "name": "posted rates",
+      "records": "https://morningrows.com/canada.json?source=posted_rates",
+      "data_pointer": "/posted_rates",
+      "health_pointer": "/sources/posted_rates",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=air",
+      "key": "air",
+      "name": "air",
+      "records": "https://morningrows.com/canada.json?source=air",
+      "data_pointer": "/air",
+      "health_pointer": "/sources/air",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=demand",
+      "key": "demand",
+      "name": "demand",
+      "records": "https://morningrows.com/canada.json?source=demand",
+      "data_pointer": "/demand",
+      "health_pointer": "/sources/demand",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=commodities",
+      "key": "commodities",
+      "name": "commodities",
+      "records": "https://morningrows.com/canada.json?source=commodities",
+      "data_pointer": "/commodities",
+      "health_pointer": "/sources/commodities",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=also.world",
+      "key": "also.world",
+      "name": "World Bank indicators",
+      "records": "https://morningrows.com/canada.json?source=also.world",
+      "data_pointer": "/also/world",
+      "health_pointer": "/also/sources/world",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/canada.json?source=also.space",
+      "key": "also.space",
+      "name": "Space weather",
+      "records": "https://morningrows.com/canada.json?source=also.space",
+      "data_pointer": "/also/space",
+      "health_pointer": "/also/sources/space",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    }
+  ],
+  "limits": "Only existing selections. No arbitrary history, local claimant counts, unlisted rent locations, daily price averages or cross-country comparability is implied. Native sections may have incomplete metadata."
+}
