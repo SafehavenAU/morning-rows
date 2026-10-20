@@ -1,0 +1,353 @@
+{
+  "kind": "Offline production source-health gate preserving strict SEPA failure",
+  "checked_at": "2026-10-20T10:52:20.756268+00:00",
+  "inputs": [
+    {
+      "path": "/tmp/mr-gap-held-production-20261020/production-core/report.json",
+      "sha256": "4e90db3a0c3dcbde130efcf7136828b4690104ad9d8a07881510a5f57f3f4be3"
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/workbook-recheck.json",
+      "sha256": "6dd9ee402385fc1f09f3b3abd4ff3700ae0d6ad1d779c5d56c292a4af70f8e9e"
+    },
+    {
+      "path": "/tmp/mr-gap-held-staged-20261020/staged-apex-semantic-release-gate.json",
+      "sha256": "ba9f1d631953685cab03e2c2258661d456de873db3373ba29ec7ffa48c777bfc"
+    },
+    {
+      "path": "/tmp/mr-gap-held-staged-20261020/staged-apex-semantic.json",
+      "sha256": "39516f43803761d9c76b1d08234c84d88fffbd2e4a0069c23fd4feb4cfd9165a"
+    },
+    {
+      "path": "/workspace/morning-rows-gap-pass/scripts/verify-paid-production.py",
+      "sha256": "b8c989f024ddad93f2bc93ed1bb6cda7691b888cb66d154a7bde6b9565585d82"
+    },
+    {
+      "path": "/workspace/morning-rows-gap-pass/scripts/verify-preview-bodies.mjs",
+      "sha256": "719c3e3ea6ab413992e6906ad2a2dd05a909cb080fb2ed6ec45d86d869665ba8"
+    },
+    {
+      "path": "/tmp/mr-gap-production-health-gate.py",
+      "sha256": "2d2baa38c04117e338834bfd7ffbc2feeeb1ae646900b3140ea25da19d69611b"
+    }
+  ],
+  "pass": true,
+  "scope": "Schema/BLS/source availability only; independent gap, GDP, claimant and rent gates remain required",
+  "independent_gap_gate_required": true,
+  "source_comparison": {
+    "apex": {
+      "compared_source_states": 116,
+      "changes": [
+        {
+          "desk": "england",
+          "source": "also.roads",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:56.049Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "ok",
+            "fetched_at": "2026-10-20T10:51:50.101Z"
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "england",
+          "source": "job",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.541Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:51:48.847Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "england",
+          "source": "people",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.548Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:51:48.853Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "england",
+          "source": "price_index",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.554Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:51:48.857Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "england",
+          "source": "product",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.570Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:51:48.873Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "england",
+          "source": "rail",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.992Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:51:49.209Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "england",
+          "source": "service",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.846Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:51:49.084Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "england",
+          "source": "wage",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.566Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:51:48.861Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        }
+      ],
+      "requires_review": []
+    },
+    "www": {
+      "compared_source_states": 116,
+      "changes": [
+        {
+          "desk": "england",
+          "source": "also.roads",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:56.049Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:52:12.171Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "england",
+          "source": "job",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.541Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:52:11.390Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "england",
+          "source": "people",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.548Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:52:11.393Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "england",
+          "source": "price_index",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.554Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:52:11.396Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "england",
+          "source": "product",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.570Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:52:11.402Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "england",
+          "source": "rail",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.992Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:52:11.699Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "england",
+          "source": "service",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.846Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:52:11.609Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "england",
+          "source": "wage",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:48:53.566Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T10:52:11.399Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        }
+      ],
+      "requires_review": []
+    }
+  },
+  "semantic": {
+    "apex": {
+      "strict_semantics_pass": true,
+      "release_semantic_gate_pass": true,
+      "exception": null,
+      "file": "/tmp/mr-gap-held-production-20261020/production-core-validation.apex-strict.json",
+      "sha256": "d0359ecc33a9fdd8d1cc9fa7a91416b6cc0dc712c1a0c13ad66ddca70011437f",
+      "strict_exit_code": 0
+    },
+    "www": {
+      "strict_semantics_pass": true,
+      "release_semantic_gate_pass": true,
+      "exception": null,
+      "file": "/tmp/mr-gap-held-production-20261020/production-core-validation.www-strict.json",
+      "sha256": "4997cbb31fef78a27fa877c07c6e80ce1c45ed37055f9763c536727d67319fa3",
+      "strict_exit_code": 0
+    }
+  },
+  "base": {
+    "file": "/tmp/mr-gap-held-production-20261020/production-core-validation.base.json",
+    "sha256": "471bf3cd2d9550339db359c436e999f725ac2fc459a5646d3e80f80b9555cc9a",
+    "pass": true,
+    "exit_code": 0
+  },
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "bf3110e3bcbbc7db6d629254a886356e80f4c24a",
+    "source_dirty": false,
+    "build_fingerprint": "f815539b2fa5b866",
+    "worker_version": "7f93e660-666c-435a-9b8b-bc37c060ac02",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  }
+}

@@ -1,27 +1,73 @@
 # Bounded build and verification queue
 
-## Active full gap-list pass
+## Current full gap-list disposition
 
-On 20 October the user explicitly requested continuing down this list. The
-[current evidence pass](verification/gap-pass-2026-10-20/README.md) supersedes
-the readiness assessment below. Production acceptance is still a separate gate.
+The user's 20 October full-list request has received a bounded pass across all
+six ranked items and eight held candidates. The
+[phase-one release](verification/gap-pass-2026-10-20/README.md) is accepted at
+source `bf3110e3bcbbc7db6d629254a886356e80f4c24a`, Worker
+`7f93e660-666c-435a-9b8b-bc37c060ac02`. The older ranking below remains historical;
+its former readiness statements do not override the results here. Assessing a
+blocker does not complete the blocked verification contract.
 
-| Ranked item | Current pass result |
+| Ranked item | Current disposition |
 | --- | --- |
-| 1 AEMO completed day | Reader and 576-cell evidence retained, but activation held: repeated Cloudflare HTTP 406 in both production domains caused the unaccepted promotion to be rolled back |
-| 2 BoC dated FX | Implemented; 38 original currency/date cells independently reconciled, protected preview/release gates in progress |
-| 3 Stats NZ | Eleven of 23 exact cells reconciled; twelve concrete evidence gaps retained. Supported household, fiscal-series and productivity metadata corrected |
-| 4 StatCan headlines | All four existing readers strengthened. Ten provincial unemployment labels were demonstrably wrong; identity-based mapping repairs them. Fourteen values independently reconciled |
-| 5 WRA typed depth | Four existing tax-due measures typed; all four independently match the separate official table |
-| 6 Transport editions | Twelve retained cells reconciled; no replacement edition found requiring a reader change |
+| 1 AEMO completed day | Reader and all 576 price-cell comparisons retained, but disconnected: repeated actual production HTTP 406 caused the first promotion to be rolled back. Requires new permitted usable access evidence and a separate reviewed release; no further retry in this pass. Existing `grid` snapshot remains. |
+| 2 BoC dated FX | **Released:** two series, 31-calendar-day history and exact-date selection. 38 original JSON/CSV cells, ten official-table cells and two latest anchors reconciled; four existing latest pairs preserved. |
+| 3 Stats NZ | **Metadata fixes released; numerical verification incomplete.** Eleven exact dated comparisons, twelve specific evidence gaps below. No credential access or future-vintage approval. |
+| 4 StatCan headlines | **Released:** all four existing readers strengthened; proven ten-province unemployment mislabels repaired by identity join. Fourteen selected values independently reconciled. GDP remains a separate accepted contract. |
+| 5 WRA typed depth | **Released:** four existing financial-year tax-due measures, four separate official-table matches; overlapping totals and honest suppression/missingness retained. |
+| 6 Transport editions | **Dated evidence/discovery pass complete:** eight NZ fleet and four Scottish traffic cells reconciled, no replacement edition or reader correction indicated. Unchanged annual observations remain valid. |
 
-The [held queue audit](verification/gap-pass-2026-10-20/held-queue/README.md)
-identifies viable NI energy, SFC, CQC and bounded rental contracts for the next
-isolated implementation batch; AER's exact published CSV remains inaccessible
-in the observed transport. A documented external evidence
-blocker does not mean the underlying verification contract is complete.
-NZ-PRICES remains tied to its original Interim specimen; UK CPI remains parked.
-No implementation test completes the actual scheduled-observation or delivery gates.
+| Held item | Current disposition and condition for resumption |
+| --- | --- |
+| NZ-PRICES | Still `blocked_external_evidence` for the selected **17 October Interim** specimen. The new official CLA3WR export's 48 matching OTA2201 numbers are **Final**, so they cannot certify it. Need the exact held version and selected coverage; later releases are not substitutes. |
+| UK CPI | Parked, not retried. Require the documented new-evidence/access-review condition and permissible actual Worker access; retain UK-wide D7BT/D7G7 semantics, never England-only CPI. |
+| AER | Exact quarterly regional CSV identified but original transport returned 503. Need usable original data, independent numerical comparison and applicable upstream reuse/attribution conditions; AER CC BY exceptions do not imply blanket AEMO/third-party permission. |
+| NI electricity | Local candidate and five original comparisons retained; actual Worker returned a `Request Rejected` access page. Disconnected; new permitted usable report access and actual/integrated release proof required. |
+| CQC | Local five-count historical cohort implementation retained; actual Worker returned 403. Disconnected; need permitted workbook access and release proof, preserving the risk-prioritised single-assessment-framework cohort rather than an all-England quality claim. |
+| ONS bedroom rent | Local Manchester bedroom-only candidate and four exact cells retained; actual Worker returned 429. Disconnected; new permitted access plus exact-vintage and release proof required. Not a bedroom-by-property joint estimate. |
+| SFC | **Prepared, not released:** five fixed 2024–25 college FTE cells passed protected actual-reader verification. Integrated version, CPU, both-domain regressions, monitoring review and release remain. Retain all-funding college learning volume, rounding and SFC attribution permission. |
+| CMHC rental | **Prepared, not released:** two 2025 Victoria CMA / Victoriaville CA combined row-and-apartment two-bedroom averages passed protected actual-reader verification. Integrated/release gates remain; retain conditional HMIP licence notices in every representation, without inventing recipient assent. |
+
+The second implementation batch is isolated from this accepted release. Its
+actual Worker outcomes supersede the earlier [held-queue research
+readiness](verification/gap-pass-2026-10-20/held-queue/README.md). PHW's reuse
+exclusion remains; no extra US series or desk is selected. No source alert,
+credential, infrastructure or schedule change follows from this ledger.
+
+### Remaining Stats NZ exact-cell evidence
+
+These are pinned reader targets, not independently certified values. The
+[complete 23-cell record](verification/gap-pass-2026-10-20/statsnz/coverage-23.json)
+retains source files, dimensions, period conventions and precise requirements.
+
+| Exact ID / target | Remaining requirement |
+| --- | --- |
+| `AGR_AGR_001` — 2018, 8,293 ha | Official table rounds to 8,300 for year ended 31 March; need exact-precision national forestry export and metadata. |
+| `AGR_AGR_002` — 2024, 9,522 ha | Official final table rounds to 9,520 at 30 June; need exact national apple-area export, coverage and vintage. |
+| `AGR_AGR_003` — 2025, 23,252,463 sheep | Official final graph rounds to 23,252,000; need the exact-precision final count. |
+| `CORR_FIS_005` — fiscal 2024/25, 8,199 people | Public release links ADE but lacks the exact sentenced-prisoners cell. Need fiscal counting/rounding semantics; not calendar year or quarterly stock. Fiscal releases were discontinued in September 2026. |
+| `INC_INC_001` — 202606, 1,391 NZD/week | Separate wage/salary headline is 1,419; exact ADE earnings population/measure/vintage unresolved. Need original exact table and metadata; no replacement value or defect inferred. |
+| `INC_INC_011` — 202606, 2,438 NZD/week | Household population and June-quarter metadata established, exact separate cell unavailable. Need total LGR/HHTYPE / MED_INC_ALL_SOUR export and household basis/revision semantics. |
+| `JUS_FIS_001` — fiscal 2024/25, 50,741 people | Need exact adult-convictions export and counting/rounding; public release links ADE only. Not charges, prosecutions or calendar year; fiscal releases discontinued. |
+| `LEED_AP1_001` — 2024, 4,091,334 people | Need exact March-year IZ/AZ/XZ/RZ taxable-income population export and tax-source definitions. |
+| `LEED_AP1_002` — 2024, 57,610 NZD/year | Need exact total-earnings median export, income scope and March-year convention; taxable income is not interchangeable. |
+| `LEED_Q1W_001` — 202506, 18,100 NZD/quarter | Need full-quarter-job MEDIAN_EARN export and gross/tax/coverage conventions; jobs are not people or all/new-hire jobs. |
+| `POPPR_LAB_003` — 2026, 3,144,100 people | Workbook rounds P50 to 3,144 thousand; need exact P50/SEX3/total-ages export. Projection, not observed workforce. |
+| `POPPR_FHH_003` — 2028, 2,087,100 households | Acquired workbook has B scenarios; need exact **Medium A** export, base and assumptions. Medium B cannot be substituted. |
+
+The 11 matched cells and all independent presentations retain shared statistical
+lineage. Neither a metadata repair nor rounded numerical agreement completes
+all 23 cells. NZ-PRICES's original bounded task remains incomplete separately.
+
+The actual durable checkpoint and SHADOW/delivery gates are unchanged: two
+legacy scheduled cycles, zero expanded-scope cycles, no receipt. The accepted
+release's constructed five-edge replay is not a collection. Preserve every
+intervening write, all 33 incidents / 36 repairs and the pending delivery event;
+keep the hourly watchdog and daily collector unchanged, with ordinary source
+alerts disabled. See the
+[current handoff](HANDOFF.md) for exact identity, deadline and acceptance gates.
 
 ## Historical ranking and evidence boundary
 
@@ -34,7 +80,7 @@ It uses repository code, dated original specimens, the [handoff](HANDOFF.md),
 research checks were not rerun for this audit. Publisher access, demand frequency
 and readiness must be checked under each next contract.
 
-## Current boundary across nine desks
+## Historical boundary across nine desks
 
 | Desk | Existing boundary and next useful depth |
 | --- | --- |
@@ -54,7 +100,7 @@ the acceptance ledger; constructed tests or additional releases cannot complete
 those gates. Preserve the hourly watchdog, daily collector, disabled ordinary
 source alerts, disconnected Builds and serialized reviewed release lineage.
 
-## Ranked next contracts
+## Historical ranked next contracts
 
 Priority update: the existing Canada GDP correctness repair is implemented and
 deployed, with [exact release evidence](verification/statcan-gdp-2026-10-20/README.md).
@@ -148,7 +194,7 @@ boundary requires implementation. No new coverage contract is marked complete.
    geography, period and units. Unchanged annual observations are not stale
    merely because time has elapsed.
 
-## Held or lower-priority gaps
+## Historical held or lower-priority gaps
 
 - **NZ-PRICES:** retain the selected 17 October specimen and
   `blocked_external_evidence` phase. Resume only with usable dated official

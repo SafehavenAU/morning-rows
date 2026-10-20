@@ -1,0 +1,424 @@
+{
+  "name": "Morning Rows",
+  "site": "https://morningrows.com",
+  "schema_version": "1.0",
+  "schema": "https://morningrows.com/schema.json",
+  "auth": "none",
+  "index": "/llms.txt",
+  "id": "https://morningrows.com/catalog.json?desk=england",
+  "desk": "England",
+  "records": "https://morningrows.com/england.json",
+  "sources": [
+    {
+      "id": "https://morningrows.com/england.json?source=claimant_count",
+      "key": "claimant_count",
+      "name": "Administrative claimant count, not seasonally adjusted",
+      "records": "https://morningrows.com/england.json?source=claimant_count",
+      "data_pointer": "/claimant_count",
+      "health_pointer": "/sources/claimant_count",
+      "representation": "described_measures",
+      "measure_count": 1,
+      "limits": "Thirteen retained monthly administrative claimant counts, all sexes, age 16+, rounded to five persons and not seasonally adjusted. These are not unemployment estimates, rates or available recruits. National geographies only; no local counts, arbitrary history or substitute months.",
+      "measures": [
+        {
+          "id": "claimants",
+          "name": "Claimant count, all sexes, age 16+",
+          "geography": "England",
+          "unit": "persons",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=claimant_count&measure=claimants",
+          "definition": {
+            "id": "claimants",
+            "name": "Claimant count, all sexes, age 16+",
+            "geography": "England",
+            "geography_code": "E92000001",
+            "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+            "unit": "persons",
+            "adjustment": "not seasonally adjusted",
+            "kind": "observation",
+            "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+            "cadence": "monthly",
+            "rounding": "Nearest five persons",
+            "dimensions": {
+              "dataset": "NM_162_1",
+              "gender": "0",
+              "age": "0",
+              "measure": "1",
+              "measures": "20100",
+              "geography": "E92000001"
+            },
+            "publisher": "Office for National Statistics / Nomis",
+            "licence": "Open Government Licence v3.0",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+            "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+            "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+          },
+          "retained_calendar_slots": 13,
+          "observation_selector": "YYYY-MM",
+          "selection": "Source and measure selections return all thirteen months; an observation selects one exact retained month."
+        }
+      ]
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=food_establishments",
+      "key": "food_establishments",
+      "name": "Food hygiene service establishment counts",
+      "records": "https://morningrows.com/england.json?source=food_establishments",
+      "data_pointer": "/food_establishments",
+      "health_pointer": "/sources/food_establishments",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=pupil_absence",
+      "key": "pupil_absence",
+      "name": "pupil absence",
+      "records": "https://morningrows.com/england.json?source=pupil_absence",
+      "data_pointer": "/pupil_absence",
+      "health_pointer": "/sources/pupil_absence",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=pharmacies",
+      "key": "pharmacies",
+      "name": "pharmacies",
+      "records": "https://morningrows.com/england.json?source=pharmacies",
+      "data_pointer": "/pharmacies",
+      "health_pointer": "/sources/pharmacies",
+      "representation": "described_measures",
+      "measure_count": 9,
+      "measures": [
+        {
+          "id": "total",
+          "name": "total",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=total"
+        },
+        {
+          "id": "excluding_distance_sellers",
+          "name": "excluding distance sellers",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=excluding_distance_sellers"
+        },
+        {
+          "id": "distance_sellers",
+          "name": "distance sellers",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=distance_sellers"
+        },
+        {
+          "id": "excluding_distance_sellers_opened",
+          "name": "excluding distance sellers opened",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=excluding_distance_sellers_opened"
+        },
+        {
+          "id": "excluding_distance_sellers_closed",
+          "name": "excluding distance sellers closed",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=excluding_distance_sellers_closed"
+        },
+        {
+          "id": "excluding_distance_sellers_net_change",
+          "name": "excluding distance sellers net change",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=excluding_distance_sellers_net_change"
+        },
+        {
+          "id": "distance_sellers_opened",
+          "name": "distance sellers opened",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=distance_sellers_opened"
+        },
+        {
+          "id": "distance_sellers_closed",
+          "name": "distance sellers closed",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=distance_sellers_closed"
+        },
+        {
+          "id": "distance_sellers_net_change",
+          "name": "distance sellers net change",
+          "geography": "England",
+          "unit": "pharmacies",
+          "kind": "observation",
+          "records": "https://morningrows.com/england.json?source=pharmacies&measure=distance_sellers_net_change"
+        }
+      ]
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=grid",
+      "key": "grid",
+      "name": "Electricity market snapshot",
+      "records": "https://morningrows.com/england.json?source=grid",
+      "data_pointer": "/grid",
+      "health_pointer": "/sources/grid",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=carbon",
+      "key": "carbon",
+      "name": "carbon",
+      "records": "https://morningrows.com/england.json?source=carbon",
+      "data_pointer": "/carbon",
+      "health_pointer": "/sources/carbon",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=job",
+      "key": "job",
+      "name": "Unemployment rate",
+      "records": "https://morningrows.com/england.json?source=job",
+      "data_pointer": "/job",
+      "health_pointer": "/sources/job",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=people",
+      "key": "people",
+      "name": "Population estimates",
+      "records": "https://morningrows.com/england.json?source=people",
+      "data_pointer": "/people",
+      "health_pointer": "/sources/people",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=price_index",
+      "key": "price_index",
+      "name": "Consumer price index",
+      "records": "https://morningrows.com/england.json?source=price_index",
+      "data_pointer": "/price_index",
+      "health_pointer": "/sources/price_index",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=wage",
+      "key": "wage",
+      "name": "Earnings or wage index",
+      "records": "https://morningrows.com/england.json?source=wage",
+      "data_pointer": "/wage",
+      "health_pointer": "/sources/wage",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=product",
+      "key": "product",
+      "name": "Gross domestic product",
+      "records": "https://morningrows.com/england.json?source=product",
+      "data_pointer": "/product",
+      "health_pointer": "/sources/product",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=shop",
+      "key": "shop",
+      "name": "Retail sales",
+      "records": "https://morningrows.com/england.json?source=shop",
+      "data_pointer": "/shop",
+      "health_pointer": "/sources/shop",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=vacancy",
+      "key": "vacancy",
+      "name": "vacancy",
+      "records": "https://morningrows.com/england.json?source=vacancy",
+      "data_pointer": "/vacancy",
+      "health_pointer": "/sources/vacancy",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=trade",
+      "key": "trade",
+      "name": "Trade balance",
+      "records": "https://morningrows.com/england.json?source=trade",
+      "data_pointer": "/trade",
+      "health_pointer": "/sources/trade",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=floods",
+      "key": "floods",
+      "name": "floods",
+      "records": "https://morningrows.com/england.json?source=floods",
+      "data_pointer": "/floods",
+      "health_pointer": "/sources/floods",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=service",
+      "key": "service",
+      "name": "service",
+      "records": "https://morningrows.com/england.json?source=service",
+      "data_pointer": "/service",
+      "health_pointer": "/sources/service",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=rail",
+      "key": "rail",
+      "name": "rail",
+      "records": "https://morningrows.com/england.json?source=rail",
+      "data_pointer": "/rail",
+      "health_pointer": "/sources/rail",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=calendar",
+      "key": "calendar",
+      "name": "calendar",
+      "records": "https://morningrows.com/england.json?source=calendar",
+      "data_pointer": "/calendar",
+      "health_pointer": "/sources/calendar",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=quakes",
+      "key": "quakes",
+      "name": "quakes",
+      "records": "https://morningrows.com/england.json?source=quakes",
+      "data_pointer": "/quakes",
+      "health_pointer": "/sources/quakes",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=also.world",
+      "key": "also.world",
+      "name": "World Bank indicators",
+      "records": "https://morningrows.com/england.json?source=also.world",
+      "data_pointer": "/also/world",
+      "health_pointer": "/also/sources/world",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=also.police",
+      "key": "also.police",
+      "name": "police",
+      "records": "https://morningrows.com/england.json?source=also.police",
+      "data_pointer": "/also/police",
+      "health_pointer": "/also/sources/police",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=also.health",
+      "key": "also.health",
+      "name": "health",
+      "records": "https://morningrows.com/england.json?source=also.health",
+      "data_pointer": "/also/health",
+      "health_pointer": "/also/sources/health",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=also.rainfall",
+      "key": "also.rainfall",
+      "name": "rainfall",
+      "records": "https://morningrows.com/england.json?source=also.rainfall",
+      "data_pointer": "/also/rainfall",
+      "health_pointer": "/also/sources/rainfall",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=also.rivers",
+      "key": "also.rivers",
+      "name": "rivers",
+      "records": "https://morningrows.com/england.json?source=also.rivers",
+      "data_pointer": "/also/rivers",
+      "health_pointer": "/also/sources/rivers",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=also.roads",
+      "key": "also.roads",
+      "name": "roads",
+      "records": "https://morningrows.com/england.json?source=also.roads",
+      "data_pointer": "/also/roads",
+      "health_pointer": "/also/sources/roads",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=also.crime_data_current_to",
+      "key": "also.crime_data_current_to",
+      "name": "crime data current to",
+      "records": "https://morningrows.com/england.json?source=also.crime_data_current_to",
+      "data_pointer": "/also/crime_data_current_to",
+      "health_pointer": "/also/sources/crime_data_current_to",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/england.json?source=also.space",
+      "key": "also.space",
+      "name": "Space weather",
+      "records": "https://morningrows.com/england.json?source=also.space",
+      "data_pointer": "/also/space",
+      "health_pointer": "/also/sources/space",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    }
+  ],
+  "limits": "Only existing selections. No arbitrary history, local claimant counts, unlisted rent locations or cross-country comparability is implied. Native sections may have incomplete metadata. Thirteen retained monthly administrative claimant counts, all sexes, age 16+, rounded to five persons and not seasonally adjusted. These are not unemployment estimates, rates or available recruits. National geographies only; no local counts, arbitrary history or substitute months."
+}

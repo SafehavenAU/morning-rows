@@ -1,0 +1,3 @@
+# Accepted candidate smoke evidence
+
+The retained apex report passes 18 checks; the actual www report passes 17 checks. Both identify clean source `bf3110e3bcbbc7db6d629254a886356e80f4c24a`, Worker `7f93e660-666c-435a-9b8b-bc37c060ac02`, fingerprint `f815539b2fa5b866`. JSON reports and their corresponding stdout logs are retained byte-identically, including known degraded source outcomes. Their bytes and hashes are bound in `packaging-manifest.json`. Smoke checks complement the [complete production evidence](../production/README.md); they do not prove every numerical contract or sustained monitoring.
