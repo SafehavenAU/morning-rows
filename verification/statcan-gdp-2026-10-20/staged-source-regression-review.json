@@ -1,0 +1,28 @@
+{
+  "reviewed_at": "2026-10-20T08:11:13.202289+00:00",
+  "pass": true,
+  "compared_sources": 115,
+  "new_regressions": 0,
+  "changes": [
+    {
+      "desk": "england",
+      "source": "service",
+      "before": "error",
+      "after": "ok"
+    },
+    {
+      "desk": "england",
+      "source": "rail",
+      "before": "error",
+      "after": "ok"
+    }
+  ],
+  "review": "The initial automatic matcher used generic transport names and did not recognize the actual service/rail keys. Both keys are existing TfL endpoints in worker.js. Retained previous bodies report429; candidate reportsok. These are known intermittent source-state changes, not new collector incidents or runtime regressions. The initial unclassified result is retained.",
+  "source_urls": [
+    "https://api.tfl.gov.uk/Line/Mode/tube,elizabeth-line,overground,dlr/Status",
+    "https://api.tfl.gov.uk/Line/Mode/national-rail/Status"
+  ],
+  "input_sha256": "df8c287ec694937f40227aafe0a2e3d5f12f226fb88b15f7ecd26105bcf564a3",
+  "source_alert_sent": false,
+  "sustained_recovery_claimed": false
+}

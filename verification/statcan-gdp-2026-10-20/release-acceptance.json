@@ -1,0 +1,215 @@
+{
+  "task_id": "canada-gdp-correctness-2026-10-20",
+  "phase": "released_observing",
+  "authorization": "User: keep building dont stop; find all gaps and keep filling them",
+  "scope": "Existing canada/product only: two latest adjacent quarterly Canada real-GDP levels and one ordinary derived growth observation; no new source, desk or arbitrary history",
+  "contract": "verification/statcan-gdp-2026-10-20/CONTRACT.md",
+  "evidence": "verification/statcan-gdp-2026-10-20/README.md",
+  "release_accepted": true,
+  "deployed": true,
+  "identity": {
+    "source_revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+    "source_dirty": false,
+    "build_fingerprint": "fc27e14328f2c397",
+    "worker_version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+  },
+  "deployment_id": "5b9bb834-4aef-4f2f-8dd5-bc5d6614951e",
+  "promoted_at": "2026-10-20T08:11:15.420461Z",
+  "accepted_at": "2026-10-20T08:19:35.726Z",
+  "rollback_identity": {
+    "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+    "source_dirty": false,
+    "build_fingerprint": "d06c032d78d73a12",
+    "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad"
+  },
+  "initial_verified_release": {
+    "quarters": [
+      "2026-Q1",
+      "2026-Q2"
+    ],
+    "levels": [
+      2503604,
+      2524127
+    ],
+    "unit": "millions of chained (2017) dollars",
+    "adjustment": "Seasonally adjusted at annual rates",
+    "ordinary_growth_percent": 0.82,
+    "annualized": false,
+    "release_timestamp_raw": "2026-08-28T08:30",
+    "release_timezone": null
+  },
+  "independence_limit": "All presentations share Statistics Canada national-accounts lineage; extraction and presentation independence only.",
+  "validation": {
+    "node_tests": 429,
+    "protected_fault_cases": 23,
+    "general_interface_checks": 151,
+    "general_requests": 104,
+    "production_GDP": {
+      "transport": 38,
+      "native_comparisons": 6,
+      "selected_comparisons": 22,
+      "schema_checks": 18,
+      "schema_negative_controls": 36
+    },
+    "staged_interface_checks": 137,
+    "existing_schema_documents": 24,
+    "usa_reference_slots": 26,
+    "existing_semantic_checks": 100,
+    "claimant_interface_checks": 366,
+    "claimant_requests": 112,
+    "claimant_production_cells": 130,
+    "claimant_schema_documents": 50,
+    "claimant_schema_negatives": 370,
+    "rent_interface_checks": 224,
+    "rent_requests": 62,
+    "rent_native_cells": 232,
+    "rent_selected_cells": 268,
+    "rent_schema_documents": 42,
+    "rent_schema_negatives": 48,
+    "apex_smoke_checks": 18,
+    "www_smoke_checks": 17,
+    "usa_cold_ms": 15,
+    "canada_cold_ms": 26,
+    "cold_legacy_max_ms": 170,
+    "legacy_cpu_gate_ms": 500,
+    "usa_cpu_gate_ms": 100,
+    "worker_cpu_ceiling_ms": 1000
+  },
+  "monitoring": {
+    "obligations": 115,
+    "public_probes": 24,
+    "reviewed_edges": 4,
+    "same_existing_scope": true,
+    "source_alerts_enabled": false,
+    "checkpoint_mutated": false,
+    "actual_checkpoint_sequence": 5,
+    "actual_legacy_scheduled_cycles": 2,
+    "actual_new_scope_scheduled_cycles": 0,
+    "delivery_acknowledgment_received": false,
+    "actual_GDP_contract_scheduled_observations": 0
+  },
+  "remaining_operational_gates": [
+    "Next actual normal serialized daily collection must apply the reviewed chain and independently verify its checkpoint",
+    "At least eight complete daily scheduled checkpoints over seven elapsed days with no gap over26h for applicable scope",
+    "Independent watchdog and genuine delivery receipt; NZ-PRICES and UK CPI gates remain unresolved"
+  ],
+  "resume_condition": "Observe normal daily collector with independent hourly watchdog; routine monitoring does not authorize a repeated release or new implementation",
+  "retained_limitations": [
+    "Original current GDP values were numerically correct; this release strengthens explicit semantics, exact identity/metadata and refusal behavior",
+    "Initial staged GDP cache-check harness failure and initial semantic filename-copy precondition failure remain retained and are not hidden runtime failures",
+    "All replays remain constructed and do not establish real scheduled operation"
+  ],
+  "evidence_files": [
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core-validation.json",
+      "bytes": 17387,
+      "sha256": "713012a5b57ba0195ee7788be7223a924a40e3e4d24647a3e68e3be0713a250d"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-semantic-derivation.json",
+      "bytes": 42931,
+      "sha256": "d1e195037b39b860f284cf973026087fb8ddd0200506559027381cfc3836af28"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-apex-semantic.json",
+      "bytes": 23348,
+      "sha256": "64773039f0e60972cdc0f066e4a0c3defeb146ad9f1b7b7cd371577668545a50"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-www-semantic.json",
+      "bytes": 23431,
+      "sha256": "1cfa0bc7bb7b50ca07d7225a3b3c03ec8574cd0070266c603081cb738f8dcb1d"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-claimant-comparison.json",
+      "bytes": 114477,
+      "sha256": "4329af330bc135800a77ce4f4504fbf9fb2fe0960d94905d739aca1d19d24506"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-claimant-schemas.json",
+      "bytes": 97537,
+      "sha256": "a8ab62989ce49fc10e1d24df6b532ec5ce41c456831cf50be74e52dc0e9497f9"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-rent-comparison.json",
+      "bytes": 114004,
+      "sha256": "d0ec089ac63a40de671938a7a6424e694b74737da669432f98eeadc69bf7d3ce"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-source-health-review.json",
+      "bytes": 19693,
+      "sha256": "f0f6a2754bb48ab4e70e4511ed680e3dd39f3e28e6f8e9633f8c308fe75c633b"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-offline-validation-summary.json",
+      "bytes": 2869,
+      "sha256": "7699fd019ddb93c95e9e5627a780b6211bc753791a07705326c961df20253bd4"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/local-validation.json",
+      "bytes": 684,
+      "sha256": "387e87e166dc440dd1a1b3775a4c324489794efef7587a121a03d03387921796"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/fault-preview.json",
+      "bytes": 12586,
+      "sha256": "e2bfd3427c69e90397a91b69d7a6706612f60f66a811e5ef6555fe1ce7481a4b"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/report.json",
+      "bytes": 137517,
+      "sha256": "61511e679955a761b936f91af0936874e69d244a887d1a5ea7235d25c4bbbfdf"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-core/staged-preview-report.json",
+      "bytes": 56857,
+      "sha256": "ad522116b626209fa567151f89c225b2ab321422600bdb4372ae1173023e5ad1"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-gdp-validation.json",
+      "bytes": 19096,
+      "sha256": "6680ae464da35a18200a6fafaf393394f6adc70f320ee2bc56fd5b761a90cee5"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-source-health-review.json",
+      "bytes": 19693,
+      "sha256": "f0f6a2754bb48ab4e70e4511ed680e3dd39f3e28e6f8e9633f8c308fe75c633b"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-apex-smoke.json",
+      "bytes": 7501,
+      "sha256": "1d674dbb912891ac90eb47be5406910a22ec0b41e9a7899de841cb5150c4bfdc"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-www-smoke.json",
+      "bytes": 7744,
+      "sha256": "bc9b3d9140de43950d1a2cfc22144ce3c52f7a50eaf78dda9e8b2078fa285ed8"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/usa-cold-cpu.json",
+      "bytes": 67285,
+      "sha256": "e36a611eef3523ebb8d25fe321b13f2c50ccf25dc92924a5bbcc02bca4356a4b"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/legacy-cold-cpu.json",
+      "bytes": 532573,
+      "sha256": "4f558780b2913ded82ea63b7a2245700c122c37cdce0f9793a7c52fb644a7e19"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/independent-report.json",
+      "bytes": 4718,
+      "sha256": "b53ec1b446b7c3406d09e100468208653914dd13bfc9625474c12a365b7c3f3f"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-offline-validation-summary.json",
+      "bytes": 4043,
+      "sha256": "065f2446a9f67f2fc0b12ae3c11be0174742fe94f538406c54f9cbb19db8a7e3"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-offline-validation-summary.json",
+      "bytes": 2869,
+      "sha256": "7699fd019ddb93c95e9e5627a780b6211bc753791a07705326c961df20253bd4"
+    }
+  ],
+  "pass": true
+}

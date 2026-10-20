@@ -1,6 +1,8 @@
 # Bounded build and verification queue
 
-Local audit: **20 October 2026, 07:17 UTC**, checkout `cfca419`.
+Initial audit: **20 October 2026, 07:17 UTC**, checkout `cfca419`.
+Updated after the Canada GDP release on 20 October; dated evidence below remains
+separate from the original discovery pass.
 This is a prioritisation record, not release approval or a new production audit.
 It uses repository code, dated original specimens, the [handoff](HANDOFF.md),
 [acceptance ledger](operations/acceptance.json) and retained research. Historical
@@ -13,7 +15,7 @@ and readiness must be checked under each next contract.
 | --- | --- |
 | Australia | Current five-region AEMO snapshot cannot answer a completed day's price history. AEMO completed-day summaries are the next build. Preserve AIHW and other existing sources. |
 | New Zealand | Two-locality market rent is **released and awaiting scheduled observation**, under its [own contract](verification/nz-market-rent-2026-10-20/CONTRACT.md); both-domain release evidence is retained with that contract. Stats NZ's 23-series independent reconciliation remains open. Selected NZ-PRICES verification remains blocked. |
-| Canada | Four latest BoC currency pairs are released and qualified. Bounded dated FX history is next after AEMO; preserve the existing latest response. |
+| Canada | The existing GDP source now has verified real-GDP/annual-rate/quarter semantics, two typed quarterly levels and ordinary growth. Four latest BoC currency pairs remain qualified. Other StatCan headline readers still need their own semantic contracts; dated FX remains a later bounded addition. |
 | United Kingdom | Thirteen-month national claimant history is released. UK CPI remains parked. No additional UK series is selected here. |
 | England | National claimant history and pharmacy measures are established. UK-wide series already labelled as such must not become England-specific answers. CQC remains an unvalidated aggregate-task lead. |
 | Scotland | Claimant history and national insolvency counts are established. Traffic uses an explicitly named annual edition; later edition discovery is a bounded maintenance option. SFC remains research only. |
@@ -21,20 +23,21 @@ and readiness must be checked under each next contract.
 | Northern Ireland | Claimant history, BMI and insolvency contracts are established. Energy remains a research lead requiring denominator and workbook validation. |
 | United States | One national urban CPI-U series, `CUUR0000SA0`, is released with thirteen calendar slots. Observe this scope; no additional US series is selected here. |
 
-USA and claimant releases remain subject to actual expanded-scope scheduled
-observation. The actual checkpoint boundary, receipt and SHADOW state remain in
+USA, claimant and rent releases, and the strengthened GDP contract, remain
+subject to actual scheduled observation under their released semantics. The actual checkpoint boundary, receipt and SHADOW state remain in
 the acceptance ledger; constructed tests or additional releases cannot complete
 those gates. Preserve the hourly watchdog, daily collector, disabled ordinary
 source alerts, disconnected Builds and serialized reviewed release lineage.
 
 ## Ranked next contracts
 
-Priority update after the live rent release: the existing Canada GDP contract is
-selected next because its correct sampled values lack essential unit/annual-rate
-and quarter metadata, and its parser trusts response ordering. Fresh official
-metadata and dated release tables establish a bounded correction. AEMO remains
-the next new coverage candidate; its sampled independent dispatch comparison
-covers16/576 cells and its midnight cache boundary requires implementation.
+Priority update: the existing Canada GDP correctness repair is implemented and
+deployed, with [exact release evidence](verification/statcan-gdp-2026-10-20/README.md).
+The original numbers were correct; explicit semantics, metadata/flag/coverage
+validation and selectors close the bounded gap. This does not certify the other
+StatCan readers. AEMO remains the next new coverage candidate; its sampled
+independent dispatch comparison covers 16/576 cells and its midnight cache
+boundary requires implementation. No new coverage contract is marked complete.
 
 
 1. **AEMO completed-day wholesale prices — medium effort, highest next build
@@ -87,28 +90,23 @@ covers16/576 cells and its midnight cache boundary requires implementation.
    or completed 23-series verification is claimed.
 
 4. **Recovered StatCan headline readers — high existing correctness priority,
-   currently unverified semantics.** The five existing `jobs`, `price_index`,
-   `shop`, `product` and `homes` readers in [worker.js](worker.js) use fixed
+   currently unverified semantics.** The four remaining `jobs`, `price_index`,
+   `shop` and `homes` readers in [worker.js](worker.js) use fixed
    coordinates and positional API results. They do not currently validate the
    returned series identity, units/scalar factors, status flags or all selected
    period relationships. The jobs reader labels results by response-array
-   position; the GDP calculation assumes two compatible points in chronological
-   order. A healthy response could therefore produce a plausible but wrongly
-   labelled value or quarterly change. This is a code-supported risk, **not a
-   demonstrated wrong current observation**; no publisher requests were made
-   for this audit. Monitor recovery proves transport resumed, not numerical or
-   semantic correctness: these sections currently receive native-availability
-   checks without independently approved observation versions.
-   Start one bounded contract after the rent release, preferably the existing
-   GDP level and quarterly-change calculation for table `36-10-0104` at
-   coordinate `1.1.1.30.0.0.0.0.0.0`. Establish the exact economic measure,
-   price basis, units/scalar, adjustment, reference-quarter convention and
-   revision behaviour from original metadata, then reconcile the two exact
-   selected values with a separately presented official table. Test reversed
-   and duplicate periods, response reordering, wrong coordinates, missing or
-   suppressed values, incompatible units and zero/invalid denominators.
-   Preserve the existing Canadian siblings and do not substitute another
-   series before that evidence exists.
+   position. A healthy response could therefore produce a plausible but wrongly
+   labelled value. This is a code-supported risk, **not a demonstrated wrong
+   current observation**. Monitor recovery proves transport resumed, not
+   numerical or semantic correctness: these four sections still receive
+   native-availability checks without independently approved observation versions.
+   The separate GDP repair now validates exactly one existing series and adds
+   its own approved observation version; it does not transfer assurance to the
+   other coordinates. Before the next repair, choose one remaining measure by
+   correctness risk, establish exact geography/population/units/adjustment/period
+   and revision behavior from official metadata, reconcile the selected values
+   against an independent presentation, and test identity/order/flag failures.
+   Preserve successful Canadian siblings and every earlier release specimen.
 
 5. **Wales WRA typed depth — small implementation, separate evidence gate.**
    Define stable measures for the four existing completed-financial-year cells

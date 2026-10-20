@@ -120,7 +120,7 @@ def verify(directory,reference_file,revision,version,domains):
                 if status==200:
                     latest[(r['origin'],r['path'])]=h.get('etag')
                     if 'source=' in r['path']:
-                        ttl=re.search(r'(?:^|[, ])max-age=(\d+)',h.get('cache-control',''));require(ttl and int(ttl[1])<=120,'Unbounded selected cache')
+                        ttl=re.search(r'(?:^|[, ])max-age=(\d+)',h.get('cache-control',''));require(ttl and int(ttl[1])<=3600,'Unbounded selected cache')
                 else:
                     require(body.get('error')==error or body.get('reason')==error,'Incorrect refusal reason')
                     require(body.get('data') is None and not body.get('observations'),'Refusal substituted observations')

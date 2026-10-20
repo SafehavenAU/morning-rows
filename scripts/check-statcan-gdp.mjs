@@ -104,7 +104,7 @@ async function request(origin,path,{status=200,method='GET',etag,error}={}){
   check(`${origin} ${path}: JSON media type`,/^application\/json(?:;|$)/i.test(headers['content-type']||''));
   if(status===200&&path.includes('source=')){
     const ttl=headers['cache-control']?.match(/max-age=(\d+)/)?.[1];
-    check(`${origin} ${path}: bounded cache`,ttl!==undefined&&Number(ttl)<=120);
+    check(`${origin} ${path}: bounded cache`,ttl!==undefined&&Number(ttl)<=3600);
   }
   if(error){
     check(`${origin} ${path}: explicit refusal`,body.error===error||body.reason===error);

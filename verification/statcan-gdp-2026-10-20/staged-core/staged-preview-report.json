@@ -1,0 +1,1567 @@
+{
+  "started_at": "2026-10-20T08:06:32.727Z",
+  "kind": "Actual zero-percent version preview using retained same-version full-desk CPU responses",
+  "version": "775bfe2d-491b-4bf5-a257-4d3465003351",
+  "source_revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+  "inputs": [
+    {
+      "label": "USA CPU",
+      "path": "/workspace/morning-rows-gdp/verification/statcan-gdp-2026-10-20/usa-cold-cpu.json",
+      "sha256": "e36a611eef3523ebb8d25fe321b13f2c50ccf25dc92924a5bbcc02bca4356a4b"
+    },
+    {
+      "label": "Legacy CPU",
+      "path": "/workspace/morning-rows-gdp/verification/statcan-gdp-2026-10-20/legacy-cold-cpu.json",
+      "sha256": "4f558780b2913ded82ea63b7a2245700c122c37cdce0f9793a7c52fb644a7e19"
+    }
+  ],
+  "imported": [
+    {
+      "source": "USA CPU",
+      "path": "/health.json",
+      "status": 200,
+      "headers": {
+        "cache-control": "no-cache",
+        "etag": "W/\"5543438c3703a1cc6b67aabd7ef565f871c72f821446c0eed32418a88b50031e\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:04:49.775Z",
+      "at": "2026-10-20T08:04:49.992Z",
+      "bytes": 310,
+      "sha256": "7dfa04e361e4762735a5256c2b3f6e2a039a2d68b0e9d155530f2fdad0a29596",
+      "file": "_health.json.response"
+    },
+    {
+      "source": "USA CPU",
+      "path": "/united-states.json",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=3599",
+        "etag": "W/\"26ed90572b20d7f15abcd98c5db385d1f3d5c2fa25e906b436f2108b7969ca64\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:04:50.993Z",
+      "at": "2026-10-20T08:04:51.346Z",
+      "bytes": 6928,
+      "sha256": "d59367788610dd2949c0cac3feb697e54e52dd3cd8e72a4d253e4c4a2ec5030c",
+      "file": "_united-states.json.response"
+    },
+    {
+      "source": "USA CPU",
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=3599",
+        "etag": "W/\"133a1f77dbd23e2919c43127cbb6e7a29339fdebeb9ec1b07441bddaa87030aa\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:04:50.243Z",
+      "at": "2026-10-20T08:04:50.993Z",
+      "bytes": 40229,
+      "sha256": "c9eb00c754e27513eead9284730deeb489566a5a92bf0ed7d220a8b8941dc5b1",
+      "file": "_united-states.json?source=cpi&measure=CUUR0000SA0.response"
+    },
+    {
+      "source": "Legacy CPU",
+      "path": "/australia.json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "etag": "W/\"3c7ca195b6434f64a6afc6a401434ca959cd6e97df73259059c5efb36f0edbe1\"",
+        "x-data-status": "degraded",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:05:17.769Z",
+      "at": "2026-10-20T08:05:23.517Z",
+      "bytes": 63939,
+      "sha256": "88c5f1ea3e755dcad3e7ca9a92e6218727dcc9576620ecb2ca991cf17e585e04",
+      "file": "_australia.json.response"
+    },
+    {
+      "source": "Legacy CPU",
+      "path": "/new-zealand.json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=120",
+        "etag": "W/\"5a3320febc035e3d4de2788d3a3ab8a5022094cf72947e7520f2f56949cfc98a\"",
+        "x-data-status": "ok",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:05:23.517Z",
+      "at": "2026-10-20T08:05:27.493Z",
+      "bytes": 91970,
+      "sha256": "f986f7662b84828fc07983c7f0aa8e31805ebf6f2059e531eb2194bfb5ff509f",
+      "file": "_new-zealand.json.response"
+    },
+    {
+      "source": "Legacy CPU",
+      "path": "/canada.json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=3600",
+        "etag": "W/\"e20106d387102979c83e0515b40a947abcaf2c34ca4674416cd24269d08feb0a\"",
+        "x-data-status": "ok",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:05:27.494Z",
+      "at": "2026-10-20T08:05:34.560Z",
+      "bytes": 24139,
+      "sha256": "c6df7b9705719ad749e1d641fa3937222ce54be860674a972a3816dc0675b4bd",
+      "file": "_canada.json.response"
+    },
+    {
+      "source": "Legacy CPU",
+      "path": "/united-kingdom.json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "etag": "W/\"8c49fa1fe76ab464c4f7f513f394637ee74330adb43b460b6ce5eb2ce75c6db8\"",
+        "x-data-status": "degraded",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:05:34.560Z",
+      "at": "2026-10-20T08:05:49.198Z",
+      "bytes": 78451,
+      "sha256": "f9bc6725ef753ff82d0ce5cd8f3ad24692c5c7767b78c281fe2146986e2f0f0b",
+      "file": "_united-kingdom.json.response"
+    },
+    {
+      "source": "Legacy CPU",
+      "path": "/england.json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "etag": "W/\"3defcfd95aef19812097dae9cfd3380aba56685520850df3b828cebc8d27d644\"",
+        "x-data-status": "degraded",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:05:49.198Z",
+      "at": "2026-10-20T08:05:59.576Z",
+      "bytes": 82940,
+      "sha256": "0bd7dea53bad085023a7e7d3230a97c9b01a6668a948cd332ad2885e1b480533",
+      "file": "_england.json.response"
+    },
+    {
+      "source": "Legacy CPU",
+      "path": "/scotland.json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "etag": "W/\"603512110a17844d905d16640c017f607a7f077b0dcadbcc81f6c6b5cacee737\"",
+        "x-data-status": "degraded",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:05:59.576Z",
+      "at": "2026-10-20T08:06:01.415Z",
+      "bytes": 28814,
+      "sha256": "5a2c7d2ba460150dd5a1ec4b5723942d99634a08780f0f2b325ae8f4969b2059",
+      "file": "_scotland.json.response"
+    },
+    {
+      "source": "Legacy CPU",
+      "path": "/wales.json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "etag": "W/\"e4565d9ccd2931aea814190dbd89e327963166ff39fb524068fc3c7da8a41950\"",
+        "x-data-status": "degraded",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:06:01.415Z",
+      "at": "2026-10-20T08:06:03.099Z",
+      "bytes": 22401,
+      "sha256": "29913add0c46f7e0a2c24fb118e057d38b93adaa27d3188cdaaee5f7d825c18d",
+      "file": "_wales.json.response"
+    },
+    {
+      "source": "Legacy CPU",
+      "path": "/northern-ireland.json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "etag": "W/\"4a64277d1de2d1228c42b9fc7c3036ec6bfe10f7dd543fedab2e050af92d0743\"",
+        "x-data-status": "degraded",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "started_at": "2026-10-20T08:06:03.100Z",
+      "at": "2026-10-20T08:06:03.988Z",
+      "bytes": 23832,
+      "sha256": "22547a7ee20d40477e6a17cd2583c3590d0d1ca1683251174932666cf7f38ba9",
+      "file": "_northern-ireland.json.response"
+    }
+  ],
+  "requests": [
+    {
+      "path": "/catalog.json",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json",
+        "etag": "W/\"3d49f2b076a33a12f328dc8bd775755f2444e1e498477997bf355e5aeb4c414f\"",
+        "link": "<https://morningrows.com/catalog.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:34.088Z",
+      "at": "2026-10-20T08:06:34.165Z",
+      "sequence": 1,
+      "bytes": 2663,
+      "sha256": "44cc596696636befc74689fbcfb972b2aecb926a25771698656010304e871384",
+      "file": ".requests/1.response",
+      "semantic_capture_file": "_catalog.json.response"
+    },
+    {
+      "path": "/schema.json",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/schema.json",
+        "etag": "W/\"c7c50e9a4640cadc2616dc20ebd76e0b9a84966a4ee262f86249c3cf23702655\"",
+        "link": "<https://morningrows.com/schema.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:34.166Z",
+      "at": "2026-10-20T08:06:34.263Z",
+      "sequence": 2,
+      "bytes": 580420,
+      "sha256": "a37e28928282792c50c1d7f9f1aaf191bb49145aa802347f1188a1526e694fa6",
+      "file": ".requests/2.response",
+      "semantic_capture_file": "_schema.json.response"
+    },
+    {
+      "path": "/catalog.v2.json",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.v2.json",
+        "etag": "W/\"df8c2709afe5095700c37801e3edc34f52d2ecd5b66c3cb1fcc48298d10c32b5\"",
+        "link": "<https://morningrows.com/catalog.v2.json>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:34.268Z",
+      "at": "2026-10-20T08:06:34.329Z",
+      "sequence": 3,
+      "bytes": 3261,
+      "sha256": "072b0817b58386caaa23e1a4b3985e653215d91e4f7cdbaaceeeb41a2b84620a",
+      "file": ".requests/3.response",
+      "semantic_capture_file": "_catalog.v2.json.response"
+    },
+    {
+      "path": "/schema.v2.json",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/schema.v2.json",
+        "etag": "W/\"81799b69a402cf573bea3a75af87e975e7343ff761a1d2e55d7760244981d5ea\"",
+        "link": "<https://morningrows.com/schema.v2.json>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:34.330Z",
+      "at": "2026-10-20T08:06:34.413Z",
+      "sequence": 4,
+      "bytes": 11471,
+      "sha256": "0ba91e5a857e9306113273b3839695d2cb6dd2bec961a098d526258df1cb6463",
+      "file": ".requests/4.response",
+      "semantic_capture_file": "_schema.v2.json.response"
+    },
+    {
+      "path": "/catalog.json?desk=canada",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=canada",
+        "etag": "W/\"e03908a96a4592d4834db242ffa98e3ff80321d6c669a323384662a5be283808\"",
+        "link": "<https://morningrows.com/catalog.json?desk=canada>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:34.413Z",
+      "at": "2026-10-20T08:06:34.477Z",
+      "sequence": 5,
+      "bytes": 18333,
+      "sha256": "e73f1c6aaf07b6800d93ec6d4212379db46f74d2f805de8e1d96916fb4b8a86a",
+      "file": ".requests/5.response",
+      "semantic_capture_file": "_catalog.json?desk=canada.response"
+    },
+    {
+      "path": "/catalog.v2.json?desk=united-states",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.v2.json?desk=united-states",
+        "etag": "W/\"3d41e81d96efc171fca19dfe7101eb954f0a7bc30b0b94e9b052fa0dca9ac402\"",
+        "link": "<https://morningrows.com/catalog.v2.json?desk=united-states>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:34.478Z",
+      "at": "2026-10-20T08:06:34.547Z",
+      "sequence": 6,
+      "bytes": 2708,
+      "sha256": "0cb172bda15c56f31bfa9393aec40494d04597936c26a20c2521e3e7156bf614",
+      "file": ".requests/6.response",
+      "semantic_capture_file": "_catalog.v2.json?desk=united-states.response"
+    },
+    {
+      "path": "/canada.json?source=exchange&measure=FXUSDCAD",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=3539",
+        "content-location": "https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD",
+        "etag": "W/\"c49d687e1ea5c2c0fe43ba554231aa92ea60c56fc8f98c1d2f9d00b3eab07d63\"",
+        "link": "<https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:05:27.648Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:34.547Z",
+      "at": "2026-10-20T08:06:34.625Z",
+      "sequence": 7,
+      "bytes": 3340,
+      "sha256": "db5b4751574f265c9fe93ffa377d65d39100ee6e29e68c77bc35803deff8c8d4",
+      "file": ".requests/7.response",
+      "semantic_capture_file": "_canada.json?source=exchange&measure=FXUSDCAD.response"
+    },
+    {
+      "path": "/canada.json?source=exchange&measure=FXUSDCAD",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=3539",
+        "content-location": "https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD",
+        "etag": "W/\"c49d687e1ea5c2c0fe43ba554231aa92ea60c56fc8f98c1d2f9d00b3eab07d63\"",
+        "link": "<https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:05:27.648Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": false,
+      "started_at": "2026-10-20T08:06:34.626Z",
+      "at": "2026-10-20T08:06:34.704Z",
+      "sequence": 8,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/wales.json?source=projection&measure=population-2024-based",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/wales.json?source=projection&measure=population-2024-based",
+        "etag": "W/\"48433c6f24bc8f0690512cc275806e0be05fdc5ae2246f7d4b2ba5b064bd49e9\"",
+        "link": "<https://morningrows.com/wales.json?source=projection&measure=population-2024-based>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:06:34.920Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:34.704Z",
+      "at": "2026-10-20T08:06:35.201Z",
+      "sequence": 9,
+      "bytes": 3343,
+      "sha256": "3611717ad55f2918e0ab34151e6c14fad888bd0ad51a335b6482354929d7f74d",
+      "file": ".requests/9.response",
+      "semantic_capture_file": "_wales.json?source=projection&measure=population-2024-based.response"
+    },
+    {
+      "path": "/wales.json?source=projection&measure=population-2024-based",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=projection&measure=population-2024-based",
+        "etag": "W/\"48433c6f24bc8f0690512cc275806e0be05fdc5ae2246f7d4b2ba5b064bd49e9\"",
+        "link": "<https://morningrows.com/wales.json?source=projection&measure=population-2024-based>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:06:34.920Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": false,
+      "started_at": "2026-10-20T08:06:35.202Z",
+      "at": "2026-10-20T08:06:35.267Z",
+      "sequence": 10,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/new-zealand.json?source=stats&measure=CORR_FIS_005",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=52",
+        "content-location": "https://morningrows.com/new-zealand.json?source=stats&measure=CORR_FIS_005",
+        "etag": "W/\"22d9ba96ceaa06d30bb21403b25bb8af5b3d51816055b906f8ea1030cc93dd6e\"",
+        "link": "<https://morningrows.com/new-zealand.json?source=stats&measure=CORR_FIS_005>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:05:27.422Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:35.267Z",
+      "at": "2026-10-20T08:06:35.461Z",
+      "sequence": 11,
+      "bytes": 4369,
+      "sha256": "83ab0bc2f6d38c8289f1d40f34dfe9a66e2157f880dc3ec700718d652e72814f",
+      "file": ".requests/11.response",
+      "semantic_capture_file": "_new-zealand.json?source=stats&measure=CORR_FIS_005.response"
+    },
+    {
+      "path": "/australia.json?source=hospital&measure=WA.MYH-RM0037",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/australia.json?source=hospital&measure=WA.MYH-RM0037",
+        "etag": "W/\"a75f1e1dcb84565088f28d283014129bf46a00ac49584f5c7ea48f618ef360d3\"",
+        "link": "<https://morningrows.com/australia.json?source=hospital&measure=WA.MYH-RM0037>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:06:42.593Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:35.463Z",
+      "at": "2026-10-20T08:06:42.618Z",
+      "sequence": 12,
+      "bytes": 4146,
+      "sha256": "4340794db848c8f63a0539f275375fbbda157f181af8507c4cca64ebe1dad045",
+      "file": ".requests/12.response",
+      "semantic_capture_file": "_australia.json?source=hospital&measure=WA.MYH-RM0037.response"
+    },
+    {
+      "path": "/northern-ireland.json?source=childhood_bmi&measure=Y8BMIOwOb",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=27",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=childhood_bmi&measure=Y8BMIOwOb",
+        "etag": "W/\"0bb965996f9318fb78a1fcbe82bbb9efacf582ba299426a9c1dcc1103587c214\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=childhood_bmi&measure=Y8BMIOwOb>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:06:39.567Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:42.619Z",
+      "at": "2026-10-20T08:06:42.672Z",
+      "sequence": 13,
+      "bytes": 4126,
+      "sha256": "0b62b8d644cc44e31fa65f308961dfa949a73de9490e9fd00f5c493ebc5b7c64",
+      "file": ".requests/13.response",
+      "semantic_capture_file": "_northern-ireland.json?source=childhood_bmi&measure=Y8BMIOwOb.response"
+    },
+    {
+      "path": "/scotland.json?source=company_insolvencies&measure=total-company-insolvencies",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=25",
+        "content-location": "https://morningrows.com/scotland.json?source=company_insolvencies&measure=total-company-insolvencies",
+        "etag": "W/\"4f49e74fbbf761985012138187eeba8b0f4c5d6eb1f0a4b07f044b399875b9db\"",
+        "link": "<https://morningrows.com/scotland.json?source=company_insolvencies&measure=total-company-insolvencies>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:06:37.600Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:42.673Z",
+      "at": "2026-10-20T08:06:42.748Z",
+      "sequence": 14,
+      "bytes": 4403,
+      "sha256": "d83e24eaeca96704ce52c14350d5360ed55ac19678122041b452c80426597901",
+      "file": ".requests/14.response",
+      "semantic_capture_file": "_scotland.json?source=company_insolvencies&measure=total-company-insolvencies.response"
+    },
+    {
+      "path": "/england.json?source=pharmacies&measure=total",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=24",
+        "content-location": "https://morningrows.com/england.json?source=pharmacies&measure=total",
+        "etag": "W/\"ffdecbb03de3e034fb0faa7828192305bbd45966487f637ef003578def1d46f5\"",
+        "link": "<https://morningrows.com/england.json?source=pharmacies&measure=total>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:06:34.249Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:42.749Z",
+      "at": "2026-10-20T08:06:42.799Z",
+      "sequence": 15,
+      "bytes": 3457,
+      "sha256": "335729c3cfab5dd6ee7b8abfcc3a75b2cba02ac4d29ff831271381a298f8ad7c",
+      "file": ".requests/15.response",
+      "semantic_capture_file": "_england.json?source=pharmacies&measure=total.response"
+    },
+    {
+      "path": "/canada.json?date=2026-10-12",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/canada.json?date=2026-10-12",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/canada.json?date=2026-10-12>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:42.800Z",
+      "at": "2026-10-20T08:06:42.853Z",
+      "sequence": 16,
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": ".requests/16.response",
+      "semantic_capture_file": "_canada.json?date=2026-10-12.response"
+    },
+    {
+      "path": "/canada.json?source=exchange&measure=FXUSDCAD&observation=2026-10-12",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD&observation=2026-10-12",
+        "etag": "W/\"1ceab6d349064ed37e590f5b9efdbe42b682de40425f6a8eb716e08b44d2b2d6\"",
+        "link": "<https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD&observation=2026-10-12>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:05:27.648Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:42.853Z",
+      "at": "2026-10-20T08:06:42.935Z",
+      "sequence": 17,
+      "bytes": 1130,
+      "sha256": "6d44631c70eb6733585a29007dfec7e8593a94a81684e8e8bd2cac0531d6e036",
+      "file": ".requests/17.response",
+      "semantic_capture_file": "_canada.json?source=exchange&measure=FXUSDCAD&observation=2026-10-12.response"
+    },
+    {
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "public, max-age=3487",
+        "content-location": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "etag": "W/\"133a1f77dbd23e2919c43127cbb6e7a29339fdebeb9ec1b07441bddaa87030aa\"",
+        "link": "<https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:04:50.429Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:42.935Z",
+      "at": "2026-10-20T08:06:43.006Z",
+      "sequence": 18,
+      "bytes": 33372,
+      "sha256": "d70c171cbddca7307e0fed675a15de2200e5221085b5b831eef24f93f0d3fe63",
+      "file": ".requests/18.response"
+    },
+    {
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "public, max-age=3487",
+        "content-location": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "etag": "W/\"133a1f77dbd23e2919c43127cbb6e7a29339fdebeb9ec1b07441bddaa87030aa\"",
+        "link": "<https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:04:50.429Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": false,
+      "started_at": "2026-10-20T08:06:43.007Z",
+      "at": "2026-10-20T08:06:43.076Z",
+      "sequence": 19,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "origin": "https://morningrows.com",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "public, max-age=3487",
+        "content-location": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "etag": "W/\"133a1f77dbd23e2919c43127cbb6e7a29339fdebeb9ec1b07441bddaa87030aa\"",
+        "link": "<https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:04:50.429Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": false,
+      "started_at": "2026-10-20T08:06:43.076Z",
+      "at": "2026-10-20T08:06:43.140Z",
+      "sequence": 20,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-09",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "public, max-age=3487",
+        "content-location": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-09",
+        "etag": "W/\"25b2685e05583c2c91239c7529e80a8c1ab9a104d68678fd48c56fb131e0f6af\"",
+        "link": "<https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:04:50.429Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:43.140Z",
+      "at": "2026-10-20T08:06:43.214Z",
+      "sequence": 21,
+      "bytes": 5702,
+      "sha256": "f8bc9a559ae73e534054a614d8ef13f154f786415a10220c1c44357848f4a89c",
+      "file": ".requests/21.response",
+      "semantic_capture_file": "_united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-09.response"
+    },
+    {
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-10",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "public, max-age=3487",
+        "content-location": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-10",
+        "etag": "W/\"9644cd5b1e5a0dea9b3782a0efd6f6f4d4ba1776926d753bf7bb9979eb8b6e3b\"",
+        "link": "<https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-10>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:04:50.429Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:43.214Z",
+      "at": "2026-10-20T08:06:43.282Z",
+      "sequence": 22,
+      "bytes": 5848,
+      "sha256": "7056004f8272ef81987b17ee77104db176c59b691539b10c9139afa48269fc6c",
+      "file": ".requests/22.response",
+      "semantic_capture_file": "_united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-10.response"
+    },
+    {
+      "path": "/united-states.json?geography=California",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-states.json",
+        "etag": "W/\"a41f442ce347d6b38dcf938b082d4ec6eb1da0be218ffe855aaf49ed34d7c14c\"",
+        "link": "<https://morningrows.com/united-states.json>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:43.282Z",
+      "at": "2026-10-20T08:06:43.342Z",
+      "sequence": 23,
+      "bytes": 150,
+      "sha256": "5a4d57c2b137d8b27b4e681c04925257eb448f30cd2bbb446dcdd5b006e4f182",
+      "file": ".requests/23.response",
+      "semantic_capture_file": "_united-states.json?geography=California.response"
+    },
+    {
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0&observation=1900-01",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=1900-01",
+        "etag": "W/\"295d09c920866ae6c21cce35d210f6f6ebb9df893afb3124555cb13faa75f54b\"",
+        "link": "<https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.v2.json>; rel=\"index\", <https://morningrows.com/schema.v2.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T08:04:50.429Z",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:43.343Z",
+      "at": "2026-10-20T08:06:43.431Z",
+      "sequence": 24,
+      "bytes": 3458,
+      "sha256": "85436d69eae95c2c8a16d618c59b62906c5c58f8fb3ec387a2476c8ac2370548",
+      "file": ".requests/24.response",
+      "semantic_capture_file": "_united-states.json?source=cpi&measure=CUUR0000SA0&observation=1900-01.response"
+    },
+    {
+      "path": "/catalog.json?desk=united-states",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/catalog.json?desk=united-states",
+        "etag": "W/\"4281ab358773c9427e8de8399df9b5eb2be04254218e0e9a8e10438e64a5a1bf\"",
+        "link": "<https://morningrows.com/catalog.json?desk=united-states>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:43.432Z",
+      "at": "2026-10-20T08:06:43.481Z",
+      "sequence": 25,
+      "bytes": 156,
+      "sha256": "4e4cdee865bf76629df2606a0447c455cb7d2e4e1f1e49e227efde940276eec7",
+      "file": ".requests/25.response",
+      "semantic_capture_file": "_catalog.json?desk=united-states.response"
+    },
+    {
+      "path": "/health.json",
+      "origin": "https://morningrows.com",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-cache",
+        "content-location": "https://morningrows.com/health.json",
+        "etag": "W/\"5543438c3703a1cc6b67aabd7ef565f871c72f821446c0eed32418a88b50031e\"",
+        "link": "<https://morningrows.com/health.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "x-worker-version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "json_valid": true,
+      "started_at": "2026-10-20T08:06:43.482Z",
+      "at": "2026-10-20T08:06:43.554Z",
+      "sequence": 26,
+      "bytes": 309,
+      "sha256": "da1de6ffe04cc189e9f8fa70ac9ed9da7aed9be785b14c65ce6b12388137db60",
+      "file": ".requests/26.response"
+    }
+  ],
+  "checks": [
+    {
+      "name": "USA CPU accepted capture",
+      "pass": true
+    },
+    {
+      "name": "Legacy CPU accepted capture",
+      "pass": true
+    },
+    {
+      "name": "unique imported /health.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /health.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /health.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /health.json",
+      "pass": true
+    },
+    {
+      "name": "matching clean health identities",
+      "pass": true
+    },
+    {
+      "name": "candidate remains at zero",
+      "pass": true
+    },
+    {
+      "name": "unique imported /health.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /health.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /united-states.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /united-states.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /united-states.json?source=cpi&measure=CUUR0000SA0",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /united-states.json?source=cpi&measure=CUUR0000SA0",
+      "pass": true
+    },
+    {
+      "name": "unique imported /australia.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /australia.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /new-zealand.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /new-zealand.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /canada.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /canada.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /united-kingdom.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /united-kingdom.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /england.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /england.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /scotland.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /scotland.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /wales.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /wales.json",
+      "pass": true
+    },
+    {
+      "name": "unique imported /northern-ireland.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /northern-ireland.json",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 1",
+      "pass": true
+    },
+    {
+      "name": "response status 1",
+      "pass": true,
+      "detail": {
+        "path": "/catalog.json",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 1",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 2",
+      "pass": true
+    },
+    {
+      "name": "response status 2",
+      "pass": true,
+      "detail": {
+        "path": "/schema.json",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 2",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 3",
+      "pass": true
+    },
+    {
+      "name": "response status 3",
+      "pass": true,
+      "detail": {
+        "path": "/catalog.v2.json",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 3",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 4",
+      "pass": true
+    },
+    {
+      "name": "response status 4",
+      "pass": true,
+      "detail": {
+        "path": "/schema.v2.json",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 4",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 5",
+      "pass": true
+    },
+    {
+      "name": "response status 5",
+      "pass": true,
+      "detail": {
+        "path": "/catalog.json?desk=canada",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 5",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 6",
+      "pass": true
+    },
+    {
+      "name": "response status 6",
+      "pass": true,
+      "detail": {
+        "path": "/catalog.v2.json?desk=united-states",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 6",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 7",
+      "pass": true
+    },
+    {
+      "name": "response status 7",
+      "pass": true,
+      "detail": {
+        "path": "/canada.json?source=exchange&measure=FXUSDCAD",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 7",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 7",
+      "pass": true
+    },
+    {
+      "name": "one described finite observation /canada.json?source=exchange&measure=FXUSDCAD",
+      "pass": true
+    },
+    {
+      "name": "ETag available /canada.json?source=exchange&measure=FXUSDCAD",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 8",
+      "pass": true
+    },
+    {
+      "name": "response status 8",
+      "pass": true,
+      "detail": {
+        "path": "/canada.json?source=exchange&measure=FXUSDCAD",
+        "expected": 304,
+        "observed": 304
+      }
+    },
+    {
+      "name": "empty body 8",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 9",
+      "pass": true
+    },
+    {
+      "name": "response status 9",
+      "pass": true,
+      "detail": {
+        "path": "/wales.json?source=projection&measure=population-2024-based",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 9",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 9",
+      "pass": true
+    },
+    {
+      "name": "one described finite observation /wales.json?source=projection&measure=population-2024-based",
+      "pass": true
+    },
+    {
+      "name": "ETag available /wales.json?source=projection&measure=population-2024-based",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 10",
+      "pass": true
+    },
+    {
+      "name": "response status 10",
+      "pass": true,
+      "detail": {
+        "path": "/wales.json?source=projection&measure=population-2024-based",
+        "expected": 304,
+        "observed": 304
+      }
+    },
+    {
+      "name": "empty body 10",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 11",
+      "pass": true
+    },
+    {
+      "name": "response status 11",
+      "pass": true,
+      "detail": {
+        "path": "/new-zealand.json?source=stats&measure=CORR_FIS_005",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 11",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 11",
+      "pass": true
+    },
+    {
+      "name": "one described finite observation /new-zealand.json?source=stats&measure=CORR_FIS_005",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 12",
+      "pass": true
+    },
+    {
+      "name": "response status 12",
+      "pass": true,
+      "detail": {
+        "path": "/australia.json?source=hospital&measure=WA.MYH-RM0037",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 12",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 12",
+      "pass": true
+    },
+    {
+      "name": "one described finite observation /australia.json?source=hospital&measure=WA.MYH-RM0037",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 13",
+      "pass": true
+    },
+    {
+      "name": "response status 13",
+      "pass": true,
+      "detail": {
+        "path": "/northern-ireland.json?source=childhood_bmi&measure=Y8BMIOwOb",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 13",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 13",
+      "pass": true
+    },
+    {
+      "name": "one described finite observation /northern-ireland.json?source=childhood_bmi&measure=Y8BMIOwOb",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 14",
+      "pass": true
+    },
+    {
+      "name": "response status 14",
+      "pass": true,
+      "detail": {
+        "path": "/scotland.json?source=company_insolvencies&measure=total-company-insolvencies",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 14",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 14",
+      "pass": true
+    },
+    {
+      "name": "one described finite observation /scotland.json?source=company_insolvencies&measure=total-company-insolvencies",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 15",
+      "pass": true
+    },
+    {
+      "name": "response status 15",
+      "pass": true,
+      "detail": {
+        "path": "/england.json?source=pharmacies&measure=total",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 15",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 15",
+      "pass": true
+    },
+    {
+      "name": "one described finite observation /england.json?source=pharmacies&measure=total",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 16",
+      "pass": true
+    },
+    {
+      "name": "response status 16",
+      "pass": true,
+      "detail": {
+        "path": "/canada.json?date=2026-10-12",
+        "expected": 400,
+        "observed": 400
+      }
+    },
+    {
+      "name": "JSON body 16",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 17",
+      "pass": true
+    },
+    {
+      "name": "response status 17",
+      "pass": true,
+      "detail": {
+        "path": "/canada.json?source=exchange&measure=FXUSDCAD&observation=2026-10-12",
+        "expected": 404,
+        "observed": 404
+      }
+    },
+    {
+      "name": "JSON body 17",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 18",
+      "pass": true
+    },
+    {
+      "name": "response status 18",
+      "pass": true,
+      "detail": {
+        "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 18",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 18",
+      "pass": true
+    },
+    {
+      "name": "USA thirteen exact slots",
+      "pass": true
+    },
+    {
+      "name": "USA ETag available",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 19",
+      "pass": true
+    },
+    {
+      "name": "response status 19",
+      "pass": true,
+      "detail": {
+        "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "expected": 304,
+        "observed": 304
+      }
+    },
+    {
+      "name": "empty body 19",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 20",
+      "pass": true
+    },
+    {
+      "name": "response status 20",
+      "pass": true,
+      "detail": {
+        "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "empty body 20",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 20",
+      "pass": true
+    },
+    {
+      "name": "USA HEAD ETag",
+      "pass": true
+    },
+    {
+      "name": "unique imported /united-states.json",
+      "pass": true
+    },
+    {
+      "name": "import identity/status /united-states.json",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 21",
+      "pass": true
+    },
+    {
+      "name": "response status 21",
+      "pass": true,
+      "detail": {
+        "path": "/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2026-09",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 21",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 21",
+      "pass": true
+    },
+    {
+      "name": "USA exact month 2026-09",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 22",
+      "pass": true
+    },
+    {
+      "name": "response status 22",
+      "pass": true,
+      "detail": {
+        "path": "/united-states.json?source=cpi&measure=CUUR0000SA0&observation=2025-10",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 22",
+      "pass": true
+    },
+    {
+      "name": "bounded TTL 22",
+      "pass": true
+    },
+    {
+      "name": "USA exact month 2025-10",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 23",
+      "pass": true
+    },
+    {
+      "name": "response status 23",
+      "pass": true,
+      "detail": {
+        "path": "/united-states.json?geography=California",
+        "expected": 400,
+        "observed": 400
+      }
+    },
+    {
+      "name": "JSON body 23",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 24",
+      "pass": true
+    },
+    {
+      "name": "response status 24",
+      "pass": true,
+      "detail": {
+        "path": "/united-states.json?source=cpi&measure=CUUR0000SA0&observation=1900-01",
+        "expected": 404,
+        "observed": 404
+      }
+    },
+    {
+      "name": "JSON body 24",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 25",
+      "pass": true
+    },
+    {
+      "name": "response status 25",
+      "pass": true,
+      "detail": {
+        "path": "/catalog.json?desk=united-states",
+        "expected": 404,
+        "observed": 404
+      }
+    },
+    {
+      "name": "JSON body 25",
+      "pass": true
+    },
+    {
+      "name": "exact response identity 26",
+      "pass": true
+    },
+    {
+      "name": "response status 26",
+      "pass": true,
+      "detail": {
+        "path": "/health.json",
+        "expected": 200,
+        "observed": 200
+      }
+    },
+    {
+      "name": "JSON body 26",
+      "pass": true
+    },
+    {
+      "name": "final same clean identity",
+      "pass": true
+    },
+    {
+      "name": "staging unchanged",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Imported JSON bodies are reserialized from retained report objects; their file hashes identify that serialization, not original HTTP wire bytes. Source-report hashes and request metadata retain provenance.",
+    "Full desks are reused to avoid repeating the nine-desk publisher sweep. Additional selector reads may use the same version cache.",
+    "CPU acceptance and semantic validation are separate; run verify-preview-bodies.mjs after this capture."
+  ],
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+    "source_dirty": false,
+    "build_fingerprint": "fc27e14328f2c397",
+    "worker_version": "775bfe2d-491b-4bf5-a257-4d3465003351",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  },
+  "deployment_before": {
+    "id": "12502cca-07bb-4ffe-ab75-094b3855c990",
+    "created_on": "2026-10-20T08:04:27.478757Z",
+    "versions": [
+      {
+        "version_id": "b2a562a7-d137-4376-a6ca-54f29f1415ad",
+        "percentage": 100
+      },
+      {
+        "version_id": "775bfe2d-491b-4bf5-a257-4d3465003351",
+        "percentage": 0
+      }
+    ]
+  },
+  "deployment_after": {
+    "id": "12502cca-07bb-4ffe-ab75-094b3855c990",
+    "created_on": "2026-10-20T08:04:27.478757Z",
+    "versions": [
+      {
+        "version_id": "b2a562a7-d137-4376-a6ca-54f29f1415ad",
+        "percentage": 100
+      },
+      {
+        "version_id": "775bfe2d-491b-4bf5-a257-4d3465003351",
+        "percentage": 0
+      }
+    ]
+  },
+  "finished_at": "2026-10-20T08:06:44.689Z",
+  "pass": true
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "Validation-tool cache-bound correction; no runtime change",
+  "recorded_at": "2026-10-20T08:07:52.237882+00:00",
+  "candidate_source": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+  "failed_capture": "verification/statcan-gdp-2026-10-20/staged-gdp/gdp-interface-report.json",
+  "failed_capture_sha256": "d1ac8618ed56d9c82eab692e85a4558aca735da991d437558ba3f67a9de70a72",
+  "failed_request": {
+    "path": "/canada.json?source=product",
+    "status": 200,
+    "cache_control": "public, max-age=3541"
+  },
+  "cause": "GDP checkers incorrectly copied the 120-second market-rent cache ceiling. Canada retains its established 3600-second cache. The HTTP200 response and correct candidate identity were not runtime failures.",
+  "correction": "Only GDP checker/verifier cache ceiling changed from120 to3600 seconds; boundary controls accept3600 and reject3601. Failed capture remains unchanged; root will perform a new capture in staged-gdp-final.",
+  "before_sha256": {
+    "scripts/check-statcan-gdp.mjs": "e3e570bd24c69d25da8af04510e73fcd421fe8211325aba70a0ffdeb3e8e1109",
+    "scripts/verify-statcan-gdp-captures.py": "06ac0af0c86663d1bfe759cf68a666f90c61512b2645b325d758002683962825",
+    "verification/statcan-gdp-2026-10-20/reproduce-verifier-controls.py": "5393d434a9eb41ebf435d934eb198c08aca3b92e7abdb6e898ee7d11eae12dda"
+  },
+  "after_sha256": {
+    "scripts/check-statcan-gdp.mjs": "991b38dd2a8ca5540e11188a649175d9b91943eb5319d3a3e20bd0d303364e94",
+    "scripts/verify-statcan-gdp-captures.py": "86d7ae2a032b22abc37e07f91f199475381a1444adfe59fe4fa133e3c2e82746",
+    "verification/statcan-gdp-2026-10-20/reproduce-verifier-controls.py": "36860eef46c3b2829a4f25c848c8ef2346e42e6e12f299d992ba9d204c223a97"
+  },
+  "new_control_result": "verification/statcan-gdp-2026-10-20/verifier-controls-cache-final.json"
+}

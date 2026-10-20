@@ -1,0 +1,596 @@
+{
+  "checked_at": "2026-10-20T08:12:59.694179+00:00",
+  "method": "Offline Draft2020-12/format assertions and Decimal comparison against separate retained Python workbook extraction",
+  "identity_valid": true,
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+    "source_dirty": false,
+    "build_fingerprint": "fc27e14328f2c397",
+    "worker_version": "775bfe2d-491b-4bf5-a257-4d3465003351",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  },
+  "inputs": [
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/report.json",
+      "sha256": "61511e679955a761b936f91af0936874e69d244a887d1a5ea7235d25c4bbbfdf"
+    },
+    {
+      "file": "verification/us-paid-2026-10-20/workbook-recheck.json",
+      "sha256": "6dd9ee402385fc1f09f3b3abd4ff3700ae0d6ad1d779c5d56c292a4af70f8e9e"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fschema.json.body",
+      "sha256": "a37e28928282792c50c1d7f9f1aaf191bb49145aa802347f1188a1526e694fa6"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fschema.v2.json.body",
+      "sha256": "0ba91e5a857e9306113273b3839695d2cb6dd2bec961a098d526258df1cb6463"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fcatalog.json.body",
+      "sha256": "44cc596696636befc74689fbcfb972b2aecb926a25771698656010304e871384"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fcatalog.v2.json.body",
+      "sha256": "072b0817b58386caaa23e1a4b3985e653215d91e4f7cdbaaceeeb41a2b84620a"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Faustralia.json.body",
+      "sha256": "e65532d824acfa5822b2e38783301aba07746cca65a9f0fb6759483535a6c9c8"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fnew-zealand.json.body",
+      "sha256": "2c4e487a6c9324ced8082e7360e42bd58dabaaf897dd53db095f5a261ab5c456"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fcanada.json.body",
+      "sha256": "feafa244ac6a47535167ed42e3d50bf2610657ebaba7754639ce83194300a7a3"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Funited-kingdom.json.body",
+      "sha256": "b351bc19a81cd89770e812d79c3a63614bdbfde14ae492abb6615327d84b8a8f"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fengland.json.body",
+      "sha256": "ee7945cc5991ada3f186fa9de0000ba5d7da712767de1c6617dc2da9b2216988"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fscotland.json.body",
+      "sha256": "8b5e040da2753e4aed7bc6419af21e0f2f5bb87a6558c3a3ba3664824324cf11"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fwales.json.body",
+      "sha256": "921ea368d366b5f0f176e7492d6c458ac9f3c80287248f20b4f92b57f5aaa556"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Fnorthern-ireland.json.body",
+      "sha256": "1f5551199f903039eb8dd86a8d0ef6f7226b6846cc754aee107f3bf0cd44bebf"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Funited-states.json.body",
+      "sha256": "324c066697f71a851edbbcc8de253164bb52bfc30b861aceb7ced8e2f80eb378"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/apex-%2Funited-states.json%3Fsource%3Dcpi%26measure%3DCUUR0000SA0.body",
+      "sha256": "d70c171cbddca7307e0fed675a15de2200e5221085b5b831eef24f93f0d3fe63"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fschema.json.body",
+      "sha256": "a37e28928282792c50c1d7f9f1aaf191bb49145aa802347f1188a1526e694fa6"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fschema.v2.json.body",
+      "sha256": "0ba91e5a857e9306113273b3839695d2cb6dd2bec961a098d526258df1cb6463"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fcatalog.json.body",
+      "sha256": "44cc596696636befc74689fbcfb972b2aecb926a25771698656010304e871384"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fcatalog.v2.json.body",
+      "sha256": "072b0817b58386caaa23e1a4b3985e653215d91e4f7cdbaaceeeb41a2b84620a"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Faustralia.json.body",
+      "sha256": "639b2669f31cbf341f8e56f076819ef0bfd231ab5d8d62dd0c342fa247619fef"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fnew-zealand.json.body",
+      "sha256": "17e5bfa6146de708bdf2a3ca23e0c62a26288893801ffcb283b25bbc2b9beda8"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fcanada.json.body",
+      "sha256": "00ceb88f05ea412268bedb553cbff230c1dbd98ff0345ccf1cab9513c50aaa06"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Funited-kingdom.json.body",
+      "sha256": "02305f4ab391011dbaefc200eaf97388524b4a341ff26f9a65d36f13cf65ef65"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fengland.json.body",
+      "sha256": "9981a6b4eefcd4ac4cf78a58b09238a60c7bb237f2fb2562c2b64def76e77571"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fscotland.json.body",
+      "sha256": "d229536e641f957a325de8dd66aee00e9a1a0c0ea3fe57c09eec28d3eb6fba1f"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fwales.json.body",
+      "sha256": "5a7b8d323604653e82f6e7e6e1e374e7aa9556b512361e3c6792e0488b810e5a"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Fnorthern-ireland.json.body",
+      "sha256": "ae4fdef7bcaf62d0c7ae891ebc6e81b4e2bfc34669f314d715a18803a0100f7a"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Funited-states.json.body",
+      "sha256": "324c066697f71a851edbbcc8de253164bb52bfc30b861aceb7ced8e2f80eb378"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/production-core/www-%2Funited-states.json%3Fsource%3Dcpi%26measure%3DCUUR0000SA0.body",
+      "sha256": "d70c171cbddca7307e0fed675a15de2200e5221085b5b831eef24f93f0d3fe63"
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-semantic.json",
+      "sha256": "f7331bcaac57ef3225bdd052f0e7920f3bd0a883495cfea59ec2e3e54a490d2d"
+    }
+  ],
+  "schema_checks": [
+    {
+      "domain": "apex",
+      "path": "/catalog.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/catalog.v2.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/australia.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/new-zealand.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/canada.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-kingdom.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/england.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/scotland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/wales.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/northern-ireland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-states.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/catalog.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/catalog.v2.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/australia.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/new-zealand.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/canada.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-kingdom.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/england.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/scotland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/wales.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/northern-ireland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-states.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    }
+  ],
+  "us_comparisons": [
+    {
+      "domain": "apex",
+      "period": "2025-09",
+      "expected_value_text": "324.800",
+      "observed_value_text": "324.800",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-10",
+      "expected_value_text": null,
+      "observed_value_text": "-",
+      "value_state": "unavailable",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-11",
+      "expected_value_text": "324.122",
+      "observed_value_text": "324.122",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-12",
+      "expected_value_text": "324.054",
+      "observed_value_text": "324.054",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-01",
+      "expected_value_text": "325.252",
+      "observed_value_text": "325.252",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-02",
+      "expected_value_text": "326.785",
+      "observed_value_text": "326.785",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-03",
+      "expected_value_text": "330.213",
+      "observed_value_text": "330.213",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-04",
+      "expected_value_text": "333.020",
+      "observed_value_text": "333.020",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-05",
+      "expected_value_text": "335.123",
+      "observed_value_text": "335.123",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-06",
+      "expected_value_text": "333.952",
+      "observed_value_text": "333.952",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-07",
+      "expected_value_text": "333.918",
+      "observed_value_text": "333.918",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-08",
+      "expected_value_text": "334.980",
+      "observed_value_text": "334.980",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-09",
+      "expected_value_text": "336.940",
+      "observed_value_text": "336.940",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-09",
+      "expected_value_text": "324.800",
+      "observed_value_text": "324.800",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-10",
+      "expected_value_text": null,
+      "observed_value_text": "-",
+      "value_state": "unavailable",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-11",
+      "expected_value_text": "324.122",
+      "observed_value_text": "324.122",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-12",
+      "expected_value_text": "324.054",
+      "observed_value_text": "324.054",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-01",
+      "expected_value_text": "325.252",
+      "observed_value_text": "325.252",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-02",
+      "expected_value_text": "326.785",
+      "observed_value_text": "326.785",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-03",
+      "expected_value_text": "330.213",
+      "observed_value_text": "330.213",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-04",
+      "expected_value_text": "333.020",
+      "observed_value_text": "333.020",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-05",
+      "expected_value_text": "335.123",
+      "observed_value_text": "335.123",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-06",
+      "expected_value_text": "333.952",
+      "observed_value_text": "333.952",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-07",
+      "expected_value_text": "333.918",
+      "observed_value_text": "333.918",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-08",
+      "expected_value_text": "334.980",
+      "observed_value_text": "334.980",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-09",
+      "expected_value_text": "336.940",
+      "observed_value_text": "336.940",
+      "value_state": "observed",
+      "pass": true
+    }
+  ],
+  "counts": {
+    "apex": {
+      "slots": 13,
+      "unique_periods": 13,
+      "reference_coverage": true
+    },
+    "www": {
+      "slots": 13,
+      "unique_periods": 13,
+      "reference_coverage": true
+    }
+  },
+  "source_comparison": {
+    "compared_source_states": 230,
+    "changes": [
+      {
+        "domain": "www",
+        "desk": "england.json",
+        "source": "also.roads",
+        "staged": {
+          "status": "error",
+          "fetched_at": "2026-10-20T08:05:51.725Z",
+          "error": "api.tfl.gov.uk returned HTTP 429",
+          "http_status": 429
+        },
+        "production": {
+          "status": "ok",
+          "fetched_at": "2026-10-20T08:11:45.798Z"
+        },
+        "classification": "known intermittent TfL status change",
+        "resolved_laws_evidence": null
+      },
+      {
+        "domain": "www",
+        "desk": "england.json",
+        "source": "rail",
+        "staged": {
+          "status": "ok",
+          "fetched_at": "2026-10-20T08:05:50.271Z"
+        },
+        "production": {
+          "status": "error",
+          "fetched_at": "2026-10-20T08:11:45.206Z",
+          "error": "api.tfl.gov.uk returned HTTP 429",
+          "http_status": 429
+        },
+        "classification": "known intermittent TfL status change",
+        "resolved_laws_evidence": null
+      },
+      {
+        "domain": "www",
+        "desk": "england.json",
+        "source": "service",
+        "staged": {
+          "status": "ok",
+          "fetched_at": "2026-10-20T08:05:50.255Z"
+        },
+        "production": {
+          "status": "error",
+          "fetched_at": "2026-10-20T08:11:45.148Z",
+          "error": "api.tfl.gov.uk returned HTTP 429",
+          "http_status": 429
+        },
+        "classification": "known intermittent TfL status change",
+        "resolved_laws_evidence": null
+      }
+    ],
+    "requires_review": [],
+    "semantic_boundary": "Native source availability is not independent certification of coverage or correctness."
+  },
+  "pass": true,
+  "missing_value_comparison": "Workbook null with the October 2025 note equals public null numeric value, dash text, unavailable state and exact X footnote.",
+  "limitations": [
+    "All BLS presentations share statistical lineage; this is separate extraction/presentation evidence.",
+    "Does not make new network requests or establish sustained monitoring acceptance.",
+    "Original failed or mixed-rollout captures remain separate evidence and are not rewritten."
+  ]
+}

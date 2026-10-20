@@ -1,4 +1,71 @@
-# Current release — NZ local rent, 20 October 2026
+# Current release — Canada GDP correctness, 20 October 2026
+
+The existing Canada GDP reader is released on both domains at clean source
+`a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b`, Worker
+`775bfe2d-491b-4bf5-a257-4d3465003351`, fingerprint `fc27e14328f2c397`.
+Deployment `5b9bb834-4aef-4f2f-8dd5-bc5d6614951e` promoted the tested version
+at `2026-10-20T08:11:15.420461Z`. The rollback target is the prior rent release:
+Worker `b2a562a7-d137-4376-a6ca-54f29f1415ad`, source
+`f85224e6a9ee601d9e706ffab2cd133d3697c272`, fingerprint `d06c032d78d73a12`.
+Documentation and monitoring commits do not change the deployed source identity.
+See [GDP release evidence](verification/statcan-gdp-2026-10-20/README.md).
+
+`/canada.json?source=product` now validates the exact existing Statistics Canada
+GDP series against its series and cube metadata. It preserves the legacy
+`period`, `level` and `quarter_change` values and exposes two adjacent quarterly
+levels plus one derived ordinary quarter-to-quarter percentage change. Levels
+are millions of chained (2017) dollars, seasonally adjusted at annual rates;
+the growth percentage is not annualized. The retained Q1/Q2 2026 levels are
+2,503,604 and 2,524,127, yielding 0.82%. Independent original WDS, selected table,
+CSV and dated Daily comparisons support this vintage while sharing national
+accounts lineage. Exact-quarter selection refuses missing periods. No new
+statistical series, desk or geographic coverage is added.
+
+Acceptance passed **429 Node tests**, the build and **23 protected scenarios**.
+Both-domain checks passed **151 general checks / 104 requests**, **24 existing
+schemas, 26 BLS slots and 100 semantic checks**; **366 claimant checks / 112
+requests, 130 cells, 50 schemas and 370 negative cases**; and **224 rent checks /
+62 requests, 232 native cells, 268 selected cells, 42 schemas and 48 negative
+cases**. Smoke checks passed **18 apex / 17 www**. Actual CPU samples were
+**15 ms USA, 26 ms Canada and 170 ms maximum across legacy desks**, within the
+100 ms USA / 500 ms legacy gates and unchanged 1,000 ms Worker ceiling.
+Nine-desk v2, eight-desk v1, September claimant histories and the rent contract
+remain established; their earlier release specimens remain dated evidence.
+
+The reviewed identity chain preserves old baseline → USA → claimant → rent
+and adds the GDP release as a fourth review in the same monitoring scope.
+The existing daily collector still has **115 obligations in 24 public probes**.
+The next normal serialized collection may apply the remaining exact reviewed
+suffix in one real write; intermediate reviews are not observed collections.
+No checkpoint is created by this release or its constructed replay.
+
+The actual durable checkpoint remains **sequence 5**, scheduled run
+`39341442350`, completed `2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
+with **33 incidents and 36 pending repairs**. There are **two actual legacy
+scheduled cycles and zero expanded-scope scheduled cycles**; actual scheduled
+validation of the strengthened GDP contract is still pending. SHADOW retains
+its actual start `2026-10-18T23:22:22.161Z`; the next complete checkpoint deadline
+remains `2026-10-21T01:26:10.163Z`. The delivery receipt remains unresolved.
+
+Keep the hourly watchdog, daily collector, disabled ordinary source alerts,
+disconnected automatic Builds and credentials. Seven-day acceptance still needs
+at least eight complete daily scheduled checkpoints, seven elapsed days spanned
+by scheduled completions, no gap over 26 hours and genuine delivery evidence.
+Do not repeat the delivery test or treat build requests as acknowledgment.
+NZ-PRICES remains blocked on its selected 17 October specimen; UK CPI stays
+parked. This accepted GDP release does not close those gates or the broader
+maintenance plan. Further authorized work is tracked in [GAP-LEDGER.md](GAP-LEDGER.md).
+
+---
+
+# Historical release snapshots
+
+The following sections preserve their dated identities, measurements and pending
+gates. The current GDP release and checkpoint boundary above supersede their
+former current-state claims; they are not instructions to repeat a release.
+
+# Previous rent release — 20 October 2026
 
 Clean source `f85224e6a9ee601d9e706ffab2cd133d3697c272`, Worker
 `b2a562a7-d137-4376-a6ca-54f29f1415ad`, fingerprint `d06c032d78d73a12`
