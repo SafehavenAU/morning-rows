@@ -1,3 +1,13 @@
+# CPU evidence guard — 20 October 2026 Brisbane
+
+Strengthened `scripts/verify-us-version-cpu.mjs` to prove zero-percent staging,
+unchanged deployment and both-domain approved production identity before and
+after CPU probes. Malformed CPU, future retrieval times, dirty/mixed builds and
+exception traces now fail closed. The actual former candidate is no longer
+staged and the new preflight correctly refused it before any HTTP probes.
+No reader change or new CPU result; USA remains blocked by the 10 ms Free gate.
+See `verification/us-build-2026-10-19/CONTINUATION.md`.
+
 # USA CPI candidate — Free-plan optimization pass complete; release blocked
 
 The user chose **Keep Free; pursue further optimization**. Draft PR8 retains the

@@ -119,3 +119,20 @@ scheduled days, real delivery acknowledgment,
 UK CPI access and NZ-PRICES independent report evidence remain separate gates.
 The existing hourly watchdog remains enabled; this build work neither dispatches
 the daily collector nor restarts incidents or the SHADOW clock.
+
+## CPU evidence guard — 20 October 2026 Brisbane
+
+The next build pass strengthened the verifier without changing the reader. The
+probe now reads actual deployment metadata before any HTTP probe, requires the
+exact candidate at 0% alongside approved production at 100%, and rechecks the
+same deployment afterward. Both domains must match the approved clean identity
+in headers and body before and after testing. Every candidate response must
+match one clean build; negative/nonfinite CPU, exceptions, missing/duplicate
+traces and future or cached retrieval timestamps fail.
+
+A live read-only preflight against the former candidate correctly returned
+`candidate_not_staged_at_zero`: deployment 99833025 contains only approved
+production. No candidate HTTP requests, uploads or deployments were made.
+`runtime-budget/guard-preflight.json` retains that bounded result. Mutation tests
+exercise synthetic passing evidence and rejection cases. This is verifier
+validation, not a new CPU measurement; the 29 ms release blocker remains.
