@@ -1,0 +1,35 @@
+{
+  "pass": true,
+  "kind": "Independent local clock review; mocked transport only",
+  "module_sha256": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6",
+  "checks": [
+    {
+      "case": "Explicit invalid acquisition undefined",
+      "pass": true
+    },
+    {
+      "case": "Explicit invalid acquisition null",
+      "pass": true
+    },
+    {
+      "case": "Explicit invalid acquisition [object Object]",
+      "pass": true
+    },
+    {
+      "case": "Explicit invalid acquisition [object Object]",
+      "pass": true
+    },
+    {
+      "case": "Post-parse/hash midnight",
+      "pass": true,
+      "clock_calls": 9,
+      "requests": 3
+    },
+    {
+      "case": "Post-validation midnight",
+      "pass": true,
+      "clock_calls": 10,
+      "requests": 3
+    }
+  ]
+}

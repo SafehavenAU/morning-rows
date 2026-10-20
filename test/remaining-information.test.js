@@ -48,7 +48,7 @@ test('catalogues preserve accepted SFC/CMHC sources and retain eight/nine desk b
     assert.ok(card.measures.every(m=>m.unit===f.proof.comparisons[0].unit));
     for(const m of card.measures)assert.equal(validateSelection(new URL(m.records)).measure,m.id);
   }
-  for(const [desk,key]of [['england','bedroom_rent'],['england','care_assessment_cohort']]){
+  for(const [desk,key]of [['england','bedroom_rent'],['england','unapproved_care_trend']]){
     assert.equal(isRemainingSource(desk,key),false);
     assert.equal(remainingDefinitions(desk,key),null);
     assert.equal(INVENTORY[desk].some(row=>row[0]===key),false);
@@ -196,5 +196,7 @@ test('discovery reports precise held causes and accepted limits without fetching
   assert.match(llms,/all funding sources/);
   assert.match(llms,/Victoria CMA and Victoriaville CA/);
   assert.match(llms,/conditional CMHC reuse notices/);
-  assert.match(llms,/ONS Manchester bedroom rents and the CQC assessment cohort remain disconnected/);
+  assert.match(llms,/England adds five service-rating counts for the fixed adult social care assessment cohort as at 1 August 2025/);
+  assert.match(llms,/risk-prioritised cohort is not representative of all services in England/);
+  assert.match(llms,/ONS Manchester bedroom rents and the old CQC workbook route remain disconnected/);
 });

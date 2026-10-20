@@ -1,0 +1,82 @@
+{
+  "pass": true,
+  "verified_at": "2026-10-20T12:16:25.017449+00:00",
+  "method": "PyMuPDF text extraction of exact official GOV.UK-linked PDF pages; category parentheses and separate narrative total reconciled with retained Python ZIP/XML workbook reference.",
+  "source_acquisition": {
+    "url": "https://assets.publishing.service.gov.uk/media/68fa3b4fe200d653d8b63735/care-quality-commission-state-of-health-care-and-adult-social-care-England-2024-2025.pdf",
+    "method": "GET",
+    "started_at": "2026-10-20T12:09:58.198507+00:00",
+    "max_bytes": 8388608,
+    "timeout_seconds": 30,
+    "retries": 0,
+    "credentials": false,
+    "redirects_followed": false,
+    "user_agent": "MorningRowsResearch/1.0 (+https://morningrows.com)",
+    "status": 200,
+    "content_type": "application/pdf",
+    "bytes": 7175967,
+    "wire_sha256": "61614bff618645c52cf61405b9c6a2115854e29262d76e324513d2348e555fef",
+    "completed_at": "2026-10-20T12:09:59.829506+00:00",
+    "retained": [
+      {
+        "file": "cohort-pages.excerpt.pdf",
+        "bytes": 149299,
+        "sha256": "cf62939a8099ad9f46b92adfb3d5c7284b1c4cd6b48c25ca5f3cc4e65bb01c1d",
+        "transformation": "Selected PDF page indices 187,188 only; repackaged, not byte-identical full report."
+      },
+      {
+        "file": "cohort-pages.txt",
+        "bytes": 2738,
+        "sha256": "61dde767ca7d529b20a7338871eda387e47484999de420726947105eb4e2c525",
+        "transformation": "PyMuPDF text extraction of those same pages."
+      }
+    ],
+    "source_pages": 205,
+    "pass": true
+  },
+  "reference_sha256": "e6cdd71bfb1fd84dd22e2b6e3c93473d1b00e345ab4968271186db492e89f6c1",
+  "comparisons": [
+    {
+      "measure": "inadequate",
+      "pdf_value": 125,
+      "workbook_value": 125,
+      "pass": true
+    },
+    {
+      "measure": "requires_improvement",
+      "pdf_value": 809,
+      "workbook_value": 809,
+      "pass": true
+    },
+    {
+      "measure": "good",
+      "pdf_value": 2063,
+      "workbook_value": 2063,
+      "pass": true
+    },
+    {
+      "measure": "outstanding",
+      "pdf_value": 65,
+      "workbook_value": 65,
+      "pass": true
+    },
+    {
+      "measure": "total",
+      "pdf_value": 3062,
+      "workbook_value": 3062,
+      "pass": true
+    }
+  ],
+  "observations_compared": 5,
+  "publication_date": "2025-10-24",
+  "snapshot_date": "2025-08-01",
+  "shared_cqc_administrative_lineage": true,
+  "actual_worker_tested": false,
+  "runtime_parser_implemented": false,
+  "release_accepted": false,
+  "limitations": [
+    "PDF is 7,175,967 bytes and requires a separately reviewed bounded extraction strategy and real Worker CPU/access proof.",
+    "GOV.UK publication links the PDF and CQC HTML, but no separate tabular asset was identified there.",
+    "Risk-prioritised service ratings; not unique locations, all-England quality or a comparable time series."
+  ]
+}

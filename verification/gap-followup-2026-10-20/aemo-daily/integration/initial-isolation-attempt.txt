@@ -1,0 +1,78 @@
+(node:132703) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/tmp/mr-aemo-schema-placeholder-loader.mjs", pathToFileURL("./")); register("/tmp/mr-aemo-schema-placeholder-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ AEMO directory has ten bounded definitions alongside original grid (3.611204ms)
+✔ native source, measure and exact selectors resolve all ten numeric summary pointers (446.232775ms)
+✔ exact dates refuse adjacent/current/future periods and invalid dates distinctly (27.842448ms)
+✔ public adapters use current request clock and reject stale cache even if acquisition was valid (2.77325ms)
+✔ failed SA region keeps all five VIC observations and explicit missing-measure records (356.262791ms)
+✔ bad native metadata and source failures never produce selected observations (5.681261ms)
+✔ reacquisition is not a statistical revision; price revision changes only affected derived values (386.54262ms)
+(node:132704) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/tmp/mr-aemo-schema-placeholder-loader.mjs", pathToFileURL("./")); register("/tmp/mr-aemo-schema-placeholder-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ inventory exposes the reviewed daily AEMO source while keeping legacy grid and dated FX (2.524752ms)
+✔ canada/exchange_history: definitions, cells and selected rows retain exact source identities (26.891197ms)
+✔ canada/exchange_history: missing or invalid public clocks cannot bypass native validation (0.778187ms)
+✔ canada/jobs: definitions, cells and selected rows retain exact source identities (24.0045ms)
+✔ canada/jobs: missing or invalid public clocks cannot bypass native validation (0.243212ms)
+✔ canada/price_index: definitions, cells and selected rows retain exact source identities (0.424208ms)
+✔ canada/price_index: missing or invalid public clocks cannot bypass native validation (0.224554ms)
+✔ canada/shop: definitions, cells and selected rows retain exact source identities (0.492802ms)
+✔ canada/shop: missing or invalid public clocks cannot bypass native validation (0.240131ms)
+✔ canada/homes: definitions, cells and selected rows retain exact source identities (0.781797ms)
+✔ canada/homes: missing or invalid public clocks cannot bypass native validation (0.258285ms)
+✔ wales/land_transaction_tax: definitions, cells and selected rows retain exact source identities (1.841091ms)
+✔ wales/land_transaction_tax: missing or invalid public clocks cannot bypass native validation (0.206586ms)
+✔ FX source and measure arrays preserve every published pair; exact date is one row (2.451628ms)
+✔ FX latest-anchor mismatch is refused before any selected rows are returned (0.852949ms)
+✔ StatCan source data and original row qualifiers remain intact with stable native pointers (14.744679ms)
+✔ WRA overlapping coverage is selected by identity even after native row reordering (0.68239ms)
+✔ semantic content excludes acquisition-only changes but preserves release and revision qualifiers (2.115628ms)
+(node:132705) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/tmp/mr-aemo-schema-placeholder-loader.mjs", pathToFileURL("./")); register("/tmp/mr-aemo-schema-placeholder-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ AEMO selection refuses incomplete unvalidated native data (4.1994ms)
+✔ FX selectors distinguish a missing publication date, an unretained date and a failed source (44.939514ms)
+✔ rolling FX bounds and acquisition clocks do not revise unchanged individual observations (6.288182ms)
+✔ StatCan exact geography identities and quarterly housing remain qualified in selections (21.101483ms)
+✔ WRA exact selection keeps four overlapping identities and refuses altered meaning (7.446477ms)
+✔ Stats NZ metadata retains exact selected codes while exposing household and fiscal boundaries (0.855305ms)
+(node:132736) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/tmp/mr-aemo-schema-placeholder-loader.mjs", pathToFileURL("./")); register("/tmp/mr-aemo-schema-placeholder-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/morning-rows-aemo-followup/.generated/build-info.js' imported from /workspace/morning-rows-aemo-followup/worker.js
+    at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+    at moduleResolve (node:internal/modules/esm/resolve:865:10)
+    at defaultResolve (node:internal/modules/esm/resolve:992:11)
+    at nextResolve (node:internal/modules/esm/hooks:785:28)
+    at resolve (file:///tmp/mr-aemo-schema-placeholder-loader.mjs:5:9)
+    at nextResolve (node:internal/modules/esm/hooks:785:28)
+    at resolve (file:///tmp/mr-aemo-schema-placeholder-loader.mjs:5:9)
+    at nextResolve (node:internal/modules/esm/hooks:785:28)
+    at AsyncLoaderHooksOnLoaderHookWorker.resolve (node:internal/modules/esm/hooks:269:30)
+    at MessagePort.handleMessage (node:internal/modules/esm/worker:251:24) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///workspace/morning-rows-aemo-followup/.generated/build-info.js'
+}
+
+Node.js v24.19.0
+✖ test/gap-worker-integration.test.js (168.550253ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 31
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1749.956682
+
+✖ failing tests:
+
+test at test/gap-worker-integration.test.js:1:1
+✖ test/gap-worker-integration.test.js (168.550253ms)
+  'test failed'

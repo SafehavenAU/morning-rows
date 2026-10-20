@@ -1,0 +1,28 @@
+{
+  "attempts": [
+    {
+      "name": "reader-preflight",
+      "result": "failed_before_remote_start",
+      "cause": "One excess parent path in harness input/import references",
+      "original": "failed-reader-preflight/failure.json",
+      "resolved_by": "Correct relative paths; final actual Worker report is worker-reader.json",
+      "publisher_requests": 0
+    },
+    {
+      "name": "independent-PDF extraction first assertion",
+      "result": "local_assertion_failure_no_output_report",
+      "cause": "PyMuPDF extraction order places source text before graph Form counts; bounding by substring order hid counts",
+      "resolved_by": "Use entire selected statistical page, require exactly four parenthesised native integers and exactly one separately identified narrative total; independent-reader-comparison.json passes"
+    },
+    {
+      "name": "initial-broader-tests",
+      "result": "64_pass_2_fail",
+      "original": "initial-broader-tests.tap",
+      "causes": [
+        "Generated build-info absent in isolated worktree; generated locally, NI regression then passes4/4",
+        "Historical test still asserts held CQC absent; shared-integration.patch contains explicit assertion transition for root integration"
+      ],
+      "unchanged_existing_selected_schema_cases": 63
+    }
+  ]
+}

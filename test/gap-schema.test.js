@@ -58,7 +58,7 @@ async function specimens() {
   return native;
 }
 
-test('active gap native schemas reject plausible wrong answers while AEMO stays disconnected',async t=>{
+test('existing gap native schemas reject plausible wrong answers independently of the AEMO installer',async t=>{
   const schema=clone(INFORMATION_SCHEMA);
   installGapSchema(schema);
   const native=await specimens();

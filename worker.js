@@ -16,10 +16,12 @@ import { readClaimantCount } from './lib/claimant-count.js';
 import { readNzMarketRent } from './lib/nz-market-rent.js';
 import { readStatcanGdp } from './lib/statcan-gdp.js';
 import { readStatcanHeadline } from './lib/statcan-headlines.js';
+import {readAemoDailyBundles,aemoDailyBundleClock} from './lib/aemo-daily-bundles.js';
 import { readBocHistory } from './lib/boc-history.js';
 import {readSfcActivity} from './lib/sfc-activity.js';
 import {readCmhcRent} from './lib/cmhc-rent.js';
 import {readNiEnergySummary} from './lib/ni-energy-summary.js';
+import {readCqcPdf} from './lib/cqc-pdf.js';
 import {readSectionsWithCompletion} from './lib/source-completion.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
@@ -309,6 +311,8 @@ const LLMS = `# Morning Rows
 2. Follow the exact records URL. For example [Canada FX](https://morningrows.com/canada.json?source=exchange) or [Wales projection](https://morningrows.com/wales.json?source=projection&measure=population-2024-based). Full desk URLs remain supported.
 3. Read definition, exact period, value_state, source_url, licence and qualifications before answering. A desk name is not the observation geography. Projections are not estimates. Unknown metadata must remain unknown.
 4. Cite the observation id, version and publisher URL. Observation URLs select only a currently retained period, not an archive. Save the response for historical audit.
+Australia also provides [completed-day SA1/VIC1 price summaries](https://morningrows.com/australia.json?source=grid_day): latest fully elapsed calendar day in fixed AEST UTC+10, 288 five-minute prices per successful region, ten derived summaries after per-interval cent rounding. Use exact YYYY-MM-DD observations; missing latest bundles or a failed region never mean zero or an older-day substitute. The five-region grid snapshot remains separate.
+
 5. Retain ETag and use If-None-Match on the same URL. 304 means unchanged selected content/health within cache policy. Retrieval time is not publication time. Annual/monthly observations need not change daily.
 
 [Schema and usage contract](https://morningrows.com/schema.json) defines selectors, identity, comparison rules, missingness and revisions. [Runtime identity](https://morningrows.com/health.json) is separate from data health. [Manual access queue](https://morningrows.com/keys.json) is not deployed coverage.
@@ -317,7 +321,7 @@ const LLMS = `# Morning Rows
 
 ## Limits
 
-Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Canada adds dated FXUSDCAD/FXGBPCAD reference rates over a 31-calendar-day window, in CAD per foreign unit; exact-date absence is not carried forward. Scotland adds five learning-volume FTE aggregates from the fixed Scottish Funding Council College Statistics 2024-25 edition, covering all funding sources; these are not student headcounts or current available places. Canada adds annual two-bedroom rental benchmarks for Victoria CMA and Victoriaville CA, with each definition retaining its exact structure category, survey scope and conditional CMHC reuse notices; these are not listings, current asking rents or national coverage. Northern Ireland adds five electricity-balance measures for the fixed July 2025–June 2026 edition published on 3 September 2026: renewable share of gross final electricity consumption and four GWh aggregates. These are not generation mix, calendar-year totals or live grid readings; future editions require separate review. ONS Manchester bedroom rents and the CQC assessment cohort remain disconnected after unsuccessful actual source validation; see the bounded entries in keys.json. Local claimant histories remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
+Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Canada adds dated FXUSDCAD/FXGBPCAD reference rates over a 31-calendar-day window, in CAD per foreign unit; exact-date absence is not carried forward. Scotland adds five learning-volume FTE aggregates from the fixed Scottish Funding Council College Statistics 2024-25 edition, covering all funding sources; these are not student headcounts or current available places. Canada adds annual two-bedroom rental benchmarks for Victoria CMA and Victoriaville CA, with each definition retaining its exact structure category, survey scope and conditional CMHC reuse notices; these are not listings, current asking rents or national coverage. Northern Ireland adds five electricity-balance measures for the fixed July 2025–June 2026 edition published on 3 September 2026: renewable share of gross final electricity consumption and four GWh aggregates. These are not generation mix, calendar-year totals or live grid readings; future editions require separate review. England adds five service-rating counts for the fixed adult social care assessment cohort as at 1 August 2025, extracted from the reviewed CQC report PDF. This risk-prioritised cohort is not representative of all services in England and does not establish a trend. ONS Manchester bedroom rents and the old CQC workbook route remain disconnected after unsuccessful actual source validation; see the bounded entries in keys.json. Local claimant histories remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
 
 A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
 
@@ -805,7 +809,8 @@ async function readUnitedKingdom() {
 
 async function readEngland() {
   const onsPoint = async (path, geography, unit) => ({ ...await ons(path), geography, unit, source: "Office for National Statistics", licence: "Open Government Licence" });
-  const data = await readSections({
+  const data = await readSectionsWithCompletion({
+    care_assessment_cohort: readCqcPdf,
     food_establishments: () => readFoodAuthorities("England"),
     claimant_count: () => readClaimantCount("england"),
     pupil_absence: readPupilAbsence,
@@ -843,7 +848,7 @@ async function readEngland() {
     },
     calendar: async () => (await fetchOfficial("https://www.gov.uk/bank-holidays.json").then(r => r.json()))["england-and-wales"].events.filter(e => e.date >= new Date().toISOString().slice(0,10)).slice(0,4),
     quakes: async () => [...(await fetchOfficial("http://quakes.bgs.ac.uk/feeds/MhSeismology.xml").then(r => r.text())).matchAll(/<title>([^<]*Earthquake alert[^<]*)<\/title>/g)].slice(0,8).map(m => m[1].replace(/\s+/g," ").trim()),
-  });
+  },['care_assessment_cohort']);
   const also = await readSections({ world: () => readWorld("GB"), police: readPolice, health: readNhs, rainfall: readRain, rivers: readLevels, roads: readRoads, crime_data_current_to: () => fetchOfficial("https://data.police.uk/api/crime-last-updated").then(r => r.json()), space: readSpace });
   return { site: "https://morningrows.com", country: "England", page: "/england", ...data, also };
 }
@@ -1141,6 +1146,7 @@ const HOLD_SECONDS = {
 };
 
 function calendarCacheBoundary(path, now) {
+  if(['/australia','/australia.json','/morning.json'].includes(path))return Date.parse(aemoDailyBundleClock(new Date(now)).next_rollover_at);
   if (path === '/canada' || path === '/canada.json') return (Math.floor(now / 86400000) + 1) * 86400000;
   return null;
 }
@@ -1208,9 +1214,9 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
-        { country: "Australia", source: "AEMO completed-day SA1/VIC1 monthly price CSV", status: 406, note: "Held: both regions were refused from the exact production Worker after intermittent preview success on 20 October 2026. No daily summaries are served; the existing grid snapshot remains available." },
+        { country: "Australia", source: "AEMO completed-day SA1/VIC1 monthly price CSV", status: 406, note: "This monthly route remains unused after repeated production HTTP 406 on 20 October 2026. The separate official NEMweb daily-bundle route supplies grid_day under its own validated contract; the five-region grid snapshot is unchanged." },
         { country: "England", source: "ONS Manchester bedroom rent benchmark", status: 429, checked: "2026-10-20", note: "The bounded reader's normal official access returned HTTP 429 from the protected Cloudflare runtime. Offline original-data comparisons passed, but no actual native result was accepted and this candidate remains disconnected.", url: "https://www.ons.gov.uk/visualisations/housingpriceslocal/E08000003/" },
-        { country: "England", source: "CQC State of Care assessment cohort workbook", status: 403, checked: "2026-10-20", note: "The official 2024-25 ratings workbook returned HTTP 403 from the protected Cloudflare runtime. This candidate remains disconnected; the result does not establish a block on other CQC publications.", url: "https://www.cqc.org.uk/system/files/2025-10/20251024_stateofcare2425_ratingsdata.xlsx" },
+        { country: "England", source: "CQC State of Care assessment cohort workbook", status: 403, checked: "2026-10-20", note: "The official 2024-25 ratings workbook returned HTTP 403 from the protected Cloudflare runtime. The workbook route remains disconnected. The separate official GOV.UK PDF supplies five fixed 1 August 2025 single-assessment-framework service-rating cohort counts through care_assessment_cohort; the workbook refusal is retained as historical access evidence.", url: "https://www.cqc.org.uk/system/files/2025-10/20251024_stateofcare2425_ratingsdata.xlsx" },
         { country: "Northern Ireland", source: "DfE/NISRA electricity consumption and renewable generation report", status: "invalid_response", checked: "2026-10-20", note: "The actual protected reader refused the report identity. One bounded diagnosis received a 247-byte HTTP 200 Request Rejected page, not the statistical report. That datavis route remains unused. The separate official DfE article supplies the fixed July 2025–June 2026 edition via electricity_balance; the original report failure is retained as historical access evidence.", url: "https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html" },
         { country: "Australia", source: "Australian Energy Regulator market-statistics discovery page", status: 503, note: "The official directory returned HTTP 503 in the workspace on 17 October 2026. No individual data file was validated; this does not establish a block on all AER datasets.", url: "https://www.aer.gov.au/industry/registers/market-statistics" },
         { country: "Australia", source: "Australian Antarctic Data Centre Macquarie Island AWS", status: "delayed", note: "The public station API reported its latest Macquarie Island observation at 2026-09-14T22:15:10Z when checked on 17 October. Not enabled as current weather; other stations have separate dates.", url: "https://data.aad.gov.au/aws/api/station" },
@@ -1333,8 +1339,8 @@ const worker = {
     if (url.pathname !== "/australia" && url.pathname !== "/australia.json" && url.pathname !== "/morning.json") {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
-    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle(), readHospital(), readRfsIncidents()]);
-    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba", "hospital", "rfs_incidents"];
+    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle(), readHospital(), readRfsIncidents(), readAemoDailyBundles()]);
+    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba", "hospital", "rfs_incidents", "grid_day"];
     const sources = Object.fromEntries(settled.map((result, index) => [sourceNames[index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }]));
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
@@ -1362,7 +1368,10 @@ const worker = {
     const rba = settled[20].status === "fulfilled" ? settled[20].value : null;
     const hospital = settled[21].status === "fulfilled" ? settled[21].value : { states: [], year: null, ...describeError(settled[21].reason) };
     const rfs_incidents = settled[22].status === "fulfilled" ? settled[22].value : null;
-    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, rfs_incidents, catalog: CATALOG.sets, also, omitted_sources: [{ source: "ARPANSA UV observations", reason: "Not republished: developer terms restrict redistribution and commercial use without written approval.", terms_url: "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation-monitoring/ultraviolet-radation-data-information" }] };
+    let grid_day=settled[23].status==='fulfilled'?settled[23].value:null;
+    if(grid_day)sources.grid_day.status=grid_day.status;
+    if(grid_day&&grid_day.calendar_day!==aemoDailyBundleClock(new Date()).calendar_day){grid_day=null;sources.grid_day={status:'error',fetched_at:new Date().toISOString(),error:'Desk acquisition crossed fixed-AEST midnight; no previous completed day returned'};}
+    const body = { sources, grid_day, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, rfs_incidents, catalog: CATALOG.sets, also, omitted_sources: [{ source: "ARPANSA UV observations", reason: "Not republished: developer terms restrict redistribution and commercial use without written approval.", terms_url: "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation-monitoring/ultraviolet-radation-data-information" }] };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body), requestedAt);
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }), requestedAt);
   },
@@ -1379,7 +1388,7 @@ export default {
       return response;
     }
     const selection=validateSelection(url);
-    let response, retrievedAt=null;
+    let response, retrievedAt=null, australiaBody=null, selectedBody=null;
     const canon=new URL(url.pathname+url.search,ORIGIN);
     if(canon.pathname==='/morning.json') canon.pathname='/australia.json';
     if(!['GET','HEAD'].includes(request.method)) response=new Response(JSON.stringify({error:'method_not_allowed'}),{status:405,headers:{'content-type':'application/json','Allow':'GET, HEAD'}});
@@ -1394,10 +1403,12 @@ export default {
       response=await worker.fetch(new Request(upstream,{method:'GET',headers}),env);
       if(selection.desk&&response.status===200) {
         const body=await response.json();
+        if(selection.desk==='australia')australiaBody=body;
         const times=Object.values(body.sources||{}).map(s=>s.fetched_at).filter(Boolean).sort();
         retrievedAt=times.at(-1)||null;
         if(selection.source) {
           const selected=await selectedResponse(body,selection);
+          selectedBody=selected.body;
           canon.href=selected.body.id;
           retrievedAt=selected.body.retrieval.retrieved_at;
           response=new Response(JSON.stringify(selected.body),{status:selected.status,headers:{'content-type':'application/json; charset=utf-8','x-data-status':selected.status===200?selected.body.retrieval.status:'error','Cache-Control':selected.status===200?(response.headers.get('Cache-Control')||'public, max-age=30'):'no-store'}});
@@ -1425,7 +1436,29 @@ export default {
     if(env.WORKER_VERSION?.id) headers.set('x-worker-version',env.WORKER_VERSION.id);
     if(url.pathname==='/health.json') headers.set('Cache-Control','no-cache');
     response=new Response(response.body,{status:response.status,headers});
-    const finished=await finishResponse(request,response,canon.href,retrievedAt);
+    let finished=await finishResponse(request,response,canon.href,retrievedAt);
+    // A slow sibling, JSON serialization or conditional-response hashing can
+    // outlast the daily reader. Never return/304 its prior day after midnight.
+    if(selection.desk==='australia'&&australiaBody&&Date.now()>=calendarCacheBoundary('/australia.json',requestedAt)){
+      const clock=new Date().toISOString(),error='Request crossed fixed-AEST midnight; no previous completed day returned';
+      const nextHeaders=new Headers(finished.headers);nextHeaders.set('Cache-Control','no-store');nextHeaders.delete('ETag');
+      const unconditionalHeaders=new Headers(request.headers);unconditionalHeaders.delete('If-None-Match');const unconditionalRequest=new Request(request,{headers:unconditionalHeaders});
+      if(selection.source==='grid_day'){
+        const payload={...selectedBody,data:null,context:{},observations:[],unavailable_measures:[],retrieval:{status:'error',retrieved_at:clock,error},error:'representation_validation_failed',message:error};
+        delete payload.content_version;nextHeaders.set('x-data-status','error');
+        finished=await finishResponse(unconditionalRequest,new Response(JSON.stringify(payload),{status:503,headers:nextHeaders}),canon.href,clock);
+      }else if(!selection.source){
+        australiaBody.grid_day=null;australiaBody.sources.grid_day={status:'error',fetched_at:clock,error};if(australiaBody._meta)australiaBody._meta.retrieved_at=clock;nextHeaders.set('x-data-status','degraded');
+        finished=await finishResponse(unconditionalRequest,new Response(JSON.stringify(australiaBody),{status:200,headers:nextHeaders}),canon.href,clock);
+      }
+    }
+    // Hashing and serialization consume part of the remaining cache lifetime.
+    // Clip the public TTL again using the response-completion clock.
+    const finalMaxAge=finished.headers.get('Cache-Control')?.match(/max-age=(\d+)/)?.[1];
+    if(boundary!==null&&finalMaxAge!==undefined){
+      const seconds=Math.max(0,Math.min(Number(finalMaxAge),Math.floor((boundary-Date.now())/1000)));
+      finished.headers.set('Cache-Control',seconds?`public, max-age=${seconds}`:'no-store');
+    }
     if(url.pathname==='/catalog.json')finished.headers.append('Link',`<${ORIGIN}/catalog.v2.json>; rel="successor-version"`);
     return finished;
   },

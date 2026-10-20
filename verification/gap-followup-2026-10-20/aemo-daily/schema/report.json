@@ -1,0 +1,1232 @@
+{
+  "method": "Offline actual bounded reader using retained original bytes, actual selectedResponse adapter, independent Python Draft 2020-12 with exact decimal numeric parsing",
+  "executed_at": "2026-10-20T13:07:55.782Z",
+  "clock": "2026-10-20T12:30:00.000Z",
+  "clock_is_test_fixture": true,
+  "network_requests": 0,
+  "release_acceptance": false,
+  "bindings": {
+    "lib/aemo-daily-schema.js": "a6987f5304a94522f5411ea95b7832ee3b8ab189b8e3554fc34620037ed94811",
+    "test/aemo-daily-schema.test.js": "4a22fdf55b6180759a347d83271417872c5e3f7da82a8acab4b9bea2dd33ae24",
+    "lib/aemo-daily-bundles.js": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6",
+    "lib/information.js": "cc110a4dc27d34ae3a45cd264b55767dcf01d76fa0615410f842d7eee39b3464",
+    "lib/gap-information.js": "657e4619ef3470c66122fda3da972e47798086960eb839ad074be209453c3ecb"
+  },
+  "originals": {
+    "directory-listing-excerpt.html": {
+      "bytes": 11695,
+      "sha256": "f4834c4cd28be61f75e3e7cce26d3b17c3f0a4c4116c47d3b81a366ae6070132"
+    },
+    "PUBLIC_PRICES_202610180000_20261019040502.zip": {
+      "bytes": 254309,
+      "sha256": "d4f41531f9d1deb496270c02bdf2542cba9ea65443d4cf0167d9b9a43aece03f"
+    },
+    "PUBLIC_PRICES_202610190000_20261020040503.zip": {
+      "bytes": 260373,
+      "sha256": "f67a8dd7b89f1c94544aa23192f7f29896926a2ba541c098e6a5e30fe57729b9"
+    }
+  },
+  "schema_bytes": 759940,
+  "case_count": 178,
+  "pass": true,
+  "groups": [
+    {
+      "group": "native",
+      "checks": [
+        {
+          "name": "Actual bounded reader of both retained daily ZIPs",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1 healthy with VIC1 unavailable",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1 healthy with SA1 unavailable",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Both regional failures",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Isolated whole-source failure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Wrong desk nation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'New Zealand', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sc"
+        },
+        {
+          "name": "Wrong canonical native desk",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing source health",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {}, '_meta': {'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json', 'c"
+        },
+        {
+          "name": "Healthy native with degraded health",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'degraded', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': "
+        },
+        {
+          "name": "Missing health clock",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok'}}, '_meta': {'schema_version': '1.0', 'id': 'https://morning"
+        },
+        {
+          "name": "Invalid health date",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-02-30T12:00:00Z'}}, '_meta': {'schema_v"
+        },
+        {
+          "name": "Missing native limitation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Unqualified whole-Australia scope",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Retail-price definition",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Invented finality",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Invented publication date",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Invented next publication date",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing native definition",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Duplicate definition",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing region",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Duplicate region",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Reordered regional identity",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Foreign region code",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Wrong regional geography",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing interval",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Extra interval",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Partial interval count advertised as success",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Half-hour cadence",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "TRADE dataset invented",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "FIRM status invented",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Run two",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Intervention price",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Administered-price flag",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Suspended market",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing second layout",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Layouts reordered",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing native rounding rule",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Non-cent price",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Null raw value",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Numeric raw value",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Suppressed raw value",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Nonfinite raw value",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Six-decimal token",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Scientific precision below retained five places",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing layout-two raw value",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Fractional interval count",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Impossible negative interval count",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "More than 288 zero intervals",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Non-cent mean",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing mean",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Invalid interval calendar date",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Daylight-saving timezone substitution",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Invalid selected calendar day",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Non-midnight start",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "One trading bundle",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Unbounded expanded CSV",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Monthly source substitution",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "CSV member extension drift",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing public provenance",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Reordered provenance",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing wire digest",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Malformed wire digest",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Missing expanded CSV digest",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Invalid provenance calendar date",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Non-UTC provenance clock",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Oversized wire ZIP",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Wrong role",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Healthy regions mislabeled degraded",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'ok', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': {'sche"
+        },
+        {
+          "name": "Lexically valid raw token -0.00499",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Lexically valid raw token 3E-05",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Lexically valid raw token -3e-5",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Lexically valid raw token 1.23456",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Lexically valid raw token 0",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Lexically valid raw token -0",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Lexically valid raw token 1E+07",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Failed region with invented zero summary",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'degraded', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': "
+        },
+        {
+          "name": "Failed region with partial intervals",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'degraded', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': "
+        },
+        {
+          "name": "Failed region without error",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'degraded', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': "
+        },
+        {
+          "name": "Invalid failure status code",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'degraded', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': "
+        },
+        {
+          "name": "Degraded native mislabeled healthy",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'site': 'https://morningrows.com', 'country': 'Australia', 'sources': {'grid_day': {'status': 'degraded', 'fetched_at': '2026-10-20T12:30:00.000Z'}}, '_meta': "
+        }
+      ],
+      "pass": true
+    },
+    {
+      "group": "selected",
+      "checks": [
+        {
+          "name": "Healthy complete source",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.mean measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.mean exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.minimum measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.minimum exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.maximum measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.maximum exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.negative_count measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.negative_count exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.zero_count measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.zero_count exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.mean measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.mean exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.minimum measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.minimum exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.maximum measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.maximum exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.negative_count measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.negative_count exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.zero_count measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.zero_count exact observation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Degraded source failed index 0",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.mean failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.mean failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.minimum failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.minimum failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.maximum failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.maximum failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.negative_count failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.negative_count failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.zero_count failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.zero_count failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.mean healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.minimum healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.maximum healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.negative_count healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.zero_count healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Degraded source failed index 1",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.mean healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.minimum healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.maximum healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.negative_count healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "SA1.zero_count healthy sibling under degradation",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.mean failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.mean failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.minimum failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.minimum failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.maximum failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.maximum failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.negative_count failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.negative_count failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.zero_count failed regional measure",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "VIC1.zero_count failed regional exact",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Both failed source selection",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        },
+        {
+          "name": "Wrong source",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Foreign canonical host",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://example.org/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows.com"
+        },
+        {
+          "name": "Alias used as canonical identity",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/morning.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows.c"
+        },
+        {
+          "name": "Different country desk",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Lowercase region selector",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=sa1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Unapproved selector",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19&region=all', 'source': 'https://"
+        },
+        {
+          "name": "Unknown exact period shape",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=latest', 'source': 'https://morningrows.com"
+        },
+        {
+          "name": "Missing observation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Duplicated observation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Wrong observation canonical identity",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Wrong observation measure",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Invalid observation calendar date",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Missing typed qualification",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Null observation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Suppressed zero",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Non-cent observation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Fake FIRM publisher status",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Invented publication instant",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Malformed observation version",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Malformed source version",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Wrong native pointer",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Wrong publisher",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Wrong observation unit",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Typed row geography swapped",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Typed row statistic swapped",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Typed row missing measure identity",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Typed row invented TRADE flag",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Typed row wrong cadence",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Typed qualification wrong run",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Missing native context",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Context provenance omitted",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Retained context regions omitted",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Invalid retrieval instant",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Healthy context with degraded retrieval",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Healthy selected measure advertises unavailable sibling",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19', 'source': 'https://morningrows"
+        },
+        {
+          "name": "Source omits one observation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day', 'source': 'https://morningrows.com/australia.json?source=grid_day', 'd"
+        },
+        {
+          "name": "Source repeats one measure instead of all ten",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day', 'source': 'https://morningrows.com/australia.json?source=grid_day', 'd"
+        },
+        {
+          "name": "Source data replaces native with typed row",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day', 'source': 'https://morningrows.com/australia.json?source=grid_day', 'd"
+        },
+        {
+          "name": "Degraded source invents one failed observation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day', 'source': 'https://morningrows.com/australia.json?source=grid_day', 'd"
+        },
+        {
+          "name": "Degraded source omits unavailability",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day', 'source': 'https://morningrows.com/australia.json?source=grid_day', 'd"
+        },
+        {
+          "name": "Degraded unavailable definition from healthy region",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day', 'source': 'https://morningrows.com/australia.json?source=grid_day', 'd"
+        },
+        {
+          "name": "Degraded unavailable row fabricates value",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day', 'source': 'https://morningrows.com/australia.json?source=grid_day', 'd"
+        },
+        {
+          "name": "Failed source fabricates observation",
+          "expected_valid": false,
+          "valid": false,
+          "pass": true,
+          "error": "{'schema_version': '1.0', 'id': 'https://morningrows.com/australia.json?source=grid_day', 'source': 'https://morningrows.com/australia.json?source=grid_day', 'd"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "group": "semantic-boundary",
+      "checks": [
+        {
+          "name": "Schema does not claim exact whole-day arithmetic",
+          "expected_valid": true,
+          "valid": true,
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "limits": "Structural schema cannot prove current day, cross-field equality, canonical period equality, raw layout equality, arithmetic or publication timing. Frozen reader, clock checks and independent release evidence remain required."
+}

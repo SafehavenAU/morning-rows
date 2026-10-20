@@ -1,0 +1,168 @@
+{
+  "kind": "Read-only independent combined AEMO+CQC runtime/schema/cache review",
+  "pass": true,
+  "reviewed_at": "2026-10-20T13:19:16.741555+00:00",
+  "worktree": "/workspace/morning-rows-aemo-followup",
+  "base": "791807e066c54884864db88c0c3f2f85c6d713c5",
+  "files": [
+    {
+      "path": "worker.js",
+      "bytes": 119962,
+      "sha256": "5e034a5e9b6d144071bb29dcaa58dc4156beb15893385c3d0bf107690db10811"
+    },
+    {
+      "path": "lib/inventory.js",
+      "bytes": 5775,
+      "sha256": "8dc047378bc19e2e466359d0565c595f432a6b4d01f82b8292d05c1b8fb9040a"
+    },
+    {
+      "path": "lib/information.js",
+      "bytes": 67851,
+      "sha256": "7decab4b1eb42af6a07abf46108e7d47b6597a8beb4b3d8636066b2339500812"
+    },
+    {
+      "path": "lib/gap-information.js",
+      "bytes": 6886,
+      "sha256": "657e4619ef3470c66122fda3da972e47798086960eb839ad074be209453c3ecb"
+    },
+    {
+      "path": "lib/remaining-information.js",
+      "bytes": 2470,
+      "sha256": "b917bc710e5854bbd031ed6040ac671e58c7a78775fdf3e431fe65339666fa6d"
+    },
+    {
+      "path": "lib/remaining-schema.js",
+      "bytes": 13988,
+      "sha256": "bac13990f1413d5b7409a7d6c20b58aa0f9e4e327688f862dc382f755f8bd1f8"
+    },
+    {
+      "path": "lib/aemo-day.js",
+      "bytes": 13418,
+      "sha256": "c22c80f3a603849f9167a9092eebfd23f20c9ba0d737eb5b51f83dc5c3377189"
+    },
+    {
+      "path": "lib/aemo-daily-bundles.js",
+      "bytes": 32421,
+      "sha256": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6"
+    },
+    {
+      "path": "lib/aemo-daily-schema.js",
+      "bytes": 11930,
+      "sha256": "a6987f5304a94522f5411ea95b7832ee3b8ab189b8e3554fc34620037ed94811"
+    },
+    {
+      "path": "lib/cqc-pdf.js",
+      "bytes": 38958,
+      "sha256": "a2e719e1dc9fa145bbabc329b21dca71e302bfed43c47cb07eb3e936fca20115"
+    },
+    {
+      "path": "lib/ni-energy-summary.js",
+      "bytes": 14195,
+      "sha256": "5691532b9db9358f6e1d36648af8cbaf062f8c5c00c8f74f0e946eb7b14cbcc2"
+    },
+    {
+      "path": "lib/sfc-activity.js",
+      "bytes": 10235,
+      "sha256": "8d2aded4b9e0119734b8207723d837a6f53b9b948933f3667357cb5719a6656a"
+    },
+    {
+      "path": "lib/cmhc-rent.js",
+      "bytes": 16962,
+      "sha256": "4d5b744fd1ea89e9b56d8b7e5afbc5f9f0a62951910534ca71b38ccb7e7f24b9"
+    },
+    {
+      "path": "lib/source-completion.js",
+      "bytes": 676,
+      "sha256": "19c2cffbc5fc6a7151b8e935878c002b722e74a03a3ad54a86ea079a4b7e6f02"
+    },
+    {
+      "path": "lib/sources.js",
+      "bytes": 3133,
+      "sha256": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a"
+    },
+    {
+      "path": "test/gap-worker-integration.test.js",
+      "bytes": 15123,
+      "sha256": "482ab60023c1ad0903faef84859e51614d87322100a8b2bd0b2e1a3f9fc42514"
+    },
+    {
+      "path": "test/cqc-pdf-worker-integration.test.js",
+      "bytes": 3679,
+      "sha256": "14389fc1a059b4118e0464ca084ea5bd8b41c5fcf15b865a54e8bc0170bd6ecb"
+    },
+    {
+      "path": "test/remaining-information.test.js",
+      "bytes": 11728,
+      "sha256": "a892c24bb063ddc5573e762d04f350af99457f42dc0926832b1cfe3f264789d1"
+    }
+  ],
+  "checks": [
+    {
+      "name": "CQC live acquisition derives counts from exact original PDF",
+      "pass": true,
+      "evidence": "readCqcPdf performs one manual-redirect GET with 20-second signal, application/pdf check, 8MiB stream bound, exact 7,175,967-byte SHA256 guard before structural extraction; no static counts fallback. Changed bytes require review."
+    },
+    {
+      "name": "CQC selected cohort and typed representations",
+      "pass": true,
+      "evidence": "Five fixed 2025-08-01 measures retain England, individual-service ratings, risk-prioritised nonrepresentative cohort, overlapping total, framework/edition restrictions and retained publication metadata. Source/measure/exact selectors validate complete native provenance and semantic representation before producing observations; invalid/failure states produce no observations."
+    },
+    {
+      "name": "CQC actual proof and original visible text boundary",
+      "pass": true,
+      "evidence": "Frozen protected 19-case proof has one original PDF acquisition, all five values match separate original extraction and prior workbook/SVG; original selected-page render inspection retained. This is shared administrative lineage, not independent statistical lineage."
+    },
+    {
+      "name": "CQC CPU coupling correctly remains a gate",
+      "pass": true,
+      "evidence": "Full England handler acquires the actual PDF once per cold complete-desk read and caches the complete body; selectors reuse that cache. Isolated protected execution, local wall time and configured cpu_ms are not measured whole-England CPU acceptance. Candidate cold England CPU with fresh exact PDF provenance remains required."
+    },
+    {
+      "name": "AEMO exact completed-day acquisition and coverage",
+      "pass": true,
+      "evidence": "Independent subreview confirms two exact adjacent trading bundles, fixed UTC+10 calendar day, 48+240 interval split, 288 contiguous endings per region, 576 saved actual raw/layout2/rounded/source-file values matching independent extraction. No older day/monthly route fallback; ambiguous or missing required files refuse."
+    },
+    {
+      "name": "AEMO cache and request-rollover safety",
+      "pass": true,
+      "evidence": "Internal cache binds release and explicit fixed-AEST boundary; stale/missing boundary is a miss. TTL is clipped both before and after hashing. Slow siblings or conditional hashing crossing midnight cannot return prior-day grid_day or 304; daily selection503 or native grid_day=null preserves successful siblings. Original five-region grid unchanged."
+    },
+    {
+      "name": "AEMO typed partial failure and version semantics",
+      "pass": true,
+      "evidence": "Only SA1/VIC1 ten summaries are advertised. Failed regional selection503; successful sibling retains288intervals/five observations; unavailable measures are explicit, never zero. Native and selected schema encode correct regional health states, exactly three provenance records and ten or five observed identities. Retrieval-only changes excluded from statistical versions; source context retains interval inputs."
+    },
+    {
+      "name": "Existing NI SFC CMHC preserved",
+      "pass": true,
+      "evidence": "Reader/source-completion/shared fetch bytes unchanged from8a25; all42 existing schema definitions and all6 native/selected guard blocks exactly preserved. Details in /tmp/mr-combined-preservation-review.json."
+    },
+    {
+      "name": "CQC discovery contradiction corrected",
+      "pass": true,
+      "evidence": "Review found stale /llms.txt sentence and test. Integration owner changed only discovery wording/assertion to distinguish held ONS/workbook route from active fixed-cohort PDF."
+    },
+    {
+      "name": "Duplicate ctm build warning reviewed",
+      "pass": true,
+      "evidence": "The final ctm field intentionally overrides inherited parentState.ctm with the composed child matrix after object spread. Same parser hash as protected proof. This is a duplicate-key warning, not a failed compilation or missing transform; no parser mutation recommended."
+    }
+  ],
+  "findings": [
+    {
+      "severity": "discovery correctness",
+      "status": "resolved",
+      "location": "worker.js LLMS + test/remaining-information.test.js",
+      "description": "CQC PDF was active while text still said assessment cohort disconnected; corrected by owner before final hash capture."
+    }
+  ],
+  "pending_release_gates": [
+    "Exact-source committed-tree evidence audit",
+    "Final integrated build including monitor changes",
+    "Actual exact-version fresh full-England and Australia CPU gates",
+    "Actual staged/public numerical+schema+identity checks and production acceptance"
+  ],
+  "release_accepted": false,
+  "network_calls": 0,
+  "shared_files_written_by_reviewer": false
+}

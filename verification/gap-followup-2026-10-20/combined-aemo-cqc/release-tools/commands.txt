@@ -1,0 +1,7 @@
+bash -n /tmp/mr-combined-release/validate-release.sh
+node /tmp/mr-combined-release/clock-controls.mjs
+python3 /tmp/mr-combined-release/runner-controls.py
+python3 /tmp/mr-combined-release/audit-controls.py
+MR_REPO=/workspace/morning-rows-aemo-followup node /tmp/mr-combined-release/gap-controls.mjs NEW_OUTPUT
+MR_REPO=/workspace/morning-rows-aemo-followup node /tmp/mr-combined-release/preflight.mjs
+No capture or remote runner command executed.

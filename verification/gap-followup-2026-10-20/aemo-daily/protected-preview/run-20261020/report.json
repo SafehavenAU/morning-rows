@@ -1,0 +1,6637 @@
+{
+  "started_at": "2026-10-20T12:50:10.508Z",
+  "environment": "Protected Cloudflare remote development",
+  "kind": "Actual unchanged daily reader with one live acquisition and constructed transport controls",
+  "production_version": null,
+  "live_publisher_request_budget": 3,
+  "planned_cases": 37,
+  "reference_cells": 576,
+  "reference_summaries": 10,
+  "code_before": {
+    "preview.js": "29f70f84bbfc91a6895f53873d327f635f2ff84dedcea0ab3e2f71e7c7297672",
+    "integration.toml": "ef4e3ab4f550de695f3b11cd5c510361618ea9d63f0fcae65a881785cbb7d97e",
+    "check-preview.mjs": "aab613a00068c3c39130325e281bc352181dff405bdc88188f66520bac318425",
+    "cases.mjs": "1f8fea1c75eacdf4618e48b3b14bd399a4555b4d93e26746eccfa1f245607c10",
+    "evaluate.mjs": "61f3b759142cbb80cd9fdb1c4147dd056dd86d8e9e0141d800e7363abb5f8d18",
+    "../../../../lib/aemo-daily-bundles.js": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6",
+    "../../../../lib/aemo-day.js": "c22c80f3a603849f9167a9092eebfd23f20c9ba0d737eb5b51f83dc5c3377189",
+    "../../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+    "../review/independent-rounding.json": "3909cffb8ed82401adebe9785aaeb092e51085a760f097bf4c0c7ba36a889de0",
+    "../review/pure-parser-capture.json": "c7af4ccf96b77a00961476f5c3cffd8bcf1c53b6d8f404958ea26702a9e62945",
+    "../original/public-prices-definition.yaml": "da76ccbff14d3b5c0126b63c2cbb2b1f6a149c2ba23e6129c7ade7b75790d3ed"
+  },
+  "requests": [
+    {
+      "case": "live",
+      "path": "/live",
+      "method": "GET",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:13.761Z",
+      "completed_at": "2026-10-20T12:50:18.826Z",
+      "file": "01-live.json",
+      "sha256": "3d33abd2f37a15504a8243a2ebeec0767440bdcbd347955e90d1f69898861ffb",
+      "bytes": 149888
+    },
+    {
+      "case": "fixture",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:18.843Z",
+      "completed_at": "2026-10-20T12:50:19.781Z",
+      "file": "02-fixture.json",
+      "sha256": "cc859779801db5a30e708d0f357bbb65ecebc652d33abaa59e87998221fbbe44",
+      "bytes": 149933,
+      "constructed_input_sha256": "b8da25795c748e6978b07d6ae2abbb3723a37d6d3e32fbf4e2902d7fb7c61ae0",
+      "constructed_input_bytes": 698323
+    },
+    {
+      "case": "missing-latest",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:19.788Z",
+      "completed_at": "2026-10-20T12:50:19.982Z",
+      "file": "03-missing-latest.json",
+      "sha256": "9186a7196eca732c6e9a7e507ffc2aaf6c6cdbc16287cf85791d77eb845b4e1e",
+      "bytes": 644,
+      "constructed_input_sha256": "2cdd182164e282b4cde2c2a3d019c6daf45c59b74e3da4e5666c831590905aab",
+      "constructed_input_bytes": 698185
+    },
+    {
+      "case": "ambiguous-revision",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:19.986Z",
+      "completed_at": "2026-10-20T12:50:20.195Z",
+      "file": "04-ambiguous-revision.json",
+      "sha256": "795d108f4f3b4823c73f9a8c513da504adf37b58d0b92e21164251c0763161da",
+      "bytes": 622,
+      "constructed_input_sha256": "934c86c4162c0389abef9e8060ab07cb62b664a55eaec16f9dce334744ef6d69",
+      "constructed_input_bytes": 698461
+    },
+    {
+      "case": "future-generation",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:20.199Z",
+      "completed_at": "2026-10-20T12:50:20.349Z",
+      "file": "05-future-generation.json",
+      "sha256": "6d50dc7f450de1e233ce47153ab061bf2b4d6936b3e6e612e058d2266a87cb35",
+      "bytes": 611,
+      "constructed_input_sha256": "1a2f3a60d80ae9c2151d0131be2965301a928a8fd485493955d251454bcda661",
+      "constructed_input_bytes": 698323
+    },
+    {
+      "case": "next-day-no-fallback",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:20.352Z",
+      "completed_at": "2026-10-20T12:50:20.823Z",
+      "file": "06-next-day-no-fallback.json",
+      "sha256": "da76c196f5128049be533b89dac14e4411521450d73800571ed249d01e463062",
+      "bytes": 644,
+      "constructed_input_sha256": "309cf2b2b52f9ff9904833b82ed7e5e9b245d22991e93be62d479b1ca35b2dc7",
+      "constructed_input_bytes": 698342
+    },
+    {
+      "case": "redirect",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:20.826Z",
+      "completed_at": "2026-10-20T12:50:20.967Z",
+      "file": "07-redirect.json",
+      "sha256": "8612bbc95ac89571b2a6c1733f1d313df78c17b9bbd006f0c3e5283559f76023",
+      "bytes": 613,
+      "constructed_input_sha256": "df7f69f0b05c9d49f0de832bfc5d382ea424a73fad30ae542d23e8bcff98260d",
+      "constructed_input_bytes": 698346
+    },
+    {
+      "case": "http406",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:20.970Z",
+      "completed_at": "2026-10-20T12:50:21.170Z",
+      "file": "08-http406.json",
+      "sha256": "4f2352f251002a92a07643bafaf6348ae0001fa91761fca0548a00ca705ac5f8",
+      "bytes": 613,
+      "constructed_input_sha256": "cfe35233a652ceee85c631b6770223f8bbe1aa47462003be6e37d3abc5b15e4e",
+      "constructed_input_bytes": 698345
+    },
+    {
+      "case": "timeout",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:21.173Z",
+      "completed_at": "2026-10-20T12:50:21.338Z",
+      "file": "09-timeout.json",
+      "sha256": "7609e57cb89e98b17253f54653f293f5d0bad3e9f57f4f9db37cce9751f31dd8",
+      "bytes": 582,
+      "constructed_input_sha256": "c19d77c16a8753889016287fb04972ff8f6329f7eb1bceaa9743e2b0496e8573",
+      "constructed_input_bytes": 698345
+    },
+    {
+      "case": "index-oversize",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:21.343Z",
+      "completed_at": "2026-10-20T12:50:21.469Z",
+      "file": "10-index-oversize.json",
+      "sha256": "e6a9a90c779a7e6af5568a4288a33049354bce3a5b87c7e8383fd7edb066dbce",
+      "bytes": 608,
+      "constructed_input_sha256": "c47d729b021e7599d8775c0256c9183f7d2c0ae3282e2880590b11e74789dddd",
+      "constructed_input_bytes": 698352
+    },
+    {
+      "case": "zip-oversize",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:21.479Z",
+      "completed_at": "2026-10-20T12:50:21.663Z",
+      "file": "11-zip-oversize.json",
+      "sha256": "278b0c7ec7e121e2f0ec5ab9fd4ad57f882a4e6eeebdd4d555cf9b64ed5b8173",
+      "bytes": 918,
+      "constructed_input_sha256": "815cf00bb972de203aca0690166a75d927d90b974df6f273876e88709f0ffe13",
+      "constructed_input_bytes": 698350
+    },
+    {
+      "case": "wrong-run",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:21.670Z",
+      "completed_at": "2026-10-20T12:50:23.201Z",
+      "file": "12-wrong-run.json",
+      "sha256": "08b61f072e4353c61aefdc4d85164d0bf940ca80e53b3cc7a6d9517262053bdd",
+      "bytes": 86385,
+      "constructed_input_sha256": "f3054b5296fd9d85852f7509423b5597f401c98bcc5d019a33884260bd2c62f6",
+      "constructed_input_bytes": 860299
+    },
+    {
+      "case": "intervention",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:23.209Z",
+      "completed_at": "2026-10-20T12:50:25.611Z",
+      "file": "13-intervention.json",
+      "sha256": "2bc541d133dff6dd1469db4e86544f02c32afd9010c348d12445b1140e4280d0",
+      "bytes": 86385,
+      "constructed_input_sha256": "8a8f23633c39da49fe77c2b1dd236a834e407beabf800c7845d9fa21326707a1",
+      "constructed_input_bytes": 860303
+    },
+    {
+      "case": "apc",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:25.615Z",
+      "completed_at": "2026-10-20T12:50:27.793Z",
+      "file": "14-apc.json",
+      "sha256": "fee4c1b18be0f04ccdc6c389c19f2412c80398edff63ee360941662bc3674138",
+      "bytes": 86403,
+      "constructed_input_sha256": "edd0afe525624623c81d3d2cc6c3904f93017b877c7372da85151601d2318a36",
+      "constructed_input_bytes": 860295
+    },
+    {
+      "case": "suspension",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:27.798Z",
+      "completed_at": "2026-10-20T12:50:29.556Z",
+      "file": "15-suspension.json",
+      "sha256": "5a9508180b1b10b115f1cd64f4c237b8c9092ded9354847ffb4d8bd7721ed0c5",
+      "bytes": 86403,
+      "constructed_input_sha256": "96bb68c34b1e914fc8ccdf769be42f761d6f672b010177b4579c87f3a18a6a3a",
+      "constructed_input_bytes": 860295
+    },
+    {
+      "case": "missing-price",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:29.563Z",
+      "completed_at": "2026-10-20T12:50:30.864Z",
+      "file": "16-missing-price.json",
+      "sha256": "e3bdd9b65194d449368320edb2debc1e2e4964abc305449a28624f6d382f3766",
+      "bytes": 86391,
+      "constructed_input_sha256": "61b7a597c39634c0bcc3b9ec9b85f576ba8afefd78e2ef4773f024226d47c389",
+      "constructed_input_bytes": 860291
+    },
+    {
+      "case": "suppressed-price",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:30.871Z",
+      "completed_at": "2026-10-20T12:50:32.165Z",
+      "file": "17-suppressed-price.json",
+      "sha256": "2b4dc25448458339545b8f149ffb2eb5c0584051fdbfce29ea92ca36e07278a3",
+      "bytes": 86391,
+      "constructed_input_sha256": "01693a8dc6e7e2675b68f84d5cd7dd95a5c9e3dea707ce67107eaafca1d9661a",
+      "constructed_input_bytes": 860299
+    },
+    {
+      "case": "excess-precision",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:32.171Z",
+      "completed_at": "2026-10-20T12:50:32.898Z",
+      "file": "18-excess-precision.json",
+      "sha256": "0926facc79b1b7b42e244faab379c2a63e714f8679afca3b7c9865636ca9f961",
+      "bytes": 86391,
+      "constructed_input_sha256": "d1ccf0d8a293323bc23b80835b796fb0656dd5db75b02e89595ac2699ab2226c",
+      "constructed_input_bytes": 860299
+    },
+    {
+      "case": "wrong-interval",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:32.902Z",
+      "completed_at": "2026-10-20T12:50:34.551Z",
+      "file": "19-wrong-interval.json",
+      "sha256": "2b79c1ea8bf10da4831e7eca4cdd3cf6bdd6c5e90d6f475002ce338ef634c82d",
+      "bytes": 86398,
+      "constructed_input_sha256": "7245e61d780ccb56b3b80e0ea83afd87bb5d64d4bec7fc55a2c1ec893a791439",
+      "constructed_input_bytes": 860303
+    },
+    {
+      "case": "missing-interval",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:34.556Z",
+      "completed_at": "2026-10-20T12:50:35.561Z",
+      "file": "20-missing-interval.json",
+      "sha256": "88918e027a07c0c3d799a66e9f70d762831015e9faf694b7097a382a8aeab06b",
+      "bytes": 86388,
+      "constructed_input_sha256": "8bdab7d8a33a075cf4717372866ddd3f33b7a235add88fa3b35b5cd09f739f48",
+      "constructed_input_bytes": 860035
+    },
+    {
+      "case": "duplicate-interval",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:35.567Z",
+      "completed_at": "2026-10-20T12:50:38.618Z",
+      "file": "21-duplicate-interval.json",
+      "sha256": "ecf2b16563307e7d2839e4f24aca2055f67a295736f6c976888a15916405a403",
+      "bytes": 86381,
+      "constructed_input_sha256": "5d7f875d31e3405ccc8166c5f1f18aa89adab0b26902e94f82dab64d6b7d8452",
+      "constructed_input_bytes": 860331
+    },
+    {
+      "case": "layout-disagreement",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:38.622Z",
+      "completed_at": "2026-10-20T12:50:39.813Z",
+      "file": "22-layout-disagreement.json",
+      "sha256": "44eea384581c05ad5c0eb09ea7559f2ca9d414ae32e91a17f8e270217d192793",
+      "bytes": 86392,
+      "constructed_input_sha256": "ec70fc1073862dee77e63211b8a47468b610146830eaec96896ad9d29b54b7b8",
+      "constructed_input_bytes": 860299
+    },
+    {
+      "case": "both-regions-fail",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:39.817Z",
+      "completed_at": "2026-10-20T12:50:40.808Z",
+      "file": "23-both-regions-fail.json",
+      "sha256": "06a238886729b547fdf76647e0f9b5135e826d68b29682ad577cd140b5fac7b7",
+      "bytes": 901,
+      "constructed_input_sha256": "9bbb3b654be18aefaaa0b25c53930fc89c8f7e3b399465e89a96c6fcf3d47cea",
+      "constructed_input_bytes": 860311
+    },
+    {
+      "case": "wrong-dataset",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:40.812Z",
+      "completed_at": "2026-10-20T12:50:41.593Z",
+      "file": "24-wrong-dataset.json",
+      "sha256": "43d95ae408d6e96b95586ff109331f46e6e5130d651b815db75861091c983170",
+      "bytes": 921,
+      "constructed_input_sha256": "e0a3829cbd3dfb9fba739e95de9cb251d04cc4697cf54afbe0f0f7c53c3dacd1",
+      "constructed_input_bytes": 860295
+    },
+    {
+      "case": "wrong-geography",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:41.597Z",
+      "completed_at": "2026-10-20T12:50:42.318Z",
+      "file": "25-wrong-geography.json",
+      "sha256": "d1a080941e4b6d8a72d7baf5222aecdc84745637e4a6e5ca9326458f392faddd",
+      "bytes": 906,
+      "constructed_input_sha256": "0f9629f20fc2076f8e05fdb5b215803cf2bb4012afcd07397a165c2000f4f36e",
+      "constructed_input_bytes": 860307
+    },
+    {
+      "case": "changed-header",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:42.322Z",
+      "completed_at": "2026-10-20T12:50:42.941Z",
+      "file": "26-changed-header.json",
+      "sha256": "0bd0c60cf6becc8b8243a9d857a6c95451aac144df0274d0839a1e8fe83a7edc",
+      "bytes": 920,
+      "constructed_input_sha256": "82a77e658a46038faf0f74fc380f03c118863cd42848dea8a67636a6d6d2ebb8",
+      "constructed_input_bytes": 860295
+    },
+    {
+      "case": "corrupt-zip",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:42.944Z",
+      "completed_at": "2026-10-20T12:50:43.198Z",
+      "file": "27-corrupt-zip.json",
+      "sha256": "cc5ab86dc97b26d8d109841e7bcb8d1dc6a5fc0be3d5e71dd75ef7006f9b84f3",
+      "bytes": 911,
+      "constructed_input_sha256": "12210a0935653cc8356b94da82b6fde590579712bcef7e2e6d1cce710ecf9db5",
+      "constructed_input_bytes": 698323
+    },
+    {
+      "case": "multiple-members",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:43.201Z",
+      "completed_at": "2026-10-20T12:50:43.485Z",
+      "file": "28-multiple-members.json",
+      "sha256": "782d3c6190fad53baf70684ca81a751f497ec7af74fdcb1ff0424ec95ab45c77",
+      "bytes": 939,
+      "constructed_input_sha256": "aaf47ee9bc8811b664a33557644ae00a8bf76fc9358729659aa41e7509c620d1",
+      "constructed_input_bytes": 722967
+    },
+    {
+      "case": "expansion-limit",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:43.487Z",
+      "completed_at": "2026-10-20T12:50:43.596Z",
+      "file": "29-expansion-limit.json",
+      "sha256": "a52183140ce0c5374f1c5370b0658273942d2bd4dd8d958b0547ffe8b222f978",
+      "bytes": 916,
+      "constructed_input_sha256": "792cd8d0d4de6c8130d8aeb12c0f87b6cee66a6317426b00828674a0c12812bb",
+      "constructed_input_bytes": 362243
+    },
+    {
+      "case": "actual-expansion-mismatch",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:43.598Z",
+      "completed_at": "2026-10-20T12:50:44.093Z",
+      "file": "30-actual-expansion-mismatch.json",
+      "sha256": "cad7c7dab34084b5366b2b959acba15c06b53c7167b92ccc750e7464ddb904ab",
+      "bytes": 931,
+      "constructed_input_sha256": "875bef25624163595e6fa402f57ec660bea556a460c8f2db1c5ef838ecaa778f",
+      "constructed_input_bytes": 698323
+    },
+    {
+      "case": "bad",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:44.096Z",
+      "completed_at": "2026-10-20T12:50:44.197Z",
+      "file": "31-bad.json",
+      "sha256": "da2feb7e7dcb9b20afa6817f8a7d325bff6aafe8faa338ff475119039fa5a576",
+      "bytes": 516,
+      "constructed_input_sha256": "7f019ba4d3a493787140cb1ebbbb3d1c8c42b8f9d239d314e123e9bb143f7051",
+      "constructed_input_bytes": 698337
+    },
+    {
+      "case": "post-hash",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:44.200Z",
+      "completed_at": "2026-10-20T12:50:46.489Z",
+      "file": "32-post-hash.json",
+      "sha256": "45f92bb5821a7c9a2243c38cba67a963d6e712e5bad956eb346cbff8a603dc8d",
+      "bytes": 953,
+      "constructed_input_sha256": "cd9fb751746261b85c8ae6afbcb9f267b589757c6d09589f0afcca8b35c6b7a5",
+      "constructed_input_bytes": 698343
+    },
+    {
+      "case": "post-validation",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:46.491Z",
+      "completed_at": "2026-10-20T12:50:47.198Z",
+      "file": "33-post-validation.json",
+      "sha256": "7b5f0db1438170d2301b90adc5b6f1ac3e172cf3410e66d21d38741335c2f19f",
+      "bytes": 946,
+      "constructed_input_sha256": "e209e057ec2fe08360fe94fdbcab02dfa72ab0957958ddc7874f490b1614c433",
+      "constructed_input_bytes": 698349
+    },
+    {
+      "case": "positive-half-cent",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:47.201Z",
+      "completed_at": "2026-10-20T12:50:48.094Z",
+      "file": "34-positive-half-cent.json",
+      "sha256": "8448fc23f892e306bf83dd725c485a69d0cfdd56122bae9f06098cdce4689af0",
+      "bytes": 149323,
+      "constructed_input_sha256": "d0e8e45a7184bd677b5f72b82c013b76ee5ce89d64afb117eec35bf82df03fd8",
+      "constructed_input_bytes": 857783
+    },
+    {
+      "case": "negative-half-cent",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:48.098Z",
+      "completed_at": "2026-10-20T12:50:48.793Z",
+      "file": "35-negative-half-cent.json",
+      "sha256": "5a2c7fd4f43b58546406043695bdbc575f0af2bddec0e409f4eed04ad3cad511",
+      "bytes": 150192,
+      "constructed_input_sha256": "86f586913502302ce63c2f3a5e7aef235010e6d728503f7ca8af23bdd3065279",
+      "constructed_input_bytes": 857619
+    },
+    {
+      "case": "rounded-negative-zero",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:48.797Z",
+      "completed_at": "2026-10-20T12:50:49.678Z",
+      "file": "36-rounded-negative-zero.json",
+      "sha256": "2ecb808a442f0f0967e7ae6d68a5a0855e3bda4f3c3ca12107e9dada0f8ceb90",
+      "bytes": 150180,
+      "constructed_input_sha256": "569f978c793f07ef8149059bfd20e0776dbbe6d3e3be7699ea63bb7272a3cad0",
+      "constructed_input_bytes": 857635
+    },
+    {
+      "case": "scientific-tiny",
+      "path": "/fixture",
+      "method": "POST",
+      "status": 200,
+      "started_at": "2026-10-20T12:50:49.681Z",
+      "completed_at": "2026-10-20T12:50:50.563Z",
+      "file": "37-scientific-tiny.json",
+      "sha256": "de2ccbce83e5fafa60a8e377fdafe54390eba88069fd33f8c66f0ef8ccad8d73",
+      "bytes": 148452,
+      "constructed_input_sha256": "4616c7ef4d6e1f8a6426f8da3597756ca03dbf1ee83eaf43c469f73578557c8e",
+      "constructed_input_bytes": 857611
+    }
+  ],
+  "checks": [
+    {
+      "case": "live",
+      "expected": "ok",
+      "source_status": "ok",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "entire original native semantic representation",
+          "pass": true
+        },
+        {
+          "name": "two original ZIP and expanded CSV bytes",
+          "pass": true
+        },
+        {
+          "name": "actual acquisition ordered within request",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "fixture",
+      "expected": "ok",
+      "source_status": "ok",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "entire original native semantic representation",
+          "pass": true
+        },
+        {
+          "name": "two original ZIP and expanded CSV bytes",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "missing-latest",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "ambiguous-revision",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "future-generation",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "next-day-no-fallback",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "redirect",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "http406",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "timeout",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "index-oversize",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "zip-oversize",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "wrong-run",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "intervention",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "apc",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "suspension",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "missing-price",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "suppressed-price",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "excess-precision",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "wrong-interval",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "missing-interval",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "duplicate-interval",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "layout-disagreement",
+      "expected": "degraded",
+      "source_status": "degraded",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "SA1 refused without values",
+          "pass": true
+        },
+        {
+          "name": "all 288 VIC1 original cells and five summaries survive",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "both-regions-fail",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "wrong-dataset",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "wrong-geography",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "changed-header",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "corrupt-zip",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "multiple-members",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "expansion-limit",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "actual-expansion-mismatch",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "bad",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "post-hash",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "post-validation",
+      "expected": "error",
+      "source_status": "error",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "no substituted native data",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "positive-half-cent",
+      "expected": "ok",
+      "source_status": "ok",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "constructed rounding summary",
+          "pass": true
+        },
+        {
+          "name": "unchanged VIC1",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "negative-half-cent",
+      "expected": "ok",
+      "source_status": "ok",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "constructed rounding summary",
+          "pass": true
+        },
+        {
+          "name": "unchanged VIC1",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "rounded-negative-zero",
+      "expected": "ok",
+      "source_status": "ok",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "constructed rounding summary",
+          "pass": true
+        },
+        {
+          "name": "unchanged VIC1",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "case": "scientific-tiny",
+      "expected": "ok",
+      "source_status": "ok",
+      "pass": true,
+      "checks": [
+        {
+          "name": "fixture/live identity",
+          "pass": true
+        },
+        {
+          "name": "unrelated source survives",
+          "pass": true
+        },
+        {
+          "name": "bounded request count",
+          "pass": true
+        },
+        {
+          "name": "exact URLs and request policy",
+          "pass": true
+        },
+        {
+          "name": "source health",
+          "pass": true
+        },
+        {
+          "name": "native complete or isolated partial",
+          "pass": true
+        },
+        {
+          "name": "three resource provenance records",
+          "pass": true
+        },
+        {
+          "name": "bounded ordered resource provenance",
+          "pass": true
+        },
+        {
+          "name": "constructed rounding summary",
+          "pass": true
+        },
+        {
+          "name": "unchanged VIC1",
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "resource_limits": {
+    "index_bytes": 131072,
+    "zip_bytes_each": 524288,
+    "expanded_csv_bytes_each": 2097152,
+    "reader_timeout_ms_per_request": 20000
+  },
+  "cpu_acceptance": false,
+  "cpu_note": "Remote development wall duration is not CPU time; exact staged CPU remains required.",
+  "live_pass": true,
+  "live_provenance": [
+    {
+      "role": "index",
+      "url": "https://nemweb.com.au/Reports/CURRENT/Public_Prices/",
+      "requested_at": "2026-10-20T12:50:13.979Z",
+      "retrieved_at": "2026-10-20T12:50:15.698Z",
+      "bytes": 16059,
+      "sha256": "c817aa790c76c20235c715aeb9a5af175d09279169fa7a87e3ec919c32bf707d"
+    },
+    {
+      "role": "bundle",
+      "url": "https://nemweb.com.au/Reports/CURRENT/Public_Prices/PUBLIC_PRICES_202610180000_20261019040502.zip",
+      "requested_at": "2026-10-20T12:50:15.698Z",
+      "retrieved_at": "2026-10-20T12:50:17.123Z",
+      "bytes": 254309,
+      "sha256": "d4f41531f9d1deb496270c02bdf2542cba9ea65443d4cf0167d9b9a43aece03f",
+      "trading_day": "2026-10-18",
+      "csv_name": "PUBLIC_PRICES_202610180000_20261019040502.CSV",
+      "csv_bytes": 1109187,
+      "csv_sha256": "2a3ae73d5cc6673769fcab5267aad9827330070ecc6f2ec334045c56676c0bd8"
+    },
+    {
+      "role": "bundle",
+      "url": "https://nemweb.com.au/Reports/CURRENT/Public_Prices/PUBLIC_PRICES_202610190000_20261020040503.zip",
+      "requested_at": "2026-10-20T12:50:15.698Z",
+      "retrieved_at": "2026-10-20T12:50:17.202Z",
+      "bytes": 260373,
+      "sha256": "f67a8dd7b89f1c94544aa23192f7f29896926a2ba541c098e6a5e30fe57729b9",
+      "trading_day": "2026-10-19",
+      "csv_name": "PUBLIC_PRICES_202610190000_20261020040503.CSV",
+      "csv_bytes": 1118267,
+      "csv_sha256": "633d8fad4d671deb268cec3dc4648f09b2de67c6e9c82851417d171712b206b0"
+    }
+  ],
+  "live_cells": [
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:05:00+10:00",
+      "expected_raw": "2.09",
+      "expected": 2.09,
+      "actual": 2.09,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:10:00+10:00",
+      "expected_raw": "26.12197",
+      "expected": 26.12,
+      "actual": 26.12,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:15:00+10:00",
+      "expected_raw": "6.6",
+      "expected": 6.6,
+      "actual": 6.6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:20:00+10:00",
+      "expected_raw": "2.09",
+      "expected": 2.09,
+      "actual": 2.09,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:25:00+10:00",
+      "expected_raw": "6.6",
+      "expected": 6.6,
+      "actual": 6.6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:30:00+10:00",
+      "expected_raw": "28.53692",
+      "expected": 28.54,
+      "actual": 28.54,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:35:00+10:00",
+      "expected_raw": "14.15",
+      "expected": 14.15,
+      "actual": 14.15,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:40:00+10:00",
+      "expected_raw": "2.09",
+      "expected": 2.09,
+      "actual": 2.09,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:45:00+10:00",
+      "expected_raw": "-0.71023",
+      "expected": -0.71,
+      "actual": -0.71,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:50:00+10:00",
+      "expected_raw": "-0.73482",
+      "expected": -0.73,
+      "actual": -0.73,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:55:00+10:00",
+      "expected_raw": "0.5",
+      "expected": 0.5,
+      "actual": 0.5,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:00:00+10:00",
+      "expected_raw": "0.5",
+      "expected": 0.5,
+      "actual": 0.5,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:05:00+10:00",
+      "expected_raw": "-1.12",
+      "expected": -1.12,
+      "actual": -1.12,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:10:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:15:00+10:00",
+      "expected_raw": "-1.13",
+      "expected": -1.13,
+      "actual": -1.13,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:20:00+10:00",
+      "expected_raw": "0.5",
+      "expected": 0.5,
+      "actual": 0.5,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:25:00+10:00",
+      "expected_raw": "-4.22",
+      "expected": -4.22,
+      "actual": -4.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:30:00+10:00",
+      "expected_raw": "-4.22",
+      "expected": -4.22,
+      "actual": -4.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:35:00+10:00",
+      "expected_raw": "-4.22",
+      "expected": -4.22,
+      "actual": -4.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:40:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:45:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:50:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:55:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:00:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:05:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:10:00+10:00",
+      "expected_raw": "-4.32",
+      "expected": -4.32,
+      "actual": -4.32,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:15:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:20:00+10:00",
+      "expected_raw": "-7.09989",
+      "expected": -7.1,
+      "actual": -7.1,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:25:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:30:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:35:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:40:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:45:00+10:00",
+      "expected_raw": "-4.32",
+      "expected": -4.32,
+      "actual": -4.32,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:50:00+10:00",
+      "expected_raw": "-4.32",
+      "expected": -4.32,
+      "actual": -4.32,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:55:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:00:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:05:00+10:00",
+      "expected_raw": "-4.22",
+      "expected": -4.22,
+      "actual": -4.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:10:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:15:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:20:00+10:00",
+      "expected_raw": "-4.22",
+      "expected": -4.22,
+      "actual": -4.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:25:00+10:00",
+      "expected_raw": "-4.32",
+      "expected": -4.32,
+      "actual": -4.32,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:30:00+10:00",
+      "expected_raw": "-4.32",
+      "expected": -4.32,
+      "actual": -4.32,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:35:00+10:00",
+      "expected_raw": "-4.22",
+      "expected": -4.22,
+      "actual": -4.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:40:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:45:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:50:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:55:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:00:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:05:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:10:00+10:00",
+      "expected_raw": "-1.13",
+      "expected": -1.13,
+      "actual": -1.13,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:15:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:20:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:25:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:30:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:35:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:40:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:45:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:50:00+10:00",
+      "expected_raw": "-4.21992",
+      "expected": -4.22,
+      "actual": -4.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:55:00+10:00",
+      "expected_raw": "-4.04535",
+      "expected": -4.05,
+      "actual": -4.05,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:00:00+10:00",
+      "expected_raw": "-4.04535",
+      "expected": -4.05,
+      "actual": -4.05,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:05:00+10:00",
+      "expected_raw": "-4.04535",
+      "expected": -4.05,
+      "actual": -4.05,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:10:00+10:00",
+      "expected_raw": "-5.63374",
+      "expected": -5.63,
+      "actual": -5.63,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:15:00+10:00",
+      "expected_raw": "-4.04535",
+      "expected": -4.05,
+      "actual": -4.05,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:20:00+10:00",
+      "expected_raw": "-4.04535",
+      "expected": -4.05,
+      "actual": -4.05,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:25:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:30:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:35:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:40:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:45:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:50:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:55:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:00:00+10:00",
+      "expected_raw": "-1.14",
+      "expected": -1.14,
+      "actual": -1.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:05:00+10:00",
+      "expected_raw": "-2.01888",
+      "expected": -2.02,
+      "actual": -2.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:10:00+10:00",
+      "expected_raw": "4.32486",
+      "expected": 4.32,
+      "actual": 4.32,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:15:00+10:00",
+      "expected_raw": "-2.50056",
+      "expected": -2.5,
+      "actual": -2.5,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:20:00+10:00",
+      "expected_raw": "0.79549",
+      "expected": 0.8,
+      "actual": 0.8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:25:00+10:00",
+      "expected_raw": "-11.32337",
+      "expected": -11.32,
+      "actual": -11.32,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:30:00+10:00",
+      "expected_raw": "-15.42",
+      "expected": -15.42,
+      "actual": -15.42,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:35:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:40:00+10:00",
+      "expected_raw": "-7.1",
+      "expected": -7.1,
+      "actual": -7.1,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:45:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:50:00+10:00",
+      "expected_raw": "-7.9998",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:55:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:00:00+10:00",
+      "expected_raw": "-15.42",
+      "expected": -15.42,
+      "actual": -15.42,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:05:00+10:00",
+      "expected_raw": "-9.14",
+      "expected": -9.14,
+      "actual": -9.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:10:00+10:00",
+      "expected_raw": "-13.62",
+      "expected": -13.62,
+      "actual": -13.62,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:15:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:20:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:25:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:30:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:35:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:40:00+10:00",
+      "expected_raw": "-29.02",
+      "expected": -29.02,
+      "actual": -29.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:45:00+10:00",
+      "expected_raw": "-29.02",
+      "expected": -29.02,
+      "actual": -29.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:50:00+10:00",
+      "expected_raw": "-42.05",
+      "expected": -42.05,
+      "actual": -42.05,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:55:00+10:00",
+      "expected_raw": "-39.02",
+      "expected": -39.02,
+      "actual": -39.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:00:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:05:00+10:00",
+      "expected_raw": "-57",
+      "expected": -57,
+      "actual": -57,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:10:00+10:00",
+      "expected_raw": "-29.02",
+      "expected": -29.02,
+      "actual": -29.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:15:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:20:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:25:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:30:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:35:00+10:00",
+      "expected_raw": "-39.02",
+      "expected": -39.02,
+      "actual": -39.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:40:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:45:00+10:00",
+      "expected_raw": "-19.69",
+      "expected": -19.69,
+      "actual": -19.69,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:50:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:55:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:00:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:05:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:10:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:15:00+10:00",
+      "expected_raw": "-29.02",
+      "expected": -29.02,
+      "actual": -29.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:20:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:25:00+10:00",
+      "expected_raw": "-13.62",
+      "expected": -13.62,
+      "actual": -13.62,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:30:00+10:00",
+      "expected_raw": "-15.46",
+      "expected": -15.46,
+      "actual": -15.46,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:35:00+10:00",
+      "expected_raw": "-19.69",
+      "expected": -19.69,
+      "actual": -19.69,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:40:00+10:00",
+      "expected_raw": "-19.69",
+      "expected": -19.69,
+      "actual": -19.69,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:45:00+10:00",
+      "expected_raw": "-19.69",
+      "expected": -19.69,
+      "actual": -19.69,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:50:00+10:00",
+      "expected_raw": "-15.46",
+      "expected": -15.46,
+      "actual": -15.46,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:55:00+10:00",
+      "expected_raw": "-13.62",
+      "expected": -13.62,
+      "actual": -13.62,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:00:00+10:00",
+      "expected_raw": "-11.85",
+      "expected": -11.85,
+      "actual": -11.85,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:05:00+10:00",
+      "expected_raw": "-13.62",
+      "expected": -13.62,
+      "actual": -13.62,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:10:00+10:00",
+      "expected_raw": "-11.74",
+      "expected": -11.74,
+      "actual": -11.74,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:15:00+10:00",
+      "expected_raw": "-19.69",
+      "expected": -19.69,
+      "actual": -19.69,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:20:00+10:00",
+      "expected_raw": "-19.69",
+      "expected": -19.69,
+      "actual": -19.69,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:25:00+10:00",
+      "expected_raw": "-9.14",
+      "expected": -9.14,
+      "actual": -9.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:30:00+10:00",
+      "expected_raw": "-9.14",
+      "expected": -9.14,
+      "actual": -9.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:35:00+10:00",
+      "expected_raw": "-7.99993",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:40:00+10:00",
+      "expected_raw": "-9.13",
+      "expected": -9.13,
+      "actual": -9.13,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:45:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:50:00+10:00",
+      "expected_raw": "-7.99993",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:55:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:00:00+10:00",
+      "expected_raw": "-7.99993",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:05:00+10:00",
+      "expected_raw": "-7.99993",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:10:00+10:00",
+      "expected_raw": "-7.99993",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:15:00+10:00",
+      "expected_raw": "-7.99993",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:20:00+10:00",
+      "expected_raw": "-7.99993",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:25:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:30:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:35:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:40:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:45:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:50:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:55:00+10:00",
+      "expected_raw": "-5.99999",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:00:00+10:00",
+      "expected_raw": "-5.99996",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:05:00+10:00",
+      "expected_raw": "-7.1",
+      "expected": -7.1,
+      "actual": -7.1,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:10:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:15:00+10:00",
+      "expected_raw": "-7.9998",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:20:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:25:00+10:00",
+      "expected_raw": "-9.11",
+      "expected": -9.11,
+      "actual": -9.11,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:30:00+10:00",
+      "expected_raw": "-9.11",
+      "expected": -9.11,
+      "actual": -9.11,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:35:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:40:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:45:00+10:00",
+      "expected_raw": "-5.22",
+      "expected": -5.22,
+      "actual": -5.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:50:00+10:00",
+      "expected_raw": "-5.17",
+      "expected": -5.17,
+      "actual": -5.17,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:55:00+10:00",
+      "expected_raw": "-5",
+      "expected": -5,
+      "actual": -5,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:00:00+10:00",
+      "expected_raw": "-5.22",
+      "expected": -5.22,
+      "actual": -5.22,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:05:00+10:00",
+      "expected_raw": "-5.99997",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:10:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:15:00+10:00",
+      "expected_raw": "-5.99999",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:20:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:25:00+10:00",
+      "expected_raw": "-5.99999",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:30:00+10:00",
+      "expected_raw": "-5.19",
+      "expected": -5.19,
+      "actual": -5.19,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:35:00+10:00",
+      "expected_raw": "-3.79",
+      "expected": -3.79,
+      "actual": -3.79,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:40:00+10:00",
+      "expected_raw": "-5",
+      "expected": -5,
+      "actual": -5,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:45:00+10:00",
+      "expected_raw": "-5.7",
+      "expected": -5.7,
+      "actual": -5.7,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:50:00+10:00",
+      "expected_raw": "-5.17",
+      "expected": -5.17,
+      "actual": -5.17,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:55:00+10:00",
+      "expected_raw": "-5.99997",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:00:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:05:00+10:00",
+      "expected_raw": "-7.25",
+      "expected": -7.25,
+      "actual": -7.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:10:00+10:00",
+      "expected_raw": "-5.99999",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:15:00+10:00",
+      "expected_raw": "-5.99999",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:20:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:25:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:30:00+10:00",
+      "expected_raw": "-5.99997",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:35:00+10:00",
+      "expected_raw": "-5.17",
+      "expected": -5.17,
+      "actual": -5.17,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:40:00+10:00",
+      "expected_raw": "-5.17",
+      "expected": -5.17,
+      "actual": -5.17,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:45:00+10:00",
+      "expected_raw": "-5.19",
+      "expected": -5.19,
+      "actual": -5.19,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:50:00+10:00",
+      "expected_raw": "8.12",
+      "expected": 8.12,
+      "actual": 8.12,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:55:00+10:00",
+      "expected_raw": "56.2",
+      "expected": 56.2,
+      "actual": 56.2,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:00:00+10:00",
+      "expected_raw": "-5.99997",
+      "expected": -6,
+      "actual": -6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:05:00+10:00",
+      "expected_raw": "-7.9998",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:10:00+10:00",
+      "expected_raw": "-9.14",
+      "expected": -9.14,
+      "actual": -9.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:15:00+10:00",
+      "expected_raw": "-57.3",
+      "expected": -57.3,
+      "actual": -57.3,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:20:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:25:00+10:00",
+      "expected_raw": "-169.95671",
+      "expected": -169.96,
+      "actual": -169.96,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:30:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:35:00+10:00",
+      "expected_raw": "-97.45",
+      "expected": -97.45,
+      "actual": -97.45,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:40:00+10:00",
+      "expected_raw": "-148.62365",
+      "expected": -148.62,
+      "actual": -148.62,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:45:00+10:00",
+      "expected_raw": "-149.38493",
+      "expected": -149.38,
+      "actual": -149.38,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:50:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:55:00+10:00",
+      "expected_raw": "-99.01",
+      "expected": -99.01,
+      "actual": -99.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:00:00+10:00",
+      "expected_raw": "-99.01",
+      "expected": -99.01,
+      "actual": -99.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:05:00+10:00",
+      "expected_raw": "-123.16906",
+      "expected": -123.17,
+      "actual": -123.17,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:10:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:15:00+10:00",
+      "expected_raw": "-142.33468",
+      "expected": -142.33,
+      "actual": -142.33,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:20:00+10:00",
+      "expected_raw": "-20.01",
+      "expected": -20.01,
+      "actual": -20.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:25:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:30:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:35:00+10:00",
+      "expected_raw": "5.01",
+      "expected": 5.01,
+      "actual": 5.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:40:00+10:00",
+      "expected_raw": "-5.18",
+      "expected": -5.18,
+      "actual": -5.18,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:45:00+10:00",
+      "expected_raw": "23.4",
+      "expected": 23.4,
+      "actual": 23.4,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:50:00+10:00",
+      "expected_raw": "-7.01",
+      "expected": -7.01,
+      "actual": -7.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:55:00+10:00",
+      "expected_raw": "5.01",
+      "expected": 5.01,
+      "actual": 5.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:00:00+10:00",
+      "expected_raw": "-7.1",
+      "expected": -7.1,
+      "actual": -7.1,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:05:00+10:00",
+      "expected_raw": "-7.9998",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:10:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:15:00+10:00",
+      "expected_raw": "0",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:20:00+10:00",
+      "expected_raw": "0",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:25:00+10:00",
+      "expected_raw": "75.01241",
+      "expected": 75.01,
+      "actual": 75.01,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:30:00+10:00",
+      "expected_raw": "82.44",
+      "expected": 82.44,
+      "actual": 82.44,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:35:00+10:00",
+      "expected_raw": "42.13796",
+      "expected": 42.14,
+      "actual": 42.14,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:40:00+10:00",
+      "expected_raw": "41.94684",
+      "expected": 41.95,
+      "actual": 41.95,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:45:00+10:00",
+      "expected_raw": "79.81953",
+      "expected": 79.82,
+      "actual": 79.82,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:50:00+10:00",
+      "expected_raw": "82.44",
+      "expected": 82.44,
+      "actual": 82.44,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:55:00+10:00",
+      "expected_raw": "82.44",
+      "expected": 82.44,
+      "actual": 82.44,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:00:00+10:00",
+      "expected_raw": "85.05967",
+      "expected": 85.06,
+      "actual": 85.06,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:05:00+10:00",
+      "expected_raw": "82.44",
+      "expected": 82.44,
+      "actual": 82.44,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:10:00+10:00",
+      "expected_raw": "88.90378",
+      "expected": 88.9,
+      "actual": 88.9,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:15:00+10:00",
+      "expected_raw": "78.66",
+      "expected": 78.66,
+      "actual": 78.66,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:20:00+10:00",
+      "expected_raw": "89",
+      "expected": 89,
+      "actual": 89,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:25:00+10:00",
+      "expected_raw": "95.75933",
+      "expected": 95.76,
+      "actual": 95.76,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:30:00+10:00",
+      "expected_raw": "82.40221",
+      "expected": 82.4,
+      "actual": 82.4,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:35:00+10:00",
+      "expected_raw": "81.0517",
+      "expected": 81.05,
+      "actual": 81.05,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:40:00+10:00",
+      "expected_raw": "82.44",
+      "expected": 82.44,
+      "actual": 82.44,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:45:00+10:00",
+      "expected_raw": "74.45706",
+      "expected": 74.46,
+      "actual": 74.46,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:50:00+10:00",
+      "expected_raw": "81.41753",
+      "expected": 81.42,
+      "actual": 81.42,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:55:00+10:00",
+      "expected_raw": "71.79323",
+      "expected": 71.79,
+      "actual": 71.79,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:00:00+10:00",
+      "expected_raw": "73.2",
+      "expected": 73.2,
+      "actual": 73.2,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:05:00+10:00",
+      "expected_raw": "74.41849",
+      "expected": 74.42,
+      "actual": 74.42,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:10:00+10:00",
+      "expected_raw": "74.55404",
+      "expected": 74.55,
+      "actual": 74.55,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:15:00+10:00",
+      "expected_raw": "68.55412",
+      "expected": 68.55,
+      "actual": 68.55,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:20:00+10:00",
+      "expected_raw": "76.39602",
+      "expected": 76.4,
+      "actual": 76.4,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:25:00+10:00",
+      "expected_raw": "75.16394",
+      "expected": 75.16,
+      "actual": 75.16,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:30:00+10:00",
+      "expected_raw": "71.01833",
+      "expected": 71.02,
+      "actual": 71.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:35:00+10:00",
+      "expected_raw": "74.58004",
+      "expected": 74.58,
+      "actual": 74.58,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:40:00+10:00",
+      "expected_raw": "73.89061",
+      "expected": 73.89,
+      "actual": 73.89,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:45:00+10:00",
+      "expected_raw": "71.15832",
+      "expected": 71.16,
+      "actual": 71.16,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:50:00+10:00",
+      "expected_raw": "68.23184",
+      "expected": 68.23,
+      "actual": 68.23,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:55:00+10:00",
+      "expected_raw": "67.8588",
+      "expected": 67.86,
+      "actual": 67.86,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:00:00+10:00",
+      "expected_raw": "67.7065",
+      "expected": 67.71,
+      "actual": 67.71,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:05:00+10:00",
+      "expected_raw": "70.31752",
+      "expected": 70.32,
+      "actual": 70.32,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:10:00+10:00",
+      "expected_raw": "65.69702",
+      "expected": 65.7,
+      "actual": 65.7,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:15:00+10:00",
+      "expected_raw": "66.43328",
+      "expected": 66.43,
+      "actual": 66.43,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:20:00+10:00",
+      "expected_raw": "58.8814",
+      "expected": 58.88,
+      "actual": 58.88,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:25:00+10:00",
+      "expected_raw": "57.52799",
+      "expected": 57.53,
+      "actual": 57.53,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:30:00+10:00",
+      "expected_raw": "64.18891",
+      "expected": 64.19,
+      "actual": 64.19,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:35:00+10:00",
+      "expected_raw": "58.50626",
+      "expected": 58.51,
+      "actual": 58.51,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:40:00+10:00",
+      "expected_raw": "59.01753",
+      "expected": 59.02,
+      "actual": 59.02,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:45:00+10:00",
+      "expected_raw": "54.98951",
+      "expected": 54.99,
+      "actual": 54.99,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:50:00+10:00",
+      "expected_raw": "58.45968",
+      "expected": 58.46,
+      "actual": 58.46,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:55:00+10:00",
+      "expected_raw": "58.03125",
+      "expected": 58.03,
+      "actual": 58.03,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:00:00+10:00",
+      "expected_raw": "51.33684",
+      "expected": 51.34,
+      "actual": 51.34,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:05:00+10:00",
+      "expected_raw": "51.29949",
+      "expected": 51.3,
+      "actual": 51.3,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:10:00+10:00",
+      "expected_raw": "51.29943",
+      "expected": 51.3,
+      "actual": 51.3,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:15:00+10:00",
+      "expected_raw": "63.03251",
+      "expected": 63.03,
+      "actual": 63.03,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:20:00+10:00",
+      "expected_raw": "51.59167",
+      "expected": 51.59,
+      "actual": 51.59,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:25:00+10:00",
+      "expected_raw": "58.68286",
+      "expected": 58.68,
+      "actual": 58.68,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:30:00+10:00",
+      "expected_raw": "57.48472",
+      "expected": 57.48,
+      "actual": 57.48,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:35:00+10:00",
+      "expected_raw": "49.24401",
+      "expected": 49.24,
+      "actual": 49.24,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:40:00+10:00",
+      "expected_raw": "58.89663",
+      "expected": 58.9,
+      "actual": 58.9,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:45:00+10:00",
+      "expected_raw": "56.81009",
+      "expected": 56.81,
+      "actual": 56.81,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:50:00+10:00",
+      "expected_raw": "42.59835",
+      "expected": 42.6,
+      "actual": 42.6,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:55:00+10:00",
+      "expected_raw": "57.85832",
+      "expected": 57.86,
+      "actual": 57.86,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:00:00+10:00",
+      "expected_raw": "29.97227",
+      "expected": 29.97,
+      "actual": 29.97,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:05:00+10:00",
+      "expected_raw": "-5",
+      "expected": -5,
+      "actual": -5,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:10:00+10:00",
+      "expected_raw": "28.81702",
+      "expected": 28.82,
+      "actual": 28.82,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:15:00+10:00",
+      "expected_raw": "28.88567",
+      "expected": 28.89,
+      "actual": 28.89,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:20:00+10:00",
+      "expected_raw": "23.25",
+      "expected": 23.25,
+      "actual": 23.25,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:25:00+10:00",
+      "expected_raw": "27.56618",
+      "expected": 27.57,
+      "actual": 27.57,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:30:00+10:00",
+      "expected_raw": "19.7536",
+      "expected": 19.75,
+      "actual": 19.75,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:35:00+10:00",
+      "expected_raw": "29.37093",
+      "expected": 29.37,
+      "actual": 29.37,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:40:00+10:00",
+      "expected_raw": "29.6595",
+      "expected": 29.66,
+      "actual": 29.66,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:45:00+10:00",
+      "expected_raw": "28.61512",
+      "expected": 28.62,
+      "actual": 28.62,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:50:00+10:00",
+      "expected_raw": "30.22792",
+      "expected": 30.23,
+      "actual": 30.23,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:55:00+10:00",
+      "expected_raw": "29.62032",
+      "expected": 29.62,
+      "actual": 29.62,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:00:00+10:00",
+      "expected_raw": "29.16096",
+      "expected": 29.16,
+      "actual": 29.16,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:05:00+10:00",
+      "expected_raw": "29.94072",
+      "expected": 29.94,
+      "actual": 29.94,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:10:00+10:00",
+      "expected_raw": "31.18084",
+      "expected": 31.18,
+      "actual": 31.18,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:15:00+10:00",
+      "expected_raw": "56.17718",
+      "expected": 56.18,
+      "actual": 56.18,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:20:00+10:00",
+      "expected_raw": "57.84438",
+      "expected": 57.84,
+      "actual": 57.84,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:25:00+10:00",
+      "expected_raw": "58.13316",
+      "expected": 58.13,
+      "actual": 58.13,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:30:00+10:00",
+      "expected_raw": "56.19788",
+      "expected": 56.2,
+      "actual": 56.2,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:35:00+10:00",
+      "expected_raw": "63.59428",
+      "expected": 63.59,
+      "actual": 63.59,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:40:00+10:00",
+      "expected_raw": "36.16066",
+      "expected": 36.16,
+      "actual": 36.16,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:45:00+10:00",
+      "expected_raw": "31.38779",
+      "expected": 31.39,
+      "actual": 31.39,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:50:00+10:00",
+      "expected_raw": "29.64869",
+      "expected": 29.65,
+      "actual": 29.65,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:55:00+10:00",
+      "expected_raw": "56.03349",
+      "expected": 56.03,
+      "actual": 56.03,
+      "pass": true
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-20T00:00:00+10:00",
+      "expected_raw": "54.34936",
+      "expected": 54.35,
+      "actual": 54.35,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:05:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:10:00+10:00",
+      "expected_raw": "3E-05",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:15:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:20:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:25:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:30:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:35:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:40:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:45:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:50:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:55:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:00:00+10:00",
+      "expected_raw": "-1.01",
+      "expected": -1.01,
+      "actual": -1.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:05:00+10:00",
+      "expected_raw": "-1.01",
+      "expected": -1.01,
+      "actual": -1.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:10:00+10:00",
+      "expected_raw": "-1.01",
+      "expected": -1.01,
+      "actual": -1.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:15:00+10:00",
+      "expected_raw": "-9.05",
+      "expected": -9.05,
+      "actual": -9.05,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:20:00+10:00",
+      "expected_raw": "-9.05",
+      "expected": -9.05,
+      "actual": -9.05,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:25:00+10:00",
+      "expected_raw": "-14.85961",
+      "expected": -14.86,
+      "actual": -14.86,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:30:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:35:00+10:00",
+      "expected_raw": "-9.05",
+      "expected": -9.05,
+      "actual": -9.05,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:40:00+10:00",
+      "expected_raw": "-13.72456",
+      "expected": -13.72,
+      "actual": -13.72,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:45:00+10:00",
+      "expected_raw": "-13.73752",
+      "expected": -13.74,
+      "actual": -13.74,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:50:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:55:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:00:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:05:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:10:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:15:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:20:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:25:00+10:00",
+      "expected_raw": "-17.06",
+      "expected": -17.06,
+      "actual": -17.06,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:30:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:35:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:40:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:45:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:50:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:55:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:00:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:05:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:10:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:15:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:20:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:25:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:30:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:35:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:40:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:45:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:50:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:55:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:00:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:05:00+10:00",
+      "expected_raw": "-19.98",
+      "expected": -19.98,
+      "actual": -19.98,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:10:00+10:00",
+      "expected_raw": "-19.98",
+      "expected": -19.98,
+      "actual": -19.98,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:15:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:20:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:25:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:30:00+10:00",
+      "expected_raw": "-19.98",
+      "expected": -19.98,
+      "actual": -19.98,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:35:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:40:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:45:00+10:00",
+      "expected_raw": "-19.98",
+      "expected": -19.98,
+      "actual": -19.98,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:50:00+10:00",
+      "expected_raw": "-19.98",
+      "expected": -19.98,
+      "actual": -19.98,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:55:00+10:00",
+      "expected_raw": "-19.98",
+      "expected": -19.98,
+      "actual": -19.98,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:00:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:05:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:10:00+10:00",
+      "expected_raw": "-9.05",
+      "expected": -9.05,
+      "actual": -9.05,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:15:00+10:00",
+      "expected_raw": "-8.26",
+      "expected": -8.26,
+      "actual": -8.26,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:20:00+10:00",
+      "expected_raw": "-8.26",
+      "expected": -8.26,
+      "actual": -8.26,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:25:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:30:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:35:00+10:00",
+      "expected_raw": "-6.6",
+      "expected": -6.6,
+      "actual": -6.6,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:40:00+10:00",
+      "expected_raw": "-5.09",
+      "expected": -5.09,
+      "actual": -5.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:45:00+10:00",
+      "expected_raw": "-6.6",
+      "expected": -6.6,
+      "actual": -6.6,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:50:00+10:00",
+      "expected_raw": "-4.09",
+      "expected": -4.09,
+      "actual": -4.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:55:00+10:00",
+      "expected_raw": "-5.09",
+      "expected": -5.09,
+      "actual": -5.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:00:00+10:00",
+      "expected_raw": "-4.90998",
+      "expected": -4.91,
+      "actual": -4.91,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:05:00+10:00",
+      "expected_raw": "-5.09",
+      "expected": -5.09,
+      "actual": -5.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:10:00+10:00",
+      "expected_raw": "-5.61",
+      "expected": -5.61,
+      "actual": -5.61,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:15:00+10:00",
+      "expected_raw": "-6.15889",
+      "expected": -6.16,
+      "actual": -6.16,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:20:00+10:00",
+      "expected_raw": "-6.6",
+      "expected": -6.6,
+      "actual": -6.6,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:25:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:30:00+10:00",
+      "expected_raw": "-8.26",
+      "expected": -8.26,
+      "actual": -8.26,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:35:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:40:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:45:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:50:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:55:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:00:00+10:00",
+      "expected_raw": "-7.18",
+      "expected": -7.18,
+      "actual": -7.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:05:00+10:00",
+      "expected_raw": "-8.0001",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:10:00+10:00",
+      "expected_raw": "-8.26",
+      "expected": -8.26,
+      "actual": -8.26,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:15:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:20:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:25:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:30:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:35:00+10:00",
+      "expected_raw": "-8.26",
+      "expected": -8.26,
+      "actual": -8.26,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:40:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:45:00+10:00",
+      "expected_raw": "-7.51",
+      "expected": -7.51,
+      "actual": -7.51,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:50:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:55:00+10:00",
+      "expected_raw": "-7.9999",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:00:00+10:00",
+      "expected_raw": "-7.9999",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:05:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:10:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:15:00+10:00",
+      "expected_raw": "-7.9999",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:20:00+10:00",
+      "expected_raw": "-8.0001",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:25:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:30:00+10:00",
+      "expected_raw": "-8",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:35:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:40:00+10:00",
+      "expected_raw": "-18.68771",
+      "expected": -18.69,
+      "actual": -18.69,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:45:00+10:00",
+      "expected_raw": "-7.9999",
+      "expected": -8,
+      "actual": -8,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:50:00+10:00",
+      "expected_raw": "-8.26",
+      "expected": -8.26,
+      "actual": -8.26,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:55:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:00:00+10:00",
+      "expected_raw": "-8.26",
+      "expected": -8.26,
+      "actual": -8.26,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:05:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:10:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:15:00+10:00",
+      "expected_raw": "-25.13",
+      "expected": -25.13,
+      "actual": -25.13,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:20:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:25:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:30:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:35:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:40:00+10:00",
+      "expected_raw": "-25.13",
+      "expected": -25.13,
+      "actual": -25.13,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:45:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:50:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:55:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:00:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:05:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:10:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:15:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:20:00+10:00",
+      "expected_raw": "-11.09",
+      "expected": -11.09,
+      "actual": -11.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:25:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:30:00+10:00",
+      "expected_raw": "-11.09",
+      "expected": -11.09,
+      "actual": -11.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:35:00+10:00",
+      "expected_raw": "-11.09",
+      "expected": -11.09,
+      "actual": -11.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:40:00+10:00",
+      "expected_raw": "-25.13",
+      "expected": -25.13,
+      "actual": -25.13,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:45:00+10:00",
+      "expected_raw": "-20.65",
+      "expected": -20.65,
+      "actual": -20.65,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:50:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:55:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:00:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:05:00+10:00",
+      "expected_raw": "-17.06",
+      "expected": -17.06,
+      "actual": -17.06,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:10:00+10:00",
+      "expected_raw": "-17.06",
+      "expected": -17.06,
+      "actual": -17.06,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:15:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:20:00+10:00",
+      "expected_raw": "-20.65",
+      "expected": -20.65,
+      "actual": -20.65,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:25:00+10:00",
+      "expected_raw": "-25.13",
+      "expected": -25.13,
+      "actual": -25.13,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:30:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:35:00+10:00",
+      "expected_raw": "-25.13",
+      "expected": -25.13,
+      "actual": -25.13,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:40:00+10:00",
+      "expected_raw": "-20.65",
+      "expected": -20.65,
+      "actual": -20.65,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:45:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:50:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:55:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:00:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:05:00+10:00",
+      "expected_raw": "-23.74665",
+      "expected": -23.75,
+      "actual": -23.75,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:10:00+10:00",
+      "expected_raw": "-20.65",
+      "expected": -20.65,
+      "actual": -20.65,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:15:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:20:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:25:00+10:00",
+      "expected_raw": "-19.98",
+      "expected": -19.98,
+      "actual": -19.98,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:30:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:35:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:40:00+10:00",
+      "expected_raw": "-20.65",
+      "expected": -20.65,
+      "actual": -20.65,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:45:00+10:00",
+      "expected_raw": "-11.09",
+      "expected": -11.09,
+      "actual": -11.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:50:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:55:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:00:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:05:00+10:00",
+      "expected_raw": "-11.09",
+      "expected": -11.09,
+      "actual": -11.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:10:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:15:00+10:00",
+      "expected_raw": "-11.09",
+      "expected": -11.09,
+      "actual": -11.09,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:20:00+10:00",
+      "expected_raw": "-20.65",
+      "expected": -20.65,
+      "actual": -20.65,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:25:00+10:00",
+      "expected_raw": "-20.65",
+      "expected": -20.65,
+      "actual": -20.65,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:30:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:35:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:40:00+10:00",
+      "expected_raw": "-26.03876",
+      "expected": -26.04,
+      "actual": -26.04,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:45:00+10:00",
+      "expected_raw": "-20.65",
+      "expected": -20.65,
+      "actual": -20.65,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:50:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:55:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:00:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:05:00+10:00",
+      "expected_raw": "-27.77",
+      "expected": -27.77,
+      "actual": -27.77,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:10:00+10:00",
+      "expected_raw": "-19.98",
+      "expected": -19.98,
+      "actual": -19.98,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:15:00+10:00",
+      "expected_raw": "-16.86",
+      "expected": -16.86,
+      "actual": -16.86,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:20:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:25:00+10:00",
+      "expected_raw": "-8.26",
+      "expected": -8.26,
+      "actual": -8.26,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:30:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:35:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:40:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:45:00+10:00",
+      "expected_raw": "-7.51",
+      "expected": -7.51,
+      "actual": -7.51,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:50:00+10:00",
+      "expected_raw": "-19.8642",
+      "expected": -19.86,
+      "actual": -19.86,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:55:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:00:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:05:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:10:00+10:00",
+      "expected_raw": "-19.0507",
+      "expected": -19.05,
+      "actual": -19.05,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:15:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:20:00+10:00",
+      "expected_raw": "-34.89",
+      "expected": -34.89,
+      "actual": -34.89,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:25:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:30:00+10:00",
+      "expected_raw": "-19.99",
+      "expected": -19.99,
+      "actual": -19.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:35:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:40:00+10:00",
+      "expected_raw": "-42.45833",
+      "expected": -42.46,
+      "actual": -42.46,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:45:00+10:00",
+      "expected_raw": "-44.47",
+      "expected": -44.47,
+      "actual": -44.47,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:50:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:55:00+10:00",
+      "expected_raw": "-8.01",
+      "expected": -8.01,
+      "actual": -8.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:00:00+10:00",
+      "expected_raw": "-18.31608",
+      "expected": -18.32,
+      "actual": -18.32,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:05:00+10:00",
+      "expected_raw": "-16.54",
+      "expected": -16.54,
+      "actual": -16.54,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:10:00+10:00",
+      "expected_raw": "-20",
+      "expected": -20,
+      "actual": -20,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:15:00+10:00",
+      "expected_raw": "-35.70847",
+      "expected": -35.71,
+      "actual": -35.71,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:20:00+10:00",
+      "expected_raw": "-12.40478",
+      "expected": -12.4,
+      "actual": -12.4,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:25:00+10:00",
+      "expected_raw": "-7.51",
+      "expected": -7.51,
+      "actual": -7.51,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:30:00+10:00",
+      "expected_raw": "-7",
+      "expected": -7,
+      "actual": -7,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:35:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:40:00+10:00",
+      "expected_raw": "-5",
+      "expected": -5,
+      "actual": -5,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:45:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:50:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:55:00+10:00",
+      "expected_raw": "0.01054",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:00:00+10:00",
+      "expected_raw": "0.01049",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:05:00+10:00",
+      "expected_raw": "10.50026",
+      "expected": 10.5,
+      "actual": 10.5,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:10:00+10:00",
+      "expected_raw": "0.01024",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:15:00+10:00",
+      "expected_raw": "15.5043",
+      "expected": 15.5,
+      "actual": 15.5,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:20:00+10:00",
+      "expected_raw": "34.08",
+      "expected": 34.08,
+      "actual": 34.08,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:25:00+10:00",
+      "expected_raw": "75.18",
+      "expected": 75.18,
+      "actual": 75.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:30:00+10:00",
+      "expected_raw": "75.18",
+      "expected": 75.18,
+      "actual": 75.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:35:00+10:00",
+      "expected_raw": "49",
+      "expected": 49,
+      "actual": 49,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:40:00+10:00",
+      "expected_raw": "42.18",
+      "expected": 42.18,
+      "actual": 42.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:45:00+10:00",
+      "expected_raw": "42.18",
+      "expected": 42.18,
+      "actual": 42.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:50:00+10:00",
+      "expected_raw": "19.31366",
+      "expected": 19.31,
+      "actual": 19.31,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:55:00+10:00",
+      "expected_raw": "31.60711",
+      "expected": 31.61,
+      "actual": 31.61,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:00:00+10:00",
+      "expected_raw": "24.20586",
+      "expected": 24.21,
+      "actual": 24.21,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:05:00+10:00",
+      "expected_raw": "42.18",
+      "expected": 42.18,
+      "actual": 42.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:10:00+10:00",
+      "expected_raw": "42.18",
+      "expected": 42.18,
+      "actual": 42.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:15:00+10:00",
+      "expected_raw": "17.14",
+      "expected": 17.14,
+      "actual": 17.14,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:20:00+10:00",
+      "expected_raw": "39.78075",
+      "expected": 39.78,
+      "actual": 39.78,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:25:00+10:00",
+      "expected_raw": "58.68",
+      "expected": 58.68,
+      "actual": 58.68,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:30:00+10:00",
+      "expected_raw": "19.18",
+      "expected": 19.18,
+      "actual": 19.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:35:00+10:00",
+      "expected_raw": "17.14",
+      "expected": 17.14,
+      "actual": 17.14,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:40:00+10:00",
+      "expected_raw": "18.36877",
+      "expected": 18.37,
+      "actual": 18.37,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:45:00+10:00",
+      "expected_raw": "17.14",
+      "expected": 17.14,
+      "actual": 17.14,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:50:00+10:00",
+      "expected_raw": "17.14",
+      "expected": 17.14,
+      "actual": 17.14,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:55:00+10:00",
+      "expected_raw": "15.18",
+      "expected": 15.18,
+      "actual": 15.18,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:00:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:05:00+10:00",
+      "expected_raw": "1.5",
+      "expected": 1.5,
+      "actual": 1.5,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:10:00+10:00",
+      "expected_raw": "1.5",
+      "expected": 1.5,
+      "actual": 1.5,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:15:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:20:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:25:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:30:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:35:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:40:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:45:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:50:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:55:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:00:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:05:00+10:00",
+      "expected_raw": "7.99",
+      "expected": 7.99,
+      "actual": 7.99,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:10:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:15:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:20:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:25:00+10:00",
+      "expected_raw": "0.00067",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:30:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:35:00+10:00",
+      "expected_raw": "0.0103",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:40:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:45:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:50:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:55:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:00:00+10:00",
+      "expected_raw": "0.00049",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:05:00+10:00",
+      "expected_raw": "0.00028",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:10:00+10:00",
+      "expected_raw": "0.0003",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:15:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:20:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:25:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:30:00+10:00",
+      "expected_raw": "0.00019",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:35:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:40:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:45:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:50:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:55:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:00:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:05:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:10:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:15:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:20:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:25:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:30:00+10:00",
+      "expected_raw": "0.00013",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:35:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:40:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:45:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:50:00+10:00",
+      "expected_raw": "0.00022",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:55:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:00:00+10:00",
+      "expected_raw": "0.00024",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:05:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:10:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:15:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:20:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:25:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:30:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:35:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:40:00+10:00",
+      "expected_raw": "0.01",
+      "expected": 0.01,
+      "actual": 0.01,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:45:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:50:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:55:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-20T00:00:00+10:00",
+      "expected_raw": "-0.56",
+      "expected": -0.56,
+      "actual": -0.56,
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "finished_at": "2026-10-20T12:50:50.574Z",
+  "code_after": {
+    "preview.js": "29f70f84bbfc91a6895f53873d327f635f2ff84dedcea0ab3e2f71e7c7297672",
+    "integration.toml": "ef4e3ab4f550de695f3b11cd5c510361618ea9d63f0fcae65a881785cbb7d97e",
+    "check-preview.mjs": "aab613a00068c3c39130325e281bc352181dff405bdc88188f66520bac318425",
+    "cases.mjs": "1f8fea1c75eacdf4618e48b3b14bd399a4555b4d93e26746eccfa1f245607c10",
+    "evaluate.mjs": "61f3b759142cbb80cd9fdb1c4147dd056dd86d8e9e0141d800e7363abb5f8d18",
+    "../../../../lib/aemo-daily-bundles.js": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6",
+    "../../../../lib/aemo-day.js": "c22c80f3a603849f9167a9092eebfd23f20c9ba0d737eb5b51f83dc5c3377189",
+    "../../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+    "../review/independent-rounding.json": "3909cffb8ed82401adebe9785aaeb092e51085a760f097bf4c0c7ba36a889de0",
+    "../review/pure-parser-capture.json": "c7af4ccf96b77a00961476f5c3cffd8bcf1c53b6d8f404958ea26702a9e62945",
+    "../original/public-prices-definition.yaml": "da76ccbff14d3b5c0126b63c2cbb2b1f6a149c2ba23e6129c7ade7b75790d3ed"
+  },
+  "code_unchanged": true
+}

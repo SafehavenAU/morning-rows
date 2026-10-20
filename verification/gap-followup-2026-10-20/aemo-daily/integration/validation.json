@@ -1,0 +1,32 @@
+{
+  "kind": "Local AEMO integration evidence; no remote acquisition or release acceptance",
+  "verified_at": "2026-10-20T13:07:44.625939+00:00",
+  "pass": true,
+  "targeted_tests": 47,
+  "full_repository_tests": 1374,
+  "failed": 0,
+  "runtime_sha256": {
+    "worker.js": "59e59afd8d4ff9379f48d9b16c744ddbb8e86b3e2d7baf0f7f1c78d9a20a6d98",
+    "lib/inventory.js": "2b17bda198142275ffb0e685cb232580fcadde97d4bbd062973e8ac7df5e7cd1",
+    "lib/information.js": "cc110a4dc27d34ae3a45cd264b55767dcf01d76fa0615410f842d7eee39b3464",
+    "lib/gap-information.js": "657e4619ef3470c66122fda3da972e47798086960eb839ad074be209453c3ecb",
+    "lib/aemo-daily-bundles.js": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6",
+    "lib/aemo-daily-schema.js": "a6987f5304a94522f5411ea95b7832ee3b8ab189b8e3554fc34620037ed94811",
+    "test/aemo-daily-bundles.test.js": "5078fca7459c46109be014598a47d37fc45be515c2816ffe891113790e5e2752",
+    "test/aemo-daily-information.test.js": "ca2678b1e941fdaf2d6898fb43deb567b5fa70f3e0d4312fdf57a0429c6a2186",
+    "test/aemo-daily-schema.test.js": "4a22fdf55b6180759a347d83271417872c5e3f7da82a8acab4b9bea2dd33ae24",
+    "test/gap-worker-integration.test.js": "482ab60023c1ad0903faef84859e51614d87322100a8b2bd0b2e1a3f9fc42514",
+    "test/gap-information.test.js": "6e43d4794f5fc132da88d64e2d55200260b6e30ae0cc7f2f2064ab30519f79ab",
+    "test/gap-selection.test.js": "b50cdef51db5c805013ed296af50dbddda0fffd0a7e91e7b508ae713edad4a40",
+    "test/gap-schema.test.js": "1a34d167c3c0a915fb6b275fe52952df5ff2320e67e84343f947b41ef2298cbf"
+  },
+  "frozen_reader_matches_protected_proof": true,
+  "historical_attempt": "The initial adapter-isolation command used a temporary no-op schema loader outside the repository while the independent schema was unfinished. Its 31 adapter tests passed, but Worker import failed because ignored generated build-info.js was not created in this fresh worktree. It is not an integration acceptance. After the documented local build-info step and actual schema installation, all 47 affected tests and 1374 repository tests passed. No runtime result or failed attempt was relabelled.",
+  "remaining_gates": [
+    "Exact staged source/resource CPU gate",
+    "Actual staged public interface capture",
+    "Both-domain production regression and independent exact comparison",
+    "Reviewed promotion/monitoring transition under root ownership",
+    "Actual scheduled and genuine delivery gates remain separate"
+  ]
+}
