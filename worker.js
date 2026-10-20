@@ -13,6 +13,7 @@ import { readFoodAuthorities, readScottishBills, readCanadianRecalls } from './l
 import { readRfsIncidents, readPupilAbsence, readSepaRiverLevel } from './lib/open-observations.js';
 import { readAssemblyDivisions } from './lib/national-observations.js';
 import { readClaimantCount } from './lib/claimant-count.js';
+import { readNzMarketRent } from './lib/nz-market-rent.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -309,7 +310,7 @@ const LLMS = `# Morning Rows
 
 ## Limits
 
-Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. Historical FX, local claimant histories, NZ rental benchmarks and completed-day AEMO averages from research are not deployed. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
+Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Historical FX, local claimant histories and completed-day AEMO averages remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
 
 A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
 
@@ -1250,7 +1251,7 @@ const worker = {
       }
     }
     if (url.pathname === "/new-zealand" || url.pathname === "/new-zealand.json") {
-      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult, fleetResult] = await Promise.allSettled([
+      const [priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult, fleetResult, marketRentResult] = await Promise.allSettled([
         readNzPrices(),
         readNzQuakes(),
         fetchOfficial("https://api.geonet.org.nz/volcano/val").then(response => response.json()).then(body => body.features.map(feature => ({ name: feature.properties.volcanoTitle, colour: feature.properties.acc, level: feature.properties.level }))),
@@ -1260,9 +1261,10 @@ const worker = {
         readSpace(),
         readQuakeStats(),
         readNzFleet(),
+        readNzMarketRent(),
       ]);
       const nz = {
-        sources: Object.fromEntries([priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult, fleetResult].map((result, index) => [["prices", "quakes", "volcanoes", "notices", "stats", "world", "space", "quake_stats", "vehicle_fleet"][index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }])),
+        sources: Object.fromEntries([priceResult, quakeResult, volcanoResult, noticeResult, statsResult, worldResult, spaceResult, quakeStatsResult, fleetResult, marketRentResult].map((result, index) => [["prices", "quakes", "volcanoes", "notices", "stats", "world", "space", "quake_stats", "vehicle_fleet", "market_rent"][index], result.status === "fulfilled" ? { status: result === marketRentResult && result.value?.status === "error" ? "error" : hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString(), ...(result === marketRentResult && result.value?.status === "error" ? { error: "Both supported rental localities failed; inspect market_rent.locations" } : {}) } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }])),
         site: "https://morningrows.com",
         country: "New Zealand",
         page: "/new-zealand",
@@ -1270,6 +1272,7 @@ const worker = {
         quakes: quakeResult.status === "fulfilled" ? quakeResult.value : [],
         volcanoes: volcanoResult.status === "fulfilled" ? volcanoResult.value : [],
         notices: noticeResult.status === "fulfilled" ? noticeResult.value : [],
+        market_rent: marketRentResult.status === "fulfilled" ? marketRentResult.value : null,
         vehicle_fleet: fleetResult.status === "fulfilled" ? fleetResult.value : null,
         quake_stats: quakeStatsResult.status === "fulfilled" ? quakeStatsResult.value : null,
         stats: statsResult.status === "fulfilled" ? statsResult.value : { present: Boolean(env?.STATSNZ_KEY), status: "error", rows: [], ...describeError(statsResult.reason) },

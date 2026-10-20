@@ -4,7 +4,7 @@ import {promisify} from 'node:util';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,relative} from 'node:path';
 import {pathToFileURL} from 'node:url';
-import {REGISTRY,US_CONTRACT,CLAIMANT_CONTRACTS,ORIGINS,fingerprint,inspectSource,validateDiscovery,validateUsDiscovery} from '../lib/monitor-contracts.js';
+import {REGISTRY,US_CONTRACT,CLAIMANT_CONTRACTS,RENT_CONTRACT,ORIGINS,fingerprint,inspectSource,validateDiscovery,validateUsDiscovery} from '../lib/monitor-contracts.js';
 import {initialState,importAcknowledged,applyRun,shadowStatus,acknowledge,watchdog,queueDeliveryTest,reviewedReleasePlan} from '../lib/monitor-state.js';
 import {loadCheckpoint,saveCheckpoint,withLock} from '../lib/monitor-store.js';
 const exec=promisify(execFile);
@@ -14,12 +14,12 @@ export async function publicRead(url){
  while(body.startsWith('HTTP/')){const end=body.indexOf('\r\n\r\n');if(end<0)throw Error('Malformed HTTP headers');for(const line of body.slice(0,end).split('\r\n').slice(1)){const p=line.indexOf(':');if(p>0&&['content-type','cache-control','etag','retry-after','age'].includes(line.slice(0,p).toLowerCase()))headers[line.slice(0,p).toLowerCase()]=line.slice(p+1).trim();}body=body.slice(end+4);}
  let data;try{data=JSON.parse(body);}catch{}return {status,headers,bytes:Buffer.byteLength(body),body_digest:fingerprint(body),data};
 }
-export async function collect({read=publicRead,now=()=>new Date().toISOString(),id=crypto.randomUUID(),deadlineMs=11*60000,includeUs=false,includeClaimants=false}={}){
- if(typeof includeUs!=='boolean'||typeof includeClaimants!=='boolean'||includeClaimants&&!includeUs)throw Error('Explicit compatible USA and claimant monitoring scope required');
+export async function collect({read=publicRead,now=()=>new Date().toISOString(),id=crypto.randomUUID(),deadlineMs=11*60000,includeUs=false,includeClaimants=false,includeRent=false}={}){
+ if(typeof includeUs!=='boolean'||typeof includeClaimants!=='boolean'||typeof includeRent!=='boolean'||includeClaimants&&!includeUs||includeRent&&!includeClaimants)throw Error('Explicit compatible USA, claimant and rent monitoring scope required');
  const run={id,started_at:now(),scheduled:process.env.GITHUB_ACTIONS==='true'&&process.env.GITHUB_EVENT_NAME==='schedule',producer:{kind:process.env.GITHUB_ACTIONS==='true'?'github-actions':'manual',revision:process.env.GITHUB_SHA||null,workflow_run:process.env.GITHUB_RUN_ID||null},requests:[],results:{},probe_errors:[],identities:{},complete:true};const start=Date.now(),cpuStart=process.cpuUsage();
- const registry=[...REGISTRY,...(includeUs?[US_CONTRACT]:[]),...(includeClaimants?CLAIMANT_CONTRACTS:[])];
+ const registry=[...REGISTRY,...(includeUs?[US_CONTRACT]:[]),...(includeClaimants?CLAIMANT_CONTRACTS:[]),...(includeRent?[RENT_CONTRACT]:[])];
  const desks=[...new Set(registry.map(r=>r.desk))],tasks=ORIGINS.flatMap(origin=>['/health.json','/catalog.json',...(includeUs?['/catalog.v2.json']:[]),...desks.map(d=>`/${d}.json`)].map(path=>({origin,path})));
- if(includeUs)run.scope=includeClaimants?'nine-desks-plus-claimants':'eight-legacy-plus-us-cpi';
+ if(includeUs)run.scope=includeRent?'nine-desks-plus-claimants-and-nz-rent':includeClaimants?'nine-desks-plus-claimants':'eight-legacy-plus-us-cpi';
  let next=0;
  await Promise.all(Array.from({length:2},async()=>{while(next<tasks.length){const {origin,path}=tasks[next++],url=origin+path;
   try{
@@ -56,7 +56,7 @@ async function main(){
   if(releaseReview&&typeof releaseReview.enabled!=='boolean')throw Error('Explicit release-review enabled flag required');
   const approvedRelease=releaseReview?.enabled?releaseReview:null;
   const plan=approvedRelease?reviewedReleasePlan(approvedRelease):null;
-  const report=await collect({includeUs:Boolean(plan),includeClaimants:plan?.includeClaimants||false}),approvalPath=option('--approvals'),approvedVersions=approvalPath?JSON.parse(await readFile(approvalPath,'utf8')):{};
+  const report=await collect({includeUs:Boolean(plan),includeClaimants:plan?.includeClaimants||false,includeRent:plan?.includeRent||false}),approvalPath=option('--approvals'),approvedVersions=approvalPath?JSON.parse(await readFile(approvalPath,'utf8')):{};
   const state=applyRun(prior.state,report,{approvedVersions,approvedRelease});await mkdir(output,{recursive:true});
   await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2)+'\n');
   const saved=await saveCheckpoint(statePath,state,prior.digest);await writeFile(resolve(output,'checkpoint.json'),JSON.stringify(saved)+'\n');
