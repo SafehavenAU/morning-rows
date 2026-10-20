@@ -1,0 +1,113 @@
+{
+  "method": "V8 CDP 100us stack samples; attributed elapsed sampling deltas can include descheduling, not billed CPU. Fresh direct Miniflare isolates and /ready warmup. Each variant2first-request captures, plus100 repeated requests in firstisolate.",
+  "rows": [
+    {
+      "variant": "baseline",
+      "capture": "1-first",
+      "attributed_us": {
+        "all": 23771,
+        "idle": 7076,
+        "program": 2039,
+        "gc": 1072,
+        "js": 13584
+      },
+      "samples": {
+        "all": 83,
+        "idle": 1,
+        "program": 3,
+        "gc": 6,
+        "js": 73
+      }
+    },
+    {
+      "variant": "baseline",
+      "capture": "2-first",
+      "attributed_us": {
+        "all": 19050,
+        "idle": 9612,
+        "program": 0,
+        "gc": 831,
+        "js": 8607
+      },
+      "samples": {
+        "all": 53,
+        "idle": 1,
+        "program": 0,
+        "gc": 5,
+        "js": 47
+      }
+    },
+    {
+      "variant": "baseline",
+      "capture": "1-repeated",
+      "attributed_us": {
+        "all": 551787,
+        "idle": 50815,
+        "program": 30899,
+        "gc": 40042,
+        "js": 430031
+      },
+      "samples": {
+        "all": 1516,
+        "idle": 27,
+        "program": 47,
+        "gc": 87,
+        "js": 1355
+      }
+    },
+    {
+      "variant": "combined",
+      "capture": "1-first",
+      "attributed_us": {
+        "all": 16382,
+        "idle": 6817,
+        "program": 1481,
+        "gc": 682,
+        "js": 7402
+      },
+      "samples": {
+        "all": 51,
+        "idle": 1,
+        "program": 1,
+        "gc": 4,
+        "js": 45
+      }
+    },
+    {
+      "variant": "combined",
+      "capture": "2-first",
+      "attributed_us": {
+        "all": 14388,
+        "idle": 6337,
+        "program": 0,
+        "gc": 345,
+        "js": 7706
+      },
+      "samples": {
+        "all": 44,
+        "idle": 1,
+        "program": 0,
+        "gc": 2,
+        "js": 41
+      }
+    },
+    {
+      "variant": "combined",
+      "capture": "1-repeated",
+      "attributed_us": {
+        "all": 423953,
+        "idle": 35964,
+        "program": 20277,
+        "gc": 14205,
+        "js": 353507
+      },
+      "samples": {
+        "all": 1198,
+        "idle": 22,
+        "program": 31,
+        "gc": 63,
+        "js": 1082
+      }
+    }
+  ]
+}

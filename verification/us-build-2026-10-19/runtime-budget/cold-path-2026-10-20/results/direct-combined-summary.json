@@ -1,0 +1,626 @@
+{
+  "entry": "/tmp/mr-direct-cpu/combined-worker.mjs",
+  "bundle": "/tmp/mr-direct-cpu/combined.bundle.mjs",
+  "trials": 2,
+  "method": "Direct Miniflare/workerd, esbuild minify, fresh isolates; /ready warms infrastructure only; 100us V8 CDP sampled profiles. Fixture readers, cache:null, external fetch forbidden. Sampled stack attribution is diagnostic, not billed production CPU or latency.",
+  "summaries": [
+    {
+      "trial": 1,
+      "label": "first",
+      "requests": 1,
+      "response_characters": 33370,
+      "samples": 51,
+      "first_sample_delta_us": 6817,
+      "hotspots": [
+        [
+          "(idle) :0",
+          {
+            "samples": 1,
+            "sampled_us": 6817
+          }
+        ],
+        [
+          "(program) :0",
+          {
+            "samples": 1,
+            "sampled_us": 1481
+          }
+        ],
+        [
+          "parseCpiTable ../morning-rows-cold-path/candidate.mjs:13",
+          {
+            "samples": 6,
+            "sampled_us": 888
+          }
+        ],
+        [
+          "(garbage collector) :0",
+          {
+            "samples": 4,
+            "sampled_us": 682
+          }
+        ],
+        [
+          "selectCpiWorkbook ../../workspace/morning-rows-us/lib/us-cpi-workbook.js:18",
+          {
+            "samples": 4,
+            "sampled_us": 666
+          }
+        ],
+        [
+          "readCpiText ../../workspace/morning-rows-us/lib/us-cpi.js:119",
+          {
+            "samples": 4,
+            "sampled_us": 658
+          }
+        ],
+        [
+          "handleUsRequest ../mr-exact-fragments/desk.mjs:16",
+          {
+            "samples": 4,
+            "sampled_us": 634
+          }
+        ],
+        [
+          " ../../workspace/morning-rows-us/lib/sources.js:38",
+          {
+            "samples": 3,
+            "sampled_us": 507
+          }
+        ],
+        [
+          "readUsCpiTable ../morning-rows-cold-path/candidate.mjs:31",
+          {
+            "samples": 2,
+            "sampled_us": 340
+          }
+        ],
+        [
+          "encode :0",
+          {
+            "samples": 2,
+            "sampled_us": 333
+          }
+        ],
+        [
+          "digestCanonical ../mr-exact-fragments/information.mjs:26",
+          {
+            "samples": 2,
+            "sampled_us": 324
+          }
+        ],
+        [
+          "digest :0",
+          {
+            "samples": 2,
+            "sampled_us": 319
+          }
+        ],
+        [
+          " ../../workspace/morning-rows-us/lib/us-cpi.js:61",
+          {
+            "samples": 1,
+            "sampled_us": 262
+          }
+        ],
+        [
+          "hasFailures ../../workspace/morning-rows-us/lib/sources.js:29",
+          {
+            "samples": 1,
+            "sampled_us": 180
+          }
+        ],
+        [
+          "setTimeout :0",
+          {
+            "samples": 1,
+            "sampled_us": 173
+          }
+        ],
+        [
+          "fetch combined-worker.mjs:7",
+          {
+            "samples": 1,
+            "sampled_us": 172
+          }
+        ],
+        [
+          "nt combined-worker.mjs:6",
+          {
+            "samples": 1,
+            "sampled_us": 169
+          }
+        ],
+        [
+          "tableFragments ../morning-rows-cold-path/candidate.mjs:8",
+          {
+            "samples": 1,
+            "sampled_us": 168
+          }
+        ],
+        [
+          "readAtLeast :0",
+          {
+            "samples": 1,
+            "sampled_us": 164
+          }
+        ],
+        [
+          "Te ../morning-rows-cold-path/candidate.mjs:7",
+          {
+            "samples": 1,
+            "sampled_us": 164
+          }
+        ],
+        [
+          "x ../mr-exact-fragments/information.mjs:25",
+          {
+            "samples": 1,
+            "sampled_us": 164
+          }
+        ],
+        [
+          "delete :0",
+          {
+            "samples": 1,
+            "sampled_us": 164
+          }
+        ],
+        [
+          "RegExp: <tbody>([\\s\\S]*?)<\\/tbody> :0",
+          {
+            "samples": 1,
+            "sampled_us": 162
+          }
+        ],
+        [
+          " ../mr-exact-fragments/information.mjs:71",
+          {
+            "samples": 1,
+            "sampled_us": 162
+          }
+        ],
+        [
+          "rowCanonical ../mr-exact-fragments/information.mjs:30",
+          {
+            "samples": 1,
+            "sampled_us": 162
+          }
+        ],
+        [
+          "cpi combined-worker.mjs:6",
+          {
+            "samples": 1,
+            "sampled_us": 160
+          }
+        ],
+        [
+          " ../morning-rows-cold-path/candidate.mjs:34",
+          {
+            "samples": 1,
+            "sampled_us": 156
+          }
+        ],
+        [
+          "URL :0",
+          {
+            "samples": 1,
+            "sampled_us": 151
+          }
+        ]
+      ]
+    },
+    {
+      "trial": 1,
+      "label": "repeated",
+      "requests": 100,
+      "response_characters": 33370,
+      "samples": 1198,
+      "first_sample_delta_us": 1234,
+      "hotspots": [
+        [
+          "readCpiText ../../workspace/morning-rows-us/lib/us-cpi.js:119",
+          {
+            "samples": 106,
+            "sampled_us": 37707
+          }
+        ],
+        [
+          "Response :0",
+          {
+            "samples": 22,
+            "sampled_us": 36757
+          }
+        ],
+        [
+          "(idle) :0",
+          {
+            "samples": 22,
+            "sampled_us": 35964
+          }
+        ],
+        [
+          "digest :0",
+          {
+            "samples": 125,
+            "sampled_us": 20450
+          }
+        ],
+        [
+          "(program) :0",
+          {
+            "samples": 31,
+            "sampled_us": 20277
+          }
+        ],
+        [
+          "setTimeout :0",
+          {
+            "samples": 6,
+            "sampled_us": 17087
+          }
+        ],
+        [
+          "selectCpiWorkbook ../../workspace/morning-rows-us/lib/us-cpi-workbook.js:18",
+          {
+            "samples": 99,
+            "sampled_us": 16993
+          }
+        ],
+        [
+          "readAtLeast :0",
+          {
+            "samples": 33,
+            "sampled_us": 16722
+          }
+        ],
+        [
+          "digestCanonical ../mr-exact-fragments/information.mjs:26",
+          {
+            "samples": 90,
+            "sampled_us": 15775
+          }
+        ],
+        [
+          "AbortController :0",
+          {
+            "samples": 3,
+            "sampled_us": 14897
+          }
+        ],
+        [
+          "(garbage collector) :0",
+          {
+            "samples": 63,
+            "sampled_us": 14205
+          }
+        ],
+        [
+          "URL :0",
+          {
+            "samples": 66,
+            "sampled_us": 13729
+          }
+        ],
+        [
+          "handleUsRequest ../mr-exact-fragments/desk.mjs:16",
+          {
+            "samples": 68,
+            "sampled_us": 12854
+          }
+        ],
+        [
+          "mapLimit ../../workspace/morning-rows-us/lib/sources.js:20",
+          {
+            "samples": 4,
+            "sampled_us": 8894
+          }
+        ],
+        [
+          " ../../workspace/morning-rows-us/lib/sources.js:38",
+          {
+            "samples": 5,
+            "sampled_us": 8525
+          }
+        ],
+        [
+          "getReader :0",
+          {
+            "samples": 7,
+            "sampled_us": 8175
+          }
+        ],
+        [
+          "tableFragments ../morning-rows-cold-path/candidate.mjs:8",
+          {
+            "samples": 49,
+            "sampled_us": 8067
+          }
+        ],
+        [
+          "parseCpiTable ../morning-rows-cold-path/candidate.mjs:13",
+          {
+            "samples": 47,
+            "sampled_us": 7843
+          }
+        ],
+        [
+          "fetch combined-worker.mjs:7",
+          {
+            "samples": 4,
+            "sampled_us": 7717
+          }
+        ],
+        [
+          "encode :0",
+          {
+            "samples": 45,
+            "sampled_us": 7706
+          }
+        ],
+        [
+          "Request :0",
+          {
+            "samples": 11,
+            "sampled_us": 7676
+          }
+        ],
+        [
+          " ../../workspace/morning-rows-us/lib/sources.js:23",
+          {
+            "samples": 4,
+            "sampled_us": 6870
+          }
+        ],
+        [
+          "readSections ../../workspace/morning-rows-us/lib/sources.js:37",
+          {
+            "samples": 5,
+            "sampled_us": 5216
+          }
+        ],
+        [
+          "Te ../morning-rows-cold-path/candidate.mjs:7",
+          {
+            "samples": 32,
+            "sampled_us": 5085
+          }
+        ],
+        [
+          " ../morning-rows-cold-path/candidate.mjs:34",
+          {
+            "samples": 1,
+            "sampled_us": 4431
+          }
+        ],
+        [
+          "getAll :0",
+          {
+            "samples": 2,
+            "sampled_us": 4288
+          }
+        ],
+        [
+          " ../morning-rows-cold-path/candidate.mjs:36",
+          {
+            "samples": 23,
+            "sampled_us": 4244
+          }
+        ],
+        [
+          "validateUsSelection ../mr-exact-fragments/information.mjs:54",
+          {
+            "samples": 2,
+            "sampled_us": 4116
+          }
+        ]
+      ]
+    },
+    {
+      "trial": 2,
+      "label": "first",
+      "requests": 1,
+      "response_characters": 33370,
+      "samples": 44,
+      "first_sample_delta_us": 6337,
+      "hotspots": [
+        [
+          "(idle) :0",
+          {
+            "samples": 1,
+            "sampled_us": 6337
+          }
+        ],
+        [
+          "fetch combined-worker.mjs:7",
+          {
+            "samples": 2,
+            "sampled_us": 1192
+          }
+        ],
+        [
+          "handleUsRequest ../mr-exact-fragments/desk.mjs:16",
+          {
+            "samples": 4,
+            "sampled_us": 666
+          }
+        ],
+        [
+          "cpiWindow ../../workspace/morning-rows-us/lib/us-cpi.js:58",
+          {
+            "samples": 3,
+            "sampled_us": 519
+          }
+        ],
+        [
+          "selectCpiWorkbook ../../workspace/morning-rows-us/lib/us-cpi-workbook.js:18",
+          {
+            "samples": 3,
+            "sampled_us": 510
+          }
+        ],
+        [
+          "digestCanonical ../mr-exact-fragments/information.mjs:26",
+          {
+            "samples": 3,
+            "sampled_us": 506
+          }
+        ],
+        [
+          "(garbage collector) :0",
+          {
+            "samples": 2,
+            "sampled_us": 345
+          }
+        ],
+        [
+          "readCpiText ../../workspace/morning-rows-us/lib/us-cpi.js:119",
+          {
+            "samples": 2,
+            "sampled_us": 330
+          }
+        ],
+        [
+          "parseCpiTable ../morning-rows-cold-path/candidate.mjs:13",
+          {
+            "samples": 2,
+            "sampled_us": 329
+          }
+        ],
+        [
+          "digest :0",
+          {
+            "samples": 2,
+            "sampled_us": 326
+          }
+        ],
+        [
+          "readUsCpiTable ../morning-rows-cold-path/candidate.mjs:31",
+          {
+            "samples": 2,
+            "sampled_us": 324
+          }
+        ],
+        [
+          "Te ../morning-rows-cold-path/candidate.mjs:7",
+          {
+            "samples": 2,
+            "sampled_us": 323
+          }
+        ],
+        [
+          "encode :0",
+          {
+            "samples": 1,
+            "sampled_us": 181
+          }
+        ],
+        [
+          "RegExp: <li\\b[^>]*>([\\s\\S]*?)<\\/li> :0",
+          {
+            "samples": 1,
+            "sampled_us": 180
+          }
+        ],
+        [
+          " ../../workspace/morning-rows-us/lib/sources.js:38",
+          {
+            "samples": 1,
+            "sampled_us": 172
+          }
+        ],
+        [
+          "setTimeout :0",
+          {
+            "samples": 1,
+            "sampled_us": 171
+          }
+        ],
+        [
+          "tableFragments ../morning-rows-cold-path/candidate.mjs:8",
+          {
+            "samples": 1,
+            "sampled_us": 171
+          }
+        ],
+        [
+          "hasFailures ../../workspace/morning-rows-us/lib/sources.js:29",
+          {
+            "samples": 1,
+            "sampled_us": 171
+          }
+        ],
+        [
+          "v ../morning-rows-cold-path/candidate.mjs:26",
+          {
+            "samples": 1,
+            "sampled_us": 167
+          }
+        ],
+        [
+          " ../mr-exact-fragments/information.mjs:96",
+          {
+            "samples": 1,
+            "sampled_us": 167
+          }
+        ],
+        [
+          "RegExp: \\baria-describedby=\"catalog0\" :0",
+          {
+            "samples": 1,
+            "sampled_us": 165
+          }
+        ],
+        [
+          "f ../mr-exact-fragments/information.mjs:75",
+          {
+            "samples": 1,
+            "sampled_us": 165
+          }
+        ],
+        [
+          "TextDecoder :0",
+          {
+            "samples": 1,
+            "sampled_us": 163
+          }
+        ],
+        [
+          "l ../../workspace/morning-rows-us/lib/us-cpi-workbook.js:25",
+          {
+            "samples": 1,
+            "sampled_us": 163
+          }
+        ],
+        [
+          "cpi combined-worker.mjs:6",
+          {
+            "samples": 1,
+            "sampled_us": 162
+          }
+        ],
+        [
+          "mapLimit ../../workspace/morning-rows-us/lib/sources.js:20",
+          {
+            "samples": 1,
+            "sampled_us": 162
+          }
+        ],
+        [
+          "recordCanonical ../mr-exact-fragments/information.mjs:36",
+          {
+            "samples": 1,
+            "sampled_us": 162
+          }
+        ],
+        [
+          " ../../workspace/morning-rows-us/lib/sources.js:23",
+          {
+            "samples": 1,
+            "sampled_us": 159
+          }
+        ]
+      ]
+    }
+  ]
+}
