@@ -1,3 +1,12 @@
+# Shadow acceptance arithmetic repair — 20 October 2026 Brisbane
+
+Added an offline checkpoint audit and fixed `shadowStatus`: seven days must be
+spanned by actual scheduled completions, not the observer's clock. Manual runs
+cannot refresh the scheduled deadline; invalid or duplicate run history fails
+closed. See `operations/README.md` for the read-only command and its trust boundary.
+No checkpoint, notification, schedule, production Worker or acceptance gate was
+changed by running this tooling. The pending delivery test remains unacknowledged.
+
 # First scheduled cycle verified — 19 October 2026 Brisbane
 
 [Reproducible scheduled proof](verification/scheduled-cycle-2026-10-19/README.md):
