@@ -1,0 +1,188 @@
+{
+  "pass": true,
+  "scope": "Protected source-reader proof for exactly two eligible additions; not final deployment acceptance",
+  "recorded_at": "2026-10-20T10:18:51.177Z",
+  "source_contracts": [
+    "canada/rental_benchmark",
+    "scotland/college_activity"
+  ],
+  "cells_compared": 7,
+  "sources": [
+    {
+      "key": "canada/rental_benchmark",
+      "source": "rental_benchmark",
+      "protected_reader_pass": true,
+      "capture": "cloudflare-reader-live.json",
+      "capture_sha256": "35af13a2d9e9268e69164286cdd4048deb95562a0dcb7d832d69975272979d1b",
+      "actual_started_at": "2026-10-20T10:12:12.309Z",
+      "actual_completed_at": "2026-10-20T10:12:12.745Z",
+      "module": "../../../lib/cmhc-rent.js",
+      "module_sha256": "30fb4bbeaa4b02e3ab84c761e002237ba37146b09e6fd94705a6c35e92f89553",
+      "reference": "../cmhc-rent/independent-report.json",
+      "reference_sha256": "cf13f540076ea58c7afbe2f33cf00a5917dd5a792c30f4cd3e62001c14667d96",
+      "cells": 2,
+      "comparisons": [
+        {
+          "measure_id": "victoria.two_bedroom_average_rent",
+          "period": "2025",
+          "unit": "CAD per month",
+          "expected": 2121,
+          "actual": 2121,
+          "pass": true
+        },
+        {
+          "measure_id": "victoriaville.two_bedroom_average_rent",
+          "period": "2025",
+          "unit": "CAD per month",
+          "expected": 991,
+          "actual": 991,
+          "pass": true
+        }
+      ],
+      "provenance": [
+        {
+          "role": "data",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods",
+          "retrieved_at": "2026-10-20T10:12:12.745Z",
+          "bytes": 765,
+          "sha256": "4c1776ee5d3ec353da3d79d0810816c92399d2be16401a8e16a1ed3b1339823e"
+        },
+        {
+          "role": "series",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getSeriesInfoFromCubePidCoord",
+          "retrieved_at": "2026-10-20T10:12:12.591Z",
+          "bytes": 959,
+          "sha256": "cad747496c0500daa5628e06b5b44fda877b4bb41ba255b024b0fd8e69f57c87"
+        },
+        {
+          "role": "cube",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+          "retrieved_at": "2026-10-20T10:12:12.568Z",
+          "bytes": 67411,
+          "sha256": "56ca543c9a065f38119eefd37907187c0291beeca6235c9d0497565cbda45116"
+        }
+      ],
+      "cpu_ms": null
+    },
+    {
+      "key": "scotland/college_activity",
+      "source": "college_activity",
+      "protected_reader_pass": true,
+      "capture": "cloudflare-workbooks-live.json",
+      "capture_sha256": "3e590f2147bd736e4aec0d3929ed542b385093105da98a50173fca8f4c8e97c3",
+      "actual_started_at": "2026-10-20T10:15:27.917Z",
+      "actual_completed_at": "2026-10-20T10:15:29.214Z",
+      "module": "../../../lib/sfc-activity.js",
+      "module_sha256": "8d2aded4b9e0119734b8207723d837a6f53b9b948933f3667357cb5719a6656a",
+      "reference": "../sfc/independent-report.json",
+      "reference_sha256": "2d8e11cd5e85a7071f2e1e41763678d6d700555eb7ef964108fd6404746eb71b",
+      "cells": 5,
+      "comparisons": [
+        {
+          "measure_id": "part_time_fe",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 39655,
+          "actual": 39655,
+          "pass": true
+        },
+        {
+          "measure_id": "full_time_fe",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 47405,
+          "actual": 47405,
+          "pass": true
+        },
+        {
+          "measure_id": "part_time_he",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 4595,
+          "actual": 4595,
+          "pass": true
+        },
+        {
+          "measure_id": "full_time_he",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 24400,
+          "actual": 24400,
+          "pass": true
+        },
+        {
+          "measure_id": "total",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 116055,
+          "actual": 116055,
+          "pass": true
+        }
+      ],
+      "provenance": [
+        {
+          "role": "workbook",
+          "url": "https://www.sfc.ac.uk/wp-content/uploads/2026/01/College-Statistics-2024-25-Background-Tables.xlsx",
+          "retrieved_at": "2026-10-20T10:15:29.214Z",
+          "bytes": 70694,
+          "sha256": "f4816a63e4ab246799f4cbb6075d3feba78ada67670e34d71e5900826c3b5979"
+        }
+      ],
+      "cpu_ms": null
+    }
+  ],
+  "blocked": [
+    {
+      "key": "england/bedroom_rent",
+      "activation": "blocked",
+      "reason": "Actual protected official read returned HTTP 429; fixture agreement is not live acceptance.",
+      "capture": "cloudflare-reader-live.json",
+      "retry_performed": false
+    },
+    {
+      "key": "england/care_assessment_cohort",
+      "activation": "blocked",
+      "reason": "After fixing the pre-HTTP Request constructor error, the actual protected official read returned HTTP 403.",
+      "capture": "cloudflare-workbooks-live.json",
+      "retry_after_publisher_failure": false
+    },
+    {
+      "key": "northern-ireland/electricity_balance",
+      "activation": "blocked",
+      "reason": "Actual reader refused changed report identity; one bounded diagnosis found a 247-byte HTTP 200 Request Rejected access page.",
+      "capture": "../ni-energy/cloudflare-reader-live.json",
+      "diagnostic": "../ni-energy/cloudflare-report-diagnostic.json",
+      "further_attempts": false
+    }
+  ],
+  "captures": [
+    {
+      "file": "cloudflare-reader-live.json",
+      "sha256": "35af13a2d9e9268e69164286cdd4048deb95562a0dcb7d832d69975272979d1b",
+      "bytes": 27009
+    },
+    {
+      "file": "cloudflare-workbooks-live.json",
+      "sha256": "3e590f2147bd736e4aec0d3929ed542b385093105da98a50173fca8f4c8e97c3",
+      "bytes": 12413
+    },
+    {
+      "file": "../ni-energy/cloudflare-reader-live.json",
+      "sha256": "8f23150b21d9a91b245356572ecee5bbd84af495e65f33a7926c31406767f49a",
+      "bytes": 2661
+    },
+    {
+      "file": "../ni-energy/cloudflare-report-diagnostic.json",
+      "sha256": "ce686cd60c1a082d45cf7be04e1c058bb21a421d12f8960f4c102746ae838c35",
+      "bytes": 2167
+    }
+  ],
+  "all_five_sources_pass": false,
+  "production_deployment_accepted": false,
+  "monitoring_activation_accepted": false,
+  "cpu_ms": null,
+  "cpu_gate": "Unmeasured here. Root must verify the exact integrated Worker version; wall time is not CPU.",
+  "preserved_initial_failure": "cloudflare-reader-live.json plus initial-inputs/ retain the original pre-HTTP redirect:error failures and the CMHC success. The failure was diagnosed without publisher requests using check-request-options.mjs.",
+  "isolation": "Each genuine capture retained the actual reader source outcomes alongside a deliberate harness-only error. The error was never a collector or user-source incident.",
+  "statistical_independence": "SFC Parliament and workbook presentations share FES lineage. CMHC CSV and WDS share the same CMHC survey. These are exact extraction/presentation comparisons, not independent statistical measurement."
+}

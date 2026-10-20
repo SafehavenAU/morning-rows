@@ -1,0 +1,9 @@
+# Conditional CMHC delivery assessment
+
+20 October 2026. The exact rental table's footnote links the [CMHC data licence](https://www.cmhc-schl.gc.ca/about-us/terms-conditions/hmip-terms-conditions), whose 09:43:33 UTC response had SHA-256 `ca5757999f89c5d209284866c9b91738b4d127d8531be2cb026ee7e85571d957`. Its use-based agreement, conditional redistribution, accurate reproduction, acknowledgement and no-endorsement requirements materially match the [StatCan-hosted agreement](https://www.statcan.gc.ca/en/reference/agreement_CMHC) used for the accepted Canada homes source.
+
+The existing implementation provides both prescribed attribution/adaptation notices, links the licence and preserves the condition on further redistribution. It states that using CMHC information constitutes agreement but does not claim to have observed or logged recipient acceptance. The agreement does not prescribe a particular acceptance UI or receipt. Absence of a recorded receipt alone is therefore not treated as a newly invented external blocker.
+
+For this bounded two-area rental module, reuse that notice pattern with the rental product name, annual reference period and the exact HMIP licence URL linked by the rental cube. Preserve the notices at source and observation level, including selected output. Do not claim blanket permission for unrelated CMHC pages or an observed assent event. No new approval flow, registration or publisher contact is introduced.
+
+This assessment corrects the earlier overly broad inference that missing acceptance evidence necessarily prevents the existing notice-based delivery. Conditional rights and notice propagation are supported; actual recipient agreement is not independently observed. Runtime, integration and release gates remain separate. The prior audit remains unchanged as dated research.

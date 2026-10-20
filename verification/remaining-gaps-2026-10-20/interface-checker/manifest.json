@@ -1,0 +1,78 @@
+{
+  "kind": "Portable remaining-gap validation tooling, offline controls only",
+  "created_at": "2026-10-20T10:25:27.742857+00:00",
+  "active_sources": [
+    "scotland/college_activity",
+    "canada/rental_benchmark"
+  ],
+  "files": [
+    {
+      "file": "scripts/check-remaining-gaps.mjs",
+      "bytes": 4860,
+      "sha256": "6ff0dde00eb914c4e656c6dab29e3cd301ecb38284aafb00ee309bfa81e1b132"
+    },
+    {
+      "file": "scripts/verify-statcan-gdp-captures.py",
+      "bytes": 18809,
+      "sha256": "86d7ae2a032b22abc37e07f91f199475381a1444adfe59fe4fa133e3c2e82746"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/interface-checker/README.md",
+      "bytes": 3565,
+      "sha256": "a439d3ed310fb64e10952b3230d2f6a94b2487c3b2e428d632b26081965b9f8e"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/interface-checker/check-controls.mjs",
+      "bytes": 10573,
+      "sha256": "ce37fc5dcd9d3b4e451dce6e80e688af6427fcc759ec876ea9d65c4c5c359c53"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/interface-checker/control-attempts.json",
+      "bytes": 582,
+      "sha256": "ecc57d210d76cb34978aaad5a1e490629b049bc53f571a487b8bdc3531176f9b"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/interface-checker/controls.json",
+      "bytes": 5912,
+      "sha256": "62b6f8fd22907919569bd3df0a5f87aadd327977abce23ab416501f97fee96ed"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/interface-checker/support.mjs",
+      "bytes": 17354,
+      "sha256": "6e3b149e3c0a309e134047d074a54c29596201128b8e072fbe79fbab05804bd3"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/interface-checker/verify-captures.mjs",
+      "bytes": 1055,
+      "sha256": "6b2187b28aabcdc8282487255a0716c92bf54a1c902ba95be278d702fab66a69"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/interface-checker/verify-schemas.py",
+      "bytes": 8703,
+      "sha256": "5f776735aa0b6327be535a49ebcbf7853324aa2b8bc6c30b09e9ae8afedd0824"
+    }
+  ],
+  "independent_references": [
+    {
+      "file": "verification/remaining-gaps-2026-10-20/sfc/independent-report.json",
+      "bytes": 1518,
+      "sha256": "2d8e11cd5e85a7071f2e1e41763678d6d700555eb7ef964108fd6404746eb71b"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/cmhc-rent/independent-report.json",
+      "bytes": 2136,
+      "sha256": "cf13f540076ea58c7afbe2f33cf00a5917dd5a792c30f4cd3e62001c14667d96"
+    }
+  ],
+  "versions": {
+    "node": "v24.19.0",
+    "python": "3.12.14",
+    "jsonschema": "4.26.0"
+  },
+  "commands_run": [
+    "node --test test/cmhc-rent.test.js",
+    "node verification/remaining-gaps-2026-10-20/interface-checker/check-controls.mjs verification/remaining-gaps-2026-10-20/interface-checker/controls.json"
+  ],
+  "actual_http_invoked": false,
+  "production_acceptance": false
+}

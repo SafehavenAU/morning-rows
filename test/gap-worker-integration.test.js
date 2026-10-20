@@ -17,7 +17,7 @@ function setup(t,{at='2026-10-20T10:00:00Z',invalidJobs=false,failBoc=false,dela
  globalThis.caches={default:{match:async req=>values.get(req.url)?.clone(),put:async(req,response)=>values.set(req.url,response.clone())}};
  t.after(()=>delete globalThis.caches);
  t.mock.method(globalThis,'fetch',async(url,options={})=>{
-  url=String(url);calls.push({url,body:options.body});
+  url=String(url);calls.push({url,body:options.body,method:options.method});
   if(delay)await delay(url);
   if(url.includes('PRICE_AND_DEMAND_'))throw Error('Held AEMO daily source must not be requested');
   if(url.includes('ELEC_NEM_SUMMARY'))return Response.json({ELEC_NEM_SUMMARY:['NSW1','QLD1','VIC1','SA1','TAS1'].map(REGIONID=>({REGIONID,PRICE:42,TOTALDEMAND:100,PRICE_STATUS:'FIRM',SETTLEMENTDATE:'2026-10-20T20:00:00'}))});
@@ -25,6 +25,7 @@ function setup(t,{at='2026-10-20T10:00:00Z',invalidJobs=false,failBoc=false,dela
   if(url.includes('/valet/observations/FXUSDCAD,FXGBPCAD/'))return failBoc?new Response('Unavailable',{status:503}):Response.json(boc[url.endsWith('recent=1')?'latest':'window']);
   if(url.includes('/t1/wds/rest/')){
    const product=JSON.parse(options.body)[0].productId,source=products[product],filename=roles[url.split('/').at(-1)];
+   if(product===34100133)return new Response('Injected CMHC isolation failure',{status:503});
    assert.ok(source&&filename,'Only reviewed WDS products and endpoints');
    const body=structuredClone(headlines[source][filename]);
    if(invalidJobs&&source==='jobs'&&filename==='wds-selected.json')body[0].object.coordinate='wrong';
@@ -44,7 +45,22 @@ test('Canada handler preserves four latest pairs and legacy fields while validat
  assert.deepEqual(value.jobs.map(r=>[r.name,r.rate]),[['Canada',6.5],['Newfoundland and Labrador',9.1],['Prince Edward Island',7.3],['Nova Scotia',6.3],['New Brunswick',7.4],['Quebec',6],['Ontario',7],['Manitoba',5],['Saskatchewan',5.4],['Alberta',6.4],['British Columbia',6.4]]);
  assert.equal(value.price_index.index,170);assert.equal(value.shop.thousand_dollars,73696547);assert.equal(value.homes.starts,57947);assert.equal(value.product.level,2524127);
  for(const source of ['jobs','price_index','shop','homes','product'])assert.equal(value.sources[source].status,'ok');
- assert.equal(h.calls.filter(c=>c.url.includes('/t1/wds/rest/')).length,15);assert.equal(h.calls.filter(c=>c.url.includes('/valet/observations/FXUSDCAD,FXGBPCAD/')).length,2);
+ const wds=h.calls.filter(c=>c.url.includes('/t1/wds/rest/'));
+ const original=wds.filter(c=>JSON.parse(c.body)[0].productId!==34100133);
+ assert.equal(original.length,15,'The existing five products still make exactly three requests each');
+ assert.deepEqual(original.map(c=>`${JSON.parse(c.body)[0].productId}/${c.url.split('/').at(-1)}`).sort(),
+  Object.keys(products).flatMap(product=>Object.keys(roles).map(role=>`${product}/${role}`)).sort());
+ const cmhc=wds.filter(c=>JSON.parse(c.body)[0].productId===34100133);
+ assert.equal(cmhc.length,3,'The two-area CMHC reader adds only its bounded data, series and cube requests');
+ const coordinates=['186.3.3.0.0.0.0.0.0.0','66.3.3.0.0.0.0.0.0.0'];
+ assert.deepEqual(Object.fromEntries(cmhc.map(c=>[c.url.split('/').at(-1),JSON.parse(c.body)])),{
+  getDataFromCubePidCoordAndLatestNPeriods:coordinates.map(coordinate=>({productId:34100133,coordinate,latestN:1})),
+  getSeriesInfoFromCubePidCoord:coordinates.map(coordinate=>({productId:34100133,coordinate})),
+  getCubeMetadata:[{productId:34100133}],
+ });
+ assert.ok(cmhc.every(c=>c.method==='POST'));
+ assert.equal(value.rental_benchmark,null);assert.equal(value.sources.rental_benchmark.status,'error');assert.equal(value.sources.rental_benchmark.http_status,503);
+ assert.equal(h.calls.filter(c=>c.url.includes('/valet/observations/FXUSDCAD,FXGBPCAD/')).length,2);
  assert.equal(response.headers.get('x-mr-calendar-boundary'),null);assert.equal(response.headers.get('x-mr-cache-expires-at'),null);
 });
 

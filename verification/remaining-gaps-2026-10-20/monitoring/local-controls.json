@@ -1,0 +1,41 @@
+{
+  "kind": "Local constructed monitoring controls, not publisher availability, release acceptance or scheduled evidence",
+  "pass": true,
+  "tests": 130,
+  "failed": 0,
+  "command": "node --test test/monitor*.test.js test/statcan-gdp-monitor.test.js",
+  "candidate_scope": "nine-desks-plus-verified-remaining-contracts",
+  "eligible_source_contracts": [
+    "canada/rental_benchmark",
+    "scotland/college_activity"
+  ],
+  "maximum_eligible_obligations": 118,
+  "public_probes": 24,
+  "actual_scheduled_cycles_added": 0,
+  "checkpoint_written": false,
+  "activation_changed": false,
+  "code_sha256": {
+    "lib/monitor-contracts.js": "3138c07275674a9d60f97c5be621e15ea46b190cae65fbda521fda128d928f84",
+    "lib/monitor-state.js": "88dae19a3fec32eacedc7b9f5b8f513d59b4d892d90083a6203d6e1e6eb4b17d",
+    "scripts/monitor.mjs": "81abb90167e9bd49fd6add431b8dbc80a59117c90a1992e480dbecd1593d6787",
+    "scripts/monitor-registry.mjs": "51fcc48615a9b28eed775328880504262bfd673fe604c409f73d03092ca662aa",
+    "test/monitor-remaining-contracts.test.js": "f98c60247824a7fa008f6c2986b885a8ab1148095cddf8bab8d0a3148bcf5a57",
+    "test/monitor-remaining-scope.test.js": "b81783aeafe43d85fc33cd1269bc5c29e0e9cf81c0c1838bdc3f9498681a669e",
+    "test/monitor-claimants.test.js": "71611197a9f9219ef538ada198fc7042e295178d87c41f7bd08c1e69b12b4e0c",
+    "test/monitor-gap-pass.test.js": "cc5b7fb23292023b795612f3e41a39f97f3ed49fb9e1fb6b8b0c66cea13c280b",
+    "test/monitor-rent.test.js": "a172a422c5a06c29c4813263baed03c806b25fb1b7ad9721dbc3806f762a1c55",
+    "scripts/replay-remaining-release.mjs": "f7bc92d9e2c5e5196441f829ebb01e377a9547f4f795b2fa590da38ae029bc5e"
+  },
+  "staged_held_sources": [
+    "australia/grid_day",
+    "england/bedroom_rent",
+    "england/care_assessment_cohort",
+    "northern-ireland/electricity_balance"
+  ],
+  "replay_helper_validation": {
+    "syntax_check": "passed",
+    "complete_production_replay": "not run; phase-one candidate was rolled back, accepted phase-one pins and actual phase-two production captures unavailable"
+  },
+  "phase_one_obligations": 116,
+  "phase_one_approval_count": 21
+}

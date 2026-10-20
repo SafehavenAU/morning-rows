@@ -34,8 +34,8 @@ test('original108 retain pre-upgrade native obligations; expanded scope alone ex
  assert.equal(REGISTRY.length,108);assert.equal(DAILY_HISTORY_BASE_REGISTRY.length,108);assert.equal(DAILY_HISTORY_UPGRADES.length,5);
  for(const c of DAILY_HISTORY_UPGRADES){assert.equal(REGISTRY.find(r=>r.key===c.key).described_measures,0);assert.equal(c.semantic_revision,'gap-pass-2026-10-20');assert.ok(c.described_measures>0);}
  assert.ok(REGISTRY.every(c=>!['grid_day','exchange_history'].includes(c.source)));
- assert.equal(buildMonitorRegistry(priorReview).sources.length,115);assert.equal(buildMonitorRegistry(priorReview).staged_sources.length,2);
- const active=buildMonitorRegistry(review());assert.equal(active.sources.length,116);assert.equal(active.staged_sources.length,1);assert.equal(new Set(active.sources.map(s=>s.key)).size,116);
+ assert.equal(buildMonitorRegistry(priorReview).sources.length,115);assert.equal(buildMonitorRegistry(priorReview).staged_sources.length,7);
+ const active=buildMonitorRegistry(review());assert.equal(active.sources.length,116);assert.equal(active.staged_sources.length,6);assert.equal(new Set(active.sources.map(s=>s.key)).size,116);
  for(const c of DAILY_HISTORY_UPGRADES)assert.equal(active.sources.find(s=>s.key===c.key).definitions.length,c.described_measures);
  assert.deepEqual([priorReview,...priorReview.continuations].map(e=>({from:e.from,to:e.to,scope:e.scope,evidence:e.evidence})),oldEdges);
 });

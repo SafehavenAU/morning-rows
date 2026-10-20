@@ -1,0 +1,38 @@
+{
+  "kind": "Local constructed monitoring controls, not publisher availability, release acceptance or scheduled evidence",
+  "pass": true,
+  "tests": 132,
+  "failed": 0,
+  "command": "node --test test/monitor*.test.js test/statcan-gdp-monitor.test.js",
+  "candidate_scope": "nine-desks-plus-verified-remaining-contracts",
+  "eligible_source_contracts": [
+    "canada/rental_benchmark",
+    "scotland/college_activity"
+  ],
+  "maximum_eligible_obligations": 119,
+  "public_probes": 24,
+  "actual_scheduled_cycles_added": 0,
+  "checkpoint_written": false,
+  "activation_changed": false,
+  "code_sha256": {
+    "lib/monitor-contracts.js": "fd9f0b435a9618ea0abc97d10e317bb5d6dae8be7d4319cef51e096051120e3a",
+    "lib/monitor-state.js": "88dae19a3fec32eacedc7b9f5b8f513d59b4d892d90083a6203d6e1e6eb4b17d",
+    "scripts/monitor.mjs": "849979b417e27619cee0f3a0749deb51e5e59290c79d7f07fe175dd792ce2d10",
+    "scripts/monitor-registry.mjs": "f1d569abbb74c4cb5ed5e347f3b85a39c86cf29524ec49e992522f564a2649f7",
+    "test/monitor-remaining-contracts.test.js": "f98c60247824a7fa008f6c2986b885a8ab1148095cddf8bab8d0a3148bcf5a57",
+    "test/monitor-remaining-scope.test.js": "79ab6a162b1164bff72d82e24f21df54adf034e06fe3acf57808657e71ceb581",
+    "test/monitor-claimants.test.js": "71611197a9f9219ef538ada198fc7042e295178d87c41f7bd08c1e69b12b4e0c",
+    "test/monitor-gap-pass.test.js": "471d7a08d8c3797c60192e683fe8a5f277d3b6d573bd9e2fe4cac342fde21536",
+    "test/monitor-rent.test.js": "a172a422c5a06c29c4813263baed03c806b25fb1b7ad9721dbc3806f762a1c55",
+    "scripts/replay-remaining-release.mjs": "33927cefe524288a4fdceba46bb21882c12389ba5d7043f9a6234643d735199d"
+  },
+  "staged_held_sources": [
+    "england/bedroom_rent",
+    "england/care_assessment_cohort",
+    "northern-ireland/electricity_balance"
+  ],
+  "replay_helper_validation": {
+    "syntax_check": "passed",
+    "complete_production_replay": "not run; accepted phase-one pins and actual phase-two production captures unavailable"
+  }
+}
