@@ -4,7 +4,6 @@ import {readFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {INFORMATION_SCHEMA, selectedResponse} from '../lib/information.js';
 import {installGapSchema} from '../lib/gap-schema.js';
-import {readAemoDay} from '../lib/aemo-day.js';
 import {parseBocHistory,bocHistoryWindow} from '../lib/boc-history.js';
 import {parseStatcanHeadline} from '../lib/statcan-headlines.js';
 import {walesTax} from '../lib/fiscal-observations.js';
@@ -52,7 +51,6 @@ sys.exit(bool(failures))
 
 async function specimens() {
   const native={
-    grid_day:await readAemoDay({now:()=>now,fetcher:async url=>new Response(read(`aemo/original/monthly-${url.includes('_SA1')?'SA1':'VIC1'}-2026-10-19.csv`))}),
     exchange_history:parseBocHistory(json('boc/original/window.json'),json('boc/original/latest.json'),bocHistoryWindow(now)),
     land_transaction_tax:walesTax(readFileSync(new URL('./fixtures/wra-tax.csv',import.meta.url),'utf8'),new Date(now)),
   };
@@ -60,11 +58,11 @@ async function specimens() {
   return native;
 }
 
-test('gap native schemas reject plausible wrong answers and preserve degraded/failed regions',async t=>{
+test('active gap native schemas reject plausible wrong answers while AEMO stays disconnected',async t=>{
   const schema=clone(INFORMATION_SCHEMA);
   installGapSchema(schema);
   const native=await specimens();
-  const country=source=>source==='grid_day'?'Australia':source==='land_transaction_tax'?'Wales':'Canada';
+  const country=source=>source==='land_transaction_tax'?'Wales':'Canada';
   const cases=Object.entries(native).map(([source,value])=>({name:source+' healthy',valid:true,value:desk(country(source),source,value)}));
   for(const source of Object.keys(native))cases.push({name:source+' explicit source failure',valid:true,value:desk(country(source),source,null)});
   function bad(source,name,change) {
@@ -72,29 +70,7 @@ test('gap native schemas reject plausible wrong answers and preserve degraded/fa
     change(value[source],value);
     cases.push({name:source+' '+name,valid:false,value});
   }
-  for(const [name,change]of Object.entries({
-    incomplete:v=>v.regions[0].intervals.pop(),
-    duplicate_region:v=>v.regions[1]=clone(v.regions[0]),
-    wrong_region_name:v=>v.regions[0].geography='Australia',
-    forged_finality:v=>v.regions[0].price_status='FIRM',
-    missing_failure:v=>{v.status='degraded';v.regions.pop();},
-    undeclared_failure:v=>{v.status='ok';v.regions[0]={region:'SA1',geography:'South Australia',calendar_day:v.calendar_day,source_url:v.regions[0].source_url,status:'error',error:'Failure'};},
-    negative_count_overflow:v=>v.regions[0].summary.negative_count=289,
-    local_dst:v=>v.regions[1].intervals[0].period_end=v.regions[1].intervals[0].period_end.replace('+10:00','+11:00'),
-    invalid_time:v=>v.regions[0].provenance.retrieved_at='2026-13-20T09:20:00.000Z',
-    invented_published_at:v=>v.published_at=now,
-    broken_hash:v=>v.regions[0].provenance.sha256='z'.repeat(64),
-    wrong_monthly_domain:v=>v.regions[0].source_url='https://example.org/data.csv',
-    corrupt_definition:v=>v.definitions[0].population='All Australian households',
-  }))bad('grid_day',name,change);
-  const degraded=clone(native.grid_day);
-  degraded.status='degraded';
-  degraded.regions[0]={region:'SA1',geography:'South Australia',status:'error',calendar_day:degraded.calendar_day,source_url:degraded.regions[0].source_url,error:'Publisher incomplete'};
-  cases.push({name:'AEMO one explicit failure',valid:true,value:desk('Australia','grid_day',degraded)});
-  const failed=clone(degraded);
-  failed.status='error';
-  failed.regions[1]={region:'VIC1',geography:'Victoria',status:'error',calendar_day:failed.calendar_day,source_url:failed.regions[1].source_url,error:'Publisher incomplete'};
-  cases.push({name:'AEMO both explicit failures',valid:true,value:desk('Australia','grid_day',failed)});
+  assert.equal(schema.$defs.gapAemoNative,undefined);
   for(const [name,change]of Object.entries({
     odd_coverage:v=>v.rows.pop(),
     empty_anchor:v=>v.latest_anchor=[],
@@ -156,14 +132,14 @@ test('actual selected responses enforce source identity, typed observations and 
   installGapSchema(schema);
   const native=await specimens(),cases=[],selected={};
   async function select(source,value,measure,observation) {
-    const slug=source==='grid_day'?'australia':source==='land_transaction_tax'?'wales':'canada';
+    const slug=source==='land_transaction_tax'?'wales':'canada';
     const body={[source]:value,sources:{[source]:{status:value.status||'ok',fetched_at:now}}};
     const result=await selectedResponse(body,{desk:slug,source,entry:[source,source,'sources.'+source],measure,observation},{now});
     assert.equal(result.status,200,JSON.stringify(result.body));
     return result.body;
   }
   for(const [source,value]of Object.entries(native)) {
-    const slug=source==='grid_day'?'australia':source==='land_transaction_tax'?'wales':'canada';
+    const slug=source==='land_transaction_tax'?'wales':'canada';
     const response=await select(source,value);
     cases.push({name:source+' source selection',valid:true,value:response});
     for(const definition of gapDefinitions(slug,source)) {
@@ -174,11 +150,6 @@ test('actual selected responses enforce source identity, typed observations and 
       selected[source]??=exact;
     }
   }
-  const degraded=clone(native.grid_day);
-  degraded.status='degraded';
-  degraded.regions[0]={region:'SA1',geography:'South Australia',calendar_day:degraded.calendar_day,status:'error',source_url:degraded.regions[0].source_url,error:'Incomplete publisher day'};
-  cases.push({name:'AEMO degraded source selection',valid:true,value:await select('grid_day',degraded)});
-  cases.push({name:'AEMO healthy sibling selection',valid:true,value:await select('grid_day',degraded,'VIC1.mean')});
   function negative(source,name,change) {
     const value=clone(selected[source]);change(value);
     cases.push({name:source+' '+name,valid:false,value});
@@ -203,8 +174,6 @@ test('actual selected responses enforce source identity, typed observations and 
       source_error_as_success:v=>v.retrieval.status='error',
     }))negative(source,name,change);
   }
-  negative('grid_day','lost region context',v=>delete v.context.regions);
-  negative('grid_day','invented FIRM flag',v=>v.observations[0].publisher_status={price_status:'FIRM'});
   negative('exchange_history','lost anchor context',v=>delete v.context.latest_anchor);
   negative('exchange_history','wrong row quote',v=>v.data.quote_currency='USD');
   negative('jobs','acquisition leaked into semantic qualification',v=>v.observations[0].qualifications.provenance=[]);

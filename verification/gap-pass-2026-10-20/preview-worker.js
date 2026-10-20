@@ -1,7 +1,5 @@
 // Constructed specimens only. This protected dev harness never calls a publisher,
 // uses a secret binding, changes production, or substitutes for live evidence.
-import saCsv from './aemo/original/monthly-SA1-2026-10-19.csv';
-import vicCsv from './aemo/original/monthly-VIC1-2026-10-19.csv';
 import bocWindow from './boc/original/window.json';
 import bocLatest from './boc/original/latest.json';
 import jobsData from './statcan/jobs/original/wds-selected.json';
@@ -17,16 +15,18 @@ import homesData from './statcan/homes/original/wds-selected.json';
 import homesSeries from './statcan/homes/original/series-metadata.json';
 import homesCube from './statcan/homes/original/cube-metadata.json';
 import wraCsv from './wra/original/wra-data.csv';
-import {readAemoDay} from '../../lib/aemo-day.js';
 import {readBocHistory,bocHistoryWindow,bocHistoryUrls} from '../../lib/boc-history.js';
 import {readStatcanHeadline,STATCAN_HEADLINE_URLS} from '../../lib/statcan-headlines.js';
 import {walesTax,WRA_URL} from '../../lib/fiscal-observations.js';
 import {readSections,readBounded} from '../../lib/sources.js';
-import {validateSelection,selectedResponse} from '../../lib/information.js';
+import {validateSelection,selectedResponse,catalogue,INFORMATION_SCHEMA} from '../../lib/information.js';
+import {catalogueV2} from '../../lib/information-v2.js';
+import {INVENTORY} from '../../lib/inventory.js';
+import {isGapSource} from '../../lib/gap-information.js';
 
 const clock='2026-10-20T10:00:00.000Z';
 const permitted={
- grid_day:['none','wrong-region','forecast','missing-day','http','timeout','reversed','acquisition-only','balanced-revision'],
+ grid_day:['held'],
  exchange_history:['none','wrong-direction','missing-pair','stale-tail','acquisition-only','revision'],
  jobs:['none','wrong-province','reversed','acquisition-only'],
  price_index:['none','unit'],
@@ -36,33 +36,29 @@ const permitted={
 };
 const statcan={jobs:{data:jobsData,series:jobsSeries,cube:jobsCube},price_index:{data:cpiData,series:cpiSeries,cube:cpiCube},shop:{data:shopData,series:shopSeries,cube:shopCube},homes:{data:homesData,series:homesSeries,cube:homesCube}};
 function rows(text){const [header,...records]=text.trimEnd().split(/\r?\n/);return {header,records};}
-function aemoText(text,fault){
- if(fault==='wrong-region')return text.replace('SA1,','VIC1,');
- if(fault==='forecast')return text.replace('TRADE','FORECAST');
- if(fault==='acquisition-only')return '\uFEFF'+text;
- const {header,records}=rows(text);
- if(fault==='missing-day')records.pop();
- if(fault==='reversed')records.reverse();
- if(fault==='balanced-revision')for(const [index,delta] of [[0,.01],[1,-.01]]){const row=records[index].split(',');row[3]=(Number(row[3])+delta).toFixed(2);records[index]=row.join(',');}
- return [header,...records].join('\n')+'\n';
-}
-
 export default {async fetch(request){
- const url=new URL(request.url),key=url.searchParams.get('source')||'grid_day',fault=url.searchParams.get('fault')||'none';
+ const url=new URL(request.url),key=url.searchParams.get('source')||'exchange_history',fault=url.searchParams.get('fault')||'none';
  if(!Object.hasOwn(permitted,key)||!permitted[key].includes(fault))return Response.json({error:'invalid_case'},{status:400});
  const desk=key==='grid_day'?'australia':key==='land_transaction_tax'?'wales':'canada',calls=[];
- let read;
  if(key==='grid_day'){
-  read=()=>readAemoDay({now:()=>clock,fetcher:async input=>{
-   const region=String(input).includes('_SA1.csv')?'SA1':String(input).includes('_VIC1.csv')?'VIC1':null;
-   if(!region)throw Error('Unexpected fixture URL');
-   calls.push({role:region,url:String(input)});
-   if(fault==='http')return new Response('Constructed refusal',{status:429});
-   if(fault==='timeout'&&region==='SA1')throw new DOMException('Constructed timeout','TimeoutError');
-   const applied=region==='SA1'||['reversed','acquisition-only'].includes(fault)?fault:'none';
-   return new Response(aemoText(region==='SA1'?saCsv:vicCsv,applied));
-  }});
- }else if(key==='exchange_history'){
+  // Held source: validate discovery and selector refusal before any reader exists.
+  // This harness neither imports nor invokes the AEMO reader or its CSV fixtures.
+  const selector=new URL('https://morningrows.com/australia.json?source=grid_day');
+  for(const name of ['measure','observation'])if(url.searchParams.has(name))selector.searchParams.set(name,url.searchParams.get(name));
+  const selection=validateSelection(selector),directory=catalogue('australia');
+  const v1=catalogue().countries.find(c=>c.name==='Australia'),v2=catalogueV2().countries.find(c=>c.name==='Australia');
+  const discovery={
+   native_inventory_absent:!INVENTORY.australia.some(([key])=>key==='grid_day'),
+   typed_adapter_absent:!isGapSource('australia','grid_day'),
+   source_directory_absent:!directory.sources.some(source=>source.key==='grid_day'),
+   schema_absent:!JSON.stringify(INFORMATION_SCHEMA).includes('grid_day'),
+   v1_count_matches:v1?.source_count===INVENTORY.australia.length,
+   v2_count_matches:v2?.source_count===INVENTORY.australia.length,
+  };
+  return Response.json({source:key,fault,constructed:true,fixture_clock:clock,reader_path:'held source; selector/discovery only, no reader import or invocation',calls,selected_status:selection.status,selected:{error:selection.code,observations:[]},discovery,publisher_http:false});
+ }
+ let read;
+ if(key==='exchange_history'){
   const specimens={window:structuredClone(bocWindow),latest:structuredClone(bocLatest)},urls=bocHistoryUrls(bocHistoryWindow(clock));
   if(fault==='wrong-direction')specimens.window.seriesDetail.FXUSDCAD.label='CAD/USD';
   if(fault==='missing-pair')delete specimens.window.observations[0].FXGBPCAD;
@@ -101,10 +97,9 @@ export default {async fetch(request){
  // Explicit fixture clocks qualify the retained specimen; wall-clock execution
  // is recorded separately in the harness report and is never freshness proof.
  for(const health of Object.values(body.sources))health.fetched_at=clock;
- if(key==='grid_day'&&body[key])body.sources[key].status=body[key].status;
  const selector=new URL(`https://morningrows.com/${desk}.json?source=${key}`);
  for(const name of ['measure','observation'])if(url.searchParams.has(name))selector.searchParams.set(name,url.searchParams.get(name));
  const selection=validateSelection(selector,desk);
  const selected=selection.status?{status:selection.status,body:{error:selection.code,observations:[]}}:await selectedResponse(body,selection,{now:clock});
- return Response.json({source:key,fault,constructed:true,fixture_clock:clock,reader_path:key==='land_transaction_tax'?'actual WRA bounded-read/parser plus selector; live fetch wrapper not exercised':'actual injected reader plus selector',calls,selected_status:selected.status,selected:selected.body,sibling:body.fixture_sibling,sibling_health:body.sources.fixture_sibling,source_health:body.sources[key]});
+ return Response.json({source:key,fault,constructed:true,fixture_clock:clock,publisher_http:false,reader_path:key==='land_transaction_tax'?'actual WRA bounded-read/parser plus selector; live fetch wrapper not exercised':'actual injected reader plus selector',calls,selected_status:selected.status,selected:selected.body,sibling:body.fixture_sibling,sibling_health:body.sources.fixture_sibling,source_health:body.sources[key]});
 }};

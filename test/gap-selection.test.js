@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {readAemoDay} from '../lib/aemo-day.js';
 import {parseBocHistory,bocHistoryWindow} from '../lib/boc-history.js';
 import {parseStatcanHeadline} from '../lib/statcan-headlines.js';
 import {walesTax} from '../lib/fiscal-observations.js';
@@ -20,22 +19,9 @@ async function select(desk,key,native,measure,observation,{clock=now,status=nati
  const body={[key]:native,sources:{[key]:{status,fetched_at:clock}}};
  return selectedResponse(body,selection,{now:clock});
 }
-const aemo=failed=>readAemoDay({now:()=>now,fetcher:async url=>{
- const region=String(url).includes('_SA1.csv')?'SA1':'VIC1';
- return failed===region?new Response('constructed outage',{status:503}):new Response(text(`aemo/original/monthly-${region}-2026-10-19.csv`));
-}});
-test('AEMO selection exposes exactly ten summaries, exact-day refusals and healthy partial sibling',async()=>{
- const native=await aemo(),all=await select('australia','grid_day',native);
- assert.equal(all.status,200);assert.equal(all.body.observations.length,10);
- const selected=await select('australia','grid_day',native,'VIC1.mean','2026-10-19');
- assert.equal(selected.status,200);assert.equal(selected.body.observations[0].value,-7.8);
- assert.equal((await select('australia','grid_day',native,'VIC1.mean','2026-10-18')).body.error,'observation_not_retained');
- assert.equal((await select('australia','grid_day',native,'VIC1.mean','2026-02-30')).status,400);
- const partial=await aemo('SA1');
- assert.equal((await select('australia','grid_day',partial)).body.observations.length,5);
- assert.equal((await select('australia','grid_day',partial,'SA1.mean')).status,503);
- assert.equal((await select('australia','grid_day',partial,'VIC1.mean')).status,200);
- assert.equal((await select('australia','grid_day',native,undefined,undefined,{clock:'2026-10-20T14:00:00.000Z'})).status,503);
+test('held AEMO daily source is not selectable',async()=>{
+ assert.equal((await select('australia','grid_day',{})).status,404);
+ assert.equal((await select('australia','grid_day',{},'SA1.mean','2026-10-19')).status,404);
 });
 test('FX selectors distinguish a missing publication date, an unretained date and a failed source',async()=>{
  const native=boc(),all=await select('canada','exchange_history',native);

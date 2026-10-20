@@ -9,7 +9,6 @@ import {collect} from '../scripts/monitor.mjs';
 import {catalogue} from '../lib/information.js';
 import {catalogueV2} from '../lib/information-v2.js';
 import {parseStatcanHeadline,STATCAN_HEADLINE_SOURCES} from '../lib/statcan-headlines.js';
-import {readAemoDay} from '../lib/aemo-day.js';
 import {parseBocHistory,bocHistoryWindow} from '../lib/boc-history.js';
 import {walesTax} from '../lib/fiscal-observations.js';
 // Every collection below is injected/constructed. None is scheduled evidence.
@@ -27,17 +26,16 @@ const review=()=>({...clone(priorReview),continuations:[...clone(priorReview.con
 const run=(minute=0,options={})=>({id:'CONSTRUCTED-gap-'+minute,finished_at:at(minute),complete:true,scheduled:false,scope,requests:Array.from({length:24},()=>({constructed:true})),results:{},probe_errors:[],identities:Object.fromEntries(ORIGINS.map(o=>[o,clone(identity)])),...options});
 const sourceContract=key=>DAILY_HISTORY_CONTRACTS.find(c=>c.key===key);
 const statcan=source=>{const b='verification/gap-pass-2026-10-20/statcan/'+source+'/original/';return parseStatcanHeadline(source,json(b+'wds-selected.json'),json(b+'series-metadata.json'),json(b+'cube-metadata.json'));};
-const aemo=async(failed=false)=>readAemoDay({now:()=>at(0),fetcher:async url=>failed&&url.includes('_SA1')?new Response('limited',{status:429}):new Response(text('verification/gap-pass-2026-10-20/aemo/original/monthly-'+(url.includes('_SA1')?'SA1':'VIC1')+'-2026-10-19.csv'))});
 const boc=()=>parseBocHistory(json('verification/gap-pass-2026-10-20/boc/original/window.json'),json('verification/gap-pass-2026-10-20/boc/original/latest.json'),bocHistoryWindow(at(0)));
 const wra=()=>walesTax(text('test/fixtures/wra-tax.csv'),new Date(at(0)));
 const body=(c,value,minute=0)=>({country:c.country,[c.data]:clone(value),sources:{[c.source]:{status:value?.status==='degraded'?'degraded':'ok',fetched_at:at(minute)}}});
 
-test('original108 retain pre-upgrade native obligations; expanded scope alone exposes seven exact contracts',()=>{
+test('original108 retain pre-upgrade native obligations; expanded scope alone exposes six exact contracts with AEMO held',()=>{
  assert.equal(REGISTRY.length,108);assert.equal(DAILY_HISTORY_BASE_REGISTRY.length,108);assert.equal(DAILY_HISTORY_UPGRADES.length,5);
  for(const c of DAILY_HISTORY_UPGRADES){assert.equal(REGISTRY.find(r=>r.key===c.key).described_measures,0);assert.equal(c.semantic_revision,'gap-pass-2026-10-20');assert.ok(c.described_measures>0);}
  assert.ok(REGISTRY.every(c=>!['grid_day','exchange_history'].includes(c.source)));
  assert.equal(buildMonitorRegistry(priorReview).sources.length,115);assert.equal(buildMonitorRegistry(priorReview).staged_sources.length,2);
- const active=buildMonitorRegistry(review());assert.equal(active.sources.length,117);assert.equal(active.staged_sources.length,0);assert.equal(new Set(active.sources.map(s=>s.key)).size,117);
+ const active=buildMonitorRegistry(review());assert.equal(active.sources.length,116);assert.equal(active.staged_sources.length,1);assert.equal(new Set(active.sources.map(s=>s.key)).size,116);
  for(const c of DAILY_HISTORY_UPGRADES)assert.equal(active.sources.find(s=>s.key===c.key).definitions.length,c.described_measures);
  assert.deepEqual([priorReview,...priorReview.continuations].map(e=>({from:e.from,to:e.to,scope:e.scope,evidence:e.evidence})),oldEdges);
 });
@@ -56,25 +54,23 @@ test('only a complete scheduled final scope sets its own start, never the old se
 test('broken chain, skipped rent stage, scope downgrade and ambiguous repeatedidentity fail before state mutation',()=>{
  for(const mutate of [r=>{r.continuations.at(-1).from.source_revision='0'.repeat(40)},r=>{r.continuations[1].scope=scope},r=>{r.continuations.push({from:clone(identity),to:{...clone(identity),worker_version:'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee'},scope:oldEdges.at(-1).scope,evidence:'test'})},r=>{r.continuations.at(-1).to=clone(r.to)}]){const r=review();mutate(r);assert.throws(()=>reviewedReleasePlan(r));}
 });
-test('117obligations still use24public probes and prior scope uses115; invalid opt-in fails before read',async()=>{
+test('116obligations still use24public probes and prior scope uses115; invalid opt-in fails before read',async()=>{
  let calls=0;for(const options of [{includeDailyHistory:true},{includeUs:true,includeClaimants:true,includeDailyHistory:true},{includeUs:true,includeClaimants:true,includeRent:true,includeDailyHistory:'true'}])await assert.rejects(collect({...options,read:async()=>{calls++;}}));assert.equal(calls,0);
  const reader=async url=>{const p=new URL(url).pathname;calls++;if(p==='/health.json')return {status:200,data:identity};if(p==='/catalog.json')return {status:200,data:catalogue()};if(p==='/catalog.v2.json')return {status:200,data:catalogueV2()};const desk=p.slice(1,-5),contracts=[...REGISTRY,...DAILY_HISTORY_CONTRACTS],country=desk==='united-states'?'United States':contracts.find(c=>c.desk===desk).country;return {status:200,data:{country,sources:{}}};};
- for(const [includeDailyHistory,count] of [[false,115],[true,117]]){calls=0;const report=await collect({includeUs:true,includeClaimants:true,includeRent:true,includeDailyHistory,read:reader,now:()=>at(0),id:'CONSTRUCTED-'+count});assert.equal(calls,24);assert.equal(report.requests.length,24);assert.equal(Object.keys(report.results).length,count);assert.equal(report.scope,includeDailyHistory?scope:oldEdges.at(-1).scope);}
+ for(const [includeDailyHistory,count] of [[false,115],[true,116]]){calls=0;const report=await collect({includeUs:true,includeClaimants:true,includeRent:true,includeDailyHistory,read:reader,now:()=>at(0),id:'CONSTRUCTED-'+count});assert.equal(calls,24);assert.equal(report.requests.length,24);assert.equal(report.results[GRID_DAY_CONTRACT.key],undefined);assert.equal(Object.keys(report.results).length,count);assert.equal(report.scope,includeDailyHistory?scope:oldEdges.at(-1).scope);}
 });
 for(const source of STATCAN_HEADLINE_SOURCES)test(source+': exact new monitor contract inspects corrected source while legacy contract stays availability-only',async()=>{
  const c=sourceContract('canada/'+source),native=statcan(source),b=body(c,native),r=await inspectSource(b,c);assert.equal(r.kind,'success',r.reason);assert.equal(r.observations.length,source==='jobs'?11:1);assert.equal((await inspectSource(b,REGISTRY.find(x=>x.key===c.key))).observations.length,0);const changed=clone(b);if(source==='jobs')changed.jobs[0].rate++;else changed[source].rows[0].unit='wrong';assert.equal((await inspectSource(changed,c)).kind,'semantic');const fresh=body(c,native,10);assert.equal((await inspectSource(fresh,c)).version,r.version);assert.equal(r.assurance,'semantic contract checked; independent reference approval separate');
 });
 test('WRA4 exact completed-year fields validate while native prior scope stays unchanged',async()=>{const c=sourceContract('wales/land_transaction_tax'),b=body(c,wra()),r=await inspectSource(b,c);assert.equal(r.kind,'success',r.reason);assert.equal(r.observations.length,4);const bad=clone(b);bad.land_transaction_tax.rows[0].value=null;assert.equal((await inspectSource(bad,c)).kind,'semantic');const reordered=clone(b);reordered.land_transaction_tax.rows.reverse();assert.equal((await inspectSource(reordered,c)).version,r.version);});
-test('dailyAEMO summaries retain true negative and zero counts, changed acquisition alone does not revise',async()=>{const c=GRID_DAY_CONTRACT,native=await aemo(),b=body(c,native),r=await inspectSource(b,c);assert.equal(r.kind,'success',r.reason);assert.equal(r.observations.length,10);assert.ok(r.observations.some(o=>o.value<0));assert.ok(r.observations.some(o=>o.id.includes('zero_count')&&o.value===2));const acquired=clone(native);for(const row of acquired.regions){row.provenance.sha256='a'.repeat(64);row.provenance.retrieved_at=at(10);}assert.equal((await inspectSource(body(c,acquired,10),c)).version,r.version);const bad=clone(native);bad.regions[0].intervals.pop();assert.equal((await inspectSource(body(c,bad),c)).kind,'semantic');});
-test('dailyAEMO partial retrieval preserves the successful region and remains degraded, not independently verified',async()=>{const c=GRID_DAY_CONTRACT,r=await inspectSource(body(c,await aemo(true)),c);assert.equal(r.kind,'degraded',r.reason);assert.equal(r.observations.length,5);assert.ok(r.observations.every(o=>o.definition.geography==='Victoria'));});
-test('balanced AEMO interval revisions retain summary observations but revise the monitored source inputs',async()=>{
- const native=await aemo(),revised=clone(native),rows=revised.regions[0].intervals,other=rows.findIndex(row=>row.price!==rows[0].price);assert.ok(other>0);
- for(const key of ['price','price_raw'])[rows[0][key],rows[other][key]]=[rows[other][key],rows[0][key]];
- const before=await inspectSource(body(GRID_DAY_CONTRACT,native),GRID_DAY_CONTRACT),after=await inspectSource(body(GRID_DAY_CONTRACT,revised),GRID_DAY_CONTRACT);
- assert.equal(after.kind,'success',after.reason);assert.deepEqual(after.observations,before.observations);assert.notEqual(after.metadata.semantic_inputs_version,before.metadata.semantic_inputs_version);assert.notEqual(after.version,before.version);
+test('repeated Worker refusal keeps AEMO staged and outside every active collector contract',async()=>{
+ assert.equal(DAILY_HISTORY_CONTRACTS.length,6);assert.ok(!DAILY_HISTORY_CONTRACTS.some(c=>c.key===GRID_DAY_CONTRACT.key));
+ const registry=buildMonitorRegistry(review());assert.ok(!registry.sources.some(c=>c.key===GRID_DAY_CONTRACT.key));
+ assert.equal(registry.staged_sources.find(c=>c.key===GRID_DAY_CONTRACT.key).activation,'held_runtime_access');
+ assert.equal((await inspectSource({country:'Australia',grid_day:{status:'ok'},sources:{grid_day:{status:'ok',fetched_at:at(0)}}},GRID_DAY_CONTRACT)).reason,'source_contract_not_activated');
 });
 test('retained daily inspections use their explicit capture clock and reject expired windows without reading wall time',async()=>{
- for(const [contract,native,later]of [[GRID_DAY_CONTRACT,await aemo(),'2026-10-20T14:00:00.000Z'],[EXCHANGE_HISTORY_CONTRACT,boc(),'2026-10-21T00:00:00.000Z']]){
+ for(const [contract,native,later]of [[EXCHANGE_HISTORY_CONTRACT,boc(),'2026-10-21T00:00:00.000Z']]){
   const captured=body(contract,native),first=await inspectSource(captured,contract,{now:at(0)});
   assert.equal(first.kind,'success',first.reason);assert.equal((await inspectSource(captured,contract,{now:later})).kind,'semantic');
   assert.equal((await inspectSource(captured,contract,{now:at(0)})).version,first.version);
@@ -83,9 +79,9 @@ test('retained daily inspections use their explicit capture clock and reject exp
  }
 });
 test('the collector passes the retained response clock to daily inspection, independently of old source acquisition time',async()=>{
- const native=await aemo(),reader=async url=>{const path=new URL(url).pathname;if(path==='/health.json')return {status:200,data:identity};if(path==='/catalog.json')return {status:200,data:catalogue()};if(path==='/catalog.v2.json')return {status:200,data:catalogueV2()};const desk=path.slice(1,-5),country=desk==='united-states'?'United States':REGISTRY.find(c=>c.desk===desk).country;return {status:200,data:desk==='australia'?body(GRID_DAY_CONTRACT,native):{country,sources:{}}};};
- const report=await collect({includeUs:true,includeClaimants:true,includeRent:true,includeDailyHistory:true,read:reader,now:()=> '2026-10-20T14:00:00.000Z',id:'CONSTRUCTED-captured-clock'});
- assert.equal(report.complete,true);for(const origin of ORIGINS){assert.equal(report.results[GRID_DAY_CONTRACT.key][origin].kind,'semantic');assert.equal(report.requests.find(r=>r.url===origin+'/australia.json').at,'2026-10-20T14:00:00.000Z');}
+ const native=boc(),reader=async url=>{const path=new URL(url).pathname;if(path==='/health.json')return {status:200,data:identity};if(path==='/catalog.json')return {status:200,data:catalogue()};if(path==='/catalog.v2.json')return {status:200,data:catalogueV2()};const desk=path.slice(1,-5),country=desk==='united-states'?'United States':REGISTRY.find(c=>c.desk===desk).country;return {status:200,data:desk==='canada'?body(EXCHANGE_HISTORY_CONTRACT,native):{country,sources:{}}};};
+ const report=await collect({includeUs:true,includeClaimants:true,includeRent:true,includeDailyHistory:true,read:reader,now:()=> '2026-10-21T00:00:00.000Z',id:'CONSTRUCTED-captured-clock'});
+ assert.equal(report.complete,true);for(const origin of ORIGINS){assert.equal(report.results[EXCHANGE_HISTORY_CONTRACT.key][origin].kind,'semantic');assert.equal(report.requests.find(r=>r.url===origin+'/canada.json').at,'2026-10-21T00:00:00.000Z');}
 });
 test('legacy observation acceptance is labelled and cannot pass the separate daily-history window',()=>{
  const before=clone(checkpoint.state),start=before.started_shadow_at;

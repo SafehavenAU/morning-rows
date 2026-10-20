@@ -2,7 +2,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {INVENTORY} from '../lib/inventory.js';
-import {readAemoDay} from '../lib/aemo-day.js';
 import {bocHistoryWindow,parseBocHistory} from '../lib/boc-history.js';
 import {STATCAN_HEADLINE_SOURCES,parseStatcanHeadline} from '../lib/statcan-headlines.js';
 import {walesTax} from '../lib/fiscal-observations.js';
@@ -11,20 +10,20 @@ import {isGapSource,gapDefinitions,validateGapRepresentation,gapCells,gapSelecti
 const clock='2026-10-20T10:00:00Z',acquisition={retrieved_at:clock};
 const root=new URL('../verification/gap-pass-2026-10-20/',import.meta.url);
 const json=path=>JSON.parse(readFileSync(new URL(path,root)));
-const aemoCsv=Object.fromEntries(['SA1','VIC1'].map(region=>[region,readFileSync(new URL(`aemo/original/monthly-${region}-2026-10-19.csv`,root),'utf8')]));
-const aemo=await readAemoDay({now:()=>clock,fetcher:async url=>new Response(aemoCsv[url.includes('_SA1')?'SA1':'VIC1'])});
 const boc=parseBocHistory(json('boc/original/window.json'),json('boc/original/latest.json'),bocHistoryWindow(clock));
 const statcan=Object.fromEntries(STATCAN_HEADLINE_SOURCES.map(source=>[source,parseStatcanHeadline(source,...['wds-selected.json','series-metadata.json','cube-metadata.json'].map(file=>json(`statcan/${source}/original/${file}`)))]));
 const wra=walesTax(readFileSync(new URL('./fixtures/wra-tax.csv',import.meta.url),'utf8'),new Date(clock));
-const samples=[['australia','grid_day',aemo,10],['canada','exchange_history',boc,38],...STATCAN_HEADLINE_SOURCES.map(key=>['canada',key,statcan[key],key==='jobs'?11:1]),['wales','land_transaction_tax',wra,4]];
+const samples=[['canada','exchange_history',boc,38],...STATCAN_HEADLINE_SOURCES.map(key=>['canada',key,statcan[key],key==='jobs'?11:1]),['wales','land_transaction_tax',wra,4]];
 const select=(desk,key,value,options={})=>gapSelectedData(desk,key,value,{...acquisition,...options});
 const failure=(desk,key,value,options={})=>gapSelectionFailure(desk,key,value,{...acquisition,...options});
 
-test('inventory adds two bounded sources while keeping the legacy grid and exchange',()=>{
- for(const [desk,oldKey,newKey] of [['australia','grid','grid_day'],['canada','exchange','exchange_history']]){
+test('inventory holds the blocked daily AEMO source while keeping legacy grid and dated FX',()=>{
+ for(const [desk,oldKey,newKey] of [['canada','exchange','exchange_history']]){
   for(const key of [oldKey,newKey])assert.deepEqual(INVENTORY[desk].filter(x=>x[0]===key),[[key,key,'sources.'+key]]);
  }
- for(const [desk,key] of [['canada','grid_day'],['australia','exchange_history'],['england','land_transaction_tax'],['canada','product']]){
+ assert.ok(INVENTORY.australia.some(x=>x[0]==='grid'));
+ assert.ok(!INVENTORY.australia.some(x=>x[0]==='grid_day'));
+ for(const [desk,key] of [['australia','grid_day'],['canada','grid_day'],['australia','exchange_history'],['england','land_transaction_tax'],['canada','product']]){
   assert.equal(isGapSource(desk,key),false);assert.equal(gapDefinitions(desk,key),null);
   assert.equal(gapCells(desk,key,{},acquisition),null);assert.equal(gapSelectionFailure(desk,key,{},acquisition),null);
   assert.equal(gapSelectedData(desk,key,{},acquisition),undefined);
@@ -53,28 +52,6 @@ for(const [desk,key,native,count] of samples){
   assert.equal(failure(desk,key,native,{retrieved_at:undefined}).error,'representation_validation_failed');
  });
 }
-test('AEMO summaries are selected independently and native pointers resolve the actual number',()=>{
- assert.equal(select('australia','grid_day',aemo),aemo);
- for(const cell of gapCells('australia','grid_day',aemo,acquisition)){
-  const pointed=cell.pointer.split('/').slice(1).reduce((value,key)=>value[key],aemo);
-  assert.equal(pointed,cell.value);assert.equal(select('australia','grid_day',aemo,{measure:cell.definition.id}).value,cell.value);
- }
- assert.equal(failure('australia','grid_day',aemo,{measure:'SA1.mean',observation:'2026-10-18'}).error,'observation_not_retained');
- assert.equal(failure('australia','grid_day',aemo,{measure:'SA1.mean',observation:'2026-02-30'}).error,'invalid_observation');
- assert.equal(failure('australia','grid_day',aemo,{retrieved_at:'2026-10-20T14:00:00Z'}).error,'representation_validation_failed');
-});
-test('AEMO degraded source retains the complete sibling but returns503 for the failed region',async()=>{
- const partial=await readAemoDay({now:()=>clock,fetcher:async url=>url.includes('_SA1')?new Response('unavailable',{status:503}):new Response(aemoCsv.VIC1)});
- assert.equal(partial.status,'degraded');assert.equal(failure('australia','grid_day',partial),null);
- assert.equal(select('australia','grid_day',partial),partial);
- assert.equal(gapCells('australia','grid_day',partial,acquisition).length,5);
- assert.equal(select('australia','grid_day',partial,{measure:'VIC1.mean'}).value,-7.8);
- assert.equal(failure('australia','grid_day',partial,{measure:'SA1.mean'}).status,503);
- assert.throws(()=>select('australia','grid_day',partial,{measure:'SA1.mean'}),error=>error.status===503&&error.error==='retrieval_failed');
- const failed=await readAemoDay({now:()=>clock,fetcher:async()=>new Response('unavailable',{status:503})});
- assert.equal(gapCells('australia','grid_day',failed,acquisition).length,0);
- assert.equal(failure('australia','grid_day',failed).error,'retrieval_failed');
-});
 test('FX source and measure arrays preserve every published pair; exact date is one row',()=>{
  assert.equal(select('canada','exchange_history',boc),boc.rows);
  const usd=select('canada','exchange_history',boc,{measure:'FXUSDCAD'});

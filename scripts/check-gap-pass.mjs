@@ -12,8 +12,8 @@ if(!directory||!/^[a-f0-9]{40}$/.test(revision||'')||!/^[a-f0-9]{8}(?:-[a-f0-9]{
 const root=fileURLToPath(new URL('../',import.meta.url)),out=resolve(directory),staged=mode==='staged',run=promisify(execFile);
 const {refs,manifest}=await references(root);
 // Explicitly refuse a different daily vintage before spending any requests.
-const now=Date.now(),aemoDay=new Date(Math.floor((now+36000000)/86400000)*86400000-86400000).toISOString().slice(0,10);
-if(new Date(now).toISOString().slice(0,10)!==refs.boc.window.end||aemoDay!==refs.aemo.target_day)throw Error('Daily reference vintage differs from request clock; obtain a separately verified reference before updating this checker');
+const now=Date.now();
+if(new Date(now).toISOString().slice(0,10)!==refs.boc.window.end)throw Error('Daily reference vintage differs from request clock; obtain a separately verified reference before updating this checker');
 await mkdir(out);
 const report={kind:staged?'Exact zero-percent candidate gap interface':'Production gap interface',started_at:new Date().toISOString(),revision,version,staged,references:manifest,requests:[],checks:[]};
 const check=(label,pass)=>{report.checks.push({label,pass:Boolean(pass)});if(!pass)throw Error(label);};

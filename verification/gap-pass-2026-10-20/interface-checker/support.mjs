@@ -4,7 +4,6 @@ import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 export const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 export const pinned={
- aemo:'b18738871acc18d805f72fbfb7ab85b8765bb7531262174f4b9694072b260046',
  boc:'e3090218ac6ecde21dc0a476f2c96c919d905703d4fc6409ab9b1cab356ba94a',
  'statcan/jobs':'2025e83384dad0cb1da0bf47c4f3096f1f7afc276fb8f18e169ba58281038194',
  'statcan/price_index':'47aa8c59fc194102b5b7a7b962e6a26d9bcd431cc5a1fdc6d03d5d87b77e79fb',
@@ -13,7 +12,6 @@ export const pinned={
  wra:'f906697963ebd32263c16070f802e94167735daac478df7e3d6bae7aca9d4d4d',
 };
 export const sources=[
- ['australia','grid_day','VIC1.mean','2026-10-19'],
  ['canada','exchange_history','FXGBPCAD','2026-10-19'],
  ['canada','jobs','alberta','2026-09'],
  ['canada','price_index','index','2026-09'],
@@ -27,13 +25,12 @@ export function routes(){
   const path=`/${desk}.json?source=${source}`;
   result.push({path},{path:path+'&measure='+measure},{path:path+'&measure='+measure+'&observation='+period});
  }
- for(const [desk,source,measure] of [sources[0],sources[1],sources[6]]){
+ for(const [desk,source,measure] of [sources[0],sources[1],sources[5]]){
   const path=`/${desk}.json?source=${source}&measure=${measure}`;
   result.push({path,status:304,conditional:true},{path,method:'HEAD'});
  }
  for(const [path,status,error]of [
-  ['/australia.json?source=grid_day&measure=VIC1.mean&observation=2026-10-18',404,'observation_not_retained'],
-  ['/australia.json?source=grid_day&measure=VIC1.mean&observation=2026-02-30',400,'invalid_observation'],
+  ['/australia.json?source=grid_day',404,'unknown_source'],
   ['/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-12',404,'not_published_on_date'],
   ['/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2020-01-01',404,'observation_not_retained'],
   ['/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-31',400,'invalid_observation'],
@@ -54,10 +51,6 @@ export async function references(root){
  return {refs,manifest};
 }
 export function expected(refs,source){
- if(source==='grid_day')return refs.aemo.summaries.flatMap(r=>[
-  ['mean',Number(r.mean_rounded_2dp)],['minimum',Number(r.minimum_decimal)],['maximum',Number(r.maximum_decimal)],
-  ['negative_count',r.negative_interval_count],['zero_count',r.zero_interval_count],
- ].map(([statistic,value])=>({id:r.region+'.'+statistic,period:r.date,value,unit:statistic.endsWith('_count')?'five-minute intervals':'AUD/MWh',geography:r.region==='SA1'?'South Australia':'Victoria',region:r.region,statistic})));
  if(source==='exchange_history')return refs.boc.cells.map(r=>({id:r.series,period:r.period,value:Number(r.value_text),value_text:r.value_text,unit:r.series==='FXUSDCAD'?'CAD per USD':'CAD per GBP'}));
  if(source==='jobs')return refs['statcan/jobs'].rows.map(r=>({...r,release:refs['statcan/jobs'].release_timestamp_raw}));
  if(['price_index','shop','homes'].includes(source))return refs['statcan/'+source].observations.map(r=>({...r,id:{price_index:'index',shop:'total_retail_sales',homes:'starts'}[source],release:r.publisher_release}));
@@ -67,17 +60,6 @@ const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const checked=(check,label,pass)=>check(label,Boolean(pass));
 export function nativeChecks(refs,source,native,check,label){
  const exp=expected(refs,source);
- if(source==='grid_day'){
-  check(label+' complete current AEMO day',native?.status==='ok'&&native.calendar_day===refs.aemo.target_day&&native.regions?.length===2);
-  for(const region of ['SA1','VIC1']){
-   const r=native.regions.find(r=>r.region===region),cells=refs.aemo.observations.filter(x=>x.region===region);
-   check(label+' '+region+' 288 original intervals',r?.status==='ok'&&r.interval_count===288&&r.intervals?.length===288&&r.intervals.every((v,i)=>v.period_end===cells[i].interval_end&&v.price===Number(cells[i].rrp_decimal)&&Number(v.price_raw)===Number(cells[i].rrp_decimal)));
-   check(label+' '+region+' fixed clock/unit/type',r.timezone==='fixed AEST / UTC+10; not local daylight-saving time'&&r.unit==='AUD/MWh'&&r.period_type==='TRADE'&&r.period_start===refs.aemo.calendar_start&&r.period_end===refs.aemo.calendar_end_exclusive);
-   check(label+' '+region+' all five independent summaries',exp.filter(x=>x.region===region).every(x=>r.summary?.[x.statistic]===x.value));
-   check(label+' '+region+' retained public provenance',/^https:\/\/www\.aemo\.com\.au\//.test(r.provenance?.url||'')&&/^[a-f0-9]{64}$/.test(r.provenance?.sha256||'')&&Number.isFinite(Date.parse(r.provenance?.retrieved_at)));
-  }
-  return;
- }
  if(source==='exchange_history'){
   check(label+' exact rolling window',same(native?.window,refs.boc.window)&&native.metadata?.date_count===19&&native.metadata.observation_count===38&&native.metadata.latest_period===refs.boc.latest_published_date);
   check(label+' complete 38 dated exchange cells',native.rows?.length===38&&exp.every(e=>native.rows.filter(r=>r.series===e.id&&r.period===e.period&&r.value===e.value&&r.value_text===e.value_text&&r.unit===e.unit&&r.quote_currency==='CAD'&&r.base_currency===(e.id==='FXUSDCAD'?'USD':'GBP')).length===1));
@@ -103,7 +85,10 @@ export function nativeChecks(refs,source,native,check,label){
 export function bodyChecks(refs,path,body,check,versions=new Map()){
  const u=new URL(path,'https://morningrows.com'),source=u.searchParams.get('source'),desk=u.pathname.slice(1,-5),label=path;
  if(!source){
+  if(u.pathname==='/schema.json')check(label+' held AEMO absent from published schema',!JSON.stringify(body).includes('grid_day')&&!Object.keys(body.$defs||{}).some(k=>k.startsWith('gapAemo')));
+  if(u.pathname==='/australia.json')check(label+' held AEMO absent from native and health',!Object.hasOwn(body,'grid_day')&&!Object.hasOwn(body.sources||{},'grid_day'));
   if(u.pathname==='/catalog.json'){
+   if(u.searchParams.get('desk')==='australia')check(label+' held AEMO not advertised',!body.sources?.some(c=>c.key==='grid_day'));
    const d=u.searchParams.get('desk');
    for(const [,key]of sources.filter(x=>x[0]===d)){
     const card=body.sources?.find(c=>c.key===key),ids=[...new Set(expected(refs,key).map(x=>x.id))].sort();
@@ -140,9 +125,9 @@ export function cacheChecks(record,check){
  if(record.status!==200||!record.path.includes('.json')||record.path.startsWith('/health')||record.path.startsWith('/schema'))return;
  const ttl=record.headers['cache-control']?.match(/(?:^|[,\s])max-age=(\d+)/)?.[1];
  check(record.path+' bounded cache lifetime',ttl!==undefined&&Number(ttl)<=3600);
- if(!/^\/(?:australia|canada)\.json/.test(record.path))return;
- const start=Date.parse(record.started_at),offset=record.path.startsWith('/australia')?36000000:0;
- const rollover=(Math.floor((start+offset)/86400000)+1)*86400000-offset;
+ if(!record.path.startsWith('/canada.json'))return;
+ const start=Date.parse(record.started_at);
+ const rollover=(Math.floor(start/86400000)+1)*86400000;
  check(record.path+' cache expires by calendar boundary',Number(ttl)<=Math.floor((rollover-start)/1000));
  check(record.path+' capture did not cross calendar boundary',Date.parse(record.completed_at)<rollover);
 }
@@ -180,6 +165,6 @@ export async function verifyCapture(root,directory,{revision,version,staged}){
    bodyChecks(refs,record.path,body,check,versions);
    if(record.headers.etag)etags.set(key,record.headers.etag);
   }
-  return {pass:true,checks,references:manifest,requests:plan.length,independent_cells:{aemo_intervals:576,aemo_summaries:10,boc:38,statcan:14,wra:4}};
+  return {pass:true,checks,references:manifest,requests:plan.length,independent_cells:{boc:38,statcan:14,wra:4},held_sources:['australia/grid_day']};
  }catch(error){return {pass:false,error:error.message,checks,references:manifest};}
 }

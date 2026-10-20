@@ -35,7 +35,9 @@ assert.equal(review.enabled,true);assert.equal(priorPlan.reviews.length,4);asser
 assert.deepEqual(plan.reviews.slice(0,4),priorPlan.reviews,'All accepted release edges remain exact');
 assert.deepEqual(review,{...retainedReview,continuations:[...retainedReview.continuations,review.continuations.at(-1)]},'Only the exact fifth continuation may be appended');
 assert.equal(Object.keys(retainedApprovals).length,15);
-assert.deepEqual(Object.keys(approvals).sort(),[...Object.keys(retainedApprovals),...DAILY_HISTORY_CONTRACTS.map(c=>c.key)].sort(),'Only the seven independently reconciled gap approvals may be added');
+assert.equal(DAILY_HISTORY_CONTRACTS.length,6);assert.ok(!DAILY_HISTORY_CONTRACTS.some(c=>c.key==='australia/grid_day'),'Held AEMO must not be activated or approved');
+assert.equal(Object.keys(approvals).length,21);
+assert.deepEqual(Object.keys(approvals).sort(),[...Object.keys(retainedApprovals),...DAILY_HISTORY_CONTRACTS.map(c=>c.key)].sort(),'Only the six independently reconciled gap approvals may be added');
 for(const [key,value]of Object.entries(retainedApprovals))assert.deepEqual(approvals[key],value,`${key}: prior approval must be retained byte-for-byte in meaning`);
 const fields=['source_revision','worker_version','build_fingerprint','source_dirty'],identity=value=>Object.fromEntries(fields.map(key=>[key,value?.[key]]));
 assert.equal(prior.sequence,5);assert.equal(envelope.digest,'665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f');
@@ -116,7 +118,7 @@ for(let count=1;count<=4;count++){
  prefixes.push({count,prefix,suffix});
 }
 for(const next of [direct,...prefixes.map(p=>p.suffix)]){
- assert.deepEqual(identity(next.approved_identity),identity(plan.target));assert.equal(next.runs.at(-1).scope,scope);assert.equal(Object.keys(next.sources).length,117);
+ assert.deepEqual(identity(next.approved_identity),identity(plan.target));assert.equal(next.runs.at(-1).scope,scope);assert.equal(Object.keys(next.sources).length,116);
  assert.equal(next.daily_history_scope_first_complete_at,finishedAt);
  assert.equal(dailyHistoryShadowStatus(next,finishedAt).operating_window_pass,false);
  assert.equal(dailyHistoryShadowStatus(next,finishedAt).complete_runs,0);
@@ -139,7 +141,7 @@ const evidence={
  direct:{constructed_next_sequence:direct.sequence,constructed_runs_added:1,release_audit:audit},
  hypothetical_prefixes:prefixes.map(({count,prefix,suffix})=>({reviewed_prefix_edges:count,prefix_is_hypothetical:true,constructed_prefix_sequence:prefix.sequence,constructed_final_sequence:suffix.sequence,constructed_runs_added:2,release_audit:suffix.release_reviews.at(-1),prior_history_preserved:true})),
  incident_count:33,repair_count:36,incidents_equal:true,all_repairs_equal:true,outbox_equal:true,
- original_other_102_source_states_equal:true,exact_updated_original_contracts:[...changedPriorKeys],total_obligations:117,public_probe_budget:24,
+ original_other_102_source_states_equal:true,exact_updated_original_contracts:[...changedPriorKeys],total_obligations:116,public_probe_budget:24,
  original_shadow_start:prior.started_shadow_at,original_shadow_start_unchanged:true,new_scope_scheduled_starts_absent:true,daily_history_shadow:dailyHistoryShadowStatus(direct,finishedAt),
  actual_checkpoint_sequence_unchanged:5,actual_scheduled_cycles_added:0,checkpoint_written:false,notification_delivered:false,remote_calls:0,
  limitations:[

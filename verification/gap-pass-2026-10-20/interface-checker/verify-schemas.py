@@ -36,7 +36,7 @@ def verify(directory,revision,version,staged):
         captured=load(directory/'gap-interface-report.json')
         require(captured.get('pass') is True and captured.get('revision')==revision and captured.get('version')==version and captured.get('staged')==staged,'Capture identity or pass mismatch')
         origins=['https://morningrows.com'] if staged else ['https://morningrows.com','https://www.morningrows.com']
-        require(len(captured['requests'])==44*len(origins),'Incomplete capture routes')
+        require(len(captured['requests'])==40*len(origins),'Incomplete capture routes')
         bodies={};seen=set()
         for i,r in enumerate(captured['requests']):
             require(r['origin'] in origins and r['headers'].get('x-source-revision')==revision and r['headers'].get('x-worker-version')==version,'Response identity mismatch')
@@ -52,6 +52,7 @@ def verify(directory,revision,version,staged):
             schema_rows=[i for i,r in enumerate(captured['requests']) if r['origin']==origin and r['path']=='/schema.json' and r['method']=='GET' and r['status']==200]
             require(len(schema_rows)==1,'Exactly one captured schema required')
             schema=bodies[schema_rows[0]]
+            require('grid_day' not in json.dumps(schema) and not any(k.startswith('gapAemo') for k in schema.get('$defs',{})), 'Held AEMO published schema must be absent')
             helpers.reject_remote_refs(schema)
             Draft202012Validator.check_schema(schema)
             validator=Draft202012Validator(schema,format_checker=helpers.FORMATS)
@@ -62,10 +63,10 @@ def verify(directory,revision,version,staged):
                 require(not errors,'Captured schema failed '+r['path']+': '+('; '.join(e.message[:180] for e in errors[:2])))
                 report['schema_checks'].append({'origin':origin,'path':r['path'],'pass':True});count+=1
                 if r['path'] in ('/australia.json','/canada.json','/wales.json'):full[r['path']]=bodies[i]
-            require(count==27,'Incomplete successful native/catalog/selection structural coverage')
+            require(count==24,'Incomplete successful native/catalog/selection structural coverage')
             controls=[
-                ('AEMO summary unit', '/australia.json', lambda b:b['grid_day']['regions'][0].__setitem__('unit','USD/MWh')),
-                ('AEMO interval nullable zero substitution', '/australia.json', lambda b:b['grid_day']['regions'][0]['intervals'][0].__setitem__('price',None)),
+                ('BoC missing value replaced by null', '/canada.json', lambda b:b['exchange_history']['rows'][0].__setitem__('value',None)),
+                ('BoC unknown series', '/canada.json', lambda b:b['exchange_history']['rows'][0].__setitem__('series','FXEURCAD')),
                 ('BoC reversed currency unit', '/canada.json', lambda b:b['exchange_history']['rows'][0].__setitem__('unit','USD per CAD')),
                 ('Unemployment null', '/canada.json', lambda b:b['jobs'][0].__setitem__('value',None)),
                 ('CPI wrong unit', '/canada.json', lambda b:b['price_index']['rows'][0].__setitem__('unit','percent')),

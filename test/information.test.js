@@ -4,13 +4,12 @@ import {readFileSync} from 'node:fs';
 import worker, {readCanadaExchange} from '../worker.js';
 import {catalogue,DESKS,validateSelection,selectedResponse,digest,finishResponse} from '../lib/information.js';
 import {hospitalFromApi} from '../lib/public-data.js';
-import {aemoDayClock} from '../lib/aemo-day.js';
 
 const snapshot=JSON.parse(readFileSync(new URL('../verification/structure-2026-10-17/selected-snapshot.json',import.meta.url)));
 const copy=desk=>structuredClone(snapshot[desk]);
 const selection=(desk,source,measure,observation)=>validateSelection(new URL(`https://morningrows.com/${desk}.json?`+new URLSearchParams(Object.fromEntries(Object.entries({source,measure,observation}).filter(([,v])=>v!==undefined)))));
 const select=(desk,source,measure,observation,body=copy(desk))=>selectedResponse(body,selection(desk,source,measure,observation));
-function cache(t,body) {t.mock.method(globalThis,'fetch',()=>{throw Error('Unexpected external request in deterministic test');});globalThis.caches={default:{match:async()=>Response.json(body,{headers:{'Cache-Control':'public, max-age=14400','x-data-status':'degraded','x-mr-cache-expires-at':String(Date.now()+20000),...(body.country==='Australia'?{'x-mr-calendar-boundary':String(Date.parse(aemoDayClock().next_rollover_at))}:{})}})}};t.after(()=>{delete globalThis.caches;});}
+function cache(t,body) {t.mock.method(globalThis,'fetch',()=>{throw Error('Unexpected external request in deterministic test');});globalThis.caches={default:{match:async()=>Response.json(body,{headers:{'Cache-Control':'public, max-age=14400','x-data-status':'degraded','x-mr-cache-expires-at':String(Date.now()+20000)}})}};t.after(()=>{delete globalThis.caches;});}
 
 test('eight desk directories expose every registered source and stable URLs',()=>{
  const root=catalogue();assert.equal(root.countries.length,8);

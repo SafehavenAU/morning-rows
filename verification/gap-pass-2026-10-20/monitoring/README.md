@@ -5,12 +5,14 @@ scheduled execution, checkpoint write, notification receipt or release approval.
 The existing four-edge review and active approval files were not changed.
 Current enabled scope remains 115 obligations; the original registry remains
 108. The new explicitly reviewed scope
-`nine-desks-plus-claimants-rent-and-daily-history` has 117 obligations and the same
+`nine-desks-plus-claimants-rent-and-daily-history` has 116 obligations and the same
 24 public probes.
 
 Five existing source contracts become typed only in that scope: four Canadian
-StatCan headlines and Wales land transaction tax. AEMO completed-day summaries
-and Bank of Canada dated exchange history add two obligations. Historical
+StatCan headlines and Wales land transaction tax. Bank of Canada dated exchange
+history adds one obligation. AEMO remains a held descriptor after recurring
+actual Worker HTTP 406; no AEMO obligation, approval or public request is added.
+Historical
 native-source reports retain their old availability-only interpretation.
 Structural validity never creates independent numerical approval: each exact
 source version still needs its separate original-data evidence.
@@ -30,29 +32,24 @@ captured response after a daily rollover rejects the old window. The monitor
 reconciles FX observations against its validated source geography, since
 individual FX rows do not repeat it.
 
-AEMO observation versions describe the five derived summaries. A separate
-semantic input digest detects revisions to the 288 interval prices even when
-balanced changes leave every summary unchanged. Acquisition times and file
-hashes do not revise that digest.
+AEMO reader and specimen evidence remain isolated for a future permitted access
+review. The proposed candidate was rolled back after both production domains
+failed this gate. Local validation cannot establish publisher accessibility.
 
 Status output labels the original eight-desk observation window explicitly and
 reports daily-history scheduled evidence separately. A passed legacy window
 cannot make the expanded scope ready or manufacture a delivery receipt.
 
-Reproduce the retained 106 passing tests, without HTTP or checkpoint mutation:
+Reproduce the retained 113 passing tests, without HTTP or checkpoint mutation:
 
 ```sh
-node --test test/monitor-gap-pass.test.js \
-  test/monitor-release-chain.test.js \
-  test/monitor-release-continuations.test.js \
-  test/monitor-claimants.test.js test/monitor-rent.test.js \
-  test/monitor.test.js test/shadow-window.test.js \
-  test/statcan-gdp-monitor.test.js
+node --test test/monitor*.test.js test/statcan-gdp-monitor.test.js
 ```
 
-The first broader local check had two outdated expected staged-source counts;
-both now include the two deliberately staged additions. This did not change
-the original or currently enabled obligation counts.
+`before-aemo-runtime-hold-monitor-tests.tap` preserves the earlier local run.
+Its AEMO fixture checks were never production acceptance. The current controls
+assert the held source is absent from collection and cannot be approved through
+its healthy-looking specimen. All historical active scopes remain unchanged.
 
 ## Actual-capture replay helper
 
@@ -80,7 +77,7 @@ domain. `CAPTURED_AT` must be an actual capture-completion UTC timestamp.
 The exact final review and approvals can be explicit proposal files for a
 clearly labelled offline proof or accepted operations files after release.
 Neither input becomes approved merely by passing this helper. It preserves all
-15 earlier approvals, permits only the seven exact new approvals, revalidates
+15 earlier approvals, permits only the six exact new approvals, revalidates
 the pinned independent references and compares both domains before constructing
 direct and four hypothetical-prefix cases. Its only write is a new evidence
 JSON file; it cannot overwrite inputs or save a checkpoint.

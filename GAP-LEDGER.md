@@ -8,7 +8,7 @@ the readiness assessment below. Production acceptance is still a separate gate.
 
 | Ranked item | Current pass result |
 | --- | --- |
-| 1 AEMO completed day | Implemented; all 576 price cells independently reconciled, protected preview/release gates in progress |
+| 1 AEMO completed day | Reader and 576-cell evidence retained, but activation held: repeated Cloudflare HTTP 406 in both production domains caused the unaccepted promotion to be rolled back |
 | 2 BoC dated FX | Implemented; 38 original currency/date cells independently reconciled, protected preview/release gates in progress |
 | 3 Stats NZ | Eleven of 23 exact cells reconciled; twelve concrete evidence gaps retained. Supported household, fiscal-series and productivity metadata corrected |
 | 4 StatCan headlines | All four existing readers strengthened. Ten provincial unemployment labels were demonstrably wrong; identity-based mapping repairs them. Fourteen values independently reconciled |

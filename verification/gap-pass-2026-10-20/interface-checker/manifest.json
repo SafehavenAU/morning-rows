@@ -1,15 +1,33 @@
 {
-  "kind": "Combined interface validation tooling and constructed-control evidence; no actual requests performed by this agent",
+  "kind": "Six active contract interface tooling after AEMO hold; preserved earlier seven-contract control evidence is history, not current acceptance",
+  "scope": [
+    "canada/exchange_history",
+    "canada/jobs",
+    "canada/price_index",
+    "canada/shop",
+    "canada/homes",
+    "wales/land_transaction_tax"
+  ],
+  "held": [
+    "australia/grid_day"
+  ],
   "tools": {
     "node": "v24.19.0",
     "python": "3.12.14",
     "jsonschema": "4.26.0"
   },
+  "actual_http_performed_by_this_revision": false,
+  "commands": [
+    "node verification/gap-pass-2026-10-20/interface-checker/check-controls.mjs verification/gap-pass-2026-10-20/interface-checker/controls-held-aemo.json",
+    "node --check scripts/check-gap-pass.mjs",
+    "node --check verification/gap-pass-2026-10-20/interface-checker/support.mjs",
+    "git diff --check -- scripts/check-gap-pass.mjs verification/gap-pass-2026-10-20/interface-checker"
+  ],
   "files": [
     {
       "file": "scripts/check-gap-pass.mjs",
-      "bytes": 5245,
-      "sha256": "1b69c1916a84383958c9ec2c920807adaeb0e2bc7f83e8aea5826d364c5a32e6"
+      "bytes": 5115,
+      "sha256": "06072122a3b2525b13401f969f46922083f9943a379ed235aa851c3621c14d5f"
     },
     {
       "file": "scripts/verify-statcan-gdp-captures.py",
@@ -18,13 +36,18 @@
     },
     {
       "file": "verification/gap-pass-2026-10-20/interface-checker/README.md",
-      "bytes": 3892,
-      "sha256": "91b0a2aaa2ad6e4fbeb34ff5752c7316dc4c48094506a386d1017859d820f40a"
+      "bytes": 4430,
+      "sha256": "de49c14698189410750dcb81c56a2c49c1a7bd36424bd732e294e71455a92070"
     },
     {
       "file": "verification/gap-pass-2026-10-20/interface-checker/check-controls.mjs",
-      "bytes": 8791,
-      "sha256": "4c7d6b1327abfcd2d83f0c59547b54b54486b71ddf7c0801ea9af587676228d5"
+      "bytes": 8666,
+      "sha256": "88d1d0a765c39dfb7535d83335dd1da0ad172d46b9a5613f1be8a16e0a9f0f26"
+    },
+    {
+      "file": "verification/gap-pass-2026-10-20/interface-checker/controls-held-aemo.json",
+      "bytes": 6445,
+      "sha256": "9bd207fa160ded9b26f5c49c02d83a5b1d17a3e9729c892c317a432b0edff8f6"
     },
     {
       "file": "verification/gap-pass-2026-10-20/interface-checker/controls-with-schema.json",
@@ -37,9 +60,14 @@
       "sha256": "212b98dba9277ab2227ecac075efc1d7f2f0eb28eeb1fb682302ca9f0bcad55c"
     },
     {
+      "file": "verification/gap-pass-2026-10-20/interface-checker/manifest-before-aemo-hold.json",
+      "bytes": 1992,
+      "sha256": "7d00cdcafa26d8a22b7697e978ad23637d405241e42e9f25af43ab89c2610290"
+    },
+    {
       "file": "verification/gap-pass-2026-10-20/interface-checker/support.mjs",
-      "bytes": 15673,
-      "sha256": "d4acd5eefe61912282a08f58e18d517eb9e61b23760908fa68446d8d25ca9095"
+      "bytes": 14075,
+      "sha256": "64e7319f7c90f1d95a732bac8d3855c689b1657d9af6871875a3367b2a0a8a7a"
     },
     {
       "file": "verification/gap-pass-2026-10-20/interface-checker/verify-captures.mjs",
@@ -48,8 +76,8 @@
     },
     {
       "file": "verification/gap-pass-2026-10-20/interface-checker/verify-schemas.py",
-      "bytes": 6206,
-      "sha256": "963b803e78db2f87f905c05476a83cddf84411663530e25a2887c5a3444a502c"
+      "bytes": 6364,
+      "sha256": "bd5475c85921409a346675f190da174d89cc9614832af78c5739d71030aa2df9"
     }
   ]
 }

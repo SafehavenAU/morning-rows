@@ -8,7 +8,6 @@ import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {references,routes,sha,verifyCapture} from './support.mjs';
-import {readAemoDay} from '../../../lib/aemo-day.js';
 import {bocHistoryWindow,parseBocHistory} from '../../../lib/boc-history.js';
 import {parseStatcanHeadline} from '../../../lib/statcan-headlines.js';
 import {walesTax} from '../../../lib/fiscal-observations.js';
@@ -16,11 +15,10 @@ import {catalogue,INFORMATION_SCHEMA,validateSelection,selectedResponse} from '.
 const root=fileURLToPath(new URL('../../../',import.meta.url)),base=join(root,'verification/gap-pass-2026-10-20');
 const text=path=>readFile(join(base,path),'utf8'),json=async path=>JSON.parse(await text(path));
 const clock='2026-10-20T10:00:00.000Z',revision='a'.repeat(40),version='aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
-const aemo=await readAemoDay({now:()=>clock,fetcher:async url=>new Response(await text(`aemo/original/monthly-${url.includes('_SA1')?'SA1':'VIC1'}-2026-10-19.csv`))});
 const boc=parseBocHistory(await json('boc/original/window.json'),await json('boc/original/latest.json'),bocHistoryWindow(clock));
 const ca={exchange_history:boc};
 for(const source of ['jobs','price_index','shop','homes'])ca[source]=parseStatcanHeadline(source,...await Promise.all(['wds-selected.json','series-metadata.json','cube-metadata.json'].map(f=>json(`statcan/${source}/original/${f}`))));
-const desks={australia:{grid_day:aemo},canada:ca,wales:{land_transaction_tax:walesTax(await readFile(join(root,'test/fixtures/wra-tax.csv'),'utf8'),new Date(clock))}};
+const desks={australia:{},canada:ca,wales:{land_transaction_tax:walesTax(await readFile(join(root,'test/fixtures/wra-tax.csv'),'utf8'),new Date(clock))}};
 for(const [desk,value]of Object.entries(desks)){
  const sources=Object.fromEntries(Object.keys(value).map(key=>[key,{status:'ok',fetched_at:clock}]));
  Object.assign(value,{site:'https://morningrows.com',country:desk[0].toUpperCase()+desk.slice(1),sources,_meta:{schema_version:'1.0',id:`https://morningrows.com/${desk}.json`,catalog:`https://morningrows.com/catalog.json?desk=${desk}`}});
@@ -76,10 +74,11 @@ try{
   ['HEAD payload',r=>r.requests.find(x=>x.method==='HEAD').bytes=1],
   ['conditional wrong ETag',r=>r.requests.find(x=>x.conditional).request_etag='"different"'],
   ['invented missing-date zero',(_,m)=>m('/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-12',b=>{b.data={value:0};})],
-  ['wrong AEMO interval',(_,m)=>m('/australia.json',b=>b.grid_day.regions[0].intervals[17].price+=.01)],
-  ['wrong AEMO day',(_,m)=>m('/australia.json',b=>b.grid_day.calendar_day='2026-10-18')],
-  ['partial AEMO region',(_,m)=>m('/australia.json',b=>b.grid_day.regions.pop())],
-  ['wrong derived AEMO mean',(_,m)=>m('/australia.json',b=>b.grid_day.regions[0].summary.mean+=.01)],
+  ['held AEMO native exposed',(_,m)=>m('/australia.json',b=>b.grid_day={status:'ok'})],
+  ['held AEMO health exposed',(_,m)=>m('/australia.json',b=>b.sources.grid_day={status:'ok'})],
+  ['held AEMO catalog exposed',(_,m)=>m('/catalog.json?desk=australia',b=>b.sources.push({key:'grid_day'}))],
+  ['held AEMO schema exposed',(_,m)=>m('/schema.json',b=>b.$defs.gapAemoNative={type:'object'})],
+  ['held AEMO substituted data',(_,m)=>m('/australia.json?source=grid_day',b=>b.data={status:'ok'})],
   ['wrong FX quote direction',(_,m)=>m('/canada.json',b=>b.exchange_history.rows[0].quote_currency='USD')],
   ['missing FX date',(_,m)=>m('/canada.json',b=>b.exchange_history.rows.splice(0,2))],
   ['silent old FX tail',(_,m)=>m('/canada.json',b=>{b.exchange_history.rows.splice(-2);b.exchange_history.metadata.observation_count-=2;})],
@@ -93,7 +92,7 @@ try{
   ['selected plausible wrong number',(_,m)=>m('/wales.json?source=land_transaction_tax&measure=all_disclosed&observation=2025-26',b=>b.observations[0].value=371)],
   ['selected extra observation',(_,m)=>m('/canada.json?source=price_index&measure=index',b=>b.observations.push(b.observations[0]))],
   ['discovery omission',(_,m)=>m('/catalog.json?desk=canada',b=>b.sources.find(s=>s.key==='jobs').measures.pop())],
-  ['cache crosses AEST day',r=>{const a=r.requests.find(x=>x.path==='/australia.json');a.started_at='2026-10-20T13:59:50.000Z';a.completed_at=a.started_at;}],
+  ['cache crosses UTC day',r=>{const a=r.requests.find(x=>x.path==='/canada.json');a.started_at='2026-10-20T23:59:50.000Z';a.completed_at=a.started_at;}],
  ];
  for(const [label,edit]of controls)await run(label,edit,false);
  const output=process.argv[2];

@@ -16,7 +16,6 @@ import { readClaimantCount } from './lib/claimant-count.js';
 import { readNzMarketRent } from './lib/nz-market-rent.js';
 import { readStatcanGdp } from './lib/statcan-gdp.js';
 import { readStatcanHeadline } from './lib/statcan-headlines.js';
-import { readAemoDay, aemoDayClock } from './lib/aemo-day.js';
 import { readBocHistory } from './lib/boc-history.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
@@ -314,7 +313,7 @@ const LLMS = `# Morning Rows
 
 ## Limits
 
-Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Australia adds SA1/VIC1 wholesale prices for the latest completed fixed-AEST calendar day, with mean, minimum, maximum and negative/zero interval counts. Canada adds dated FXUSDCAD/FXGBPCAD reference rates over a 31-calendar-day window, in CAD per foreign unit; exact-date absence is not carried forward. Local claimant histories remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
+Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Canada adds dated FXUSDCAD/FXGBPCAD reference rates over a 31-calendar-day window, in CAD per foreign unit; exact-date absence is not carried forward. Local claimant histories remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
 
 A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
 
@@ -1137,7 +1136,6 @@ const HOLD_SECONDS = {
 };
 
 function calendarCacheBoundary(path, now) {
-  if (['/australia','/australia.json','/morning.json'].includes(path)) return Date.parse(aemoDayClock(new Date(now)).next_rollover_at);
   if (path === '/canada' || path === '/canada.json') return (Math.floor(now / 86400000) + 1) * 86400000;
   return null;
 }
@@ -1205,6 +1203,7 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "Australia", source: "AEMO completed-day SA1/VIC1 monthly price CSV", status: 406, note: "Held: both regions were refused from the exact production Worker after intermittent preview success on 20 October 2026. No daily summaries are served; the existing grid snapshot remains available." },
         { country: "Australia", source: "Australian Energy Regulator market-statistics discovery page", status: 503, note: "The official directory returned HTTP 503 in the workspace on 17 October 2026. No individual data file was validated; this does not establish a block on all AER datasets.", url: "https://www.aer.gov.au/industry/registers/market-statistics" },
         { country: "Australia", source: "Australian Antarctic Data Centre Macquarie Island AWS", status: "delayed", note: "The public station API reported its latest Macquarie Island observation at 2026-09-14T22:15:10Z when checked on 17 October. Not enabled as current weather; other stations have separate dates.", url: "https://data.aad.gov.au/aws/api/station" },
         { country: "United Kingdom", source: "Electoral Commission 2024 election report discovery page", status: 403, note: "The official report page refused the workspace request. No UK-wide data endpoint was validated; this does not cover all Commission downloads.", url: "https://www.electoralcommission.org.uk/research-reports-and-data/our-reports-and-data-past-elections-and-referendums/report-2024-uk-parliamentary-general-election-and-may-2024-elections" },
@@ -1326,8 +1325,8 @@ const worker = {
     if (url.pathname !== "/australia" && url.pathname !== "/australia.json" && url.pathname !== "/morning.json") {
       return new Response("Not found", { status: 404, headers: { "content-type": "text/plain; charset=utf-8" } });
     }
-    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle(), readHospital(), readRfsIncidents(), readAemoDay()]);
-    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba", "hospital", "rfs_incidents", "grid_day"];
+    const settled = await Promise.allSettled([readGrid(), readQuakes(), readJobs(), readPrice(), readApprovals(), readWage(), readShop(), readPeople(), readSpend(), readWorks(), readService(), readCash(), readAustraliaExchange(), readWorld("AU"), readSpace(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/i2-data.csv"), readAuLaws(), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d3-data.csv"), readRbaTable("https://www.rba.gov.au/statistics/tables/csv/d1-data.csv"), readRbaBundle(), readHospital(), readRfsIncidents()]);
+    const sourceNames = ["grid", "quakes", "jobs", "price", "approvals", "wage", "shop", "people", "spend", "works", "service", "cash", "exchange", "world", "space", "bonds", "commodities", "laws", "money", "credit", "rba", "hospital", "rfs_incidents"];
     const sources = Object.fromEntries(settled.map((result, index) => [sourceNames[index], result.status === "fulfilled" ? { status: hasFailures(result.value) ? "degraded" : "ok", fetched_at: new Date().toISOString() } : { status: "error", fetched_at: new Date().toISOString(), ...describeError(result.reason) }]));
     const [gridResult, quakeResult, jobResult, priceResult, approvalResult, wageResult, shopResult, peopleResult, spendResult, worksResult, serviceResult, cashResult, exchangeResult] = settled;
     const grid = gridResult.status === "fulfilled" ? gridResult.value : [];
@@ -1355,13 +1354,7 @@ const worker = {
     const rba = settled[20].status === "fulfilled" ? settled[20].value : null;
     const hospital = settled[21].status === "fulfilled" ? settled[21].value : { states: [], year: null, ...describeError(settled[21].reason) };
     const rfs_incidents = settled[22].status === "fulfilled" ? settled[22].value : null;
-    let grid_day = settled[23].status === "fulfilled" ? settled[23].value : null;
-    if (grid_day?.status === 'error') sources.grid_day = {...sources.grid_day,status:'error',error:'Neither requested AEMO region has a complete published day'};
-    if (grid_day && grid_day.calendar_day !== aemoDayClock().calendar_day) {
-      grid_day = null;
-      sources.grid_day = {status:'error',fetched_at:new Date().toISOString(),error:'Desk acquisition crossed fixed-AEST midnight; retry for the current completed day'};
-    }
-    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, grid_day, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, rfs_incidents, catalog: CATALOG.sets, also, omitted_sources: [{ source: "ARPANSA UV observations", reason: "Not republished: developer terms restrict redistribution and commercial use without written approval.", terms_url: "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation-monitoring/ultraviolet-radation-data-information" }] };
+    const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, rfs_incidents, catalog: CATALOG.sets, also, omitted_sources: [{ source: "ARPANSA UV observations", reason: "Not republished: developer terms restrict redistribution and commercial use without written approval.", terms_url: "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation-monitoring/ultraviolet-radation-data-information" }] };
     if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body), requestedAt);
     return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }), requestedAt);
   },
