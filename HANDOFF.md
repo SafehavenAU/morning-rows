@@ -8,6 +8,11 @@ Worker `e0224d26-6bcb-4f96-a580-460919a0d195`, and fingerprint
 `7d614e2e78a63fc16f705b67e35ed0438baa7d87`).
 See [the release evidence](verification/us-paid-2026-10-20/README.md).
 
+The first merged-main production-check job exposed a missing dependency install
+before any HTTP checks. [The workflow correction](verification/us-paid-workflow-2026-10-20/README.md)
+installs locked production dependencies in both checker and collector jobs.
+It changes no runtime, schedule, checkpoint or release identity.
+
 The same single BLS series, `CUUR0000SA0`, is available through the USA desk
 and v2 catalogue; the v1 catalogue preserves its eight desks. Three fresh USA
 CPU captures measured **23 / 12 / 13 ms**, passing the **100 ms USA gate**.

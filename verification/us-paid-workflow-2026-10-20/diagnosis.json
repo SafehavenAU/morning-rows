@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-10-20T04:27:29.177734+00:00",
+  "failed_main_check_run": 39369516308,
+  "failed_main_revision": "b15af771ae5126ff0bfc1dfd5c14d6496c583155",
+  "build_job": "success",
+  "production_job": "failed before public HTTP checks",
+  "error_code": "ERR_MODULE_NOT_FOUND",
+  "missing_package": "fflate",
+  "imported_by": "lib/us-cpi-workbook.js",
+  "cause": "Fresh production and collector jobs did not install newly required runtime dependencies; dependencies installed in a separate check job are not shared",
+  "correction": "npm ci --omit=dev after setup-node and before Node entrypoints in check.production and monitor.collect",
+  "validation": {
+    "clean_git_archive": true,
+    "production_only_install": true,
+    "imports": [
+      "lib/information-v2.js",
+      "lib/monitor-contracts.js",
+      "lib/monitor-state.js",
+      "lib/monitor-store.js"
+    ],
+    "import_probe": "pass",
+    "locked_dependencies_sha256": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a"
+  },
+  "scope": {
+    "worker_changed": false,
+    "scheduled_collector_dispatched": false,
+    "schedule_changed": false,
+    "checkpoint_written": false,
+    "notification_acknowledged": false
+  },
+  "hosted_verification": "PR build and merged-main production check required; actual scheduled collector remains on its daily schedule"
+}
