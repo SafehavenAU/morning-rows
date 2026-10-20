@@ -1,0 +1,73 @@
+{
+  "checked_at": "2026-10-20T05:07:30.578905+00:00",
+  "deployment": {
+    "id": "50b64c24-0ccb-4c88-b4da-b2b54592582d",
+    "source": "wrangler",
+    "strategy": "percentage",
+    "annotations": {
+      "workers/message": "Release independently reconciled 13-month national claimant history",
+      "workers/triggered_by": "deployment"
+    },
+    "versions": [
+      {
+        "version_id": "21582063-b7df-456b-ba2f-4f629f9cc63d",
+        "percentage": 100
+      }
+    ],
+    "created_on": "2026-10-20T05:06:59.662392Z"
+  },
+  "candidate": {
+    "checked_at": "2026-10-20T05:00:00.844985+00:00",
+    "source_revision": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+    "source_tree": "ff573ea365ac7ffb679cb25a33ac45c9c0bb7fd0",
+    "source_dirty": false,
+    "build_fingerprint": "5a0a0fe53d5f160c",
+    "worker_version": "21582063-b7df-456b-ba2f-4f629f9cc63d",
+    "created_on": "2026-10-20T04:57:43.304714Z",
+    "runtime": {
+      "compatibility_date": "2026-10-16",
+      "usage_model": "standard",
+      "limits": {
+        "cpu_ms": 1000
+      }
+    },
+    "binding_names_types": [
+      {
+        "name": "STATSNZ_KEY",
+        "type": "secret_text"
+      },
+      {
+        "name": "WORKER_VERSION",
+        "type": "version_metadata"
+      }
+    ],
+    "rollback_identity": {
+      "source_revision": "c6a96283743476af730dc2ff4bd915463e47d03c",
+      "source_dirty": false,
+      "build_fingerprint": "42edef0b385e972f",
+      "worker_version": "e0224d26-6bcb-4f96-a580-460919a0d195"
+    },
+    "git_delivery": "Connected GitHub app; remote tree SHA verified equal to local source tree; exact remote commit object reproduced and verified locally. CLI credential unavailable; no credential changes.",
+    "pr": "https://github.com/SafehavenAU/morning-rows/pull/12",
+    "pull_request_check": {
+      "run_id": 39372308234,
+      "event": "pull_request",
+      "conclusion": "success",
+      "counts_as_scheduled_monitoring": false
+    }
+  },
+  "validation_before_promotion": [
+    "cpu-usa.json",
+    "cpu-legacy.json",
+    "cpu-claimant-repeat.json",
+    "staged-preview/staged-preview-report.json",
+    "staged-preview/semantic-report.json",
+    "claimant-interface-staged/claimant-interface-report.json",
+    "claimant-stage-reconciliation-final.json",
+    "claimant-schema-staged.json",
+    "monitor-transition-prerelease.json"
+  ],
+  "production_acceptance": "pending independent both-domain checks",
+  "source_alerts_enabled": false,
+  "scheduled_cycles_created": 0
+}

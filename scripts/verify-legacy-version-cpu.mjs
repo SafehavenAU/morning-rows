@@ -5,10 +5,11 @@
 import {spawn,execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {readFile,writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
 import {latestDeployment,stagingMatches,identityMatches,PRODUCTION_ORIGINS} from './lib/us-cpu-evidence.mjs';
 import {LEGACY_COUNTRIES,LEGACY_CPU_PATHS,evaluateLegacyCpuEvidence} from './lib/legacy-cpu-evidence.mjs';
 
-const repo='/workspace/morning-rows-us';
+const repo=fileURLToPath(new URL('..',import.meta.url));
 const wrangler='/workspace/.morning-rows-tools/node_modules/.bin/wrangler';
 const env={...process.env,XDG_CONFIG_HOME:'/workspace/.morning-rows-tools/config',WRANGLER_LOG:'log'};
 const [version,output,expectedRevision]=process.argv.slice(2);

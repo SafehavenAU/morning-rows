@@ -1,0 +1,2250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://morningrows.com/schema.json",
+  "title": "Morning Rows catalogue, desk and selected-response contracts",
+  "type": "object",
+  "$defs": {
+    "retrieval": {
+      "type": "object",
+      "required": [
+        "status",
+        "retrieved_at"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "ok",
+            "degraded",
+            "error"
+          ]
+        },
+        "retrieved_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "id",
+        "measure",
+        "value",
+        "value_state",
+        "period",
+        "definition",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "measure": {
+          "type": "string",
+          "format": "uri"
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "value_state": {
+          "enum": [
+            "observed",
+            "suppressed",
+            "missing",
+            "unavailable"
+          ]
+        },
+        "period": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "object"
+        },
+        "version": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher_updated_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "next_expected_update": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "selected": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "id",
+        "retrieval",
+        "data",
+        "observations"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0"
+        },
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source": {
+          "type": "string",
+          "format": "uri"
+        },
+        "data": {
+          "description": "Existing native section, or the selected native row. Null on failed retrieval. Caveats are also retained in context."
+        },
+        "context": {
+          "type": "object"
+        },
+        "retrieval": {
+          "$ref": "#/$defs/retrieval"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observation"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "source"
+            ],
+            "properties": {
+              "source": {
+                "const": "https://morningrows.com/united-kingdom.json?source=claimant_count"
+              }
+            },
+            "not": {
+              "required": [
+                "error"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "context"
+            ],
+            "properties": {
+              "retrieval": {
+                "properties": {
+                  "status": {
+                    "const": "ok"
+                  }
+                }
+              },
+              "context": {
+                "required": [
+                  "definition",
+                  "metadata",
+                  "provenance"
+                ],
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "United Kingdom",
+                      "geography_code": "K02000001",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "K02000001"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  }
+                }
+              },
+              "observations": {
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/claimantObservation"
+                    },
+                    {
+                      "properties": {
+                        "definition": {
+                          "const": {
+                            "id": "claimants",
+                            "name": "Claimant count, all sexes, age 16+",
+                            "geography": "United Kingdom",
+                            "geography_code": "K02000001",
+                            "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                            "unit": "persons",
+                            "adjustment": "not seasonally adjusted",
+                            "kind": "observation",
+                            "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                            "cadence": "monthly",
+                            "rounding": "Nearest five persons",
+                            "dimensions": {
+                              "dataset": "NM_162_1",
+                              "gender": "0",
+                              "age": "0",
+                              "measure": "1",
+                              "measures": "20100",
+                              "geography": "K02000001"
+                            },
+                            "publisher": "Office for National Statistics / Nomis",
+                            "licence": "Open Government Licence v3.0",
+                            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                            "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                            "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                            "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                          }
+                        },
+                        "measure": {
+                          "const": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants"
+                        },
+                        "qualifications": {
+                          "allOf": [
+                            {
+                              "$ref": "#/$defs/claimantRow"
+                            },
+                            {
+                              "properties": {
+                                "geography": {
+                                  "const": "United Kingdom"
+                                },
+                                "geography_code": {
+                                  "const": "K02000001"
+                                },
+                                "dimensions": {
+                                  "properties": {
+                                    "geography": {
+                                      "const": "K02000001"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "id": {
+                      "pattern": "&observation="
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "United Kingdom"
+                            },
+                            "geography_code": {
+                              "const": "K02000001"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "K02000001"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "observations": {
+                      "minItems": 1,
+                      "maxItems": 1
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "minItems": 13,
+                      "maxItems": 13,
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/claimantRow"
+                          },
+                          {
+                            "properties": {
+                              "geography": {
+                                "const": "United Kingdom"
+                              },
+                              "geography_code": {
+                                "const": "K02000001"
+                              },
+                              "dimensions": {
+                                "properties": {
+                                  "geography": {
+                                    "const": "K02000001"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "observations": {
+                      "minItems": 13,
+                      "maxItems": 13
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "source"
+            ],
+            "properties": {
+              "source": {
+                "const": "https://morningrows.com/england.json?source=claimant_count"
+              }
+            },
+            "not": {
+              "required": [
+                "error"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "context"
+            ],
+            "properties": {
+              "retrieval": {
+                "properties": {
+                  "status": {
+                    "const": "ok"
+                  }
+                }
+              },
+              "context": {
+                "required": [
+                  "definition",
+                  "metadata",
+                  "provenance"
+                ],
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "England",
+                      "geography_code": "E92000001",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "E92000001"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  }
+                }
+              },
+              "observations": {
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/claimantObservation"
+                    },
+                    {
+                      "properties": {
+                        "definition": {
+                          "const": {
+                            "id": "claimants",
+                            "name": "Claimant count, all sexes, age 16+",
+                            "geography": "England",
+                            "geography_code": "E92000001",
+                            "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                            "unit": "persons",
+                            "adjustment": "not seasonally adjusted",
+                            "kind": "observation",
+                            "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                            "cadence": "monthly",
+                            "rounding": "Nearest five persons",
+                            "dimensions": {
+                              "dataset": "NM_162_1",
+                              "gender": "0",
+                              "age": "0",
+                              "measure": "1",
+                              "measures": "20100",
+                              "geography": "E92000001"
+                            },
+                            "publisher": "Office for National Statistics / Nomis",
+                            "licence": "Open Government Licence v3.0",
+                            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                            "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                            "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                            "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                          }
+                        },
+                        "measure": {
+                          "const": "https://morningrows.com/england.json?source=claimant_count&measure=claimants"
+                        },
+                        "qualifications": {
+                          "allOf": [
+                            {
+                              "$ref": "#/$defs/claimantRow"
+                            },
+                            {
+                              "properties": {
+                                "geography": {
+                                  "const": "England"
+                                },
+                                "geography_code": {
+                                  "const": "E92000001"
+                                },
+                                "dimensions": {
+                                  "properties": {
+                                    "geography": {
+                                      "const": "E92000001"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "id": {
+                      "pattern": "&observation="
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "England"
+                            },
+                            "geography_code": {
+                              "const": "E92000001"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "E92000001"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "observations": {
+                      "minItems": 1,
+                      "maxItems": 1
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "minItems": 13,
+                      "maxItems": 13,
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/claimantRow"
+                          },
+                          {
+                            "properties": {
+                              "geography": {
+                                "const": "England"
+                              },
+                              "geography_code": {
+                                "const": "E92000001"
+                              },
+                              "dimensions": {
+                                "properties": {
+                                  "geography": {
+                                    "const": "E92000001"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "observations": {
+                      "minItems": 13,
+                      "maxItems": 13
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "source"
+            ],
+            "properties": {
+              "source": {
+                "const": "https://morningrows.com/scotland.json?source=claimant_count"
+              }
+            },
+            "not": {
+              "required": [
+                "error"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "context"
+            ],
+            "properties": {
+              "retrieval": {
+                "properties": {
+                  "status": {
+                    "const": "ok"
+                  }
+                }
+              },
+              "context": {
+                "required": [
+                  "definition",
+                  "metadata",
+                  "provenance"
+                ],
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "Scotland",
+                      "geography_code": "S92000003",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "S92000003"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  }
+                }
+              },
+              "observations": {
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/claimantObservation"
+                    },
+                    {
+                      "properties": {
+                        "definition": {
+                          "const": {
+                            "id": "claimants",
+                            "name": "Claimant count, all sexes, age 16+",
+                            "geography": "Scotland",
+                            "geography_code": "S92000003",
+                            "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                            "unit": "persons",
+                            "adjustment": "not seasonally adjusted",
+                            "kind": "observation",
+                            "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                            "cadence": "monthly",
+                            "rounding": "Nearest five persons",
+                            "dimensions": {
+                              "dataset": "NM_162_1",
+                              "gender": "0",
+                              "age": "0",
+                              "measure": "1",
+                              "measures": "20100",
+                              "geography": "S92000003"
+                            },
+                            "publisher": "Office for National Statistics / Nomis",
+                            "licence": "Open Government Licence v3.0",
+                            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                            "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                            "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                            "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                          }
+                        },
+                        "measure": {
+                          "const": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants"
+                        },
+                        "qualifications": {
+                          "allOf": [
+                            {
+                              "$ref": "#/$defs/claimantRow"
+                            },
+                            {
+                              "properties": {
+                                "geography": {
+                                  "const": "Scotland"
+                                },
+                                "geography_code": {
+                                  "const": "S92000003"
+                                },
+                                "dimensions": {
+                                  "properties": {
+                                    "geography": {
+                                      "const": "S92000003"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "id": {
+                      "pattern": "&observation="
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "Scotland"
+                            },
+                            "geography_code": {
+                              "const": "S92000003"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "S92000003"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "observations": {
+                      "minItems": 1,
+                      "maxItems": 1
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "minItems": 13,
+                      "maxItems": 13,
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/claimantRow"
+                          },
+                          {
+                            "properties": {
+                              "geography": {
+                                "const": "Scotland"
+                              },
+                              "geography_code": {
+                                "const": "S92000003"
+                              },
+                              "dimensions": {
+                                "properties": {
+                                  "geography": {
+                                    "const": "S92000003"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "observations": {
+                      "minItems": 13,
+                      "maxItems": 13
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "source"
+            ],
+            "properties": {
+              "source": {
+                "const": "https://morningrows.com/wales.json?source=claimant_count"
+              }
+            },
+            "not": {
+              "required": [
+                "error"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "context"
+            ],
+            "properties": {
+              "retrieval": {
+                "properties": {
+                  "status": {
+                    "const": "ok"
+                  }
+                }
+              },
+              "context": {
+                "required": [
+                  "definition",
+                  "metadata",
+                  "provenance"
+                ],
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "Wales",
+                      "geography_code": "W92000004",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "W92000004"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  }
+                }
+              },
+              "observations": {
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/claimantObservation"
+                    },
+                    {
+                      "properties": {
+                        "definition": {
+                          "const": {
+                            "id": "claimants",
+                            "name": "Claimant count, all sexes, age 16+",
+                            "geography": "Wales",
+                            "geography_code": "W92000004",
+                            "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                            "unit": "persons",
+                            "adjustment": "not seasonally adjusted",
+                            "kind": "observation",
+                            "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                            "cadence": "monthly",
+                            "rounding": "Nearest five persons",
+                            "dimensions": {
+                              "dataset": "NM_162_1",
+                              "gender": "0",
+                              "age": "0",
+                              "measure": "1",
+                              "measures": "20100",
+                              "geography": "W92000004"
+                            },
+                            "publisher": "Office for National Statistics / Nomis",
+                            "licence": "Open Government Licence v3.0",
+                            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                            "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                            "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                            "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                          }
+                        },
+                        "measure": {
+                          "const": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants"
+                        },
+                        "qualifications": {
+                          "allOf": [
+                            {
+                              "$ref": "#/$defs/claimantRow"
+                            },
+                            {
+                              "properties": {
+                                "geography": {
+                                  "const": "Wales"
+                                },
+                                "geography_code": {
+                                  "const": "W92000004"
+                                },
+                                "dimensions": {
+                                  "properties": {
+                                    "geography": {
+                                      "const": "W92000004"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "id": {
+                      "pattern": "&observation="
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "Wales"
+                            },
+                            "geography_code": {
+                              "const": "W92000004"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "W92000004"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "observations": {
+                      "minItems": 1,
+                      "maxItems": 1
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "minItems": 13,
+                      "maxItems": 13,
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/claimantRow"
+                          },
+                          {
+                            "properties": {
+                              "geography": {
+                                "const": "Wales"
+                              },
+                              "geography_code": {
+                                "const": "W92000004"
+                              },
+                              "dimensions": {
+                                "properties": {
+                                  "geography": {
+                                    "const": "W92000004"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "observations": {
+                      "minItems": 13,
+                      "maxItems": 13
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "source"
+            ],
+            "properties": {
+              "source": {
+                "const": "https://morningrows.com/northern-ireland.json?source=claimant_count"
+              }
+            },
+            "not": {
+              "required": [
+                "error"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "context"
+            ],
+            "properties": {
+              "retrieval": {
+                "properties": {
+                  "status": {
+                    "const": "ok"
+                  }
+                }
+              },
+              "context": {
+                "required": [
+                  "definition",
+                  "metadata",
+                  "provenance"
+                ],
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "Northern Ireland",
+                      "geography_code": "N92000002",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "N92000002"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  }
+                }
+              },
+              "observations": {
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/claimantObservation"
+                    },
+                    {
+                      "properties": {
+                        "definition": {
+                          "const": {
+                            "id": "claimants",
+                            "name": "Claimant count, all sexes, age 16+",
+                            "geography": "Northern Ireland",
+                            "geography_code": "N92000002",
+                            "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                            "unit": "persons",
+                            "adjustment": "not seasonally adjusted",
+                            "kind": "observation",
+                            "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                            "cadence": "monthly",
+                            "rounding": "Nearest five persons",
+                            "dimensions": {
+                              "dataset": "NM_162_1",
+                              "gender": "0",
+                              "age": "0",
+                              "measure": "1",
+                              "measures": "20100",
+                              "geography": "N92000002"
+                            },
+                            "publisher": "Office for National Statistics / Nomis",
+                            "licence": "Open Government Licence v3.0",
+                            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                            "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                            "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                            "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                          }
+                        },
+                        "measure": {
+                          "const": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants"
+                        },
+                        "qualifications": {
+                          "allOf": [
+                            {
+                              "$ref": "#/$defs/claimantRow"
+                            },
+                            {
+                              "properties": {
+                                "geography": {
+                                  "const": "Northern Ireland"
+                                },
+                                "geography_code": {
+                                  "const": "N92000002"
+                                },
+                                "dimensions": {
+                                  "properties": {
+                                    "geography": {
+                                      "const": "N92000002"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "id": {
+                      "pattern": "&observation="
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "data": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "Northern Ireland"
+                            },
+                            "geography_code": {
+                              "const": "N92000002"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "N92000002"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "observations": {
+                      "minItems": 1,
+                      "maxItems": 1
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "minItems": 13,
+                      "maxItems": 13,
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/claimantRow"
+                          },
+                          {
+                            "properties": {
+                              "geography": {
+                                "const": "Northern Ireland"
+                              },
+                              "geography_code": {
+                                "const": "N92000002"
+                              },
+                              "dimensions": {
+                                "properties": {
+                                  "geography": {
+                                    "const": "N92000002"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "observations": {
+                      "minItems": 13,
+                      "maxItems": 13
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "desk": {
+      "type": "object",
+      "required": [
+        "site",
+        "country",
+        "sources",
+        "_meta"
+      ],
+      "properties": {
+        "site": {
+          "const": "https://morningrows.com"
+        },
+        "country": {
+          "enum": [
+            "Australia",
+            "New Zealand",
+            "Canada",
+            "United Kingdom",
+            "England",
+            "Scotland",
+            "Wales",
+            "Northern Ireland"
+          ]
+        },
+        "sources": {
+          "type": "object"
+        },
+        "_meta": {
+          "type": "object",
+          "required": [
+            "schema_version",
+            "id",
+            "catalog"
+          ],
+          "properties": {
+            "schema_version": {
+              "const": "1.0"
+            },
+            "id": {
+              "type": "string",
+              "format": "uri"
+            },
+            "catalog": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "claimant_count": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/claimantNative"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "claimant_count"
+            ]
+          },
+          "then": {
+            "properties": {
+              "country": {
+                "enum": [
+                  "United Kingdom",
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Northern Ireland"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "claimant_count"
+            ],
+            "properties": {
+              "country": {
+                "const": "United Kingdom"
+              },
+              "claimant_count": {
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "claimant_count": {
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "United Kingdom",
+                      "geography_code": "K02000001",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "K02000001"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  },
+                  "rows": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "United Kingdom"
+                            },
+                            "geography_code": {
+                              "const": "K02000001"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "K02000001"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "claimant_count"
+            ],
+            "properties": {
+              "country": {
+                "const": "England"
+              },
+              "claimant_count": {
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "claimant_count": {
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "England",
+                      "geography_code": "E92000001",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "E92000001"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  },
+                  "rows": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "England"
+                            },
+                            "geography_code": {
+                              "const": "E92000001"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "E92000001"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "claimant_count"
+            ],
+            "properties": {
+              "country": {
+                "const": "Scotland"
+              },
+              "claimant_count": {
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "claimant_count": {
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "Scotland",
+                      "geography_code": "S92000003",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "S92000003"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  },
+                  "rows": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "Scotland"
+                            },
+                            "geography_code": {
+                              "const": "S92000003"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "S92000003"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "claimant_count"
+            ],
+            "properties": {
+              "country": {
+                "const": "Wales"
+              },
+              "claimant_count": {
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "claimant_count": {
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "Wales",
+                      "geography_code": "W92000004",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "W92000004"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  },
+                  "rows": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "Wales"
+                            },
+                            "geography_code": {
+                              "const": "W92000004"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "W92000004"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "claimant_count"
+            ],
+            "properties": {
+              "country": {
+                "const": "Northern Ireland"
+              },
+              "claimant_count": {
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "claimant_count": {
+                "properties": {
+                  "definition": {
+                    "const": {
+                      "id": "claimants",
+                      "name": "Claimant count, all sexes, age 16+",
+                      "geography": "Northern Ireland",
+                      "geography_code": "N92000002",
+                      "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+                      "unit": "persons",
+                      "adjustment": "not seasonally adjusted",
+                      "kind": "observation",
+                      "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+                      "cadence": "monthly",
+                      "rounding": "Nearest five persons",
+                      "dimensions": {
+                        "dataset": "NM_162_1",
+                        "gender": "0",
+                        "age": "0",
+                        "measure": "1",
+                        "measures": "20100",
+                        "geography": "N92000002"
+                      },
+                      "publisher": "Office for National Statistics / Nomis",
+                      "licence": "Open Government Licence v3.0",
+                      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                      "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+                      "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+                      "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+                    }
+                  },
+                  "rows": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/claimantRow"
+                        },
+                        {
+                          "properties": {
+                            "geography": {
+                              "const": "Northern Ireland"
+                            },
+                            "geography_code": {
+                              "const": "N92000002"
+                            },
+                            "dimensions": {
+                              "properties": {
+                                "geography": {
+                                  "const": "N92000002"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "catalogue": {
+      "type": "object",
+      "required": [
+        "name",
+        "schema_version"
+      ],
+      "properties": {
+        "name": {
+          "const": "Morning Rows"
+        },
+        "schema_version": {
+          "const": "1.0"
+        },
+        "countries": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8
+        },
+        "sources": {
+          "type": "array"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "countries"
+          ]
+        },
+        {
+          "required": [
+            "sources"
+          ]
+        }
+      ]
+    },
+    "claimantDefinition": {
+      "type": "object",
+      "required": [
+        "id",
+        "geography",
+        "geography_code",
+        "population",
+        "unit",
+        "adjustment",
+        "kind",
+        "period_convention",
+        "cadence",
+        "rounding",
+        "dimensions",
+        "publisher",
+        "licence",
+        "source_url",
+        "revision_policy",
+        "limitations"
+      ],
+      "properties": {
+        "id": {
+          "const": "claimants"
+        },
+        "unit": {
+          "const": "persons"
+        },
+        "adjustment": {
+          "const": "not seasonally adjusted"
+        },
+        "kind": {
+          "const": "observation"
+        },
+        "cadence": {
+          "const": "monthly"
+        },
+        "dimensions": {
+          "type": "object",
+          "required": [
+            "dataset",
+            "gender",
+            "age",
+            "measure",
+            "measures",
+            "geography"
+          ],
+          "properties": {
+            "dataset": {
+              "const": "NM_162_1"
+            },
+            "gender": {
+              "const": "0"
+            },
+            "age": {
+              "const": "0"
+            },
+            "measure": {
+              "const": "1"
+            },
+            "measures": {
+              "const": "20100"
+            },
+            "geography": {
+              "enum": [
+                "K02000001",
+                "E92000001",
+                "S92000003",
+                "W92000004",
+                "N92000002"
+              ]
+            }
+          }
+        }
+      },
+      "enum": [
+        {
+          "id": "claimants",
+          "name": "Claimant count, all sexes, age 16+",
+          "geography": "United Kingdom",
+          "geography_code": "K02000001",
+          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "unit": "persons",
+          "adjustment": "not seasonally adjusted",
+          "kind": "observation",
+          "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+          "cadence": "monthly",
+          "rounding": "Nearest five persons",
+          "dimensions": {
+            "dataset": "NM_162_1",
+            "gender": "0",
+            "age": "0",
+            "measure": "1",
+            "measures": "20100",
+            "geography": "K02000001"
+          },
+          "publisher": "Office for National Statistics / Nomis",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+          "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+          "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+        },
+        {
+          "id": "claimants",
+          "name": "Claimant count, all sexes, age 16+",
+          "geography": "England",
+          "geography_code": "E92000001",
+          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "unit": "persons",
+          "adjustment": "not seasonally adjusted",
+          "kind": "observation",
+          "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+          "cadence": "monthly",
+          "rounding": "Nearest five persons",
+          "dimensions": {
+            "dataset": "NM_162_1",
+            "gender": "0",
+            "age": "0",
+            "measure": "1",
+            "measures": "20100",
+            "geography": "E92000001"
+          },
+          "publisher": "Office for National Statistics / Nomis",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+          "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+          "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+        },
+        {
+          "id": "claimants",
+          "name": "Claimant count, all sexes, age 16+",
+          "geography": "Scotland",
+          "geography_code": "S92000003",
+          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "unit": "persons",
+          "adjustment": "not seasonally adjusted",
+          "kind": "observation",
+          "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+          "cadence": "monthly",
+          "rounding": "Nearest five persons",
+          "dimensions": {
+            "dataset": "NM_162_1",
+            "gender": "0",
+            "age": "0",
+            "measure": "1",
+            "measures": "20100",
+            "geography": "S92000003"
+          },
+          "publisher": "Office for National Statistics / Nomis",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+          "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+          "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+        },
+        {
+          "id": "claimants",
+          "name": "Claimant count, all sexes, age 16+",
+          "geography": "Wales",
+          "geography_code": "W92000004",
+          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "unit": "persons",
+          "adjustment": "not seasonally adjusted",
+          "kind": "observation",
+          "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+          "cadence": "monthly",
+          "rounding": "Nearest five persons",
+          "dimensions": {
+            "dataset": "NM_162_1",
+            "gender": "0",
+            "age": "0",
+            "measure": "1",
+            "measures": "20100",
+            "geography": "W92000004"
+          },
+          "publisher": "Office for National Statistics / Nomis",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+          "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+          "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+        },
+        {
+          "id": "claimants",
+          "name": "Claimant count, all sexes, age 16+",
+          "geography": "Northern Ireland",
+          "geography_code": "N92000002",
+          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "unit": "persons",
+          "adjustment": "not seasonally adjusted",
+          "kind": "observation",
+          "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+          "cadence": "monthly",
+          "rounding": "Nearest five persons",
+          "dimensions": {
+            "dataset": "NM_162_1",
+            "gender": "0",
+            "age": "0",
+            "measure": "1",
+            "measures": "20100",
+            "geography": "N92000002"
+          },
+          "publisher": "Office for National Statistics / Nomis",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+          "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+          "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+        }
+      ]
+    },
+    "claimantRow": {
+      "type": "object",
+      "required": [
+        "period",
+        "value",
+        "value_state",
+        "geography",
+        "geography_code",
+        "unit",
+        "adjustment",
+        "dimensions",
+        "obs_status",
+        "obs_conf"
+      ],
+      "properties": {
+        "period": {
+          "type": "string",
+          "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+        },
+        "value": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "multipleOf": 5
+        },
+        "value_state": {
+          "const": "observed"
+        },
+        "unit": {
+          "const": "persons"
+        },
+        "adjustment": {
+          "const": "not seasonally adjusted"
+        },
+        "obs_status": {
+          "const": "A"
+        },
+        "obs_conf": {
+          "const": "F"
+        },
+        "dimensions": {
+          "type": "object",
+          "required": [
+            "dataset",
+            "gender",
+            "age",
+            "measure",
+            "measures",
+            "geography"
+          ],
+          "properties": {
+            "dataset": {
+              "const": "NM_162_1"
+            },
+            "gender": {
+              "const": "0"
+            },
+            "age": {
+              "const": "0"
+            },
+            "measure": {
+              "const": "1"
+            },
+            "measures": {
+              "const": "20100"
+            }
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "geography": {
+              "const": "United Kingdom"
+            },
+            "geography_code": {
+              "const": "K02000001"
+            },
+            "dimensions": {
+              "properties": {
+                "geography": {
+                  "const": "K02000001"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "geography": {
+              "const": "England"
+            },
+            "geography_code": {
+              "const": "E92000001"
+            },
+            "dimensions": {
+              "properties": {
+                "geography": {
+                  "const": "E92000001"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "geography": {
+              "const": "Scotland"
+            },
+            "geography_code": {
+              "const": "S92000003"
+            },
+            "dimensions": {
+              "properties": {
+                "geography": {
+                  "const": "S92000003"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "geography": {
+              "const": "Wales"
+            },
+            "geography_code": {
+              "const": "W92000004"
+            },
+            "dimensions": {
+              "properties": {
+                "geography": {
+                  "const": "W92000004"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "geography": {
+              "const": "Northern Ireland"
+            },
+            "geography_code": {
+              "const": "N92000002"
+            },
+            "dimensions": {
+              "properties": {
+                "geography": {
+                  "const": "N92000002"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "claimantNative": {
+      "type": "object",
+      "required": [
+        "dataset",
+        "measure",
+        "definition",
+        "rows",
+        "metadata",
+        "source_url",
+        "licence",
+        "provenance"
+      ],
+      "properties": {
+        "dataset": {
+          "const": "NM_162_1"
+        },
+        "measure": {
+          "const": "claimants"
+        },
+        "definition": {
+          "$ref": "#/$defs/claimantDefinition"
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 13,
+          "maxItems": 13,
+          "items": {
+            "$ref": "#/$defs/claimantRow"
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "required": [
+            "count",
+            "first_period",
+            "latest_period"
+          ],
+          "properties": {
+            "count": {
+              "const": 13
+            },
+            "first_period": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            },
+            "latest_period": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            }
+          }
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "licence": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "array"
+        }
+      }
+    },
+    "claimantObservation": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/observation"
+        },
+        {
+          "type": "object",
+          "required": [
+            "source_url",
+            "licence",
+            "qualifications",
+            "publisher_status"
+          ],
+          "properties": {
+            "period": {
+              "type": "string",
+              "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991,
+              "multipleOf": 5
+            },
+            "value_state": {
+              "const": "observed"
+            },
+            "definition": {
+              "$ref": "#/$defs/claimantDefinition"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "licence": {
+              "type": "string"
+            },
+            "qualifications": {
+              "$ref": "#/$defs/claimantRow"
+            },
+            "publisher_status": {
+              "type": "object",
+              "required": [
+                "obs_status",
+                "obs_conf"
+              ],
+              "properties": {
+                "obs_status": {
+                  "const": "A"
+                },
+                "obs_conf": {
+                  "const": "F"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "x-usage": {
+    "selectors": "GET or HEAD. catalogue accepts desk. Desks accept source, measure and observation; observation requires measure; measure requires source. Values are case sensitive. Unknown/duplicate query keys return 400; unknown IDs 404; requested period not currently retained 404; retrieval/representation failure 503.",
+    "compatibility": "Full desks retain existing fields with additive _meta. Native fields are not standardized observations. This schema validates catalogues, full desks and successful opt-in selected responses; error responses are documented separately by their error codes. Additional fields are allowed. Breaking changes require a new major version.",
+    "identity": "Canonical apex JSON URL identifies desk; source selector identifies reader section; measure selector identifies fixed dimensions; observation selector identifies exact source period. IDs never depend on value or array position. These URLs are not permanent observation archives.",
+    "missingness": "Zero is observed. Null is never zero. Suppressed requires explicit evidence; otherwise retain missing/unavailable. Retrieval failure is separate, with no observation fabricated. A source may have successful rows and unavailable rows.",
+    "times": "Observation period is not publication time. published_at is null when unknown. publisher_updated_at retains dataset/upload meaning, not guaranteed first publication. retrieved_at is the retained attempt time, not response render time. next_expected_update is null unless a publication date is established; cache TTL is not cadence.",
+    "revisits": "Weak ETag excludes fetched_at/retrieved_at only, retaining value, period, caveats, publisher version and errors. Compare observation id and version: same id/version unchanged; same id/different version revision or metadata correction; different period newly available observation. Claimant observation versions exclude changing row offsets and source acquisition provenance; their content_version excludes acquisition hashes and publisher response-generation clocks, retained separately in context. A provenance-only ETag change is not a statistical revision. Official release classification requires publisher evidence. No daily-change staleness rule.",
+    "comparison": "Require matching measure definitions, geography, population, units, adjustment and period convention. Unknown adjustment or coverage is a verification gap. Overlapping components and projections must not be added to totals or treated as estimates.",
+    "scope": "Described measures: Stats NZ 23 selections, AIHW 40 cells, Wales projection, NISRA 4 BMI aggregates, BoC 4 currencies, Scotland/NI 6 insolvency measures each, England 9 pharmacy measures, and thirteen monthly claimant counts in each of five UK/nation desks. Claimants are administrative counts, not seasonally adjusted, not unemployment estimates or rates. All other existing sections remain discoverable with native fields and explicit metadata limitations.",
+    "citation": "Cite observation id + version + source_url and period/definition; retain the response for historical audit. Row pointer is a locator in that response, not a stable identity. Publication URLs, methodological caveats and licence are retained in context."
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/selected"
+    },
+    {
+      "$ref": "#/$defs/desk"
+    },
+    {
+      "$ref": "#/$defs/catalogue"
+    }
+  ]
+}

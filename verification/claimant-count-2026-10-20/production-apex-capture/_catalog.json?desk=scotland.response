@@ -1,0 +1,202 @@
+{
+  "name": "Morning Rows",
+  "site": "https://morningrows.com",
+  "schema_version": "1.0",
+  "schema": "https://morningrows.com/schema.json",
+  "auth": "none",
+  "index": "/llms.txt",
+  "id": "https://morningrows.com/catalog.json?desk=scotland",
+  "desk": "Scotland",
+  "records": "https://morningrows.com/scotland.json",
+  "sources": [
+    {
+      "id": "https://morningrows.com/scotland.json?source=claimant_count",
+      "key": "claimant_count",
+      "name": "Administrative claimant count, not seasonally adjusted",
+      "records": "https://morningrows.com/scotland.json?source=claimant_count",
+      "data_pointer": "/claimant_count",
+      "health_pointer": "/sources/claimant_count",
+      "representation": "described_measures",
+      "measure_count": 1,
+      "limits": "Thirteen retained monthly administrative claimant counts, all sexes, age 16+, rounded to five persons and not seasonally adjusted. These are not unemployment estimates, rates or available recruits. National geographies only; no local counts, arbitrary history or substitute months.",
+      "measures": [
+        {
+          "id": "claimants",
+          "name": "Claimant count, all sexes, age 16+",
+          "geography": "Scotland",
+          "unit": "persons",
+          "kind": "observation",
+          "records": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants",
+          "definition": {
+            "id": "claimants",
+            "name": "Claimant count, all sexes, age 16+",
+            "geography": "Scotland",
+            "geography_code": "S92000003",
+            "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+            "unit": "persons",
+            "adjustment": "not seasonally adjusted",
+            "kind": "observation",
+            "period_convention": "Publisher monthly reference-date stock, identified by YYYY-MM; not a monthly sum or mean.",
+            "cadence": "monthly",
+            "rounding": "Nearest five persons",
+            "dimensions": {
+              "dataset": "NM_162_1",
+              "gender": "0",
+              "age": "0",
+              "measure": "1",
+              "measures": "20100",
+              "geography": "S92000003"
+            },
+            "publisher": "Office for National Statistics / Nomis",
+            "licence": "Open Government Licence v3.0",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "source_url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=K02000001,E92000001,S92000003,W92000004,N92000002&date=latestMINUS12-latest&gender=0&age=0&measure=1&measures=20100",
+            "revision_policy": "Previous months and longer histories can be revised. Retain the publisher revision metadata; current values are not a vintage archive.",
+            "limitations": "Administrative claimant stock, not ILO unemployment, a claimant rate or available recruits. Universal Credit eligibility, work-search conditions, rollout, classification and policy changes affect coverage and comparisons; arrangements can differ in Northern Ireland. JSA and relevant UC claimants are combined under the publisher definition; overlapping benefit populations must not be added again. Exact retained national months only; no local areas, seasonal adjustment, missing-to-zero conversion or older-release substitution."
+          },
+          "retained_calendar_slots": 13,
+          "observation_selector": "YYYY-MM",
+          "selection": "Source and measure selections return all thirteen months; an observation selects one exact retained month."
+        }
+      ]
+    },
+    {
+      "id": "https://morningrows.com/scotland.json?source=people",
+      "key": "people",
+      "name": "Population estimates",
+      "records": "https://morningrows.com/scotland.json?source=people",
+      "data_pointer": "/people",
+      "health_pointer": "/sources/people",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/scotland.json?source=job",
+      "key": "job",
+      "name": "Unemployment rate",
+      "records": "https://morningrows.com/scotland.json?source=job",
+      "data_pointer": "/job",
+      "health_pointer": "/sources/job",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/scotland.json?source=next_holiday",
+      "key": "next_holiday",
+      "name": "next holiday",
+      "records": "https://morningrows.com/scotland.json?source=next_holiday",
+      "data_pointer": "/next_holiday",
+      "health_pointer": "/sources/next_holiday",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/scotland.json?source=food_establishments",
+      "key": "food_establishments",
+      "name": "Food hygiene service establishment counts",
+      "records": "https://morningrows.com/scotland.json?source=food_establishments",
+      "data_pointer": "/food_establishments",
+      "health_pointer": "/sources/food_establishments",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/scotland.json?source=bill_stages",
+      "key": "bill_stages",
+      "name": "bill stages",
+      "records": "https://morningrows.com/scotland.json?source=bill_stages",
+      "data_pointer": "/bill_stages",
+      "health_pointer": "/sources/bill_stages",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/scotland.json?source=river_level",
+      "key": "river_level",
+      "name": "river level",
+      "records": "https://morningrows.com/scotland.json?source=river_level",
+      "data_pointer": "/river_level",
+      "health_pointer": "/sources/river_level",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/scotland.json?source=road_traffic",
+      "key": "road_traffic",
+      "name": "road traffic",
+      "records": "https://morningrows.com/scotland.json?source=road_traffic",
+      "data_pointer": "/road_traffic",
+      "health_pointer": "/sources/road_traffic",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/scotland.json?source=company_insolvencies",
+      "key": "company_insolvencies",
+      "name": "company insolvencies",
+      "records": "https://morningrows.com/scotland.json?source=company_insolvencies",
+      "data_pointer": "/company_insolvencies",
+      "health_pointer": "/sources/company_insolvencies",
+      "representation": "described_measures",
+      "measure_count": 6,
+      "measures": [
+        {
+          "id": "total-company-insolvencies",
+          "name": "Total company insolvencies",
+          "geography": "Scotland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/scotland.json?source=company_insolvencies&measure=total-company-insolvencies"
+        },
+        {
+          "id": "compulsory-liquidations",
+          "name": "Compulsory liquidations",
+          "geography": "Scotland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/scotland.json?source=company_insolvencies&measure=compulsory-liquidations"
+        },
+        {
+          "id": "creditors-voluntary-liquidations",
+          "name": "Creditors voluntary liquidations",
+          "geography": "Scotland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/scotland.json?source=company_insolvencies&measure=creditors-voluntary-liquidations"
+        },
+        {
+          "id": "administrations",
+          "name": "Administrations",
+          "geography": "Scotland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/scotland.json?source=company_insolvencies&measure=administrations"
+        },
+        {
+          "id": "company-voluntary-arrangements",
+          "name": "Company voluntary arrangements",
+          "geography": "Scotland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/scotland.json?source=company_insolvencies&measure=company-voluntary-arrangements"
+        },
+        {
+          "id": "administrative-receiverships",
+          "name": "Administrative receiverships",
+          "geography": "Scotland",
+          "unit": "company insolvencies",
+          "kind": "observation",
+          "records": "https://morningrows.com/scotland.json?source=company_insolvencies&measure=administrative-receiverships"
+        }
+      ]
+    }
+  ],
+  "limits": "Only existing selections. No arbitrary history, local claimant counts, rent benchmarks, daily price averages or cross-country comparability is implied. Native sections may have incomplete metadata. Thirteen retained monthly administrative claimant counts, all sexes, age 16+, rounded to five persons and not seasonally adjusted. These are not unemployment estimates, rates or available recruits. National geographies only; no local counts, arbitrary history or substitute months."
+}

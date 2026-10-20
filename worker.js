@@ -12,6 +12,7 @@ import { readHospital, readWalesProjection, readNiChildhoodBmi, readUkActs } fro
 import { readFoodAuthorities, readScottishBills, readCanadianRecalls } from './lib/discovery-feeds.js';
 import { readRfsIncidents, readPupilAbsence, readSepaRiverLevel } from './lib/open-observations.js';
 import { readAssemblyDivisions } from './lib/national-observations.js';
+import { readClaimantCount } from './lib/claimant-count.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -308,7 +309,7 @@ const LLMS = `# Morning Rows
 
 ## Limits
 
-Only the selections listed by each desk are served. Historical FX, local claimant histories, NZ rental benchmarks and completed-day AEMO averages from research are not deployed. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
+Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. Historical FX, local claimant histories, NZ rental benchmarks and completed-day AEMO averages from research are not deployed. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
 
 A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
 
@@ -782,6 +783,7 @@ async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
     job: async () => ({ ...await ons(jobPath), ...meta, unit: "percent" }),
     next_holiday: () => nextHoliday(holidayDivision),
     food_establishments: () => readFoodAuthorities(name),
+    claimant_count: () => readClaimantCount(slug),
     ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel, road_traffic: readScottishTraffic } : {}),
     ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi, assembly_divisions: readAssemblyDivisions } : {}),
     ...(["scotland", "northern-ireland"].includes(slug) ? { company_insolvencies: () => readCompanyInsolvencies(name) } : {}),
@@ -799,7 +801,7 @@ async function readUnitedKingdom() {
     trade: ["/economy/nationalaccounts/balanceofpayments/timeseries/ikbj/pnbp", "GBP million"],
   };
   const tasks = Object.fromEntries(Object.entries(series).map(([name, [path, unit]]) => [name, async () => ({ ...await ons(path), unit, geography: "United Kingdom", source: "Office for National Statistics", licence: "Open Government Licence" })]));
-  const data = await readSections({ ...tasks, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom") });
+  const data = await readSections({ ...tasks, bills: readBills, laws: readUkActs, space: readSpace, food_establishments: () => readFoodAuthorities("United Kingdom"), claimant_count: () => readClaimantCount("united-kingdom") });
   return { site: "https://morningrows.com", country: "United Kingdom", page: "/united-kingdom", ...data, nations: ["/england.json", "/scotland.json", "/wales.json", "/northern-ireland.json"] };
 }
 
@@ -807,6 +809,7 @@ async function readEngland() {
   const onsPoint = async (path, geography, unit) => ({ ...await ons(path), geography, unit, source: "Office for National Statistics", licence: "Open Government Licence" });
   const data = await readSections({
     food_establishments: () => readFoodAuthorities("England"),
+    claimant_count: () => readClaimantCount("england"),
     pupil_absence: readPupilAbsence,
     pharmacies: readPharmacies,
     grid: async () => {

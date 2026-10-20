@@ -1,21 +1,35 @@
 # Operational state — 20 October 2026
 
-The USA CPI reader is released. Both domains match clean source
-`c6a96283743476af730dc2ff4bd915463e47d03c`, Worker
-`e0224d26-6bcb-4f96-a580-460919a0d195`, fingerprint `42edef0b385e972f`.
-The [release evidence](../verification/us-paid-2026-10-20/README.md) records
-three fresh USA CPU captures of **23 / 12 / 13 ms** against the **100 ms gate**,
-a legacy maximum of **292 ms**, and the separate **1,000 ms Worker safety ceiling**.
-Validation passed 187 tests and the build, staged 137 interface / 50 semantic
-checks and nine desk schemas, then settled production 151 checks / 104 requests
-with no revision mismatches and smoke checks 18/18 apex and 17/17 www.
+The national claimant-count reader is deployed on both domains at clean source
+`983904912d512b054ae3a7fa1cd1e6a65c353036`, Worker
+`21582063-b7df-456b-ba2f-4f629f9cc63d`, fingerprint `5a0a0fe53d5f160c`.
+Deployment `50b64c24-0ccb-4c88-b4da-b2b54592582d` promoted it at
+`2026-10-20T05:06:59.662392Z`. The five existing UK/nation desks provide thirteen
+monthly administrative counts, August 2025 through August 2026, all sexes,
+age 16+, persons rounded to five, not seasonally adjusted. These are not
+unemployment estimates or rates. Nine-desk v2 and eight-desk v1 discovery remain.
+See [the release evidence](../verification/claimant-count-2026-10-20/README.md).
+
+Validation passed **231 tests** and the build. Actual CPU measured **25 ms USA**,
+**293 ms maximum across legacy desks**, and **53 ms for a second fresh Northern
+Ireland acquisition**, within the separate 100 ms USA / 500 ms legacy gates and
+unchanged **1,000 ms Worker ceiling**. Both-domain production passed **151 general
+checks / 104 requests** and **366 claimant checks / 112 requests**. Independent
+reconciliation matched 130 national cells with 40 successful selectors and 30
+explicit refusals. Schema verification passed 50 claimant responses / 370 negative
+cases, plus 24 existing-contract responses and 26 BLS slots; 100 semantic checks
+passed. Known intermittent TfL failures were the only production source-state
+changes. Final smoke checks passed **18/18 apex and 17/17 www**. The additional
+apex-only repeat is retained separately and does not count as www evidence.
 
 Maintenance acceptance remains **incomplete**; see `operations/acceptance.json`.
 The latest actual checkpoint is sequence 5 from scheduled run `39341442350`,
 completed `2026-10-19T23:26:10.163Z`, digest
 `665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
-retaining 33 incidents and 36 pending repairs. Two scheduled cycles are verified;
-there is no USA scheduled observation yet. SHADOW retains its actual start
+retaining 33 incidents and 36 pending repairs. Two legacy scheduled cycles are
+verified; there are zero USA or claimant scheduled observations. Actual collection
+under the new release remains pending; constructed replays do not write or reset
+the checkpoint or count as scheduled evidence. SHADOW retains its actual start
 `2026-10-18T23:22:22.161Z`, and the next complete checkpoint deadline is
 `2026-10-21T01:26:10.163Z`. The delivery receipt remains unresolved; do not repeat
 the already-announced test. NZ-PRICES remains blocked on separate official
@@ -23,7 +37,7 @@ evidence for the selected 17 October specimen, and UK CPI remains parked.
 
 ## What runs
 
-The reviewed USA transition lets `node scripts/monitor.mjs` check both health and v1/v2 catalogue pairs and all nine desks in **24 public requests**, concurrency two, reusing desk responses for **109 source obligations**. It takes effect only through an enabled exact-identity review and the existing serialized collection; the latest actual checkpoint above still records the prior eight-desk scope of 20 requests / 108 obligations. Existing 93 described observations plus the five NZ nodes retain their semantic checks, and the USA transition adds the single CPI contract. Native sections receive availability, parse, presence and observed-provenance-loss checks. They are not independently certified by their HTTP status. No collector request needs a publisher key or Cloudflare write access.
+The reviewed two-step release chain preserves the prior eight-desk identity, its USA transition and the subsequent claimant-count transition. It configures `node scripts/monitor.mjs` to check both health and v1/v2 catalogue pairs and all nine desks in **24 public requests**, concurrency two, reusing desk responses for **114 source obligations**. It takes effect only through enabled exact-identity reviews and the existing serialized collection; the latest actual checkpoint above still records the prior eight-desk scope of 20 requests / 108 obligations. Existing 93 described observations plus the five NZ nodes retain their semantic checks. The release chain adds the single USA CPI contract and five national claimant contracts with thirteen exact periods each. It preserves incidents, repairs, outbox and the original SHADOW start; new-scope scheduled evidence is tracked separately and remains absent. Native sections receive availability, parse, presence and observed-provenance-loss checks. They are not independently certified by their HTTP status. No collector request needs a publisher key or Cloudflare write access.
 
 `operations/monitor-policy.json` selects the plan's **daily fallback**, at 23:17 UTC (09:17 Brisbane). Cold preview measurements show substantial publisher fan-out. The bounded Paid CPU samples do not establish publisher capacity for hourly full-desk collection, so the daily cadence is unchanged. This is a slower detection goal, not an hourly service claim. The independent hourly watchdog reads checkpoint evidence instead of repeating the desk sweep. It flags no successful complete collection for 26 hours, corrupt/missing state, or failed workflow/artifact delivery. Seven elapsed shadow days at this cadence require at least eight scheduled complete checkpoints, seven days spanned by their actual completion timestamps, no interval over 26 hours, and genuine delivery evidence. Manual dispatches do not satisfy scheduled-run evidence. Ordinary source alerts remain disabled.
 
@@ -76,7 +90,7 @@ the later Paid release evidence does not rewrite these historical measurements.
 
 The user confirmed disconnecting Morning Rows Workers Builds in this chat on 18 October 2026 (Brisbane). This resolves the previous unsafe push path; the Builds API itself remains 403. GitHub monitoring workflows have read-only repository/actions permissions and no Cloudflare token, deploy command or secret-write command. `check.yml` dry-runs the Worker and checks the reviewed deployed baseline; a documentation/monitor commit is not represented as a production version.
 
-Monitoring changes need no Worker deployment. To stop collection, disable only the monitor workflow; retain its last checkpoint and outbox. To restore collector code, use a reviewed Git revision, preserving checkpoint schema and receipts. The released USA reader's Worker rollback target is `739b9031-305c-4bc7-afc5-79a82c654ac7`, source `7d614e2e78a63fc16f705b67e35ed0438baa7d87`. Do not issue an actual rollback merely to test availability. Routine monitoring does not authorize another reader release, key registration, secret change or publisher contact.
+Monitoring changes need no Worker deployment. To stop collection, disable only the monitor workflow; retain its last checkpoint and outbox. To restore collector code, use a reviewed Git revision, preserving checkpoint schema and receipts. The claimant-count release's Worker rollback target is the prior USA release, `e0224d26-6bcb-4f96-a580-460919a0d195`, source `c6a96283743476af730dc2ff4bd915463e47d03c`, fingerprint `42edef0b385e972f`. The earlier USA release and its own rollback evidence remain in `verification/us-paid-2026-10-20/README.md` and the historical handoff. Do not issue an actual rollback merely to test availability. Routine monitoring does not authorize another reader release, key registration, secret change or publisher contact.
 
 ## Historical remote activation evidence — 18 October 2026
 

@@ -1,0 +1,330 @@
+
+> build
+> npm run check && wrangler deploy --dry-run --outdir dist --config wrangler.toml
+
+
+> check
+> node scripts/build-info.mjs && node --check worker.js && node --test
+
+✔ claimant definition fixes the actual national geography, administrative population and count unit (2.27911ms)
+✔ latest live publisher metadata anchors thirteen months and retains unzoned revisions (5.060489ms)
+✔ all sixty-five independently acquired official JSON cells equal the CSV reader (9.42002ms)
+✔ wrong dimensions, population, geography, flags, record counts and malformed counts fail closed (34.699496ms)
+✔ wrong month labels, stale releases, duplicate and partial cells never substitute (9.070325ms)
+✔ swapped equally revised monthly URNs cannot contradict otherwise complete labels (1.08669ms)
+✔ malformed CSV headers, quoting, UTF field content and truncated records are rejected (2.54277ms)
+✔ invalid, incomplete or inconsistent authoritative metadata cannot approve values (28.961779ms)
+✔ real published zero and a rounded revision remain observed without changing other cells (7.997596ms)
+✔ native representation validation rejects drift after parsing and preserves exact definition (4.463049ms)
+✔ actual reader uses two fixed bounded requests, keeps raw provenance and no generated clock (44.556231ms)
+✔ transport failures, oversize bodies, invalid UTF-8 and partial data remain source errors (9.16619ms)
+✔ readSections isolates claimant failure and retains a successful sibling (1.351212ms)
+✔ five national directories disclose thirteen NSA administrative months without adding a desk (8.562026ms)
+✔ source and measure retain all 65 official cells, fixed meanings and source provenance (119.248375ms)
+✔ every exact month is independently addressable; unretained or incompatible periods are never substituted (61.917136ms)
+✔ wrong dimensions, geography and ignored date selectors explicitly refuse (0.498456ms)
+✔ partial, drifted or suppressed histories fail before any selected observations are returned (3.549324ms)
+✔ rounded observed zero is retained; source failure cannot become zero or hide a successful sibling (3.956232ms)
+✔ acquisition clocks and hashes do not manufacture observation revisions; a revised count changes one stable identity (13.285148ms)
+✔ rolling history preserves unchanged observation versions when native row offsets move (5.731608ms)
+✔ published schema fixes claimant population, dimensions, rounding, cardinality and national boundaries (0.53643ms)
+✔ selected claimant HTTP identities support conditional GET and HEAD without masking failures (33.319958ms)
+✔ food counts keep nation boundaries, zero values, dates and no contacts (2.009553ms)
+✔ food counts reject incomplete snapshots, duplicates and unknown geography (0.451082ms)
+✔ bill stages join exact IDs, omit people, and exclude future or undated stages (0.528297ms)
+✔ recalls retain publisher timestamps and links without descriptions (4.901279ms)
+✔ recalls reject malformed documents and nonofficial links (1.105508ms)
+{"event":"source_failure","source":"food_establishments","status":"error","fetched_at":"2026-10-20T04:53:38.664Z","error":"api.ratings.food.gov.uk returned HTTP 503","http_status":503}
+{"event":"source_failure","source":"people","status":"error","fetched_at":"2026-10-20T04:53:38.626Z","error":"www.ons.gov.uk returned HTTP 503","http_status":503}
+{"event":"source_failure","source":"job","status":"error","fetched_at":"2026-10-20T04:53:38.663Z","error":"www.ons.gov.uk returned HTTP 503","http_status":503}
+{"event":"source_failure","source":"road_traffic","status":"error","fetched_at":"2026-10-20T04:53:38.670Z","error":"www.transport.gov.scot returned HTTP 503","http_status":503}
+{"event":"source_failure","source":"river_level","status":"error","fetched_at":"2026-10-20T04:53:38.669Z","error":"timeseries.sepa.org.uk returned HTTP 503","http_status":503}
+{"event":"source_failure","source":"claimant_count","status":"error","fetched_at":"2026-10-20T04:53:38.668Z","error":"www.nomisweb.co.uk returned HTTP 503","http_status":503}
+{"event":"source_failure","source":"bill_stages","status":"error","fetched_at":"2026-10-20T04:53:38.669Z","error":"data.parliament.scot returned HTTP 503","http_status":503}
+{"event":"source_failure","source":"company_insolvencies","status":"error","fetched_at":"2026-10-20T04:53:38.670Z","error":"www.gov.uk returned HTTP 503","http_status":503}
+✔ WRA keeps inclusive and restricted-detail-excluding totals distinct with financial year and units (2.965923ms)
+✔ WRA rejects suppressed, absent, duplicate, mismatched-unit and incomplete-year observations (1.344698ms)
+✔ insolvency discovery uses latest monthly release and only official CSV attachments (11.820048ms)
+✔ insolvency aggregates retain national scope, monthly period, genuine zero and unadjusted counts (1.619057ms)
+✔ insolvency rejects unavailable latest counts, non-reconciling totals, partial months and bad metadata (3.785409ms)
+✔ new insolvency failure preserves successful national sources (46.438932ms)
+✔ eight desk directories expose every registered source and stable URLs (9.317158ms)
+✔ unsupported filters, duplicate IDs, wrong source and wrong-country measure are rejected (1.00656ms)
+✔ FX reference amount has exact date, quote direction and publisher citation; holiday is not substituted (15.313021ms)
+✔ projection keeps base year, population and kind; incompatible semantics fail (2.258425ms)
+✔ Stats NZ selection retains 23 fixed dimensions, historical labels and projections (9.173605ms)
+✔ partial Stats NZ preserves available rows without fabricated period or identity (3.753145ms)
+✔ held-out iwi estimate is not silently relabelled as the whole NZ population (2.068266ms)
+✔ held-out NI academic year is not a calendar year, units/population/geography cannot drift (4.494499ms)
+✔ same insolvency measure in distinct nations stays distinct, revision/publication dates separate (4.739394ms)
+✔ held-out pharmacy stock and flow retain distinct conventions and overlap notes (5.219559ms)
+✔ AIHW zero, explicit suppression and unavailable are three different states (16.754973ms)
+✔ held-out AIHW jurisdiction selection and retained notes agree with original desk values (3.798652ms)
+✔ observation identity survives revised value; changed period is a new identity; retrieval alone is unchanged (6.194094ms)
+✔ failed selected source is explicit; an unrelated failure does not change its content version (5.1002ms)
+✔ HTTP weak conditional GET, lists, HEAD and failure responses obey representation semantics (55.439434ms)
+✔ actual handler isolates selections sharing a cached full desk and preserves legacy fields (21.906478ms)
+✔ old Australia alias is canonicalized without a redirect and POST is rejected (2.831779ms)
+✔ Canadian reader rejects blank, missing, zero, wrong date and nonnumeric FX cells (2.861087ms)
+✔ recorded AU/NZ also data without a second health registry is a valid fresh response (13.078205ms)
+✔ stale, missing and future top-level source attempts still reject actual AU/NZ shapes (4.684336ms)
+✔ an actual also.sources registry remains mandatory to validate when present (6.486416ms)
+✔ the 500ms gate and original trace, production, staging and identity checks remain enforced (8.670651ms)
+✔ observed ID inversion fails original implementation and selects delivery-test producer after repair (1.540879ms)
+✔ newer failed run without checkpoint blocks normal restoration (0.467574ms)
+✔ only exact reviewed failure can be crossed by explicit manual recovery (1.048982ms)
+✔ failed-attempt evidence must still show no state-producing step or artifacts (0.52862ms)
+✔ unrelated branches, workflows and PR runs cannot select an artifact (0.278514ms)
+✔ run IDs and artifact IDs do not define execution order; conflicting chronology fails (0.487575ms)
+✔ all history pages are read; incomplete or changing history fails closed (0.85688ms)
+✔ an older incomplete execution cannot be hidden by a newer completed producer (0.214992ms)
+✔ expired, missing, duplicate, wrong-revision and wrong-attempt artifacts never fall back (0.909397ms)
+✔ archive corruption and uncompressed malformed state are rejected before restoration (64.566157ms)
+✔ real checkpoint chain preserves notification-only change at unchanged collection sequence (52.058977ms)
+✔ recovery rehearsal copies every field without acknowledging or resetting; existing file cannot be overwritten (28.635515ms)
+✔ bootstrap cannot bypass existing incidents or interrupted upload history (0.547549ms)
+✔ actual restoration adapter rehearses recovery with mocked GitHub and original ZIP, without state changes (860.684765ms)
+✔ five explicit claimant obligations do not silently expand the original or USA monitoring registries (3.5998ms)
+✔ each original national specimen yields 13 exact monthly observations with retrieval-independent versions (87.416648ms)
+✔ acquisition metadata cannot create a claimant revision but changed counts and publisher revision metadata do (92.389754ms)
+✔ wrong national data and partial calendar coverage fail semantically despite healthy transport (2.637483ms)
+✔ a claimant transport error stays local and does not reclassify a successful existing source (2.336193ms)
+✔ collector rejects incompatible or nonboolean scope before making any read (1.182913ms)
+✔ reviewed claimant collection retains nine desks and 24 probes while checking 114 obligations (208.374511ms)
+✔ partial claimant rows are recorded as a semantic source failure while collection and sibling checks survive (48.781882ms)
+✔ claimant missingness is compared with the same exact month, not numeric values in other retained months (24.871439ms)
+✔ retained checkpoint and USA-only review remain exact and independently distinct from constructed runs (2.709981ms)
+✔ one explicitly connected continuation selects the final scope without mutating its review or predecessor (14.755423ms)
+✔ malformed, disconnected, cyclic and nested release continuations fail closed (85.474715ms)
+✔ direct durable-old to final release records both reviewed edges but only one actual collection (12.26338ms)
+✔ an actual scheduled final-scope run starts both new scopes at its own completion only (7.407913ms)
+✔ manual final transition followed by scheduled observation does not repeat its release audit (18.117152ms)
+✔ already-USA predecessor applies only the suffix and preserves existing USA observation history (13.714938ms)
+✔ USA-only review retains its original transition behavior without starting claimant observation (5.998836ms)
+✔ incomplete, wrong-scope, missing-domain and nonexact identity evidence cannot authorize the chain (60.631857ms)
+✔ an enabled continuation cannot certify the intermediate USA release as the final target (6.395227ms)
+✔ unknown durable identity cannot skip into the approved release chain (6.188375ms)
+✔ incomplete collection at the final identity cannot invent new-scope timestamps or another audit (7.80237ms)
+✔ registry covers all 108 unique source obligations including nested England health (1.161611ms)
+✔ all described snapshot sections preserve their actual contracts (40.412771ms)
+✔ wrong geography, units and partial coverage are semantic failures (3.439148ms)
+✔ annual unchanged observations remain valid without advancing independent verification (1.239847ms)
+✔ revisions are pending until exact evidence approval, retrieval alone cannot approve (0.867762ms)
+✔ new period and projection selection rollover are different from a correction (0.733874ms)
+✔ 429 confirmation deduplicates changing transport errors; recovery needs two spaced good probes (1.134252ms)
+✔ failed refresh preserves earlier evidence and a successful sibling (1.195303ms)
+✔ valid suppression stays null, numeric coverage loss persists until reviewed (3.713617ms)
+✔ import honors later recovered NZ state and does not emit old acknowledged failures (1.027812ms)
+✔ one missing domain cannot close an incident or become 108 false outages (0.906371ms)
+✔ duplicate run and persisted notification receipts are idempotent (1.140582ms)
+✔ checkpoint integrity and atomic predecessor protect restarts and stale writers (14.017471ms)
+✔ live process lock rejects overlaps; interrupted temp file does not replace checkpoint (3.004188ms)
+✔ elapsed seven days cannot be manufactured by dense fixture runs (22.692189ms)
+✔ collector HTTP-200 HTML failure is a probe error and preserves other desks (35.531024ms)
+✔ native sources retain observed provenance even without a described semantic contract (0.507321ms)
+✔ persistent domain divergence opens one incident without validating either candidate (0.500885ms)
+✔ clean but unreviewed deployment identity is a release incident (0.384429ms)
+✔ undelivered event survives restart and no delivery claim is manufactured (0.636228ms)
+✔ wrong desk country cannot pass transport success (38.129363ms)
+✔ daily fallback shadow requires seven real elapsed days and scheduled checkpoints (0.837069ms)
+✔ invalid non-main workflow installation does not masquerade as prior monitor state (1.708554ms)
+{"event":"source_failure","source":"deaths","status":"error","fetched_at":"2026-10-20T04:53:39.498Z","error":"Unexpected NRS CSV columns"}
+✔ NRS selects complete latest week with correct ISO boundaries and genuine zeros (2.384217ms)
+✔ NRS rejects partial latest periods, duplicate rows, wrong geography and future weeks (0.795542ms)
+✔ DMO counts unique instruments by class and rejects duplicates, mixed dates and malformed XML (5.240787ms)
+✔ NI counts monthly divisions without personal fields and distinguishes zero from missing response (12.247519ms)
+✔ NI calendar uses London at month rollover and handles leap years (0.51049ms)
+✔ UKHSA selects latest across complete years and keeps reporting delay and valid zero (1.068824ms)
+✔ UKHSA rejects partial pages, wrong dimensions and null latest value without substituting older data (0.489287ms)
+✔ a new national source failure preserves an unrelated successful observation (0.945513ms)
+✔ all five prices agree with separately presented official report, including interim status (24.974915ms)
+✔ rejects missing, suppressed and non-finite prices but preserves numeric zero and negative values (27.230317ms)
+✔ rejects incomplete nodes, missing final/interior periods, duplicate cells and wrong dates (15.557452ms)
+✔ validates named columns and release identity, allowing quoted and reordered fields (4.923836ms)
+✔ latest listed completed day wins, final beats interim on that date, with visible publication lag (1.989634ms)
+✔ NZ daylight saving yields 46 or 50 sequential periods without assuming UTC dates (18.585149ms)
+✔ a failed or invalid newest file never silently falls back to an older release (36.915322ms)
+✔ oversized price bodies are rejected without publishing a partial file (11.03525ms)
+✔ price failure preserves other successful NZ desk sources (17.287516ms)
+{"event":"source_failure","source":"food_establishments","status":"error","fetched_at":"2026-10-20T04:53:39.703Z","error":"api.ratings.food.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"pharmacies","status":"error","fetched_at":"2026-10-20T04:53:39.704Z","error":"opendata.nhsbsa.net returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"claimant_count","status":"error","fetched_at":"2026-10-20T04:53:39.703Z","error":"www.nomisweb.co.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"grid","status":"error","fetched_at":"2026-10-20T04:53:39.705Z","error":"data.elexon.co.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"carbon","status":"error","fetched_at":"2026-10-20T04:53:39.706Z","error":"api.carbonintensity.org.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"job","status":"error","fetched_at":"2026-10-20T04:53:39.707Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"people","status":"error","fetched_at":"2026-10-20T04:53:39.707Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"price_index","status":"error","fetched_at":"2026-10-20T04:53:39.708Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"wage","status":"error","fetched_at":"2026-10-20T04:53:39.708Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"product","status":"error","fetched_at":"2026-10-20T04:53:39.709Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"shop","status":"error","fetched_at":"2026-10-20T04:53:39.709Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"vacancy","status":"error","fetched_at":"2026-10-20T04:53:39.709Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"trade","status":"error","fetched_at":"2026-10-20T04:53:39.709Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"floods","status":"error","fetched_at":"2026-10-20T04:53:39.710Z","error":"environment.data.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"service","status":"error","fetched_at":"2026-10-20T04:53:39.710Z","error":"api.tfl.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"rail","status":"error","fetched_at":"2026-10-20T04:53:39.710Z","error":"api.tfl.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"calendar","status":"error","fetched_at":"2026-10-20T04:53:39.710Z","error":"www.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"quakes","status":"error","fetched_at":"2026-10-20T04:53:39.710Z","error":"quakes.bgs.ac.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"police","status":"error","fetched_at":"2026-10-20T04:53:39.711Z","error":"data.police.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"health","status":"error","fetched_at":"2026-10-20T04:53:39.712Z","error":"www.england.nhs.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"rainfall","status":"error","fetched_at":"2026-10-20T04:53:39.712Z","error":"environment.data.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"rivers","status":"error","fetched_at":"2026-10-20T04:53:39.713Z","error":"environment.data.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"roads","status":"error","fetched_at":"2026-10-20T04:53:39.713Z","error":"api.tfl.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"crime_data_current_to","status":"error","fetched_at":"2026-10-20T04:53:39.714Z","error":"data.police.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"space","status":"error","fetched_at":"2026-10-20T04:53:39.714Z","error":"services.swpc.noaa.gov returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"next_holiday","status":"error","fetched_at":"2026-10-20T04:53:39.715Z","error":"www.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"food_establishments","status":"error","fetched_at":"2026-10-20T04:53:39.715Z","error":"api.ratings.food.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"people","status":"error","fetched_at":"2026-10-20T04:53:39.714Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"job","status":"error","fetched_at":"2026-10-20T04:53:39.714Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"road_traffic","status":"error","fetched_at":"2026-10-20T04:53:39.716Z","error":"www.transport.gov.scot returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"claimant_count","status":"error","fetched_at":"2026-10-20T04:53:39.715Z","error":"www.nomisweb.co.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"bill_stages","status":"error","fetched_at":"2026-10-20T04:53:39.715Z","error":"data.parliament.scot returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"company_insolvencies","status":"error","fetched_at":"2026-10-20T04:53:39.716Z","error":"www.gov.uk returned HTTP 403","http_status":403}
+✔ RFS aggregates without incident names or addresses and retains real zero (5.601783ms)
+✔ RFS exposes delayed publication, rejects malformed, duplicated and future snapshots (1.222465ms)
+✔ education selects latest academic year, England and total schools; never adds overlapping categories (7.254267ms)
+✔ education preserves suppression and unavailable symbols as null, rejecting blank and invalid values (0.599112ms)
+✔ education refuses truncated pages, unexpected dimensions, wrong geography and duplicates (0.355645ms)
+✔ education reader follows the current dataset and sends explicit query selection without credentials (24.403868ms)
+✔ SEPA preserves gauge geography, zero, timestamp and publisher quality code (0.26662ms)
+✔ SEPA rejects missing values, sentinel values, wrong station and changed units (0.23556ms)
+✔ new sources integrate into their desks and failed neighbours remain isolated (30.605438ms)
+✔ pharmacy selection follows publication month and preserves stock/flow timing (2.092135ms)
+✔ pharmacy metadata rejects duplicate releases, missing licence and future months (0.497812ms)
+✔ pharmacies reject partial responses, duplicate months, wrong release and API errors (0.536751ms)
+✔ suppressed pharmacy counts cannot become zero; true zero and negative net changes are valid (0.439947ms)
+✔ pharmacy totals and flows must reconcile (0.245919ms)
+✔ official CSV preserves zeros and rejects suppression, partial rows and untrusted links (0.880178ms)
+{"event":"source_failure","source":"laws","status":"error","fetched_at":"2026-10-20T04:53:39.950Z","error":"Publisher unavailable","http_status":503}
+✔ hospital reader retains periods, zero percentages, suppression and caveats (2.095009ms)
+✔ hospital reader rejects incomplete pagination, duplicate cells and wrong units (0.672682ms)
+✔ hospital fetch requests JSON explicitly rather than relying on runtime defaults (37.587299ms)
+✔ hospital reader selects latest financial year and never fills missing cells from older years (0.557028ms)
+✔ Wales selects current-year all-ages projection, not the first row or end of horizon (1.056657ms)
+✔ NISRA selects all-persons NI national cells at the latest academic year (2.208404ms)
+✔ NISRA missing observations stay missing and malformed cubes fail (3.778462ms)
+✔ Acts feed validates type, retains source dates and omits authors (6.384994ms)
+✔ wrapped source errors retain the upstream HTTP status (2.799988ms)
+✔ offline audit validates the digest, distinguishes missing receipt and never claims independent acceptance (236.953532ms)
+✔ seven days must be spanned by actual scheduled completions (1.799888ms)
+✔ manual collections neither count nor refresh the scheduled deadline (0.505037ms)
+✔ bad chronology, duplicate IDs, missing anchor, future and invalid times fail closed (0.570576ms)
+✔ failed runs, excessive gaps and invalid cadence cannot pass (0.39658ms)
+✔ historical failed schedule before the preserved shadow start does not reset the window (1.235808ms)
+{"event":"source_failure","source":"bad","status":"error","fetched_at":"2026-10-20T04:53:40.056Z","error":"Source response could not be read or parsed"}
+✔ retains successful and legitimately empty event feeds after a source failure (3.357528ms)
+✔ rejects oversized bodies instead of publishing partial data (30.144855ms)
+✔ a nested station failure degrades the section while retaining successful rows (0.329942ms)
+{"event":"source_failure","source":"food_establishments","status":"error","fetched_at":"2026-10-20T04:53:40.102Z","error":"api.ratings.food.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"people","status":"error","fetched_at":"2026-10-20T04:53:40.100Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"job","status":"error","fetched_at":"2026-10-20T04:53:40.101Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"road_traffic","status":"error","fetched_at":"2026-10-20T04:53:40.104Z","error":"www.transport.gov.scot returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"river_level","status":"error","fetched_at":"2026-10-20T04:53:40.104Z","error":"timeseries.sepa.org.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"claimant_count","status":"error","fetched_at":"2026-10-20T04:53:40.103Z","error":"www.nomisweb.co.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"bill_stages","status":"error","fetched_at":"2026-10-20T04:53:40.103Z","error":"data.parliament.scot returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"company_insolvencies","status":"error","fetched_at":"2026-10-20T04:53:40.105Z","error":"www.gov.uk returned HTTP 403","http_status":403}
+✔ bounds concurrent reads and preserves result order (8.633766ms)
+✔ upstream HTTP failures expose status without exposing request headers (1.299468ms)
+✔ blocked ONS data leaves the nation holiday visible (5.163302ms)
+✔ health identity and unknown routes behave without upstream access (6.776467ms)
+{"event":"source_failure","source":"food_establishments","status":"error","fetched_at":"2026-10-20T04:53:40.114Z","error":"api.ratings.food.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"people","status":"error","fetched_at":"2026-10-20T04:53:40.114Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"job","status":"error","fetched_at":"2026-10-20T04:53:40.114Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"road_traffic","status":"error","fetched_at":"2026-10-20T04:53:40.115Z","error":"www.transport.gov.scot returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"river_level","status":"error","fetched_at":"2026-10-20T04:53:40.115Z","error":"timeseries.sepa.org.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"claimant_count","status":"error","fetched_at":"2026-10-20T04:53:40.114Z","error":"www.nomisweb.co.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"bill_stages","status":"error","fetched_at":"2026-10-20T04:53:40.115Z","error":"data.parliament.scot returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"company_insolvencies","status":"error","fetched_at":"2026-10-20T04:53:40.115Z","error":"www.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"next_holiday","status":"error","fetched_at":"2026-10-20T04:53:40.119Z","error":"www.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"food_establishments","status":"error","fetched_at":"2026-10-20T04:53:40.119Z","error":"api.ratings.food.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"people","status":"error","fetched_at":"2026-10-20T04:53:40.119Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"job","status":"error","fetched_at":"2026-10-20T04:53:40.119Z","error":"www.ons.gov.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"road_traffic","status":"error","fetched_at":"2026-10-20T04:53:40.119Z","error":"www.transport.gov.scot returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"river_level","status":"error","fetched_at":"2026-10-20T04:53:40.119Z","error":"timeseries.sepa.org.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"claimant_count","status":"error","fetched_at":"2026-10-20T04:53:40.119Z","error":"www.nomisweb.co.uk returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"bill_stages","status":"error","fetched_at":"2026-10-20T04:53:40.119Z","error":"data.parliament.scot returned HTTP 403","http_status":403}
+{"event":"source_failure","source":"company_insolvencies","status":"error","fetched_at":"2026-10-20T04:53:40.120Z","error":"www.gov.uk returned HTTP 403","http_status":403}
+✔ degraded desk uses short cache; unsupported cache-busting query is explicitly rejected (5.638165ms)
+✔ expired stored response is re-fetched even when cache headers advertise four hours (4.348214ms)
+{"event":"source_failure","source":"Stats NZ","table":"AGR_AGR_001","error":"api.data.stats.govt.nz returned HTTP 403","http_status":403}
+✔ retains DATAFLOW header and selects latest period rather than first row (8.476162ms)
+✔ handles BOM, quoted STRUCTURE header, preamble and escaped quotes (0.268995ms)
+✔ missing, malformed and mismatched columns cannot become observations (0.442166ms)
+✔ does not substitute an earlier figure when the latest is suppressed (0.414428ms)
+✔ ignores future observations and rejects duplicate periods (0.404928ms)
+✔ fixed-year iwi observations retain their period and population group (0.244505ms)
+✔ projection selection never presents the end of the horizon as current (0.300102ms)
+✔ every Stats NZ query selects all non-time dimensions explicitly (0.442447ms)
+✔ one failed table does not erase the other Stats NZ tables or leak credentials (34.133942ms)
+✔ NZ fleet is national, dated, complete and reconciles overlapping totals (3.434178ms)
+✔ NZ rejects incorrect categories, missing counts, wrong vintage and non-reconciling totals (3.278604ms)
+✔ Scottish annual traffic preserves published unit, rounding and statistical status (1.070994ms)
+✔ Scottish traffic rejects missing latest values, changed units, duplicates and wrong totals (1.273176ms)
+✔ XLSX reads shared strings and cached cells without converting errors or suppression to zero (12.775824ms)
+✔ XLSX rejects corrupt archives, external worksheets, entities and excessive expansion (108.221586ms)
+✔ bounded workbook download rejects a body larger than its limit (23.949739ms)
+✔ all selectors and both domains reuse one successful fill; GET/HEAD conditional semantics agree (57.530241ms)
+✔ absolute one-hour expiry beats rewritten cache headers; unchanged re-fetch is 304 (11.167069ms)
+✔ failed refresh and cached error never hide behind previous or failed ETags; recovery retries after 30s (10.284441ms)
+✔ unsupported requests and POST never fetch; unavailable exact month can return unchanged 304 (3.431193ms)
+✔ CPI fingerprints preserve additional properties, qualifications and semantic normalization (162.697464ms)
+✔ CPI table identity and coverage reject substitution and broken boundaries (4.71799ms)
+✔ original aggregate rows reconcile to official release and retain the real October gap (4.232759ms)
+✔ wrong measure/geography/adjustment/base/title cannot masquerade as this national CPI (0.917887ms)
+✔ incomplete, duplicate and future-metadata windows fail without older-release substitution (1.075044ms)
+✔ M13 is not December; December must exist for metadata ending M13 (0.774917ms)
+✔ missing, unavailable, suppression, revision and zero stay distinct (1.786541ms)
+✔ malformed columns, body, numeric cells and ambiguous notes fail closed (1.905103ms)
+✔ bounded transport rejects HTTP, empty, declared/chunked oversize, invalid UTF-8 and abort (47.196655ms)
+✔ real fetch/parser path preserves decimal text and original-file hashes (4.294485ms)
+✔ reader failure remains a failed source with no snapshot fallback (2.461599ms)
+✔ bulk selection keeps exact identifiers, reordered fields and malformed selected records (1.798113ms)
+✔ complete 10 ms CPU evidence requires clean candidate, zero traffic and unchanged production (7.570503ms)
+✔ complete 100 ms CPU evidence requires clean candidate, zero traffic and unchanged production (2.018715ms)
+✔ Paid budget must be explicit and evidence cannot select or mislabel its own budget (0.305319ms)
+✔ unsupported CPU budgets fail before evidence evaluation or CLI remote work (498.655938ms)
+✔ deployment ordering uses timestamps and rejects ambiguous metadata (0.338173ms)
+✔ recorded production health accepts the real header contract without invented headers (8.459023ms)
+✔ v1 preserves eight directories; v2 adds one explicit resource version without upgrading old desks (44.737572ms)
+✔ source/measure/exact observation retain different cardinality and complete qualifications (15.986903ms)
+✔ unsupported geography, units, period convention, series and unretained history refuse before substitution (8.384867ms)
+✔ canonical selectors ignore query ordering and never resolve US as Australia (2.797148ms)
+✔ new retrieval time is unchanged; real value/status correction changes only that observation (6.008553ms)
+✔ malformed semantic cache data is not published as a selected measure (1.668528ms)
+✔ US outage preserves another successful desk and full US remains explicit about failure (10.146ms)
+✔ current discovery, human view, schema and sitemap point to the same bounded US offering (9.782944ms)
+✔ JSON response fast path preserves standard ETags, HEAD and failure semantics (13.783566ms)
+✔ US monitor retains 13 months and known unavailable October without a false outage (2.633247ms)
+✔ US monitor distinguishes real revision, new month, same-month loss and transport failure (15.286446ms)
+✔ reviewed identity transition preserves incidents, repair queue, receipt state and original shadow start (4.502483ms)
+✔ staged nine-desk collection preserves every legacy obligation and checks both catalogues (138.050334ms)
+✔ official table matches all independently extracted values and definitions (6.407456ms)
+✔ wrong dimensions, headers, years, coverage and unavailable values are rejected (4.133841ms)
+✔ real corrections and missing values retain their exact state (1.114012ms)
+✔ actual table transport preserves original hashes and rejects stale table against newest edition (44.770582ms)
+✔ workbook values and qualifications exactly reconcile with separate bulk specimens (15.44616ms)
+✔ latest official linked edition, exact paired series and origin are required (1.670573ms)
+✔ wrong dimensions, sheet, labels and unknown notes fail closed (67.396052ms)
+✔ periods, coverage, formulas, duplicates, suppression and zero cannot pass (47.974497ms)
+✔ corrections survive rounding; missing is explicit and no reason is invented (21.822454ms)
+✔ actual workbook transport hashes original bytes and never falls back on failed newest edition (32.769571ms)
+ℹ tests 231
+ℹ suites 0
+ℹ pass 231
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2687.968199
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProxy environment variables detected. We'll use your proxy for fetch requests.[0m
+
+
+
+ ⛅️ wrangler 4.151.1 (update available 4.151.2)
+───────────────────────────────────────────────
+[custom build] Running: node scripts/build-info.mjs
+Total Upload: 297.66 KiB / gzip: 94.48 KiB
+Your Worker has access to the following bindings:
+Binding                    Resource                     
+env.WORKER_VERSION         Worker Version Metadata      
+
+--dry-run: exiting now.

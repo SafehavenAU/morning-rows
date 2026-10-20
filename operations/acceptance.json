@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-20T04:22:51.119716+00:00",
-  "scope": "Eight existing desks and their original ten task targets, plus separately authorized USA CPI release; broader acceptance incomplete",
+  "updated_at": "2026-10-20T05:10:26.941251+00:00",
+  "scope": "Eight original desks and their original ten task targets, plus separately authorized USA CPI and national claimant history on five existing desks; broader acceptance incomplete",
   "complete": false,
   "worktree": "/workspace/morning-rows-operations",
   "source_base": "7231aab",
@@ -398,7 +398,7 @@
         "verification/operations-2026-10-18/cloudflare-cpu-access.json"
       ],
       "limits": [
-        "CPU and account bill unknown",
+        "Bounded CPU evidence is recorded for final Paid releases; account bill and sustained CPU distribution remain unknown",
         "Publisher quotas unknown",
         "Observed fan-out is not a global upper bound"
       ]
@@ -465,13 +465,21 @@
         "operations/us-release-review.json",
         "verification/us-paid-2026-10-20/monitor-transition-replay.json"
       ]
+    },
+    "source_registry_114": {
+      "state": "114 obligations configured for reviewed claimant release; first actual collection under expanded scope pending",
+      "evidence": [
+        "operations/source-contract-registry.json",
+        "operations/us-release-review.json",
+        "verification/claimant-count-2026-10-20/monitor-transition-replay.json"
+      ]
     }
   },
   "corrections": [
     "Period mismatch risk is in England UK-labelled CPI; UK native section currently contains index only. Shared reader will preserve legacy fields and explicitly qualify both.",
     "Remote main is 2cb3ffd; no Actions workflows/runs installed. Do not push main until Workers Builds delivery safety is established."
   ],
-  "status": "first complete scheduled cycle independently verified; seven-day SHADOW and delivery receipt pending; NZ-PRICES evidence blocked",
+  "status": "Two complete legacy scheduled cycles verified; USA and claimant implementations released; expanded-scope scheduled observation, seven-day SHADOW and delivery pending; NZ-PRICES evidence blocked",
   "bounded_verification_continuation": {
     "task_id": "scheduled-cycle-and-one-verification-gap-2026-10-18",
     "phase": "blocked_external_evidence",
@@ -586,14 +594,25 @@
     ],
     "staging": {
       "complete": true,
-      "candidate_in_active_deployment": true,
-      "traffic_percent": 100,
+      "candidate_in_active_deployment": false,
+      "traffic_percent": 0,
       "final_deployment_id": "916e97b8-e062-4fe9-9a21-a12a8f713fe9",
-      "promoted_at": "2026-10-20T04:16:49.474606Z"
+      "promoted_at": "2026-10-20T04:16:49.474606Z",
+      "historical_note": "The original USA release was100% at its recorded deployment. Claimant release now serves100%; retain original deployment metadata as history."
     },
     "checkpoint_transition": "review enabled in repository only; next normal serialized run must apply it; predecessor sequence5 remains unchanged",
     "us_complete_scheduled_runs": 0,
-    "us_shadow_started_at": null
+    "us_shadow_started_at": null,
+    "superseded_by_compatible_release": {
+      "identity": {
+        "source_revision": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+        "source_dirty": false,
+        "build_fingerprint": "5a0a0fe53d5f160c",
+        "worker_version": "21582063-b7df-456b-ba2f-4f629f9cc63d"
+      },
+      "evidence": "verification/claimant-count-2026-10-20/README.md",
+      "note": "Original USA release evidence retained; CPI reader remains available and passes on the new claimant Worker."
+    }
   },
   "shadow_audit_tooling": {
     "state": "implemented; not operational acceptance",
@@ -601,5 +620,68 @@
     "elapsed_basis": "first through last complete scheduled checkpoint, never the observer clock",
     "independent_evidence": "GitHub provenance, replay continuity, watchdog wake and genuine user delivery reply remain required",
     "scope": "read-only tooling; no checkpoint or notification mutation"
+  },
+  "claimant_count_release": {
+    "task_id": "national-claimant-history-2026-10-20",
+    "phase": "released_observing",
+    "authorization": "User: keep building nopw the account is upgraded",
+    "scope": "13 latest published national monthly claimant counts on United Kingdom, England, Scotland, Wales and Northern Ireland desks; no new country desk",
+    "contract": "verification/claimant-count-2026-10-20/CONTRACT.md",
+    "evidence": "verification/claimant-count-2026-10-20/README.md",
+    "release_accepted": true,
+    "deployed": true,
+    "identity": {
+      "source_revision": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+      "source_dirty": false,
+      "build_fingerprint": "5a0a0fe53d5f160c",
+      "worker_version": "21582063-b7df-456b-ba2f-4f629f9cc63d"
+    },
+    "deployment_id": "50b64c24-0ccb-4c88-b4da-b2b54592582d",
+    "promoted_at": "2026-10-20T05:06:59.662392Z",
+    "accepted_at": "2026-10-20T05:10:26.941251+00:00",
+    "rollback_identity": {
+      "source_revision": "c6a96283743476af730dc2ff4bd915463e47d03c",
+      "source_dirty": false,
+      "build_fingerprint": "42edef0b385e972f",
+      "worker_version": "e0224d26-6bcb-4f96-a580-460919a0d195"
+    },
+    "initial_verified_window": {
+      "first_period": "2025-08",
+      "latest_period": "2026-08",
+      "cells": 65,
+      "production_cells": 130,
+      "separate_NISRA_comparable_cells": 1
+    },
+    "independence_limit": "Nomis CSV, separately acquired JSON and NISRA share administrative lineage; NISRA exact presentation covers one NI cell",
+    "validation": {
+      "node_tests": 231,
+      "general_interface_checks": 151,
+      "claimant_interface_checks": 366,
+      "claimant_schema_documents": 50,
+      "claimant_schema_negatives": 370,
+      "existing_schema_documents": 24,
+      "existing_semantic_checks": 100,
+      "usa_reference_slots": 26,
+      "apex_smoke_checks": 18,
+      "www_smoke_checks": 17,
+      "cold_legacy_max_ms": 293,
+      "fresh_ni_repeat_ms": 53,
+      "usa_cold_ms": 25,
+      "legacy_cpu_gate_ms": 500,
+      "usa_cpu_gate_ms": 100,
+      "worker_cpu_ceiling_ms": 1000
+    },
+    "monitor_obligations": 114,
+    "public_probes": 24,
+    "source_alerts_enabled": false,
+    "checkpoint_mutated": false,
+    "complete_claimant_scheduled_runs": 0,
+    "claimant_shadow_started_at": null,
+    "remaining_operational_gates": [
+      "First actual scheduled collection under reviewed claimant scope",
+      "At least eight complete daily claimant scheduled checkpoints spanning seven elapsed days with no gap over26h",
+      "Genuine delivery receipt and independent original maintenance gates remain unresolved"
+    ],
+    "resume_condition": "Observe the normal serialized daily collector. Routine monitoring does not authorize repeated release or further expansion."
   }
 }

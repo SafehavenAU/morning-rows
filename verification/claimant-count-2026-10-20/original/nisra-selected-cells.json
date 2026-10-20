@@ -1,0 +1,220 @@
+{
+  "source_url": "https://www.nisra.gov.uk/system/files/statistics/2026-09/lmr-claimant-count-tables-september-2026.xlsx",
+  "source_sha256": "f6670eaa786d93646b14a619957fa3b8cc49659bf1e16957f215fc7cbd606119",
+  "workbook_latest_period": "2026-08",
+  "nomis_latest_period": "2026-08",
+  "nomis_csv_sha256": "51b283c07addda72dd7c2d07979267f341bc86e3c23669612132c0eff9ec56c6",
+  "extraction": "Python stdlib zipfile and ElementTree; worksheet relationships and shared strings; no production reader used",
+  "attribution": "NISRA; Crown copyright / Open Government Licence",
+  "selected_cells": {
+    "Cover Sheet": {
+      "A1": "Claimant Count Tables, September 2026",
+      "A5": "The data tables within this spreadsheet were published at 7.00am on 15 September 2026"
+    },
+    "Headline": {
+      "A1": "Claimant Count Northern Ireland (experimental statistics) [notes 2, 3, 4]",
+      "A2": "This worksheet contains 2 tables for seasonally adjusted and non seasonally adjusted statistics presented next to each other horizontally with one blank column in between. Additional notes referenced above can be found on the note worksheet",
+      "A5": "Five week months are denoted by a [2], (r) is revised and (p) is provisional",
+      "I6": "Table 1b: Non seasonally adjusted claimant count by sex in thousands",
+      "I7": "Date",
+      "N7": "Claimant count all people",
+      "I348": "2025 Aug [2]",
+      "N348": "36.767",
+      "I349": "2025 Sep",
+      "N349": "37.531",
+      "I350": "2025 Oct",
+      "N350": "37.427",
+      "I351": "2025 Nov [2]",
+      "N351": "35.916",
+      "I352": "2025 Dec",
+      "N352": "34.314",
+      "I353": "2026 Jan",
+      "N353": "34.346",
+      "I354": "2026 Feb [2]",
+      "N354": "34.858",
+      "I355": "2026 Mar",
+      "N355": "34.616",
+      "I356": "2026 Apr",
+      "N356": "34.685",
+      "I357": "2026 May [2]",
+      "N357": "33.242",
+      "I358": "2026 Jun",
+      "N358": "32.887",
+      "I359": "2026 Jul [r]",
+      "N359": "32.877",
+      "I360": "2026 Aug [p] [2]",
+      "N360": "34.159"
+    },
+    "LGD_11": {
+      "A1": "Table 3a: Claimant Count by Local Government District (LGD) (experimental statistics) [notes 1, 2, 4, 5, 6, 7]",
+      "A4": "This dataset only includes claimant records with information to sufficiently classify them within the dataset.",
+      "A5": "Totals from this dataset may not tally with the total number of claim records shown in Table 1 as a small number of records do not have this information.",
+      "A6": "Totals are rounded to the nearest 5 and may not sum due to rounding. Rates are based on unrounded totals.",
+      "A7": "Local Government District",
+      "D7": "Total number of claimants",
+      "A19": "Northern Ireland",
+      "D19": "34155"
+    },
+    "Notes": {
+      "B3": "The experimental Claimant Count consists of claimants of Jobseekers Allowance (JSA) and some Universal Credit (UC) Claimants. The UC claimants that are included are those claimants of Universal Credit who are required to search for work, i.e. within the Searching for Work conditionality regime as defined by the Department for Communities (DfC).",
+      "B4": "Under certain circumstances, some people are able to claim both contribution-based Jobseekers Allowance and Universal Credit at the same time. We do not currently have timely enough information to identify these individuals prior to producing the Claimant Count. Consequently, there has been a small amount of double counting. Information from DWP suggests this double counting increased at the start of the pandemic and has stabilised at approximately 1.0 to 1.5% of the Claimant Count. We will monitor this rate and provide further updates if the rate shifts outside of these boundaries.",
+      "B5": "Only computerised claims are analysed by age on a monthly basis. The sum of the figures for the age bands will differ from those given in the headline tables. The differences reflect numbers of clerically processed claims which currently amount to less than 1 per cent of the total.",
+      "B7": "The experimental claimant count is subject to revisions as the measure continues to be developed. Due to a change in the methodology used to identify appropriate UC cases, the seasonally adjusted series have been revised back to January 2016, and the non-seasonally adjusted revised back to September 2017.",
+      "B8": "The experimental claimant count series includes all JSA and those UC claimants who were claiming principally for the reason of being unemployed. The estimates are based on the UC information available at the time of producing each figure and revised one month after initial publication. The residence-based rate is calculated by expressing the numbers of claimants as a percentage of the resident working age population (16-64) at mid 2022. Universal credit rollout timetable is available on the NI Direct website on the link below",
+      "B10": "The methodology used to map small area geographies within the Claimant Count changed from COA2011 to DZ2021 starting with data for January 2026, released in February 2026. The overall totals are not affected, however numbers for individual geography areas have changed, meaning that data up to December 2025 and from January 2026 onwards are not directly comparable. This change has also resulted in three Super Output Areas (Donard_2, Strand_1_Coleraine and Ballyduff_2) no longer being used in the Claimant Count tables from January 2026 onwards, however they have been left in the tables and set to 0 for completeness."
+    }
+  },
+  "exact_comparisons": [
+    {
+      "period": "2026-08",
+      "geography": "Northern Ireland",
+      "nisra_cell": "LGD_11!D19",
+      "nisra_value": 34155,
+      "nomis_value": 34155,
+      "difference": 0,
+      "unit": "people, rounded to nearest 5",
+      "adjustment": "not seasonally adjusted",
+      "coverage": "Geographically classified claimant records; records without sufficient geography can be excluded",
+      "pass": true
+    }
+  ],
+  "headline_context": [
+    {
+      "period": "2025-08",
+      "period_cell": "I348",
+      "value_cell": "N348",
+      "raw_thousands": "36.767",
+      "count": 36767,
+      "nomis_geographically_classified_rounded_5": 36765,
+      "difference": 2,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2025-09",
+      "period_cell": "I349",
+      "value_cell": "N349",
+      "raw_thousands": "37.531",
+      "count": 37531,
+      "nomis_geographically_classified_rounded_5": 37530,
+      "difference": 1,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2025-10",
+      "period_cell": "I350",
+      "value_cell": "N350",
+      "raw_thousands": "37.427",
+      "count": 37427,
+      "nomis_geographically_classified_rounded_5": 37425,
+      "difference": 2,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2025-11",
+      "period_cell": "I351",
+      "value_cell": "N351",
+      "raw_thousands": "35.916",
+      "count": 35916,
+      "nomis_geographically_classified_rounded_5": 35915,
+      "difference": 1,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2025-12",
+      "period_cell": "I352",
+      "value_cell": "N352",
+      "raw_thousands": "34.314",
+      "count": 34314,
+      "nomis_geographically_classified_rounded_5": 34315,
+      "difference": -1,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2026-01",
+      "period_cell": "I353",
+      "value_cell": "N353",
+      "raw_thousands": "34.346",
+      "count": 34346,
+      "nomis_geographically_classified_rounded_5": 34355,
+      "difference": -9,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2026-02",
+      "period_cell": "I354",
+      "value_cell": "N354",
+      "raw_thousands": "34.858",
+      "count": 34858,
+      "nomis_geographically_classified_rounded_5": 34865,
+      "difference": -7,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2026-03",
+      "period_cell": "I355",
+      "value_cell": "N355",
+      "raw_thousands": "34.616",
+      "count": 34616,
+      "nomis_geographically_classified_rounded_5": 34615,
+      "difference": 1,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2026-04",
+      "period_cell": "I356",
+      "value_cell": "N356",
+      "raw_thousands": "34.685",
+      "count": 34685,
+      "nomis_geographically_classified_rounded_5": 34695,
+      "difference": -10,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2026-05",
+      "period_cell": "I357",
+      "value_cell": "N357",
+      "raw_thousands": "33.242",
+      "count": 33242,
+      "nomis_geographically_classified_rounded_5": 33250,
+      "difference": -8,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2026-06",
+      "period_cell": "I358",
+      "value_cell": "N358",
+      "raw_thousands": "32.887",
+      "count": 32887,
+      "nomis_geographically_classified_rounded_5": 32895,
+      "difference": -8,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2026-07",
+      "period_cell": "I359",
+      "value_cell": "N359",
+      "raw_thousands": "32.877",
+      "count": 32877,
+      "nomis_geographically_classified_rounded_5": 32885,
+      "difference": -8,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    },
+    {
+      "period": "2026-08",
+      "period_cell": "I360",
+      "value_cell": "N360",
+      "raw_thousands": "34.159",
+      "count": 34159,
+      "nomis_geographically_classified_rounded_5": 34155,
+      "difference": 4,
+      "comparison_kind": "context_only_different_geographical_classification_and_rounding"
+    }
+  ],
+  "limitations": [
+    "One directly comparable official NI observation is reconciled; 13 headline cells are context, not 13 like-for-like matches or confirmation of matching revision vintages.",
+    "Headline table 1b counts include a different geography-classification boundary and are published as unrounded counts in thousands. Do not force their agreement with geographically classified rounded counts.",
+    "NISRA and Nomis share upstream administrative statistical lineage. The workbook is an independent extraction and presentation, not an independent population enumeration.",
+    "September workbook published 15 September 2026; latest observation August 2026. Do not silently substitute later-vintage values.",
+    "NISRA claimant count is administrative JSA and relevant UC count, not ILO unemployment or a count of available recruits."
+  ]
+}
