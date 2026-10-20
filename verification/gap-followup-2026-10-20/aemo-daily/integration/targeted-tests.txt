@@ -1,0 +1,59 @@
+✔ AEMO directory has ten bounded definitions alongside original grid (5.210662ms)
+✔ native source, measure and exact selectors resolve all ten numeric summary pointers (908.429285ms)
+✔ exact dates refuse adjacent/current/future periods and invalid dates distinctly (51.001603ms)
+✔ public adapters use current request clock and reject stale cache even if acquisition was valid (4.982177ms)
+✔ failed SA region keeps all five VIC observations and explicit missing-measure records (535.5015ms)
+✔ bad native metadata and source failures never produce selected observations (11.21152ms)
+✔ reacquisition is not a statistical revision; price revision changes only affected derived values (503.905219ms)
+✔ inventory exposes the reviewed daily AEMO source while keeping legacy grid and dated FX (2.022786ms)
+✔ canada/exchange_history: definitions, cells and selected rows retain exact source identities (21.776042ms)
+✔ canada/exchange_history: missing or invalid public clocks cannot bypass native validation (0.634339ms)
+✔ canada/jobs: definitions, cells and selected rows retain exact source identities (22.22249ms)
+✔ canada/jobs: missing or invalid public clocks cannot bypass native validation (0.312391ms)
+✔ canada/price_index: definitions, cells and selected rows retain exact source identities (0.776845ms)
+✔ canada/price_index: missing or invalid public clocks cannot bypass native validation (0.399299ms)
+✔ canada/shop: definitions, cells and selected rows retain exact source identities (0.597873ms)
+✔ canada/shop: missing or invalid public clocks cannot bypass native validation (0.32205ms)
+✔ canada/homes: definitions, cells and selected rows retain exact source identities (0.926997ms)
+✔ canada/homes: missing or invalid public clocks cannot bypass native validation (0.201462ms)
+✔ wales/land_transaction_tax: definitions, cells and selected rows retain exact source identities (1.145971ms)
+✔ wales/land_transaction_tax: missing or invalid public clocks cannot bypass native validation (0.250559ms)
+✔ FX source and measure arrays preserve every published pair; exact date is one row (3.327346ms)
+✔ FX latest-anchor mismatch is refused before any selected rows are returned (0.892941ms)
+✔ StatCan source data and original row qualifiers remain intact with stable native pointers (9.993757ms)
+✔ WRA overlapping coverage is selected by identity even after native row reordering (0.501464ms)
+✔ semantic content excludes acquisition-only changes but preserves release and revision qualifiers (2.576631ms)
+✔ existing gap native schemas reject plausible wrong answers independently of the AEMO installer (3067.618565ms)
+ℹ 12 valid native cases; 75 rejected mutations
+✔ actual selected responses enforce source identity, typed observations and exact qualification definitions (2579.160852ms)
+ℹ 46 valid actual selected responses; 101 rejected mutations
+✔ AEMO selection refuses incomplete unvalidated native data (2.915705ms)
+✔ FX selectors distinguish a missing publication date, an unretained date and a failed source (46.075305ms)
+✔ rolling FX bounds and acquisition clocks do not revise unchanged individual observations (8.551965ms)
+✔ StatCan exact geography identities and quarterly housing remain qualified in selections (19.693964ms)
+✔ WRA exact selection keeps four overlapping identities and refuses altered meaning (6.915392ms)
+✔ Stats NZ metadata retains exact selected codes while exposing household and fiscal boundaries (0.734929ms)
+✔ Canada handler preserves four latest pairs and legacy fields while validating dated FX and all four headlines (78.660212ms)
+✔ wrong jobs identity and dated-FX failure leave legacy FX, GDP and other headline sources intact (15.56381ms)
+✔ Australia keeps its five-region snapshot and advertises only the bounded daily-bundle contract (455.184891ms)
+✔ Canada fresh responses and selected-cache responses expire at UTC midnight (39.23091ms)
+✔ calendar cache without its explicit boundary is a miss (18.859329ms)
+✔ Australia cached aliases expire at fixed-AEST midnight even if their ordinary expiry is extended (282.767524ms)
+✔ Australia calendar cache without an explicit boundary cannot serve a retained old day (379.529928ms)
+▶ a complete desk crossing its calendar boundary refuses the old daily source and is not cached
+  ✔ /canada.json (21.460481ms)
+  ✔ /australia.json (12.39235ms)
+✔ a complete desk crossing its calendar boundary refuses the old daily source and is not cached (34.824532ms)
+▶ Australia refuses a stale completed day if conditional-response hashing crosses midnight
+  ✔ /australia.json (220.721798ms)
+  ✔ /australia.json?source=grid_day&measure=SA1.mean (252.008527ms)
+✔ Australia refuses a stale completed day if conditional-response hashing crosses midnight (473.995387ms)
+✔ public Australia cache TTL accounts for response hashing before the boundary (195.046536ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 47
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5781.73519

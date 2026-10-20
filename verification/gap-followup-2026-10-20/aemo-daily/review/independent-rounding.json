@@ -1,0 +1,4743 @@
+{
+  "pass": true,
+  "kind": "Independent stdlibZIP/CSV/Decimal full-original review",
+  "input_files": [
+    {
+      "file": "verification/gap-followup-2026-10-20/aemo-daily/original/public-prices-definition.yaml",
+      "bytes": 40606,
+      "sha256": "da76ccbff14d3b5c0126b63c2cbb2b1f6a149c2ba23e6129c7ade7b75790d3ed",
+      "DREGION2_fields": 124,
+      "DREGION3_fields": 134
+    },
+    {
+      "file": "verification/gap-followup-2026-10-20/aemo-daily/original/PUBLIC_PRICES_202610180000_20261019040502.zip",
+      "bytes": 254309,
+      "sha256": "d4f41531f9d1deb496270c02bdf2542cba9ea65443d4cf0167d9b9a43aece03f",
+      "csv_bytes": 1109187,
+      "csv_sha256": "2a3ae73d5cc6673769fcab5267aad9827330070ecc6f2ec334045c56676c0bd8",
+      "report_generated_raw": "2026/10/19 04:05:02",
+      "report_records": 2884
+    },
+    {
+      "file": "verification/gap-followup-2026-10-20/aemo-daily/original/PUBLIC_PRICES_202610190000_20261020040503.zip",
+      "bytes": 260373,
+      "sha256": "f67a8dd7b89f1c94544aa23192f7f29896926a2ba541c098e6a5e30fe57729b9",
+      "csv_bytes": 1118267,
+      "csv_sha256": "633d8fad4d671deb268cec3dc4648f09b2de67c6e9c82851417d171712b206b0",
+      "report_generated_raw": "2026/10/20 04:05:03",
+      "report_records": 2884
+    },
+    {
+      "file": "verification/gap-pass-2026-10-20/aemo/original/monthly-SA1-2026-10-19.csv",
+      "bytes": 12791,
+      "sha256": "f816ed96490add2089879dec218cb2a72c52b34e3e1f207c28c4fb079758efc3"
+    },
+    {
+      "file": "verification/gap-pass-2026-10-20/aemo/original/monthly-VIC1-2026-10-19.csv",
+      "bytes": 13193,
+      "sha256": "d502e515da90a6c55ba71c7bc4d38a35ed77e0fb9e4a91c44c7911daca498d37"
+    }
+  ],
+  "calendar_day": "2026-10-19",
+  "intervals_per_region": 288,
+  "exact_cent_comparisons": 576,
+  "layout_numeric_agreement_count": 576,
+  "tolerance_after_rounding": "0",
+  "rounding": "Per-interval cents ROUND_HALF_UP (half away from zero) before summaries and sign counts",
+  "summaries": [
+    {
+      "region": "SA1",
+      "mean": "6.73",
+      "minimum": "-169.96",
+      "maximum": "95.76",
+      "negative_count": 189,
+      "zero_count": 2,
+      "interval_count": 288,
+      "cent_sum": "1938.58"
+    },
+    {
+      "region": "VIC1",
+      "mean": "-7.80",
+      "minimum": "-44.47",
+      "maximum": "75.18",
+      "negative_count": 206,
+      "zero_count": 9,
+      "interval_count": 288,
+      "cent_sum": "-2247.67"
+    }
+  ],
+  "rounding_controls": [
+    {
+      "raw": "0.00499",
+      "rounded": "0.00",
+      "negative_after_rounding": false,
+      "zero_after_rounding": true
+    },
+    {
+      "raw": "-0.00499",
+      "rounded": "-0.00",
+      "negative_after_rounding": false,
+      "zero_after_rounding": true
+    },
+    {
+      "raw": "0.005",
+      "rounded": "0.01",
+      "negative_after_rounding": false,
+      "zero_after_rounding": false
+    },
+    {
+      "raw": "-0.005",
+      "rounded": "-0.01",
+      "negative_after_rounding": true,
+      "zero_after_rounding": false
+    },
+    {
+      "raw": "1.005",
+      "rounded": "1.01",
+      "negative_after_rounding": false,
+      "zero_after_rounding": false
+    },
+    {
+      "raw": "-1.005",
+      "rounded": "-1.01",
+      "negative_after_rounding": true,
+      "zero_after_rounding": false
+    },
+    {
+      "raw": "3E-05",
+      "rounded": "0.00",
+      "negative_after_rounding": false,
+      "zero_after_rounding": true
+    },
+    {
+      "raw": "-3E-05",
+      "rounded": "-0.00",
+      "negative_after_rounding": false,
+      "zero_after_rounding": true
+    }
+  ],
+  "mean_tie_controls_pass": true,
+  "round_before_sign_control_pass": true,
+  "runtime_comparison": {
+    "cells": 576,
+    "derived_measures": 10,
+    "pass": true,
+    "capture_sha256": "c7af4ccf96b77a00961476f5c3cffd8bcf1c53b6d8f404958ea26702a9e62945",
+    "meaning": "Local pure parser comparison only; no access/resource/release acceptance"
+  },
+  "observations": [
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:05:00+10:00",
+      "raw": "2.09",
+      "layout2_raw": "2.09",
+      "rounded": "2.09",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:10:00+10:00",
+      "raw": "26.12197",
+      "layout2_raw": "26.12197",
+      "rounded": "26.12",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:15:00+10:00",
+      "raw": "6.6",
+      "layout2_raw": "6.6",
+      "rounded": "6.60",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:20:00+10:00",
+      "raw": "2.09",
+      "layout2_raw": "2.09",
+      "rounded": "2.09",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:25:00+10:00",
+      "raw": "6.6",
+      "layout2_raw": "6.6",
+      "rounded": "6.60",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:30:00+10:00",
+      "raw": "28.53692",
+      "layout2_raw": "28.53692",
+      "rounded": "28.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:35:00+10:00",
+      "raw": "14.15",
+      "layout2_raw": "14.15",
+      "rounded": "14.15",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:40:00+10:00",
+      "raw": "2.09",
+      "layout2_raw": "2.09",
+      "rounded": "2.09",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:45:00+10:00",
+      "raw": "-0.71023",
+      "layout2_raw": "-0.71023",
+      "rounded": "-0.71",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:50:00+10:00",
+      "raw": "-0.73482",
+      "layout2_raw": "-0.73482",
+      "rounded": "-0.73",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T00:55:00+10:00",
+      "raw": "0.5",
+      "layout2_raw": "0.5",
+      "rounded": "0.50",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:00:00+10:00",
+      "raw": "0.5",
+      "layout2_raw": "0.5",
+      "rounded": "0.50",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:05:00+10:00",
+      "raw": "-1.12",
+      "layout2_raw": "-1.12",
+      "rounded": "-1.12",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:10:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:15:00+10:00",
+      "raw": "-1.13",
+      "layout2_raw": "-1.13",
+      "rounded": "-1.13",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:20:00+10:00",
+      "raw": "0.5",
+      "layout2_raw": "0.5",
+      "rounded": "0.50",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:25:00+10:00",
+      "raw": "-4.22",
+      "layout2_raw": "-4.22",
+      "rounded": "-4.22",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:30:00+10:00",
+      "raw": "-4.22",
+      "layout2_raw": "-4.22",
+      "rounded": "-4.22",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:35:00+10:00",
+      "raw": "-4.22",
+      "layout2_raw": "-4.22",
+      "rounded": "-4.22",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:40:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:45:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:50:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T01:55:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:00:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:05:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:10:00+10:00",
+      "raw": "-4.32",
+      "layout2_raw": "-4.32",
+      "rounded": "-4.32",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:15:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:20:00+10:00",
+      "raw": "-7.09989",
+      "layout2_raw": "-7.09989",
+      "rounded": "-7.10",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:25:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:30:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:35:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:40:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:45:00+10:00",
+      "raw": "-4.32",
+      "layout2_raw": "-4.32",
+      "rounded": "-4.32",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:50:00+10:00",
+      "raw": "-4.32",
+      "layout2_raw": "-4.32",
+      "rounded": "-4.32",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T02:55:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:00:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:05:00+10:00",
+      "raw": "-4.22",
+      "layout2_raw": "-4.22",
+      "rounded": "-4.22",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:10:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:15:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:20:00+10:00",
+      "raw": "-4.22",
+      "layout2_raw": "-4.22",
+      "rounded": "-4.22",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:25:00+10:00",
+      "raw": "-4.32",
+      "layout2_raw": "-4.32",
+      "rounded": "-4.32",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:30:00+10:00",
+      "raw": "-4.32",
+      "layout2_raw": "-4.32",
+      "rounded": "-4.32",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:35:00+10:00",
+      "raw": "-4.22",
+      "layout2_raw": "-4.22",
+      "rounded": "-4.22",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:40:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:45:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:50:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T03:55:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:00:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:05:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:10:00+10:00",
+      "raw": "-1.13",
+      "layout2_raw": "-1.13",
+      "rounded": "-1.13",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:15:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:20:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:25:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:30:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:35:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:40:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:45:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:50:00+10:00",
+      "raw": "-4.21992",
+      "layout2_raw": "-4.21992",
+      "rounded": "-4.22",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T04:55:00+10:00",
+      "raw": "-4.04535",
+      "layout2_raw": "-4.04535",
+      "rounded": "-4.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:00:00+10:00",
+      "raw": "-4.04535",
+      "layout2_raw": "-4.04535",
+      "rounded": "-4.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:05:00+10:00",
+      "raw": "-4.04535",
+      "layout2_raw": "-4.04535",
+      "rounded": "-4.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:10:00+10:00",
+      "raw": "-5.63374",
+      "layout2_raw": "-5.63374",
+      "rounded": "-5.63",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:15:00+10:00",
+      "raw": "-4.04535",
+      "layout2_raw": "-4.04535",
+      "rounded": "-4.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:20:00+10:00",
+      "raw": "-4.04535",
+      "layout2_raw": "-4.04535",
+      "rounded": "-4.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:25:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:30:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:35:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:40:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:45:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:50:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T05:55:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:00:00+10:00",
+      "raw": "-1.14",
+      "layout2_raw": "-1.14",
+      "rounded": "-1.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:05:00+10:00",
+      "raw": "-2.01888",
+      "layout2_raw": "-2.01888",
+      "rounded": "-2.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:10:00+10:00",
+      "raw": "4.32486",
+      "layout2_raw": "4.32486",
+      "rounded": "4.32",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:15:00+10:00",
+      "raw": "-2.50056",
+      "layout2_raw": "-2.50056",
+      "rounded": "-2.50",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:20:00+10:00",
+      "raw": "0.79549",
+      "layout2_raw": "0.79549",
+      "rounded": "0.80",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:25:00+10:00",
+      "raw": "-11.32337",
+      "layout2_raw": "-11.32337",
+      "rounded": "-11.32",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:30:00+10:00",
+      "raw": "-15.42",
+      "layout2_raw": "-15.42",
+      "rounded": "-15.42",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:35:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:40:00+10:00",
+      "raw": "-7.1",
+      "layout2_raw": "-7.1",
+      "rounded": "-7.10",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:45:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:50:00+10:00",
+      "raw": "-7.9998",
+      "layout2_raw": "-7.9998",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T06:55:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:00:00+10:00",
+      "raw": "-15.42",
+      "layout2_raw": "-15.42",
+      "rounded": "-15.42",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:05:00+10:00",
+      "raw": "-9.14",
+      "layout2_raw": "-9.14",
+      "rounded": "-9.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:10:00+10:00",
+      "raw": "-13.62",
+      "layout2_raw": "-13.62",
+      "rounded": "-13.62",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:15:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:20:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:25:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:30:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:35:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:40:00+10:00",
+      "raw": "-29.02",
+      "layout2_raw": "-29.02",
+      "rounded": "-29.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:45:00+10:00",
+      "raw": "-29.02",
+      "layout2_raw": "-29.02",
+      "rounded": "-29.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:50:00+10:00",
+      "raw": "-42.05",
+      "layout2_raw": "-42.05",
+      "rounded": "-42.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T07:55:00+10:00",
+      "raw": "-39.02",
+      "layout2_raw": "-39.02",
+      "rounded": "-39.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:00:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:05:00+10:00",
+      "raw": "-57",
+      "layout2_raw": "-57",
+      "rounded": "-57.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:10:00+10:00",
+      "raw": "-29.02",
+      "layout2_raw": "-29.02",
+      "rounded": "-29.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:15:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:20:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:25:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:30:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:35:00+10:00",
+      "raw": "-39.02",
+      "layout2_raw": "-39.02",
+      "rounded": "-39.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:40:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:45:00+10:00",
+      "raw": "-19.69",
+      "layout2_raw": "-19.69",
+      "rounded": "-19.69",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:50:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T08:55:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:00:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:05:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:10:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:15:00+10:00",
+      "raw": "-29.02",
+      "layout2_raw": "-29.02",
+      "rounded": "-29.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:20:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:25:00+10:00",
+      "raw": "-13.62",
+      "layout2_raw": "-13.62",
+      "rounded": "-13.62",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:30:00+10:00",
+      "raw": "-15.46",
+      "layout2_raw": "-15.46",
+      "rounded": "-15.46",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:35:00+10:00",
+      "raw": "-19.69",
+      "layout2_raw": "-19.69",
+      "rounded": "-19.69",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:40:00+10:00",
+      "raw": "-19.69",
+      "layout2_raw": "-19.69",
+      "rounded": "-19.69",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:45:00+10:00",
+      "raw": "-19.69",
+      "layout2_raw": "-19.69",
+      "rounded": "-19.69",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:50:00+10:00",
+      "raw": "-15.46",
+      "layout2_raw": "-15.46",
+      "rounded": "-15.46",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T09:55:00+10:00",
+      "raw": "-13.62",
+      "layout2_raw": "-13.62",
+      "rounded": "-13.62",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:00:00+10:00",
+      "raw": "-11.85",
+      "layout2_raw": "-11.85",
+      "rounded": "-11.85",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:05:00+10:00",
+      "raw": "-13.62",
+      "layout2_raw": "-13.62",
+      "rounded": "-13.62",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:10:00+10:00",
+      "raw": "-11.74",
+      "layout2_raw": "-11.74",
+      "rounded": "-11.74",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:15:00+10:00",
+      "raw": "-19.69",
+      "layout2_raw": "-19.69",
+      "rounded": "-19.69",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:20:00+10:00",
+      "raw": "-19.69",
+      "layout2_raw": "-19.69",
+      "rounded": "-19.69",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:25:00+10:00",
+      "raw": "-9.14",
+      "layout2_raw": "-9.14",
+      "rounded": "-9.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:30:00+10:00",
+      "raw": "-9.14",
+      "layout2_raw": "-9.14",
+      "rounded": "-9.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:35:00+10:00",
+      "raw": "-7.99993",
+      "layout2_raw": "-7.99993",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:40:00+10:00",
+      "raw": "-9.13",
+      "layout2_raw": "-9.13",
+      "rounded": "-9.13",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:45:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:50:00+10:00",
+      "raw": "-7.99993",
+      "layout2_raw": "-7.99993",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T10:55:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:00:00+10:00",
+      "raw": "-7.99993",
+      "layout2_raw": "-7.99993",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:05:00+10:00",
+      "raw": "-7.99993",
+      "layout2_raw": "-7.99993",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:10:00+10:00",
+      "raw": "-7.99993",
+      "layout2_raw": "-7.99993",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:15:00+10:00",
+      "raw": "-7.99993",
+      "layout2_raw": "-7.99993",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:20:00+10:00",
+      "raw": "-7.99993",
+      "layout2_raw": "-7.99993",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:25:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:30:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:35:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:40:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:45:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:50:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T11:55:00+10:00",
+      "raw": "-5.99999",
+      "layout2_raw": "-5.99999",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:00:00+10:00",
+      "raw": "-5.99996",
+      "layout2_raw": "-5.99996",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:05:00+10:00",
+      "raw": "-7.1",
+      "layout2_raw": "-7.1",
+      "rounded": "-7.10",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:10:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:15:00+10:00",
+      "raw": "-7.9998",
+      "layout2_raw": "-7.9998",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:20:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:25:00+10:00",
+      "raw": "-9.11",
+      "layout2_raw": "-9.11",
+      "rounded": "-9.11",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:30:00+10:00",
+      "raw": "-9.11",
+      "layout2_raw": "-9.11",
+      "rounded": "-9.11",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:35:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:40:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:45:00+10:00",
+      "raw": "-5.22",
+      "layout2_raw": "-5.22",
+      "rounded": "-5.22",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:50:00+10:00",
+      "raw": "-5.17",
+      "layout2_raw": "-5.17",
+      "rounded": "-5.17",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T12:55:00+10:00",
+      "raw": "-5",
+      "layout2_raw": "-5",
+      "rounded": "-5.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:00:00+10:00",
+      "raw": "-5.22",
+      "layout2_raw": "-5.22",
+      "rounded": "-5.22",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:05:00+10:00",
+      "raw": "-5.99997",
+      "layout2_raw": "-5.99997",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:10:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:15:00+10:00",
+      "raw": "-5.99999",
+      "layout2_raw": "-5.99999",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:20:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:25:00+10:00",
+      "raw": "-5.99999",
+      "layout2_raw": "-5.99999",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:30:00+10:00",
+      "raw": "-5.19",
+      "layout2_raw": "-5.19",
+      "rounded": "-5.19",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:35:00+10:00",
+      "raw": "-3.79",
+      "layout2_raw": "-3.79",
+      "rounded": "-3.79",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:40:00+10:00",
+      "raw": "-5",
+      "layout2_raw": "-5",
+      "rounded": "-5.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:45:00+10:00",
+      "raw": "-5.7",
+      "layout2_raw": "-5.7",
+      "rounded": "-5.70",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:50:00+10:00",
+      "raw": "-5.17",
+      "layout2_raw": "-5.17",
+      "rounded": "-5.17",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T13:55:00+10:00",
+      "raw": "-5.99997",
+      "layout2_raw": "-5.99997",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:00:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:05:00+10:00",
+      "raw": "-7.25",
+      "layout2_raw": "-7.25",
+      "rounded": "-7.25",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:10:00+10:00",
+      "raw": "-5.99999",
+      "layout2_raw": "-5.99999",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:15:00+10:00",
+      "raw": "-5.99999",
+      "layout2_raw": "-5.99999",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:20:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:25:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:30:00+10:00",
+      "raw": "-5.99997",
+      "layout2_raw": "-5.99997",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:35:00+10:00",
+      "raw": "-5.17",
+      "layout2_raw": "-5.17",
+      "rounded": "-5.17",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:40:00+10:00",
+      "raw": "-5.17",
+      "layout2_raw": "-5.17",
+      "rounded": "-5.17",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:45:00+10:00",
+      "raw": "-5.19",
+      "layout2_raw": "-5.19",
+      "rounded": "-5.19",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:50:00+10:00",
+      "raw": "8.12",
+      "layout2_raw": "8.12",
+      "rounded": "8.12",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T14:55:00+10:00",
+      "raw": "56.2",
+      "layout2_raw": "56.2",
+      "rounded": "56.20",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:00:00+10:00",
+      "raw": "-5.99997",
+      "layout2_raw": "-5.99997",
+      "rounded": "-6.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:05:00+10:00",
+      "raw": "-7.9998",
+      "layout2_raw": "-7.9998",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:10:00+10:00",
+      "raw": "-9.14",
+      "layout2_raw": "-9.14",
+      "rounded": "-9.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:15:00+10:00",
+      "raw": "-57.3",
+      "layout2_raw": "-57.3",
+      "rounded": "-57.30",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:20:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:25:00+10:00",
+      "raw": "-169.95671",
+      "layout2_raw": "-169.95671",
+      "rounded": "-169.96",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:30:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:35:00+10:00",
+      "raw": "-97.45",
+      "layout2_raw": "-97.45",
+      "rounded": "-97.45",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:40:00+10:00",
+      "raw": "-148.62365",
+      "layout2_raw": "-148.62365",
+      "rounded": "-148.62",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:45:00+10:00",
+      "raw": "-149.38493",
+      "layout2_raw": "-149.38493",
+      "rounded": "-149.38",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:50:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T15:55:00+10:00",
+      "raw": "-99.01",
+      "layout2_raw": "-99.01",
+      "rounded": "-99.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:00:00+10:00",
+      "raw": "-99.01",
+      "layout2_raw": "-99.01",
+      "rounded": "-99.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:05:00+10:00",
+      "raw": "-123.16906",
+      "layout2_raw": "-123.16906",
+      "rounded": "-123.17",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:10:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:15:00+10:00",
+      "raw": "-142.33468",
+      "layout2_raw": "-142.33468",
+      "rounded": "-142.33",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:20:00+10:00",
+      "raw": "-20.01",
+      "layout2_raw": "-20.01",
+      "rounded": "-20.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:25:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:30:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:35:00+10:00",
+      "raw": "5.01",
+      "layout2_raw": "5.01",
+      "rounded": "5.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:40:00+10:00",
+      "raw": "-5.18",
+      "layout2_raw": "-5.18",
+      "rounded": "-5.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:45:00+10:00",
+      "raw": "23.4",
+      "layout2_raw": "23.4",
+      "rounded": "23.40",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:50:00+10:00",
+      "raw": "-7.01",
+      "layout2_raw": "-7.01",
+      "rounded": "-7.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T16:55:00+10:00",
+      "raw": "5.01",
+      "layout2_raw": "5.01",
+      "rounded": "5.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:00:00+10:00",
+      "raw": "-7.1",
+      "layout2_raw": "-7.1",
+      "rounded": "-7.10",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:05:00+10:00",
+      "raw": "-7.9998",
+      "layout2_raw": "-7.9998",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:10:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:15:00+10:00",
+      "raw": "0",
+      "layout2_raw": "0",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:20:00+10:00",
+      "raw": "0",
+      "layout2_raw": "0",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:25:00+10:00",
+      "raw": "75.01241",
+      "layout2_raw": "75.01241",
+      "rounded": "75.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:30:00+10:00",
+      "raw": "82.44",
+      "layout2_raw": "82.44",
+      "rounded": "82.44",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:35:00+10:00",
+      "raw": "42.13796",
+      "layout2_raw": "42.13796",
+      "rounded": "42.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:40:00+10:00",
+      "raw": "41.94684",
+      "layout2_raw": "41.94684",
+      "rounded": "41.95",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:45:00+10:00",
+      "raw": "79.81953",
+      "layout2_raw": "79.81953",
+      "rounded": "79.82",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:50:00+10:00",
+      "raw": "82.44",
+      "layout2_raw": "82.44",
+      "rounded": "82.44",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T17:55:00+10:00",
+      "raw": "82.44",
+      "layout2_raw": "82.44",
+      "rounded": "82.44",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:00:00+10:00",
+      "raw": "85.05967",
+      "layout2_raw": "85.05967",
+      "rounded": "85.06",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:05:00+10:00",
+      "raw": "82.44",
+      "layout2_raw": "82.44",
+      "rounded": "82.44",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:10:00+10:00",
+      "raw": "88.90378",
+      "layout2_raw": "88.90378",
+      "rounded": "88.90",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:15:00+10:00",
+      "raw": "78.66",
+      "layout2_raw": "78.66",
+      "rounded": "78.66",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:20:00+10:00",
+      "raw": "89",
+      "layout2_raw": "89",
+      "rounded": "89.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:25:00+10:00",
+      "raw": "95.75933",
+      "layout2_raw": "95.75933",
+      "rounded": "95.76",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:30:00+10:00",
+      "raw": "82.40221",
+      "layout2_raw": "82.40221",
+      "rounded": "82.40",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:35:00+10:00",
+      "raw": "81.0517",
+      "layout2_raw": "81.0517",
+      "rounded": "81.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:40:00+10:00",
+      "raw": "82.44",
+      "layout2_raw": "82.44",
+      "rounded": "82.44",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:45:00+10:00",
+      "raw": "74.45706",
+      "layout2_raw": "74.45706",
+      "rounded": "74.46",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:50:00+10:00",
+      "raw": "81.41753",
+      "layout2_raw": "81.41753",
+      "rounded": "81.42",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T18:55:00+10:00",
+      "raw": "71.79323",
+      "layout2_raw": "71.79323",
+      "rounded": "71.79",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:00:00+10:00",
+      "raw": "73.2",
+      "layout2_raw": "73.2",
+      "rounded": "73.20",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:05:00+10:00",
+      "raw": "74.41849",
+      "layout2_raw": "74.41849",
+      "rounded": "74.42",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:10:00+10:00",
+      "raw": "74.55404",
+      "layout2_raw": "74.55404",
+      "rounded": "74.55",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:15:00+10:00",
+      "raw": "68.55412",
+      "layout2_raw": "68.55412",
+      "rounded": "68.55",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:20:00+10:00",
+      "raw": "76.39602",
+      "layout2_raw": "76.39602",
+      "rounded": "76.40",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:25:00+10:00",
+      "raw": "75.16394",
+      "layout2_raw": "75.16394",
+      "rounded": "75.16",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:30:00+10:00",
+      "raw": "71.01833",
+      "layout2_raw": "71.01833",
+      "rounded": "71.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:35:00+10:00",
+      "raw": "74.58004",
+      "layout2_raw": "74.58004",
+      "rounded": "74.58",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:40:00+10:00",
+      "raw": "73.89061",
+      "layout2_raw": "73.89061",
+      "rounded": "73.89",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:45:00+10:00",
+      "raw": "71.15832",
+      "layout2_raw": "71.15832",
+      "rounded": "71.16",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:50:00+10:00",
+      "raw": "68.23184",
+      "layout2_raw": "68.23184",
+      "rounded": "68.23",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T19:55:00+10:00",
+      "raw": "67.8588",
+      "layout2_raw": "67.8588",
+      "rounded": "67.86",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:00:00+10:00",
+      "raw": "67.7065",
+      "layout2_raw": "67.7065",
+      "rounded": "67.71",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:05:00+10:00",
+      "raw": "70.31752",
+      "layout2_raw": "70.31752",
+      "rounded": "70.32",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:10:00+10:00",
+      "raw": "65.69702",
+      "layout2_raw": "65.69702",
+      "rounded": "65.70",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:15:00+10:00",
+      "raw": "66.43328",
+      "layout2_raw": "66.43328",
+      "rounded": "66.43",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:20:00+10:00",
+      "raw": "58.8814",
+      "layout2_raw": "58.8814",
+      "rounded": "58.88",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:25:00+10:00",
+      "raw": "57.52799",
+      "layout2_raw": "57.52799",
+      "rounded": "57.53",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:30:00+10:00",
+      "raw": "64.18891",
+      "layout2_raw": "64.18891",
+      "rounded": "64.19",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:35:00+10:00",
+      "raw": "58.50626",
+      "layout2_raw": "58.50626",
+      "rounded": "58.51",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:40:00+10:00",
+      "raw": "59.01753",
+      "layout2_raw": "59.01753",
+      "rounded": "59.02",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:45:00+10:00",
+      "raw": "54.98951",
+      "layout2_raw": "54.98951",
+      "rounded": "54.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:50:00+10:00",
+      "raw": "58.45968",
+      "layout2_raw": "58.45968",
+      "rounded": "58.46",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T20:55:00+10:00",
+      "raw": "58.03125",
+      "layout2_raw": "58.03125",
+      "rounded": "58.03",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:00:00+10:00",
+      "raw": "51.33684",
+      "layout2_raw": "51.33684",
+      "rounded": "51.34",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:05:00+10:00",
+      "raw": "51.29949",
+      "layout2_raw": "51.29949",
+      "rounded": "51.30",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:10:00+10:00",
+      "raw": "51.29943",
+      "layout2_raw": "51.29943",
+      "rounded": "51.30",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:15:00+10:00",
+      "raw": "63.03251",
+      "layout2_raw": "63.03251",
+      "rounded": "63.03",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:20:00+10:00",
+      "raw": "51.59167",
+      "layout2_raw": "51.59167",
+      "rounded": "51.59",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:25:00+10:00",
+      "raw": "58.68286",
+      "layout2_raw": "58.68286",
+      "rounded": "58.68",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:30:00+10:00",
+      "raw": "57.48472",
+      "layout2_raw": "57.48472",
+      "rounded": "57.48",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:35:00+10:00",
+      "raw": "49.24401",
+      "layout2_raw": "49.24401",
+      "rounded": "49.24",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:40:00+10:00",
+      "raw": "58.89663",
+      "layout2_raw": "58.89663",
+      "rounded": "58.90",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:45:00+10:00",
+      "raw": "56.81009",
+      "layout2_raw": "56.81009",
+      "rounded": "56.81",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:50:00+10:00",
+      "raw": "42.59835",
+      "layout2_raw": "42.59835",
+      "rounded": "42.60",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T21:55:00+10:00",
+      "raw": "57.85832",
+      "layout2_raw": "57.85832",
+      "rounded": "57.86",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:00:00+10:00",
+      "raw": "29.97227",
+      "layout2_raw": "29.97227",
+      "rounded": "29.97",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:05:00+10:00",
+      "raw": "-5",
+      "layout2_raw": "-5",
+      "rounded": "-5.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:10:00+10:00",
+      "raw": "28.81702",
+      "layout2_raw": "28.81702",
+      "rounded": "28.82",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:15:00+10:00",
+      "raw": "28.88567",
+      "layout2_raw": "28.88567",
+      "rounded": "28.89",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:20:00+10:00",
+      "raw": "23.25",
+      "layout2_raw": "23.25",
+      "rounded": "23.25",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:25:00+10:00",
+      "raw": "27.56618",
+      "layout2_raw": "27.56618",
+      "rounded": "27.57",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:30:00+10:00",
+      "raw": "19.7536",
+      "layout2_raw": "19.7536",
+      "rounded": "19.75",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:35:00+10:00",
+      "raw": "29.37093",
+      "layout2_raw": "29.37093",
+      "rounded": "29.37",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:40:00+10:00",
+      "raw": "29.6595",
+      "layout2_raw": "29.6595",
+      "rounded": "29.66",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:45:00+10:00",
+      "raw": "28.61512",
+      "layout2_raw": "28.61512",
+      "rounded": "28.62",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:50:00+10:00",
+      "raw": "30.22792",
+      "layout2_raw": "30.22792",
+      "rounded": "30.23",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T22:55:00+10:00",
+      "raw": "29.62032",
+      "layout2_raw": "29.62032",
+      "rounded": "29.62",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:00:00+10:00",
+      "raw": "29.16096",
+      "layout2_raw": "29.16096",
+      "rounded": "29.16",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:05:00+10:00",
+      "raw": "29.94072",
+      "layout2_raw": "29.94072",
+      "rounded": "29.94",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:10:00+10:00",
+      "raw": "31.18084",
+      "layout2_raw": "31.18084",
+      "rounded": "31.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:15:00+10:00",
+      "raw": "56.17718",
+      "layout2_raw": "56.17718",
+      "rounded": "56.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:20:00+10:00",
+      "raw": "57.84438",
+      "layout2_raw": "57.84438",
+      "rounded": "57.84",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:25:00+10:00",
+      "raw": "58.13316",
+      "layout2_raw": "58.13316",
+      "rounded": "58.13",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:30:00+10:00",
+      "raw": "56.19788",
+      "layout2_raw": "56.19788",
+      "rounded": "56.20",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:35:00+10:00",
+      "raw": "63.59428",
+      "layout2_raw": "63.59428",
+      "rounded": "63.59",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:40:00+10:00",
+      "raw": "36.16066",
+      "layout2_raw": "36.16066",
+      "rounded": "36.16",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:45:00+10:00",
+      "raw": "31.38779",
+      "layout2_raw": "31.38779",
+      "rounded": "31.39",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:50:00+10:00",
+      "raw": "29.64869",
+      "layout2_raw": "29.64869",
+      "rounded": "29.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-19T23:55:00+10:00",
+      "raw": "56.03349",
+      "layout2_raw": "56.03349",
+      "rounded": "56.03",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "SA1",
+      "period_end": "2026-10-20T00:00:00+10:00",
+      "raw": "54.34936",
+      "layout2_raw": "54.34936",
+      "rounded": "54.35",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:05:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:10:00+10:00",
+      "raw": "3E-05",
+      "layout2_raw": "3E-05",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:15:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:20:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:25:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:30:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:35:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:40:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:45:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:50:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T00:55:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:00:00+10:00",
+      "raw": "-1.01",
+      "layout2_raw": "-1.01",
+      "rounded": "-1.01",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:05:00+10:00",
+      "raw": "-1.01",
+      "layout2_raw": "-1.01",
+      "rounded": "-1.01",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:10:00+10:00",
+      "raw": "-1.01",
+      "layout2_raw": "-1.01",
+      "rounded": "-1.01",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:15:00+10:00",
+      "raw": "-9.05",
+      "layout2_raw": "-9.05",
+      "rounded": "-9.05",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:20:00+10:00",
+      "raw": "-9.05",
+      "layout2_raw": "-9.05",
+      "rounded": "-9.05",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:25:00+10:00",
+      "raw": "-14.85961",
+      "layout2_raw": "-14.85961",
+      "rounded": "-14.86",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:30:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:35:00+10:00",
+      "raw": "-9.05",
+      "layout2_raw": "-9.05",
+      "rounded": "-9.05",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:40:00+10:00",
+      "raw": "-13.72456",
+      "layout2_raw": "-13.72456",
+      "rounded": "-13.72",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:45:00+10:00",
+      "raw": "-13.73752",
+      "layout2_raw": "-13.73752",
+      "rounded": "-13.74",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:50:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T01:55:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:00:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:05:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:10:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:15:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:20:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:25:00+10:00",
+      "raw": "-17.06",
+      "layout2_raw": "-17.06",
+      "rounded": "-17.06",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:30:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:35:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:40:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:45:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:50:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T02:55:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:00:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:05:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:10:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:15:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:20:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:25:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:30:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:35:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:40:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:45:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:50:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T03:55:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:00:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610180000_20261019040502.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:05:00+10:00",
+      "raw": "-19.98",
+      "layout2_raw": "-19.98",
+      "rounded": "-19.98",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:10:00+10:00",
+      "raw": "-19.98",
+      "layout2_raw": "-19.98",
+      "rounded": "-19.98",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:15:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:20:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:25:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:30:00+10:00",
+      "raw": "-19.98",
+      "layout2_raw": "-19.98",
+      "rounded": "-19.98",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:35:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:40:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:45:00+10:00",
+      "raw": "-19.98",
+      "layout2_raw": "-19.98",
+      "rounded": "-19.98",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:50:00+10:00",
+      "raw": "-19.98",
+      "layout2_raw": "-19.98",
+      "rounded": "-19.98",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T04:55:00+10:00",
+      "raw": "-19.98",
+      "layout2_raw": "-19.98",
+      "rounded": "-19.98",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:00:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:05:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:10:00+10:00",
+      "raw": "-9.05",
+      "layout2_raw": "-9.05",
+      "rounded": "-9.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:15:00+10:00",
+      "raw": "-8.26",
+      "layout2_raw": "-8.26",
+      "rounded": "-8.26",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:20:00+10:00",
+      "raw": "-8.26",
+      "layout2_raw": "-8.26",
+      "rounded": "-8.26",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:25:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:30:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:35:00+10:00",
+      "raw": "-6.6",
+      "layout2_raw": "-6.6",
+      "rounded": "-6.60",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:40:00+10:00",
+      "raw": "-5.09",
+      "layout2_raw": "-5.09",
+      "rounded": "-5.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:45:00+10:00",
+      "raw": "-6.6",
+      "layout2_raw": "-6.6",
+      "rounded": "-6.60",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:50:00+10:00",
+      "raw": "-4.09",
+      "layout2_raw": "-4.09",
+      "rounded": "-4.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T05:55:00+10:00",
+      "raw": "-5.09",
+      "layout2_raw": "-5.09",
+      "rounded": "-5.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:00:00+10:00",
+      "raw": "-4.90998",
+      "layout2_raw": "-4.90998",
+      "rounded": "-4.91",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:05:00+10:00",
+      "raw": "-5.09",
+      "layout2_raw": "-5.09",
+      "rounded": "-5.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:10:00+10:00",
+      "raw": "-5.61",
+      "layout2_raw": "-5.61",
+      "rounded": "-5.61",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:15:00+10:00",
+      "raw": "-6.15889",
+      "layout2_raw": "-6.15889",
+      "rounded": "-6.16",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:20:00+10:00",
+      "raw": "-6.6",
+      "layout2_raw": "-6.6",
+      "rounded": "-6.60",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:25:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:30:00+10:00",
+      "raw": "-8.26",
+      "layout2_raw": "-8.26",
+      "rounded": "-8.26",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:35:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:40:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:45:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:50:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T06:55:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:00:00+10:00",
+      "raw": "-7.18",
+      "layout2_raw": "-7.18",
+      "rounded": "-7.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:05:00+10:00",
+      "raw": "-8.0001",
+      "layout2_raw": "-8.0001",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:10:00+10:00",
+      "raw": "-8.26",
+      "layout2_raw": "-8.26",
+      "rounded": "-8.26",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:15:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:20:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:25:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:30:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:35:00+10:00",
+      "raw": "-8.26",
+      "layout2_raw": "-8.26",
+      "rounded": "-8.26",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:40:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:45:00+10:00",
+      "raw": "-7.51",
+      "layout2_raw": "-7.51",
+      "rounded": "-7.51",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:50:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T07:55:00+10:00",
+      "raw": "-7.9999",
+      "layout2_raw": "-7.9999",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:00:00+10:00",
+      "raw": "-7.9999",
+      "layout2_raw": "-7.9999",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:05:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:10:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:15:00+10:00",
+      "raw": "-7.9999",
+      "layout2_raw": "-7.9999",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:20:00+10:00",
+      "raw": "-8.0001",
+      "layout2_raw": "-8.0001",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:25:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:30:00+10:00",
+      "raw": "-8",
+      "layout2_raw": "-8",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:35:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:40:00+10:00",
+      "raw": "-18.68771",
+      "layout2_raw": "-18.68771",
+      "rounded": "-18.69",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:45:00+10:00",
+      "raw": "-7.9999",
+      "layout2_raw": "-7.9999",
+      "rounded": "-8.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:50:00+10:00",
+      "raw": "-8.26",
+      "layout2_raw": "-8.26",
+      "rounded": "-8.26",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T08:55:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:00:00+10:00",
+      "raw": "-8.26",
+      "layout2_raw": "-8.26",
+      "rounded": "-8.26",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:05:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:10:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:15:00+10:00",
+      "raw": "-25.13",
+      "layout2_raw": "-25.13",
+      "rounded": "-25.13",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:20:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:25:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:30:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:35:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:40:00+10:00",
+      "raw": "-25.13",
+      "layout2_raw": "-25.13",
+      "rounded": "-25.13",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:45:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:50:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T09:55:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:00:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:05:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:10:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:15:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:20:00+10:00",
+      "raw": "-11.09",
+      "layout2_raw": "-11.09",
+      "rounded": "-11.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:25:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:30:00+10:00",
+      "raw": "-11.09",
+      "layout2_raw": "-11.09",
+      "rounded": "-11.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:35:00+10:00",
+      "raw": "-11.09",
+      "layout2_raw": "-11.09",
+      "rounded": "-11.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:40:00+10:00",
+      "raw": "-25.13",
+      "layout2_raw": "-25.13",
+      "rounded": "-25.13",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:45:00+10:00",
+      "raw": "-20.65",
+      "layout2_raw": "-20.65",
+      "rounded": "-20.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:50:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T10:55:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:00:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:05:00+10:00",
+      "raw": "-17.06",
+      "layout2_raw": "-17.06",
+      "rounded": "-17.06",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:10:00+10:00",
+      "raw": "-17.06",
+      "layout2_raw": "-17.06",
+      "rounded": "-17.06",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:15:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:20:00+10:00",
+      "raw": "-20.65",
+      "layout2_raw": "-20.65",
+      "rounded": "-20.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:25:00+10:00",
+      "raw": "-25.13",
+      "layout2_raw": "-25.13",
+      "rounded": "-25.13",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:30:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:35:00+10:00",
+      "raw": "-25.13",
+      "layout2_raw": "-25.13",
+      "rounded": "-25.13",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:40:00+10:00",
+      "raw": "-20.65",
+      "layout2_raw": "-20.65",
+      "rounded": "-20.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:45:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:50:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T11:55:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:00:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:05:00+10:00",
+      "raw": "-23.74665",
+      "layout2_raw": "-23.74665",
+      "rounded": "-23.75",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:10:00+10:00",
+      "raw": "-20.65",
+      "layout2_raw": "-20.65",
+      "rounded": "-20.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:15:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:20:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:25:00+10:00",
+      "raw": "-19.98",
+      "layout2_raw": "-19.98",
+      "rounded": "-19.98",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:30:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:35:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:40:00+10:00",
+      "raw": "-20.65",
+      "layout2_raw": "-20.65",
+      "rounded": "-20.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:45:00+10:00",
+      "raw": "-11.09",
+      "layout2_raw": "-11.09",
+      "rounded": "-11.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:50:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T12:55:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:00:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:05:00+10:00",
+      "raw": "-11.09",
+      "layout2_raw": "-11.09",
+      "rounded": "-11.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:10:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:15:00+10:00",
+      "raw": "-11.09",
+      "layout2_raw": "-11.09",
+      "rounded": "-11.09",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:20:00+10:00",
+      "raw": "-20.65",
+      "layout2_raw": "-20.65",
+      "rounded": "-20.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:25:00+10:00",
+      "raw": "-20.65",
+      "layout2_raw": "-20.65",
+      "rounded": "-20.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:30:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:35:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:40:00+10:00",
+      "raw": "-26.03876",
+      "layout2_raw": "-26.03876",
+      "rounded": "-26.04",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:45:00+10:00",
+      "raw": "-20.65",
+      "layout2_raw": "-20.65",
+      "rounded": "-20.65",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:50:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T13:55:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:00:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:05:00+10:00",
+      "raw": "-27.77",
+      "layout2_raw": "-27.77",
+      "rounded": "-27.77",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:10:00+10:00",
+      "raw": "-19.98",
+      "layout2_raw": "-19.98",
+      "rounded": "-19.98",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:15:00+10:00",
+      "raw": "-16.86",
+      "layout2_raw": "-16.86",
+      "rounded": "-16.86",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:20:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:25:00+10:00",
+      "raw": "-8.26",
+      "layout2_raw": "-8.26",
+      "rounded": "-8.26",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:30:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:35:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:40:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:45:00+10:00",
+      "raw": "-7.51",
+      "layout2_raw": "-7.51",
+      "rounded": "-7.51",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:50:00+10:00",
+      "raw": "-19.8642",
+      "layout2_raw": "-19.8642",
+      "rounded": "-19.86",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T14:55:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:00:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:05:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:10:00+10:00",
+      "raw": "-19.0507",
+      "layout2_raw": "-19.0507",
+      "rounded": "-19.05",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:15:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:20:00+10:00",
+      "raw": "-34.89",
+      "layout2_raw": "-34.89",
+      "rounded": "-34.89",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:25:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:30:00+10:00",
+      "raw": "-19.99",
+      "layout2_raw": "-19.99",
+      "rounded": "-19.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:35:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:40:00+10:00",
+      "raw": "-42.45833",
+      "layout2_raw": "-42.45833",
+      "rounded": "-42.46",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:45:00+10:00",
+      "raw": "-44.47",
+      "layout2_raw": "-44.47",
+      "rounded": "-44.47",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:50:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T15:55:00+10:00",
+      "raw": "-8.01",
+      "layout2_raw": "-8.01",
+      "rounded": "-8.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:00:00+10:00",
+      "raw": "-18.31608",
+      "layout2_raw": "-18.31608",
+      "rounded": "-18.32",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:05:00+10:00",
+      "raw": "-16.54",
+      "layout2_raw": "-16.54",
+      "rounded": "-16.54",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:10:00+10:00",
+      "raw": "-20",
+      "layout2_raw": "-20",
+      "rounded": "-20.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:15:00+10:00",
+      "raw": "-35.70847",
+      "layout2_raw": "-35.70847",
+      "rounded": "-35.71",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:20:00+10:00",
+      "raw": "-12.40478",
+      "layout2_raw": "-12.40478",
+      "rounded": "-12.40",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:25:00+10:00",
+      "raw": "-7.51",
+      "layout2_raw": "-7.51",
+      "rounded": "-7.51",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:30:00+10:00",
+      "raw": "-7",
+      "layout2_raw": "-7",
+      "rounded": "-7.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:35:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:40:00+10:00",
+      "raw": "-5",
+      "layout2_raw": "-5",
+      "rounded": "-5.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:45:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:50:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T16:55:00+10:00",
+      "raw": "0.01054",
+      "layout2_raw": "0.01054",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:00:00+10:00",
+      "raw": "0.01049",
+      "layout2_raw": "0.01049",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:05:00+10:00",
+      "raw": "10.50026",
+      "layout2_raw": "10.50026",
+      "rounded": "10.50",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:10:00+10:00",
+      "raw": "0.01024",
+      "layout2_raw": "0.01024",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:15:00+10:00",
+      "raw": "15.5043",
+      "layout2_raw": "15.5043",
+      "rounded": "15.50",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:20:00+10:00",
+      "raw": "34.08",
+      "layout2_raw": "34.08",
+      "rounded": "34.08",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:25:00+10:00",
+      "raw": "75.18",
+      "layout2_raw": "75.18",
+      "rounded": "75.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:30:00+10:00",
+      "raw": "75.18",
+      "layout2_raw": "75.18",
+      "rounded": "75.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:35:00+10:00",
+      "raw": "49",
+      "layout2_raw": "49",
+      "rounded": "49.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:40:00+10:00",
+      "raw": "42.18",
+      "layout2_raw": "42.18",
+      "rounded": "42.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:45:00+10:00",
+      "raw": "42.18",
+      "layout2_raw": "42.18",
+      "rounded": "42.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:50:00+10:00",
+      "raw": "19.31366",
+      "layout2_raw": "19.31366",
+      "rounded": "19.31",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T17:55:00+10:00",
+      "raw": "31.60711",
+      "layout2_raw": "31.60711",
+      "rounded": "31.61",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:00:00+10:00",
+      "raw": "24.20586",
+      "layout2_raw": "24.20586",
+      "rounded": "24.21",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:05:00+10:00",
+      "raw": "42.18",
+      "layout2_raw": "42.18",
+      "rounded": "42.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:10:00+10:00",
+      "raw": "42.18",
+      "layout2_raw": "42.18",
+      "rounded": "42.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:15:00+10:00",
+      "raw": "17.14",
+      "layout2_raw": "17.14",
+      "rounded": "17.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:20:00+10:00",
+      "raw": "39.78075",
+      "layout2_raw": "39.78075",
+      "rounded": "39.78",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:25:00+10:00",
+      "raw": "58.68",
+      "layout2_raw": "58.68",
+      "rounded": "58.68",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:30:00+10:00",
+      "raw": "19.18",
+      "layout2_raw": "19.18",
+      "rounded": "19.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:35:00+10:00",
+      "raw": "17.14",
+      "layout2_raw": "17.14",
+      "rounded": "17.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:40:00+10:00",
+      "raw": "18.36877",
+      "layout2_raw": "18.36877",
+      "rounded": "18.37",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:45:00+10:00",
+      "raw": "17.14",
+      "layout2_raw": "17.14",
+      "rounded": "17.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:50:00+10:00",
+      "raw": "17.14",
+      "layout2_raw": "17.14",
+      "rounded": "17.14",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T18:55:00+10:00",
+      "raw": "15.18",
+      "layout2_raw": "15.18",
+      "rounded": "15.18",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:00:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:05:00+10:00",
+      "raw": "1.5",
+      "layout2_raw": "1.5",
+      "rounded": "1.50",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:10:00+10:00",
+      "raw": "1.5",
+      "layout2_raw": "1.5",
+      "rounded": "1.50",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:15:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:20:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:25:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:30:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:35:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:40:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:45:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:50:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T19:55:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:00:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:05:00+10:00",
+      "raw": "7.99",
+      "layout2_raw": "7.99",
+      "rounded": "7.99",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:10:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:15:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:20:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:25:00+10:00",
+      "raw": "0.00067",
+      "layout2_raw": "0.00067",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:30:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:35:00+10:00",
+      "raw": "0.0103",
+      "layout2_raw": "0.0103",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:40:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:45:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:50:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T20:55:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:00:00+10:00",
+      "raw": "0.00049",
+      "layout2_raw": "0.00049",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:05:00+10:00",
+      "raw": "0.00028",
+      "layout2_raw": "0.00028",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:10:00+10:00",
+      "raw": "0.0003",
+      "layout2_raw": "0.0003",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:15:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:20:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:25:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:30:00+10:00",
+      "raw": "0.00019",
+      "layout2_raw": "0.00019",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:35:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:40:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:45:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:50:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T21:55:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:00:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:05:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:10:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:15:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:20:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:25:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:30:00+10:00",
+      "raw": "0.00013",
+      "layout2_raw": "0.00013",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:35:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:40:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:45:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:50:00+10:00",
+      "raw": "0.00022",
+      "layout2_raw": "0.00022",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T22:55:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:00:00+10:00",
+      "raw": "0.00024",
+      "layout2_raw": "0.00024",
+      "rounded": "0.00",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:05:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:10:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:15:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:20:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:25:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:30:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:35:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:40:00+10:00",
+      "raw": "0.01",
+      "layout2_raw": "0.01",
+      "rounded": "0.01",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:45:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:50:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-19T23:55:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    },
+    {
+      "region": "VIC1",
+      "period_end": "2026-10-20T00:00:00+10:00",
+      "raw": "-0.56",
+      "layout2_raw": "-0.56",
+      "rounded": "-0.56",
+      "source_filename": "PUBLIC_PRICES_202610190000_20261020040503.zip"
+    }
+  ],
+  "limits": [
+    "Original daily/monthly data share AEMO market lineage.",
+    "No finality, future-vintage or actual Worker resource acceptance.",
+    "Definition describes a mixed report family; only declared DREGION2/3 is selected."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "pass": true,
+  "recorded_at": "2026-10-20T18:43:26.827487+00:00",
+  "decision": "No semantic or integrity blocker found for this local candidate; remote CPU acceptance remains pending.",
+  "base_revision": "79e251cab4314c328e84d9ac4ca7bf5e5408bdbb",
+  "reviewed_module_sha256": "f161ab460d0e489345edcd38c9bbe5c36b1a09990e5b53494a837f48931e27a9",
+  "author_manifest_sha256": "56b78987e46b0f0e893c547f0084e74737fd0bc3499fcfa59016eed930f72c5d",
+  "author_manifest_bindings_verified": 51,
+  "independent_controls": {
+    "lexical_exact_outcome_comparisons": 290168,
+    "array_exact_outcome_comparisons": 3543,
+    "decoder_exact_outcome_comparisons": 423,
+    "accepted_decoder_payloads": 117,
+    "refused_decoder_cases": 306,
+    "arithmetic_bound_cases": 72,
+    "xref_controls": 20,
+    "dictionary_controls": 20,
+    "old_new_semantic_mismatches": 0,
+    "full_original_native_deep_equal": true,
+    "unique_source_reference_values": 5,
+    "native_sha256": "20ec5f620e7a5685df804fc5e6651feda6dd8d0fddb9cc02f8c9b7cff6ff790c"
+  },
+  "static_findings": [
+    "Only Adler modular arithmetic and private synchronous array first-token handoff differ from the pinned source.",
+    "Original 1024-key dictionary bound, duplicate semantics, numeric/hex/name grammar, 128-byte compressed feed, expansion bounds, xref traversal, DEFLATE completeness/trailing checks and full-file digest remain intact.",
+    "Adler worst-case a=1481280, b=4294690200 per5552-byte block are exact JS integers below2^32; partial callback tails reduce both sums, preserving recurrence.",
+    "Array first read still occurs before child depth check; restored position precedes depth check, and virtual token limit fails at original first nonwhite position. No cached token escapes the single private call.",
+    "All values remain structurally derived from the complete retained original; no static result fallback added."
+  ],
+  "failed_harness_attempts_retained": [
+    "failed-empty-expectation.json",
+    "failed-stored-expectation.json",
+    "failed-dictionary-header.json"
+  ],
+  "failed_metadata_audit_retained": "failed-profile-schema.json",
+  "timing_summary_reconciliations": 22,
+  "timing_limitations": [
+    "Early warm/initial cold runs may overlap independent differential controls; exact outputs are retained.",
+    "Later cold comparisons requested a quiet window; this does not establish machine isolation.",
+    "Process CPU includes Node/V8 helper threads; no-JIT diagnostics are not Cloudflare-equivalent.",
+    "The selected cold sample set retains a 304.600431 ms candidate wall-time outlier.",
+    "Earlier actual Worker CPU failures at794 and636 ms remain failures; only fresh staged full-desk CPU can accept the500 ms gate."
+  ],
+  "cpu_acceptance": false,
+  "earlier_actual_cpu_failures_ms": [
+    794,
+    636
+  ],
+  "unchanged_legacy_cpu_gate_ms": 500,
+  "unchanged_usa_cpu_gate_ms": 100,
+  "unchanged_worker_ceiling_ms": 1000,
+  "no_http": true,
+  "no_repository_writes": true,
+  "no_git_mutations": true,
+  "no_schedule_checkpoint_receipt_or_release_changes": true
+}

@@ -1,0 +1,262 @@
+{
+  "kind": "Constructed offline AEMO public checker controls; no HTTP or release acceptance",
+  "pass": true,
+  "code_before": {
+    "lib/information.js": "cc110a4dc27d34ae3a45cd264b55767dcf01d76fa0615410f842d7eee39b3464",
+    "lib/gap-information.js": "657e4619ef3470c66122fda3da972e47798086960eb839ad074be209453c3ecb",
+    "lib/aemo-daily-schema.js": "a6987f5304a94522f5411ea95b7832ee3b8ab189b8e3554fc34620037ed94811",
+    "lib/aemo-daily-bundles.js": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6",
+    "lib/inventory.js": "2b17bda198142275ffb0e685cb232580fcadde97d4bbd062973e8ac7df5e7cd1",
+    "verification/gap-followup-2026-10-20/aemo-daily/interface-checker/support.mjs": "dfe38bce45ca8e81fecf25b5cb3004e3db0151169faacf3508d5838302ebf701",
+    "verification/gap-followup-2026-10-20/aemo-daily/interface-checker/check-controls.mjs": "315f74f96de0330f3cd2ee81cce81ce1386df27219928abe0e0434d31b035fba",
+    "verification/gap-followup-2026-10-20/aemo-daily/interface-checker/verify-numbers.py": "6d3cbc22eb612dd0c05236d2cadc173bac292e03540e61baf017e9357cb8b95a",
+    "verification/gap-followup-2026-10-20/aemo-daily/interface-checker/verify-schemas.py": "60c26ff37e50f8e7103eacea7509c7cc25ca73b9671ab5d264273898ebe6f536"
+  },
+  "code_after": {
+    "lib/information.js": "cc110a4dc27d34ae3a45cd264b55767dcf01d76fa0615410f842d7eee39b3464",
+    "lib/gap-information.js": "657e4619ef3470c66122fda3da972e47798086960eb839ad074be209453c3ecb",
+    "lib/aemo-daily-schema.js": "a6987f5304a94522f5411ea95b7832ee3b8ab189b8e3554fc34620037ed94811",
+    "lib/aemo-daily-bundles.js": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6",
+    "lib/inventory.js": "2b17bda198142275ffb0e685cb232580fcadde97d4bbd062973e8ac7df5e7cd1",
+    "verification/gap-followup-2026-10-20/aemo-daily/interface-checker/support.mjs": "dfe38bce45ca8e81fecf25b5cb3004e3db0151169faacf3508d5838302ebf701",
+    "verification/gap-followup-2026-10-20/aemo-daily/interface-checker/check-controls.mjs": "315f74f96de0330f3cd2ee81cce81ce1386df27219928abe0e0434d31b035fba",
+    "verification/gap-followup-2026-10-20/aemo-daily/interface-checker/verify-numbers.py": "6d3cbc22eb612dd0c05236d2cadc173bac292e03540e61baf017e9357cb8b95a",
+    "verification/gap-followup-2026-10-20/aemo-daily/interface-checker/verify-schemas.py": "60c26ff37e50f8e7103eacea7509c7cc25ca73b9671ab5d264273898ebe6f536"
+  },
+  "code_unchanged": true,
+  "independent_original_intervals": 576,
+  "independent_summary_measures": 10,
+  "controls": 34,
+  "results": [
+    {
+      "label": "Source failure preserves separate grid and refuses selected substitute",
+      "pass": true,
+      "constructed": true
+    },
+    {
+      "label": "Partial region isolation and real request-day refusal",
+      "pass": true,
+      "constructed": true
+    },
+    {
+      "label": "Complete constructed actual-adapter capture matches all frozen original cells",
+      "pass": true,
+      "expected_capture_pass": true,
+      "checks": 1362
+    },
+    {
+      "label": "Constructed verify-numbers.py",
+      "pass": true,
+      "checks": 23
+    },
+    {
+      "label": "Constructed verify-schemas.py",
+      "pass": true,
+      "schema_checks": 23,
+      "negative_controls": 8
+    },
+    {
+      "label": "missing request",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact complete bounded request count",
+      "checks": 3
+    },
+    {
+      "label": "wrong Worker",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 exact candidate identity",
+      "checks": 5
+    },
+    {
+      "label": "capture failure mislabelled",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "capture identity and successful status",
+      "checks": 1
+    },
+    {
+      "label": "reference drift",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact frozen independent references",
+      "checks": 2
+    },
+    {
+      "label": "unsafe body path",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 safe unique capture filename",
+      "checks": 7
+    },
+    {
+      "label": "body hash drift",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 exact retained bytes",
+      "checks": 8
+    },
+    {
+      "label": "HEAD payload",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 26 empty conditional/HEAD body",
+      "checks": 1303
+    },
+    {
+      "label": "conditional ETag drift",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 25 original GET ETag retained",
+      "checks": 1297
+    },
+    {
+      "label": "wrong raw price with same rounded value",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json SA1 all 288 raw/cents/interval/ownership values",
+      "checks": 32
+    },
+    {
+      "label": "wrong cent price",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json SA1 all 288 raw/cents/interval/ownership values",
+      "checks": 32
+    },
+    {
+      "label": "duplicate interval",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json SA1 all 288 raw/cents/interval/ownership values",
+      "checks": 32
+    },
+    {
+      "label": "missing interval",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json SA1 all 288 raw/cents/interval/ownership values",
+      "checks": 32
+    },
+    {
+      "label": "wrong geography",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json SA1 exact regional semantics",
+      "checks": 31
+    },
+    {
+      "label": "changed negative-count semantics",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json SA1.negative_count independent exact summary",
+      "checks": 36
+    },
+    {
+      "label": "wrong dataset",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json SA1 exact regional semantics",
+      "checks": 31
+    },
+    {
+      "label": "wrong intervention",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json SA1 exact regional semantics",
+      "checks": 31
+    },
+    {
+      "label": "future/older day",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json exact complete calendar day",
+      "checks": 26
+    },
+    {
+      "label": "missing provenance",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json bounded actual acquisition provenance",
+      "checks": 55
+    },
+    {
+      "label": "wrong original ZIP",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json provenance 1 exact original ZIP/CSV",
+      "checks": 59
+    },
+    {
+      "label": "provenance after completion",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json provenance 0 source bytes/clock",
+      "checks": 57
+    },
+    {
+      "label": "lost existing grid",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json separate five-region grid sibling preserved",
+      "checks": 63
+    },
+    {
+      "label": "wrong selected qualification",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json?source=grid_day&measure=SA1.mean exact selected SA1.mean",
+      "checks": 222
+    },
+    {
+      "label": "same-value wrong context day",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json?source=grid_day full context matches independently checked native",
+      "checks": 93
+    },
+    {
+      "label": "wrong statistical version",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json?source=grid_day&measure=SA1.mean replayed observation version SA1.mean",
+      "checks": 225
+    },
+    {
+      "label": "wrong native pointer",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json?source=grid_day&measure=SA1.mean exact native pointer SA1.mean",
+      "checks": 224
+    },
+    {
+      "label": "missing period replaced by zero",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 27 no substituted observations",
+      "checks": 1314
+    },
+    {
+      "label": "missing advertised definition",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/catalog.json?desk=australia one source with ten measures",
+      "checks": 71
+    },
+    {
+      "label": "unbounded TTL",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json bounded cache lifetime",
+      "checks": 23
+    },
+    {
+      "label": "TTL crosses AEST midnight",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json cache cannot cross fixed-AEST midnight",
+      "checks": 24
+    }
+  ]
+}

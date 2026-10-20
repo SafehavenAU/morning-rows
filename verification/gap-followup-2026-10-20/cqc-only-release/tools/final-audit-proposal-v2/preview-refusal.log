@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/mr-cqc-final-audit-proposal-v2/verify-final-union.py", line 8, in <module>
+    raw=config_path.read_bytes();c=json.loads(raw);need(c.get('final_ready')is True,'Preview configuration cannot establish final acceptance')
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/mr-cqc-final-audit-proposal-v2/auditlib.py", line 7, in need
+    if not ok:raise ValueError(msg)
+              ^^^^^^^^^^^^^^^^^^^^^
+ValueError: Preview configuration cannot establish final acceptance

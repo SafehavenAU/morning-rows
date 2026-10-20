@@ -1,0 +1,68 @@
+{
+  "kind": "Constructed assembler refusal controls only; no actual facts or accepted config",
+  "pass": true,
+  "count": 11,
+  "controls": [
+    {
+      "control": "relative input path",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "symlink input file",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "parent traversal",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "directory as input file",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "unsafe relative member",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "future timestamp",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "unzoned timestamp",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "missing byte count",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "wrong pinned bytes",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "changed input before output",
+      "pass": true,
+      "expected": "refused"
+    },
+    {
+      "control": "absent actual-facts schema",
+      "pass": true,
+      "expected": "refused"
+    }
+  ],
+  "assembler": {
+    "file": "/tmp/mr-combined-final-preparation/cqc-continuation-v2/assemble-final-config.py",
+    "bytes": 24249,
+    "sha256": "54e5741c410ea14ebf9f80dfd6376ce9bb810882cb9128e929571c83f4b29188"
+  },
+  "scope": "Only local refusal controls were executed. No actual-facts assembly, remote call, Git command, helper execution or repository mutation."
+}

@@ -1,0 +1,162 @@
+{
+  "pass": true,
+  "recorded_at": "2026-10-20T18:41:52.237Z",
+  "base_revision": "79e251cab4314c328e84d9ac4ca7bf5e5408bdbb",
+  "before_module_sha256": "7ee99d03615ee0cbfed4d7e8dff709f45dcde0839c410c2a56f0997563f61dbc",
+  "after_module_sha256": "f161ab460d0e489345edcd38c9bbe5c36b1a09990e5b53494a837f48931e27a9",
+  "checks": [
+    {
+      "name": "ordinary sparse entries",
+      "pass": true,
+      "expected_acceptance": true,
+      "input_sha256": "284d74c3b91436281f891748643e76bc0873b329acb11e668528d7e3df9548a8",
+      "value": 101
+    },
+    {
+      "name": "default entry type width0",
+      "pass": true,
+      "expected_acceptance": true,
+      "input_sha256": "0e043fd30402c1df7da07b1e89c2b301b1d42eb8782e65e42246e10a8255482c",
+      "value": 101
+    },
+    {
+      "name": "default generation width0",
+      "pass": true,
+      "expected_acceptance": true,
+      "input_sha256": "7aef837834736323eec3ad75f4136b5ec2d331fa323c95dd0881bc2cf1c2324f",
+      "value": 101
+    },
+    {
+      "name": "both default widths",
+      "pass": true,
+      "expected_acceptance": true,
+      "input_sha256": "767effcb9faf42436a564a2dae56b55ce66c84e0f59b397062d5e0e7f580d0be",
+      "value": 101
+    },
+    {
+      "name": "missing root entry",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "8c128500a4ef0f9010518f23f76fd5048366759e3d8f81752d1ea9b275ba2410",
+      "error": "Bounded PDF: Missing/free object"
+    },
+    {
+      "name": "free root entry",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "8897ad4365818a39086c5fa085527cdca7134b3e144deabff08a87a6cd3807be",
+      "error": "Bounded PDF: Missing/free object"
+    },
+    {
+      "name": "unknown entry type",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "9e574db4d2e8cc16151e23fe964552976804e2b073f764506dc5b67e9e9b01f3",
+      "error": "Bounded PDF: Unknown xref entry type"
+    },
+    {
+      "name": "nonzero generation",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "5f1ad63583e3abcf71acd8bc474ecf920b02e3c26510725b8c0247e4caaa1298",
+      "error": "Bounded PDF: Invalid xref offset/generation"
+    },
+    {
+      "name": "unsigned offset outside PDF",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "2ce08852869bcfe5f4d6c2159fb4c1debacabb6b1e4925999191143db213322f",
+      "error": "Bounded PDF: Invalid xref offset/generation"
+    },
+    {
+      "name": "overlap within section",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "ba739642127d80fee3a9bfbe887237ea2fe16a2539a2b07a28d293e5759f28cb",
+      "error": "Bounded PDF: Overlapping or truncated xref rows"
+    },
+    {
+      "name": "out of range section",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "daf77880c5f2b9818599189a8a5a9cd561dd45b6766d19ca9dbdf1dfb99b292f",
+      "error": "Bounded PDF: Xref index outside bounds"
+    },
+    {
+      "name": "zero first-field width",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "4329045de84519a98b43039e1144723f01e9391db8f822113121f5ae3d663f38",
+      "error": "Bounded PDF: Unsupported xref field widths"
+    },
+    {
+      "name": "latest repeated object supersedes old",
+      "pass": true,
+      "expected_acceptance": true,
+      "input_sha256": "09e8458e39f6a23c9ca3675d370d86601f4cf7d79452e6f2744c4bbdbeddcc0d",
+      "value": 202
+    },
+    {
+      "name": "latest free shadows older live",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "400875ccf7601ad1811caed3194965d73f40a68aaddcd4a81675e9d80f9c2cd3",
+      "error": "Bounded PDF: Missing/free object"
+    },
+    {
+      "name": "latest unseen root falls back older",
+      "pass": true,
+      "expected_acceptance": true,
+      "input_sha256": "2f7231f69768109cb9a029ab33a5c7f0cc134b4ce177e8add21593af69a2d5aa",
+      "value": 101
+    },
+    {
+      "name": "invalid older row still checked despite new root",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "ac4f85c8fc113f0d3afef767f17e3a43625cb15ef20c4560c30f8c5282f7dd5f",
+      "error": "Bounded PDF: Invalid xref offset/generation"
+    },
+    {
+      "name": "compressed object root",
+      "pass": true,
+      "expected_acceptance": true,
+      "input_sha256": "3bc6e18a800dfbc8cc8b1f5645939c4efe1b2c809e3995e1da1fd91643a717d6",
+      "value": 303
+    },
+    {
+      "name": "compressed owner zero",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "07d1608cec151d16755acf4543242c36a51465cf023d339f5fa7b3730fa6651a",
+      "error": "Bounded PDF: Invalid compressed object reference"
+    },
+    {
+      "name": "compressed owner outside size",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "aa0d73cbf01a02196043e2d4612e61e4dd8fe560bdb6d655a783d1ab44f7b690",
+      "error": "Bounded PDF: Invalid compressed object reference"
+    },
+    {
+      "name": "compressed index outside group",
+      "pass": true,
+      "expected_acceptance": false,
+      "input_sha256": "77ee0e62a1e1681863ec45fa7784ee3b13a55f15a856856789485b4ae520d9ad",
+      "error": "Bounded PDF: Compressed object index mismatch"
+    }
+  ],
+  "control_count": 20,
+  "full_native_deep_equal": true,
+  "native_sha256": "20ec5f620e7a5685df804fc5e6651feda6dd8d0fddb9cc02f8c9b7cff6ff790c",
+  "values": [
+    125,
+    809,
+    2063,
+    65,
+    3062
+  ],
+  "no_http": true,
+  "no_repository_writes": true,
+  "scope": "Independent local constructed xref controls and original PDF output comparison, not resource acceptance"
+}

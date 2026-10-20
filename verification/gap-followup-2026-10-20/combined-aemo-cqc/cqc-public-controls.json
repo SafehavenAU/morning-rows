@@ -1,0 +1,250 @@
+{
+  "kind": "Constructed offline CQC checker controls; not actual Worker access or release acceptance",
+  "pass": true,
+  "independent_cells": 5,
+  "actual_discovery_tested": false,
+  "selector_entry_and_catalogue": "Constructed explicitly while integration owner controls real inventory; release captures must exercise actual discovery.",
+  "controls": 35,
+  "results": [
+    {
+      "label": "Constructed CQC source failure preserves successful sibling and refuses selected substitution",
+      "pass": true,
+      "constructed": true
+    },
+    {
+      "label": "Constructed complete native/selectors match five independently extracted rating cells",
+      "pass": true,
+      "expected_capture_pass": true,
+      "checks": 686
+    },
+    {
+      "label": "England 600-second and catalogue 3600-second limits accepted",
+      "pass": true,
+      "expected_capture_pass": true,
+      "checks": 686
+    },
+    {
+      "label": "Constructed captured Draft2020-12 schema positives/negatives",
+      "pass": true,
+      "schema_checks": 13,
+      "negative_controls": 10
+    },
+    {
+      "label": "missing request",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact complete bounded request count",
+      "checks": 3
+    },
+    {
+      "label": "wrong Worker identity",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 exact candidate identity",
+      "checks": 5
+    },
+    {
+      "label": "failed capture falsely accepted",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "capture identity and successful status",
+      "checks": 1
+    },
+    {
+      "label": "independent reference substitution",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact frozen independent references",
+      "checks": 2
+    },
+    {
+      "label": "unsafe body path",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 safe unique capture filename",
+      "checks": 7
+    },
+    {
+      "label": "retained body hash mismatch",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 exact retained bytes",
+      "checks": 8
+    },
+    {
+      "label": "HEAD payload",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 16 empty conditional/HEAD body",
+      "checks": 636
+    },
+    {
+      "label": "HEAD unbounded cache",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json?source=care_assessment_cohort&measure=inadequate bounded cache lifetime",
+      "checks": 638
+    },
+    {
+      "label": "conditional ETag mismatch",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 15 original GET ETag retained",
+      "checks": 631
+    },
+    {
+      "label": "wrong exact rating value",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json independently extracted exact inadequate",
+      "checks": 34
+    },
+    {
+      "label": "wrong geography",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json exact fixed native edition",
+      "checks": 25
+    },
+    {
+      "label": "wrong counting unit",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json honest rating population and assessment unit",
+      "checks": 27
+    },
+    {
+      "label": "newer snapshot substituted",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json exact fixed native edition",
+      "checks": 25
+    },
+    {
+      "label": "changed same-value edition",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json exact fixed native edition",
+      "checks": 25
+    },
+    {
+      "label": "previous rating framework",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json exact fixed native edition",
+      "checks": 25
+    },
+    {
+      "label": "missing risk qualification",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json exact snapshot adjustment and limitations",
+      "checks": 29
+    },
+    {
+      "label": "claim publication metadata retrieved live",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json publication metadata honestly retained",
+      "checks": 31
+    },
+    {
+      "label": "missing public provenance",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json one exact original PDF provenance",
+      "checks": 49
+    },
+    {
+      "label": "different PDF body digest",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json exact PDF acquisition identity",
+      "checks": 50
+    },
+    {
+      "label": "changed PDF bytes length",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json exact PDF acquisition identity",
+      "checks": 50
+    },
+    {
+      "label": "provenance after source completion",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json source completion follows provenance",
+      "checks": 51
+    },
+    {
+      "label": "invalid source completion",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json source completion follows provenance",
+      "checks": 51
+    },
+    {
+      "label": "selected same-value wrong qualification",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json?source=care_assessment_cohort&measure=inadequate complete inadequate qualifications and definition",
+      "checks": 198
+    },
+    {
+      "label": "selected same-value wrong context snapshot",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json?source=care_assessment_cohort complete selected context agrees with native",
+      "checks": 78
+    },
+    {
+      "label": "selected observation fake version",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json?source=care_assessment_cohort&measure=inadequate independently replayed inadequate version",
+      "checks": 200
+    },
+    {
+      "label": "missing period replaced by zero",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 17 no substituted observations",
+      "checks": 646
+    },
+    {
+      "label": "catalogue loses exact measure",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/catalog.json?desk=england exact five advertised measures",
+      "checks": 61
+    },
+    {
+      "label": "England source exceeds 600-second cache limit",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json bounded cache lifetime",
+      "checks": 23
+    },
+    {
+      "label": "England HEAD exceeds 600-second cache limit",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json?source=care_assessment_cohort&measure=inadequate bounded cache lifetime",
+      "checks": 638
+    },
+    {
+      "label": "catalogue exceeds 3600-second cache limit",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/catalog.json?desk=england bounded cache lifetime",
+      "checks": 59
+    },
+    {
+      "label": "unbounded cache lifetime",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/england.json bounded cache lifetime",
+      "checks": 23
+    }
+  ]
+}

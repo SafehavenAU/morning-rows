@@ -1,0 +1,115 @@
+{
+  "kind": "Offline preparation controls only; no new source acquisition or numerical specimen approval",
+  "pass": true,
+  "verified_at": "2026-10-20T17:54:19.750089+00:00",
+  "checks": [
+    {
+      "label": "Eight half-away controls plus sign and mean-tie controls",
+      "pass": true
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP ''",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP 'NaN'",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP 'Infinity'",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP '..'",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP '1.000001'",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP '1e-06'",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP '100000000'",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP '-100000000'",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Malformed/missing/excess precision RRP '1E99'",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Historical original ZIP framing only; not20Oct calendar approval",
+      "pass": true
+    },
+    {
+      "label": "Unexpected CSV name refused",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Truncated ZIP refused",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Extra member refused",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Encrypted flag refused",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Extra attribute refused",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Oversized expansion refused",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Bad local CRC refused",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Retained17:44index lacking20Oct refused",
+      "pass": true,
+      "refused": "ValueError"
+    },
+    {
+      "label": "Early actual clock refused withoutHTTP",
+      "pass": true,
+      "refused": "ValueError"
+    }
+  ],
+  "historical_input": {
+    "file": "/workspace/morning-rows-aemo-followup/verification/gap-followup-2026-10-20/aemo-daily/original/PUBLIC_PRICES_202610190000_20261020040503.zip",
+    "bytes": 260373,
+    "sha256": "f67a8dd7b89f1c94544aa23192f7f29896926a2ba541c098e6a5e30fe57729b9"
+  },
+  "new_20_october_originals_acquired": false,
+  "limits": [
+    "Only historical ZIP framing and constructed malformed input controls; no20Octvalue asserted.",
+    "No runtime, protected-reader, resource, production, scheduled or delivery acceptance."
+  ]
+}

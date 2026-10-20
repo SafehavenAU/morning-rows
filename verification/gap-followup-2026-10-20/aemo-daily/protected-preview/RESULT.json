@@ -1,0 +1,46 @@
+{
+  "pass": true,
+  "kind": "Protected reader correctness and bounded-input evidence; not source CPU or production acceptance",
+  "finished_at": "2026-10-20T12:50:50.574Z",
+  "remote_cases": 37,
+  "remote_assertions": 291,
+  "live_publisher_requests": 3,
+  "exact_original_cells": 576,
+  "derived_summaries": 10,
+  "code_unchanged": true,
+  "module_sha256": "151a0eba192cac883a5f156fbafad077bfe3e8d989d78dfc6a1fb1fcbb15c4a6",
+  "actual_bytes": {
+    "index": 16059,
+    "compressed_zip_total": 514682,
+    "expanded_csv_total": 2227454,
+    "largest_compressed_zip": 260373,
+    "largest_expanded_csv": 1118267
+  },
+  "resource_acceptance_limits": [
+    "Configured temporary preview ceiling 1000 ms; actual CPU usage unmeasured.",
+    "No memory-peak or percentile claim.",
+    "Exact staged CPU and both-domain release gates remain required."
+  ],
+  "evidence": [
+    {
+      "file": "run-20261020/report.json",
+      "sha256": "d81d8c0f4c9e433d4b68e5b14a78c959503cb406105a95c49c8b51931a842b79",
+      "meaning": "37 actual remote cases and 291 assertions"
+    },
+    {
+      "file": "independent-live-comparison.json",
+      "sha256": "5677ed4420d0ebeca997ed2fe47c4dca34a58775ff1b7b1ebfab3d35f01d46f8",
+      "meaning": "Independent Python original CSV comparison: 576 cells and 10 summaries"
+    },
+    {
+      "file": "local-controls.json",
+      "sha256": "7a23aed476da69c7fa0d632afecabeab0ec63dcfad3813651a1b2f95eaac164b",
+      "meaning": "36 local constructed cases"
+    },
+    {
+      "file": "evaluator-controls.json",
+      "sha256": "26d050f5d626efd45fa2cdfd4fb1d67f4ca350a6ab1f09aeac4bebacc0e05cf0",
+      "meaning": "10 local negative evaluator controls"
+    }
+  ]
+}

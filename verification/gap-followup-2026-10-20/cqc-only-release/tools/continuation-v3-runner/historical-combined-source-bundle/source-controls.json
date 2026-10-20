@@ -1,0 +1,79 @@
+{
+  "kind": "Constructed offline runner refusal controls; not actual HTTP, CPU, release or scheduled evidence",
+  "pass": true,
+  "controls": [
+    {
+      "name": "all 121 unchanged states pass",
+      "expected_pass": true,
+      "observed_pass": true,
+      "pass": true
+    },
+    {
+      "name": "known TfL recovery allowed",
+      "expected_pass": true,
+      "observed_pass": true,
+      "pass": true
+    },
+    {
+      "name": "known ONS 403 to 429 allowed",
+      "expected_pass": true,
+      "observed_pass": true,
+      "pass": true
+    },
+    {
+      "name": "strict 49 checks rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    },
+    {
+      "name": "strict failed numeric check rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    },
+    {
+      "name": "SEPA failure never receives waiver",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    },
+    {
+      "name": "both domains same SEPA failure still rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    },
+    {
+      "name": "unknown new failure rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    },
+    {
+      "name": "missing source rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    },
+    {
+      "name": "extra source rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    },
+    {
+      "name": "wrong production identity rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    },
+    {
+      "name": "dirty candidate rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "pass": true
+    }
+  ],
+  "source_helper_sha256": "3de6d2409868680e62f515e1db090db71e4823f42e39a76e1bdb2e59ff379f01"
+}

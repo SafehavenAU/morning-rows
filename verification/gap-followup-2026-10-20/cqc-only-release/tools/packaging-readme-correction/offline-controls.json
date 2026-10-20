@@ -1,0 +1,33 @@
+{
+  "kind": "Offline complete payload preparation controls; no package materialization",
+  "pass": true,
+  "original_packager_unchanged": true,
+  "actual_plan": {
+    "file": "/tmp/mr-combined-final-preparation/cqc-continuation-v3/package-plan.final-reviewed-additions.json",
+    "sha256": "5c95a1fc180c6f4045fd6ad8465852267eb522a52d8805beadc6e22b8a768c9b"
+  },
+  "payload_count": 1395,
+  "manifest_originals": 1394,
+  "all_payload_manifest_bindings_match": true,
+  "explicit_readme_preserved": true,
+  "default_readme_preserved_without_explicit_entry": true,
+  "negative_controls": [
+    {
+      "name": "manifest reserved",
+      "refused": true,
+      "reason": "Generated package manifest name is reserved"
+    },
+    {
+      "name": "unpinned README refused",
+      "refused": true,
+      "reason": "Invalid immutable auxiliary binding"
+    },
+    {
+      "name": "transformed README refused",
+      "refused": true,
+      "reason": "Explicit README requires one exact hash-and-byte-pinned auxiliary file"
+    }
+  ],
+  "repository_writes": 0,
+  "remote_calls": 0
+}

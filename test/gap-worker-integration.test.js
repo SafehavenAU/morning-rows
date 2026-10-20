@@ -19,7 +19,7 @@ function setup(t,{at='2026-10-20T10:00:00Z',invalidJobs=false,failBoc=false,dela
  t.mock.method(globalThis,'fetch',async(url,options={})=>{
   url=String(url);calls.push({url,body:options.body,method:options.method});
   if(delay)await delay(url);
-  if(url.includes('PRICE_AND_DEMAND_'))throw Error('Held AEMO daily source must not be requested');
+  if(url.includes('PRICE_AND_DEMAND_')||url.includes('/Reports/CURRENT/Public_Prices/'))throw Error('Held AEMO daily source must not be requested');
   if(url.includes('ELEC_NEM_SUMMARY'))return Response.json({ELEC_NEM_SUMMARY:['NSW1','QLD1','VIC1','SA1','TAS1'].map(REGIONID=>({REGIONID,PRICE:42,TOTALDEMAND:100,PRICE_STATUS:'FIRM',SETTLEMENTDATE:'2026-10-20T20:00:00'}))});
   if(url.includes('/valet/observations/FXUSDCAD,FXAUDCAD,'))return Response.json(latestExchange);
   if(url.includes('/valet/observations/FXUSDCAD,FXGBPCAD/'))return failBoc?new Response('Unavailable',{status:503}):Response.json(boc[url.endsWith('recent=1')?'latest':'window']);
@@ -73,7 +73,7 @@ test('wrong jobs identity and dated-FX failure leave legacy FX, GDP and other he
 test('Australia keeps its five-region snapshot without requesting or advertising the held daily feed',async t=>{
  const h=setup(t,{at:'2026-10-20T13:59:58Z'});const response=await request('/morning.json'),value=await response.json();
  assert.equal(value.grid.length,5);assert.equal(value.sources.grid.status,'ok');assert.equal(value.grid_day,undefined);assert.equal(value.sources.grid_day,undefined);
- assert.equal(h.calls.some(c=>c.url.includes('PRICE_AND_DEMAND_')),false);assert.equal(maxAge(response),30);
+ assert.equal(h.calls.some(c=>c.url.includes('PRICE_AND_DEMAND_')||c.url.includes('/Reports/CURRENT/Public_Prices/')),false);assert.equal(maxAge(response),30);
  const stored=[...h.values.values()][0];assert.equal(stored.headers.get('x-mr-calendar-boundary'),null);
  const count=h.calls.length;assert.equal((await request('/australia.json?source=grid_day')).status,404);assert.equal(h.calls.length,count);
  const catalogue=await(await request('/catalog.json?desk=australia')).json();assert.ok(!JSON.stringify(catalogue).includes('grid_day'));
@@ -83,7 +83,7 @@ test('Australia keeps its five-region snapshot without requesting or advertising
  for(const key of ['revisits','daily_windows'])assert.doesNotMatch(usage[key],/AEMO|AEST|daily electricity summaries/i,`No held daily-electricity claim in ${key}`);
  assert.match(usage.daily_windows,/31-calendar-day request window/);assert.match(usage.daily_windows,/UTC midnight/);
  assert.match(usage.daily_windows,/Absent FX dates are not inferred holidays or carried forward/);
- const llms=await(await request('/llms.txt')).text();assert.ok(!llms.includes('Australia adds SA1/VIC1'));
+ const llms=await(await request('/llms.txt')).text();assert.doesNotMatch(llms,/grid_day|completed-day SA1\/VIC1 price summaries/);
  const keys=await(await request('/keys.json')).json();assert.ok(keys.blocked.some(r=>r.source==='AEMO completed-day SA1/VIC1 monthly price CSV'&&r.status===406));
 });
 

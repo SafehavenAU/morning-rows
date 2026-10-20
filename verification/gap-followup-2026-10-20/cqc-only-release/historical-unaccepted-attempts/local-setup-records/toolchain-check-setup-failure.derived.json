@@ -1,0 +1,26 @@
+{
+  "kind": "Derived record of parent-reported failed local toolchain metadata check",
+  "recorded_at": "2026-10-20T18:52:59.632894+00:00",
+  "evidence_origin": "Parent task message; no original tool-output file exists and none is reconstructed.",
+  "failed_attempt": {
+    "step": "First local frozen-toolchain check for r2",
+    "outcome": "Failed before any hash validation",
+    "error": "AttributeError: 'str' object has no attribute 'get'",
+    "cause": "Iterated the files mapping as a list instead of iterating mapping.values()."
+  },
+  "correction": "Parent reported corrected mapping.values() check verified all14 bindings; this preparation independently rehashed the same14 frozen bindings.",
+  "current_independent_rehash": {
+    "toolchain": {
+      "file": "/tmp/mr-cqc-final-toolchain.json",
+      "bytes": 4377,
+      "sha256": "a7395ff156d6529fe86b2418b93762fb61f26134dadba462e6a8a3d1c85078b6"
+    },
+    "bindings": 14,
+    "all_match": true
+  },
+  "not_a_cpu_or_release_attempt": true,
+  "first_attempt_not_relabelled_passed": true,
+  "repository_changed": false,
+  "remote_actions": false,
+  "accepted": false
+}

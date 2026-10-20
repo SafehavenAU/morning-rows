@@ -1,0 +1,42 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import {deflateSync} from 'node:zlib';
+import {pathToFileURL} from 'node:url';
+const root='/workspace/morning-rows-cqc-cpu-r2',base='79e251cab4314c328e84d9ac4ca7bf5e5408bdbb',hash=x=>createHash('sha256').update(x).digest('hex');
+const prior=execFileSync('git',['show',base+':lib/cqc-pdf.js'],{cwd:root}),current=readFileSync(root+'/lib/cqc-pdf.js');
+assert.equal(hash(prior),'7ee99d03615ee0cbfed4d7e8dff709f45dcde0839c410c2a56f0997563f61dbc');assert.equal(hash(current),'f161ab460d0e489345edcd38c9bbe5c36b1a09990e5b53494a837f48931e27a9');
+const load=source=>import('data:text/javascript;base64,'+Buffer.from(source.toString().replace("from 'fflate'","from 'file:///workspace/morning-rows-aemo-followup/node_modules/fflate/esm/index.mjs'").replace("from './sources.js'",`from '${pathToFileURL(root+'/lib/sources.js').href}'`).replace("from './cqc-cohort.js'",`from '${pathToFileURL(root+'/lib/cqc-cohort.js').href}'`)+'\nexport {decodeZlib as reviewDecodeZlib};\n').toString('base64'));
+const old=await load(prior),next=await load(current),enc=s=>new TextEncoder().encode(s),groups={},examples=[],digest=createHash('sha256');let count=0;
+const outcome=(mod,text,options={},depth=0)=>{const lexer=new mod.PdfLexer(enc(text),options),r={};try{r.value=lexer.value(depth);lexer.complete();r.ok=true;}catch(e){r.ok=false;r.error=e.message;}r.pos=lexer.pos;r.tokens=lexer.tokens;return r;};
+function compare(group,name,a,b,expected){assert.deepEqual(b,a,name);if(expected!==undefined)assert.equal(a.ok,expected,name);count++;const g=groups[group]??={comparisons:0,accepted:0,refused:0};g.comparisons++;g[a.ok?'accepted':'refused']++;digest.update(JSON.stringify({group,name,a},(_,v)=>Object.is(v,-0)?'negative-zero':v));}
+function array(name,text,options={},depth=0,expected,example=false){const a=outcome(old,text,options,depth),b=outcome(next,text,options,depth);compare('array',name,a,b,expected);if(example)examples.push({name,options,depth,...a,value:a.ok?'(exact value compared)':a.value});}
+for(const text of ['[]','[ ]','[true]','[0]','[-0]','[1 0 R]','[1 -0 R]','[0 0 R]','[1 1 R]','[1 2 3]','[1 true]','[null false]','[<ABC> /A#42 (literal\\n)]','[[[0]]]','[<< /A [0] /B [1 0 R] >>]','[<< /A 1 /A 2 >>]','[','[0','[0 0','[0 0 R','[R]','[<<]','[<GG>]','[(bad]','[/#4G]','[9007199254740992]','['+'9'.repeat(129)+']','[true] false','[  %a\n -0 %b\r\n 1 0 R\n]'])for(const maxTokens of [0,1,2,3,4,5,6,7,8,10,15,32,200000])for(const maxDepth of [0,1,2,32])array(text+':'+maxTokens+':'+maxDepth,text,{maxTokens,maxDepth},0,undefined,false);
+array('virtual token limit position after comment','[ % before child\n 123]',{maxTokens:2},0,false,true);
+array('depth wins before child replay skip','[ % before child\n 123]',{maxDepth:0,maxTokens:2},0,false,true);
+array('malformed preliminary token wins before depth','[ % comment\n <GG>]',{maxDepth:0},0,false,true);
+array('unsafe preliminary token wins before depth','[9007199254740992]',{maxDepth:0},0,false,true);
+array('child comment token limit with indirect lookahead','[ %c\n 1 0 R]',{maxTokens:4},0,false,true);
+for(const n of [32767,32768,32769])array('array length '+n,'['+'true '.repeat(n)+']',{},0,n<=32768,true);
+for(const n of [31,32,33])array('nested depth '+n,'['.repeat(n)+'false'+']'.repeat(n),{},0,n<=32,true);
+for(const text of ['[<0>]','[<01>]','[<012>]','[(a)]','[(abc)]','[<0123>]'])for(const maxString of [0,1,2,3])array('string bound '+maxString+text,text,{maxString});
+let seed=0x17513;const rand=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return seed>>>0;};const atoms=['true','false','null','-0','+001','1 0 R','0 0 R','1 1 R','1.5','9007199254740992','R','<ABC>','<GG>','/A#42','/#00','(text\\n)','(nested(inner))','<< /A 0 /B true >>','<< /A 0 /A true >>'];
+const generated=(depth=0)=>{const n=rand()%7,parts=[];for(let i=0;i<n;i++)parts.push(depth<4&&rand()%5===0?generated(depth+1):atoms[rand()%atoms.length]);return '['+parts.join([' ',' \t ',' % comment\r\n '][rand()%3])+ (rand()%11===0?'':']');};
+for(let i=0;i<2000;i++)array('generated#'+i,generated(),{maxTokens:[2,4,9,20,50,200000][rand()%6],maxDepth:[0,1,3,32][rand()%4]});
+const decode=(mod,raw,maxBytes)=>{try{const value=mod.reviewDecodeZlib(new Uint8Array(raw),maxBytes);return {ok:true,bytes:value.length,sha256:hash(value)};}catch(e){return {ok:false,error:e.message,name:e.name};}};
+function zcheck(name,raw,maxBytes,expected,expectedOutput){const a=decode(old,raw,maxBytes),b=decode(next,raw,maxBytes);compare('adler_decoder',name,a,b,expected);if(expectedOutput&&a.ok)assert.equal(a.sha256,hash(expectedOutput));if(!a.ok)examples.push({name,...a});}
+const lengths=[0,1,127,128,129,5551,5552,5553,11103,11104,11105,65521,262144];
+for(const n of lengths)for(const pattern of ['zero','ff','counter']){const payload=Buffer.alloc(n);for(let i=0;i<n;i++)payload[i]=pattern==='zero'?0:pattern==='ff'?255:i%256;for(const level of [0,1,6,9]){const raw=deflateSync(payload,{level}),allowed=raw.length<=262144;zcheck(`${pattern}-${n}-level${level}`,raw,n,allowed?undefined:false,payload);if(n)zcheck(`${pattern}-${n}-undersized-${level}`,raw,n-1,false);if(n>0&&level===6){const corrupt=Buffer.from(raw);corrupt[corrupt.length-1]^=1;zcheck(`${pattern}-${n}-badchecksum`,corrupt,n,false);zcheck(`${pattern}-${n}-badchecksum-size-priority`,corrupt,n-1,false);}}}
+const payload=Buffer.alloc(11105,255),valid=deflateSync(payload);
+for(let i=0;i<32;i++){const bad=Buffer.from(valid);bad[bad.length-4+Math.floor(i/8)]^=1<<(i%8);zcheck('checksum bit '+i,bad,payload.length,false);}
+for(const cut of [0,1,2,3,4,5,6,7,valid.length-6,valid.length-1])zcheck('truncated '+cut,valid.subarray(0,cut),payload.length,false);
+for(const tail of [Buffer.from([0]),Buffer.from([0,0,0,0]),Buffer.from([255]),valid])zcheck('trailing '+tail.length,Buffer.concat([valid,tail]),payload.length,false);
+for(const [name,mutate]of [['bad method',b=>b[0]=0x79],['bad check',b=>b[1]^=1],['dictionary flag',b=>{b[1]|=32;while(((b[0]<<8)|b[1])%31)b[1]++;}]]){const bad=Buffer.from(valid);mutate(bad);zcheck(name,bad,payload.length,false);}
+zcheck('raw compressed length upper bound',Buffer.alloc(262145),262144,false);zcheck('expanded length upper bound',deflateSync(Buffer.alloc(262145)),262144,false);
+const modulus=65521,maxA=65520+255*5552,maxB=65520+5552*65520+255*5552*5553/2;assert.equal(maxA,1481280);assert.equal(maxB,4294690200);assert.ok(maxB<2**32&&Number.isSafeInteger(maxB));
+const checksum=(data,a,b,batch)=>{if(batch){for(let start=0;start<data.length;start+=5552){for(let i=start;i<Math.min(start+5552,data.length);i++){a+=data[i];b+=a;}a%=modulus;b%=modulus;}}else for(const c of data){a=(a+c)%modulus;b=(b+a)%modulus;}return [a,b];};
+let math=0;for(const a of [0,1,65520])for(const b of [0,1,65520])for(const n of [0,1,5551,5552,5553,11104,11105,262144]){const data=Buffer.alloc(n,255);assert.deepEqual(checksum(data,a,b,true),checksum(data,a,b,false));math++;}
+const input=new Uint8Array(readFileSync('/tmp/mr-cqc-pdf-original/report.pdf'));assert.equal(hash(input),'61614bff618645c52cf61405b9c6a2115854e29262d76e324513d2348e555fef');const a=old.parseCqcPdf(input,{retrieved_at:'2026-10-20T17:56:31.747Z'}),b=next.parseCqcPdf(input,{retrieved_at:'2026-10-20T17:56:31.747Z'});assert.deepEqual(b,a);assert.deepEqual(readFileSync(root+'/lib/cqc-pdf.js'),current);
+const report={pass:true,recorded_at:new Date().toISOString(),base_revision:base,before_module_sha256:hash(prior),after_module_sha256:hash(current),groups,total_comparisons:count,arithmetic_controls:math,adler_bound:{batch_bytes:5552,max_a:maxA,max_b:maxB,b_less_than_2_power_32:true,all_operations_exact_js_integers:true},result_stream_sha256:digest.digest('hex'),examples,full_native_deep_equal:true,native_sha256:hash(JSON.stringify(b)),values:b.rows.map(r=>r.value),no_http:true,no_repository_writes:true,shim:'Private decodeZlib exported only within imported source copies in this external harness; repository module untouched.',scope:'Local semantic and refusal proof only; no Cloudflare CPU acceptance'};
+const output=process.argv[2];assert.ok(output);writeFileSync(output,JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({pass:true,count,groups,arithmetic_controls:math,native_sha256:report.native_sha256}));

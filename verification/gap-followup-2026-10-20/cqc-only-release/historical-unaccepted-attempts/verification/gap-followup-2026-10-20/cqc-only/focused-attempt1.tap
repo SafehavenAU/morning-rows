@@ -1,0 +1,1260 @@
+TAP version 13
+# Subtest: original two daily ZIPs reconstruct exact full completed day and prior monthly cent summaries
+ok 1 - original two daily ZIPs reconstruct exact full completed day and prior monthly cent summaries
+  ---
+  duration_ms: 364.250126
+  type: 'test'
+  ...
+# Subtest: definitions and derived rows retain dataset flags, geography, rounding and no invented TRADE/FIRM
+ok 2 - definitions and derived rows retain dataset flags, geography, rounding and no invented TRADE/FIRM
+  ---
+  duration_ms: 462.680366
+  type: 'test'
+  ...
+# Subtest: latest-day clock is fixed AEST, including month/year boundary and cache clipping
+ok 3 - latest-day clock is fixed AEST, including month/year boundary and cache clipping
+  ---
+  duration_ms: 1.459224
+  type: 'test'
+  ...
+# Subtest: discovery selects exactly advertised adjacent trading days, not guessed suffix
+ok 4 - discovery selects exactly advertised adjacent trading days, not guessed suffix
+  ---
+  duration_ms: 0.169864
+  type: 'test'
+  ...
+# Subtest: discovery refuses missing newest bundle
+ok 5 - discovery refuses missing newest bundle
+  ---
+  duration_ms: 1.730407
+  type: 'test'
+  ...
+# Subtest: discovery refuses duplicate advertised entry
+ok 6 - discovery refuses duplicate advertised entry
+  ---
+  duration_ms: 1.015568
+  type: 'test'
+  ...
+# Subtest: discovery refuses ambiguous newer same-day file
+ok 7 - discovery refuses ambiguous newer same-day file
+  ---
+  duration_ms: 0.999079
+  type: 'test'
+  ...
+# Subtest: discovery refuses mismatched filename text
+ok 8 - discovery refuses mismatched filename text
+  ---
+  duration_ms: 0.972148
+  type: 'test'
+  ...
+# Subtest: discovery refuses external href
+ok 9 - discovery refuses external href
+  ---
+  duration_ms: 0.915495
+  type: 'test'
+  ...
+# Subtest: discovery refuses query suffix
+ok 10 - discovery refuses query suffix
+  ---
+  duration_ms: 1.065072
+  type: 'test'
+  ...
+# Subtest: discovery refuses wrong title
+ok 11 - discovery refuses wrong title
+  ---
+  duration_ms: 0.378327
+  type: 'test'
+  ...
+# Subtest: discovery refuses duplicate listing
+ok 12 - discovery refuses duplicate listing
+  ---
+  duration_ms: 0.723202
+  type: 'test'
+  ...
+# Subtest: discovery refuses invalid calendar filename
+ok 13 - discovery refuses invalid calendar filename
+  ---
+  duration_ms: 0.741366
+  type: 'test'
+  ...
+# Subtest: discovery refuses future generation
+ok 14 - discovery refuses future generation
+  ---
+  duration_ms: 0.951198
+  type: 'test'
+  ...
+# Subtest: discovery refuses early generation
+ok 15 - discovery refuses early generation
+  ---
+  duration_ms: 0.804399
+  type: 'test'
+  ...
+# Subtest: before required daily publication is unavailable, not previous-day fallback
+ok 16 - before required daily publication is unavailable, not previous-day fallback
+  ---
+  duration_ms: 1.108853
+  type: 'test'
+  ...
+# Subtest: strict discovery bounds index and clock
+ok 17 - strict discovery bounds index and clock
+  ---
+  duration_ms: 1.680125
+  type: 'test'
+  ...
+# Subtest: run invalidates affected region and preserves sibling
+ok 18 - run invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1697.49745
+  type: 'test'
+  ...
+# Subtest: intervention invalidates affected region and preserves sibling
+ok 19 - intervention invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1624.401971
+  type: 'test'
+  ...
+# Subtest: administered-price flag invalidates affected region and preserves sibling
+ok 20 - administered-price flag invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1972.213218
+  type: 'test'
+  ...
+# Subtest: suspension invalidates affected region and preserves sibling
+ok 21 - suspension invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1407.650535
+  type: 'test'
+  ...
+# Subtest: suppressed RRP invalidates affected region and preserves sibling
+ok 22 - suppressed RRP invalidates affected region and preserves sibling
+  ---
+  duration_ms: 752.751682
+  type: 'test'
+  ...
+# Subtest: missing RRP invalidates affected region and preserves sibling
+ok 23 - missing RRP invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1186.26214
+  type: 'test'
+  ...
+# Subtest: NaN RRP invalidates affected region and preserves sibling
+ok 24 - NaN RRP invalidates affected region and preserves sibling
+  ---
+  duration_ms: 856.68719
+  type: 'test'
+  ...
+# Subtest: infinite RRP invalidates affected region and preserves sibling
+ok 25 - infinite RRP invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1090.547518
+  type: 'test'
+  ...
+# Subtest: six-decimal RRP invalidates affected region and preserves sibling
+ok 26 - six-decimal RRP invalidates affected region and preserves sibling
+  ---
+  duration_ms: 963.310489
+  type: 'test'
+  ...
+# Subtest: scientific excessive precision invalidates affected region and preserves sibling
+ok 27 - scientific excessive precision invalidates affected region and preserves sibling
+  ---
+  duration_ms: 742.408105
+  type: 'test'
+  ...
+# Subtest: out-of-bounds magnitude invalidates affected region and preserves sibling
+ok 28 - out-of-bounds magnitude invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1313.148937
+  type: 'test'
+  ...
+# Subtest: shifted timestamp invalidates affected region and preserves sibling
+ok 29 - shifted timestamp invalidates affected region and preserves sibling
+  ---
+  duration_ms: 864.17024
+  type: 'test'
+  ...
+# Subtest: wrong trading date invalidates affected region and preserves sibling
+ok 30 - wrong trading date invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1141.203486
+  type: 'test'
+  ...
+# Subtest: invalid timestamp invalidates affected region and preserves sibling
+ok 31 - invalid timestamp invalidates affected region and preserves sibling
+  ---
+  duration_ms: 1226.129989
+  type: 'test'
+  ...
+# Subtest: missing selected cell never yields partial mean
+ok 32 - missing selected cell never yields partial mean
+  ---
+  duration_ms: 773.016353
+  type: 'test'
+  ...
+# Subtest: duplicate selected cell never yields partial mean
+ok 33 - duplicate selected cell never yields partial mean
+  ---
+  duration_ms: 806.060817
+  type: 'test'
+  ...
+# Subtest: layout disagreement selected cell never yields partial mean
+ok 34 - layout disagreement selected cell never yields partial mean
+  ---
+  duration_ms: 881.148871
+  type: 'test'
+  ...
+# Subtest: wrong supported region cannot replace SA1
+ok 35 - wrong supported region cannot replace SA1
+  ---
+  duration_ms: 683.752725
+  type: 'test'
+  ...
+# Subtest: exact per-interval half-away rounding 0.005
+ok 36 - exact per-interval half-away rounding 0.005
+  ---
+  duration_ms: 767.281012
+  type: 'test'
+  ...
+# Subtest: exact per-interval half-away rounding -0.005
+ok 37 - exact per-interval half-away rounding -0.005
+  ---
+  duration_ms: 869.449524
+  type: 'test'
+  ...
+# Subtest: exact per-interval half-away rounding -0.00499
+ok 38 - exact per-interval half-away rounding -0.00499
+  ---
+  duration_ms: 627.160065
+  type: 'test'
+  ...
+# Subtest: exact per-interval half-away rounding 3E-05
+ok 39 - exact per-interval half-away rounding 3E-05
+  ---
+  duration_ms: 684.868734
+  type: 'test'
+  ...
+# Subtest: exact per-interval half-away rounding -3E-05
+ok 40 - exact per-interval half-away rounding -3E-05
+  ---
+  duration_ms: 685.999298
+  type: 'test'
+  ...
+# Subtest: exact per-interval half-away rounding 1.23456
+ok 41 - exact per-interval half-away rounding 1.23456
+  ---
+  duration_ms: 673.336719
+  type: 'test'
+  ...
+# Subtest: exact per-interval half-away rounding -1.23500
+ok 42 - exact per-interval half-away rounding -1.23500
+  ---
+  duration_ms: 492.826394
+  type: 'test'
+  ...
+# Subtest: exact per-interval half-away rounding 0
+ok 43 - exact per-interval half-away rounding 0
+  ---
+  duration_ms: 366.099769
+  type: 'test'
+  ...
+# Subtest: mean rounds half away after per-interval cents -1
+ok 44 - mean rounds half away after per-interval cents -1
+  ---
+  duration_ms: 384.677828
+  type: 'test'
+  ...
+# Subtest: mean rounds half away after per-interval cents 1
+ok 45 - mean rounds half away after per-interval cents 1
+  ---
+  duration_ms: 371.585825
+  type: 'test'
+  ...
+# Subtest: ZIP refuses corrupt CRC
+ok 46 - ZIP refuses corrupt CRC
+  ---
+  duration_ms: 41.169281
+  type: 'test'
+  ...
+# Subtest: ZIP refuses advertised oversized expansion
+ok 47 - ZIP refuses advertised oversized expansion
+  ---
+  duration_ms: 0.210843
+  type: 'test'
+  ...
+# Subtest: ZIP refuses lying expansion size
+ok 48 - ZIP refuses lying expansion size
+  ---
+  duration_ms: 0.233795
+  type: 'test'
+  ...
+# Subtest: ZIP refuses encryption flags
+ok 49 - ZIP refuses encryption flags
+  ---
+  duration_ms: 0.119788
+  type: 'test'
+  ...
+# Subtest: ZIP refuses descriptor flags
+ok 50 - ZIP refuses descriptor flags
+  ---
+  duration_ms: 0.092378
+  type: 'test'
+  ...
+# Subtest: ZIP refuses multi-volume
+ok 51 - ZIP refuses multi-volume
+  ---
+  duration_ms: 0.162291
+  type: 'test'
+  ...
+# Subtest: ZIP refuses multiple members
+ok 52 - ZIP refuses multiple members
+  ---
+  duration_ms: 0.170936
+  type: 'test'
+  ...
+# Subtest: ZIP refuses central outside archive
+ok 53 - ZIP refuses central outside archive
+  ---
+  duration_ms: 0.164835
+  type: 'test'
+  ...
+# Subtest: ZIP refuses header disagreement
+ok 54 - ZIP refuses header disagreement
+  ---
+  duration_ms: 0.166853
+  type: 'test'
+  ...
+# Subtest: ZIP refuses ZIP extra field
+ok 55 - ZIP refuses ZIP extra field
+  ---
+  duration_ms: 0.213593
+  type: 'test'
+  ...
+# Subtest: ZIP refuses ZIP comment
+ok 56 - ZIP refuses ZIP comment
+  ---
+  duration_ms: 0.178517
+  type: 'test'
+  ...
+# Subtest: ZIP refuses symlink member
+ok 57 - ZIP refuses symlink member
+  ---
+  duration_ms: 0.155356
+  type: 'test'
+  ...
+# Subtest: ZIP refuses raw non-ZIP, truncated, too big and nested/path-traversal/wrong member
+ok 58 - ZIP refuses raw non-ZIP, truncated, too big and nested/path-traversal/wrong member
+  ---
+  duration_ms: 1.646338
+  type: 'test'
+  ...
+# Subtest: CSV refuses wrong report identity
+ok 59 - CSV refuses wrong report identity
+  ---
+  duration_ms: 280.079858
+  type: 'test'
+  ...
+# Subtest: CSV refuses generation mismatch
+ok 60 - CSV refuses generation mismatch
+  ---
+  duration_ms: 293.231908
+  type: 'test'
+  ...
+# Subtest: CSV refuses unknown layout
+ok 61 - CSV refuses unknown layout
+  ---
+  duration_ms: 289.348585
+  type: 'test'
+  ...
+# Subtest: CSV refuses wrong table
+ok 62 - CSV refuses wrong table
+  ---
+  duration_ms: 290.8125
+  type: 'test'
+  ...
+# Subtest: CSV refuses duplicate column
+ok 63 - CSV refuses duplicate column
+  ---
+  duration_ms: 290.411881
+  type: 'test'
+  ...
+# Subtest: CSV refuses missing layout
+ok 64 - CSV refuses missing layout
+  ---
+  duration_ms: 177.17391
+  type: 'test'
+  ...
+# Subtest: CSV refuses invalid row width
+ok 65 - CSV refuses invalid row width
+  ---
+  duration_ms: 287.358553
+  type: 'test'
+  ...
+# Subtest: CSV refuses unknown region
+ok 66 - CSV refuses unknown region
+  ---
+  duration_ms: 303.23914
+  type: 'test'
+  ...
+# Subtest: CSV refuses duplicate header
+ok 67 - CSV refuses duplicate header
+  ---
+  duration_ms: 361.284496
+  type: 'test'
+  ...
+# Subtest: CSV refuses malformed quotes, UTF-8, trailer, record count, and actual expanded overflow
+ok 68 - CSV refuses malformed quotes, UTF-8, trailer, record count, and actual expanded overflow
+  ---
+  duration_ms: 214.748246
+  type: 'test'
+  ...
+# Subtest: actual reader shares exactly three bounded requests and preserves wire/member provenance
+ok 69 - actual reader shares exactly three bounded requests and preserves wire/member provenance
+  ---
+  duration_ms: 197.796625
+  type: 'test'
+  ...
+# Subtest: HTTP 302 is refused without retry or monthly fallback
+ok 70 - HTTP 302 is refused without retry or monthly fallback
+  ---
+  duration_ms: 5.431126
+  type: 'test'
+  ...
+# Subtest: HTTP 403 is refused without retry or monthly fallback
+ok 71 - HTTP 403 is refused without retry or monthly fallback
+  ---
+  duration_ms: 2.106393
+  type: 'test'
+  ...
+# Subtest: HTTP 406 is refused without retry or monthly fallback
+ok 72 - HTTP 406 is refused without retry or monthly fallback
+  ---
+  duration_ms: 4.307492
+  type: 'test'
+  ...
+# Subtest: HTTP 429 is refused without retry or monthly fallback
+ok 73 - HTTP 429 is refused without retry or monthly fallback
+  ---
+  duration_ms: 1.642647
+  type: 'test'
+  ...
+# Subtest: HTTP 500 is refused without retry or monthly fallback
+ok 74 - HTTP 500 is refused without retry or monthly fallback
+  ---
+  duration_ms: 2.926746
+  type: 'test'
+  ...
+# Subtest: declared/streamed size limits, redirects and malformed index cannot trigger extra fetches
+ok 75 - declared/streamed size limits, redirects and malformed index cannot trigger extra fetches
+  ---
+  duration_ms: 1.439771
+  type: 'test'
+  ...
+# Subtest: clock rollover and backward clock refuse a mixed-date acquisition
+ok 76 - clock rollover and backward clock refuse a mixed-date acquisition
+  ---
+  duration_ms: 3.354284
+  type: 'test'
+  ...
+# Subtest: final clock includes parsing, hashing and validation before return
+ok 77 - final clock includes parsing, hashing and validation before return
+  ---
+  duration_ms: 257.086395
+  type: 'test'
+  ...
+# Subtest: successful public validator requires explicit clock and rejects undefined/null/empty
+ok 78 - successful public validator requires explicit clock and rejects undefined/null/empty
+  ---
+  duration_ms: 134.946311
+  type: 'test'
+  ...
+# Subtest: public validator refuses wrong geography
+ok 79 - public validator refuses wrong geography
+  ---
+  duration_ms: 165.31174
+  type: 'test'
+  ...
+# Subtest: public validator refuses wrong unit
+ok 80 - public validator refuses wrong unit
+  ---
+  duration_ms: 163.896209
+  type: 'test'
+  ...
+# Subtest: public validator refuses wrong run
+ok 81 - public validator refuses wrong run
+  ---
+  duration_ms: 144.967545
+  type: 'test'
+  ...
+# Subtest: public validator refuses invented finality
+ok 82 - public validator refuses invented finality
+  ---
+  duration_ms: 138.535914
+  type: 'test'
+  ...
+# Subtest: public validator refuses invented TRADE field
+ok 83 - public validator refuses invented TRADE field
+  ---
+  duration_ms: 142.155642
+  type: 'test'
+  ...
+# Subtest: public validator refuses missing interval
+ok 84 - public validator refuses missing interval
+  ---
+  duration_ms: 128.213826
+  type: 'test'
+  ...
+# Subtest: public validator refuses duplicated interval
+ok 85 - public validator refuses duplicated interval
+  ---
+  duration_ms: 126.520042
+  type: 'test'
+  ...
+# Subtest: public validator refuses wrong raw rounding
+ok 86 - public validator refuses wrong raw rounding
+  ---
+  duration_ms: 135.751966
+  type: 'test'
+  ...
+# Subtest: public validator refuses wrong source bundle
+ok 87 - public validator refuses wrong source bundle
+  ---
+  duration_ms: 125.163705
+  type: 'test'
+  ...
+# Subtest: public validator refuses wrong raw layout
+ok 88 - public validator refuses wrong raw layout
+  ---
+  duration_ms: 125.053806
+  type: 'test'
+  ...
+# Subtest: public validator refuses summary mutation
+ok 89 - public validator refuses summary mutation
+  ---
+  duration_ms: 127.56823
+  type: 'test'
+  ...
+# Subtest: public validator refuses count mutation
+ok 90 - public validator refuses count mutation
+  ---
+  duration_ms: 140.930478
+  type: 'test'
+  ...
+# Subtest: public validator refuses false success
+ok 91 - public validator refuses false success
+  ---
+  duration_ms: 137.906705
+  type: 'test'
+  ...
+# Subtest: public validator refuses definition mutation
+ok 92 - public validator refuses definition mutation
+  ---
+  duration_ms: 127.894207
+  type: 'test'
+  ...
+# Subtest: public validator refuses provenance omitted
+ok 93 - public validator refuses provenance omitted
+  ---
+  duration_ms: 142.199523
+  type: 'test'
+  ...
+# Subtest: public validator refuses bundle swapped
+ok 94 - public validator refuses bundle swapped
+  ---
+  duration_ms: 135.477575
+  type: 'test'
+  ...
+# Subtest: public validator refuses hash malformed
+ok 95 - public validator refuses hash malformed
+  ---
+  duration_ms: 125.749991
+  type: 'test'
+  ...
+# Subtest: public validator refuses CSV size changed
+ok 96 - public validator refuses CSV size changed
+  ---
+  duration_ms: 124.807206
+  type: 'test'
+  ...
+# Subtest: public validator refuses future acquisition
+ok 97 - public validator refuses future acquisition
+  ---
+  duration_ms: 124.041616
+  type: 'test'
+  ...
+# Subtest: public validator refuses request before index
+ok 98 - public validator refuses request before index
+  ---
+  duration_ms: 136.625892
+  type: 'test'
+  ...
+# Subtest: public validator refuses error converted to zero
+ok 99 - public validator refuses error converted to zero
+  ---
+  duration_ms: 128.094762
+  type: 'test'
+  ...
+# Subtest: public validator refuses old source date
+ok 100 - public validator refuses old source date
+  ---
+  duration_ms: 127.495335
+  type: 'test'
+  ...
+# Subtest: public validator refuses inferred publication
+ok 101 - public validator refuses inferred publication
+  ---
+  duration_ms: 128.176285
+  type: 'test'
+  ...
+# Subtest: AEMO daily candidate definitions remain available offline without public activation
+ok 102 - AEMO daily candidate definitions remain available offline without public activation
+  ---
+  duration_ms: 2.715576
+  type: 'test'
+  ...
+# Subtest: active catalogue, schema and selectors refuse the held AEMO daily candidate
+not ok 103 - active catalogue, schema and selectors refuse the held AEMO daily candidate
+  ---
+  duration_ms: 2.984278
+  type: 'test'
+  location: '/workspace/morning-rows-cqc-cpu-repair/test/aemo-daily-information.test.js:23:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - 'unknown_source'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'unknown_source'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/morning-rows-cqc-cpu-repair/test/aemo-daily-information.test.js:30:44)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: Unactivated AEMO candidate native schema has complete regional coverage and explicit isolated failures
+ok 104 - Unactivated AEMO candidate native schema has complete regional coverage and explicit isolated failures
+  ---
+  duration_ms: 11164.750066
+  type: 'test'
+  ...
+# 80 independent native-schema cases
+# Subtest: Schema validation is separate from exact whole-day semantic validation
+ok 105 - Schema validation is separate from exact whole-day semantic validation
+  ---
+  duration_ms: 2501.706916
+  type: 'test'
+  ...
+# Subtest: five exact CQC definitions and cells retain source-bound cohort semantics
+ok 106 - five exact CQC definitions and cells retain source-bound cohort semantics
+  ---
+  duration_ms: 3.774392
+  type: 'test'
+  ...
+# Subtest: actual native and all ten measure/exact selectors produce five fixed snapshot cells
+ok 107 - actual native and all ten measure/exact selectors produce five fixed snapshot cells
+  ---
+  duration_ms: 44.199358
+  type: 'test'
+  ...
+# Subtest: unavailable periods and whole-source drift cannot silently substitute five retained values
+ok 108 - unavailable periods and whole-source drift cannot silently substitute five retained values
+  ---
+  duration_ms: 5.678127
+  type: 'test'
+  ...
+# Subtest: a missing public acquisition clock cannot bypass the full PDF provenance guard
+ok 109 - a missing public acquisition clock cannot bypass the full PDF provenance guard
+  ---
+  duration_ms: 0.24125
+  type: 'test'
+  ...
+# Subtest: native and selected schema constrain exact PDF identity, all five semantic rows and source/id discriminators
+ok 110 - native and selected schema constrain exact PDF identity, all five semantic rows and source/id discriminators
+  ---
+  duration_ms: 2583.422213
+  type: 'test'
+  ...
+# {"cases":36,"failures":[]}
+# Subtest: acquisition-only changes preserve statistical versions and conditionals/HEAD remain exact
+ok 111 - acquisition-only changes preserve statistical versions and conditionals/HEAD remain exact
+  ---
+  duration_ms: 46.402137
+  type: 'test'
+  ...
+# Subtest: England routes the fixed PDF once, timestamps its completion and preserves healthy grid on refusal
+ok 112 - England routes the fixed PDF once, timestamps its completion and preserves healthy grid on refusal
+  ---
+  duration_ms: 73.466914
+  type: 'test'
+  ...
+# Subtest: CQC catalogue exposes exactly five fixed cohort definitions while preserving held workbook access history
+ok 113 - CQC catalogue exposes exactly five fixed cohort definitions while preserving held workbook access history
+  ---
+  duration_ms: 154.059739
+  type: 'test'
+  ...
+# Subtest: independent statistical fixture derives five counts; metadata preserves service-level fixed cohort
+ok 114 - independent statistical fixture derives five counts; metadata preserves service-level fixed cohort
+  ---
+  duration_ms: 300.83697
+  type: 'test'
+  ...
+# Subtest: fixture with real appended xref and unchanged content preserves values
+ok 115 - fixture with real appended xref and unchanged content preserves values
+  ---
+  duration_ms: 113.369412
+  type: 'test'
+  ...
+# Subtest: negative count refuses through PDF parser
+ok 116 - negative count refuses through PDF parser
+  ---
+  duration_ms: 71.617262
+  type: 'test'
+  ...
+# Subtest: suppressed count refuses through PDF parser
+ok 117 - suppressed count refuses through PDF parser
+  ---
+  duration_ms: 67.945659
+  type: 'test'
+  ...
+# Subtest: missing count refuses through PDF parser
+ok 118 - missing count refuses through PDF parser
+  ---
+  duration_ms: 103.761816
+  type: 'test'
+  ...
+# Subtest: fractional count refuses through PDF parser
+ok 119 - fractional count refuses through PDF parser
+  ---
+  duration_ms: 59.026481
+  type: 'test'
+  ...
+# Subtest: unbalanced total refuses through PDF parser
+ok 120 - unbalanced total refuses through PDF parser
+  ---
+  duration_ms: 217.305437
+  type: 'test'
+  ...
+# Subtest: invisible text rendering refuses through PDF parser
+ok 121 - invisible text rendering refuses through PDF parser
+  ---
+  duration_ms: 70.914396
+  type: 'test'
+  ...
+# Subtest: wrong count position refuses through PDF parser
+ok 122 - wrong count position refuses through PDF parser
+  ---
+  duration_ms: 204.091277
+  type: 'test'
+  ...
+# Subtest: duplicate count refuses through PDF parser
+ok 123 - duplicate count refuses through PDF parser
+  ---
+  duration_ms: 46.380133
+  type: 'test'
+  ...
+# Subtest: unknown operator refuses through PDF parser
+ok 124 - unknown operator refuses through PDF parser
+  ---
+  duration_ms: 59.739048
+  type: 'test'
+  ...
+# Subtest: partial content state refuses through PDF parser
+ok 125 - partial content state refuses through PDF parser
+  ---
+  duration_ms: 79.37768
+  type: 'test'
+  ...
+# Subtest: unsupported ActualText replacement refuses through PDF parser
+ok 126 - unsupported ActualText replacement refuses through PDF parser
+  ---
+  duration_ms: 47.120038
+  type: 'test'
+  ...
+# Subtest: genuine zero is not missing in the pure parser; coherent corrected total derives from PDF
+ok 127 - genuine zero is not missing in the pure parser; coherent corrected total derives from PDF
+  ---
+  duration_ms: 44.092135
+  type: 'test'
+  ...
+# Subtest: old-framework total substitution refuses
+ok 128 - old-framework total substitution refuses
+  ---
+  duration_ms: 31.039606
+  type: 'test'
+  ...
+# Subtest: wrong source cohort refuses
+ok 129 - wrong source cohort refuses
+  ---
+  duration_ms: 41.42322
+  type: 'test'
+  ...
+# Subtest: wrong category refuses
+ok 130 - wrong category refuses
+  ---
+  duration_ms: 76.483175
+  type: 'test'
+  ...
+# Subtest: wrong population refuses
+ok 131 - wrong population refuses
+  ---
+  duration_ms: 87.945199
+  type: 'test'
+  ...
+# Subtest: wrong assessment unit refuses
+ok 132 - wrong assessment unit refuses
+  ---
+  duration_ms: 45.782727
+  type: 'test'
+  ...
+# Subtest: wrong geography in actual report-header Form refuses
+ok 133 - wrong geography in actual report-header Form refuses
+  ---
+  duration_ms: 10.578366
+  type: 'test'
+  ...
+# Subtest: unsupported font encoding refuses
+ok 134 - unsupported font encoding refuses
+  ---
+  duration_ms: 45.984911
+  type: 'test'
+  ...
+# Subtest: original byte guard rejects the well-formed statistical fixture without substituting counts
+ok 135 - original byte guard rejects the well-formed statistical fixture without substituting counts
+  ---
+  duration_ms: 57.692602
+  type: 'test'
+  ...
+# Subtest: redirect refuses once
+ok 136 - redirect refuses once
+  ---
+  duration_ms: 0.609152
+  type: 'test'
+  ...
+# Subtest: HTTP failure refuses once
+ok 137 - HTTP failure refuses once
+  ---
+  duration_ms: 0.4368
+  type: 'test'
+  ...
+# Subtest: wrong media type refuses once
+ok 138 - wrong media type refuses once
+  ---
+  duration_ms: 0.697085
+  type: 'test'
+  ...
+# Subtest: declared size bound refuses once
+ok 139 - declared size bound refuses once
+  ---
+  duration_ms: 0.437891
+  type: 'test'
+  ...
+# Subtest: missing response body refuses once
+ok 140 - missing response body refuses once
+  ---
+  duration_ms: 0.351276
+  type: 'test'
+  ...
+# Subtest: stream bound refuses once
+ok 141 - stream bound refuses once
+  ---
+  duration_ms: 17.249844
+  type: 'test'
+  ...
+# Subtest: timeout is propagated with no retry
+ok 142 - timeout is propagated with no retry
+  ---
+  duration_ms: 0.425669
+  type: 'test'
+  ...
+# Subtest: public native period mutation refuses
+ok 143 - public native period mutation refuses
+  ---
+  duration_ms: 52.688135
+  type: 'test'
+  ...
+# Subtest: public native geography mutation refuses
+ok 144 - public native geography mutation refuses
+  ---
+  duration_ms: 84.986164
+  type: 'test'
+  ...
+# Subtest: public native service unit mutation refuses
+ok 145 - public native service unit mutation refuses
+  ---
+  duration_ms: 219.068457
+  type: 'test'
+  ...
+# Subtest: public native publication mutation refuses
+ok 146 - public native publication mutation refuses
+  ---
+  duration_ms: 94.333289
+  type: 'test'
+  ...
+# Subtest: public native cohort mutation refuses
+ok 147 - public native cohort mutation refuses
+  ---
+  duration_ms: 43.93586
+  type: 'test'
+  ...
+# Subtest: public native framework mutation refuses
+ok 148 - public native framework mutation refuses
+  ---
+  duration_ms: 47.707444
+  type: 'test'
+  ...
+# Subtest: public native missingness mutation refuses
+ok 149 - public native missingness mutation refuses
+  ---
+  duration_ms: 57.839021
+  type: 'test'
+  ...
+# Subtest: public native numeric string mutation refuses
+ok 150 - public native numeric string mutation refuses
+  ---
+  duration_ms: 30.643018
+  type: 'test'
+  ...
+# Subtest: public native partial rows mutation refuses
+ok 151 - public native partial rows mutation refuses
+  ---
+  duration_ms: 55.426768
+  type: 'test'
+  ...
+# Subtest: public native row reordering mutation refuses
+ok 152 - public native row reordering mutation refuses
+  ---
+  duration_ms: 149.154975
+  type: 'test'
+  ...
+# Subtest: public native false live metadata mutation refuses
+ok 153 - public native false live metadata mutation refuses
+  ---
+  duration_ms: 53.709277
+  type: 'test'
+  ...
+# Subtest: public native wrong edition digest mutation refuses
+ok 154 - public native wrong edition digest mutation refuses
+  ---
+  duration_ms: 35.653767
+  type: 'test'
+  ...
+# Subtest: public native wrong licence mutation refuses
+ok 155 - public native wrong licence mutation refuses
+  ---
+  duration_ms: 60.2741
+  type: 'test'
+  ...
+# Subtest: public native wrong definition population mutation refuses
+ok 156 - public native wrong definition population mutation refuses
+  ---
+  duration_ms: 31.233182
+  type: 'test'
+  ...
+# Subtest: exact provenance and acquisition clocks fail closed
+ok 157 - exact provenance and acquisition clocks fail closed
+  ---
+  duration_ms: 27.562587
+  type: 'test'
+  ...
+# Subtest: PDF envelope missing EOF refuses
+ok 158 - PDF envelope missing EOF refuses
+  ---
+  duration_ms: 0.29352
+  type: 'test'
+  ...
+# Subtest: PDF envelope bad startxref refuses
+ok 159 - PDF envelope bad startxref refuses
+  ---
+  duration_ms: 4.628445
+  type: 'test'
+  ...
+# Subtest: PDF envelope wrong PDF version refuses
+ok 160 - PDF envelope wrong PDF version refuses
+  ---
+  duration_ms: 0.163291
+  type: 'test'
+  ...
+# Subtest: PDF envelope exceeded byte bound refuses
+ok 161 - PDF envelope exceeded byte bound refuses
+  ---
+  duration_ms: 0.989283
+  type: 'test'
+  ...
+# Subtest: encrypted trailer refuses
+ok 162 - encrypted trailer refuses
+  ---
+  duration_ms: 2.214369
+  type: 'test'
+  ...
+# Subtest: changed page count refuses actual tree
+ok 163 - changed page count refuses actual tree
+  ---
+  duration_ms: 13.250656
+  type: 'test'
+  ...
+# Subtest: malformed PDF value << /A 1 /A 2 >> refuses
+ok 164 - malformed PDF value << /A 1 /A 2 >> refuses
+  ---
+  duration_ms: 0.280085
+  type: 'test'
+  ...
+# Subtest: malformed PDF value (unterminated refuses
+ok 165 - malformed PDF value (unterminated refuses
+  ---
+  duration_ms: 0.077666
+  type: 'test'
+  ...
+# Subtest: malformed PDF value 1 1 R refuses
+ok 166 - malformed PDF value 1 1 R refuses
+  ---
+  duration_ms: 0.058544
+  type: 'test'
+  ...
+# Subtest: malformed PDF value << /A 1 >> 2 refuses
+ok 167 - malformed PDF value << /A 1 >> 2 refuses
+  ---
+  duration_ms: 0.058277
+  type: 'test'
+  ...
+# Subtest: dictionary bound includes every unique key, remains local to nested dictionaries and rejects duplicates
+ok 168 - dictionary bound includes every unique key, remains local to nested dictionaries and rejects duplicates
+  ---
+  duration_ms: 6.999468
+  type: 'test'
+  ...
+# Subtest: incomplete or corrupt zlib checksum refuses
+ok 169 - incomplete or corrupt zlib checksum refuses
+  ---
+  duration_ms: 33.937369
+  type: 'test'
+  ...
+# Subtest: incomplete or corrupt zlib truncated refuses
+ok 170 - incomplete or corrupt zlib truncated refuses
+  ---
+  duration_ms: 38.688409
+  type: 'test'
+  ...
+# Subtest: content decompression bound refuses a compressible oversized stream
+ok 171 - content decompression bound refuses a compressible oversized stream
+  ---
+  duration_ms: 70.411389
+  type: 'test'
+  ...
+# Subtest: inventory holds the blocked daily AEMO source while keeping legacy grid and dated FX
+ok 172 - inventory holds the blocked daily AEMO source while keeping legacy grid and dated FX
+  ---
+  duration_ms: 1.737619
+  type: 'test'
+  ...
+# Subtest: canada/exchange_history: definitions, cells and selected rows retain exact source identities
+ok 173 - canada/exchange_history: definitions, cells and selected rows retain exact source identities
+  ---
+  duration_ms: 30.388131
+  type: 'test'
+  ...
+# Subtest: canada/exchange_history: missing or invalid public clocks cannot bypass native validation
+ok 174 - canada/exchange_history: missing or invalid public clocks cannot bypass native validation
+  ---
+  duration_ms: 0.673466
+  type: 'test'
+  ...
+# Subtest: canada/jobs: definitions, cells and selected rows retain exact source identities
+ok 175 - canada/jobs: definitions, cells and selected rows retain exact source identities
+  ---
+  duration_ms: 12.205173
+  type: 'test'
+  ...
+# Subtest: canada/jobs: missing or invalid public clocks cannot bypass native validation
+ok 176 - canada/jobs: missing or invalid public clocks cannot bypass native validation
+  ---
+  duration_ms: 0.270645
+  type: 'test'
+  ...
+# Subtest: canada/price_index: definitions, cells and selected rows retain exact source identities
+ok 177 - canada/price_index: definitions, cells and selected rows retain exact source identities
+  ---
+  duration_ms: 0.382547
+  type: 'test'
+  ...
+# Subtest: canada/price_index: missing or invalid public clocks cannot bypass native validation
+ok 178 - canada/price_index: missing or invalid public clocks cannot bypass native validation
+  ---
+  duration_ms: 0.183185
+  type: 'test'
+  ...
+# Subtest: canada/shop: definitions, cells and selected rows retain exact source identities
+ok 179 - canada/shop: definitions, cells and selected rows retain exact source identities
+  ---
+  duration_ms: 0.363382
+  type: 'test'
+  ...
+# Subtest: canada/shop: missing or invalid public clocks cannot bypass native validation
+ok 180 - canada/shop: missing or invalid public clocks cannot bypass native validation
+  ---
+  duration_ms: 0.396288
+  type: 'test'
+  ...
+# Subtest: canada/homes: definitions, cells and selected rows retain exact source identities
+ok 181 - canada/homes: definitions, cells and selected rows retain exact source identities
+  ---
+  duration_ms: 0.587643
+  type: 'test'
+  ...
+# Subtest: canada/homes: missing or invalid public clocks cannot bypass native validation
+ok 182 - canada/homes: missing or invalid public clocks cannot bypass native validation
+  ---
+  duration_ms: 4.491376
+  type: 'test'
+  ...
+# Subtest: wales/land_transaction_tax: definitions, cells and selected rows retain exact source identities
+ok 183 - wales/land_transaction_tax: definitions, cells and selected rows retain exact source identities
+  ---
+  duration_ms: 1.726769
+  type: 'test'
+  ...
+# Subtest: wales/land_transaction_tax: missing or invalid public clocks cannot bypass native validation
+ok 184 - wales/land_transaction_tax: missing or invalid public clocks cannot bypass native validation
+  ---
+  duration_ms: 0.684587
+  type: 'test'
+  ...
+# Subtest: FX source and measure arrays preserve every published pair; exact date is one row
+ok 185 - FX source and measure arrays preserve every published pair; exact date is one row
+  ---
+  duration_ms: 1.806632
+  type: 'test'
+  ...
+# Subtest: FX latest-anchor mismatch is refused before any selected rows are returned
+ok 186 - FX latest-anchor mismatch is refused before any selected rows are returned
+  ---
+  duration_ms: 1.407731
+  type: 'test'
+  ...
+# Subtest: StatCan source data and original row qualifiers remain intact with stable native pointers
+ok 187 - StatCan source data and original row qualifiers remain intact with stable native pointers
+  ---
+  duration_ms: 11.996902
+  type: 'test'
+  ...
+# Subtest: WRA overlapping coverage is selected by identity even after native row reordering
+ok 188 - WRA overlapping coverage is selected by identity even after native row reordering
+  ---
+  duration_ms: 0.544258
+  type: 'test'
+  ...
+# Subtest: semantic content excludes acquisition-only changes but preserves release and revision qualifiers
+ok 189 - semantic content excludes acquisition-only changes but preserves release and revision qualifiers
+  ---
+  duration_ms: 1.748928
+  type: 'test'
+  ...
+# Subtest: active gap native schemas reject plausible wrong answers while AEMO stays disconnected
+ok 190 - active gap native schemas reject plausible wrong answers while AEMO stays disconnected
+  ---
+  duration_ms: 2413.061476
+  type: 'test'
+  ...
+# 12 valid native cases; 75 rejected mutations
+# Subtest: actual selected responses enforce source identity, typed observations and exact qualification definitions
+ok 191 - actual selected responses enforce source identity, typed observations and exact qualification definitions
+  ---
+  duration_ms: 3096.97289
+  type: 'test'
+  ...
+# 46 valid actual selected responses; 101 rejected mutations
+# Subtest: held AEMO daily source is not selectable
+ok 192 - held AEMO daily source is not selectable
+  ---
+  duration_ms: 1.11623
+  type: 'test'
+  ...
+# Subtest: FX selectors distinguish a missing publication date, an unretained date and a failed source
+ok 193 - FX selectors distinguish a missing publication date, an unretained date and a failed source
+  ---
+  duration_ms: 40.009129
+  type: 'test'
+  ...
+# Subtest: rolling FX bounds and acquisition clocks do not revise unchanged individual observations
+ok 194 - rolling FX bounds and acquisition clocks do not revise unchanged individual observations
+  ---
+  duration_ms: 4.68849
+  type: 'test'
+  ...
+# Subtest: StatCan exact geography identities and quarterly housing remain qualified in selections
+ok 195 - StatCan exact geography identities and quarterly housing remain qualified in selections
+  ---
+  duration_ms: 28.111879
+  type: 'test'
+  ...
+# Subtest: WRA exact selection keeps four overlapping identities and refuses altered meaning
+ok 196 - WRA exact selection keeps four overlapping identities and refuses altered meaning
+  ---
+  duration_ms: 8.007717
+  type: 'test'
+  ...
+# Subtest: Stats NZ metadata retains exact selected codes while exposing household and fiscal boundaries
+ok 197 - Stats NZ metadata retains exact selected codes while exposing household and fiscal boundaries
+  ---
+  duration_ms: 0.634302
+  type: 'test'
+  ...
+# Subtest: Canada handler preserves four latest pairs and legacy fields while validating dated FX and all four headlines
+ok 198 - Canada handler preserves four latest pairs and legacy fields while validating dated FX and all four headlines
+  ---
+  duration_ms: 182.924303
+  type: 'test'
+  ...
+# Subtest: wrong jobs identity and dated-FX failure leave legacy FX, GDP and other headline sources intact
+ok 199 - wrong jobs identity and dated-FX failure leave legacy FX, GDP and other headline sources intact
+  ---
+  duration_ms: 26.686501
+  type: 'test'
+  ...
+# Subtest: Australia keeps its five-region snapshot without requesting or advertising the held daily feed
+ok 200 - Australia keeps its five-region snapshot without requesting or advertising the held daily feed
+  ---
+  duration_ms: 116.361339
+  type: 'test'
+  ...
+# Subtest: Canada fresh responses and selected-cache responses expire at UTC midnight
+ok 201 - Canada fresh responses and selected-cache responses expire at UTC midnight
+  ---
+  duration_ms: 184.438892
+  type: 'test'
+  ...
+# Subtest: calendar cache without its explicit boundary is a miss
+ok 202 - calendar cache without its explicit boundary is a miss
+  ---
+  duration_ms: 41.913573
+  type: 'test'
+  ...
+# Subtest: a complete desk crossing its calendar boundary refuses the old daily source and is not cached
+    # Subtest: /canada.json
+    ok 1 - /canada.json
+      ---
+      duration_ms: 96.554419
+      type: 'test'
+      ...
+    1..1
+ok 203 - a complete desk crossing its calendar boundary refuses the old daily source and is not cached
+  ---
+  duration_ms: 101.069679
+  type: 'test'
+  ...
+1..203
+# tests 204
+# suites 0
+# pass 203
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 33557.875976

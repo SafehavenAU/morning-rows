@@ -1,0 +1,83 @@
+{
+  "kind": "Owner-invoked actual release validation; no upload, promotion or checkpoint write",
+  "phase": "staged",
+  "revision": "79e251cab4314c328e84d9ac4ca7bf5e5408bdbb",
+  "version": "da1d5c5d-5a50-421b-9862-c3e63fd7e9d6",
+  "pass": false,
+  "exit_code": 1,
+  "last_step": "legacy-cold-cpu",
+  "finished_at": "2026-10-20T18:23:03.156388+00:00",
+  "repository": "/workspace/morning-rows-aemo-followup",
+  "baseline_sha256_before_cpu": "13717dddf44f3393848116124cf7f1338a1a653e8212fed9aac5b21827e48cdf",
+  "runner_sha256": "80157a96f6646ed61449c1c10bf60f38034780616840e1ff1925968c3fcdaeb4",
+  "tool_bundle_manifest_sha256": "d1876cd80c619e3ca37da221597b376b0502aac6babe02cdbf35c3a589bdc5be",
+  "semantic_exceptions_allowed": false,
+  "steps": [
+    {
+      "step": "local-preflight",
+      "pass": true,
+      "exit_code": 0,
+      "finished_at": "2026-10-20T18:22:04.254033+00:00"
+    },
+    {
+      "step": "active-contract-scope",
+      "pass": true,
+      "exit_code": 0,
+      "finished_at": "2026-10-20T18:22:04.402276+00:00"
+    },
+    {
+      "step": "usa-cold-cpu",
+      "pass": true,
+      "exit_code": 0,
+      "finished_at": "2026-10-20T18:22:14.693314+00:00"
+    },
+    {
+      "step": "legacy-cold-cpu",
+      "pass": false,
+      "exit_code": 1,
+      "finished_at": "2026-10-20T18:23:03.130721+00:00"
+    }
+  ],
+  "files": [
+    {
+      "file": "logs/active-contract-scope.log",
+      "bytes": 257,
+      "sha256": "23dd231efd2eab0e6566f0d26ff29b5eba29d8b20f908a4705dac7c26b3948e2"
+    },
+    {
+      "file": "logs/legacy-cold-cpu.log",
+      "bytes": 1970,
+      "sha256": "25502522fb8b1e21addcbca2d0ff176c4be00253389fc9a2ee474ec5f7df0cc8"
+    },
+    {
+      "file": "logs/local-preflight.log",
+      "bytes": 9524,
+      "sha256": "62a4ef3c37a9b04eb5a1466a25decf57d1fa0fa769a626c8929138774118add2"
+    },
+    {
+      "file": "logs/usa-cold-cpu.log",
+      "bytes": 582,
+      "sha256": "3ebc1c05ae8ab1c544b9a10586871125a471c136a59e25b5664bfe824b9a2435"
+    },
+    {
+      "file": "staged-legacy-cpu.json",
+      "bytes": 704835,
+      "sha256": "c315a482791c0f7247cc3872a0290c07dc41369f58d83471820af1def6e0643b"
+    },
+    {
+      "file": "staged-us-cpu.json",
+      "bytes": 67286,
+      "sha256": "8234a4c7167f74ac16b37999ea4941088d860456650b0b154e94ea7f75168933"
+    },
+    {
+      "file": "steps.jsonl",
+      "bytes": 440,
+      "sha256": "8a69a14ef954ee65fc6a9161ba034d156a0e2aa435a5eb6cd8d027d9dd825fb1"
+    }
+  ],
+  "limitations": [
+    "Sampled CPU only, no percentile or sustained-operation claim.",
+    "Independent references remain pinned; new vintages fail instead of silently refreshing.",
+    "Any source-state regression requires explicit review; this script does not approve or activate release metadata."
+  ]
+}

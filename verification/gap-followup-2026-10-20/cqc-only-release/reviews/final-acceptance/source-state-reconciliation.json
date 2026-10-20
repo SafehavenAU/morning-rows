@@ -1,0 +1,194 @@
+{
+  "kind": "Independent read-only reconciliation of source-state report entries",
+  "source_file": "/tmp/mr-cqc-r2-production-r1/production-core-validation.json",
+  "source_sha256": "a9d3b5f212457a29abd356bc80a9833ca344541221cab8e045b53d014ed188de",
+  "compared_states": 240,
+  "reported_change_entries": 9,
+  "actual_status_http_error_changes": 7,
+  "known_ons_changes": 4,
+  "known_tfl_changes": 3,
+  "unchanged_tfl_entries": 2,
+  "requires_review": 0,
+  "actual_changes": [
+    {
+      "domain": "apex",
+      "desk": "england",
+      "source": "also.roads",
+      "before": {
+        "status": "ok",
+        "http_status": null,
+        "error": null
+      },
+      "after": {
+        "status": "error",
+        "http_status": 429,
+        "error": "api.tfl.gov.uk returned HTTP 429"
+      },
+      "classification": "known_intermittent_TfL_429"
+    },
+    {
+      "domain": "apex",
+      "desk": "northern-ireland",
+      "source": "job",
+      "before": {
+        "status": "error",
+        "http_status": 429,
+        "error": "www.ons.gov.uk returned HTTP 429"
+      },
+      "after": {
+        "status": "error",
+        "http_status": 403,
+        "error": "www.ons.gov.uk returned HTTP 403"
+      },
+      "classification": "known_ONS_403_429_availability_change"
+    },
+    {
+      "domain": "apex",
+      "desk": "northern-ireland",
+      "source": "people",
+      "before": {
+        "status": "error",
+        "http_status": 429,
+        "error": "www.ons.gov.uk returned HTTP 429"
+      },
+      "after": {
+        "status": "error",
+        "http_status": 403,
+        "error": "www.ons.gov.uk returned HTTP 403"
+      },
+      "classification": "known_ONS_403_429_availability_change"
+    },
+    {
+      "domain": "www",
+      "desk": "england",
+      "source": "also.roads",
+      "before": {
+        "status": "ok",
+        "http_status": null,
+        "error": null
+      },
+      "after": {
+        "status": "error",
+        "http_status": 429,
+        "error": "api.tfl.gov.uk returned HTTP 429"
+      },
+      "classification": "known_intermittent_TfL_429"
+    },
+    {
+      "domain": "www",
+      "desk": "england",
+      "source": "service",
+      "before": {
+        "status": "ok",
+        "http_status": null,
+        "error": null
+      },
+      "after": {
+        "status": "error",
+        "http_status": 429,
+        "error": "api.tfl.gov.uk returned HTTP 429"
+      },
+      "classification": "known_intermittent_TfL_429"
+    },
+    {
+      "domain": "www",
+      "desk": "wales",
+      "source": "job",
+      "before": {
+        "status": "error",
+        "http_status": 403,
+        "error": "www.ons.gov.uk returned HTTP 403"
+      },
+      "after": {
+        "status": "error",
+        "http_status": 429,
+        "error": "www.ons.gov.uk returned HTTP 429"
+      },
+      "classification": "known_ONS_403_429_availability_change"
+    },
+    {
+      "domain": "www",
+      "desk": "wales",
+      "source": "people",
+      "before": {
+        "status": "error",
+        "http_status": 403,
+        "error": "www.ons.gov.uk returned HTTP 403"
+      },
+      "after": {
+        "status": "error",
+        "http_status": 429,
+        "error": "www.ons.gov.uk returned HTTP 429"
+      },
+      "classification": "known_ONS_403_429_availability_change"
+    }
+  ],
+  "reported_entries": [
+    {
+      "domain": "apex",
+      "desk": "england",
+      "source": "also.roads",
+      "actual_change": true,
+      "classification": "known_intermittent_TfL_429"
+    },
+    {
+      "domain": "apex",
+      "desk": "england",
+      "source": "rail",
+      "actual_change": false,
+      "classification": "known_intermittent_TfL_429"
+    },
+    {
+      "domain": "apex",
+      "desk": "northern-ireland",
+      "source": "job",
+      "actual_change": true,
+      "classification": "known_ONS_403_429_availability_change"
+    },
+    {
+      "domain": "apex",
+      "desk": "northern-ireland",
+      "source": "people",
+      "actual_change": true,
+      "classification": "known_ONS_403_429_availability_change"
+    },
+    {
+      "domain": "www",
+      "desk": "england",
+      "source": "also.roads",
+      "actual_change": true,
+      "classification": "known_intermittent_TfL_429"
+    },
+    {
+      "domain": "www",
+      "desk": "england",
+      "source": "rail",
+      "actual_change": false,
+      "classification": "known_intermittent_TfL_429"
+    },
+    {
+      "domain": "www",
+      "desk": "england",
+      "source": "service",
+      "actual_change": true,
+      "classification": "known_intermittent_TfL_429"
+    },
+    {
+      "domain": "www",
+      "desk": "wales",
+      "source": "job",
+      "actual_change": true,
+      "classification": "known_ONS_403_429_availability_change"
+    },
+    {
+      "domain": "www",
+      "desk": "wales",
+      "source": "people",
+      "actual_change": true,
+      "classification": "known_ONS_403_429_availability_change"
+    }
+  ],
+  "raw_report_modified": false,
+  "definition": "Actual source state changes compare status,http_status,error; acquisition timestamps are not availability changes.",
+  "pass": true
+}

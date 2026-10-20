@@ -1,0 +1,119 @@
+{
+  "kind": "cqc-r2-rent-readiness-continuation-v3",
+  "pass": true,
+  "uninterrupted": false,
+  "original_attempt_pass": false,
+  "original_attempts": [
+    {
+      "label": "v1",
+      "root": "/tmp/mr-cqc-r2-staged-r1",
+      "summary_sha256": "f7949781f726a243dd1cc69218d7659fda537bfdd9746c2b8c0a52c302999202",
+      "pass": false,
+      "failed_gate": "claimant-www-cold-cpu"
+    },
+    {
+      "label": "v2",
+      "root": "/tmp/mr-cqc-r2-staged-continuation-v2",
+      "summary_sha256": "ed8523fea451170768886c9d7a121dc98eb90302a1adb114cc0d181b664366b5",
+      "pass": false,
+      "failed_gate": "rent-www-cold-cpu"
+    }
+  ],
+  "chain_manifest_sha256": "45b80fa3c7241858589c7e944e974117ee9f9750e8d336bc880920d63ecb8f1d",
+  "revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+  "version": "16e5a892-be54-4381-a9c3-98ae4e47a309",
+  "prefix_count": 6,
+  "required_fresh_suffix_count": 27,
+  "predecessor_failure_finished_at": "2026-10-20T19:06:45.661456+00:00",
+  "prepared_at": "2026-10-20T19:18:35.662Z",
+  "copied_prefix_files": [
+    {
+      "file": "logs/local-preflight.log",
+      "source_attempt": "v1",
+      "source_file": "logs/local-preflight.log",
+      "bytes": 9524,
+      "sha256": "62a4ef3c37a9b04eb5a1466a25decf57d1fa0fa769a626c8929138774118add2"
+    },
+    {
+      "file": "logs/active-contract-scope.log",
+      "source_attempt": "v1",
+      "source_file": "logs/active-contract-scope.log",
+      "bytes": 257,
+      "sha256": "23dd231efd2eab0e6566f0d26ff29b5eba29d8b20f908a4705dac7c26b3948e2"
+    },
+    {
+      "file": "logs/usa-cold-cpu.log",
+      "source_attempt": "v1",
+      "source_file": "logs/usa-cold-cpu.log",
+      "bytes": 582,
+      "sha256": "2b629cc183187b19dca1eeba3027d2fa73fd5e3a491adf1c397c1d6c2886e5fb"
+    },
+    {
+      "file": "logs/legacy-cold-cpu.log",
+      "source_attempt": "v1",
+      "source_file": "logs/legacy-cold-cpu.log",
+      "bytes": 1967,
+      "sha256": "e478d17fa4fd56293d0f31b487957a327878294698eaadbca9cf952e2ca4d5fb"
+    },
+    {
+      "file": "logs/added-source-fresh-cpu.log",
+      "source_attempt": "v1",
+      "source_file": "logs/added-source-fresh-cpu.log",
+      "bytes": 91,
+      "sha256": "a66ef68e70afae3135dc608b0004160652d7451401187d3286685f5deafddab4"
+    },
+    {
+      "file": "logs/claimant-www-cold-cpu.log",
+      "source_attempt": "v2",
+      "source_file": "logs/claimant-www-cold-cpu.log",
+      "bytes": 673,
+      "sha256": "4230c7f553fb8301fff64ab4172f53cb1db1ee9f3e301ffc9937faf53a4d1ce5"
+    },
+    {
+      "file": "staged-us-cpu.json",
+      "source_attempt": "v1",
+      "source_file": "staged-us-cpu.json",
+      "bytes": 67286,
+      "sha256": "82dbbdf17c5e01b872d6b0fbc8a4ad7e37be90286f1b88dfae12bf55a2cc2f81"
+    },
+    {
+      "file": "staged-legacy-cpu.json",
+      "source_attempt": "v1",
+      "source_file": "staged-legacy-cpu.json",
+      "bytes": 707429,
+      "sha256": "3b346b82e460c24a9fb67bac081bd5250d44523051bdd21c4626d3ae17e9b6ae"
+    },
+    {
+      "file": "staged-added-source-cpu.json",
+      "source_attempt": "v1",
+      "source_file": "staged-added-source-cpu.json",
+      "bytes": 10356,
+      "sha256": "3482fd4cbc7c96ff2c6101b42ba135763685a856e4e2f246e2e6884092a88b1b"
+    },
+    {
+      "file": "staged-claimant-cpu.json",
+      "source_attempt": "v2",
+      "source_file": "staged-claimant-cpu.json",
+      "bytes": 64066,
+      "sha256": "e0c7ecdb16c47e544a38661bcb6b1a373236cca22cb274786edd3ce3e0a81cfa"
+    }
+  ],
+  "v3_preflight_files": [
+    {
+      "file": "logs/continuation-v3-preflight.log",
+      "bytes": 10521,
+      "sha256": "f6aa2ea3456d4035456b001d468234e5fdd42b2d228b2c8225dd02e933bb0b89"
+    },
+    {
+      "file": "logs/continuation-v3-scope.log",
+      "bytes": 257,
+      "sha256": "23dd231efd2eab0e6566f0d26ff29b5eba29d8b20f908a4705dac7c26b3948e2"
+    }
+  ],
+  "rent_startup_wait_ms": 20000,
+  "claims": [
+    "Both original attempts remain failed.",
+    "The logical33 gates combine five v1 successes,one claimant v2 success and27 freshly executed suffix gates.",
+    "No earlier CPU request is repeated. One repaired rent attempt only; a new failure stops."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "Derived record of failed local source preparation, not reader, CI, staging or production failures",
+  "recorded_at": "2026-10-20T18:45:23.263337+00:00",
+  "accepted": false,
+  "failures": [
+    {
+      "step": "initial staged whitespace check",
+      "result": "failed",
+      "reason": "Two trailing-space lines in byte-identical original Wrangler full-build.log. No commit created."
+    },
+    {
+      "step": "audit after failed preparation",
+      "result": "failed",
+      "reason": "Exact40-character commit required: literal HEAD rejected; verifier printed this error but created no output file."
+    },
+    {
+      "step": "upload preparation after failed preparation",
+      "result": "failed",
+      "reason": "Commit a clean source tree first: uncommitted staged tree correctly refused; no plan or remote write created."
+    },
+    {
+      "step": "first failure-retention preparation",
+      "result": "failed",
+      "reason": "Attempt to copy nonexistent failed audit output raised FileNotFoundError. No source or evidence bytes changed."
+    }
+  ],
+  "resolution": "Keep original log bytes. Exclude only this exact raw log from whitespace-style checking while retaining its cryptographic audit. Use strict dependent execution and exact commit SHA.",
+  "raw_log": "verification/gap-followup-2026-10-20/cqc-pdf/cpu-repair-r2/root-validation/full-build.log",
+  "raw_log_sha256": "e537c29b6a341c23fbdeb253ee1d35865408aa9a017c891e152ec852503ae8be",
+  "original_tool_responses_not_reconstructed_as_original_files": true,
+  "prior_failed_results_not_relabelled": true
+}

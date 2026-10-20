@@ -1,0 +1,32 @@
+--- /tmp/mr-combined-final-preparation/cqc-continuation-v3/package-evidence.py
++++ /tmp/mr-combined-final-preparation/cqc-package-readme-derivative/package-evidence-readme.py
+@@ -96,7 +96,10 @@
+         if 'expected_original_sha256' in spec or 'expected_original_bytes' in spec:
+             need(type(spec.get('expected_original_bytes')) is int and spec['expected_original_bytes']>=0 and re.fullmatch('[a-f0-9]{64}',spec.get('expected_original_sha256','')),'Invalid immutable auxiliary binding')
+     need(len(destinations)==len(set(destinations)),'Duplicate destination')
+-    need(not set(destinations)&{'packaging-manifest.json','README.md'},'Generated package metadata names are reserved')
++    need('packaging-manifest.json' not in destinations,'Generated package manifest name is reserved')
++    if 'README.md' in destinations:
++        readme=[x for x in c['files'] if x['destination']=='README.md']
++        need(len(readme)==1 and readme[0]['transform']=='exact' and 'expected_original_sha256' in readme[0] and 'expected_original_bytes' in readme[0],'Explicit README requires one exact hash-and-byte-pinned auxiliary file')
+     for a in destinations:
+         for b in destinations:need(a==b or not a.startswith(b+'/'),'Overlapping destinations')
+     return c
+@@ -150,7 +153,7 @@
+     entries.sort(key=lambda e:e['file']);logs=[e['file'] for e in entries if e['file'].endswith('.log')]
+     manifest={'kind':'Deterministic immutable phase-two evidence package; no remote or Git mutations','recorded_at':c['recorded_at'],'source_revision':c['source_revision'],'worker_version':c['worker_version'],'build_fingerprint':c['build_fingerprint'],'files':entries,'source_summaries':summaries,'relocations':relocations,'privacy_scan':{'retained_files':len(entries),'findings':0,'categories':list(PATTERNS)},'log_files':logs,'boundary':['Original failures and held-source outcomes retain their original pass/status values.','Only declared GitHub/deployment personal metadata excerpts are transformed; original and retained hashes are distinct.','Original report absolute paths are not rewritten; use relocation mappings.','File-system verification does not establish committed evidence completeness; the emitted committed-tree audit is mandatory.']}
+     payloads['packaging-manifest.json']=encoded(manifest)
+-    payloads['README.md']=('''# Phase-two retained release evidence\n\nOriginal captures, completed runs, explicitly listed failed/held attempts and smoke logs are retained with their exact bytes and original outcomes. `packaging-manifest.json` binds every original by retained/original bytes and SHA-256, records any personal-metadata transformation, and supplies path relocations. No original report was rewritten.\n\nThe package uses explicit inputs and a fixed packaging timestamp. It cannot establish seven-day SHADOW, delivery receipt or acceptance of blocked sources. It requires a passing completed production summary before copying.\n\nGit ignores logs by default. Use the emitted exact add-list and force-add only its reviewed evidence paths, then run `/tmp/mr-verify-committed-evidence.py` against the exact resulting commit and emitted audit configuration. Do not call the package complete based only on local file hashes or `git status`. The committed audit must pass again for the pushed exact tree before merge.\n''').encode()
++    payloads.setdefault('README.md',('''# Phase-two retained release evidence\n\nOriginal captures, completed runs, explicitly listed failed/held attempts and smoke logs are retained with their exact bytes and original outcomes. `packaging-manifest.json` binds every original by retained/original bytes and SHA-256, records any personal-metadata transformation, and supplies path relocations. No original report was rewritten.\n\nThe package uses explicit inputs and a fixed packaging timestamp. It cannot establish seven-day SHADOW, delivery receipt or acceptance of blocked sources. It requires a passing completed production summary before copying.\n\nGit ignores logs by default. Use the emitted exact add-list and force-add only its reviewed evidence paths, then run `/tmp/mr-verify-committed-evidence.py` against the exact resulting commit and emitted audit configuration. Do not call the package complete based only on local file hashes or `git status`. The committed audit must pass again for the pushed exact tree before merge.\n''').encode())
+     audit={'coverage_roots':[c['package_root']],'manifests':[{'path':c['package_root']+'/packaging-manifest.json','base':c['package_root'],'entries_key':'files','require_pass':False}],'additional_files':[{'path':c['package_root']+'/'+name,'bytes':len(payloads[name]),'sha256':digest(payloads[name])} for name in ['packaging-manifest.json','README.md']]}
+     add_list={'kind':'Explicit reviewed evidence paths; no Git command is executed','files':[c['package_root']+'/'+name for name in sorted(payloads)],'requires_force_add_logs':[c['package_root']+'/'+name for name in logs]}
+     return payloads,audit,add_list
+@@ -174,7 +177,7 @@
+         need(dst.read_bytes()==data,'Copied bytes differ')
+     with auditout.open('xb') as f:f.write(encoded(audit))
+     with addout.open('xb') as f:f.write(encoded(add_list))
+-    print(json.dumps({'packaged_originals':len(payloads)-2,'packaged_files':len(payloads),'log_files':len(add_list['requires_force_add_logs']),'config_sha256':digest(raw),'manifest_sha256':digest(payloads['packaging-manifest.json']),'audit_config':str(auditout),'add_list':str(addout),'git_mutations':0,'network':0}))
++    print(json.dumps({'packaged_originals':len(json.loads(payloads['packaging-manifest.json'])['files']),'packaged_files':len(payloads),'log_files':len(add_list['requires_force_add_logs']),'config_sha256':digest(raw),'manifest_sha256':digest(payloads['packaging-manifest.json']),'audit_config':str(auditout),'add_list':str(addout),'git_mutations':0,'network':0}))
+ if __name__=='__main__':
+     try:main()
+     except (ValueError,KeyError,TypeError,OSError,json.JSONDecodeError) as e:print(json.dumps({'pass':False,'error':str(e)}),file=sys.stderr);sys.exit(1)

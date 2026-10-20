@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "failure": "dictionary flag expected refusal but both decoders accepted the mutated header",
+  "kind": "harness mutation incremented the FLG byte until valid FCHECK and accidentally cleared FDICT",
+  "runtime_mismatch": false,
+  "correction": "Use exact valid zlib header 0x7820: FDICT is set and header is divisible by31.",
+  "not_production_acceptance": true
+}
