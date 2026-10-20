@@ -14,6 +14,7 @@ import { readRfsIncidents, readPupilAbsence, readSepaRiverLevel } from './lib/op
 import { readAssemblyDivisions } from './lib/national-observations.js';
 import { readClaimantCount } from './lib/claimant-count.js';
 import { readNzMarketRent } from './lib/nz-market-rent.js';
+import { readStatcanGdp } from './lib/statcan-gdp.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -310,7 +311,7 @@ const LLMS = `# Morning Rows
 
 ## Limits
 
-Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Historical FX, local claimant histories and completed-day AEMO averages remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
+Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Historical FX, local claimant histories and completed-day AEMO averages remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
 
 A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
 
@@ -716,11 +717,7 @@ async function readCanada() {
     shop: async () => { const p = await point(20100056, "1.1.1.2.0.0.0.0.0.0"); return { period: p.refPer.slice(0, 7), thousand_dollars: p.value }; },
     rate: readCanadaRate,
     exchange: readCanadaExchange,
-    product: async () => {
-      const points = (await statcan([{ productId: 36100104, coordinate: "1.1.1.30.0.0.0.0.0.0", latestN: 2 }]))[0].object.vectorDataPoint;
-      const last = points.at(-1);
-      return { period: last.refPer.slice(0,7), level: last.value, quarter_change: Math.round((last.value / points[0].value - 1) * 10000) / 100 };
-    },
+    product: readStatcanGdp,
     bonds: async () => {
       const last = (await fetchOfficial("https://www.bankofcanada.ca/valet/observations/BD.CDN.2YR.DQ.YLD,BD.CDN.10YR.DQ.YLD/json?recent=1").then(r => r.json())).observations.at(-1);
       return { date: last.d, two_year: Number(last["BD.CDN.2YR.DQ.YLD"].v), ten_year: Number(last["BD.CDN.10YR.DQ.YLD"].v) };

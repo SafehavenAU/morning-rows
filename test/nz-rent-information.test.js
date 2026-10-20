@@ -235,7 +235,7 @@ test('published schema contains strict rent definitions and bounded native, cell
   assert.equal(defs.marketRentCell.properties.value_state.const,'observed');
   assert.equal(defs.marketRentWideRow.properties.active_bonds.type,'integer');
   assert.equal(defs.marketRentNative.properties.rows.maxItems,50);
-  assert.equal(defs.selected.allOf.length,5,'Existing claimant national contracts remain intact');
+  assert.equal(defs.selected.allOf.filter(rule=>rule.if?.properties?.source?.const?.endsWith('?source=claimant_count')).length,5,'Existing claimant national contracts remain intact');
   assert.ok(Buffer.byteLength(JSON.stringify(INFORMATION_SCHEMA))<1_000_000);
   assert.ok(Buffer.byteLength(JSON.stringify(catalogue('new-zealand')))<1_000_000);
 });

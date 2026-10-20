@@ -4,6 +4,7 @@ import { writeFile } from 'node:fs/promises';
 import { validateCpiRepresentation } from '../lib/information-v2.js';
 import { CLAIMANT_GEOGRAPHIES, validateClaimantRepresentation } from '../lib/claimant-count.js';
 import { validateNzRentRepresentation } from '../lib/nz-market-rent.js';
+import { validateStatcanGdpRepresentation } from '../lib/statcan-gdp.js';
 const run = promisify(execFile);
 const base = process.env.SITE_URL || 'https://morningrows.com';
 const expected = process.env.EXPECTED_REVISION;
@@ -55,6 +56,10 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     const good=Object.values(d.sources).filter(s=>s.status==='ok').length;
     if(!good)throw Error('No successful sources on desk');
     report.degraded.push(...problems(d).map(issue=>({desk:path,...issue})));
+   }
+   if(path==='/canada.json'&&process.env.CHECK_CA_GDP==='1') {
+    if(d.sources?.product?.status!=='ok'||!validateStatcanGdpRepresentation(d.product,{retrieved_at:d.sources.product.fetched_at}))throw Error('Canada GDP requires the exact two adjacent real quarterly annual-rate levels and ordinary nonannualized growth');
+    if(process.env.EXPECTED_CA_GDP_LATEST&&d.product.metadata.latest_quarter!==process.env.EXPECTED_CA_GDP_LATEST)throw Error('Canada GDP latest quarter differs from independently verified release');
    }
    if(path==='/new-zealand.json') {
     if(process.env.CHECK_NZ_RENT==='1'&&(d.sources?.market_rent?.status!=='ok'||!validateNzRentRepresentation(d.market_rent)))throw Error('NZ rent requires the two supported localities, coherent six-month windows, known categories and separate bond/rent units');

@@ -211,7 +211,7 @@ test('published schema fixes claimant population, dimensions, rounding, cardinal
   assert.equal(def.claimantRow.properties.value_state.const,'observed');
   assert.equal(def.claimantNative.properties.rows.minItems,13);
   assert.equal(def.claimantNative.properties.rows.maxItems,13);
-  assert.equal(def.selected.allOf.length,5);
+  assert.equal(def.selected.allOf.filter(rule=>rule.if?.properties?.source?.const?.endsWith('?source=claimant_count')).length,5);
 });
 
 test('selected claimant HTTP identities support conditional GET and HEAD without masking failures', async () => {

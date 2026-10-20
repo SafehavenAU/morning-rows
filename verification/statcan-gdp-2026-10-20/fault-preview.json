@@ -1,0 +1,445 @@
+{
+  "started_at": "2026-10-20T07:59:17.879Z",
+  "environment": "Protected Cloudflare remote dev",
+  "kind": "Constructed faults through actual GDP reader and selector; no live publisher proof",
+  "checks": [
+    {
+      "fault": "none",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 3,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.037Z"
+      },
+      "selected_error": null,
+      "observations": 3,
+      "pass": true
+    },
+    {
+      "fault": "none",
+      "measure": "level",
+      "period": null,
+      "expected": 200,
+      "expected_observations": 2,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.212Z"
+      },
+      "selected_error": null,
+      "observations": 2,
+      "pass": true
+    },
+    {
+      "fault": "none",
+      "measure": "level",
+      "period": "2026-Q1",
+      "expected": 200,
+      "expected_observations": 1,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.372Z"
+      },
+      "selected_error": null,
+      "observations": 1,
+      "pass": true
+    },
+    {
+      "fault": "none",
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "expected": 200,
+      "expected_observations": 1,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.524Z"
+      },
+      "selected_error": null,
+      "observations": 1,
+      "pass": true
+    },
+    {
+      "fault": "none",
+      "measure": "level",
+      "period": "1900-Q1",
+      "expected": 404,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 404,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.611Z"
+      },
+      "selected_error": "observation_not_retained",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "none",
+      "measure": "quarter_change",
+      "period": "2026-Q1",
+      "expected": 404,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 404,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.691Z"
+      },
+      "selected_error": "observation_not_retained",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "reversed",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 3,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.789Z"
+      },
+      "selected_error": null,
+      "observations": 3,
+      "pass": true
+    },
+    {
+      "fault": "preliminary",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 3,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.847Z"
+      },
+      "selected_error": null,
+      "observations": 3,
+      "pass": true
+    },
+    {
+      "fault": "revised",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 3,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:20.912Z"
+      },
+      "selected_error": null,
+      "observations": 3,
+      "pass": true
+    },
+    {
+      "fault": "revision",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 3,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:21.023Z"
+      },
+      "selected_error": null,
+      "observations": 3,
+      "pass": true
+    },
+    {
+      "fault": "acquisition-only",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 3,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T07:59:21.075Z"
+      },
+      "selected_error": null,
+      "observations": 3,
+      "pass": true
+    },
+    {
+      "fault": "http",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.124Z",
+        "error": "Statistics Canada GDP returned HTTP 429",
+        "http_status": 429
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "timeout",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.291Z",
+        "error": "Source request timed out"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "oversize",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.354Z",
+        "error": "Statistics Canada GDP: Response exceeds byte bound"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "invalid-json",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.414Z",
+        "error": "Statistics Canada GDP: Malformed JSON response"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "invalid-utf8",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.463Z",
+        "error": "Statistics Canada GDP: Invalid UTF-8 response"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "wrong-geography",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.511Z",
+        "error": "Statistics Canada GDP: Selected cube member changed or terminated"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "scalar",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.573Z",
+        "error": "Statistics Canada GDP: Observation frequency, scale or precision changed"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "suppression",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.637Z",
+        "error": "Statistics Canada GDP: Unsupported observation availability, confidentiality or symbol"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "status",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.710Z",
+        "error": "Statistics Canada GDP: Unsupported observation availability, confidentiality or symbol"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "stale-quarter",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.777Z",
+        "error": "Statistics Canada GDP: Latest observation is not the current cube quarter"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "missing-metadata",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.829Z",
+        "error": "Statistics Canada GDP: Series meaning, units or status changed"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "zero-denominator",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T07:59:21.877Z",
+        "error": "Statistics Canada GDP: Missing, invalid or nonpositive GDP level"
+      },
+      "selected_error": "retrieval_failed",
+      "observations": 0,
+      "pass": true
+    }
+  ],
+  "code_sha256_before": {
+    "../../lib/statcan-gdp.js": "5fcc856095d0da517678abc242fdffdd96cdb9dc066fba0e28b98e4f466b7bc1",
+    "../../lib/information.js": "b7cb8d1de1d682bc7df43d697175b52ca3f7acd815d67f4bf0e4fe60c264e811",
+    "../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "original/wds-selected.json": "e3c20cbdeb0ed93d4a6f98ae8bade37fac15e13e9a15f454ea0ee6f781c23e3b",
+    "original/series-metadata.json": "0c98df397e57183755581ab4bdbddd667493929eaf3f8d05b58d525670c86f36",
+    "original/cube-metadata.json": "ce8ce914dcb403ce1c42ea6a65640d1fe37e3f59e023f422004bd46a3ee7d277",
+    "preview-worker.js": "5256061015e6770a94f3954842afd7abe1d2e2632e7f5373e17a45c968dfa9f7",
+    "integration.toml": "2a36c7a52cbb94146d6bd6e0c14926fd299aecdd19dfa3c550ead3154e628fcb",
+    "check-preview.mjs": "87362e25e40387e2588eb7c8b1cb0696127b506b0b809c47705a0a8b0837155c"
+  },
+  "order": {
+    "pass": true
+  },
+  "acquisition_only": {
+    "pass": true
+  },
+  "flags": {
+    "preliminary": {
+      "symbol": "preliminary",
+      "changes": [
+        "level:2026-Q2",
+        "quarter_change:2026-Q2"
+      ],
+      "pass": true
+    },
+    "revised": {
+      "symbol": "revised",
+      "changes": [
+        "level:2026-Q2",
+        "quarter_change:2026-Q2"
+      ],
+      "pass": true
+    }
+  },
+  "revision": {
+    "changes": [
+      "level:2026-Q2",
+      "quarter_change:2026-Q2"
+    ],
+    "growth": 0.86,
+    "pass": true
+  },
+  "pass": true,
+  "finished_at": "2026-10-20T07:59:21.892Z",
+  "code_sha256": {
+    "../../lib/statcan-gdp.js": "5fcc856095d0da517678abc242fdffdd96cdb9dc066fba0e28b98e4f466b7bc1",
+    "../../lib/information.js": "b7cb8d1de1d682bc7df43d697175b52ca3f7acd815d67f4bf0e4fe60c264e811",
+    "../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "original/wds-selected.json": "e3c20cbdeb0ed93d4a6f98ae8bade37fac15e13e9a15f454ea0ee6f781c23e3b",
+    "original/series-metadata.json": "0c98df397e57183755581ab4bdbddd667493929eaf3f8d05b58d525670c86f36",
+    "original/cube-metadata.json": "ce8ce914dcb403ce1c42ea6a65640d1fe37e3f59e023f422004bd46a3ee7d277",
+    "preview-worker.js": "5256061015e6770a94f3954842afd7abe1d2e2632e7f5373e17a45c968dfa9f7",
+    "integration.toml": "2a36c7a52cbb94146d6bd6e0c14926fd299aecdd19dfa3c550ead3154e628fcb",
+    "check-preview.mjs": "87362e25e40387e2588eb7c8b1cb0696127b506b0b809c47705a0a8b0837155c"
+  },
+  "code_unchanged": true
+}
