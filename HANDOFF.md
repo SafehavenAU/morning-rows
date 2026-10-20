@@ -1,4 +1,60 @@
-# Current release — SFC and CMHC, 20 October 2026
+# Current release — fixed-edition NI electricity, 20 October 2026
+
+Both domains are accepted at clean source `8a25fb62bad7096421ac17f6974b3aa421fe37c3`, Worker
+`34d6966c-0c3f-40dd-8b61-b4a696b09b89`, fingerprint `6a29c7f49e8e2ef3`.
+Deployment `08dfc0af-562b-4323-b177-cb02b00e64e8` promoted the exact tested version
+to 100% at `2026-10-20T12:49:33.510284Z`; acceptance was recorded at `2026-10-20T12:57:38.068942+00:00`.
+Rollback remains SFC/CMHC source `3ae91ac1ce163008f05377acefc27cce488fbbed`, Worker
+`ff344629-f392-44ec-b816-92d14f52bd07`, fingerprint `e2a345caf4569e1f`.
+See [release evidence](verification/gap-followup-2026-10-20/release-validation/README.md) and the retained actual stage/production audits.
+
+Northern Ireland `electricity_balance` adds five exact values from the fixed
+3 September 2026 edition for July 2025–June 2026: renewable/GFEC share 50%,
+gross final consumption 8,865 GWh, renewable generation 4,431 GWh, non-renewable
+generation 3,855 GWh and net imports +578 GWh. These are overlapping rolling
+totals, not a monthly or newest-publication claim. The compact live official
+article and separately retained same-edition report share statistical lineage;
+methodology metadata is explicitly retained evidence, not live retrieval.
+
+Actual validation passed 29 staged and 29 production gates, strict core
+semantics 50/50 on each domain, all existing GDP/claimant/rent/phase-one/SFC/CMHC
+gates, NI's 46 requests and ten domain cell comparisons, 26 NI schemas and 16
+negative controls, plus full smokes 18 apex / 17 www. No SEPA exception applies.
+The first production validation was interrupted after 17 completed gates when
+the execution environment reconnected; it remains incomplete and is retained
+separately. A fresh full r2 invocation validated the same promoted version. No
+second promotion or successful original-attempt summary is claimed.
+CPU gates remain USA 100 ms and legacy 500 ms with fresh original NI article
+acquisition inside its full-desk sample; the Worker ceiling remains 1,000 ms.
+
+Stats NZ now has 15 exact dated comparisons: the prior eleven plus three
+agriculture cells and LEED_Q1W_001. Income/annual-LEED metadata clarifications
+do not numerically certify their unresolved cells. Eight IDs remain unresolved:
+`CORR_FIS_005`, `INC_INC_001`, `INC_INC_011`, `JUS_FIS_001`, `LEED_AP1_001`, `LEED_AP1_002`, `POPPR_FHH_003`, `POPPR_LAB_003`. Undisplayed flags, all-23 numerical
+acceptance and future vintages remain unapproved. NZ-PRICES remains blocked on
+the original 17 October Interim specimen and UK CPI remains parked. AEMO, CQC,
+ONS rent and AER access/reuse/resource gates remain separate; a new route or
+protected probe is not a release. This does not complete the broader gap list.
+
+The exact seventh review preserves all six prior edges and all 23 prior
+approvals, adding only NI's exact version: 24 approvals, 119 obligations and
+24 public probes. Actual checkpoint remains sequence 5 / run `39341442350`,
+completed `2026-10-19T23:26:10.163Z`, digest `665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`.
+It retains 33 incidents, 36 repairs, two legacy scheduled cycles and zero
+expanded-scope cycles. Constructed seven-edge replay is not a collection.
+The pending delivery event is unchanged, with no receipt. SHADOW starts
+`2026-10-18T23:22:22.161Z`; next complete-checkpoint deadline remains
+`2026-10-21T01:26:10.163Z`. Preserve every intervening run and exact suffix.
+
+Keep hourly watchdog, daily collector, disabled source alerts, credentials and
+disconnected Builds unchanged. Eight applicable actual daily checkpoints, seven
+elapsed scheduled-completion days, no gap over 26 hours, independent watchdog
+proof and genuine delivery remain required. Never transfer legacy elapsed days
+to NI or repeat the notification test or unchanged incident notices.
+
+---
+
+# Previous release — SFC and CMHC, 20 October 2026
 
 The second gap-list batch is accepted on both domains at clean source
 `3ae91ac1ce163008f05377acefc27cce488fbbed`, Worker

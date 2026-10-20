@@ -1,0 +1,28 @@
+{
+  "kind": "Constructed existing SFC/CMHC schema compatibility with active NI; not live release acceptance",
+  "pass": true,
+  "results": [
+    {
+      "label": "college_activity source failure preserves all successful siblings and refuses selected data",
+      "pass": true,
+      "constructed": true
+    },
+    {
+      "label": "rental_benchmark source failure preserves all successful siblings and refuses selected data",
+      "pass": true,
+      "constructed": true
+    },
+    {
+      "label": "Complete constructed adapter outputs match all7 independent reference cells",
+      "pass": true,
+      "expected_capture_pass": true,
+      "checks": 345
+    },
+    {
+      "label": "Captured-schema positive and negative controls on constructed outputs",
+      "pass": true,
+      "schema_checks": 10,
+      "negative_controls": 8
+    }
+  ]
+}

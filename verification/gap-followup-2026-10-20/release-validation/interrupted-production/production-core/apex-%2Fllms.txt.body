@@ -1,0 +1,35 @@
+# Morning Rows
+
+> Official public aggregate data across nine desks. Fetch JSON; human pages are views of the same data. No account required.
+
+## Discover, select, cite, return
+
+1. [Current catalogue](https://morningrows.com/catalog.v2.json) lists nine desks. Follow each desk's catalog and resource_schema links: the existing eight resources retain v1; the US uses v2. [Legacy catalogue](https://morningrows.com/catalog.json) remains the eight-desk compatibility view.
+2. Follow the exact records URL. For example [Canada FX](https://morningrows.com/canada.json?source=exchange) or [Wales projection](https://morningrows.com/wales.json?source=projection&measure=population-2024-based). Full desk URLs remain supported.
+3. Read definition, exact period, value_state, source_url, licence and qualifications before answering. A desk name is not the observation geography. Projections are not estimates. Unknown metadata must remain unknown.
+4. Cite the observation id, version and publisher URL. Observation URLs select only a currently retained period, not an archive. Save the response for historical audit.
+5. Retain ETag and use If-None-Match on the same URL. 304 means unchanged selected content/health within cache policy. Retrieval time is not publication time. Annual/monthly observations need not change daily.
+
+[Schema and usage contract](https://morningrows.com/schema.json) defines selectors, identity, comparison rules, missingness and revisions. [Runtime identity](https://morningrows.com/health.json) is separate from data health. [Manual access queue](https://morningrows.com/keys.json) is not deployed coverage.
+
+[US contract](https://morningrows.com/schema.v2.json): one [national urban CPI-U measure](https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0), all items, not seasonally adjusted, index 1982-84=100. Retains 13 calendar months, including unavailable months. Use exact periods; do not replace a missing month, infer state/DC-only data, or substitute annual averages. An annual price review is supported only when both exact reference months are retained and numeric. This supplies statistical inputs, not contract interpretation.
+
+## Limits
+
+Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Canada adds dated FXUSDCAD/FXGBPCAD reference rates over a 31-calendar-day window, in CAD per foreign unit; exact-date absence is not carried forward. Scotland adds five learning-volume FTE aggregates from the fixed Scottish Funding Council College Statistics 2024-25 edition, covering all funding sources; these are not student headcounts or current available places. Canada adds annual two-bedroom rental benchmarks for Victoria CMA and Victoriaville CA, with each definition retaining its exact structure category, survey scope and conditional CMHC reuse notices; these are not listings, current asking rents or national coverage. Northern Ireland adds five electricity-balance measures for the fixed July 2025–June 2026 edition published on 3 September 2026: renewable share of gross final electricity consumption and four GWh aggregates. These are not generation mix, calendar-year totals or live grid readings; future editions require separate review. ONS Manchester bedroom rents and the CQC assessment cohort remain disconnected after unsuccessful actual source validation; see the bounded entries in keys.json. Local claimant histories remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
+
+A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
+
+## Desks
+
+- [Australia](https://morningrows.com/australia.json)
+- [New Zealand](https://morningrows.com/new-zealand.json)
+- [Canada](https://morningrows.com/canada.json)
+- [United Kingdom](https://morningrows.com/united-kingdom.json)
+- [England](https://morningrows.com/england.json)
+- [Scotland](https://morningrows.com/scotland.json)
+- [Wales](https://morningrows.com/wales.json)
+- [Northern Ireland](https://morningrows.com/northern-ireland.json)
+- [United States](https://morningrows.com/united-states.json)
+
+Australia's /morning.json alias remains available. Search and agent retrieval are allowed; training crawler restrictions remain in robots.txt.

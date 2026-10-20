@@ -1,0 +1,106 @@
+{
+  "provenance": {
+    "kind": "previously_retained_original_publisher_structure",
+    "source_path_at_review": "/workspace/scratch/morning-rows-build/remote_structure_id_INC_INC_001.json",
+    "source_file_sha256": "8fa2a19a461c35c60b7b20ad2be779b596e30b796bb14835d12403cc40a79f6a",
+    "original_response_status": 200,
+    "original_content_type": "application/vnd.sdmx.structure+xml; version=2.1; charset=utf-8",
+    "original_size_field": 111239,
+    "body_utf8_bytes": 111239,
+    "body_sha256": "1bcbdc4b364a641174b1f24cf28c7e9775cabb77bb83a28378ad4adf348ea288",
+    "publisher_prepared": "2026-10-15T22:07:09.9059101+00:00",
+    "retrieved_at": null,
+    "request_url": null,
+    "limitation": "Original wrapper retains body/status/type/size only; no acquisition timestamp or request URL. Publisher Prepared is not invented retrieval time. No new request and no credentials used."
+  },
+  "id": "INC_INC_001",
+  "title": "Earnings for people in paid employment by region, sex, age groups and ethnic groups",
+  "dimensions": {
+    "PERIOD_INC_INC_001": {
+      "codelist_id": "CL_PERIOD_INC_INC_001",
+      "code": "202606",
+      "labels": [
+        "2026"
+      ]
+    },
+    "ETHGP_INC_INC_001": {
+      "codelist_id": "CL_ETHGP_INC_INC_001",
+      "code": "98",
+      "labels": [
+        "Total Ethnic Groups"
+      ]
+    },
+    "LGR_INC_INC_001": {
+      "codelist_id": "CL_LGR_INC_INC_001",
+      "code": "98",
+      "labels": [
+        "Total Regions"
+      ]
+    },
+    "SEX_INC_INC_001": {
+      "codelist_id": "CL_SEX_INC_INC_001",
+      "code": "98",
+      "labels": [
+        "Total Both Sexes"
+      ]
+    },
+    "AGEGP_INC_INC_001": {
+      "codelist_id": "CL_AGEGP_INC_INC_001",
+      "code": "98",
+      "labels": [
+        "Total Age Groups"
+      ]
+    },
+    "MEASURE_INC_INC_001": {
+      "codelist_id": "CL_MEASURE_INC_INC_001",
+      "code": "MED_WEEK_INC",
+      "labels": [
+        "Median Weekly Earnings"
+      ]
+    }
+  },
+  "dataflow_annotations": [
+    {
+      "AnnotationType": "NonProductionDataflow",
+      "AnnotationText": "true"
+    },
+    {
+      "AnnotationTitle": "PERIOD_INC_INC_001",
+      "AnnotationType": "LAYOUT_ROW"
+    },
+    {
+      "AnnotationTitle": "LGR_INC_INC_001,SEX_INC_INC_001,AGEGP_INC_INC_001,ETHGP_INC_INC_001,MEASURE_INC_INC_001",
+      "AnnotationType": "LAYOUT_COLUMN"
+    },
+    {
+      "AnnotationTitle": "ETHGP_INC_INC_001=98,LGR_INC_INC_001=98,SEX_INC_INC_001=98,AGEGP_INC_INC_001=98",
+      "AnnotationType": "DEFAULT"
+    },
+    {
+      "AnnotationType": "HIER_CONTEXT",
+      "AnnotationText": "ETHGP_INC_INC_001:STATSNZ:HCL_ETHGP_INC_INC_001(1.0).HIER_ETHGP_INC_INC_001"
+    },
+    {
+      "AnnotationType": "HIER_CONTEXT",
+      "AnnotationText": "LGR_INC_INC_001:STATSNZ:HCL_LGR_INC_INC_001(1.0).HIER_LGR_INC_INC_001"
+    },
+    {
+      "AnnotationType": "HIER_CONTEXT",
+      "AnnotationText": "SEX_INC_INC_001:STATSNZ:HCL_SEX_INC_INC_001(1.0).HIER_SEX_INC_INC_001"
+    },
+    {
+      "AnnotationType": "HIER_CONTEXT",
+      "AnnotationText": "AGEGP_INC_INC_001:STATSNZ:HCL_AGEGP_INC_INC_001(1.0).HIER_AGEGP_INC_INC_001"
+    }
+  ],
+  "annotation_interpretation": "NonProductionDataflow annotation retained verbatim and not interpreted as a numeric acceptance or live-source failure.",
+  "original_xml_fragments": [
+    "<structure:Dataflow id=\"INC_INC_001\" agencyID=\"STATSNZ\" version=\"1.0\" isFinal=\"false\">\n        <common:Annotations>\n          <common:Annotation>\n            <common:AnnotationType>NonProductionDataflow</common:AnnotationType>\n            <common:AnnotationText xml:lang=\"en\">true</common:AnnotationText>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationTitle>PERIOD_INC_INC_001</common:AnnotationTitle>\n            <common:AnnotationType>LAYOUT_ROW</common:AnnotationType>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationTitle>LGR_INC_INC_001,SEX_INC_INC_001,AGEGP_INC_INC_001,ETHGP_INC_INC_001,MEASURE_INC_INC_001</common:AnnotationTitle>\n            <common:AnnotationType>LAYOUT_COLUMN</common:AnnotationType>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationTitle>ETHGP_INC_INC_001=98,LGR_INC_INC_001=98,SEX_INC_INC_001=98,AGEGP_INC_INC_001=98</common:AnnotationTitle>\n            <common:AnnotationType>DEFAULT</common:AnnotationType>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationType>HIER_CONTEXT</common:AnnotationType>\n            <common:AnnotationText xml:lang=\"en\">ETHGP_INC_INC_001:STATSNZ:HCL_ETHGP_INC_INC_001(1.0).HIER_ETHGP_INC_INC_001</common:AnnotationText>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationType>HIER_CONTEXT</common:AnnotationType>\n            <common:AnnotationText xml:lang=\"en\">LGR_INC_INC_001:STATSNZ:HCL_LGR_INC_INC_001(1.0).HIER_LGR_INC_INC_001</common:AnnotationText>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationType>HIER_CONTEXT</common:AnnotationType>\n            <common:AnnotationText xml:lang=\"en\">SEX_INC_INC_001:STATSNZ:HCL_SEX_INC_INC_001(1.0).HIER_SEX_INC_INC_001</common:AnnotationText>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationType>HIER_CONTEXT</common:AnnotationType>\n            <common:AnnotationText xml:lang=\"en\">AGEGP_INC_INC_001:STATSNZ:HCL_AGEGP_INC_INC_001(1.0).HIER_AGEGP_INC_INC_001</common:AnnotationText>\n          </common:Annotation>\n        </common:Annotations>\n        <common:Name xml:lang=\"en\">Earnings for people in paid employment by region, sex, age groups and ethnic groups</common:Name>\n        <structure:Structure>\n          <Ref id=\"INC_INC_001\" version=\"1.0\" agencyID=\"STATSNZ\" package=\"datastructure\" class=\"DataStructure\" />\n        </structure:Structure>\n      </structure:Dataflow>",
+    "<structure:Code id=\"202606\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">28</common:AnnotationText>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">2026</common:Name>\n        </structure:Code>",
+    "<structure:Code id=\"98\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">1</common:AnnotationText>\n            </common:Annotation>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationTitle>1+2+3+4+5+6</common:AnnotationTitle>\n              <common:AnnotationType>COMP_RULE</common:AnnotationType>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">Total Ethnic Groups</common:Name>\n        </structure:Code>",
+    "<structure:Code id=\"98\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">1</common:AnnotationText>\n            </common:Annotation>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationTitle>1+2+3+4+5+6+7+8+9+10+11+12</common:AnnotationTitle>\n              <common:AnnotationType>COMP_RULE</common:AnnotationType>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">Total Regions</common:Name>\n        </structure:Code>",
+    "<structure:Code id=\"98\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">1</common:AnnotationText>\n            </common:Annotation>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationTitle>1+2</common:AnnotationTitle>\n              <common:AnnotationType>COMP_RULE</common:AnnotationType>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">Total Both Sexes</common:Name>\n        </structure:Code>",
+    "<structure:Code id=\"98\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">1</common:AnnotationText>\n            </common:Annotation>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationTitle>1+2+3+4+5+6+7+8+9+10+11</common:AnnotationTitle>\n              <common:AnnotationType>COMP_RULE</common:AnnotationType>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">Total Age Groups</common:Name>\n        </structure:Code>",
+    "<structure:Code id=\"MED_WEEK_INC\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">1</common:AnnotationText>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">Median Weekly Earnings</common:Name>\n        </structure:Code>"
+  ]
+}

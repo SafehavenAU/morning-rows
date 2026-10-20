@@ -1,0 +1,115 @@
+{
+  "kind": "Pinned prior reader targets, not independent evidence",
+  "source": "verification/gap-pass-2026-10-20/statsnz/coverage-23.json",
+  "rows": [
+    {
+      "id": "AGR_AGR_001",
+      "name": "New forest area planted",
+      "period": "2018",
+      "value": 8293,
+      "unit": "hectares",
+      "dimensions": {
+        "FORESTRY_AGR_AGR_001": {
+          "code": "6050",
+          "label": "Total new area planted (hectares)"
+        },
+        "AREA_AGR_AGR_001": {
+          "code": "20",
+          "label": "Total New Zealand"
+        }
+      },
+      "status": "rounded_official_only",
+      "reason": "The dated 2018 original workbook Table 8 D34 reports 8,300 hectares of new exotic forest area for the year to 31 March 2018. This supports the retained 8,293 only at the workbook precision, not all reported digits.",
+      "evidence": "sources/rounded-workbook-excerpts.json",
+      "required_to_close": "Dated original exact-precision 2018 forestry export and its table metadata."
+    },
+    {
+      "id": "AGR_AGR_002",
+      "name": "Apple growing area",
+      "period": "2024",
+      "value": 9522,
+      "unit": "hectares",
+      "dimensions": {
+        "HORTICULTURE_AGR_AGR_002": {
+          "code": "8500",
+          "label": "Total apples (hectares)"
+        },
+        "AREA_AGR_AGR_002": {
+          "code": "20",
+          "label": "Total New Zealand"
+        }
+      },
+      "status": "rounded_official_only",
+      "reason": "Original 2024 final workbook Table 9 D29 reports 9,520 hectares of apples at 30 June 2024; retained target is 9,522. Agreement at published workbook precision is not exact verification.",
+      "evidence": "sources/rounded-workbook-excerpts.json",
+      "required_to_close": "Exact-precision 2024 apple-area export with national dimension, coverage and revision vintage."
+    },
+    {
+      "id": "AGR_AGR_003",
+      "name": "Total sheep",
+      "period": "2025",
+      "value": 23252463,
+      "unit": "animals",
+      "dimensions": {
+        "LIVESTOCK_AGR_AGR_003": {
+          "code": "6731",
+          "label": "Total sheep"
+        },
+        "AREA_AGR_AGR_003": {
+          "code": "20",
+          "label": "Total New Zealand"
+        }
+      },
+      "status": "rounded_official_only",
+      "reason": "Dated 2025 final release graph reports 23,252,000 sheep at 30 June 2025; retained target is 23,252,463. Only rounded agreement is supported.",
+      "evidence": "sources/agriculture.json",
+      "required_to_close": "Exact-precision final 2025 total sheep official table/export."
+    },
+    {
+      "id": "POPPR_LAB_003",
+      "name": "Labour force projection, median scenario, current calendar year",
+      "period": "2026",
+      "value": 3144100,
+      "unit": "people",
+      "dimensions": {
+        "SCENARIO_POPPR_LAB_003": {
+          "code": "P50",
+          "label": "50th percentile (median)"
+        },
+        "SEX_POPPR_LAB_003": {
+          "code": "SEX3",
+          "label": "Total people, sex"
+        },
+        "AGE_POPPR_LAB_003": {
+          "code": "TOTALALLAGES",
+          "label": "Total people, ages"
+        }
+      },
+      "status": "rounded_official_only",
+      "reason": "2024-base original labour-force projection workbook Table 1 E13 gives median 2026 value 3,144 thousand. Retained 3,144,100 cannot be verified to the extra hundred from this rounded table.",
+      "evidence": "sources/rounded-workbook-excerpts.json",
+      "required_to_close": "Exact-precision P50, SEX3, total ages 2026 official export; projection not observed workforce or employment."
+    },
+    {
+      "id": "POPPR_FHH_003",
+      "name": "Household projection, Medium A, next published horizon",
+      "period": "2028",
+      "value": 2087100,
+      "unit": "households",
+      "dimensions": {
+        "PROJECTION_POPPR_FHH_003": {
+          "code": "MEDIUMA",
+          "label": "Medium A"
+        },
+        "MEASURE_POPPR_FHH_003": {
+          "code": "HH",
+          "label": "Total households"
+        }
+      },
+      "status": "different_scenario_not_substituted",
+      "reason": "Original 2018-base household workbook presents B living-arrangement-rate scenarios; target selects MEDIUMA at 2028 with 2,087,100. Medium B 2,029 thousand is a different scenario and is not comparable.",
+      "evidence": "sources/rounded-workbook-excerpts.json",
+      "required_to_close": "Exact Medium A 2028 household projection export, base and A-assumption definitions. Do not switch to recommended Medium B silently."
+    }
+  ]
+}

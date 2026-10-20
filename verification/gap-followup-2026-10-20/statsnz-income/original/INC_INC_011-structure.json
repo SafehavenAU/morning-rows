@@ -1,0 +1,82 @@
+{
+  "provenance": {
+    "kind": "previously_retained_original_publisher_structure",
+    "source_path_at_review": "/workspace/scratch/morning-rows-build/remote_structure_id_INC_INC_011.json",
+    "source_file_sha256": "cf05b7e0d624ecc6bf7d6b1d1e533b4987cb0a65524ec2221f4e6c96c5a83134",
+    "original_response_status": 200,
+    "original_content_type": "application/vnd.sdmx.structure+xml; charset=utf-8; version=2.1",
+    "original_size_field": 107685,
+    "body_utf8_bytes": 107685,
+    "body_sha256": "a44b6c23d47aa38ca1b3d669e962b5b2300a71374c748d1846ca0109a42dce7e",
+    "publisher_prepared": "2026-10-09T23:09:32.3279045+00:00",
+    "retrieved_at": null,
+    "request_url": null,
+    "limitation": "Original wrapper retains body/status/type/size only; no acquisition timestamp or request URL. Publisher Prepared is not invented retrieval time. No new request and no credentials used."
+  },
+  "id": "INC_INC_011",
+  "title": "Household income by region, household type, and source of household income",
+  "dimensions": {
+    "PERIOD_INC_INC_011": {
+      "codelist_id": "CL_PERIOD_INC_INC_011",
+      "code": "202606",
+      "labels": [
+        "2026"
+      ]
+    },
+    "LGR_INC_INC_011": {
+      "codelist_id": "CL_LGR_INC_INC_011",
+      "code": "98",
+      "labels": [
+        "Total Regions"
+      ]
+    },
+    "HHTYPE_INC_INC_011": {
+      "codelist_id": "CL_HHTYPE_INC_INC_011",
+      "code": "98",
+      "labels": [
+        "Total Household Type"
+      ]
+    },
+    "MEASURE_INC_INC_011": {
+      "codelist_id": "CL_MEASURE_INC_INC_011",
+      "code": "MED_INC_ALL_SOUR",
+      "labels": [
+        "Median Income from All Sources collected"
+      ]
+    }
+  },
+  "dataflow_annotations": [
+    {
+      "AnnotationType": "NonProductionDataflow",
+      "AnnotationText": "true"
+    },
+    {
+      "AnnotationTitle": "PERIOD_INC_INC_011",
+      "AnnotationType": "LAYOUT_ROW"
+    },
+    {
+      "AnnotationTitle": "LGR_INC_INC_011,HHTYPE_INC_INC_011,MEASURE_INC_INC_011",
+      "AnnotationType": "LAYOUT_COLUMN"
+    },
+    {
+      "AnnotationTitle": "LGR_INC_INC_011=98,HHTYPE_INC_INC_011=98",
+      "AnnotationType": "DEFAULT"
+    },
+    {
+      "AnnotationType": "HIER_CONTEXT",
+      "AnnotationText": "LGR_INC_INC_011:STATSNZ:HCL_LGR_INC_INC_011(1.0).HIER_LGR_INC_INC_011"
+    },
+    {
+      "AnnotationType": "HIER_CONTEXT",
+      "AnnotationText": "HHTYPE_INC_INC_011:STATSNZ:HCL_HHTYPE_INC_INC_011(1.0).HIER_HHTYPE_INC_INC_011"
+    }
+  ],
+  "annotation_interpretation": "NonProductionDataflow annotation retained verbatim and not interpreted as a numeric acceptance or live-source failure.",
+  "original_xml_fragments": [
+    "<structure:Dataflow id=\"INC_INC_011\" agencyID=\"STATSNZ\" version=\"1.0\" isFinal=\"false\">\n        <common:Annotations>\n          <common:Annotation>\n            <common:AnnotationType>NonProductionDataflow</common:AnnotationType>\n            <common:AnnotationText xml:lang=\"en\">true</common:AnnotationText>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationTitle>PERIOD_INC_INC_011</common:AnnotationTitle>\n            <common:AnnotationType>LAYOUT_ROW</common:AnnotationType>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationTitle>LGR_INC_INC_011,HHTYPE_INC_INC_011,MEASURE_INC_INC_011</common:AnnotationTitle>\n            <common:AnnotationType>LAYOUT_COLUMN</common:AnnotationType>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationTitle>LGR_INC_INC_011=98,HHTYPE_INC_INC_011=98</common:AnnotationTitle>\n            <common:AnnotationType>DEFAULT</common:AnnotationType>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationType>HIER_CONTEXT</common:AnnotationType>\n            <common:AnnotationText xml:lang=\"en\">LGR_INC_INC_011:STATSNZ:HCL_LGR_INC_INC_011(1.0).HIER_LGR_INC_INC_011</common:AnnotationText>\n          </common:Annotation>\n          <common:Annotation id=\"@SDMX\">\n            <common:AnnotationType>HIER_CONTEXT</common:AnnotationType>\n            <common:AnnotationText xml:lang=\"en\">HHTYPE_INC_INC_011:STATSNZ:HCL_HHTYPE_INC_INC_011(1.0).HIER_HHTYPE_INC_INC_011</common:AnnotationText>\n          </common:Annotation>\n        </common:Annotations>\n        <common:Name xml:lang=\"en\">Household income by region, household type, and source of household income</common:Name>\n        <structure:Structure>\n          <Ref id=\"INC_INC_011\" version=\"1.0\" agencyID=\"STATSNZ\" package=\"datastructure\" class=\"DataStructure\" />\n        </structure:Structure>\n      </structure:Dataflow>",
+    "<structure:Code id=\"202606\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">28</common:AnnotationText>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">2026</common:Name>\n        </structure:Code>",
+    "<structure:Code id=\"98\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">1</common:AnnotationText>\n            </common:Annotation>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationTitle>1+2+3+4+5+6+7+8+9+10+11+12</common:AnnotationTitle>\n              <common:AnnotationType>COMP_RULE</common:AnnotationType>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">Total Regions</common:Name>\n        </structure:Code>",
+    "<structure:Code id=\"98\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">1</common:AnnotationText>\n            </common:Annotation>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationTitle>1+2+3+4+5+6+7+8+9+10+11+12+13+14+15+16+17</common:AnnotationTitle>\n              <common:AnnotationType>COMP_RULE</common:AnnotationType>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">Total Household Type</common:Name>\n        </structure:Code>",
+    "<structure:Code id=\"MED_INC_ALL_SOUR\">\n          <common:Annotations>\n            <common:Annotation id=\"@SDMX\">\n              <common:AnnotationType>ORDER</common:AnnotationType>\n              <common:AnnotationText xml:lang=\"en\">7</common:AnnotationText>\n            </common:Annotation>\n          </common:Annotations>\n          <common:Name xml:lang=\"en\">Median Income from All Sources collected</common:Name>\n        </structure:Code>"
+  ]
+}

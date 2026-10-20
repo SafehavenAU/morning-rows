@@ -1,0 +1,92 @@
+{
+  "kind": "Constructed NI replay-helper input/refusal controls; not capture, release or scheduled acceptance",
+  "pass": true,
+  "constructed": true,
+  "checked_at": "2026-10-20T12:29:55.229Z",
+  "helper": "scripts/replay-ni-energy-release.mjs",
+  "helper_sha256": "17d2783eda8c435c8c56cd06f01bb49e51e296d90d421c8d684d0cf2cb47b74d",
+  "cases": [
+    {
+      "label": "valid retained prefix reaches actual capture requirement",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "prior review hash mismatch",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "prior approval hash mismatch",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "missing NI approval",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "unexpected extra approval",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "old approval rewritten",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "earlier review metadata rewritten",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "new edge disconnected",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "new edge loses prior exact set",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "unreviewed future clock",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "invalid calendar clock",
+      "pass": true,
+      "output_written": false
+    },
+    {
+      "label": "existing output refusal",
+      "pass": true,
+      "output_written": false
+    }
+  ],
+  "inputs": [
+    {
+      "path": "verification/us-paid-2026-10-20/checkpoint-predecessor/fresh-checkpoint.json",
+      "sha256": "73c0614e23bb044dc4b95aea7fff9a84120a795005667db95863d561cd0cd955"
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/checkpoint-predecessor/report.json",
+      "sha256": "4ffc99d952e162adf588342dfa62612a2dd11aac0c923434a6dd495dbfb2a807"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/review.json",
+      "sha256": "f817c73aa310e200c173a58fb4c25aa3fc6dccce6213b0b97f0b3ddc5b925e53"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/approvals.json",
+      "sha256": "6bbb8c57460e067f3dabef2147688d6ceca7a569d8c40e92ecc6e861ed5a637d"
+    }
+  ],
+  "full_capture_replay_performed": false,
+  "actual_checkpoint_written": false,
+  "active_operations_written": false,
+  "remote_calls": 0
+}

@@ -1,0 +1,457 @@
+{
+  "started_at": "2026-10-20T12:27:56.721Z",
+  "environment": "Protected Cloudflare remote dev",
+  "purpose": "One actual live article acquisition plus constructed faults through unchanged reader; no production release or schedule claim",
+  "production_version": null,
+  "live_publisher_request_budget": 1,
+  "code_before": {
+    "preview.js": "348521f83cca030424919d39bddd517768732f2d9c4047d7276866da6bd6436f",
+    "integration.toml": "2eff26fdfb1ee3963f1e33616aa6ae7af0590354841afc020c27d6e0ca356438",
+    "check-preview.mjs": "6570e324ea9e4de60a67670b40cea959adc19f40df5f4b71a7e83d0936da9753",
+    "../../../lib/ni-energy-summary.js": "5691532b9db9358f6e1d36648af8cbaf062f8c5c00c8f74f0e946eb7b14cbcc2",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+    "../access-review/ni-article/statistical-article.excerpt.html": "a6550dcb2a14101d1d88bb74a88be623f3d57aca010519df0eb0cc3c0b5ceeba",
+    "../access-review/ni-article/comparison.json": "a9950e133e4f03dad5ffbf1a47f1e52b50ec9e7f42bcc39b2ddf84e9545f9a0f",
+    "../../remaining-gaps-2026-10-20/ni-energy/independent-report.json": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee"
+  },
+  "requests": [
+    {
+      "path": "/live",
+      "status": 200,
+      "started_at": "2026-10-20T12:27:59.011Z",
+      "completed_at": "2026-10-20T12:27:59.562Z",
+      "file": "01-live.json",
+      "sha256": "22c38066e3d61b2ea995bbafd3aa264b1650e1c1cb8383e423a598db0d6c8470",
+      "bytes": 22328
+    },
+    {
+      "path": "/case?fault=none",
+      "status": 200,
+      "started_at": "2026-10-20T12:27:59.563Z",
+      "completed_at": "2026-10-20T12:27:59.761Z",
+      "file": "02-none.json",
+      "sha256": "f1c24f4149fd2824087f39976e333fdf000ff86874b92347c605add85951e088",
+      "bytes": 22522
+    },
+    {
+      "path": "/case?fault=wrong-edition",
+      "status": 200,
+      "started_at": "2026-10-20T12:27:59.762Z",
+      "completed_at": "2026-10-20T12:27:59.961Z",
+      "file": "03-wrong-edition.json",
+      "sha256": "23cb78e31098c06ca510ddc2c9f07dfae269ced73f6b1d0a3b4d749d31ac506b",
+      "bytes": 668
+    },
+    {
+      "path": "/case?fault=wrong-window",
+      "status": 200,
+      "started_at": "2026-10-20T12:27:59.961Z",
+      "completed_at": "2026-10-20T12:28:00.029Z",
+      "file": "04-wrong-window.json",
+      "sha256": "bb9c0814c2d6b68c1900b3a6b03a672886a90bfda2ff1398d158d518dab6b26c",
+      "bytes": 665
+    },
+    {
+      "path": "/case?fault=wrong-method",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.029Z",
+      "completed_at": "2026-10-20T12:28:00.229Z",
+      "file": "05-wrong-method.json",
+      "sha256": "92289005ff19eb8741596350c27cb0a35f6a92db7d50978e5c54788272d6c5f2",
+      "bytes": 683
+    },
+    {
+      "path": "/case?fault=wrong-geography",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.229Z",
+      "completed_at": "2026-10-20T12:28:00.310Z",
+      "file": "06-wrong-geography.json",
+      "sha256": "b40dcac72790e8ef2ae364ebf457f585e5efb0c9a205a3b4e01e9f743e2eabcb",
+      "bytes": 670
+    },
+    {
+      "path": "/case?fault=missing",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.310Z",
+      "completed_at": "2026-10-20T12:28:00.411Z",
+      "file": "07-missing.json",
+      "sha256": "69a1157a4f99b5152b24cbd241a440f2c856d7cfc66c39f7b0f45ff2650fae14",
+      "bytes": 689
+    },
+    {
+      "path": "/case?fault=suppression",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.411Z",
+      "completed_at": "2026-10-20T12:28:00.532Z",
+      "file": "08-suppression.json",
+      "sha256": "f5c80a9d85a2c3513bb93af8b9fafec72edc14cabca624fdce58ba3b38a7edc8",
+      "bytes": 693
+    },
+    {
+      "path": "/case?fault=prior-imports",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.532Z",
+      "completed_at": "2026-10-20T12:28:00.616Z",
+      "file": "09-prior-imports.json",
+      "sha256": "f77bab19235f42d656d8907a73c1b43acaf90037228b13eb3ccce0ccc6fd9f3b",
+      "bytes": 684
+    },
+    {
+      "path": "/case?fault=duplicate",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.616Z",
+      "completed_at": "2026-10-20T12:28:00.680Z",
+      "file": "10-duplicate.json",
+      "sha256": "8c5ca2d5d544bb64071efbf0ee1c61f4c90429257d0306896e72791a0da3e271",
+      "bytes": 655
+    },
+    {
+      "path": "/case?fault=conflicting-total",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.680Z",
+      "completed_at": "2026-10-20T12:28:00.749Z",
+      "file": "11-conflicting-total.json",
+      "sha256": "86131a80b7cb4afdaeef919b36406f5a12c73a0269eff5748f7f0092349c6588",
+      "bytes": 674
+    },
+    {
+      "path": "/case?fault=denominator",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.749Z",
+      "completed_at": "2026-10-20T12:28:00.925Z",
+      "file": "12-denominator.json",
+      "sha256": "73cbde69c674f647e4aa7fbd45c344028cc219a72b747637bd22138dbf55ffe4",
+      "bytes": 693
+    },
+    {
+      "path": "/case?fault=redirect",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.925Z",
+      "completed_at": "2026-10-20T12:28:00.999Z",
+      "file": "13-redirect.json",
+      "sha256": "e3ecc81d71a92d3cb27583f5c361762bbdb962d60bee56fd0bf768f009a85021",
+      "bytes": 658
+    },
+    {
+      "path": "/case?fault=http",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:00.999Z",
+      "completed_at": "2026-10-20T12:28:01.079Z",
+      "file": "14-http.json",
+      "sha256": "98465dee72d256f18c8aed7fc0101cf46c722d1d56733ee9d8f9d0ee551ef325",
+      "bytes": 652
+    },
+    {
+      "path": "/case?fault=timeout",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:01.080Z",
+      "completed_at": "2026-10-20T12:28:01.176Z",
+      "file": "15-timeout.json",
+      "sha256": "572873ad0ab47979626f6d8301af28167c57356e424446c61295fba55e88ae18",
+      "bytes": 632
+    },
+    {
+      "path": "/case?fault=oversize",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:01.178Z",
+      "completed_at": "2026-10-20T12:28:01.276Z",
+      "file": "16-oversize.json",
+      "sha256": "cb63c8ac1e1f2849f371a81f131927f8478ba9b4cf209e615743d596083aaeb4",
+      "bytes": 661
+    },
+    {
+      "path": "/case?fault=bad-clock",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:01.276Z",
+      "completed_at": "2026-10-20T12:28:01.346Z",
+      "file": "17-bad-clock.json",
+      "sha256": "7eddad5deb6046c30fe2254d2d1a6af4fa6b2c521f374a23d87eea2730a8f381",
+      "bytes": 530
+    },
+    {
+      "path": "/case?fault=zero-imports",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:01.347Z",
+      "completed_at": "2026-10-20T12:28:01.496Z",
+      "file": "18-zero-imports.json",
+      "sha256": "d0a92c2f5453af7835d4724becb91922fafa28247ae6ace7357c504cee093c8f",
+      "bytes": 22528
+    },
+    {
+      "path": "/case?fault=negative-imports",
+      "status": 200,
+      "started_at": "2026-10-20T12:28:01.497Z",
+      "completed_at": "2026-10-20T12:28:01.576Z",
+      "file": "19-negative-imports.json",
+      "sha256": "237d3d8fca34f8065ad5655cd8773e9adde8088ed39034e6ae93a6b9ff157f3c",
+      "bytes": 22535
+    }
+  ],
+  "checks": [
+    {
+      "fault": "live",
+      "positive": true,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T12:27:59.353Z"
+      },
+      "observations": 5,
+      "pass": true
+    },
+    {
+      "fault": "none",
+      "positive": true,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T12:27:59.737Z"
+      },
+      "observations": 5,
+      "pass": true
+    },
+    {
+      "fault": "wrong-edition",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:27:59.950Z",
+        "error": "NI electricity summary: Unreviewed publication edition"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "wrong-window",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.013Z",
+        "error": "NI electricity summary: Fixed rolling window changed"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "wrong-method",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.216Z",
+        "error": "NI electricity summary: GFEC methodology anchor missing or conflicting"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "wrong-geography",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.300Z",
+        "error": "NI electricity summary: Publisher or territory changed"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "missing",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.398Z",
+        "error": "NI electricity summary: Missing, conflicting or duplicate renewable/GFEC sentence"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "suppression",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.510Z",
+        "error": "NI electricity summary: Missing, conflicting or duplicate renewable/GFEC sentence"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "prior-imports",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.594Z",
+        "error": "NI electricity summary: Rounded electricity balance does not reconcile"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "duplicate",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.668Z",
+        "error": "NI electricity summary: Article title changed"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "conflicting-total",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.737Z",
+        "error": "NI electricity summary: Repeated current totals disagree"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "denominator",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.912Z",
+        "error": "NI electricity summary: Missing, conflicting or duplicate renewable/GFEC sentence"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "redirect",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:00.985Z",
+        "error": "NI electricity summary: Article returned HTTP 302"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "http",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:01.052Z",
+        "error": "Constructed publisher HTTP403",
+        "http_status": 403
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "timeout",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:01.159Z",
+        "error": "Source request timed out"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "oversize",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:01.244Z",
+        "error": "NI electricity summary: Article stream exceeds bound"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "bad-clock",
+      "positive": false,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:28:01.333Z",
+        "error": "NI electricity summary: Missing, invalid or earlier acquisition clock"
+      },
+      "observations": 0,
+      "pass": true
+    },
+    {
+      "fault": "zero-imports",
+      "positive": true,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T12:28:01.477Z"
+      },
+      "observations": 5,
+      "pass": true
+    },
+    {
+      "fault": "negative-imports",
+      "positive": true,
+      "source_health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T12:28:01.560Z"
+      },
+      "observations": 5,
+      "pass": true
+    }
+  ],
+  "live_comparisons": [
+    {
+      "measure": "renewable_share_gfec",
+      "expected": 50,
+      "actual": 50,
+      "pass": true
+    },
+    {
+      "measure": "gross_final_consumption",
+      "expected": 8865,
+      "actual": 8865,
+      "pass": true
+    },
+    {
+      "measure": "renewable_generation",
+      "expected": 4431,
+      "actual": 4431,
+      "pass": true
+    },
+    {
+      "measure": "non_renewable_generation",
+      "expected": 3855,
+      "actual": 3855,
+      "pass": true
+    },
+    {
+      "measure": "net_imports",
+      "expected": 578,
+      "actual": 578,
+      "pass": true
+    }
+  ],
+  "original_wire_sha256": "7a1bc77b1363f1c188477a3dd9d2bf22f0640aeb632f73b82d242cd699c38e2c",
+  "same_original_article": true,
+  "live_provenance": [
+    {
+      "role": "article",
+      "url": "https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics",
+      "retrieved_at": "2026-10-20T12:27:59.353Z",
+      "bytes": 39615,
+      "sha256": "7a1bc77b1363f1c188477a3dd9d2bf22f0640aeb632f73b82d242cd699c38e2c"
+    }
+  ],
+  "live_pass": true,
+  "pass": true,
+  "finished_at": "2026-10-20T12:28:01.586Z",
+  "code_after": {
+    "preview.js": "348521f83cca030424919d39bddd517768732f2d9c4047d7276866da6bd6436f",
+    "integration.toml": "2eff26fdfb1ee3963f1e33616aa6ae7af0590354841afc020c27d6e0ca356438",
+    "check-preview.mjs": "6570e324ea9e4de60a67670b40cea959adc19f40df5f4b71a7e83d0936da9753",
+    "../../../lib/ni-energy-summary.js": "5691532b9db9358f6e1d36648af8cbaf062f8c5c00c8f74f0e946eb7b14cbcc2",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+    "../access-review/ni-article/statistical-article.excerpt.html": "a6550dcb2a14101d1d88bb74a88be623f3d57aca010519df0eb0cc3c0b5ceeba",
+    "../access-review/ni-article/comparison.json": "a9950e133e4f03dad5ffbf1a47f1e52b50ec9e7f42bcc39b2ddf84e9545f9a0f",
+    "../../remaining-gaps-2026-10-20/ni-energy/independent-report.json": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee"
+  },
+  "code_unchanged": true
+}

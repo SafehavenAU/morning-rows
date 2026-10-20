@@ -34,7 +34,7 @@ function selection(f,measure,observation){
 const select=(f,measure,observation,body=bodyFor(f))=>selectedResponse(body,selection(f,measure,observation));
 const versions=body=>body.observations.map(o=>o.version);
 
-test('catalogues activate only accepted SFC/CMHC sources and retain eight/nine desk boundaries',()=>{
+test('catalogues preserve accepted SFC/CMHC sources and retain eight/nine desk boundaries',()=>{
   assert.equal(catalogue().countries.length,8);
   assert.equal(catalogueV2().countries.length,9);
   for(const f of fixtures){
@@ -48,7 +48,7 @@ test('catalogues activate only accepted SFC/CMHC sources and retain eight/nine d
     assert.ok(card.measures.every(m=>m.unit===f.proof.comparisons[0].unit));
     for(const m of card.measures)assert.equal(validateSelection(new URL(m.records)).measure,m.id);
   }
-  for(const [desk,key]of [['england','bedroom_rent'],['england','care_assessment_cohort'],['northern-ireland','electricity_balance']]){
+  for(const [desk,key]of [['england','bedroom_rent'],['england','care_assessment_cohort']]){
     assert.equal(isRemainingSource(desk,key),false);
     assert.equal(remainingDefinitions(desk,key),null);
     assert.equal(INVENTORY[desk].some(row=>row[0]===key),false);
@@ -187,14 +187,14 @@ test('failed new source does not discard an unrelated successful native section'
 test('discovery reports precise held causes and accepted limits without fetching publishers',async t=>{
   t.mock.method(globalThis,'fetch',()=>{throw Error('No upstream request is permitted by this offline test');});
   const keys=await (await worker.fetch(new Request('https://morningrows.com/keys.json'),{})).json();
-  const held=keys.blocked.filter(x=>x.checked==='2026-10-20'&&/ONS Manchester|CQC State|DfE\/NISRA/.test(x.source));
-  assert.equal(held.length,3);
-  assert.deepEqual(held.map(x=>x.status),[429,403,'invalid_response']);
+  const held=keys.blocked.filter(x=>x.checked==='2026-10-20'&&/ONS Manchester|CQC State/.test(x.source));
+  assert.equal(held.length,2);
+  assert.deepEqual(held.map(x=>x.status),[429,403]);
   assert.ok(held.every(x=>/disconnected/.test(x.note)));
   const llms=await (await worker.fetch(new Request('https://morningrows.com/llms.txt'),{})).text();
   assert.match(llms,/College Statistics 2024-25/);
   assert.match(llms,/all funding sources/);
   assert.match(llms,/Victoria CMA and Victoriaville CA/);
   assert.match(llms,/conditional CMHC reuse notices/);
-  assert.match(llms,/ONS Manchester bedroom rents, the CQC assessment cohort and NI electricity balance remain disconnected/);
+  assert.match(llms,/ONS Manchester bedroom rents and the CQC assessment cohort remain disconnected/);
 });

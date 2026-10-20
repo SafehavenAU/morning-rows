@@ -1,0 +1,3799 @@
+{
+  "checked_at": "2026-10-20T12:50:52.570Z",
+  "capture_directory": "/tmp/mr-ni-release-production/production-claimants",
+  "reference_file": "/workspace/morning-rows-gap-followup/verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+  "mode": "production",
+  "pass": true,
+  "native_cells_compared": 130,
+  "latest_period": "2026-09",
+  "first_period": "2025-09",
+  "identities": {
+    "apex": {
+      "service": "Morning Rows",
+      "source_revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+      "source_dirty": false,
+      "build_fingerprint": "6a29c7f49e8e2ef3",
+      "worker_version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89",
+      "note": "Runtime identity only; inspect each desk sources field for data health."
+    },
+    "www": {
+      "service": "Morning Rows",
+      "source_revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+      "source_dirty": false,
+      "build_fingerprint": "6a29c7f49e8e2ef3",
+      "worker_version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89",
+      "note": "Runtime identity only; inspect each desk sources field for data health."
+    }
+  },
+  "checks": [
+    {
+      "name": "original capture report passed",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /health.json",
+      "pass": true
+    },
+    {
+      "name": "apex clean captured identity",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /united-kingdom.json",
+      "pass": true
+    },
+    {
+      "name": "apex/united-kingdom source and metadata",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex expected 404 semantics /united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /england.json",
+      "pass": true
+    },
+    {
+      "name": "apex/england source and metadata",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /england.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /england.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex expected 404 semantics /england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /scotland.json",
+      "pass": true
+    },
+    {
+      "name": "apex/scotland source and metadata",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex expected 404 semantics /scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /wales.json",
+      "pass": true
+    },
+    {
+      "name": "apex/wales source and metadata",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /wales.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /wales.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex expected 404 semantics /wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /northern-ireland.json",
+      "pass": true
+    },
+    {
+      "name": "apex/northern-ireland source and metadata",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex required selector /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex expected 400 semantics /northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex expected 404 semantics /northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "apex captured body binding /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "apex selected semantics /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /health.json",
+      "pass": true
+    },
+    {
+      "name": "www clean captured identity",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /united-kingdom.json",
+      "pass": true
+    },
+    {
+      "name": "www/united-kingdom source and metadata",
+      "pass": true
+    },
+    {
+      "name": "www required selector /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www required selector /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www required selector /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www required selector /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www expected 404 semantics /united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /england.json",
+      "pass": true
+    },
+    {
+      "name": "www/england source and metadata",
+      "pass": true
+    },
+    {
+      "name": "www required selector /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www required selector /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www required selector /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www required selector /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /england.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /england.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www expected 404 semantics /england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /scotland.json",
+      "pass": true
+    },
+    {
+      "name": "www/scotland source and metadata",
+      "pass": true
+    },
+    {
+      "name": "www required selector /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www required selector /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www required selector /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www required selector /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www expected 404 semantics /scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /wales.json",
+      "pass": true
+    },
+    {
+      "name": "www/wales source and metadata",
+      "pass": true
+    },
+    {
+      "name": "www required selector /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www required selector /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www required selector /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www required selector /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /wales.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /wales.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www expected 404 semantics /wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /northern-ireland.json",
+      "pass": true
+    },
+    {
+      "name": "www/northern-ireland source and metadata",
+      "pass": true
+    },
+    {
+      "name": "www required selector /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www required selector /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www required selector /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www required selector /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www expected 400 semantics /northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www expected 404 semantics /northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "name": "www captured body binding /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "www selected semantics /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "name": "both domains share captured clean identity",
+      "pass": true
+    }
+  ],
+  "comparisons": [
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2025-09",
+      "expected": 1657110,
+      "actual": 1657110,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2025-10",
+      "expected": 1650220,
+      "actual": 1650220,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2025-11",
+      "expected": 1636235,
+      "actual": 1636235,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2025-12",
+      "expected": 1625690,
+      "actual": 1625690,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-01",
+      "expected": 1635860,
+      "actual": 1635860,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-02",
+      "expected": 1686585,
+      "actual": 1686585,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-03",
+      "expected": 1693865,
+      "actual": 1693865,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-04",
+      "expected": 1678250,
+      "actual": 1678250,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-05",
+      "expected": 1677865,
+      "actual": 1677865,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-06",
+      "expected": 1672265,
+      "actual": 1672265,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-07",
+      "expected": 1660035,
+      "actual": 1660035,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-08",
+      "expected": 1667095,
+      "actual": 1667095,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "united-kingdom",
+      "period": "2026-09",
+      "expected": 1702905,
+      "actual": 1702905,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2025-09",
+      "expected": 1456065,
+      "actual": 1456065,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2025-10",
+      "expected": 1450235,
+      "actual": 1450235,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2025-11",
+      "expected": 1436730,
+      "actual": 1436730,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2025-12",
+      "expected": 1428420,
+      "actual": 1428420,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-01",
+      "expected": 1435740,
+      "actual": 1435740,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-02",
+      "expected": 1478960,
+      "actual": 1478960,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-03",
+      "expected": 1484615,
+      "actual": 1484615,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-04",
+      "expected": 1470440,
+      "actual": 1470440,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-05",
+      "expected": 1472140,
+      "actual": 1472140,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-06",
+      "expected": 1467245,
+      "actual": 1467245,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-07",
+      "expected": 1455060,
+      "actual": 1455060,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-08",
+      "expected": 1459205,
+      "actual": 1459205,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "england",
+      "period": "2026-09",
+      "expected": 1493875,
+      "actual": 1493875,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2025-09",
+      "expected": 101130,
+      "actual": 101130,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2025-10",
+      "expected": 100195,
+      "actual": 100195,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2025-11",
+      "expected": 101410,
+      "actual": 101410,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2025-12",
+      "expected": 100820,
+      "actual": 100820,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-01",
+      "expected": 103035,
+      "actual": 103035,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-02",
+      "expected": 107900,
+      "actual": 107900,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-03",
+      "expected": 109330,
+      "actual": 109330,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-04",
+      "expected": 108765,
+      "actual": 108765,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-05",
+      "expected": 108330,
+      "actual": 108330,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-06",
+      "expected": 108120,
+      "actual": 108120,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-07",
+      "expected": 108525,
+      "actual": 108525,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-08",
+      "expected": 110065,
+      "actual": 110065,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "scotland",
+      "period": "2026-09",
+      "expected": 108760,
+      "actual": 108760,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2025-09",
+      "expected": 62385,
+      "actual": 62385,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2025-10",
+      "expected": 62360,
+      "actual": 62360,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2025-11",
+      "expected": 62175,
+      "actual": 62175,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2025-12",
+      "expected": 62135,
+      "actual": 62135,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-01",
+      "expected": 62725,
+      "actual": 62725,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-02",
+      "expected": 64865,
+      "actual": 64865,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-03",
+      "expected": 65305,
+      "actual": 65305,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-04",
+      "expected": 64355,
+      "actual": 64355,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-05",
+      "expected": 64145,
+      "actual": 64145,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-06",
+      "expected": 64000,
+      "actual": 64000,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-07",
+      "expected": 63565,
+      "actual": 63565,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-08",
+      "expected": 64305,
+      "actual": 64305,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "wales",
+      "period": "2026-09",
+      "expected": 66045,
+      "actual": 66045,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2025-09",
+      "expected": 37530,
+      "actual": 37530,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2025-10",
+      "expected": 37425,
+      "actual": 37425,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2025-11",
+      "expected": 35915,
+      "actual": 35915,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2025-12",
+      "expected": 34315,
+      "actual": 34315,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-01",
+      "expected": 34355,
+      "actual": 34355,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-02",
+      "expected": 34865,
+      "actual": 34865,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-03",
+      "expected": 34615,
+      "actual": 34615,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-04",
+      "expected": 34695,
+      "actual": 34695,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-05",
+      "expected": 33250,
+      "actual": 33250,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-06",
+      "expected": 32895,
+      "actual": 32895,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-07",
+      "expected": 32885,
+      "actual": 32885,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-08",
+      "expected": 33515,
+      "actual": 33515,
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "period": "2026-09",
+      "expected": 34225,
+      "actual": 34225,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2025-09",
+      "expected": 1657110,
+      "actual": 1657110,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2025-10",
+      "expected": 1650220,
+      "actual": 1650220,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2025-11",
+      "expected": 1636235,
+      "actual": 1636235,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2025-12",
+      "expected": 1625690,
+      "actual": 1625690,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-01",
+      "expected": 1635860,
+      "actual": 1635860,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-02",
+      "expected": 1686585,
+      "actual": 1686585,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-03",
+      "expected": 1693865,
+      "actual": 1693865,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-04",
+      "expected": 1678250,
+      "actual": 1678250,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-05",
+      "expected": 1677865,
+      "actual": 1677865,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-06",
+      "expected": 1672265,
+      "actual": 1672265,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-07",
+      "expected": 1660035,
+      "actual": 1660035,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-08",
+      "expected": 1667095,
+      "actual": 1667095,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "united-kingdom",
+      "period": "2026-09",
+      "expected": 1702905,
+      "actual": 1702905,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2025-09",
+      "expected": 1456065,
+      "actual": 1456065,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2025-10",
+      "expected": 1450235,
+      "actual": 1450235,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2025-11",
+      "expected": 1436730,
+      "actual": 1436730,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2025-12",
+      "expected": 1428420,
+      "actual": 1428420,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-01",
+      "expected": 1435740,
+      "actual": 1435740,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-02",
+      "expected": 1478960,
+      "actual": 1478960,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-03",
+      "expected": 1484615,
+      "actual": 1484615,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-04",
+      "expected": 1470440,
+      "actual": 1470440,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-05",
+      "expected": 1472140,
+      "actual": 1472140,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-06",
+      "expected": 1467245,
+      "actual": 1467245,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-07",
+      "expected": 1455060,
+      "actual": 1455060,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-08",
+      "expected": 1459205,
+      "actual": 1459205,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "period": "2026-09",
+      "expected": 1493875,
+      "actual": 1493875,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2025-09",
+      "expected": 101130,
+      "actual": 101130,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2025-10",
+      "expected": 100195,
+      "actual": 100195,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2025-11",
+      "expected": 101410,
+      "actual": 101410,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2025-12",
+      "expected": 100820,
+      "actual": 100820,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-01",
+      "expected": 103035,
+      "actual": 103035,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-02",
+      "expected": 107900,
+      "actual": 107900,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-03",
+      "expected": 109330,
+      "actual": 109330,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-04",
+      "expected": 108765,
+      "actual": 108765,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-05",
+      "expected": 108330,
+      "actual": 108330,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-06",
+      "expected": 108120,
+      "actual": 108120,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-07",
+      "expected": 108525,
+      "actual": 108525,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-08",
+      "expected": 110065,
+      "actual": 110065,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "scotland",
+      "period": "2026-09",
+      "expected": 108760,
+      "actual": 108760,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2025-09",
+      "expected": 62385,
+      "actual": 62385,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2025-10",
+      "expected": 62360,
+      "actual": 62360,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2025-11",
+      "expected": 62175,
+      "actual": 62175,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2025-12",
+      "expected": 62135,
+      "actual": 62135,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-01",
+      "expected": 62725,
+      "actual": 62725,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-02",
+      "expected": 64865,
+      "actual": 64865,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-03",
+      "expected": 65305,
+      "actual": 65305,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-04",
+      "expected": 64355,
+      "actual": 64355,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-05",
+      "expected": 64145,
+      "actual": 64145,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-06",
+      "expected": 64000,
+      "actual": 64000,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-07",
+      "expected": 63565,
+      "actual": 63565,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-08",
+      "expected": 64305,
+      "actual": 64305,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "period": "2026-09",
+      "expected": 66045,
+      "actual": 66045,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2025-09",
+      "expected": 37530,
+      "actual": 37530,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2025-10",
+      "expected": 37425,
+      "actual": 37425,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2025-11",
+      "expected": 35915,
+      "actual": 35915,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2025-12",
+      "expected": 34315,
+      "actual": 34315,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-01",
+      "expected": 34355,
+      "actual": 34355,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-02",
+      "expected": 34865,
+      "actual": 34865,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-03",
+      "expected": 34615,
+      "actual": 34615,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-04",
+      "expected": 34695,
+      "actual": 34695,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-05",
+      "expected": 33250,
+      "actual": 33250,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-06",
+      "expected": 32895,
+      "actual": 32895,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-07",
+      "expected": 32885,
+      "actual": 32885,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-08",
+      "expected": 33515,
+      "actual": 33515,
+      "pass": true
+    },
+    {
+      "host": "www",
+      "desk": "northern-ireland",
+      "period": "2026-09",
+      "expected": 34225,
+      "actual": 34225,
+      "pass": true
+    }
+  ],
+  "selectors": [
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "kind": "exact_month",
+      "observations": 1
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "kind": "history",
+      "observations": 13
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "kind": "history",
+      "observations": 13
+    }
+  ],
+  "negative_responses": [
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "kind": "invalid_query",
+      "expected_status": 400,
+      "observations": 0
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "kind": "unretained_period",
+      "expected_status": 404,
+      "observations": 0
+    }
+  ],
+  "transport_checks": [
+    {
+      "host": "apex",
+      "path": "/health.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "apex",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/health.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "native",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "history",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "exact_month",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "status": 304,
+      "expected_status": 304,
+      "kind": "conditional",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "status": 200,
+      "expected_status": 200,
+      "kind": "head",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "status": 404,
+      "expected_status": 404,
+      "kind": "unretained_period",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    },
+    {
+      "host": "www",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "status": 400,
+      "expected_status": 400,
+      "kind": "invalid_query",
+      "pass": true
+    }
+  ],
+  "inputs": [
+    {
+      "file": "/workspace/morning-rows-gap-followup/verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+      "bytes": 23219,
+      "sha256": "6e35c48d68fb0f072bf697f0b520c755e231334f0b2e5168a94514faefd62d0e"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/claimant-interface-report.json",
+      "bytes": 182204,
+      "sha256": "4d36ba8620457c2ccd026cb47268b39ceaf8e57a7e7c485f8dfd9c5774301e82"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fhealth.json.body",
+      "bytes": 309,
+      "sha256": "aa4b101fb347c2c8944335d298cc5c53a61bfd19b4c75163da6879a57502c207"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Funited-kingdom.json.body",
+      "bytes": 78450,
+      "sha256": "c7b1d495c55c8b02d5eba228778bc09efe4259519ee4d55ce8893e0029141a05"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4582,
+      "sha256": "2c671800a2dfb9b1f217e8a2c6a6fe526e1885b21f7dd7a942103a166b7d1c67"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8567,
+      "sha256": "4c791631967f67537cbed451f85b570343ac5c0009a1946607434558702711ee"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8568,
+      "sha256": "9b87e5ae4b37e34c6331928e2d0035c3def56bf1163896a15eaba69aa33af55b"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 57212,
+      "sha256": "f235755cb34da0da2079e77ba5e655259249d9a951fb5123d5ae862f31bfefe5"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 57194,
+      "sha256": "0fd4cc8d0960d2b755c8db84248f4e59e67d7af60d1a76c7cca9da715deec446"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fengland.json.body",
+      "bytes": 80688,
+      "sha256": "1a28731f8794e9b3855370f1f287aa336908d84ad4b7f37c18832441c8834473"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4547,
+      "sha256": "e5c22b604cc3b75dc0f825ef865204411485f3b2065cbda528491dcd6729f577"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8497,
+      "sha256": "4d479d0416f04b6ab7d7362ba6a04fa7446c616413a48cb0b9f3e0e73d34809f"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8498,
+      "sha256": "dfb77e6922c9a9d7529e175ad5e97b79571743174aec5675a4f22062cb2d416c"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 56722,
+      "sha256": "aaf0f8e3619a3cd93d14e303b22d67f095403e68e598a76d046da2870b3888d8"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fengland.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 56704,
+      "sha256": "cc939078666bad659a864934b912063d9601cc1b19691c209411c831a898afaa"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fscotland.json.body",
+      "bytes": 33897,
+      "sha256": "d4f445a8d14a17bd379f5077a43fe3eddafc8663b2ee972cf7e72ce3b090a078"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4552,
+      "sha256": "3fffff220cb8ff0219f42f1ce678941799e96fafb91197b64cacf7814bd2715a"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8504,
+      "sha256": "55b58ed25f3e8daa90484fa3458a5f9cd54dcb8cf9f7ca6eeb18c58137d9ecab"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8505,
+      "sha256": "3250c0e27a8587c4f9ebc6f4bdb23e228d4861d96dac95a0fce9ddf08926bb25"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 56753,
+      "sha256": "603256df252f27e78d77e03d5b5b8db1883cc1916736388a4d23ca143d6f86ee"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fscotland.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 56735,
+      "sha256": "ca89e2e418a0496c7428b3f08dfc790eb766650cabfef8679310806ffbcbe054"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fwales.json.body",
+      "bytes": 22400,
+      "sha256": "88e550a31cdb23c57c763f6763d53263fb7ba704ffa26bf7b6d524c2db780e43"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4537,
+      "sha256": "a5d6c30da8a1e5e814da800c29ee4a6bcaf1e42de35fce1476435a3129f8d8f8"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8471,
+      "sha256": "95fbbd27074f6d42e7e6ee5704409d2911eb00078aff51bb2fe96943b9e9d0e7"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8472,
+      "sha256": "f8ed8b80d7966d68a4999b0038c1f49f7d76a2c1c5c0cb8cc29a5049d3a5ac6e"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 56504,
+      "sha256": "ab434604bd5ee548005da8f52dfb27966bb049ac1e37a77a4e9ab0c3d1166713"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fwales.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 56486,
+      "sha256": "ae95443d7d0e9364a60b8c7d274beaa4d9e1c902558d5d544c916f2e3560f3d7"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fnorthern-ireland.json.body",
+      "bytes": 49415,
+      "sha256": "ca0e4d074dde1a531e2262187b87e9b8a656cdedce59edd9e37ebcb40bf8bc4e"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4592,
+      "sha256": "d6fbcc1d3771651afd0b76e75acf45b069f856aada6d084c755afdabad0c4ad3"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8581,
+      "sha256": "3f004f24d512fdce304a1013dfa82cae8839cfbcce989729252a2c85e496323c"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8582,
+      "sha256": "44daf9ed8e7f8a7c4c0867b68527559f093e54c8460dffb10c52bb862d8dea82"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 57274,
+      "sha256": "422b7e6f621c0690895bdc57e7fd40951cfa178219f6500e5e45afc39c13815f"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 57256,
+      "sha256": "6978725f251f59b28143d20f2586596ef0565e0b92d2db1b9b20dac655e173b0"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fhealth.json.body",
+      "bytes": 309,
+      "sha256": "aa4b101fb347c2c8944335d298cc5c53a61bfd19b4c75163da6879a57502c207"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Funited-kingdom.json.body",
+      "bytes": 78450,
+      "sha256": "25eed8c5f260d4a28495f2b6f57cce460b4643608724a27a9ab26e3a86584c65"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4582,
+      "sha256": "b1a764f75431b08fd9283bdc7eddfd284fc867c948b7371ff0fb360d55469af4"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8567,
+      "sha256": "1525db69d347fd2d3fa255c006514804cd61f7f48b1b37d5b609bad235bf0c64"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8568,
+      "sha256": "5ce5287a6ddb646eb45150aa00510c1d3f60eaf85f82df13c2ee94c7649bca75"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 57212,
+      "sha256": "274063436c9afc62fb50de36915c3c57359d6c98a4cb41aa1f565b653f1da161"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 57194,
+      "sha256": "d7298256fc03351dfcf64c64ac70d4d635c8f2a273692c6944c1c444a9bc3f7e"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fengland.json.body",
+      "bytes": 80688,
+      "sha256": "8cc63c5898be3de1fcb5541d8797ff6089fcce95ac7a76efaabca96405cf041f"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4547,
+      "sha256": "30c725a0dae486856d54d832b3c4317e05e6cdb78e7982a637b6c81ab8ce0563"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8497,
+      "sha256": "25000c86ced5b2f41bb948e23b1fced050db97805b066b1f65201e28d180ba2a"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8498,
+      "sha256": "dcabc42cf99188c2dad27defc84df8b824697ba94c28889268e5919f44a7d4e2"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 56722,
+      "sha256": "3fb5117f0e706b222b166587d305824d5d3fd875dd0285728855bb72291ca88a"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fengland.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 56704,
+      "sha256": "e4fe3efd67cf054ac2b2110f6013913b76d15205cd3ed5dcb94d1dcacc5ab814"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fscotland.json.body",
+      "bytes": 33897,
+      "sha256": "32a5336564cc474017ff8d4e5ec231f4863a456ca71ad9186b3a0fe6705924b8"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4552,
+      "sha256": "852a1a3199ab21f514c9d11349221f0240e23704b9303213e629e02658e5be5d"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8504,
+      "sha256": "ec91c8349d933f0eb33fa09005e1ed245d882efe2ee71545583971db80f2565e"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8505,
+      "sha256": "144dcaef3fac5ec59c043726f5ab7116b9a4c373aa39585f6c93448292f89487"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 56753,
+      "sha256": "0c40a874c539bae39aba70606a590edf922b2264368de9d5ab3f2c8a58be270a"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fscotland.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 56735,
+      "sha256": "2ca1683b13da8b1da861969417fc8653f0c02f2b99f5fed9ee80008617ef905c"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fwales.json.body",
+      "bytes": 22400,
+      "sha256": "275cbae5fff79fbdf955f1a8e8f648b939d225df12d6882870c72da06ede201e"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4537,
+      "sha256": "6777e9e7d0b7d67ccfb9d345f8512bf063529498a67741b148166409f6da7fdb"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8471,
+      "sha256": "c56f9f31b6aaee865e4ead5f85122f10a3de8a44f342627866b783799d3edab3"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8472,
+      "sha256": "de03792e4ef93e3907038b036b7b549d152a404ca04cafa37079606a5ccfebc1"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 56504,
+      "sha256": "4290b606352b6f5ee8e233f315c25a2fb3a5132cbd1cd3d8273e63808b7fc55d"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fwales.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 56486,
+      "sha256": "0d937f826dc56c5fb671fcff716dec29d8c4bb98c1cfc6ca6369f6363d92cff4"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fnorthern-ireland.json.body",
+      "bytes": 49415,
+      "sha256": "ac85720d0722069bc401546149c07b92f6596e1730b8e806da9974dfaccbb34c"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body",
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body",
+      "bytes": 4592,
+      "sha256": "3541479d7d0424da978ef309809531aa19c2a27419aadb819d716676e159dae4"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body",
+      "bytes": 8581,
+      "sha256": "2e650f3f0442e59c183a7fe1ad82794b12fad6ff7bd6f92bab491905a56e5949"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body",
+      "bytes": 8582,
+      "sha256": "e5d3e5e73396249e607cb35840be66518c37e0c54dfc66741d04ba8ba4485552"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body",
+      "bytes": 57274,
+      "sha256": "47bd7f67473b3bc97e64428f9178272d692c09dfa13cf732e54b87910938f271"
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-claimants/www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count.body",
+      "bytes": 57256,
+      "sha256": "24891abfbcec58912de52b0c9d3fdd7c7cd138601607d1851f57aaa5665f1049"
+    }
+  ],
+  "limitations": [
+    "Offline reconciliation only. When an original capture report is supplied, recorded status/identity/body hashes and conditional/HEAD metadata are checked; no new HTTP execution, runtime CPU or live acquisition is proved.",
+    "The retained independent reference fixes one release. A later release fails until separately acquired and reconciled evidence is explicitly supplied.",
+    "Nomis CSV/JSON share statistical lineage; the separate NISRA presentation covers one comparable NI observation, not all65 independent population measurements."
+  ]
+}

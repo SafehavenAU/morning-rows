@@ -1,0 +1,44 @@
+{
+  "status": "metadata_evidence_checked_numeric_gates_remain_open",
+  "scope": [
+    "INC_INC_001",
+    "INC_INC_011"
+  ],
+  "exact_numeric_comparisons_passed": 0,
+  "runtime_or_checkpoint_changed": false,
+  "rows": [
+    {
+      "id": "INC_INC_001",
+      "period": "202606",
+      "target": 1391,
+      "unit": "NZD per week",
+      "numeric_status": "blocked_exact_official_cell",
+      "metadata_status": "paid_employment_scope_clarified",
+      "separate_headline": {
+        "value": 1419,
+        "measure": "Median weekly earnings from wages and salaries",
+        "comparable": false
+      },
+      "conclusion": "The original dataflow title plus current official concept establish paid employment includes wages/salaries and/or self-employment. This disqualifies a wages-only headline replacement. It does not independently verify the 1,391 cell or establish its vintage.",
+      "remaining_requirement": "Dated original official INC_INC_001 selected 202606 export or exact separate presentation for total ethnicity/region/sex/age, MED_WEEK_INC, with revision/vintage evidence."
+    },
+    {
+      "id": "INC_INC_011",
+      "period": "202606",
+      "target": 2438,
+      "unit": "NZD per week",
+      "numeric_status": "blocked_exact_official_cell",
+      "metadata_status": "prior_household_population_and_snapshot_qualification_retained",
+      "remaining_requirement": "Dated original official INC_INC_011 selected 202606 total-region/household-type MED_INC_ALL_SOUR cell, household aggregation/tax basis, and revision/vintage evidence. The individual wages headline, individual all-source income and HES/HILS annual household income are not valid substitutes."
+    }
+  ],
+  "lineage": "Original Stats NZ survey/dataflow lineage; metadata extraction differs from runtime. Browser-rendered concept excerpts are explicitly not raw HTTP bodies.",
+  "exclusions": [
+    "No main-job-only inference",
+    "No change to 1391 or 2438",
+    "No household gross/net basis inference",
+    "No annualisation by 52",
+    "No future vintage approval",
+    "No numeric use of third-party republication"
+  ]
+}

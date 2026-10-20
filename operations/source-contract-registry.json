@@ -290,13 +290,13 @@
         },
         {
           "id": "INC_INC_001",
-          "name": "Median weekly earnings, all groups",
+          "name": "Median weekly earnings from paid employment, all groups",
           "geography": "New Zealand",
-          "population": null,
+          "population": "People in paid employment (wages and salaries and/or self-employment) within the HLFS income survey population: non-institutionalised people aged 15 years and over who usually live in New Zealand. Total selected ethnic groups, regions, sexes and ages.",
           "unit": "NZD per week",
           "adjustment": null,
           "kind": "observation",
-          "period_convention": "Publisher PERIOD_INC_INC_001; retain period_label, which can differ from the code.",
+          "period_convention": "June-quarter weekly-income snapshot collected during April\u2013June; self-employment questions cover the preceding 12 months. Not annual earnings.",
           "cadence": null,
           "revision_policy": "Not established; compare content versions, do not assume finality.",
           "dimensions": {
@@ -321,6 +321,7 @@
               "label": "Median Weekly Earnings"
             }
           },
+          "limitations": "Paid-employment earnings are not interchangeable with the wages-and-salaries-only headline or household income. Do not multiply the weekly snapshot by 52 to imply annual earnings.",
           "selection": "latest_available_in_selected_series",
           "publisher": "Stats NZ",
           "licence": "CC BY 4.0",
@@ -356,11 +357,11 @@
           "id": "INC_INC_011",
           "name": "Median household income from all sources, all regions and household types",
           "geography": "New Zealand",
-          "population": "Survey households with at least one member aged 18–64; households with all members outside those ages are excluded, including all-65+ households. Total regions and household types within that population.",
+          "population": "Survey households with at least one member aged 18\u201364; households with all members outside those ages are excluded, including all-65+ households. Total regions and household types within that population.",
           "unit": "NZD per week",
           "adjustment": null,
           "kind": "observation",
-          "period_convention": "June-quarter weekly-income snapshot collected during April–June; some components such as self-employment use the preceding 12 months. Not annual household income.",
+          "period_convention": "June-quarter weekly-income snapshot collected during April\u2013June; some components such as self-employment use the preceding 12 months. Not annual household income.",
           "cadence": null,
           "revision_policy": "Not established; compare content versions, do not assume finality.",
           "dimensions": {
@@ -490,11 +491,11 @@
           "id": "LEED_AP1_001",
           "name": "People with taxable income, all groups",
           "geography": "New Zealand",
-          "population": null,
+          "population": "People aged 15 years and over at the start of the tax year, with a valid IRD identifier and non-zero covered taxable income. Covered sources include employment, self-employment and specified transfers; not all residents or all possible income sources.",
           "unit": "people",
           "adjustment": null,
           "kind": "observation",
-          "period_convention": "Publisher TAX_YEAR_NBR_LEED_AP1_001; retain period_label, which can differ from the code.",
+          "period_convention": "Tax year ended 31 March: 1 April of the preceding year through 31 March of the labelled year. People counted over the year, not a quarterly job snapshot.",
           "cadence": null,
           "revision_policy": "Not established; compare content versions, do not assume finality.",
           "dimensions": {
@@ -515,6 +516,7 @@
               "label": "Total region"
             }
           },
+          "limitations": "Covered taxable income excludes some income sources, including rental and investment income. The latest annual year is provisional until the next annual release; empty source attributes do not establish final status. The two annual numerical reference cells remain independently unverified.",
           "selection": "latest_available_in_selected_series",
           "publisher": "Stats NZ",
           "licence": "CC BY 4.0",
@@ -524,11 +526,11 @@
           "id": "LEED_AP1_002",
           "name": "Median annual earnings, total earnings and all groups",
           "geography": "New Zealand",
-          "population": null,
+          "population": "People aged 15 years and over at the start of the tax year whose main annual earnings source was wages and salaries or self-employment; valid IRD identifier and non-zero covered income.",
           "unit": "NZD per year",
           "adjustment": null,
           "kind": "observation",
-          "period_convention": "Publisher TAX_YEAR_NBR_LEED_AP1_002; retain period_label, which can differ from the code.",
+          "period_convention": "Tax year ended 31 March: 1 April of the preceding year through 31 March of the labelled year. Gross annual earnings across all jobs, not a full-year-worker requirement.",
           "cadence": null,
           "revision_policy": "Not established; compare content versions, do not assume finality.",
           "dimensions": {
@@ -549,6 +551,7 @@
               "label": "Total region"
             }
           },
+          "limitations": "Total earnings combine wages and salaries with self-employment, including negative self-employment; not all taxable income or wages alone. The latest annual year is provisional until the next annual release; empty source attributes do not establish final status. This annual numerical reference cell remains independently unverified.",
           "selection": "latest_available_in_selected_series",
           "publisher": "Stats NZ",
           "licence": "CC BY 4.0",
@@ -558,11 +561,11 @@
           "id": "LEED_Q1W_001",
           "name": "Median earnings of full-quarter jobs, all ages",
           "geography": "New Zealand",
-          "population": null,
+          "population": "Full-quarter PAYE jobs: employer\u2013employee pairs for people aged 15 years and over with valid IRD identifiers, continuous throughout the reference quarter. Social-assistance payments are excluded; some working proprietors taxed at source cannot be separated.",
           "unit": "NZD per quarter",
           "adjustment": null,
           "kind": "observation",
-          "period_convention": "Publisher QUARTER_LEED_Q1W_001; retain period_label, which can differ from the code.",
+          "period_convention": "Calendar quarter identified by its ending month; 202506 covers 1 April\u201330 June 2025. Gross earnings include lump sums and describe jobs, not individual people or annual income.",
           "cadence": null,
           "revision_policy": "Not established; compare content versions, do not assume finality.",
           "dimensions": {
@@ -575,6 +578,7 @@
               "label": "Median earnings of full quarters jobs"
             }
           },
+          "limitations": "All full-quarter jobs, not only continuing jobs or new hires. Published earnings use confidentiality rounding to base 10 or 100. Quarterly figures may be revised for two subsequent quarters; no final status is inferred from empty attributes or undisplayed export flags.",
           "selection": "latest_available_in_selected_series",
           "publisher": "Stats NZ",
           "licence": "CC BY 4.0",
@@ -3081,7 +3085,7 @@
             "dataset": "60a57730-166f-486d-9315-69f7fd4c78b1",
             "coverage": "Annual total",
             "transaction_type": "All transactions",
-            "measure": "Tax due (£ million)"
+            "measure": "Tax due (\u00a3 million)"
           },
           "publisher": "Welsh Revenue Authority via StatsWales",
           "source_url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv",
@@ -3104,7 +3108,7 @@
             "dataset": "60a57730-166f-486d-9315-69f7fd4c78b1",
             "coverage": "Annual total excluding untypical and undisclosed transactions",
             "transaction_type": "All transactions",
-            "measure": "Tax due (£ million)"
+            "measure": "Tax due (\u00a3 million)"
           },
           "publisher": "Welsh Revenue Authority via StatsWales",
           "source_url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv",
@@ -3127,7 +3131,7 @@
             "dataset": "60a57730-166f-486d-9315-69f7fd4c78b1",
             "coverage": "Annual total excluding untypical and undisclosed transactions",
             "transaction_type": "Residential",
-            "measure": "Tax due (£ million)"
+            "measure": "Tax due (\u00a3 million)"
           },
           "publisher": "Welsh Revenue Authority via StatsWales",
           "source_url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv",
@@ -3150,7 +3154,7 @@
             "dataset": "60a57730-166f-486d-9315-69f7fd4c78b1",
             "coverage": "Annual total excluding untypical and undisclosed transactions",
             "transaction_type": "Non-residential",
-            "measure": "Tax due (£ million)"
+            "measure": "Tax due (\u00a3 million)"
           },
           "publisher": "Welsh Revenue Authority via StatsWales",
           "source_url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv",
@@ -5356,7 +5360,7 @@
           "name": "Claimant count, all sexes, age 16+",
           "geography": "United Kingdom",
           "geography_code": "K02000001",
-          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "population": "All sexes, age 16 and over: Jobseeker\u2019s Allowance claimants and relevant Universal Credit claimants under the publisher\u2019s claimant-count eligibility and administrative definitions.",
           "unit": "persons",
           "adjustment": "not seasonally adjusted",
           "kind": "observation",
@@ -5411,7 +5415,7 @@
           "name": "Claimant count, all sexes, age 16+",
           "geography": "England",
           "geography_code": "E92000001",
-          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "population": "All sexes, age 16 and over: Jobseeker\u2019s Allowance claimants and relevant Universal Credit claimants under the publisher\u2019s claimant-count eligibility and administrative definitions.",
           "unit": "persons",
           "adjustment": "not seasonally adjusted",
           "kind": "observation",
@@ -5466,7 +5470,7 @@
           "name": "Claimant count, all sexes, age 16+",
           "geography": "Scotland",
           "geography_code": "S92000003",
-          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "population": "All sexes, age 16 and over: Jobseeker\u2019s Allowance claimants and relevant Universal Credit claimants under the publisher\u2019s claimant-count eligibility and administrative definitions.",
           "unit": "persons",
           "adjustment": "not seasonally adjusted",
           "kind": "observation",
@@ -5521,7 +5525,7 @@
           "name": "Claimant count, all sexes, age 16+",
           "geography": "Wales",
           "geography_code": "W92000004",
-          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "population": "All sexes, age 16 and over: Jobseeker\u2019s Allowance claimants and relevant Universal Credit claimants under the publisher\u2019s claimant-count eligibility and administrative definitions.",
           "unit": "persons",
           "adjustment": "not seasonally adjusted",
           "kind": "observation",
@@ -5576,7 +5580,7 @@
           "name": "Claimant count, all sexes, age 16+",
           "geography": "Northern Ireland",
           "geography_code": "N92000002",
-          "population": "All sexes, age 16 and over: Jobseeker’s Allowance claimants and relevant Universal Credit claimants under the publisher’s claimant-count eligibility and administrative definitions.",
+          "population": "All sexes, age 16 and over: Jobseeker\u2019s Allowance claimants and relevant Universal Credit claimants under the publisher\u2019s claimant-count eligibility and administrative definitions.",
           "unit": "persons",
           "adjustment": "not seasonally adjusted",
           "kind": "observation",
@@ -10605,6 +10609,215 @@
       "incident_group": "canada/rental_benchmark"
     },
     {
+      "key": "northern-ireland/electricity_balance",
+      "desk": "northern-ireland",
+      "country": "Northern Ireland",
+      "source": "electricity_balance",
+      "data": "electricity_balance",
+      "health": "sources.electricity_balance",
+      "canonical_url": "https://morningrows.com/northern-ireland.json?source=electricity_balance",
+      "described_measures": 5,
+      "observation_count": 5,
+      "semantic_revision": "remaining-pass-2026-10-20",
+      "assurance": "Exact bounded publisher contract and qualified observations; separately reconciled version approval required; historical and annual unchanged observations remain valid",
+      "task_ids": [
+        "NI-ELECTRICITY-BALANCE"
+      ],
+      "schema_version": "1.0",
+      "validator_version": "monitor-ni-electricity-summary-v1",
+      "definitions": [
+        {
+          "id": "renewable_share_gfec",
+          "name": "Renewable generation as a proportion of gross final electricity consumption",
+          "geography": "Northern Ireland",
+          "unit": "%",
+          "kind": "observation",
+          "population": "Electricity generated and consumed in Northern Ireland, including metered and own-use generation; gross final consumption includes net imports and system losses.",
+          "adjustment": "Physical electricity quantities; not seasonally adjusted",
+          "period_convention": "Inclusive fixed rolling twelve-month window 2025-07-01/2026-06-30; month labels are not individual monthly observations",
+          "cadence": "Fixed 3 September 2026 edition; future editions require review",
+          "dimensions": {
+            "territory": "Northern Ireland",
+            "aggregation": "ratio of rolling totals",
+            "methodology": "gross_final_consumption_including_own_use",
+            "measure": "renewable_share_gfec",
+            "edition": "fixed_2026-09-03"
+          },
+          "publisher": "Department for the Economy, Northern Ireland",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.economy-ni.gov.uk/articles/crown-copyright-economy",
+          "source_url": "https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics",
+          "methodology": "Gross final electricity consumption includes metered and own-use renewable and non-renewable generation plus imports minus exports, gross of system losses; renewable numerator is indigenous renewable generation. Revised GFEC basis, not the superseded pre-2026 consumption measure.",
+          "revision_policy": "Statistics in Development; rounded estimates and earlier periods may be revised, including own-use estimates and supplier corrections; not final.",
+          "rounding": "Publisher-rounded whole percentage point",
+          "edition": "fixed_2026-09-03",
+          "metadata_evidence": {
+            "kind": "retained_same_edition_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+            "sha256": "52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3",
+            "original_url": "https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html",
+            "publication_date": "2026-09-03",
+            "period": "2025-07-01/2026-06-30",
+            "live_retrieved": false
+          },
+          "limitations": "Fixed edition published 3 September 2026 for July 2025 to June 2026; does not claim the newest available publication. Northern Ireland rolling twelve-month totals, not a calendar year, monthly average, UK or all-island figure. No historical series or fuel breakdown. Do not add consumption to its overlapping generation/net-import components. Renewable/GFEC share is not share of generation. Full methodology and revision status are anchored to retained same-edition evidence; a later article edition requires review."
+        },
+        {
+          "id": "gross_final_consumption",
+          "name": "Gross final electricity consumption",
+          "geography": "Northern Ireland",
+          "unit": "GWh",
+          "kind": "observation",
+          "population": "Electricity generated and consumed in Northern Ireland, including metered and own-use generation; gross final consumption includes net imports and system losses.",
+          "adjustment": "Physical electricity quantities; not seasonally adjusted",
+          "period_convention": "Inclusive fixed rolling twelve-month window 2025-07-01/2026-06-30; month labels are not individual monthly observations",
+          "cadence": "Fixed 3 September 2026 edition; future editions require review",
+          "dimensions": {
+            "territory": "Northern Ireland",
+            "aggregation": "rolling total",
+            "methodology": "gross_final_consumption_including_own_use",
+            "measure": "gross_final_consumption",
+            "edition": "fixed_2026-09-03"
+          },
+          "publisher": "Department for the Economy, Northern Ireland",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.economy-ni.gov.uk/articles/crown-copyright-economy",
+          "source_url": "https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics",
+          "methodology": "Gross final electricity consumption includes metered and own-use renewable and non-renewable generation plus imports minus exports, gross of system losses; renewable numerator is indigenous renewable generation. Revised GFEC basis, not the superseded pre-2026 consumption measure.",
+          "revision_policy": "Statistics in Development; rounded estimates and earlier periods may be revised, including own-use estimates and supplier corrections; not final.",
+          "rounding": "Publisher-rounded whole GWh",
+          "edition": "fixed_2026-09-03",
+          "metadata_evidence": {
+            "kind": "retained_same_edition_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+            "sha256": "52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3",
+            "original_url": "https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html",
+            "publication_date": "2026-09-03",
+            "period": "2025-07-01/2026-06-30",
+            "live_retrieved": false
+          },
+          "limitations": "Fixed edition published 3 September 2026 for July 2025 to June 2026; does not claim the newest available publication. Northern Ireland rolling twelve-month totals, not a calendar year, monthly average, UK or all-island figure. No historical series or fuel breakdown. Do not add consumption to its overlapping generation/net-import components. Renewable/GFEC share is not share of generation. Full methodology and revision status are anchored to retained same-edition evidence; a later article edition requires review."
+        },
+        {
+          "id": "renewable_generation",
+          "name": "Indigenous renewable electricity generation",
+          "geography": "Northern Ireland",
+          "unit": "GWh",
+          "kind": "observation",
+          "population": "Electricity generated and consumed in Northern Ireland, including metered and own-use generation; gross final consumption includes net imports and system losses.",
+          "adjustment": "Physical electricity quantities; not seasonally adjusted",
+          "period_convention": "Inclusive fixed rolling twelve-month window 2025-07-01/2026-06-30; month labels are not individual monthly observations",
+          "cadence": "Fixed 3 September 2026 edition; future editions require review",
+          "dimensions": {
+            "territory": "Northern Ireland",
+            "aggregation": "rolling total",
+            "methodology": "gross_final_consumption_including_own_use",
+            "measure": "renewable_generation",
+            "edition": "fixed_2026-09-03"
+          },
+          "publisher": "Department for the Economy, Northern Ireland",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.economy-ni.gov.uk/articles/crown-copyright-economy",
+          "source_url": "https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics",
+          "methodology": "Gross final electricity consumption includes metered and own-use renewable and non-renewable generation plus imports minus exports, gross of system losses; renewable numerator is indigenous renewable generation. Revised GFEC basis, not the superseded pre-2026 consumption measure.",
+          "revision_policy": "Statistics in Development; rounded estimates and earlier periods may be revised, including own-use estimates and supplier corrections; not final.",
+          "rounding": "Publisher-rounded whole GWh",
+          "edition": "fixed_2026-09-03",
+          "metadata_evidence": {
+            "kind": "retained_same_edition_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+            "sha256": "52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3",
+            "original_url": "https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html",
+            "publication_date": "2026-09-03",
+            "period": "2025-07-01/2026-06-30",
+            "live_retrieved": false
+          },
+          "limitations": "Fixed edition published 3 September 2026 for July 2025 to June 2026; does not claim the newest available publication. Northern Ireland rolling twelve-month totals, not a calendar year, monthly average, UK or all-island figure. No historical series or fuel breakdown. Do not add consumption to its overlapping generation/net-import components. Renewable/GFEC share is not share of generation. Full methodology and revision status are anchored to retained same-edition evidence; a later article edition requires review."
+        },
+        {
+          "id": "non_renewable_generation",
+          "name": "Non-renewable electricity generation",
+          "geography": "Northern Ireland",
+          "unit": "GWh",
+          "kind": "observation",
+          "population": "Electricity generated and consumed in Northern Ireland, including metered and own-use generation; gross final consumption includes net imports and system losses.",
+          "adjustment": "Physical electricity quantities; not seasonally adjusted",
+          "period_convention": "Inclusive fixed rolling twelve-month window 2025-07-01/2026-06-30; month labels are not individual monthly observations",
+          "cadence": "Fixed 3 September 2026 edition; future editions require review",
+          "dimensions": {
+            "territory": "Northern Ireland",
+            "aggregation": "rolling total",
+            "methodology": "gross_final_consumption_including_own_use",
+            "measure": "non_renewable_generation",
+            "edition": "fixed_2026-09-03"
+          },
+          "publisher": "Department for the Economy, Northern Ireland",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.economy-ni.gov.uk/articles/crown-copyright-economy",
+          "source_url": "https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics",
+          "methodology": "Gross final electricity consumption includes metered and own-use renewable and non-renewable generation plus imports minus exports, gross of system losses; renewable numerator is indigenous renewable generation. Revised GFEC basis, not the superseded pre-2026 consumption measure.",
+          "revision_policy": "Statistics in Development; rounded estimates and earlier periods may be revised, including own-use estimates and supplier corrections; not final.",
+          "rounding": "Publisher-rounded whole GWh",
+          "edition": "fixed_2026-09-03",
+          "metadata_evidence": {
+            "kind": "retained_same_edition_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+            "sha256": "52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3",
+            "original_url": "https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html",
+            "publication_date": "2026-09-03",
+            "period": "2025-07-01/2026-06-30",
+            "live_retrieved": false
+          },
+          "limitations": "Fixed edition published 3 September 2026 for July 2025 to June 2026; does not claim the newest available publication. Northern Ireland rolling twelve-month totals, not a calendar year, monthly average, UK or all-island figure. No historical series or fuel breakdown. Do not add consumption to its overlapping generation/net-import components. Renewable/GFEC share is not share of generation. Full methodology and revision status are anchored to retained same-edition evidence; a later article edition requires review."
+        },
+        {
+          "id": "net_imports",
+          "name": "Net electricity imports (imports minus exports)",
+          "geography": "Northern Ireland",
+          "unit": "GWh",
+          "kind": "observation",
+          "population": "Electricity generated and consumed in Northern Ireland, including metered and own-use generation; gross final consumption includes net imports and system losses.",
+          "adjustment": "Physical electricity quantities; not seasonally adjusted",
+          "period_convention": "Inclusive fixed rolling twelve-month window 2025-07-01/2026-06-30; month labels are not individual monthly observations",
+          "cadence": "Fixed 3 September 2026 edition; future editions require review",
+          "dimensions": {
+            "territory": "Northern Ireland",
+            "aggregation": "rolling total",
+            "methodology": "gross_final_consumption_including_own_use",
+            "measure": "net_imports",
+            "edition": "fixed_2026-09-03"
+          },
+          "publisher": "Department for the Economy, Northern Ireland",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.economy-ni.gov.uk/articles/crown-copyright-economy",
+          "source_url": "https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics",
+          "methodology": "Gross final electricity consumption includes metered and own-use renewable and non-renewable generation plus imports minus exports, gross of system losses; renewable numerator is indigenous renewable generation. Revised GFEC basis, not the superseded pre-2026 consumption measure.",
+          "revision_policy": "Statistics in Development; rounded estimates and earlier periods may be revised, including own-use estimates and supplier corrections; not final.",
+          "rounding": "Publisher-rounded whole GWh",
+          "edition": "fixed_2026-09-03",
+          "metadata_evidence": {
+            "kind": "retained_same_edition_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+            "sha256": "52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3",
+            "original_url": "https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html",
+            "publication_date": "2026-09-03",
+            "period": "2025-07-01/2026-06-30",
+            "live_retrieved": false
+          },
+          "limitations": "Fixed edition published 3 September 2026 for July 2025 to June 2026; does not claim the newest available publication. Northern Ireland rolling twelve-month totals, not a calendar year, monthly average, UK or all-island figure. No historical series or fuel breakdown. Do not add consumption to its overlapping generation/net-import components. Renewable/GFEC share is not share of generation. Full methodology and revision status are anchored to retained same-edition evidence; a later article edition requires review."
+        }
+      ],
+      "evidence": "verification/gap-followup-2026-10-20/ni-energy-summary/CONTRACT.md",
+      "monitor_interval_minutes": 1440,
+      "publisher_request_quota": null,
+      "publisher_quota_status": "Bounded anonymous original-publisher acquisitions; no credential or hourly source polling",
+      "next_verified_publication": null,
+      "publication_grace_seconds": null,
+      "cadence": "Fixed reviewed July2025\u2013June2026 edition published3September2026; future editions require a separate review",
+      "semantic_approval": "Structure and metadata validity are separate from exact-version independent numerical approval; no future release is preapproved",
+      "incident_group": "northern-ireland/electricity_balance"
+    },
+    {
       "key": "scotland/college_activity",
       "desk": "scotland",
       "country": "Scotland",
@@ -11105,34 +11318,6 @@
       "cadence": "Exact retained source period and edition; unchanged annual or historical observations remain valid",
       "semantic_approval": "Structure and metadata validity are separate from exact-version independent numerical approval; no future release is preapproved",
       "incident_group": "england/care_assessment_cohort"
-    },
-    {
-      "key": "northern-ireland/electricity_balance",
-      "desk": "northern-ireland",
-      "country": "Northern Ireland",
-      "source": "electricity_balance",
-      "data": "electricity_balance",
-      "health": "sources.electricity_balance",
-      "canonical_url": "https://morningrows.com/northern-ireland.json?source=electricity_balance",
-      "described_measures": 5,
-      "observation_count": 5,
-      "semantic_revision": "remaining-pass-2026-10-20",
-      "assurance": "Exact bounded publisher contract and qualified observations; separately reconciled version approval required; historical and annual unchanged observations remain valid",
-      "task_ids": [
-        "NI-ELECTRICITY-BALANCE"
-      ],
-      "schema_version": "1.0",
-      "validator_version": "monitor-remaining-contracts-v1",
-      "definitions": [],
-      "evidence": "verification/remaining-gaps-2026-10-20/ni-energy/CONTRACT.md",
-      "monitor_interval_minutes": 1440,
-      "publisher_request_quota": null,
-      "publisher_quota_status": "Bounded anonymous original-publisher acquisitions; no credential or hourly source polling",
-      "next_verified_publication": null,
-      "publication_grace_seconds": null,
-      "cadence": "Exact retained source period and edition; unchanged annual or historical observations remain valid",
-      "semantic_approval": "Structure and metadata validity are separate from exact-version independent numerical approval; no future release is preapproved",
-      "incident_group": "northern-ireland/electricity_balance"
     }
   ]
 }

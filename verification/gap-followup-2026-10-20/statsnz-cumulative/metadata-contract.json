@@ -1,0 +1,74 @@
+{
+  "kind": "Source-backed metadata contract for actual native capture; no additional numerical approval",
+  "series": {
+    "INC_INC_001": {
+      "fields": {
+        "name": "Median weekly earnings from paid employment, all groups",
+        "population_group": "People in paid employment (wages and salaries and/or self-employment) within the HLFS income survey population: non-institutionalised people aged 15 years and over who usually live in New Zealand. Total selected ethnic groups, regions, sexes and ages.",
+        "period_convention": "June-quarter weekly-income snapshot collected during April–June; self-employment questions cover the preceding 12 months. Not annual earnings.",
+        "limitations": "Paid-employment earnings are not interchangeable with the wages-and-salaries-only headline or household income. Do not multiply the weekly snapshot by 52 to imply annual earnings."
+      },
+      "evidence": [
+        "../statsnz-income/original/INC_INC_001-structure.json",
+        "../statsnz-income/original/paid-employment-browser.json",
+        "../statsnz-income/original/wages-salaries-browser.json",
+        "../statsnz-income/original/june-2026-methods-browser.json",
+        "../../gap-pass-2026-10-20/statsnz/sources/income-metadata.json"
+      ],
+      "numeric_acceptance": false
+    },
+    "LEED_AP1_001": {
+      "fields": {
+        "population_group": "People aged 15 years and over at the start of the tax year, with a valid IRD identifier and non-zero covered taxable income. Covered sources include employment, self-employment and specified transfers; not all residents or all possible income sources.",
+        "period_convention": "Tax year ended 31 March: 1 April of the preceding year through 31 March of the labelled year. People counted over the year, not a quarterly job snapshot.",
+        "limitations": "Covered taxable income excludes some income sources, including rental and investment income. The latest annual year is provisional until the next annual release; empty source attributes do not establish final status. The two annual numerical reference cells remain independently unverified."
+      },
+      "evidence": [
+        "../statsnz-income/leed/original/annual-methods-canonical.json"
+      ],
+      "publisher_sections": [
+        "Population",
+        "Published data tables",
+        "Part 1 – Annual sources of income",
+        "Time series"
+      ],
+      "numeric_acceptance": false,
+      "note": "Metadata contract does not supply a numeric reference. Quarterly exact CSV comparison is checked separately; two annual numerical cells remain unresolved."
+    },
+    "LEED_AP1_002": {
+      "fields": {
+        "population_group": "People aged 15 years and over at the start of the tax year whose main annual earnings source was wages and salaries or self-employment; valid IRD identifier and non-zero covered income.",
+        "period_convention": "Tax year ended 31 March: 1 April of the preceding year through 31 March of the labelled year. Gross annual earnings across all jobs, not a full-year-worker requirement.",
+        "limitations": "Total earnings combine wages and salaries with self-employment, including negative self-employment; not all taxable income or wages alone. The latest annual year is provisional until the next annual release; empty source attributes do not establish final status. This annual numerical reference cell remains independently unverified."
+      },
+      "evidence": [
+        "../statsnz-income/leed/original/annual-methods-canonical.json"
+      ],
+      "publisher_sections": [
+        "Population",
+        "Published data tables",
+        "Part 1 – Annual sources of income",
+        "Time series"
+      ],
+      "numeric_acceptance": false,
+      "note": "Metadata contract does not supply a numeric reference. Quarterly exact CSV comparison is checked separately; two annual numerical cells remain unresolved."
+    },
+    "LEED_Q1W_001": {
+      "fields": {
+        "population_group": "Full-quarter PAYE jobs: employer–employee pairs for people aged 15 years and over with valid IRD identifiers, continuous throughout the reference quarter. Social-assistance payments are excluded; some working proprietors taxed at source cannot be separated.",
+        "period_convention": "Calendar quarter identified by its ending month; 202506 covers 1 April–30 June 2025. Gross earnings include lump sums and describe jobs, not individual people or annual income.",
+        "limitations": "All full-quarter jobs, not only continuing jobs or new hires. Published earnings use confidentiality rounding to base 10 or 100. Quarterly figures may be revised for two subsequent quarters; no final status is inferred from empty attributes or undisplayed export flags."
+      },
+      "evidence": [
+        "../statsnz-income/leed/original/quarter-methods.json"
+      ],
+      "publisher_sections": [
+        "Population",
+        "Definitions of measures",
+        "Timeframe for production"
+      ],
+      "numeric_acceptance": false,
+      "note": "Metadata contract does not supply a numeric reference. Quarterly exact CSV comparison is checked separately; two annual numerical cells remain unresolved."
+    }
+  }
+}

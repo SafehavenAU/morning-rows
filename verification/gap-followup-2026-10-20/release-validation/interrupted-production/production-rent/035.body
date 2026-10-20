@@ -1,0 +1,3313 @@
+{
+  "name": "Morning Rows",
+  "site": "https://morningrows.com",
+  "schema_version": "1.0",
+  "schema": "https://morningrows.com/schema.json",
+  "auth": "none",
+  "index": "/llms.txt",
+  "id": "https://morningrows.com/catalog.json?desk=new-zealand",
+  "desk": "New Zealand",
+  "records": "https://morningrows.com/new-zealand.json",
+  "sources": [
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=market_rent",
+      "key": "market_rent",
+      "name": "Six-month local rent quartiles and separate active-bond counts",
+      "records": "https://morningrows.com/new-zealand.json?source=market_rent",
+      "data_pointer": "/market_rent",
+      "health_pointer": "/sources/market_rent",
+      "representation": "described_measures",
+      "measure_count": 200,
+      "limits": "Only the city-qualified NZAD localities Auckland–Avondale and Wellington–Kelburn, five published dwelling categories and bedroom categories 1, 2, 3, 4 and 5+. Weekly NZD rent quartiles describe bonds lodged during one inclusive six-month window. Active bonds are a separate count, not the quartile denominator. These provisional aggregates do not describe current listings, availability or an individual property. Absent tuples are not reported; no zero or suppression is inferred. Locality identifiers are site-owned, not official NZAD codes.",
+      "locality_identifier_authority": "Morning Rows; not a publisher geography code",
+      "selection": "Only reported tuples produce observations. Known absent tuples return not_reported; unsupported IDs return unknown_measure. An observation selects the exact inclusive six-month start/end period.",
+      "measures": [
+        {
+          "id": "nz-auckland-avondale.apartment.1.lower_quartile",
+          "name": "Auckland - Avondale, Apartment, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.1.median",
+          "name": "Auckland - Avondale, Apartment, 1 bedroom: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.1.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.1.upper_quartile",
+          "name": "Auckland - Avondale, Apartment, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.1.active_bonds",
+          "name": "Auckland - Avondale, Apartment, 1 bedroom: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.1.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.2.lower_quartile",
+          "name": "Auckland - Avondale, Apartment, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.2.median",
+          "name": "Auckland - Avondale, Apartment, 2 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.2.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.2.upper_quartile",
+          "name": "Auckland - Avondale, Apartment, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.2.active_bonds",
+          "name": "Auckland - Avondale, Apartment, 2 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.2.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.3.lower_quartile",
+          "name": "Auckland - Avondale, Apartment, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.3.median",
+          "name": "Auckland - Avondale, Apartment, 3 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.3.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.3.upper_quartile",
+          "name": "Auckland - Avondale, Apartment, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.3.active_bonds",
+          "name": "Auckland - Avondale, Apartment, 3 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.3.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.4.lower_quartile",
+          "name": "Auckland - Avondale, Apartment, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.4.median",
+          "name": "Auckland - Avondale, Apartment, 4 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.4.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.4.upper_quartile",
+          "name": "Auckland - Avondale, Apartment, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.4.active_bonds",
+          "name": "Auckland - Avondale, Apartment, 4 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.4.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.5-plus.lower_quartile",
+          "name": "Auckland - Avondale, Apartment, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.5-plus.median",
+          "name": "Auckland - Avondale, Apartment, 5+ bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.5-plus.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.5-plus.upper_quartile",
+          "name": "Auckland - Avondale, Apartment, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.apartment.5-plus.active_bonds",
+          "name": "Auckland - Avondale, Apartment, 5+ bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.apartment.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "apartment",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.1.lower_quartile",
+          "name": "Auckland - Avondale, Boarding House, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.1.median",
+          "name": "Auckland - Avondale, Boarding House, 1 bedroom: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.1.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.1.upper_quartile",
+          "name": "Auckland - Avondale, Boarding House, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.1.active_bonds",
+          "name": "Auckland - Avondale, Boarding House, 1 bedroom: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.1.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.2.lower_quartile",
+          "name": "Auckland - Avondale, Boarding House, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.2.median",
+          "name": "Auckland - Avondale, Boarding House, 2 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.2.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.2.upper_quartile",
+          "name": "Auckland - Avondale, Boarding House, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.2.active_bonds",
+          "name": "Auckland - Avondale, Boarding House, 2 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.2.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.3.lower_quartile",
+          "name": "Auckland - Avondale, Boarding House, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.3.median",
+          "name": "Auckland - Avondale, Boarding House, 3 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.3.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.3.upper_quartile",
+          "name": "Auckland - Avondale, Boarding House, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.3.active_bonds",
+          "name": "Auckland - Avondale, Boarding House, 3 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.3.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.4.lower_quartile",
+          "name": "Auckland - Avondale, Boarding House, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.4.median",
+          "name": "Auckland - Avondale, Boarding House, 4 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.4.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.4.upper_quartile",
+          "name": "Auckland - Avondale, Boarding House, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.4.active_bonds",
+          "name": "Auckland - Avondale, Boarding House, 4 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.4.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.5-plus.lower_quartile",
+          "name": "Auckland - Avondale, Boarding House, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.5-plus.median",
+          "name": "Auckland - Avondale, Boarding House, 5+ bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.5-plus.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.5-plus.upper_quartile",
+          "name": "Auckland - Avondale, Boarding House, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.boarding-house.5-plus.active_bonds",
+          "name": "Auckland - Avondale, Boarding House, 5+ bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.boarding-house.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "boarding-house",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.1.lower_quartile",
+          "name": "Auckland - Avondale, Flat, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.1.median",
+          "name": "Auckland - Avondale, Flat, 1 bedroom: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.1.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.1.upper_quartile",
+          "name": "Auckland - Avondale, Flat, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.1.active_bonds",
+          "name": "Auckland - Avondale, Flat, 1 bedroom: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.1.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.2.lower_quartile",
+          "name": "Auckland - Avondale, Flat, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.2.median",
+          "name": "Auckland - Avondale, Flat, 2 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.2.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.2.upper_quartile",
+          "name": "Auckland - Avondale, Flat, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.2.active_bonds",
+          "name": "Auckland - Avondale, Flat, 2 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.2.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.3.lower_quartile",
+          "name": "Auckland - Avondale, Flat, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.3.median",
+          "name": "Auckland - Avondale, Flat, 3 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.3.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.3.upper_quartile",
+          "name": "Auckland - Avondale, Flat, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.3.active_bonds",
+          "name": "Auckland - Avondale, Flat, 3 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.3.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.4.lower_quartile",
+          "name": "Auckland - Avondale, Flat, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.4.median",
+          "name": "Auckland - Avondale, Flat, 4 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.4.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.4.upper_quartile",
+          "name": "Auckland - Avondale, Flat, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.4.active_bonds",
+          "name": "Auckland - Avondale, Flat, 4 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.4.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.5-plus.lower_quartile",
+          "name": "Auckland - Avondale, Flat, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.5-plus.median",
+          "name": "Auckland - Avondale, Flat, 5+ bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.5-plus.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.5-plus.upper_quartile",
+          "name": "Auckland - Avondale, Flat, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.flat.5-plus.active_bonds",
+          "name": "Auckland - Avondale, Flat, 5+ bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.flat.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "flat",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.1.lower_quartile",
+          "name": "Auckland - Avondale, House, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.1.median",
+          "name": "Auckland - Avondale, House, 1 bedroom: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.1.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.1.upper_quartile",
+          "name": "Auckland - Avondale, House, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.1.active_bonds",
+          "name": "Auckland - Avondale, House, 1 bedroom: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.1.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.2.lower_quartile",
+          "name": "Auckland - Avondale, House, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.2.median",
+          "name": "Auckland - Avondale, House, 2 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.2.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.2.upper_quartile",
+          "name": "Auckland - Avondale, House, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.2.active_bonds",
+          "name": "Auckland - Avondale, House, 2 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.2.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.3.lower_quartile",
+          "name": "Auckland - Avondale, House, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.3.median",
+          "name": "Auckland - Avondale, House, 3 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.3.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.3.upper_quartile",
+          "name": "Auckland - Avondale, House, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.3.active_bonds",
+          "name": "Auckland - Avondale, House, 3 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.3.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.4.lower_quartile",
+          "name": "Auckland - Avondale, House, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.4.median",
+          "name": "Auckland - Avondale, House, 4 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.4.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.4.upper_quartile",
+          "name": "Auckland - Avondale, House, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.4.active_bonds",
+          "name": "Auckland - Avondale, House, 4 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.4.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.5-plus.lower_quartile",
+          "name": "Auckland - Avondale, House, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.5-plus.median",
+          "name": "Auckland - Avondale, House, 5+ bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.5-plus.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.5-plus.upper_quartile",
+          "name": "Auckland - Avondale, House, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.house.5-plus.active_bonds",
+          "name": "Auckland - Avondale, House, 5+ bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.house.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "house",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.1.lower_quartile",
+          "name": "Auckland - Avondale, Room, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.1.median",
+          "name": "Auckland - Avondale, Room, 1 bedroom: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.1.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.1.upper_quartile",
+          "name": "Auckland - Avondale, Room, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.1.active_bonds",
+          "name": "Auckland - Avondale, Room, 1 bedroom: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.1.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.2.lower_quartile",
+          "name": "Auckland - Avondale, Room, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.2.median",
+          "name": "Auckland - Avondale, Room, 2 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.2.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.2.upper_quartile",
+          "name": "Auckland - Avondale, Room, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.2.active_bonds",
+          "name": "Auckland - Avondale, Room, 2 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.2.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.3.lower_quartile",
+          "name": "Auckland - Avondale, Room, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.3.median",
+          "name": "Auckland - Avondale, Room, 3 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.3.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.3.upper_quartile",
+          "name": "Auckland - Avondale, Room, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.3.active_bonds",
+          "name": "Auckland - Avondale, Room, 3 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.3.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.4.lower_quartile",
+          "name": "Auckland - Avondale, Room, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.4.median",
+          "name": "Auckland - Avondale, Room, 4 bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.4.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.4.upper_quartile",
+          "name": "Auckland - Avondale, Room, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.4.active_bonds",
+          "name": "Auckland - Avondale, Room, 4 bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.4.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.5-plus.lower_quartile",
+          "name": "Auckland - Avondale, Room, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.5-plus.median",
+          "name": "Auckland - Avondale, Room, 5+ bedrooms: Median weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.5-plus.median",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.5-plus.upper_quartile",
+          "name": "Auckland - Avondale, Room, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Auckland - Avondale",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-auckland-avondale.room.5-plus.active_bonds",
+          "name": "Auckland - Avondale, Room, 5+ bedrooms: Active bonds",
+          "geography": "Auckland - Avondale",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-auckland-avondale.room.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-auckland-avondale",
+            "dwelling": "room",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.1.lower_quartile",
+          "name": "Wellington - Kelburn, Apartment, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.1.median",
+          "name": "Wellington - Kelburn, Apartment, 1 bedroom: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.1.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.1.upper_quartile",
+          "name": "Wellington - Kelburn, Apartment, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.1.active_bonds",
+          "name": "Wellington - Kelburn, Apartment, 1 bedroom: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.1.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.2.lower_quartile",
+          "name": "Wellington - Kelburn, Apartment, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.2.median",
+          "name": "Wellington - Kelburn, Apartment, 2 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.2.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.2.upper_quartile",
+          "name": "Wellington - Kelburn, Apartment, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.2.active_bonds",
+          "name": "Wellington - Kelburn, Apartment, 2 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.2.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.3.lower_quartile",
+          "name": "Wellington - Kelburn, Apartment, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.3.median",
+          "name": "Wellington - Kelburn, Apartment, 3 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.3.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.3.upper_quartile",
+          "name": "Wellington - Kelburn, Apartment, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.3.active_bonds",
+          "name": "Wellington - Kelburn, Apartment, 3 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.3.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.4.lower_quartile",
+          "name": "Wellington - Kelburn, Apartment, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.4.median",
+          "name": "Wellington - Kelburn, Apartment, 4 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.4.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.4.upper_quartile",
+          "name": "Wellington - Kelburn, Apartment, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.4.active_bonds",
+          "name": "Wellington - Kelburn, Apartment, 4 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.4.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.5-plus.lower_quartile",
+          "name": "Wellington - Kelburn, Apartment, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.5-plus.median",
+          "name": "Wellington - Kelburn, Apartment, 5+ bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.5-plus.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.5-plus.upper_quartile",
+          "name": "Wellington - Kelburn, Apartment, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.apartment.5-plus.active_bonds",
+          "name": "Wellington - Kelburn, Apartment, 5+ bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.apartment.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "apartment",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.1.lower_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.1.median",
+          "name": "Wellington - Kelburn, Boarding House, 1 bedroom: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.1.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.1.upper_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.1.active_bonds",
+          "name": "Wellington - Kelburn, Boarding House, 1 bedroom: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.1.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.2.lower_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.2.median",
+          "name": "Wellington - Kelburn, Boarding House, 2 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.2.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.2.upper_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.2.active_bonds",
+          "name": "Wellington - Kelburn, Boarding House, 2 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.2.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.3.lower_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.3.median",
+          "name": "Wellington - Kelburn, Boarding House, 3 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.3.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.3.upper_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.3.active_bonds",
+          "name": "Wellington - Kelburn, Boarding House, 3 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.3.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.4.lower_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.4.median",
+          "name": "Wellington - Kelburn, Boarding House, 4 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.4.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.4.upper_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.4.active_bonds",
+          "name": "Wellington - Kelburn, Boarding House, 4 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.4.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.5-plus.lower_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.5-plus.median",
+          "name": "Wellington - Kelburn, Boarding House, 5+ bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.5-plus.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.5-plus.upper_quartile",
+          "name": "Wellington - Kelburn, Boarding House, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.boarding-house.5-plus.active_bonds",
+          "name": "Wellington - Kelburn, Boarding House, 5+ bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.boarding-house.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "boarding-house",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.1.lower_quartile",
+          "name": "Wellington - Kelburn, Flat, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.1.median",
+          "name": "Wellington - Kelburn, Flat, 1 bedroom: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.1.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.1.upper_quartile",
+          "name": "Wellington - Kelburn, Flat, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.1.active_bonds",
+          "name": "Wellington - Kelburn, Flat, 1 bedroom: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.1.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.2.lower_quartile",
+          "name": "Wellington - Kelburn, Flat, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.2.median",
+          "name": "Wellington - Kelburn, Flat, 2 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.2.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.2.upper_quartile",
+          "name": "Wellington - Kelburn, Flat, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.2.active_bonds",
+          "name": "Wellington - Kelburn, Flat, 2 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.2.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.3.lower_quartile",
+          "name": "Wellington - Kelburn, Flat, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.3.median",
+          "name": "Wellington - Kelburn, Flat, 3 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.3.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.3.upper_quartile",
+          "name": "Wellington - Kelburn, Flat, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.3.active_bonds",
+          "name": "Wellington - Kelburn, Flat, 3 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.3.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.4.lower_quartile",
+          "name": "Wellington - Kelburn, Flat, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.4.median",
+          "name": "Wellington - Kelburn, Flat, 4 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.4.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.4.upper_quartile",
+          "name": "Wellington - Kelburn, Flat, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.4.active_bonds",
+          "name": "Wellington - Kelburn, Flat, 4 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.4.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.5-plus.lower_quartile",
+          "name": "Wellington - Kelburn, Flat, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.5-plus.median",
+          "name": "Wellington - Kelburn, Flat, 5+ bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.5-plus.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.5-plus.upper_quartile",
+          "name": "Wellington - Kelburn, Flat, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.flat.5-plus.active_bonds",
+          "name": "Wellington - Kelburn, Flat, 5+ bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.flat.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "flat",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.1.lower_quartile",
+          "name": "Wellington - Kelburn, House, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.1.median",
+          "name": "Wellington - Kelburn, House, 1 bedroom: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.1.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.1.upper_quartile",
+          "name": "Wellington - Kelburn, House, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.1.active_bonds",
+          "name": "Wellington - Kelburn, House, 1 bedroom: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.1.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.2.lower_quartile",
+          "name": "Wellington - Kelburn, House, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.2.median",
+          "name": "Wellington - Kelburn, House, 2 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.2.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.2.upper_quartile",
+          "name": "Wellington - Kelburn, House, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.2.active_bonds",
+          "name": "Wellington - Kelburn, House, 2 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.2.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.3.lower_quartile",
+          "name": "Wellington - Kelburn, House, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.3.median",
+          "name": "Wellington - Kelburn, House, 3 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.3.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.3.upper_quartile",
+          "name": "Wellington - Kelburn, House, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.3.active_bonds",
+          "name": "Wellington - Kelburn, House, 3 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.3.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.4.lower_quartile",
+          "name": "Wellington - Kelburn, House, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.4.median",
+          "name": "Wellington - Kelburn, House, 4 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.4.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.4.upper_quartile",
+          "name": "Wellington - Kelburn, House, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.4.active_bonds",
+          "name": "Wellington - Kelburn, House, 4 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.4.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.5-plus.lower_quartile",
+          "name": "Wellington - Kelburn, House, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.5-plus.median",
+          "name": "Wellington - Kelburn, House, 5+ bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.5-plus.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.5-plus.upper_quartile",
+          "name": "Wellington - Kelburn, House, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.house.5-plus.active_bonds",
+          "name": "Wellington - Kelburn, House, 5+ bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.house.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "house",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.1.lower_quartile",
+          "name": "Wellington - Kelburn, Room, 1 bedroom: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.1.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "1",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.1.median",
+          "name": "Wellington - Kelburn, Room, 1 bedroom: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.1.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "1",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.1.upper_quartile",
+          "name": "Wellington - Kelburn, Room, 1 bedroom: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.1.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "1",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.1.active_bonds",
+          "name": "Wellington - Kelburn, Room, 1 bedroom: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.1.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "1",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.2.lower_quartile",
+          "name": "Wellington - Kelburn, Room, 2 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.2.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "2",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.2.median",
+          "name": "Wellington - Kelburn, Room, 2 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.2.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "2",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.2.upper_quartile",
+          "name": "Wellington - Kelburn, Room, 2 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.2.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "2",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.2.active_bonds",
+          "name": "Wellington - Kelburn, Room, 2 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.2.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "2",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.3.lower_quartile",
+          "name": "Wellington - Kelburn, Room, 3 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.3.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "3",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.3.median",
+          "name": "Wellington - Kelburn, Room, 3 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.3.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "3",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.3.upper_quartile",
+          "name": "Wellington - Kelburn, Room, 3 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.3.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "3",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.3.active_bonds",
+          "name": "Wellington - Kelburn, Room, 3 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.3.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "3",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.4.lower_quartile",
+          "name": "Wellington - Kelburn, Room, 4 bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.4.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "4",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.4.median",
+          "name": "Wellington - Kelburn, Room, 4 bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.4.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "4",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.4.upper_quartile",
+          "name": "Wellington - Kelburn, Room, 4 bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.4.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "4",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.4.active_bonds",
+          "name": "Wellington - Kelburn, Room, 4 bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.4.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "4",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.5-plus.lower_quartile",
+          "name": "Wellington - Kelburn, Room, 5+ bedrooms: Lower quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.5-plus.lower_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "5-plus",
+            "statistic": "lower_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.5-plus.median",
+          "name": "Wellington - Kelburn, Room, 5+ bedrooms: Median weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.5-plus.median",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "5-plus",
+            "statistic": "median"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.5-plus.upper_quartile",
+          "name": "Wellington - Kelburn, Room, 5+ bedrooms: Upper quartile weekly rent",
+          "geography": "Wellington - Kelburn",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.5-plus.upper_quartile",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "5-plus",
+            "statistic": "upper_quartile"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        },
+        {
+          "id": "nz-wellington-kelburn.room.5-plus.active_bonds",
+          "name": "Wellington - Kelburn, Room, 5+ bedrooms: Active bonds",
+          "geography": "Wellington - Kelburn",
+          "unit": "bonds",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=market_rent&measure=nz-wellington-kelburn.room.5-plus.active_bonds",
+          "dimensions": {
+            "location": "nz-wellington-kelburn",
+            "dwelling": "room",
+            "bedrooms": "5-plus",
+            "statistic": "active_bonds"
+          },
+          "observation_selector": "YYYY-MM-DD/YYYY-MM-DD"
+        }
+      ]
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=prices",
+      "key": "prices",
+      "name": "Five NZ electricity nodes, last interval of latest completed trading day",
+      "records": "https://morningrows.com/new-zealand.json?source=prices",
+      "data_pointer": "/prices",
+      "health_pointer": "/sources/prices",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=quakes",
+      "key": "quakes",
+      "name": "quakes",
+      "records": "https://morningrows.com/new-zealand.json?source=quakes",
+      "data_pointer": "/quakes",
+      "health_pointer": "/sources/quakes",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=volcanoes",
+      "key": "volcanoes",
+      "name": "volcanoes",
+      "records": "https://morningrows.com/new-zealand.json?source=volcanoes",
+      "data_pointer": "/volcanoes",
+      "health_pointer": "/sources/volcanoes",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=notices",
+      "key": "notices",
+      "name": "notices",
+      "records": "https://morningrows.com/new-zealand.json?source=notices",
+      "data_pointer": "/notices",
+      "health_pointer": "/sources/notices",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=stats",
+      "key": "stats",
+      "name": "23 selected Stats NZ series",
+      "records": "https://morningrows.com/new-zealand.json?source=stats",
+      "data_pointer": "/stats",
+      "health_pointer": "/sources/stats",
+      "representation": "described_measures",
+      "measure_count": 23,
+      "measures": [
+        {
+          "id": "AGR_AGR_001",
+          "name": "New forest area planted",
+          "geography": "New Zealand",
+          "unit": "hectares",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=AGR_AGR_001"
+        },
+        {
+          "id": "AGR_AGR_002",
+          "name": "Apple growing area",
+          "geography": "New Zealand",
+          "unit": "hectares",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=AGR_AGR_002"
+        },
+        {
+          "id": "AGR_AGR_003",
+          "name": "Total sheep",
+          "geography": "New Zealand",
+          "unit": "animals",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=AGR_AGR_003"
+        },
+        {
+          "id": "BDS_BDS_004",
+          "name": "Enterprises, all industries",
+          "geography": "New Zealand",
+          "unit": "enterprises",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=BDS_BDS_004"
+        },
+        {
+          "id": "CORR_FIS_005",
+          "name": "Sentenced prisoners, all offences and demographic groups",
+          "geography": "New Zealand",
+          "unit": "people",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=CORR_FIS_005"
+        },
+        {
+          "id": "HES_HES_001",
+          "name": "Average weekly household expenditure, total",
+          "geography": "New Zealand",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=HES_HES_001"
+        },
+        {
+          "id": "INC_INC_001",
+          "name": "Median weekly earnings from paid employment, all groups",
+          "geography": "New Zealand",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=INC_INC_001"
+        },
+        {
+          "id": "INC_INC_010",
+          "name": "Gender pay gap, all ages",
+          "geography": "New Zealand",
+          "unit": "percent",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=INC_INC_010"
+        },
+        {
+          "id": "INC_INC_011",
+          "name": "Median household income from all sources, all regions and household types",
+          "geography": "New Zealand",
+          "unit": "NZD per week",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=INC_INC_011"
+        },
+        {
+          "id": "INJ_INJ_001",
+          "name": "Fatal and serious non-fatal injuries, all groups",
+          "geography": "New Zealand",
+          "unit": "injuries",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=INJ_INJ_001"
+        },
+        {
+          "id": "IWI18_GRP_001",
+          "name": "Ngai Tahu Whanui iwi grouping, Maori descent usually resident population",
+          "geography": "New Zealand",
+          "unit": "estimated people",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=IWI18_GRP_001"
+        },
+        {
+          "id": "JUS_FIS_001",
+          "name": "Adults convicted, all regions and groups",
+          "geography": "New Zealand",
+          "unit": "people",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=JUS_FIS_001"
+        },
+        {
+          "id": "LEED_AP1_001",
+          "name": "People with taxable income, all groups",
+          "geography": "New Zealand",
+          "unit": "people",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=LEED_AP1_001"
+        },
+        {
+          "id": "LEED_AP1_002",
+          "name": "Median annual earnings, total earnings and all groups",
+          "geography": "New Zealand",
+          "unit": "NZD per year",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=LEED_AP1_002"
+        },
+        {
+          "id": "LEED_Q1W_001",
+          "name": "Median earnings of full-quarter jobs, all ages",
+          "geography": "New Zealand",
+          "unit": "NZD per quarter",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=LEED_Q1W_001"
+        },
+        {
+          "id": "POPES_SUB_001",
+          "name": "Estimated resident population, New Zealand",
+          "geography": "New Zealand",
+          "unit": "people",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=POPES_SUB_001"
+        },
+        {
+          "id": "POPES_ERP_005",
+          "name": "Estimated resident population, all ethnic groups, sexes and ages",
+          "geography": "New Zealand",
+          "unit": "people",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=POPES_ERP_005"
+        },
+        {
+          "id": "POPPR_NAT_007",
+          "name": "Population projection, median scenario, current calendar year",
+          "geography": "New Zealand",
+          "unit": "people",
+          "kind": "projection",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=POPPR_NAT_007"
+        },
+        {
+          "id": "POPPR_LAB_003",
+          "name": "Labour force projection, median scenario, current calendar year",
+          "geography": "New Zealand",
+          "unit": "people",
+          "kind": "projection",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=POPPR_LAB_003"
+        },
+        {
+          "id": "POPPR_FHH_003",
+          "name": "Household projection, Medium A, next published horizon",
+          "geography": "New Zealand",
+          "unit": "households",
+          "kind": "projection",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=POPPR_FHH_003"
+        },
+        {
+          "id": "PRD_PRD_001",
+          "name": "Labour productivity index, measured sector",
+          "geography": "New Zealand",
+          "unit": "index",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=PRD_PRD_001"
+        },
+        {
+          "id": "PRD_PRD_002",
+          "name": "Labour productivity annual change, measured sector",
+          "geography": "New Zealand",
+          "unit": "percent",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=PRD_PRD_002"
+        },
+        {
+          "id": "PRD_PRD_003",
+          "name": "Output annual growth, measured sector",
+          "geography": "New Zealand",
+          "unit": "percent",
+          "kind": "observation",
+          "records": "https://morningrows.com/new-zealand.json?source=stats&measure=PRD_PRD_003"
+        }
+      ]
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=world",
+      "key": "world",
+      "name": "World Bank indicators",
+      "records": "https://morningrows.com/new-zealand.json?source=world",
+      "data_pointer": "/also/world",
+      "health_pointer": "/sources/world",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=space",
+      "key": "space",
+      "name": "Space weather",
+      "records": "https://morningrows.com/new-zealand.json?source=space",
+      "data_pointer": "/also/space",
+      "health_pointer": "/sources/space",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=quake_stats",
+      "key": "quake_stats",
+      "name": "quake stats",
+      "records": "https://morningrows.com/new-zealand.json?source=quake_stats",
+      "data_pointer": "/quake_stats",
+      "health_pointer": "/sources/quake_stats",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    },
+    {
+      "id": "https://morningrows.com/new-zealand.json?source=vehicle_fleet",
+      "key": "vehicle_fleet",
+      "name": "vehicle fleet",
+      "records": "https://morningrows.com/new-zealand.json?source=vehicle_fleet",
+      "data_pointer": "/vehicle_fleet",
+      "health_pointer": "/sources/vehicle_fleet",
+      "representation": "native_fields",
+      "measure_count": 0,
+      "qualification": "Read native field metadata. Unestablished geography, population, units, adjustment, licence or timing must remain unknown; the desk name is not a geography assertion."
+    }
+  ],
+  "limits": "Only existing selections. No arbitrary history, local claimant counts, unlisted rent locations or cross-country comparability is implied. Native sections may have incomplete metadata. Only the city-qualified NZAD localities Auckland–Avondale and Wellington–Kelburn, five published dwelling categories and bedroom categories 1, 2, 3, 4 and 5+. Weekly NZD rent quartiles describe bonds lodged during one inclusive six-month window. Active bonds are a separate count, not the quartile denominator. These provisional aggregates do not describe current listings, availability or an individual property. Absent tuples are not reported; no zero or suppression is inferred. Locality identifiers are site-owned, not official NZAD codes."
+}

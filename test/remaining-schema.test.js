@@ -111,7 +111,7 @@ test('remaining native schemas independently reject wrong cohort, unit, coverage
     cases.push({name:source+' explicit numeric zero is structurally distinct from suppression',valid:true,value:desk(source,value)});
   }
   const result=validate(schema,cases);
-  for(const name of ['remainingNiNative','remainingCqcNative','remainingOnsNative']) assert.equal(Object.hasOwn(schema.$defs,name),false,'Blocked candidate is not advertised by public schema: '+name);
+  for(const name of ['remainingCqcNative','remainingOnsNative']) assert.equal(Object.hasOwn(schema.$defs,name),false,'Blocked candidate is not advertised by public schema: '+name);
   const length=schema.$defs.selected.allOf.length;installRemainingSchema(schema);
   assert.equal(schema.$defs.selected.allOf.length,length,'Installer idempotence');
   assert.ok(Buffer.byteLength(JSON.stringify(schema))<1_000_000,'Published schema remains bounded');
