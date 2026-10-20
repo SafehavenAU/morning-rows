@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-10-20T05:03:38.948784+00:00",
+  "inputs": [
+    {
+      "path": "verification/monitoring-baseline.json",
+      "sha256": "6d537871f962edeff7297c2e728ad7b2f4ac6e9c384cf64b370cf41e09070e79"
+    },
+    {
+      "path": "verification/claimant-count-2026-10-20/cpu-legacy.json",
+      "sha256": "d25a8f405408f8e29ddb9c02f3fff7dc5ff8e3cd6911e489d3317eb8b21a4e0d"
+    },
+    {
+      "path": "verification/claimant-count-2026-10-20/cpu-usa.json",
+      "sha256": "cf4d777084706c2de346cc813ccd1ecf0c83747de34f26fd86af67616a9f8a0f"
+    }
+  ],
+  "missing_existing_sources": [],
+  "changed_statuses": [
+    {
+      "path": "/australia.json",
+      "source": "laws",
+      "before": "degraded",
+      "after": "ok",
+      "error": null,
+      "known_intermittent": false
+    },
+    {
+      "path": "/england.json",
+      "source": "also.roads",
+      "before": "ok",
+      "after": "error",
+      "error": "api.tfl.gov.uk returned HTTP 429",
+      "known_intermittent": true
+    }
+  ],
+  "no_unexpected_regressions": true,
+  "scope": "Staged full-desk comparison; known TfL intermittent429 remains deduplicated; no incident or notification state mutated."
+}

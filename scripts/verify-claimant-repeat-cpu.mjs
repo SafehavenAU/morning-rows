@@ -120,8 +120,12 @@ try{
  report.complete_event_coverage=report.events.length===2&&target.length===2&&target.every(c=>correlations(c).length===1);
  report.events_valid=report.events.every(e=>e.outcome==='ok'&&Number.isFinite(e.cpu_ms)&&e.cpu_ms>=0&&e.cpu_ms<=500&&e.exception_names?.length===0);
  const retrieval=Date.parse(desk?.body?.sources?.claimant_count?.fetched_at);
- const publisherRetrieval=Date.parse(desk?.body?.claimant_count?.retrieved_at);
- report.cold_retrieval_confirmed=desk?.body?.sources?.claimant_count?.status==='ok'&&Number.isFinite(retrieval)&&retrieval>=Date.parse(desk.started_at)&&retrieval<=Date.parse(desk.at)&&(!Number.isFinite(publisherRetrieval)||publisherRetrieval>=Date.parse(desk.started_at)&&publisherRetrieval<=Date.parse(desk.at))&&validateClaimantRepresentation(desk.body.claimant_count,'northern-ireland');
+ const acquisitions=desk?.body?.claimant_count?.provenance;
+ report.fresh_publisher_acquisitions=Array.isArray(acquisitions)&&acquisitions.length===2&&new Set(acquisitions.map(p=>p.kind)).size===2&&acquisitions.every(p=>{
+  const at=Date.parse(p.retrieved_at);
+  return Number.isFinite(at)&&at>=Date.parse(desk.started_at)&&at<=Date.parse(desk.at)&&/^[a-f0-9]{64}$/.test(p.sha256||'')&&Number.isSafeInteger(p.bytes)&&p.bytes>0;
+ });
+ report.cold_retrieval_confirmed=desk?.body?.sources?.claimant_count?.status==='ok'&&Number.isFinite(retrieval)&&retrieval>=Date.parse(desk.started_at)&&retrieval<=Date.parse(desk.at)&&report.fresh_publisher_acquisitions&&validateClaimantRepresentation(desk.body.claimant_count,'northern-ireland');
  report.cpu_by_path=Object.fromEntries(paths.map(path=>[path,report.events.filter(e=>e.request_path===path).map(e=>e.cpu_ms)]));
  report.budget_pass=Boolean(!report.error&&!report.tail_command_error&&!report.tail_parse_error&&report.candidate_identity_confirmed&&report.production_identity_confirmed&&report.deployment_unchanged&&report.complete_event_coverage&&report.events_valid&&report.cold_retrieval_confirmed);
  await save();

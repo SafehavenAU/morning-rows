@@ -1,5 +1,70 @@
 # Current release — 20 October 2026
 
+The national claimant-count reader is deployed to both domains at clean source
+`983904912d512b054ae3a7fa1cd1e6a65c353036`, Worker
+`21582063-b7df-456b-ba2f-4f629f9cc63d`, fingerprint `5a0a0fe53d5f160c`.
+Deployment `50b64c24-0ccb-4c88-b4da-b2b54592582d` promoted that version at
+`2026-10-20T05:06:59.662392Z`. The rollback target is the prior USA release:
+Worker `e0224d26-6bcb-4f96-a580-460919a0d195`, source
+`c6a96283743476af730dc2ff4bd915463e47d03c`, fingerprint `42edef0b385e972f`.
+See [the claimant-count release evidence](verification/claimant-count-2026-10-20/README.md).
+
+The United Kingdom, England, Scotland, Wales and Northern Ireland desks now
+provide thirteen monthly administrative claimant counts through
+`source=claimant_count&measure=claimants`. The verified window is August 2025
+through August 2026, all sexes, age 16+, persons rounded to five, not seasonally
+adjusted. These are not unemployment estimates, claimant rates or available
+recruits. Source and measure selections retain all thirteen months; an exact
+observation selects one retained month or returns 404. Unsupported date and
+geography filters are refused. The v1 catalogue still has eight desks; v2
+retains all nine, including the released USA CPI series `CUUR0000SA0`.
+
+Validation passed **231 tests** and the build. Actual candidate CPU measured
+**25 ms for USA**, a **293 ms maximum across the legacy desks**, and **53 ms
+for a second fresh Northern Ireland acquisition**. These satisfy the separate
+100 ms USA and 500 ms legacy gates under the unchanged 1,000 ms Worker ceiling.
+Both-domain production passed **151 general checks over 104 requests** and
+**366 claimant checks over 112 requests**, with matching clean identities.
+Independent capture reconciliation matched **130 national cells**, with
+**40 successful selector checks and 30 explicit refusals**. Captured claimant
+schemas passed **50 responses and 370 negative cases**; existing contracts
+passed **24 schema responses, 26 BLS slots and 100 semantic checks**. Known
+intermittent TfL failures were the only production source-state changes.
+Final smoke checks passed **18/18 on apex and 17/17 on www**. The additional
+apex-only repeat is retained separately and is not counted as www evidence.
+Credentials and disconnected automatic Builds are preserved.
+
+The reviewed release chain continues from the prior eight-desk identity through
+USA and then claimant counts. It configures **114 source obligations in 24
+public probes** through the existing serialized daily collector. Actual
+collection under this release is still pending: this review and its constructed
+replays do not write a checkpoint, reset state or create scheduled observations.
+The latest actual checkpoint remains **sequence 5**, scheduled run
+`39341442350`, completed `2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
+with **33 incidents and 36 pending repairs**. There are **two actual legacy
+scheduled cycles and zero USA or claimant scheduled observations**. SHADOW
+retains its actual start `2026-10-18T23:22:22.161Z`; the next complete checkpoint
+deadline remains `2026-10-21T01:26:10.163Z`. Keep the hourly watchdog, daily
+collector and disabled ordinary source alerts.
+
+Seven-day acceptance still requires at least eight daily scheduled checkpoints,
+seven elapsed days spanned by scheduled completions, no gap over 26 hours and a
+genuine delivery receipt. The already-announced delivery test remains
+unacknowledged; do not repeat it. NZ-PRICES remains `blocked_external_evidence`
+on the selected 17 October specimen; UK CPI remains parked. This release does
+not complete those gates or the broader maintenance plan.
+
+---
+
+# Historical snapshots
+
+All sections below record their stated dates. The current release and monitoring
+state above supersede their former “unreleased”, Free-plan, scheduled-count and
+deadline statements. Preserve their evidence; do not restart those release trials.
+
+# First USA Paid release — 20 October 2026
+
 The USA CPI reader is released after the user confirmed “worker upgraded”.
 Both domains match clean source `c6a96283743476af730dc2ff4bd915463e47d03c`,
 Worker `e0224d26-6bcb-4f96-a580-460919a0d195`, and fingerprint
@@ -45,14 +110,6 @@ genuine delivery receipt. The already-announced delivery test remains unacknowle
 do not repeat it. NZ-PRICES remains `blocked_external_evidence` on the selected
 17 October specimen; UK CPI remains parked. This release does not complete those
 gates or the broader maintenance plan.
-
----
-
-# Historical snapshots
-
-All sections below record their stated dates. The current release and monitoring
-state above supersede their former “unreleased”, Free-plan, scheduled-count and
-deadline statements. Preserve their evidence; do not restart those release trials.
 
 # USA cold-path edge trial — 20 October 2026
 

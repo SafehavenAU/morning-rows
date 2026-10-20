@@ -1,0 +1,157 @@
+{
+  "checked_at": "2026-10-20T05:07:46.076866+00:00",
+  "kind": "Offline evidence-tool correction; no runtime, network or original capture changes",
+  "candidate_source_revision": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+  "candidate_worker_version": "21582063-b7df-456b-ba2f-4f629f9cc63d",
+  "root_cause": "The initial offline verifier treated every claimant selector-shaped response filename as a positive selected-data response. Ten intentionally invalid geography/date queries correctly returned HTTP400 and were therefore misclassified as failures; all65 native values had already passed.",
+  "correction": "Bind retained bodies to original request status, method, expected outcome, source/Worker identity and available body hashes/lengths. Derive valid versus invalid selector semantics independently; verify expected400/404 errors without substituted data. Validate conditional304 and HEAD empty bodies with matching successful-GET ETags. Count only successful data selectors as positive selections; unexpected errors fail closed.",
+  "tool_version_diff": {
+    "path": "scripts/verify-claimant-captures.mjs",
+    "before_commit": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+    "before_sha256": "df78766ff33900caffd0505eeff6e4fdae087f7313e4092be1b91f347fd76592",
+    "after_sha256": "40ec6c232757b7fbb68671c87742c5b0773c6c6913b2fcab4cc75c56f6c4d7fe",
+    "numstat": "83\t11\tscripts/verify-claimant-captures.mjs"
+  },
+  "initial_failure": {
+    "path": "verification/claimant-count-2026-10-20/claimant-stage-reconciliation.json",
+    "bytes": 39094,
+    "sha256": "a7a51d86842f620cc56710715616bc5fe0df12ab064bed28cef3a0b07e5a6549",
+    "pass": false,
+    "native_cells_passed": 65,
+    "misclassified_negative_responses": 10,
+    "preserved": true
+  },
+  "final_result": {
+    "path": "verification/claimant-count-2026-10-20/claimant-stage-reconciliation-final.json",
+    "bytes": 58548,
+    "sha256": "72347c1413eec419174ad740101d5b5c3c892d626528af137a8727b83bb4ce87",
+    "pass": true,
+    "native_cells_compared": 65,
+    "positive_selectors": 20,
+    "negative_responses": 15,
+    "transport_checks": 51,
+    "conditional_304": 5,
+    "head": 5
+  },
+  "original_capture_report": {
+    "path": "verification/claimant-count-2026-10-20/claimant-interface-staged/claimant-interface-report.json",
+    "bytes": 90500,
+    "sha256": "1ae1d32df9ece3819706f12dbb5f3487838a0944eb03044ca51f25b18d56a869"
+  },
+  "runtime_files": [
+    {
+      "path": "lib/claimant-count.js",
+      "candidate_sha256": "e77a50925572c929ea1da413e12c2d32e89857dad77356013b50d014efc3cf6d",
+      "current_sha256": "e77a50925572c929ea1da413e12c2d32e89857dad77356013b50d014efc3cf6d",
+      "unchanged": true
+    },
+    {
+      "path": "lib/information.js",
+      "candidate_sha256": "6431629204398b682a65d18c5331a217ef76625bfb39d79c619f0eebba4213f3",
+      "current_sha256": "6431629204398b682a65d18c5331a217ef76625bfb39d79c619f0eebba4213f3",
+      "unchanged": true
+    }
+  ],
+  "requested_mutated_copy_checks": {
+    "kind": "Offline verifier fault injection using isolated copies; original captures unchanged",
+    "pass": true,
+    "checks": [
+      {
+        "name": "expected400 accidentally200",
+        "pass": true,
+        "failures": [
+          {
+            "name": "stage expected 400 semantics /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+            "error": "negative response lacks matching original HTTP evidence"
+          },
+          {
+            "name": "/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+            "error": "unexpected recorded HTTP outcome"
+          }
+        ]
+      },
+      {
+        "name": "bad negative error semantics",
+        "pass": true,
+        "failures": [
+          {
+            "name": "stage expected 400 semantics /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+            "error": "negative response returned incorrect error or substituted data"
+          }
+        ]
+      },
+      {
+        "name": "negative response substitutes data",
+        "pass": true,
+        "failures": [
+          {
+            "name": "stage expected 400 semantics /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+            "error": "negative response returned incorrect error or substituted data"
+          }
+        ]
+      },
+      {
+        "name": "wrong response identity",
+        "pass": true,
+        "failures": [
+          {
+            "name": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+            "error": "captured response identity mismatch"
+          }
+        ]
+      },
+      {
+        "name": "modified body hash",
+        "pass": true,
+        "failures": [
+          {
+            "name": "stage captured body binding /united-kingdom.json?source=claimant_count&measure=claimants",
+            "error": "captured body hash mismatch"
+          }
+        ]
+      },
+      {
+        "name": "missing positive latest selector",
+        "pass": true,
+        "failures": [
+          {
+            "name": "stage required selector /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-08",
+            "error": "missing required selected capture"
+          }
+        ]
+      }
+    ]
+  },
+  "additional_transport_mutated_copy_checks": {
+    "kind": "Offline verifier fault injection using copies of retained captures; original capture files unchanged",
+    "pass": true,
+    "checks": [
+      {
+        "name": "unexpected error cannot become expected",
+        "pass": true,
+        "failures": 2
+      },
+      {
+        "name": "wrong identity on negative response",
+        "pass": true,
+        "failures": 1
+      },
+      {
+        "name": "HEAD content rejected",
+        "pass": true,
+        "failures": 1
+      },
+      {
+        "name": "conditional ETag mismatch rejected",
+        "pass": true,
+        "failures": 1
+      }
+    ]
+  },
+  "reproduction": "EXPECTED_REVISION=983904912d512b054ae3a7fa1cd1e6a65c353036 EXPECTED_WORKER_VERSION=21582063-b7df-456b-ba2f-4f629f9cc63d node scripts/verify-claimant-captures.mjs verification/claimant-count-2026-10-20/claimant-interface-staged verification/claimant-count-2026-10-20/independent-report.json /tmp/claimant-stage-reconciliation-reproduced.json --require-selectors",
+  "limitations": [
+    "This corrects an offline verifier and does not rerun the deployment or publisher requests.",
+    "The initial failed report remains distinct from the corrected final report.",
+    "Mutation cases use copied capture files only and are not live operational evidence."
+  ]
+}

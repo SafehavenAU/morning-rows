@@ -27,7 +27,7 @@ const monthsFrom = latest => {
 };
 
 export async function verifyClaimantCaptures({directory, referenceFile, requireSelectors = false, expectedRevision, expectedVersion}) {
-  const inputs = [], checks = [], comparisons = [], selectors = [];
+  const inputs = [], checks = [], comparisons = [], selectors = [], negativeResponses = [], transportChecks = [];
   const captureDirectory = resolve(directory), referencePath = resolve(referenceFile);
   const read = async file => {
     const bytes = await readFile(file);
@@ -59,8 +59,43 @@ export async function verifyClaimantCaptures({directory, referenceFile, requireS
     try {fn(); checks.push({name, pass: true});}
     catch (error) {checks.push({name, pass: false, error: error.message});}
   };
+  const reportName = ['claimant-interface-report.json', 'staged-preview-report.json', 'report.json'].find(name => names.includes(name));
+  const captureReport = reportName ? await read(join(captureDirectory, reportName)) : null;
+  const requests = captureReport ? [...(captureReport.imported || []), ...(captureReport.requests || [])] : [];
+  if (captureReport) check('original capture report passed', () => failUnless(
+    captureReport.pass === true && requests.length > 0, 'capture report failed or has no requests'));
+  const requestHost = record => {
+    failUnless(['https://morningrows.com', 'https://www.morningrows.com'].includes(record.origin || ORIGIN), 'unknown captured origin');
+    return production ? (record.origin === 'https://www.morningrows.com' ? 'www' : 'apex') : 'stage';
+  };
+  const bodyRequests = (host, path) => requests.filter(record => requestHost(record) === host && record.path === path
+    && (record.method || 'GET') === 'GET' && !record.conditional);
+  const classification = path => {
+    const query = new URL(path, ORIGIN).searchParams;
+    if ([...query.keys()].some(key => !['source', 'measure', 'observation'].includes(key)
+      || query.getAll(key).length !== 1 || !query.get(key)))
+      return {status: 400, error: 'unsupported_query', kind: 'invalid_query'};
+    if (query.has('observation') && !query.has('measure'))
+      return {status: 400, error: 'incomplete_selection', kind: 'incomplete_selection'};
+    if (query.has('measure') && query.get('measure') !== 'claimants')
+      return {status: 404, error: 'unknown_measure', kind: 'unknown_measure'};
+    if (query.has('observation') && !periods.includes(query.get('observation')))
+      return {status: 404, error: 'observation_not_retained', kind: 'unretained_period'};
+    return {status: 200, kind: query.has('observation') ? 'exact_month' : 'history'};
+  };
   const load = async (host, path) => {
-    try {return await read(join(captureDirectory, filename(host, path)));}
+    try {
+      const file = join(captureDirectory, filename(host, path)), document = await read(file);
+      if (captureReport) check(`${host} captured body binding ${path}`, () => {
+        const matches = bodyRequests(host, path);
+        failUnless(matches.length === 1, 'missing or ambiguous original GET metadata');
+        const record = matches[0], input = inputs.find(item => item.file === resolve(file));
+        if (record.sha256) failUnless(record.sha256 === input.sha256, 'captured body hash mismatch');
+        if (record.bytes !== undefined) failUnless(record.bytes === input.bytes, 'captured body length mismatch');
+        if (record.file) failUnless(record.file === filename(host, path), 'captured body file mismatch');
+      });
+      return document;
+    }
     catch (error) {checks.push({name: `${host} capture ${path}`, pass: false, error: error.code === 'ENOENT' ? 'missing_capture' : 'invalid_capture'}); return null;}
   };
   const expected = (desk, period) => histories.get(DESKS[desk][0]).observations.find(row => row.period === period);
@@ -147,6 +182,33 @@ export async function verifyClaimantCaptures({directory, referenceFile, requireS
       if (expectedVersion) failUnless(health.worker_version === expectedVersion, 'wrong expected Worker version');
     });
     identities[host] = health;
+    for (const record of requests.filter(item => requestHost(item) === host)) {
+      const url = new URL(record.path, ORIGIN), desk = url.pathname.slice(1, -5);
+      const selectedPath = Object.hasOwn(DESKS, desk) && url.searchParams.get('source') === 'claimant_count';
+      if (!selectedPath && record.path !== '/health.json' && !(Object.hasOwn(DESKS, desk) && !url.search)) continue;
+      const rule = selectedPath ? classification(record.path) : {status: 200, kind: 'native'};
+      const method = record.method || 'GET', expectedStatus = record.conditional ? 304 : rule.status;
+      const item = {host, path: record.path, method, conditional: Boolean(record.conditional),
+        status: record.status, expected_status: expectedStatus,
+        kind: record.conditional ? 'conditional' : method === 'HEAD' ? 'head' : rule.kind};
+      try {
+        failUnless(['GET', 'HEAD'].includes(method) && (!record.conditional || method === 'GET' && rule.status === 200), 'unexpected request method or conditional error request');
+        failUnless(record.status === expectedStatus
+          && (record.expected_status === undefined || record.expected_status === expectedStatus), 'unexpected recorded HTTP outcome');
+        failUnless(record.headers?.['x-source-revision'] === health?.source_revision
+          && record.headers?.['x-worker-version'] === health?.worker_version
+          && (record.headers?.['x-source-dirty'] === undefined || record.headers['x-source-dirty'] === 'false'), 'captured response identity mismatch');
+        if (record.conditional || method === 'HEAD') {
+          failUnless(rule.status === 200 && record.bytes === 0
+            && (!record.sha256 || record.sha256 === sha('')), 'bodyless response has content or invalid selector');
+          const get = bodyRequests(host, record.path);
+          failUnless(get.length === 1 && get[0].status === 200 && get[0].headers?.etag
+            && get[0].headers.etag === record.headers.etag, 'conditional/HEAD ETag differs from successful GET');
+        }
+        item.pass = true;
+      } catch (error) {item.pass = false; item.error = error.message;}
+      transportChecks.push(item);
+    }
     for (const desk of Object.keys(DESKS)) {
       const full = await load(host, `/${desk}.json`), native = full?.claimant_count;
       check(`${host}/${desk} source and metadata`, () => {
@@ -173,11 +235,19 @@ export async function verifyClaimantCaptures({directory, referenceFile, requireS
         check(`${host} required selector ${path}`, () => failUnless(paths.includes(path), 'missing required selected capture'));
       for (const path of paths) {
         const selected = await load(host, path), requested = new URL(path, ORIGIN).searchParams.get('observation');
-        // Negative/conditional/HEAD transport behaviour belongs to the original
-        // capture report. Never reinterpret an out-of-window response as data.
-        if (requested && !periods.includes(requested)) {
-          check(`${host} explicit unretained period ${path}`, () => failUnless(selected?.error === 'observation_not_retained' && selected.data === null && selected.observations?.length === 0, 'unretained period substituted'));
-          selectors.push({host, path, kind: 'unretained_period', observations: 0});
+        const rule = classification(path);
+        if (rule.status !== 200) {
+          check(`${host} expected ${rule.status} semantics ${path}`, () => {
+            const records = bodyRequests(host, path);
+            failUnless(captureReport && records.length === 1 && records[0].status === rule.status,
+              'negative response lacks matching original HTTP evidence');
+            failUnless(selected?.error === rule.error
+              && (selected.data === undefined || selected.data === null)
+              && (selected.observations === undefined || selected.observations.length === 0), 'negative response returned incorrect error or substituted data');
+            if (rule.kind === 'unretained_period') failUnless(selected.data === null
+              && selected.observations?.length === 0 && selected.retrieval?.status === 'ok', 'unretained month lacks successful source context');
+          });
+          negativeResponses.push({host, path, kind: rule.kind, expected_status: rule.status, observations: 0});
           continue;
         }
         check(`${host} selected semantics ${path}`, () => {
@@ -220,13 +290,13 @@ export async function verifyClaimantCaptures({directory, referenceFile, requireS
   return {
     checked_at: new Date().toISOString(), capture_directory: captureDirectory,
     reference_file: referencePath, mode: production ? 'production' : 'stage',
-    pass: checks.every(item => item.pass) && comparisons.every(item => item.pass)
+    pass: checks.every(item => item.pass) && comparisons.every(item => item.pass) && transportChecks.every(item => item.pass)
       && comparisons.length === hosts.length * 65,
     native_cells_compared: comparisons.length,
     latest_period: reference.period_end, first_period: periods[0], identities,
-    checks, comparisons, selectors, inputs,
+    checks, comparisons, selectors, negative_responses: negativeResponses, transport_checks: transportChecks, inputs,
     limitations: [
-      'Offline reconciliation of supplied bodies only. HTTP status, response headers, conditional/HEAD behaviour, runtime CPU and live acquisition require the original capture evidence.',
+      'Offline reconciliation only. When an original capture report is supplied, recorded status/identity/body hashes and conditional/HEAD metadata are checked; no new HTTP execution, runtime CPU or live acquisition is proved.',
       'The retained independent reference fixes one release. A later release fails until separately acquired and reconciled evidence is explicitly supplied.',
       'Nomis CSV/JSON share statistical lineage; the separate NISRA presentation covers one comparable NI observation, not all65 independent population measurements.',
     ],
@@ -241,6 +311,8 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     expectedRevision: process.env.EXPECTED_REVISION, expectedVersion: process.env.EXPECTED_WORKER_VERSION});
   await writeFile(resolve(output), JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify({pass: report.pass, native_cells_compared: report.native_cells_compared,
-    selectors: report.selectors.length, failures: [...report.checks, ...report.comparisons].filter(item => !item.pass), output: resolve(output)}, null, 2));
+    selectors: report.selectors.length, negative_responses: report.negative_responses.length,
+    transport_checks: report.transport_checks.length,
+    failures: [...report.checks, ...report.comparisons, ...report.transport_checks].filter(item => !item.pass), output: resolve(output)}, null, 2));
   if (!report.pass) process.exitCode = 1;
 }
