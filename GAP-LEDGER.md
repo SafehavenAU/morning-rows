@@ -1,5 +1,30 @@
 # Bounded build and verification queue
 
+## Active full gap-list pass
+
+On 20 October the user explicitly requested continuing down this list. The
+[current evidence pass](verification/gap-pass-2026-10-20/README.md) supersedes
+the readiness assessment below. Production acceptance is still a separate gate.
+
+| Ranked item | Current pass result |
+| --- | --- |
+| 1 AEMO completed day | Implemented; all 576 price cells independently reconciled, protected preview/release gates in progress |
+| 2 BoC dated FX | Implemented; 38 original currency/date cells independently reconciled, protected preview/release gates in progress |
+| 3 Stats NZ | Eleven of 23 exact cells reconciled; twelve concrete evidence gaps retained. Supported household, fiscal-series and productivity metadata corrected |
+| 4 StatCan headlines | All four existing readers strengthened. Ten provincial unemployment labels were demonstrably wrong; identity-based mapping repairs them. Fourteen values independently reconciled |
+| 5 WRA typed depth | Four existing tax-due measures typed; all four independently match the separate official table |
+| 6 Transport editions | Twelve retained cells reconciled; no replacement edition found requiring a reader change |
+
+The [held queue audit](verification/gap-pass-2026-10-20/held-queue/README.md)
+identifies viable NI energy, SFC, CQC and bounded rental contracts for the next
+isolated implementation batch; AER's exact published CSV remains inaccessible
+in the observed transport. A documented external evidence
+blocker does not mean the underlying verification contract is complete.
+NZ-PRICES remains tied to its original Interim specimen; UK CPI remains parked.
+No implementation test completes the actual scheduled-observation or delivery gates.
+
+## Historical ranking and evidence boundary
+
 Initial audit: **20 October 2026, 07:17 UTC**, checkout `cfca419`.
 Updated after the Canada GDP release on 20 October; dated evidence below remains
 separate from the original discovery pass.

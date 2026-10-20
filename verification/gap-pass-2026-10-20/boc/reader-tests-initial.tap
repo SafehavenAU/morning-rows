@@ -1,0 +1,113 @@
+✔ dated BoC specimen matches every independently extracted reference cell and preserves direction (9.687328ms)
+✔ rolling window respects leap, month and year boundaries and rejects invalid clocks (0.902702ms)
+✔ unreported whole dates are absent, never zero/carry-forward/holiday; publisher order does not matter (1.925317ms)
+▶ each response must retain exact series meanings and envelope identity
+  ✔ 0 wrong quote label (0.370352ms)
+  ✔ 0 opposite units (0.333339ms)
+  ✔ 0 wrong description (0.187705ms)
+  ✔ 0 wrong frequency (0.141623ms)
+  ✔ 0 wrong period convention (0.303757ms)
+  ✔ 0 wrong dimension (0.284334ms)
+  ✔ 0 missing series (0.322711ms)
+  ✔ 0 extra series (0.205492ms)
+  ✔ 0 wrong terms (0.131935ms)
+  ✔ 0 unknown response flags (0.160824ms)
+  ✔ 1 wrong quote label (0.206651ms)
+  ✔ 1 opposite units (0.271222ms)
+  ✔ 1 wrong description (0.21621ms)
+  ✔ 1 wrong frequency (0.909128ms)
+  ✔ 1 wrong period convention (0.355542ms)
+  ✔ 1 wrong dimension (0.426047ms)
+  ✔ 1 missing series (0.263239ms)
+  ✔ 1 extra series (0.300503ms)
+  ✔ 1 wrong terms (0.322873ms)
+  ✔ 1 unknown response flags (0.256958ms)
+✔ each response must retain exact series meanings and envelope identity (7.969695ms)
+▶ dates, complete pairs and explicit numerical cells fail closed
+  ✔ missing date (0.650571ms)
+  ✔ invalid calendar date (0.221973ms)
+  ✔ timestamp instead of date (0.126366ms)
+  ✔ outside lower bound (0.124389ms)
+  ✔ future date (0.180623ms)
+  ✔ duplicate date (0.201224ms)
+  ✔ missing pair (0.210511ms)
+  ✔ extra pair (0.111261ms)
+  ✔ unknown value flag (0.123632ms)
+  ✔ empty observations (0.093464ms)
+  ✔ bad numeric null (0.159658ms)
+  ✔ bad numeric undefined (0.191887ms)
+  ✔ bad numeric 0 (0.1449ms)
+  ✔ bad numeric 1.5 (0.098722ms)
+  ✔ bad numeric  (0.078255ms)
+  ✔ bad numeric   (0.06874ms)
+  ✔ bad numeric 0 (0.071317ms)
+  ✔ bad numeric 0.0000 (0.091978ms)
+  ✔ bad numeric -1 (0.142977ms)
+  ✔ bad numeric NaN (0.106242ms)
+  ✔ bad numeric Infinity (0.094482ms)
+  ✔ bad numeric 1e2 (0.083031ms)
+  ✔ bad numeric 1,234.5 (0.134437ms)
+  ✔ bad numeric 1.2  (0.212813ms)
+  ✔ bad numeric  1.2 (0.149367ms)
+  ✔ bad numeric 01.2 (0.104068ms)
+  ✔ bad numeric .. (0.086271ms)
+  ✔ bad numeric x (0.085018ms)
+  ✔ bad numeric 1111111111111111111111111 (0.087928ms)
+✔ dates, complete pairs and explicit numerical cells fail closed (5.681047ms)
+▶ latest anchor refuses stale tails, mixed releases, partial anchors and old specimens
+  ✔ stale tail (0.419994ms)
+  ✔ stale anchor (0.308804ms)
+  ✔ revised latest absent in window (0.40879ms)
+  ✔ anchor missing one series (0.347097ms)
+  ✔ anchor multiple dates (0.333057ms)
+✖ latest anchor refuses stale tails, mixed releases, partial anchors and old specimens (3.346679ms)
+✔ historical revisions are retained in their exact cell without changing siblings (0.423132ms)
+▶ native representation rejects altered meanings, shapes, aliases and clocks
+  ✔ wrong currency (0.198295ms)
+  ✔ wrong quote (0.356049ms)
+  ✔ inverted numeric alias (0.174469ms)
+  ✔ missing row (0.141156ms)
+  ✔ missing text (0.377672ms)
+  ✔ wrong date count (0.380546ms)
+  ✔ wrong latest date (0.322906ms)
+  ✔ invented publication (0.27732ms)
+  ✔ changed definition (0.394282ms)
+  ✔ unknown row qualification (0.351973ms)
+  ✔ extra native key (0.268312ms)
+  ✔ unsorted rows (0.225588ms)
+✔ native representation rejects altered meanings, shapes, aliases and clocks (5.760619ms)
+{"event":"source_failure","source":"exchange_history","status":"error","fetched_at":"2026-10-20T09:22:41.597Z","error":"Source response could not be read or parsed"}
+✔ reader makes exactly two concurrent bounded requests and retains hashes separately (38.811056ms)
+▶ transport failures, bounds, malformed bodies and bad clocks are isolated
+  ✔ HTTP429 (1.086203ms)
+  ✔ malformed JSON (0.676117ms)
+  ✔ empty body (0.554463ms)
+  ✔ oversize declared (1.001985ms)
+  ✔ oversize streamed (0.504948ms)
+  ✔ bad UTF8 (0.620712ms)
+  ✔ unexpected redirect (0.364614ms)
+✔ transport failures, bounds, malformed bodies and bad clocks are isolated (6.878588ms)
+ℹ tests 83
+ℹ suites 0
+ℹ pass 82
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 149.779814
+
+✖ failing tests:
+
+test at test/boc-history.test.js:78:1
+✖ latest anchor refuses stale tails, mixed releases, partial anchors and old specimens (3.346679ms)
+  Error: ENOENT: no such file or directory, open '/workspace/research/project-demand-2026-10-17/specimens/boc.json'
+      at Object.openSync (node:fs:622:18)
+      at readFileSync (node:fs:488:35)
+      at TestContext.<anonymous> (file:///workspace/morning-rows-gap-pass/test/boc-history.test.js:87:31)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/research/project-demand-2026-10-17/specimens/boc.json'
+  }

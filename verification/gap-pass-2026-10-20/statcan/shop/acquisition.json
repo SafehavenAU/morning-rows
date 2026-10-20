@@ -1,0 +1,123 @@
+[
+  {
+    "file": "original/wds-selected.json",
+    "url": "https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods",
+    "method": "POST",
+    "request_json": [
+      {
+        "productId": 20100056,
+        "coordinate": "1.1.1.2.0.0.0.0.0.0",
+        "latestN": 1
+      }
+    ],
+    "started_at": "2026-10-20T09:17:27.452040+00:00",
+    "status": 200,
+    "final_url": "https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods",
+    "content_type": "application/json",
+    "retrieved_at": "2026-10-20T09:17:27.882180+00:00",
+    "bytes": 389,
+    "sha256": "7e17444b74bf1a10af97c1cdf6cd4a91076a5de6a159cd7fb6f582b467d9828e"
+  },
+  {
+    "file": "original/series-metadata.json",
+    "url": "https://www150.statcan.gc.ca/t1/wds/rest/getSeriesInfoFromCubePidCoord",
+    "method": "POST",
+    "request_json": [
+      {
+        "productId": 20100056,
+        "coordinate": "1.1.1.2.0.0.0.0.0.0"
+      }
+    ],
+    "started_at": "2026-10-20T09:17:27.457047+00:00",
+    "status": 200,
+    "final_url": "https://www150.statcan.gc.ca/t1/wds/rest/getSeriesInfoFromCubePidCoord",
+    "content_type": "application/json",
+    "retrieved_at": "2026-10-20T09:17:28.205648+00:00",
+    "bytes": 399,
+    "sha256": "d0105a8148ed11a49256cb2af3c82088d569af50b94897d59c8d2ecfdc8cfe32"
+  },
+  {
+    "file": "original/cube-metadata.json",
+    "url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+    "method": "POST",
+    "request_json": [
+      {
+        "productId": 20100056
+      }
+    ],
+    "started_at": "2026-10-20T09:17:27.457566+00:00",
+    "status": 200,
+    "final_url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+    "content_type": "application/json",
+    "retrieved_at": "2026-10-20T09:17:27.870413+00:00",
+    "bytes": 19626,
+    "sha256": "ac06ea9ef699e44b2254852b9927e3ca8e186b974911de20a95075aed26c5138"
+  },
+  {
+    "file": "original/selected-series.csv",
+    "url": "https://www150.statcan.gc.ca/t1/tbl1/en/dtl!downloadDbLoadingData-nonTraduit.action?pid=2010005601&latestN=1&startDate=&endDate=&csvLocale=en&selectedMembers=%5B%5B1%5D%2C%5B1%5D%2C%5B1%5D%2C%5B2%5D%5D&checkedLevels=",
+    "method": "GET",
+    "started_at": "2026-10-20T09:18:39.507040+00:00",
+    "status": 200,
+    "final_url": "https://www150.statcan.gc.ca/t1/tbl1/en/dtl!downloadDbLoadingData-nonTraduit.action?pid=2010005601&latestN=1&startDate=&endDate=&csvLocale=en&selectedMembers=%5B%5B1%5D%2C%5B1%5D%2C%5B1%5D%2C%5B2%5D%5D&checkedLevels=",
+    "content_type": "text/csv;charset=UTF-8",
+    "retrieved_at": "2026-10-20T09:18:42.782195+00:00",
+    "bytes": 405,
+    "sha256": "5dc68de4f5eab10f4751aab3bb5ac07d4986fd5fa08b8e0cf966522118c1767b"
+  },
+  {
+    "file": "original/selected-table.html",
+    "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2010005601&pickMembers%5B0%5D=1.1&pickMembers%5B1%5D=2.1&pickMembers%5B2%5D=3.1&pickMembers%5B3%5D=4.2&cubeTimeFrame.startMonth=07&cubeTimeFrame.startYear=2026&cubeTimeFrame.endMonth=07&cubeTimeFrame.endYear=2026&referencePeriods=20260701",
+    "method": "GET",
+    "started_at": "2026-10-20T09:18:39.507500+00:00",
+    "status": 200,
+    "final_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2010005601&pickMembers%5B0%5D=1.1&pickMembers%5B1%5D=2.1&pickMembers%5B2%5D=3.1&pickMembers%5B3%5D=4.2&cubeTimeFrame.startMonth=07&cubeTimeFrame.startYear=2026&cubeTimeFrame.endMonth=07&cubeTimeFrame.endYear=2026&referencePeriods=20260701",
+    "content_type": "text/html;charset=UTF-8",
+    "retrieved_at": "2026-10-20T09:18:40.597332+00:00",
+    "bytes": 13546,
+    "sha256": "601de85c214d33089a965170f373a687f76469ccd991706590ca1c899f440f81"
+  },
+  {
+    "file": "original/daily-index.html",
+    "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260924/tdq260924-eng.htm",
+    "method": "GET",
+    "started_at": "2026-10-20T09:18:41.403580+00:00",
+    "error": "HTTPError: HTTP Error 404: Not Found"
+  },
+  {
+    "file": "original/selected-table-valid.html",
+    "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2010005601&pickMembers%5B0%5D=1.1&pickMembers%5B1%5D=2.1&pickMembers%5B2%5D=3.1&pickMembers%5B3%5D=4.2&cubeTimeFrame.startMonth=07&cubeTimeFrame.startYear=2026&cubeTimeFrame.endMonth=07&cubeTimeFrame.endYear=2026&referencePeriods=20260701%2C20260701",
+    "method": "GET",
+    "started_at": "2026-10-20T09:23:26.368893+00:00",
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "final_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2010005601&pickMembers%5B0%5D=1.1&pickMembers%5B1%5D=2.1&pickMembers%5B2%5D=3.1&pickMembers%5B3%5D=4.2&cubeTimeFrame.startMonth=07&cubeTimeFrame.startYear=2026&cubeTimeFrame.endMonth=07&cubeTimeFrame.endYear=2026&referencePeriods=20260701%2C20260701",
+    "retrieved_at": "2026-10-20T09:23:30.101863+00:00",
+    "bytes": 67921,
+    "sha256": "2ca2abe05f381042ce8c2c18577c9cd0ecaa0af44627113ad7acabfb0b6a1d5f"
+  },
+  {
+    "file": "original/daily-release.html",
+    "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260924/dq260924a-eng.htm",
+    "method": "GET",
+    "started_at": "2026-10-20T09:23:26.371439+00:00",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "final_url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260924/dq260924a-eng.htm",
+    "retrieved_at": "2026-10-20T09:23:26.714240+00:00",
+    "bytes": 36266,
+    "sha256": "368ce0c846c6d76198544bbfafa8ecca1b14ae3afb7a2dc36416b8826fa1d1bc"
+  },
+  {
+    "file": "original/daily-table-1.html",
+    "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260924/t001a-eng.htm",
+    "method": "GET",
+    "started_at": "2026-10-20T09:25:07.439602+00:00",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "final_url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260924/t001a-eng.htm",
+    "retrieved_at": "2026-10-20T09:25:07.868375+00:00",
+    "bytes": 23372,
+    "sha256": "c6e65cd70bc58845f14f957dfe694df3edf926dd3a57ccf0bbd6c345ce2b578b"
+  }
+]

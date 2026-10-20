@@ -1,0 +1,49 @@
+{
+  "status": "supported_metadata_corrections_only; no runtime edits by evidence worker",
+  "series": {
+    "INC_INC_011": {
+      "name": "Median weekly household income from collected sources, selected household population",
+      "population_group": "Survey households with at least one member aged 18\u201364; households with all members outside those ages are excluded, including all-65+ households. Total regions and household types within that population.",
+      "period_convention": "June-quarter weekly-income snapshot collected during April\u2013June. Not annual household income; weekly values must not be multiplied by 52 to imply an annual estimate. Some source components (self-employment) use the preceding 12 months, as described by the publisher.",
+      "income_basis": "The June 2026 publication explicitly describes individual income as gross before tax. Exact household-table aggregation/basis remains a semantic check; do not turn that individual sentence into an unqualified household basis assertion.",
+      "rounding": "Published means/medians rounded to nearest NZD; hourly figures nearest cent.",
+      "missing_value_meaning": "S denotes suppression of estimates representing fewer than 1,000 people; never numeric zero.",
+      "evidence": [
+        "sources/income-metadata.json",
+        "sources/income-release.json"
+      ],
+      "unchanged": [
+        "id",
+        "key",
+        "dimensions",
+        "unit",
+        "value",
+        "period"
+      ],
+      "verification_limit": "Retained 202606 value 2438 lacks a separately presented exact official cell. This metadata fix does not certify it."
+    },
+    "CORR_FIS_005": {
+      "period_convention": "Fiscal year ended 30 June; 2025 means 2024/25. A calendar-year release is not a replacement for this selected fiscal series.",
+      "publication_status": "Stats NZ announced on 11 September 2026 that fiscal-year prison releases are discontinued; calendar-year releases continue. The last selected fiscal observation may remain unchanged legitimately.",
+      "evidence": [
+        "sources/prison.json"
+      ]
+    },
+    "PRD_PRD_001": {
+      "index_reference": "Year ended March 1996 = 1000; measured sector, not whole-economy labour productivity.",
+      "period_convention": "Year ended March; 2025 result is provisional in the dated 23 April 2026 release.",
+      "evidence": [
+        "sources/productivity.json"
+      ]
+    },
+    "JUS_FIS_001": {
+      "period_convention": "Fiscal year ended 30 June; 2025 means 2024/25. Calendar-year observations cannot silently replace this series.",
+      "publication_status": "Stats NZ announced on 11 September 2026 that fiscal-year criminal-conviction/sentencing releases are discontinued; calendar-year releases continue.",
+      "evidence": [
+        "sources/justice.json"
+      ]
+    }
+  },
+  "reader_plumbing": "lib/stats-nz.js currently copies population_group but no other proposed fields. Root may expose explicit supported series metadata additively; the evidence worker has not edited runtime files. Preserve reference periods/codes and refusal behaviour.",
+  "income_caution": "The official June 2026 headline median wage/salary earnings is 1419, whereas INC_INC_001 target is 1391. Exact table population/measure and source vintage have not been reconciled; do not label this a demonstrated numerical defect or substitute the headline."
+}

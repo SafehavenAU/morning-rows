@@ -1,0 +1,32 @@
+{
+  "purpose": "Fixed source-backed metadata expected on actual capture; no numeric or future-vintage approval.",
+  "INC_INC_011": {
+    "source": "sources/income-metadata.json: Household statistics, survey_period, Period effects",
+    "fields": {
+      "population_group": "Survey households with at least one member aged 18–64; households with all members outside those ages are excluded, including all-65+ households. Total regions and household types within that population.",
+      "period_convention": "June-quarter weekly-income snapshot collected during April–June; some components such as self-employment use the preceding 12 months. Not annual household income.",
+      "limitations": "Weekly snapshot values must not be multiplied by 52 to imply an annual household-income estimate. The selected household population differs from all New Zealand households."
+    }
+  },
+  "CORR_FIS_005": {
+    "source": "sources/prison.json: /PageBlocks/0, dated 11 September 2026 notice",
+    "fields": {
+      "period_convention": "Fiscal year ended 30 June; 2025 means 2024/25. A calendar-year release is not a replacement for this selected fiscal series.",
+      "publication_status": "Stats NZ announced on 11 September 2026 that fiscal-year prison releases are discontinued; calendar-year releases continue. The last fiscal observation may legitimately remain unchanged."
+    }
+  },
+  "JUS_FIS_001": {
+    "source": "sources/justice.json: /PageBlocks/0, dated 11 September 2026 notice",
+    "fields": {
+      "period_convention": "Fiscal year ended 30 June; 2025 means 2024/25. Calendar-year observations cannot silently replace this series.",
+      "publication_status": "Stats NZ announced on 11 September 2026 that fiscal-year criminal-conviction and sentencing releases are discontinued; calendar-year releases continue."
+    }
+  },
+  "PRD_PRD_001": {
+    "source": "sources/productivity.json: /PageBlocks/3 GraphHeading and Footnote",
+    "fields": {
+      "period_convention": "Year ended March.",
+      "index_reference": "Year ended March 1996 = 1000; measured sector, not whole-economy labour productivity."
+    }
+  }
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">jquery[3.6.0];shiny-css[1.7.5.1];shiny-javascript[1.7.5.1];bootstrap[3.4.1];bootstrap-accessibility[1.0.6];selectize[0.12.4];shinyWidgets[0.8.0];bootstrap-switch-css[3.3.4];bootstrap-switch-js[3.3.4];bslib-page_navbar-styles[0.5.1]</script>
+<script src="jquery-3.6.0/jquery.min.js"></script>
+<link href="shiny-css-1.7.5.1/shiny.min.css" rel="stylesheet" />
+<script src="shiny-javascript-1.7.5.1/shiny.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link href="bootstrap-3.4.1/bootstrap.min.css" rel="stylesheet" />
+<script src="bootstrap-3.4.1/bootstrap.min.js"></script>
+<script src="bootstrap-accessibility-1.0.6/plugins/js/bootstrap-accessibility.min.js"></script>
+<link href="selectize-0.12.4/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="selectize-0.12.4/js/selectize.min.js"></script>
+<script src="selectize-0.12.4/accessibility/js/selectize-plugin-a11y.min.js"></script>
+<link href="shinyWidgets/shinyWidgets.min.css" rel="stylesheet" />
+<script src="shinyWidgets/shinyWidgets-bindings.min.js"></script>
+<link href="shinyWidgets/bootstrap-switch/bootstrap-switch-3.4/bootstrap-switch.min.css" rel="stylesheet" />
+<script src="shinyWidgets/bootstrap-switch/bootstrap-switch-3.3.4/bootstrap-switch.min.js"></script>
+<script src="shinyWidgets/bootstrap-switch/bootstrap-switch-3.3.4/bootstrap-switch.min.js"></script>
+<link href="bslib-page_navbar-styles-0.5.1/page_navbar.css" rel="stylesheet" />  <title>Annual Motor Vehicle Fleet Statistics</title>
+  <link rel="stylesheet" type="text/css" href="css_style.css"/>
+  <title>
+    <div class="navbar-title">
+      <a href="https://www.transport.govt.nz/statistics-and-insights/fleet-statistics/annual-fleet-statistics/">
+        <img src="logo.png" height="40"/>
+        <b>Annual Motor Vehicle Fleet Statistics (2024)</b>
+      </a>
+    </div>
+  </title>
+  <title></title>
+<script src="__assets__/sockjs.min.js"></script>
+<script src="__assets__/shiny-server-client.min.js"></script>
+<script>preShinyInit({reconnect:true,disableProtocols:[]});</script>
+<link rel="stylesheet" type="text/css" href="__assets__/shiny-server.css"/>
+
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="tabbable">
+      <ul class="nav nav-hidden shiny-tab-input" id="hidden_tabs" data-tabsetid="1729">
+        <li class="active">
+          <a href="#tab-1729-1" data-toggle="tab" data-bs-toggle="tab" data-value="landing_page">landing_page</a>
+        </li>
+        <li>
+          <a href="#tab-1729-2" data-toggle="tab" data-bs-toggle="tab" data-value="panel_nav">panel_nav</a>
+        </li>
+      </ul>
+      <div class="tab-content" data-tabsetid="1729">
+        <div class="tab-pane active" data-value="landing_page" id="tab-1729-1">
+          <div class="row">
+            <div class="col-sm-12" id="landing_page_logo">
+              <a href="https://www.transport.govt.nz/">
+                <div><center><img src="full_logo.png", 
+                         height = 100></center></div>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 centre_content title-color"><b>Annual Motor Vehicle Fleet Statistics (2024)</b></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 centre_content" id="intro_text">
+              <h6>This interactive open data tool shows the annual statistics of New Zealand’s historical motor vehicle fleet for the period 2000-2024. The data can be explored and downloaded in machine readable format. A summary of key insights from the data is also provided.</h6>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 centre_content">
+              <button class="btn btn-default action-button btn-primary btn-md" id="panel_welcome" type="button">
+                <h5>DATA TOOL</h5>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" data-value="panel_nav" id="tab-1729-2">
+          <h2>
+            <div class="navbar-title">
+              <a href="https://www.transport.govt.nz/statistics-and-insights/fleet-statistics/annual-fleet-statistics/">
+                <img src="logo.png" height="40"/>
+                <b>Annual Motor Vehicle Fleet Statistics (2024)</b>
+              </a>
+            </div>
+          </h2>
+          <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <span class="navbar-brand"></span>
+              </div>
+              <ul class="nav navbar-nav" data-tabsetid="9343">
+                <li class="active">
+                  <a href="#tab-9343-1" data-toggle="tab" data-bs-toggle="tab" data-value="Introduction">Introduction</a>
+                </li>
+                <li>
+                  <a href="#tab-9343-2" data-toggle="tab" data-bs-toggle="tab" data-value="Dashboard">Dashboard</a>
+                </li>
+                <li>
+                  <a href="#tab-9343-3" data-toggle="tab" data-bs-toggle="tab" data-value="Glossary and notes">Glossary and notes</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="container-fluid">
+            <div class="tab-content" data-tabsetid="9343">
+              <div class="tab-pane active" data-value="Introduction" id="tab-9343-1">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="add-margin-right">
+                      <h4><b>About this tool</b></h4>
+                      <p>This open data tool includes:</p>
+                    </div>
+                    <ul>
+                      <li>An interactive dashboard for exploring 
+                      available data in the Annual Motor Vehicle 
+                      Fleet Statistics (2024). The dashboard 
+                      enables the user to choose a data category 
+                      and drill down to a particular dataset. The 
+                      specific datasets can be explored and 
+                      downloaded via an interactive visualisation 
+                      or downloaded as machine readable .csv. </li>
+                      <li>The option to download the complete open 
+                      data, which includes many other summaries 
+                      than those presented in the dashboard of the 
+                      app.</li>
+                    </ul>
+                    <hr/>
+                    <h4><b>Enquiries</b></h4>
+                    <p>Enquiries relating to this data may be directed to the Ministry of Transport, PO Box 3175, Wellington, or by email on info@transport.govt.nz</p>
+                    <p>For more information about vehicles and travel check out the 
+                 <a href=https://www.transport.govt.nz/statistics-and-insights/fleet-statistics/>fleet statistics page</a>.</p>
+                    <h4><b>Disclaimer</b></h4>
+                    <p>All reasonable endeavours have been made to ensure the accuracy of the information in this report. However, the information is provided without warranties of any kind including accuracy, completeness, timeliness or fitness for any particular purpose.
+            The Ministry of Transport excludes liability for any loss, damage or expense, direct or indirect, and however caused, whether through negligence or otherwise, resulting from any person or organisation's use of, or reliance on, the information provided in this report.
+            Under the terms of the Creative Commons Attribution 4.0 International (BY) licence, this document, and the information contained within it, can be copied, distributed, adapted and otherwise used provided that:</p>
+                    <ul>
+                      <li>The Ministry of Transport is attributed as the source of the material.</li>
+                      <li>The material is not misrepresented or distorted through selective use of the material.</li>
+                      <li>Images contained in the material are not copied.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" data-value="Dashboard" id="tab-9343-2">
+                <div class="col-sm-3">
+                  <form class="well" role="complementary">
+                    <div class="form-group shiny-input-container">
+                      <label class="control-label" id="data_category-label" for="data_category">Select data category</label>
+                      <div>
+                        <select id="data_category" class="shiny-input-select"><option value="Overview" selected>Overview</option>
+<option value="Fleet composition">Fleet composition</option>
+<option value="Engine capacity and emissions">Engine capacity and emissions</option>
+<option value="Vehicles entering the fleet">Vehicles entering the fleet</option>
+<option value="Vehicles leaving the fleet">Vehicles leaving the fleet</option>
+<option value="Fleet travel">Fleet travel</option>
+<option value="Road freight transport">Road freight transport</option></select>
+                        <script type="application/json" data-for="data_category" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                      </div>
+                    </div>
+                    <div id="data_type" class="shiny-html-output"></div>
+                    <div id="checkbox" class="shiny-html-output"></div>
+                    <hr/>
+                  </form>
+                </div>
+                <div class="col-sm-9" role="main">
+                  
+                  <div>
+                    <div class="form-group shiny-input-container">
+                      <input id="switch_plot" type="checkbox" class="sw-switchInput" data-input-id="switch_plot" data-on-text="Plot" data-off-text="Table" data-label-width="auto" data-handle-width="auto" data-size="" checked="checked"/>
+                    </div>
+                    Switch between plot and table
+                  </div>
+                  <hr/>
+                  <div id="conditional_note" class="shiny-html-output"></div>
+                  <div id="plot_table" class="shiny-html-output"></div>
+                  <hr/>
+                  <h4>Download complete data spreadsheet</h4>
+                  <p>The download of the complete open data, which includes many other summaries than those presented in this dashboard, can be accessed through the download button below.</p>
+                  <a id="download_all_tables" class="btn btn-default shiny-download-link " href="" target="_blank" download>Download data spreadsheet</a>
+                </div>
+              </div>
+              <div class="tab-pane" data-value="Glossary and notes" id="tab-9343-3">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="add-margin-right">
+                      <h4><b>Glossary</b></h4>
+                      <p><b>LCV: </b>Light commercial vehicle.</p>
+                      <p><b>LPV: </b>Light passenger vehicle.</p>
+                      <p><b>VKT: </b>Vehicle kilometres travelled.</p>
+                      <hr/>
+                      <h4><b>Release notes</b></h4>
+                      <p> Version 4.0: Annual update to 2024 Vehicle Fleet. Released in October/November 2025.  </p> <p> Version 3.0: Annual update to 2023 Vehicle Fleet. Released in November 2024.  </p> <p> Version 2.0: Annual update to 2022 Vehicle Fleet. Released in December 2023.  </p> <p> Version 1.1: Update of fleet composition by region and distance travelled by region. Released in June 2023. </p> <p> Version 1.0: Released in December 2022.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div>
+        <br/>
+        <a href="https://www.transport.govt.nz/statistics-and-insights/fleet-statistics/annual-fleet-statistics/" class="return-link">← Return to the Ministry's website</a>
+        <hr/>
+        © Copyright Ministry of Transport
+        <br/>
+        The terms of the Ministry’s 
+        <a href="http://www.transport.govt.nz/copyright-and-disclaimer/" target="_blank">Copyright and disclaimer</a>
+        apply
+        <br/>
+        <br/>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
