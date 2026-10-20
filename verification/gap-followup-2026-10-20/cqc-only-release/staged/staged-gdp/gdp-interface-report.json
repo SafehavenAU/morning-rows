@@ -1,0 +1,882 @@
+{
+  "started_at": "2026-10-20T19:19:46.575Z",
+  "kind": "Exact zero-percent candidate GDP interface",
+  "revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+  "version": "16e5a892-be54-4381-a9c3-98ae4e47a309",
+  "staged": true,
+  "reference": {
+    "file": "verification/statcan-gdp-2026-10-20/independent-report.json",
+    "sha256": "b53ec1b446b7c3406d09e100468208653914dd13bfc9625474c12a365b7c3f3f",
+    "bytes": 4718,
+    "verified_at": "2026-10-20T07:40:11.225023+00:00",
+    "quarters": [
+      "2026-Q1",
+      "2026-Q2"
+    ],
+    "levels": [
+      2503604,
+      2524127
+    ],
+    "ordinary_growth_two_decimals": ".82",
+    "release_timestamp_raw": "2026-08-28T08:30",
+    "release_timezone": null,
+    "exact_comparisons": {
+      "wds_vs_csv": 2,
+      "wds_vs_selected_table": 2,
+      "wds_vs_dated_daily_table4": 2
+    }
+  },
+  "requests": [
+    {
+      "origin": "https://morningrows.com",
+      "path": "/health.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:46.575Z",
+      "completed_at": "2026-10-20T19:19:46.668Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-cache",
+        "content-location": "https://morningrows.com/health.json",
+        "etag": "W/\"4ea60d0b26a48f9e4167b1dd0ed8b21b8a0c8ac5e4f4cab2e6acd6ed05f4733b\"",
+        "link": "<https://morningrows.com/health.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 309,
+      "sha256": "1a3d2b592f320ed4e15a67486521dbfaab763c73b91efe88b741c8b3c139d4b6",
+      "file": "001.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/schema.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:46.668Z",
+      "completed_at": "2026-10-20T19:19:47.090Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/schema.json",
+        "etag": "W/\"c05c04ae79a4bec472e6e7f463c9c63f35d1a2e06aae648a2ba3ff43f3031d11\"",
+        "link": "<https://morningrows.com/schema.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 1336059,
+      "sha256": "7b31e6d780842da6df19dded57c66dacd84a19948959777d61f5a8e259ca8daa",
+      "file": "002.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.097Z",
+      "completed_at": "2026-10-20T19:19:47.192Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json",
+        "etag": "W/\"e8b75731b7a5552e5cc761f1cce05bea6cc91c22c7507af8bf8657e020d3c439\"",
+        "link": "<https://morningrows.com/canada.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.980Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 124356,
+      "sha256": "311d7778f7e93781c0051654103d3fc2bcd87086ac852cde12992e26db11bac2",
+      "file": "003.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=canada",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.194Z",
+      "completed_at": "2026-10-20T19:19:47.272Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=canada",
+        "etag": "W/\"2b7e8eff5bce24084b3b0a27b5e02dab711747299571fd2e18182a9c9d2ba6d2\"",
+        "link": "<https://morningrows.com/catalog.json?desk=canada>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 26433,
+      "sha256": "c0c2b63b10ce8235e3cdbb6d65485b67000d59d777821a9b3dcb20f13df3d1f1",
+      "file": "004.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.274Z",
+      "completed_at": "2026-10-20T19:19:47.412Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product",
+        "etag": "W/\"a66ad7767a5b814c6b1769ddebba449eb529a4d976021bd96b47a53f2fefe96d\"",
+        "link": "<https://morningrows.com/canada.json?source=product>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 25053,
+      "sha256": "9ab6cf613d306b626320b88151302e2ca993d02fc8bde20e5ca116416be52088",
+      "file": "005.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.413Z",
+      "completed_at": "2026-10-20T19:19:47.494Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level",
+        "etag": "W/\"1793607a5e377da64b0a1ef5b03a46bfccd8d95583d78133e1515525af0057f0\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 14382,
+      "sha256": "e97738b0d72eb2994b461cfd6b0a0aa77fa34035548ce1c3b13c3f8e988f42e2",
+      "file": "006.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level&observation=2026-Q1",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.494Z",
+      "completed_at": "2026-10-20T19:19:47.574Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level&observation=2026-Q1",
+        "etag": "W/\"f544cef264551d958104ccde6971ed30a03e83069b5b7c1021688998f8140e10\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level&observation=2026-Q1>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 10501,
+      "sha256": "1b0f817b773bcccc7c3ab93356b323db5306be6faf792dd35d8a08d911b65185",
+      "file": "007.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level&observation=2026-Q2",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.574Z",
+      "completed_at": "2026-10-20T19:19:47.642Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level&observation=2026-Q2",
+        "etag": "W/\"72f40d1a9712414eca45e445197e75640b29476ae774fc621b9c686288bbd501\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level&observation=2026-Q2>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 10501,
+      "sha256": "7ebe1f7c81870cdf4327fd197c77ff6b62edbc5aaeed7d678cec6625ca3684d2",
+      "file": "008.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=quarter_change",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.643Z",
+      "completed_at": "2026-10-20T19:19:47.739Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=quarter_change",
+        "etag": "W/\"6ad73d8eb0ae1c1e16280119e21f09a5dae035193a351b555069d4a16a8aae95\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=quarter_change>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 13025,
+      "sha256": "096435ae39a0127502da30f6d3017685d7edb8ab339ef8ca38ef7aa2d752a783",
+      "file": "009.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=quarter_change&observation=2026-Q2",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.740Z",
+      "completed_at": "2026-10-20T19:19:47.806Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=quarter_change&observation=2026-Q2",
+        "etag": "W/\"7f5e998e4dc8095090eac1bcbf5a512a7c6115f610e781f4f284669d8cfe8175\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=quarter_change&observation=2026-Q2>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 13045,
+      "sha256": "f406c693131068c8fff2c1074707ebfb079ba58a3be7be829e70e070ffbd90d8",
+      "file": "010.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:47.806Z",
+      "completed_at": "2026-10-20T19:19:47.882Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level",
+        "etag": "W/\"1793607a5e377da64b0a1ef5b03a46bfccd8d95583d78133e1515525af0057f0\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 14382,
+      "sha256": "e97738b0d72eb2994b461cfd6b0a0aa77fa34035548ce1c3b13c3f8e988f42e2",
+      "file": "011.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level",
+      "method": "GET",
+      "conditional": true,
+      "request_etag": "W/\"1793607a5e377da64b0a1ef5b03a46bfccd8d95583d78133e1515525af0057f0\"",
+      "started_at": "2026-10-20T19:19:47.883Z",
+      "completed_at": "2026-10-20T19:19:48.033Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level",
+        "etag": "W/\"1793607a5e377da64b0a1ef5b03a46bfccd8d95583d78133e1515525af0057f0\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:48.033Z",
+      "completed_at": "2026-10-20T19:19:48.127Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=1885",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level",
+        "etag": "W/\"1793607a5e377da64b0a1ef5b03a46bfccd8d95583d78133e1515525af0057f0\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level&observation=1900-Q1",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:48.127Z",
+      "completed_at": "2026-10-20T19:19:48.249Z",
+      "status": 404,
+      "expected_status": 404,
+      "expected_error": "observation_not_retained",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level&observation=1900-Q1",
+        "etag": "W/\"6decbc0113e0c3e08f8efd9fb2cab5e9f3308b3e2dada8ff5fb3d0afc689ffb3\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level&observation=1900-Q1>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 6672,
+      "sha256": "fe42b4f6d4ff84597243086f5a89370ae82178f6750ead43e8b98b386106e6f4",
+      "file": "014.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=quarter_change&observation=2026-Q1",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:48.249Z",
+      "completed_at": "2026-10-20T19:19:48.321Z",
+      "status": 404,
+      "expected_status": 404,
+      "expected_error": "observation_not_retained",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=quarter_change&observation=2026-Q1",
+        "etag": "W/\"3d9084b3043185bf529facf7b8146171a62dd069419a48907ecdd1e4ef124227\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=quarter_change&observation=2026-Q1>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T18:51:12.494Z",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 6681,
+      "sha256": "e97846a3ab524bbaa2b603c2b38cca85aea18eb07f405c3b9072c4e43c62b783",
+      "file": "015.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=nominal_gdp",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:48.321Z",
+      "completed_at": "2026-10-20T19:19:48.396Z",
+      "status": 404,
+      "expected_status": 404,
+      "expected_error": "unknown_measure",
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=nominal_gdp",
+        "etag": "W/\"87afdf0bd77ee7359fb273ca4a77cdf4445b72c17eaeb9709b0afdcea2891e86\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=nominal_gdp>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 201,
+      "sha256": "ffca1050f0cac458ff652462dcaba5fc17b281be408bf1a18b4812c69d3b4c03",
+      "file": "016.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level&geography=Ontario",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:48.396Z",
+      "completed_at": "2026-10-20T19:19:48.484Z",
+      "status": 400,
+      "expected_status": 400,
+      "expected_error": "unsupported_query",
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level&geography=Ontario",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level&geography=Ontario>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "017.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level&date=2026-04",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:48.485Z",
+      "completed_at": "2026-10-20T19:19:48.570Z",
+      "status": 400,
+      "expected_status": 400,
+      "expected_error": "unsupported_query",
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/canada.json?source=product&measure=level&date=2026-04",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/canada.json?source=product&measure=level&date=2026-04>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "018.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&source=price_index",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T19:19:48.570Z",
+      "completed_at": "2026-10-20T19:19:48.626Z",
+      "status": 400,
+      "expected_status": 400,
+      "expected_error": "unsupported_query",
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/canada.json?source=product&source=price_index",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/canada.json?source=product&source=price_index>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "019.body"
+    }
+  ],
+  "checks": [
+    {
+      "label": "https://morningrows.com GET /health.json: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /health.json: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /health.json: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com: clean health",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /schema.json: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /schema.json: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /schema.json: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com: healthy GDP source",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com native GDP: exact two independently reconciled levels",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com native GDP: exact national real annual-rate semantics",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com native GDP: preserved legacy fields",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com native GDP: nonannualized growth",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com native GDP: pinned release and source metadata",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /catalog.json?desk=canada: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /catalog.json?desk=canada: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /catalog.json?desk=canada: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com: exactly two discoverable measures",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product: bounded cache",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com selected native GDP: exact two independently reconciled levels",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com selected native GDP: exact national real annual-rate semantics",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com selected native GDP: preserved legacy fields",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com selected native GDP: nonannualized growth",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com selected native GDP: pinned release and source metadata",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com: source retains both levels and derived growth",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level: bounded cache",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com level: complete selected observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=2026-Q1: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=2026-Q1: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&observation=2026-Q1: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&observation=2026-Q1: bounded cache",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com exact 2026-Q1: complete selected observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com exact 2026-Q1: same observation version",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=2026-Q2: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=2026-Q2: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&observation=2026-Q2: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&observation=2026-Q2: bounded cache",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com exact 2026-Q2: complete selected observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com exact 2026-Q2: same observation version",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=quarter_change: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=quarter_change: bounded cache",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com quarter change: complete selected observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change&observation=2026-Q2: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change&observation=2026-Q2: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=quarter_change&observation=2026-Q2: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=quarter_change&observation=2026-Q2: bounded cache",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com exact quarter change: complete selected observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com: exact growth has same observation version",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level: bounded cache",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com repeated level: complete selected observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com: repeated level ETag present",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level: empty body",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level: conditional ETag",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com HEAD /canada.json?source=product&measure=level: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com HEAD /canada.json?source=product&measure=level: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com HEAD /canada.json?source=product&measure=level: empty body",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com: HEAD ETag matches successful GET",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=1900-Q1: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=1900-Q1: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&observation=1900-Q1: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&observation=1900-Q1: explicit refusal",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&observation=1900-Q1: no substituted observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change&observation=2026-Q1: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change&observation=2026-Q1: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=quarter_change&observation=2026-Q1: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=quarter_change&observation=2026-Q1: explicit refusal",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=quarter_change&observation=2026-Q1: no substituted observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=nominal_gdp: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=nominal_gdp: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=nominal_gdp: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=nominal_gdp: explicit refusal",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=nominal_gdp: no substituted observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&geography=Ontario: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&geography=Ontario: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&geography=Ontario: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&geography=Ontario: explicit refusal",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&geography=Ontario: no substituted observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&date=2026-04: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&date=2026-04: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&date=2026-04: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&date=2026-04: explicit refusal",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&measure=level&date=2026-04: no substituted observations",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&source=price_index: status",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com GET /canada.json?source=product&source=price_index: exact identity",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&source=price_index: JSON media type",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&source=price_index: explicit refusal",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com /canada.json?source=product&source=price_index: no substituted observations",
+      "pass": true
+    },
+    {
+      "label": "complete expected request count",
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "finished_at": "2026-10-20T19:19:48.626Z"
+}

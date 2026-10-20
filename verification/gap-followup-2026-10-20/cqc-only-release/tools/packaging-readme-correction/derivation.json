@@ -1,0 +1,23 @@
+{
+  "kind": "Packaging-only derivative; no validation or runtime change",
+  "original": {
+    "file": "/tmp/mr-combined-final-preparation/cqc-continuation-v3/package-evidence.py",
+    "bytes": 17934,
+    "sha256": "6a2c041ed8ec2c95bcd686fa903e6482b3ce4a595e52cb028d6a6bc2c9606454"
+  },
+  "derivative": {
+    "file": "/tmp/mr-combined-final-preparation/cqc-package-readme-derivative/package-evidence-readme.py",
+    "bytes": 18306,
+    "sha256": "88416d93f70ce8c66b0f84f3e96872ee911d51014dc8a5eb2986861db6dff92e"
+  },
+  "changes": [
+    "Keep packaging-manifest.json reserved; permit README.md only as one exact auxiliary file with explicit original byte count and SHA256, never as a root destination.",
+    "Use setdefault to preserve explicit README payload; retain generated default when no explicit README is declared.",
+    "Report packaged_originals from actual manifest file count to count the retained explicit README correctly."
+  ],
+  "all_other_source_bytes_unchanged": true,
+  "original_runtime_and_acceptance_tools_unchanged": true,
+  "scope_or_gate_change": false,
+  "repository_writes": 0,
+  "remote_calls": 0
+}

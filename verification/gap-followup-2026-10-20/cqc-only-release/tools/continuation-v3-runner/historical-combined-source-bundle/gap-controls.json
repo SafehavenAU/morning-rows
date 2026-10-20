@@ -1,0 +1,208 @@
+{
+  "kind": "Constructed offline checker controls; not live capture or operational acceptance",
+  "pass": true,
+  "controls": 29,
+  "results": [
+    {
+      "label": "Complete constructed actual-adapter outputs agree with independent references",
+      "pass": true,
+      "expected_capture_pass": true,
+      "checks": 739
+    },
+    {
+      "label": "Captured schema positive and negative controls on constructed adapter outputs",
+      "pass": true,
+      "schema_checks": 24,
+      "negative_controls": 8
+    },
+    {
+      "label": "missing route",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact complete route count",
+      "checks": 3
+    },
+    {
+      "label": "wrong identity",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 exact candidate identity",
+      "checks": 5
+    },
+    {
+      "label": "claimed failed capture",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "capture identity and pass",
+      "checks": 1
+    },
+    {
+      "label": "reference substitution",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact pinned reference manifest",
+      "checks": 2
+    },
+    {
+      "label": "unsafe path",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 safe unique capture path",
+      "checks": 7
+    },
+    {
+      "label": "body hash mismatch",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 retained bytes/hash",
+      "checks": 8
+    },
+    {
+      "label": "HEAD payload",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 27 no conditional/HEAD body",
+      "checks": 662
+    },
+    {
+      "label": "conditional wrong ETag",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 26 exact prior GET ETag",
+      "checks": 658
+    },
+    {
+      "label": "invented missing-date zero",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 32 no substituted observations",
+      "checks": 691
+    },
+    {
+      "label": "active AEMO native absent",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json current daily AEMO healthy",
+      "checks": 25
+    },
+    {
+      "label": "active AEMO health failed",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json current daily AEMO healthy",
+      "checks": 25
+    },
+    {
+      "label": "active AEMO catalogue duplicate",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/catalog.json?desk=australia daily AEMO advertised once with ten measures",
+      "checks": 33
+    },
+    {
+      "label": "active AEMO schema missing",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/schema.json current AEMO schema present",
+      "checks": 17
+    },
+    {
+      "label": "wrong FX quote direction",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json exchange_history complete 38 dated exchange cells",
+      "checks": 45
+    },
+    {
+      "label": "missing FX date",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json exchange_history complete 38 dated exchange cells",
+      "checks": 45
+    },
+    {
+      "label": "silent old FX tail",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json exchange_history exact rolling window",
+      "checks": 44
+    },
+    {
+      "label": "wrong provincial unemployment assignment",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json jobs newfoundland_and_labrador exact period/value/unit/geography",
+      "checks": 53
+    },
+    {
+      "label": "invented release UTC timezone",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json price_index index exact publisher identities/release",
+      "checks": 96
+    },
+    {
+      "label": "retail wrong scale",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json shop total_retail_sales exact period/value/unit/geography",
+      "checks": 101
+    },
+    {
+      "label": "housing month replaces quarter",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json homes starts exact period/value/unit/geography",
+      "checks": 107
+    },
+    {
+      "label": "lost CMHC conditions",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json homes legacy quarter alias and CMHC conditions",
+      "checks": 110
+    },
+    {
+      "label": "WRA confidential zero",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/wales.json land_transaction_tax all_inclusive exact period/value/unit/geography",
+      "checks": 132
+    },
+    {
+      "label": "wrong selected observation version",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json?source=jobs&measure=alberta stable selector observation version",
+      "checks": 424
+    },
+    {
+      "label": "selected plausible wrong number",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/wales.json?source=land_transaction_tax&measure=all_disclosed&observation=2025-26 all_disclosed 2025-26 exact selected value",
+      "checks": 648
+    },
+    {
+      "label": "selected extra observation",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json?source=price_index&measure=index complete selected observation coverage",
+      "checks": 471
+    },
+    {
+      "label": "discovery omission",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/catalog.json?desk=canada jobs exact discoverable identities",
+      "checks": 119
+    },
+    {
+      "label": "cache crosses UTC day",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json cache expires by calendar boundary",
+      "checks": 41
+    }
+  ]
+}

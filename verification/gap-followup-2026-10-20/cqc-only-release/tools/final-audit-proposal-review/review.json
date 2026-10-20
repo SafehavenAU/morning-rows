@@ -1,0 +1,77 @@
+{
+  "pass": true,
+  "kind": "Independent review of final-audit proposal v2; final package and committed acceptance remain pending",
+  "verified_at": "2026-10-20T19:17:07.933832+00:00",
+  "tool_manifest_sha256": "e150bc478ecd6fabc7b70138161efc1e4226f7d414699d93dd9aa7e6fb368454",
+  "checks": [
+    {
+      "name": "Frozen mr-cqc-final-audit-proposal tool bindings",
+      "pass": true,
+      "count": 15
+    },
+    {
+      "name": "Frozen mr-cqc-final-audit-proposal-v2 tool bindings",
+      "pass": true,
+      "count": 18
+    },
+    {
+      "name": "Twenty snapshots match exact source Git bytes and object IDs",
+      "pass": true,
+      "count": 20
+    },
+    {
+      "name": "All proposed payload pins",
+      "pass": true,
+      "count": 25
+    },
+    {
+      "name": "Both prior119-registry relationships explicitly relocate to sole added snapshot",
+      "pass": true,
+      "count": 2
+    },
+    {
+      "name": "Preview physical pins match retained bytes",
+      "pass": true,
+      "count": 2170
+    },
+    {
+      "name": "Independent original JSON-pointer, declared-path and digest correspondence",
+      "pass": true,
+      "count": 576
+    },
+    {
+      "name": "same-digest-wrong-path refused",
+      "pass": true
+    },
+    {
+      "name": "missing-original-declaration refused",
+      "pass": true
+    },
+    {
+      "name": "changed-hash refused",
+      "pass": true
+    },
+    {
+      "name": "path-escape refused",
+      "pass": true
+    },
+    {
+      "name": "Exact original custom and prior-pin list equality enforces no relationship omission",
+      "pass": true
+    },
+    {
+      "name": "Preview refuses final acceptance before reading committed evidence",
+      "pass": true
+    }
+  ],
+  "check_count": 13,
+  "scope": "Union of prior NI final audit, current CQC source audit and eventual accepted CQC package; not every repository file or every historical manifest",
+  "limitations": [
+    "Final package is not yet present; no final committed-tree audit was executed.",
+    "Builder physical inventory is preparation; only the final wrapper reads evidence from an exact committed tree.",
+    "Direct manifest bindings, custom declaration relationships, historical pins and distinct files overlap; counts must not be summed as unique observations."
+  ],
+  "network_calls": 0,
+  "repository_written": false,
+  "git_mutations": false
+}

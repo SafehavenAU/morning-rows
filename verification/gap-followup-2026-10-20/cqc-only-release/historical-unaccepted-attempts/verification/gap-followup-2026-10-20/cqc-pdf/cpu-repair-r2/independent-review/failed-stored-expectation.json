@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "failure": "Independent harness expected zero-1-level0 to pass, but both old and candidate decoders refused it identically; assertion false !== true.",
+  "kind": "incorrect harness assumption that every node:zlib valid stream is accepted by the existing stricter bounded decoder",
+  "runtime_mismatch": false,
+  "correction": "Compare exact baseline/candidate outcomes for generated zlib representations; when accepted, also require the independent original payload hash. Explicit corrupted, truncated, over-bound cases still require refusal.",
+  "not_production_acceptance": true
+}

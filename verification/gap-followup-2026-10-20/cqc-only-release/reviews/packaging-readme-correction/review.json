@@ -1,0 +1,93 @@
+{
+  "kind": "Independent offline review of packaging-only explicit README derivative",
+  "reviewed_at": "2026-10-20T20:03:01.036337+00:00",
+  "original": {
+    "file": "/tmp/mr-combined-final-preparation/cqc-continuation-v3/package-evidence.py",
+    "bytes": 17934,
+    "sha256": "6a2c041ed8ec2c95bcd686fa903e6482b3ce4a595e52cb028d6a6bc2c9606454"
+  },
+  "derivative": {
+    "file": "/tmp/mr-combined-final-preparation/cqc-package-readme-derivative/package-evidence-readme.py",
+    "bytes": 18306,
+    "sha256": "88416d93f70ce8c66b0f84f3e96872ee911d51014dc8a5eb2986861db6dff92e"
+  },
+  "plan": {
+    "file": "/tmp/mr-combined-final-preparation/cqc-continuation-v3/package-plan.final-reviewed-additions.json",
+    "bytes": 379716,
+    "sha256": "5c95a1fc180c6f4045fd6ad8465852267eb522a52d8805beadc6e22b8a768c9b"
+  },
+  "checks": [
+    {
+      "name": "Frozen original packager unchanged",
+      "pass": true
+    },
+    {
+      "name": "Reviewed derivative exact hash",
+      "pass": true
+    },
+    {
+      "name": "Actual plan has one explicit README",
+      "pass": true
+    },
+    {
+      "name": "Explicit accepted-release README preserved byte-identically",
+      "pass": true
+    },
+    {
+      "name": "Every actual-plan retained manifest member matches output bytes and hash",
+      "pass": true
+    },
+    {
+      "name": "Audit pins match actual README and manifest payloads",
+      "pass": true
+    },
+    {
+      "name": "Add-list exactly covers prepared payloads",
+      "pass": true
+    },
+    {
+      "name": "Without explicit README every default payload,audit and add-list remains byte-identical to original",
+      "pass": true
+    },
+    {
+      "name": "Reserved manifest destination still refused",
+      "pass": true
+    },
+    {
+      "name": "Unpinned explicit README refused",
+      "pass": true
+    },
+    {
+      "name": "Transformed explicit README refused",
+      "pass": true
+    },
+    {
+      "name": "README directory root refused",
+      "pass": true
+    },
+    {
+      "name": "Original configuration refusal remains a real historical failure",
+      "pass": true
+    }
+  ],
+  "check_count": 13,
+  "actual_prepare": {
+    "retained_manifest_members": 1394,
+    "prepared_payloads": 1395,
+    "manifest_sha256": "395d8448b07066766f75c2da844893a00658b46acd4134ec4da416d2d981bc79",
+    "explicit_readme_sha256": "c70b0981079c59fa2c799034c3143b9ef8f892406823c99d48c737cec81064b1",
+    "privacy_findings": 0,
+    "payload_manifest_bindings_match": true
+  },
+  "scope": [
+    "Pinned exact README auxiliary may replace generated fallback; manifest destination remains reserved.",
+    "setdefault retains provided README.",
+    "Original count derives from retained manifest entries."
+  ],
+  "default_behavior_byte_identical": true,
+  "release_validation_changed": false,
+  "repository_writes": false,
+  "HTTP_requests": 0,
+  "materialized_package": false,
+  "pass": true
+}

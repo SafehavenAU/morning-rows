@@ -1,0 +1,230 @@
+{
+  "pass": true,
+  "kind": "Independent actual production evidence review; final packaging and operational acceptance separate",
+  "summary_sha256": "543ef414ba2b2b1573c6759a488dd70d9b0da1d66b0d23ed306a9cb817a20b90",
+  "source_revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+  "worker_version": "16e5a892-be54-4381-a9c3-98ae4e47a309",
+  "build_fingerprint": "56c41341c2b38c38",
+  "promotion": {
+    "id": "4bd01fb3-c03d-4d7b-9533-919fdd434550",
+    "created_on": "2026-10-20T19:24:04.06734Z",
+    "versions": [
+      {
+        "version_id": "16e5a892-be54-4381-a9c3-98ae4e47a309",
+        "percentage": 100
+      }
+    ],
+    "original_list_sha256": "90b6ddd85f5e1260266ee20a95ac0ae3fe1dbb9157befc61b1e2e42472a48acc"
+  },
+  "completed_at": "2026-10-20T19:28:33.351655+00:00",
+  "production_gates": 33,
+  "bound_production_files": 601,
+  "toolchain_bindings": 16,
+  "fresh_request_records_checked": 432,
+  "core_requests_without_individual_timestamps": 104,
+  "request_bodies_checked": 376,
+  "reference_bindings_checked": 44,
+  "core_assertions": 151,
+  "core_requests": 104,
+  "strict_semantics": 100,
+  "core_schemas": 24,
+  "BLS_slots": 26,
+  "StatsNZ_unique_dated_references": 15,
+  "StatsNZ_domain_comparisons": 30,
+  "StatsNZ_unresolved": 8,
+  "full_smokes": {
+    "apex": 18,
+    "www": 17
+  },
+  "contracts": {
+    "gap": {
+      "requests": 78,
+      "offline_checks": 1533,
+      "schemas": 48,
+      "negative_controls": 16,
+      "independent_reference_cells": {
+        "boc": 38,
+        "statcan": 14,
+        "wra": 4
+      }
+    },
+    "remaining": {
+      "requests": 44,
+      "offline_checks": 694,
+      "schemas": 20,
+      "negative_controls": 16,
+      "independent_reference_cells": {
+        "sfc": 5,
+        "cmhc": 2
+      }
+    },
+    "ni-energy": {
+      "requests": 46,
+      "offline_checks": 1660,
+      "schemas": 26,
+      "negative_controls": 16,
+      "independent_reference_cells": {
+        "ni_electricity": 5
+      }
+    },
+    "cqc-pdf": {
+      "requests": 46,
+      "offline_checks": 1374,
+      "schemas": 26,
+      "negative_controls": 20,
+      "independent_reference_cells": {
+        "cqc_ratings": 5
+      }
+    }
+  },
+  "CQC_native_comparisons": [
+    {
+      "origin": "https://morningrows.com",
+      "edition_sha256": "61614bff618645c52cf61405b9c6a2115854e29262d76e324513d2348e555fef",
+      "values": [
+        125,
+        809,
+        2063,
+        65,
+        3062
+      ]
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "edition_sha256": "61614bff618645c52cf61405b9c6a2115854e29262d76e324513d2348e555fef",
+      "values": [
+        125,
+        809,
+        2063,
+        65,
+        3062
+      ]
+    }
+  ],
+  "source_states_compared": 240,
+  "source_change_entries_classified": 9,
+  "actual_source_state_changes": [
+    {
+      "host": "apex",
+      "desk": "england",
+      "source": "also.roads",
+      "classification": "known_intermittent_TfL_429",
+      "before": {
+        "status": "ok"
+      },
+      "after": {
+        "status": "error",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      }
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "source": "job",
+      "classification": "known_ONS_403_429_availability_change",
+      "before": {
+        "status": "error",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "after": {
+        "status": "error",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      }
+    },
+    {
+      "host": "apex",
+      "desk": "northern-ireland",
+      "source": "people",
+      "classification": "known_ONS_403_429_availability_change",
+      "before": {
+        "status": "error",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "after": {
+        "status": "error",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      }
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "source": "also.roads",
+      "classification": "known_intermittent_TfL_429",
+      "before": {
+        "status": "ok"
+      },
+      "after": {
+        "status": "error",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      }
+    },
+    {
+      "host": "www",
+      "desk": "england",
+      "source": "service",
+      "classification": "known_intermittent_TfL_429",
+      "before": {
+        "status": "ok"
+      },
+      "after": {
+        "status": "error",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      }
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "source": "job",
+      "classification": "known_ONS_403_429_availability_change",
+      "before": {
+        "status": "error",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "after": {
+        "status": "error",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      }
+    },
+    {
+      "host": "www",
+      "desk": "wales",
+      "source": "people",
+      "classification": "known_ONS_403_429_availability_change",
+      "before": {
+        "status": "error",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "after": {
+        "status": "error",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      }
+    }
+  ],
+  "unexplained_changes": 0,
+  "latest_actual_monitor_run": {
+    "id": 39341442350,
+    "run_number": 10,
+    "run_attempt": 1
+  },
+  "limitations": [
+    "Both previous staged readiness failures and794/636ms resource failures remain failed; production pass does not relabel them.",
+    "Five unique CQC source cells produce ten native domain comparisons; aggregate offline checks are not unique observations.",
+    "Source comparison lists nine classified entries; seven actual state changes exclude two unchanged TfL429 entries.",
+    "No new scheduled collection, delivery acknowledgment, monitoring recovery or sustained operational acceptance is established.",
+    "The104 legacy core request records contain identity headers but no individual timestamps; core files remain bound by summary, derivation and actual gate results.",
+    "Final accepted evidence still requires packaging and exact committed-tree audit."
+  ],
+  "network_calls_by_reviewer": 0,
+  "repository_written": false
+}

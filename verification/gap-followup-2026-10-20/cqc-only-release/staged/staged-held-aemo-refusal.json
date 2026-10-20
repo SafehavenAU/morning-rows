@@ -1,0 +1,199 @@
+{
+  "kind": "Actual bounded held AEMO daily discovery/refusal and existing grid preservation",
+  "pass": true,
+  "revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+  "version": "16e5a892-be54-4381-a9c3-98ae4e47a309",
+  "staged": true,
+  "started_at": "2026-10-20T19:20:45.500Z",
+  "source_activated": false,
+  "source_contract_accepted": false,
+  "requests": [
+    {
+      "origin": "https://morningrows.com",
+      "path": "/australia.json",
+      "method": "GET",
+      "started_at": "2026-10-20T19:20:45.500Z",
+      "completed_at": "2026-10-20T19:20:45.604Z",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=13",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "file": "staged-held-aemo/001.body",
+      "bytes": 63547,
+      "sha256": "8b0055ee9997b9fa7c463454abdd351a8470f433aeddd664f5b4eaee7ddb53da"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=australia",
+      "method": "GET",
+      "started_at": "2026-10-20T19:20:45.605Z",
+      "completed_at": "2026-10-20T19:20:45.671Z",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "file": "staged-held-aemo/002.body",
+      "bytes": 26194,
+      "sha256": "054b83708221e814d7fb4c9d1803be19662d2a170679418bf6f5cf79cba055d1"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/australia.json?source=grid_day",
+      "method": "GET",
+      "started_at": "2026-10-20T19:20:45.671Z",
+      "completed_at": "2026-10-20T19:20:45.742Z",
+      "status": 404,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "x-source-revision": "7d7ed892c469d6f589dabf52283fc31dfef98d8a",
+        "x-worker-version": "16e5a892-be54-4381-a9c3-98ae4e47a309"
+      },
+      "file": "staged-held-aemo/003.body",
+      "bytes": 158,
+      "sha256": "5229539f90c359c308c90ef09b550eb1628ad5f432d92e1dbf1ee0debbefabb7"
+    }
+  ],
+  "attempts": [
+    {
+      "origin": "https://morningrows.com",
+      "path": "/australia.json",
+      "method": "GET",
+      "started_at": "2026-10-20T19:20:45.500Z"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=australia",
+      "method": "GET",
+      "started_at": "2026-10-20T19:20:45.605Z"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/australia.json?source=grid_day",
+      "method": "GET",
+      "started_at": "2026-10-20T19:20:45.671Z"
+    }
+  ],
+  "checks": [
+    {
+      "label": "Exact successful capture identity",
+      "pass": true
+    },
+    {
+      "label": "Held-only evidence never activates a source",
+      "pass": true
+    },
+    {
+      "label": "Exactly three bounded requests per domain",
+      "pass": true
+    },
+    {
+      "label": "Exact ordered request 0",
+      "pass": true
+    },
+    {
+      "label": "Exact source and Worker 0",
+      "pass": true
+    },
+    {
+      "label": "Finite ordered actual capture times 0",
+      "pass": true
+    },
+    {
+      "label": "JSON media type 0",
+      "pass": true
+    },
+    {
+      "label": "Exact retained capture path 0",
+      "pass": true
+    },
+    {
+      "label": "Exact retained capture bytes 0",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com Original snapshot source remains healthy",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com Original five grid regions preserved",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com Daily source absent from native payload and source health",
+      "pass": true
+    },
+    {
+      "label": "Exact ordered request 1",
+      "pass": true
+    },
+    {
+      "label": "Exact source and Worker 1",
+      "pass": true
+    },
+    {
+      "label": "Finite ordered actual capture times 1",
+      "pass": true
+    },
+    {
+      "label": "JSON media type 1",
+      "pass": true
+    },
+    {
+      "label": "Exact retained capture path 1",
+      "pass": true
+    },
+    {
+      "label": "Exact retained capture bytes 1",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com Daily source is not discoverable",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com Original grid snapshot remains discoverable",
+      "pass": true
+    },
+    {
+      "label": "Exact ordered request 2",
+      "pass": true
+    },
+    {
+      "label": "Exact source and Worker 2",
+      "pass": true
+    },
+    {
+      "label": "Finite ordered actual capture times 2",
+      "pass": true
+    },
+    {
+      "label": "JSON media type 2",
+      "pass": true
+    },
+    {
+      "label": "Exact retained capture path 2",
+      "pass": true
+    },
+    {
+      "label": "Exact retained capture bytes 2",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com Held source returns exact unknown-source refusal",
+      "pass": true
+    },
+    {
+      "label": "https://morningrows.com Held refusal contains no substituted daily values",
+      "pass": true
+    }
+  ],
+  "original_grid_snapshot_preserved": true,
+  "finished_at": "2026-10-20T19:20:45.745Z"
+}

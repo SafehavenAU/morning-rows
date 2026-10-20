@@ -1,0 +1,82 @@
+{
+  "name": "Morning Rows",
+  "site": "https://morningrows.com",
+  "schema_version": "1.0",
+  "schema": "https://morningrows.com/schema.json",
+  "auth": "none",
+  "index": "/llms.txt",
+  "summary": "Discover a desk, follow its source directory, then request one source or described measure. Use exact observation periods; unsupported filters return errors.",
+  "countries": [
+    {
+      "name": "Australia",
+      "id": "https://morningrows.com/australia.json",
+      "page": "/australia",
+      "records": "/australia.json",
+      "catalog": "/catalog.json?desk=australia",
+      "source_count": 23,
+      "also": "/morning.json"
+    },
+    {
+      "name": "New Zealand",
+      "id": "https://morningrows.com/new-zealand.json",
+      "page": "/new-zealand",
+      "records": "/new-zealand.json",
+      "catalog": "/catalog.json?desk=new-zealand",
+      "source_count": 10
+    },
+    {
+      "name": "Canada",
+      "id": "https://morningrows.com/canada.json",
+      "page": "/canada",
+      "records": "/canada.json",
+      "catalog": "/catalog.json?desk=canada",
+      "source_count": 21
+    },
+    {
+      "name": "United Kingdom",
+      "id": "https://morningrows.com/united-kingdom.json",
+      "page": "/united-kingdom",
+      "records": "/united-kingdom.json",
+      "catalog": "/catalog.json?desk=united-kingdom",
+      "source_count": 11
+    },
+    {
+      "name": "England",
+      "id": "https://morningrows.com/england.json",
+      "page": "/england",
+      "records": "/england.json",
+      "catalog": "/catalog.json?desk=england",
+      "source_count": 28
+    },
+    {
+      "name": "Scotland",
+      "id": "https://morningrows.com/scotland.json",
+      "page": "/scotland",
+      "records": "/scotland.json",
+      "catalog": "/catalog.json?desk=scotland",
+      "source_count": 10
+    },
+    {
+      "name": "Wales",
+      "id": "https://morningrows.com/wales.json",
+      "page": "/wales",
+      "records": "/wales.json",
+      "catalog": "/catalog.json?desk=wales",
+      "source_count": 7
+    },
+    {
+      "name": "Northern Ireland",
+      "id": "https://morningrows.com/northern-ireland.json",
+      "page": "/northern-ireland",
+      "records": "/northern-ireland.json",
+      "catalog": "/catalog.json?desk=northern-ireland",
+      "source_count": 9
+    }
+  ],
+  "usage": {
+    "source": "/{desk}.json?source={key}",
+    "measure": "/{desk}.json?source={key}&measure={id}",
+    "observation": "/{desk}.json?source={key}&measure={id}&observation={exact-period}",
+    "conditional": "Retain ETag; send If-None-Match on the identical selected URL. 304 means unchanged content and health within cache policy, not a new publisher release."
+  }
+}

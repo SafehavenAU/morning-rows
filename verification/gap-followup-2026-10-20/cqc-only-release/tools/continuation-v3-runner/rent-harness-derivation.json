@@ -1,0 +1,43 @@
+{
+  "kind": "Bounded external trace-startup harness derivative; no source/runtime change",
+  "original": {
+    "file": "/workspace/morning-rows-aemo-followup/scripts/verify-rent-source-cpu.mjs",
+    "bytes": 15817,
+    "sha256": "7e48cf5f3978a4cef71aa718a754de6faf20b8b11185f3784923b611494d8dc0"
+  },
+  "derivative": {
+    "file": "verify-rent-source-cpu-startup.mjs",
+    "bytes": 15914,
+    "sha256": "e8321c8fe1c163e9c2de65966a89bdbf889ae74217727c32af7c8c96f81ddfb3"
+  },
+  "exact_replacements": [
+    {
+      "original": "from './lib/us-cpu-evidence.mjs'",
+      "derivative": "from '/workspace/morning-rows-aemo-followup/scripts/lib/us-cpu-evidence.mjs'"
+    },
+    {
+      "original": "from '../lib/nz-market-rent.js'",
+      "derivative": "from '/workspace/morning-rows-aemo-followup/lib/nz-market-rent.js'"
+    },
+    {
+      "original": "const repo=fileURLToPath(new URL('..',import.meta.url));",
+      "derivative": "const repo='/workspace/morning-rows-aemo-followup';"
+    },
+    {
+      "original": "expected_source_revision:expectedRevision,cpu_limit_ms:budget,approved_identity:approved,checks:[],events:[],",
+      "derivative": "expected_source_revision:expectedRevision,cpu_limit_ms:budget,startup_wait_ms:20000,approved_identity:approved,checks:[],events:[],"
+    },
+    {
+      "original": "await pause(4000);",
+      "derivative": "await pause(20000);"
+    }
+  ],
+  "normalized_byte_identity": true,
+  "startup_wait_ms": 20000,
+  "cpu_limit_ms": 500,
+  "health_correlation_deadline_ms": 10000,
+  "candidate_health_requests": 1,
+  "retries": 0,
+  "cause_proven": false,
+  "scope": "One bounded startup allowance. No CPU,delivery,source or scheduled gate relaxation."
+}
