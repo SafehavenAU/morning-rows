@@ -1,0 +1,899 @@
+{
+  "checked_at": "2026-10-20T11:29:02.090Z",
+  "capture_directory": "/tmp/mr-remaining-production-20261020/production-www-capture",
+  "expected_revision": "3ae91ac1ce163008f05377acefc27cce488fbbed",
+  "expected_us_latest": "2026-09",
+  "evidence_kind": "Offline semantic validation of supplied response bodies",
+  "limitations": [
+    "Does not prove HTTP status, response headers, actual CPU, or live-source acquisition. Pair with the original remote-check capture and versioned CPU evidence.",
+    "Does not independently certify publisher values or complete monitoring acceptance."
+  ],
+  "checks": [
+    {
+      "name": "capture /health.json",
+      "pass": true
+    },
+    {
+      "name": "clean source identity",
+      "pass": true
+    },
+    {
+      "name": "expected source revision",
+      "pass": true
+    },
+    {
+      "name": "capture /catalog.json",
+      "pass": true
+    },
+    {
+      "name": "eight-desk v1 catalogue",
+      "pass": true
+    },
+    {
+      "name": "capture /schema.json",
+      "pass": true
+    },
+    {
+      "name": "v1 schema available",
+      "pass": true
+    },
+    {
+      "name": "capture /catalog.v2.json",
+      "pass": true
+    },
+    {
+      "name": "nine-desk versioned catalogue",
+      "pass": true
+    },
+    {
+      "name": "capture /schema.v2.json",
+      "pass": true
+    },
+    {
+      "name": "v2 schema available",
+      "pass": true
+    },
+    {
+      "name": "capture /australia.json",
+      "pass": true
+    },
+    {
+      "name": "australia desk envelope",
+      "pass": true
+    },
+    {
+      "name": "capture /new-zealand.json",
+      "pass": true
+    },
+    {
+      "name": "new-zealand desk envelope",
+      "pass": true
+    },
+    {
+      "name": "capture /canada.json",
+      "pass": true
+    },
+    {
+      "name": "canada desk envelope",
+      "pass": true
+    },
+    {
+      "name": "capture /united-kingdom.json",
+      "pass": true
+    },
+    {
+      "name": "united-kingdom desk envelope",
+      "pass": true
+    },
+    {
+      "name": "capture /england.json",
+      "pass": true
+    },
+    {
+      "name": "england desk envelope",
+      "pass": true
+    },
+    {
+      "name": "capture /scotland.json",
+      "pass": true
+    },
+    {
+      "name": "scotland desk envelope",
+      "pass": true
+    },
+    {
+      "name": "capture /wales.json",
+      "pass": true
+    },
+    {
+      "name": "wales desk envelope",
+      "pass": true
+    },
+    {
+      "name": "capture /northern-ireland.json",
+      "pass": true
+    },
+    {
+      "name": "northern-ireland desk envelope",
+      "pass": true
+    },
+    {
+      "name": "capture /united-states.json",
+      "pass": true
+    },
+    {
+      "name": "united-states desk envelope",
+      "pass": true
+    },
+    {
+      "name": "new-zealand/stats semantic coverage",
+      "pass": true,
+      "detail": {
+        "expected_observations": 23,
+        "observed_observations": 23,
+        "kind": "success",
+        "reason": null
+      }
+    },
+    {
+      "name": "new-zealand/prices semantic coverage",
+      "pass": true,
+      "detail": {
+        "expected_observations": 5,
+        "observed_observations": 5,
+        "kind": "success",
+        "reason": null
+      }
+    },
+    {
+      "name": "australia/hospital semantic coverage",
+      "pass": true,
+      "detail": {
+        "expected_observations": 40,
+        "observed_observations": 40,
+        "kind": "success",
+        "reason": null
+      }
+    },
+    {
+      "name": "wales/projection semantic coverage",
+      "pass": true,
+      "detail": {
+        "expected_observations": 1,
+        "observed_observations": 1,
+        "kind": "success",
+        "reason": null
+      }
+    },
+    {
+      "name": "northern-ireland/childhood_bmi semantic coverage",
+      "pass": true,
+      "detail": {
+        "expected_observations": 4,
+        "observed_observations": 4,
+        "kind": "success",
+        "reason": null
+      }
+    },
+    {
+      "name": "united-states/cpi semantic coverage",
+      "pass": true,
+      "detail": {
+        "expected_observations": 13,
+        "observed_observations": 13,
+        "kind": "success",
+        "reason": null
+      }
+    },
+    {
+      "name": "Stats NZ 23 described values",
+      "pass": true
+    },
+    {
+      "name": "AIHW 40 jurisdiction and triage percentages",
+      "pass": true
+    },
+    {
+      "name": "Wales current-year all-persons projection",
+      "pass": true
+    },
+    {
+      "name": "NISRA four national academic-year aggregates",
+      "pass": true
+    },
+    {
+      "name": "USA exact CPI contract and latest release",
+      "pass": true
+    },
+    {
+      "name": "WRA four tax observations",
+      "pass": true
+    },
+    {
+      "name": "Scotland six insolvency observations",
+      "pass": true
+    },
+    {
+      "name": "Northern Ireland six insolvency observations",
+      "pass": true
+    },
+    {
+      "name": "NZ eight fleet observations",
+      "pass": true
+    },
+    {
+      "name": "Scotland four road-traffic observations",
+      "pass": true
+    },
+    {
+      "name": "England nine pharmacy observations",
+      "pass": true
+    },
+    {
+      "name": "NI Assembly monthly aggregate",
+      "pass": true
+    },
+    {
+      "name": "RFS aggregate coverage",
+      "pass": true
+    },
+    {
+      "name": "England five education observations",
+      "pass": true
+    },
+    {
+      "name": "SEPA Galashiels observation",
+      "pass": true
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/health.json",
+      "file": "_health.json.response",
+      "bytes": 309,
+      "sha256": "5aed8c0276991672e371e6429432f7e000341f258f7a385bac5b00069d3901ae"
+    },
+    {
+      "path": "/catalog.json",
+      "file": "_catalog.json.response",
+      "bytes": 2664,
+      "sha256": "635fd9bf7b755c4281b9f16cfef6a22899aeb2795c0e8cc02ad3de20e720ef5f"
+    },
+    {
+      "path": "/schema.json",
+      "file": "_schema.json.response",
+      "bytes": 1213931,
+      "sha256": "08f9ca4f769fbf3a32e3072e63446722f113a087f226e589c5ce826bae32300b"
+    },
+    {
+      "path": "/catalog.v2.json",
+      "file": "_catalog.v2.json.response",
+      "bytes": 3262,
+      "sha256": "48fb01fdd2ecc4785237007d69cdb0d12601c56edb5aaf61481f02919d285c85"
+    },
+    {
+      "path": "/schema.v2.json",
+      "file": "_schema.v2.json.response",
+      "bytes": 11471,
+      "sha256": "0ba91e5a857e9306113273b3839695d2cb6dd2bec961a098d526258df1cb6463"
+    },
+    {
+      "path": "/australia.json",
+      "file": "_australia.json.response",
+      "bytes": 63821,
+      "sha256": "c2fe688e00f962965466adc3c8f5154cd56c9ef0c2330666a78fc00b3098c101"
+    },
+    {
+      "path": "/new-zealand.json",
+      "file": "_new-zealand.json.response",
+      "bytes": 93473,
+      "sha256": "2ec8a90e160f730d5d49ff5c89751482963f0eddcab55d6fcdb249d82e7f4b77"
+    },
+    {
+      "path": "/canada.json",
+      "file": "_canada.json.response",
+      "bytes": 124353,
+      "sha256": "b6ac10181f65b57e7ef3f8b5cdf12965348086727d299e4b95227f17b4ef8b5a"
+    },
+    {
+      "path": "/united-kingdom.json",
+      "file": "_united-kingdom.json.response",
+      "bytes": 78450,
+      "sha256": "0e8abd1abb96b19c3f0c0453b5a0f92065aa965cc10612d67c31d68fb8285bec"
+    },
+    {
+      "path": "/england.json",
+      "file": "_england.json.response",
+      "bytes": 83447,
+      "sha256": "86396e04ea240554d8f4b85da618b27d63dcbf46d33b14fd984b620a2a715b04"
+    },
+    {
+      "path": "/scotland.json",
+      "file": "_scotland.json.response",
+      "bytes": 33897,
+      "sha256": "40657414e2949bcfc9603d44d70a3ce63700f19cde32b59c1bb7bca41ee91078"
+    },
+    {
+      "path": "/wales.json",
+      "file": "_wales.json.response",
+      "bytes": 22400,
+      "sha256": "e6d9043fd13bd91ba7ab1e195e65167078f7c1252acb46e066bbb27a721abebd"
+    },
+    {
+      "path": "/northern-ireland.json",
+      "file": "_northern-ireland.json.response",
+      "bytes": 23843,
+      "sha256": "8197a16d9118572f63f74fb9494d36ceede23d3e238ae6dcd9c451bd801208e5"
+    },
+    {
+      "path": "/united-states.json",
+      "file": "_united-states.json.response",
+      "bytes": 5378,
+      "sha256": "00736f6534af3a7d58b8a27134cf30c44e01511fbe3d67255eac54e669e6a5e2"
+    }
+  ],
+  "source_status": {
+    "australia": {
+      "grid": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "quakes": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "jobs": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:44.799Z",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      "price": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:44.799Z",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      "approvals": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:44.799Z",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      "wage": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:44.799Z",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      "shop": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:44.799Z",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      "people": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:44.799Z",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      "spend": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:44.799Z",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      "works": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:44.799Z",
+        "error": "data.api.abs.gov.au returned HTTP 403",
+        "http_status": 403
+      },
+      "service": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "cash": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "exchange": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "world": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "space": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "bonds": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "commodities": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "laws": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "money": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "credit": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "rba": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "hospital": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      },
+      "rfs_incidents": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.799Z"
+      }
+    },
+    "new-zealand": {
+      "prices": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "quakes": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "volcanoes": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "notices": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "stats": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "world": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "space": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "quake_stats": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "vehicle_fleet": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      },
+      "market_rent": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:43.716Z"
+      }
+    },
+    "canada": {
+      "jobs": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.988Z"
+      },
+      "price_index": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.988Z"
+      },
+      "shop": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.988Z"
+      },
+      "rate": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:44.988Z"
+      },
+      "exchange": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.508Z"
+      },
+      "exchange_history": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.510Z"
+      },
+      "rental_benchmark": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.877Z"
+      },
+      "product": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.550Z"
+      },
+      "bonds": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.655Z"
+      },
+      "homes": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.677Z"
+      },
+      "ontario": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.689Z"
+      },
+      "rivers": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.871Z"
+      },
+      "quakes": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.877Z"
+      },
+      "recalls": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:45.936Z"
+      },
+      "mortgages": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:46.007Z"
+      },
+      "posted_rates": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:46.023Z"
+      },
+      "air": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:46.033Z"
+      },
+      "demand": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:46.037Z"
+      },
+      "commodities": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:46.042Z"
+      },
+      "also.world": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:52.605Z"
+      },
+      "also.space": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:52.605Z"
+      }
+    },
+    "united-kingdom": {
+      "people": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:52.735Z",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "job": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:52.735Z",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "price_index": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:52.735Z",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "wage": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:52.735Z",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "product": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:52.769Z",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "trade": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:52.769Z",
+        "error": "www.ons.gov.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "bills": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:52.769Z"
+      },
+      "laws": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:52.769Z",
+        "error": "www.legislation.gov.uk returned HTTP 404",
+        "http_status": 404
+      },
+      "space": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:52.777Z"
+      },
+      "food_establishments": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:52.778Z"
+      },
+      "claimant_count": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:52.789Z"
+      }
+    },
+    "england": {
+      "food_establishments": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.565Z"
+      },
+      "claimant_count": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.565Z"
+      },
+      "pupil_absence": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.565Z"
+      },
+      "pharmacies": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.565Z"
+      },
+      "grid": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.570Z"
+      },
+      "carbon": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.689Z"
+      },
+      "job": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:53.721Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "people": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:53.725Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "price_index": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:53.727Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "wage": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:53.730Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "product": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:53.734Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "shop": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:53.737Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "vacancy": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:53.740Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "trade": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:53.742Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "floods": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.746Z"
+      },
+      "service": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.860Z"
+      },
+      "rail": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.915Z"
+      },
+      "calendar": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.963Z"
+      },
+      "quakes": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:53.969Z"
+      },
+      "also.world": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:54.667Z"
+      },
+      "also.police": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:54.667Z"
+      },
+      "also.health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:54.667Z"
+      },
+      "also.rainfall": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:54.667Z"
+      },
+      "also.rivers": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:54.679Z"
+      },
+      "also.roads": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:54.723Z",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "also.crime_data_current_to": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:54.787Z"
+      },
+      "also.space": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:54.792Z"
+      }
+    },
+    "scotland": {
+      "people": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:55.025Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "job": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:55.025Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "next_holiday": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.025Z"
+      },
+      "food_establishments": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.025Z"
+      },
+      "claimant_count": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.029Z"
+      },
+      "bill_stages": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.029Z"
+      },
+      "river_level": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.029Z"
+      },
+      "road_traffic": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.029Z"
+      },
+      "college_activity": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.043Z"
+      },
+      "company_insolvencies": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.035Z"
+      }
+    },
+    "wales": {
+      "people": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:55.351Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "job": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:55.351Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "next_holiday": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.351Z"
+      },
+      "food_establishments": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.351Z"
+      },
+      "claimant_count": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.366Z"
+      },
+      "projection": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.853Z"
+      },
+      "land_transaction_tax": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:55.853Z"
+      }
+    },
+    "northern-ireland": {
+      "people": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:56.256Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "job": {
+        "status": "error",
+        "fetched_at": "2026-10-20T11:28:56.256Z",
+        "error": "www.ons.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "next_holiday": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:56.256Z"
+      },
+      "food_establishments": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:56.256Z"
+      },
+      "claimant_count": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:56.262Z"
+      },
+      "childhood_bmi": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:56.262Z"
+      },
+      "assembly_divisions": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:56.262Z"
+      },
+      "company_insolvencies": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:28:56.264Z"
+      }
+    },
+    "united-states": {
+      "cpi": {
+        "name": "US Bureau of Labor Statistics",
+        "source_url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+        "licence": "US public domain; cite US Bureau of Labor Statistics",
+        "status": "ok",
+        "fetched_at": "2026-10-20T11:24:34.528Z"
+      }
+    }
+  },
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "3ae91ac1ce163008f05377acefc27cce488fbbed",
+    "source_dirty": false,
+    "build_fingerprint": "e2a345caf4569e1f",
+    "worker_version": "ff344629-f392-44ec-b816-92d14f52bd07",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  },
+  "pass": true
+}

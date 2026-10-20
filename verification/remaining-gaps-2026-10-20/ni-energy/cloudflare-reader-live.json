@@ -1,0 +1,56 @@
+{
+  "started_at": "2026-10-20T10:08:32.643Z",
+  "environment": "Protected Cloudflare remote dev",
+  "purpose": "One unchanged live NI energy reader invocation; compare all five rolling-year observations against separate Python extraction and official presentation",
+  "attempts": 1,
+  "git_head": "ba0812b493f7cc4ca47a9f726211d96903bd9597",
+  "production_version": null,
+  "code_before": {
+    "live-reader-preview-worker.js": "b0c8fd91cbc854f1a49f7fbb88d3b370770ad2909da3aea43f22e00d108779e7",
+    "live-reader-integration.toml": "39966b700a86feed47268c88274cc4abf5841decd874bca6a9c6df8a0af9a6df",
+    "check-live-reader-preview.mjs": "17bff6557432192f6b56505f6619a8035971dc0ceaf26bf73d0e648926ff721d",
+    "../../../lib/ni-energy.js": "9e4100825c49e2e28f424716b369be4c02d64643f63eec1cb4d97e034934c5a5",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a"
+  },
+  "reference": {
+    "file": "independent-report.json",
+    "sha256": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee",
+    "bytes": 6352,
+    "publication_date": "2026-09-03"
+  },
+  "comparisons": [],
+  "wrapper_status": 200,
+  "response_sha256": "a643d16f4b8e7684d4853fbefe07ca05fecd93527a80447cac7bccb819d42489",
+  "response_bytes": 353,
+  "live": {
+    "kind": "Actual readNiEnergy through protected Cloudflare remote dev",
+    "fixture": false,
+    "started_at": "2026-10-20T10:08:34.914Z",
+    "finished_at": "2026-10-20T10:08:35.551Z",
+    "body": {
+      "electricity_balance": null,
+      "sources": {
+        "electricity_balance": {
+          "status": "error",
+          "fetched_at": "2026-10-20T10:08:34.914Z",
+          "error": "NI electricity: Report title/geography changed"
+        }
+      }
+    }
+  },
+  "complete_reader": false,
+  "same_report_wire_bytes": false,
+  "observations": 0,
+  "pass": false,
+  "finished_at": "2026-10-20T10:08:35.571Z",
+  "code_after": {
+    "live-reader-preview-worker.js": "b0c8fd91cbc854f1a49f7fbb88d3b370770ad2909da3aea43f22e00d108779e7",
+    "live-reader-integration.toml": "39966b700a86feed47268c88274cc4abf5841decd874bca6a9c6df8a0af9a6df",
+    "check-live-reader-preview.mjs": "17bff6557432192f6b56505f6619a8035971dc0ceaf26bf73d0e648926ff721d",
+    "../../../lib/ni-energy.js": "9e4100825c49e2e28f424716b369be4c02d64643f63eec1cb4d97e034934c5a5",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a"
+  },
+  "code_unchanged": true
+}

@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-20T11:32:05.631Z",
+  "source_revision": "3ae91ac1ce163008f05377acefc27cce488fbbed",
+  "worker_version": "ff344629-f392-44ec-b816-92d14f52bd07",
+  "build_fingerprint": "e2a345caf4569e1f",
+  "repository": "/workspace/morning-rows-remaining",
+  "package_root": "verification/remaining-gaps-2026-10-20/release-validation",
+  "production_gate": "/tmp/mr-remaining-production-20261020/summary.json",
+  "production_acceptance_confirmed": true,
+  "roots": [
+    {
+      "source": "/tmp/mr-remaining-staged-20261020",
+      "destination": "staged",
+      "role": "accepted_stage",
+      "summary": "summary.json",
+      "expected_pass": true
+    },
+    {
+      "source": "/tmp/mr-remaining-production-20261020",
+      "destination": "production",
+      "role": "accepted_production",
+      "summary": "summary.json",
+      "expected_pass": true
+    },
+    {
+      "source": "/tmp/mr-remaining-held-staged-20261020",
+      "destination": "held/staged",
+      "role": "held_evidence"
+    },
+    {
+      "source": "/tmp/mr-remaining-held-production-20261020",
+      "destination": "held/production",
+      "role": "held_evidence"
+    }
+  ],
+  "files": [
+    {
+      "source": "/tmp/mr-remaining-smoke-apex-full.json",
+      "destination": "smokes/full/apex.json",
+      "role": "accepted_full_smoke",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-smoke-apex.json",
+      "destination": "smokes/limited/apex.json",
+      "role": "limited_earlier_smoke",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-smoke-apex-full.log",
+      "destination": "smokes/full/apex.log",
+      "role": "accepted_full_smoke",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-smoke-apex.log",
+      "destination": "smokes/limited/apex.log",
+      "role": "limited_earlier_smoke",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-smoke-www-full.json",
+      "destination": "smokes/full/www.json",
+      "role": "accepted_full_smoke",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-smoke-www.json",
+      "destination": "smokes/limited/www.json",
+      "role": "limited_earlier_smoke",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-smoke-www-full.log",
+      "destination": "smokes/full/www.log",
+      "role": "accepted_full_smoke",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-smoke-www.log",
+      "destination": "smokes/limited/www.log",
+      "role": "limited_earlier_smoke",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-upload.log",
+      "destination": "execution/mr-remaining-upload.log",
+      "role": "execution_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-stage-deployment.log",
+      "destination": "execution/mr-remaining-stage-deployment.log",
+      "role": "execution_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-promote.log",
+      "destination": "execution/mr-remaining-promote.log",
+      "role": "execution_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-stage-runner.log",
+      "destination": "execution/mr-remaining-stage-runner.log",
+      "role": "execution_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-production-runner.log",
+      "destination": "execution/mr-remaining-production-runner.log",
+      "role": "execution_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-held-staged.log",
+      "destination": "execution/mr-remaining-held-staged.log",
+      "role": "execution_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-held-production.log",
+      "destination": "execution/mr-remaining-held-production.log",
+      "role": "execution_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-before-upload-deployments.json",
+      "destination": "provenance/mr-remaining-before-upload-deployments.excerpt.json",
+      "role": "deployment_collection",
+      "transform": "deployments"
+    },
+    {
+      "source": "/tmp/mr-remaining-staged-deployments.json",
+      "destination": "provenance/mr-remaining-staged-deployments.excerpt.json",
+      "role": "deployment_collection",
+      "transform": "deployments"
+    },
+    {
+      "source": "/tmp/mr-remaining-before-promotion-deployments.json",
+      "destination": "provenance/mr-remaining-before-promotion-deployments.excerpt.json",
+      "role": "deployment_collection",
+      "transform": "deployments"
+    },
+    {
+      "source": "/tmp/mr-remaining-after-promotion-deployments.json",
+      "destination": "provenance/mr-remaining-after-promotion-deployments.excerpt.json",
+      "role": "deployment_collection",
+      "transform": "deployments"
+    },
+    {
+      "source": "/tmp/mr-remaining-promotion.json",
+      "destination": "provenance/promotion.excerpt.json",
+      "role": "production_promotion",
+      "transform": "deployment"
+    },
+    {
+      "source": "/tmp/mr-remaining-source-ci.json",
+      "destination": "provenance/source-ci.excerpt.json",
+      "role": "source_ci",
+      "transform": "github_run"
+    },
+    {
+      "source": "/tmp/mr-remaining-source-push-final/remote-commit.json",
+      "destination": "provenance/source-commit.excerpt.json",
+      "role": "source_commit",
+      "transform": "github_commit"
+    },
+    {
+      "source": "/tmp/mr-remaining-source-push-final/manifest.json",
+      "destination": "provenance/source-push-manifest.json",
+      "role": "exact_source_tree_push",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-source-push-final/receipts.json",
+      "destination": "provenance/source-push-receipts.json",
+      "role": "exact_source_tree_push",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-final-remote-preflight.json",
+      "destination": "preflight/mr-remaining-final-remote-preflight.json",
+      "role": "failed_ancestry_preflight",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-remote-evidence-ancestry.log",
+      "destination": "preflight/mr-remaining-remote-evidence-ancestry.log",
+      "role": "failed_ancestry_preflight",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-remote-tree-equivalence.json",
+      "destination": "preflight/mr-remaining-remote-tree-equivalence.json",
+      "role": "exact_tree_equivalence",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-main-pr15-preflight.json",
+      "destination": "preflight/mr-remaining-main-pr15-preflight.json",
+      "role": "tested_local_preflight",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-prior-phase1/approved-observations.json",
+      "destination": "prior-phase1/approved-observations.json",
+      "role": "pinned_prior_accepted_release",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-prior-phase1/us-release-review.json",
+      "destination": "prior-phase1/us-release-review.json",
+      "role": "pinned_prior_accepted_release",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-prior-phase1/manifest.json",
+      "destination": "prior-phase1/manifest.json",
+      "role": "pinned_prior_accepted_release",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-staged-independent-audit.json",
+      "destination": "independent-audit/mr-remaining-staged-independent-audit.json",
+      "role": "independent_release_audit",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-staged-audit-config.json",
+      "destination": "independent-audit/mr-remaining-staged-audit-config.json",
+      "role": "independent_release_audit",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-production-independent-audit.json",
+      "destination": "independent-audit/mr-remaining-production-independent-audit.json",
+      "role": "independent_release_audit",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-production-audit-config.json",
+      "destination": "independent-audit/mr-remaining-production-audit-config.json",
+      "role": "independent_release_audit",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-package-remaining-evidence.py",
+      "destination": "tools/mr-package-remaining-evidence.py",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-package-remaining-evidence-v2.py",
+      "destination": "tools/mr-package-remaining-evidence-v2.py",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-package-remaining-evidence-controls.json",
+      "destination": "tools/mr-package-remaining-evidence-controls.json",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-package-remaining-evidence-controls-v2.json",
+      "destination": "tools/mr-package-remaining-evidence-controls-v2.json",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-verify-committed-evidence.py",
+      "destination": "tools/mr-verify-committed-evidence.py",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-check-remaining-held.mjs",
+      "destination": "tools/mr-check-remaining-held.mjs",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-release-validate.sh",
+      "destination": "tools/mr-remaining-release-validate.sh",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-gap-core-semantic-gate.py",
+      "destination": "tools/mr-gap-core-semantic-gate.py",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-gap-production-health-gate.py",
+      "destination": "tools/mr-gap-production-health-gate.py",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-release-preflight.mjs",
+      "destination": "tools/mr-remaining-release-preflight.mjs",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-monitor-proposal-config.json",
+      "destination": "monitoring/proposal-config.json",
+      "role": "accepted_monitoring_proposal",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-monitor-proposal-20261020/review.json",
+      "destination": "monitoring/proposal/review.json",
+      "role": "accepted_monitoring_proposal",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-monitor-proposal-20261020/approvals.json",
+      "destination": "monitoring/proposal/approvals.json",
+      "role": "accepted_monitoring_proposal",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-monitor-proposal-20261020/acceptance.json",
+      "destination": "monitoring/proposal/acceptance.json",
+      "role": "accepted_monitoring_proposal",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-monitor-proposal-20261020/baseline.json",
+      "destination": "monitoring/proposal/baseline.json",
+      "role": "accepted_monitoring_proposal",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-monitor-proposal-20261020/registry.json",
+      "destination": "monitoring/proposal/registry.json",
+      "role": "accepted_monitoring_proposal",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-monitor-proposal-20261020/monitor-transition-replay.json",
+      "destination": "monitoring/proposal/monitor-transition-replay.json",
+      "role": "accepted_monitoring_proposal",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-monitor-proposal-20261020/preparation.json",
+      "destination": "monitoring/proposal/preparation.json",
+      "role": "accepted_monitoring_proposal",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-accepted-monitor-tests.log",
+      "destination": "monitoring/mr-remaining-accepted-monitor-tests.log",
+      "role": "monitoring_test_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-preapply-baseline-monitor-tests.log",
+      "destination": "monitoring/mr-remaining-preapply-baseline-monitor-tests.log",
+      "role": "monitoring_test_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-accepted-base-monitor-tests.log",
+      "destination": "monitoring/mr-remaining-accepted-base-monitor-tests.log",
+      "role": "monitoring_test_stdout",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-make-remaining-preparer.py",
+      "destination": "tools/mr-make-remaining-preparer.py",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-preparer-controls.py",
+      "destination": "tools/mr-remaining-preparer-controls.py",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-preparer-controls.json",
+      "destination": "tools/mr-remaining-preparer-controls.json",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/workspace/morning-rows-remaining/verification/remaining-gaps-2026-10-20/monitoring/prepare-reviewed-release.mjs",
+      "destination": "tools/prepare-reviewed-release.mjs",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-package-remaining-evidence-plan.final-aliases.json",
+      "destination": "packaging-plan.json",
+      "role": "authorized_exact_inventory",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-package-remaining-evidence-v3.py",
+      "destination": "tools/mr-package-remaining-evidence-v3.py",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-package-remaining-evidence-controls-v3.json",
+      "destination": "tools/mr-package-remaining-evidence-controls-v3.json",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-packaging-preflight-correction.json",
+      "destination": "tools/mr-remaining-packaging-preflight-correction.json",
+      "role": "retained_validation_tool",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-staged-independent-audit.json",
+      "destination": "staged-independent-audit.json",
+      "role": "frozen_proposal_audit_path_alias",
+      "transform": "exact"
+    },
+    {
+      "source": "/tmp/mr-remaining-production-independent-audit.json",
+      "destination": "production-independent-audit.json",
+      "role": "frozen_proposal_audit_path_alias",
+      "transform": "exact"
+    }
+  ],
+  "inventory_instruction": "Before execution, add every separate held/failed attempt root explicitly (role held_evidence or failed_attempt; summary+expected_pass where present). Add source CI (transform github_run, role source_ci), commit metadata (github_commit), deployment lists (deployments), and exact upload/stage/promote logs, both smoke JSON+stdout, independent audit reports, and packager/helper/controls. Nothing is discovered by broad file glob; preserve failed outcomes. Fill exact identity/timestamp only from retained evidence. Parent must confirm production acceptance before setting production_acceptance_confirmed true.",
+  "packager": "/tmp/mr-package-remaining-evidence-v3.py",
+  "inventory_note": "Root explicitly accepted all 22 production gates, independent production audit, held-source refusals and full smokes. Recorded at exact independently checked acceptance clock. Limited earlier smokes remain successful limited checks. Failed remote ancestry preflight remains failed; exact-tree equivalence is separate proof. Original reports remain unchanged."
+}

@@ -4,11 +4,13 @@
 
 The user's 20 October full-list request has received a bounded pass across all
 six ranked items and eight held candidates. The
-[phase-one release](verification/gap-pass-2026-10-20/README.md) is accepted at
-source `bf3110e3bcbbc7db6d629254a886356e80f4c24a`, Worker
-`7f93e660-666c-435a-9b8b-bc37c060ac02`. The older ranking below remains historical;
-its former readiness statements do not override the results here. Assessing a
-blocker does not complete the blocked verification contract.
+[phase-one release](verification/gap-pass-2026-10-20/README.md) and
+[SFC/CMHC release](verification/remaining-gaps-2026-10-20/README.md) are accepted.
+Current LIVE is source `3ae91ac1ce163008f05377acefc27cce488fbbed`, Worker
+`ff344629-f392-44ec-b816-92d14f52bd07`. Every currently actionable item in this
+bounded queue has been handled; **blocked contracts and sustained operational
+acceptance remain incomplete**. The older ranking below is historical and does
+not override these actual outcomes. Documenting a blocker is not completing it.
 
 | Ranked item | Current disposition |
 | --- | --- |
@@ -27,11 +29,12 @@ blocker does not complete the blocked verification contract.
 | NI electricity | Local candidate and five original comparisons retained; actual Worker returned a `Request Rejected` access page. Disconnected; new permitted usable report access and actual/integrated release proof required. |
 | CQC | Local five-count historical cohort implementation retained; actual Worker returned 403. Disconnected; need permitted workbook access and release proof, preserving the risk-prioritised single-assessment-framework cohort rather than an all-England quality claim. |
 | ONS bedroom rent | Local Manchester bedroom-only candidate and four exact cells retained; actual Worker returned 429. Disconnected; new permitted access plus exact-vintage and release proof required. Not a bedroom-by-property joint estimate. |
-| SFC | **Prepared, not released:** five fixed 2024–25 college FTE cells passed protected actual-reader verification. Integrated version, CPU, both-domain regressions, monitoring review and release remain. Retain all-funding college learning volume, rounding and SFC attribution permission. |
-| CMHC rental | **Prepared, not released:** two 2025 Victoria CMA / Victoriaville CA combined row-and-apartment two-bedroom averages passed protected actual-reader verification. Integrated/release gates remain; retain conditional HMIP licence notices in every representation, without inventing recipient assent. |
+| SFC | **Released:** five fixed 2024–25 college FTE observations passed exact integrated/CPU/both-domain and reviewed-release gates. Retain all-funding Scottish-college learning volume, academic dates, overlapping total, nearest-five rounding and SFC attribution permission; not students or domiciled residents. |
+| CMHC rental | **Released:** two 2025 Victoria CMA / Victoriaville CA combined row-and-apartment two-bedroom averages passed integrated and both-domain release gates. Retain annual October survey, CAD/month and conditional HMIP notices in every representation; no invented recipient assent, apartment-only/asking-rent inference or future-vintage approval. |
 
-The second implementation batch is isolated from this accepted release. Its
-actual Worker outcomes supersede the earlier [held-queue research
+The second release activates only SFC and CMHC. The other local candidates remain
+disconnected; ten actual production requests confirmed held-source discovery and
+selection refusal. These outcomes supersede the earlier [held-queue research
 readiness](verification/gap-pass-2026-10-20/held-queue/README.md). PHW's reuse
 exclusion remains; no extra US series or desk is selected. No source alert,
 credential, infrastructure or schedule change follows from this ledger.
@@ -63,7 +66,8 @@ all 23 cells. NZ-PRICES's original bounded task remains incomplete separately.
 
 The actual durable checkpoint and SHADOW/delivery gates are unchanged: two
 legacy scheduled cycles, zero expanded-scope cycles, no receipt. The accepted
-release's constructed five-edge replay is not a collection. Preserve every
+release's constructed six-edge replay is not a collection. Its 23 exact approvals
+and 118 obligations retain the existing 24 public probes. Preserve every
 intervening write, all 33 incidents / 36 repairs and the pending delivery event;
 keep the hourly watchdog and daily collector unchanged, with ordinary source
 alerts disabled. See the

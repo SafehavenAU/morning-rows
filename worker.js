@@ -17,6 +17,9 @@ import { readNzMarketRent } from './lib/nz-market-rent.js';
 import { readStatcanGdp } from './lib/statcan-gdp.js';
 import { readStatcanHeadline } from './lib/statcan-headlines.js';
 import { readBocHistory } from './lib/boc-history.js';
+import {readSfcActivity} from './lib/sfc-activity.js';
+import {readCmhcRent} from './lib/cmhc-rent.js';
+import {readSectionsWithCompletion} from './lib/source-completion.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -313,7 +316,7 @@ const LLMS = `# Morning Rows
 
 ## Limits
 
-Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Canada adds dated FXUSDCAD/FXGBPCAD reference rates over a 31-calendar-day window, in CAD per foreign unit; exact-date absence is not carried forward. Local claimant histories remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
+Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Canada adds dated FXUSDCAD/FXGBPCAD reference rates over a 31-calendar-day window, in CAD per foreign unit; exact-date absence is not carried forward. Scotland adds five learning-volume FTE aggregates from the fixed Scottish Funding Council College Statistics 2024-25 edition, covering all funding sources; these are not student headcounts or current available places. Canada adds annual two-bedroom rental benchmarks for Victoria CMA and Victoriaville CA, with each definition retaining its exact structure category, survey scope and conditional CMHC reuse notices; these are not listings, current asking rents or national coverage. ONS Manchester bedroom rents, the CQC assessment cohort and NI electricity balance remain disconnected after unsuccessful actual source validation; see the bounded entries in keys.json. Local claimant histories remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
 
 A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
 
@@ -701,13 +704,14 @@ function escapeHtml(value) {
 }
 
 async function readCanada() {
-  const data = await readSections({
+  const data = await readSectionsWithCompletion({
     jobs: () => readStatcanHeadline('jobs'),
     price_index: () => readStatcanHeadline('price_index'),
     shop: () => readStatcanHeadline('shop'),
     rate: readCanadaRate,
     exchange: readCanadaExchange,
     exchange_history: readBocHistory,
+    rental_benchmark: readCmhcRent,
     product: readStatcanGdp,
     bonds: async () => {
       const last = (await fetchOfficial("https://www.bankofcanada.ca/valet/observations/BD.CDN.2YR.DQ.YLD,BD.CDN.10YR.DQ.YLD/json?recent=1").then(r => r.json())).observations.at(-1);
@@ -729,7 +733,7 @@ async function readCanada() {
     },
     quakes: async () => (await fetchOfficial("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=8&minmagnitude=2.5&minlatitude=48&maxlatitude=70&minlongitude=-141&maxlongitude=-52&orderby=time").then(r => r.json())).features.map(f => ({ place: f.properties.place, when: new Date(f.properties.time).toISOString(), magnitude: f.properties.mag, geography: "Bounding box around Canada; may include neighbouring territories", source: "USGS" })),
     recalls: readCanadianRecalls, mortgages: readCanadaMortgages, posted_rates: readPostedRates, air: readAir, demand: readOntarioDemand, commodities: readCommodityIndex,
-  });
+  },['rental_benchmark']);
   const also = await readSections({ world: () => readWorld("CA"), space: readSpace });
   if (data.exchange_history && data.exchange_history.window.end !== new Date().toISOString().slice(0,10)) {
     data.exchange_history = null;
@@ -771,16 +775,16 @@ async function ons(path) {
 
 async function readOnsNation(name, slug, peoplePath, jobPath, holidayDivision) {
   const meta = { source: "Office for National Statistics", licence: "Open Government Licence", geography: name };
-  const data = await readSections({
+  const data = await readSectionsWithCompletion({
     people: async () => ({ ...await ons(peoplePath), ...meta, unit: "people" }),
     job: async () => ({ ...await ons(jobPath), ...meta, unit: "percent" }),
     next_holiday: () => nextHoliday(holidayDivision),
     food_establishments: () => readFoodAuthorities(name),
     claimant_count: () => readClaimantCount(slug),
-    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel, road_traffic: readScottishTraffic } : {}),
+    ...(slug === "scotland" ? { bill_stages: readScottishBills, river_level: readSepaRiverLevel, road_traffic: readScottishTraffic, college_activity: readSfcActivity } : {}),
     ...(slug === "northern-ireland" ? { childhood_bmi: readNiChildhoodBmi, assembly_divisions: readAssemblyDivisions } : {}),
     ...(["scotland", "northern-ireland"].includes(slug) ? { company_insolvencies: () => readCompanyInsolvencies(name) } : {}),
-  });
+  },['college_activity']);
   return { site: "https://morningrows.com", country: name, page: `/${slug}`, ...data };
 }
 
@@ -1176,7 +1180,7 @@ const worker = {
     if (url.pathname === "/.well-known/ai-catalog.json") return json(AI_CATALOG);
     if (url.pathname === "/keys.json") return json({
       site: "https://morningrows.com",
-      note: "needs_a_key is collected for later and is not called. blocked is a feed that refused. Keep looking for another open feed from the same publisher.",
+      note: "needs_a_key is collected for later and is not called. blocked records a specific failed access or validation attempt, not a claim about every feed from that publisher. Keep looking for another open feed from the same publisher.",
       configured: [{ country: "New Zealand", source: "Stats NZ", binding: "STATSNZ_KEY", status: "Existing integration; see new-zealand.json for live health" }],
       needs_a_key: [
         { country: "Scotland", source: "Traffic Scotland DATEX II and live camera feeds", would_unlock: "Trunk-road traffic and travel feeds; developer registration and approval are required. Access credentials must be obtained manually.", url: "https://www.traffic.gov.scot/traffic-scotland-developer-hub" },
@@ -1204,6 +1208,9 @@ const worker = {
       ],
       blocked: [
         { country: "Australia", source: "AEMO completed-day SA1/VIC1 monthly price CSV", status: 406, note: "Held: both regions were refused from the exact production Worker after intermittent preview success on 20 October 2026. No daily summaries are served; the existing grid snapshot remains available." },
+        { country: "England", source: "ONS Manchester bedroom rent benchmark", status: 429, checked: "2026-10-20", note: "The bounded reader's normal official access returned HTTP 429 from the protected Cloudflare runtime. Offline original-data comparisons passed, but no actual native result was accepted and this candidate remains disconnected.", url: "https://www.ons.gov.uk/visualisations/housingpriceslocal/E08000003/" },
+        { country: "England", source: "CQC State of Care assessment cohort workbook", status: 403, checked: "2026-10-20", note: "The official 2024-25 ratings workbook returned HTTP 403 from the protected Cloudflare runtime. This candidate remains disconnected; the result does not establish a block on other CQC publications.", url: "https://www.cqc.org.uk/system/files/2025-10/20251024_stateofcare2425_ratingsdata.xlsx" },
+        { country: "Northern Ireland", source: "DfE/NISRA electricity consumption and renewable generation report", status: "invalid_response", checked: "2026-10-20", note: "The actual protected reader refused the report identity. One bounded diagnosis received a 247-byte HTTP 200 Request Rejected page, not the statistical report. No observations were accepted and this candidate remains disconnected.", url: "https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html" },
         { country: "Australia", source: "Australian Energy Regulator market-statistics discovery page", status: 503, note: "The official directory returned HTTP 503 in the workspace on 17 October 2026. No individual data file was validated; this does not establish a block on all AER datasets.", url: "https://www.aer.gov.au/industry/registers/market-statistics" },
         { country: "Australia", source: "Australian Antarctic Data Centre Macquarie Island AWS", status: "delayed", note: "The public station API reported its latest Macquarie Island observation at 2026-09-14T22:15:10Z when checked on 17 October. Not enabled as current weather; other stations have separate dates.", url: "https://data.aad.gov.au/aws/api/station" },
         { country: "United Kingdom", source: "Electoral Commission 2024 election report discovery page", status: 403, note: "The official report page refused the workspace request. No UK-wide data endpoint was validated; this does not cover all Commission downloads.", url: "https://www.electoralcommission.org.uk/research-reports-and-data/our-reports-and-data-past-elections-and-referendums/report-2024-uk-parliamentary-general-election-and-may-2024-elections" },

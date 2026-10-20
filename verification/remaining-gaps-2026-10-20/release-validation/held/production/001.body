@@ -1,0 +1,367 @@
+{
+  "site": "https://morningrows.com",
+  "note": "needs_a_key is collected for later and is not called. blocked records a specific failed access or validation attempt, not a claim about every feed from that publisher. Keep looking for another open feed from the same publisher.",
+  "configured": [
+    {
+      "country": "New Zealand",
+      "source": "Stats NZ",
+      "binding": "STATSNZ_KEY",
+      "status": "Existing integration; see new-zealand.json for live health"
+    }
+  ],
+  "needs_a_key": [
+    {
+      "country": "Scotland",
+      "source": "Traffic Scotland DATEX II and live camera feeds",
+      "would_unlock": "Trunk-road traffic and travel feeds; developer registration and approval are required. Access credentials must be obtained manually.",
+      "url": "https://www.traffic.gov.scot/traffic-scotland-developer-hub"
+    },
+    {
+      "country": "New Zealand",
+      "source": "Ministry for the Environment Koordinates API",
+      "would_unlock": "Environmental geospatial datasets via MfE Data Service APIs; downloadable public files may have separate access",
+      "checked": "2026-10-17",
+      "evidence": "https://data.mfe.govt.nz/terms-of-use/"
+    },
+    {
+      "country": "New Zealand",
+      "source": "Auckland Transport",
+      "would_unlock": "Registered transport APIs, including real-time service data",
+      "checked": "2026-10-17",
+      "evidence": "https://dev-portal.at.govt.nz/"
+    },
+    {
+      "country": "Wales",
+      "source": "Natural Resources Wales",
+      "would_unlock": "Flood warnings and rainfall, river and sea-level API data",
+      "checked": "2026-10-17",
+      "evidence": "https://api-portal.naturalresources.wales/"
+    },
+    {
+      "country": "United Kingdom",
+      "source": "HMRC Trade Tariff API Developer Hub",
+      "would_unlock": "Hub-managed API subscriptions; separately assess open Department for Business and Trade datasets",
+      "checked": "2026-10-17",
+      "evidence": "https://hub.trade-tariff.service.gov.uk/"
+    },
+    {
+      "country": "Australia",
+      "source": "Bureau of Meteorology",
+      "would_unlock": "forecasts, observations, and warnings"
+    },
+    {
+      "country": "Australia",
+      "source": "AEMO developer portal",
+      "would_unlock": "registered market APIs, not the public grid files"
+    },
+    {
+      "country": "Australia",
+      "source": "Western Australia SLIP subscription datasets",
+      "would_unlock": "Dataset-specific licensed spatial services; public SLIP services and NSW RFS incident feeds do not require a key"
+    },
+    {
+      "country": "Australia",
+      "source": "Australian Business Register",
+      "would_unlock": "a business lookup"
+    },
+    {
+      "country": "New Zealand",
+      "source": "LINZ Data Service",
+      "would_unlock": "addresses, parcels, and place names"
+    },
+    {
+      "country": "New Zealand",
+      "source": "MetService",
+      "would_unlock": "the national forecast"
+    },
+    {
+      "country": "New Zealand",
+      "source": "NIWA",
+      "would_unlock": "climate stations and forecasts"
+    },
+    {
+      "country": "Canada",
+      "source": "AESO",
+      "would_unlock": "the Alberta pool price as JSON. A free key. The publisher limits use."
+    },
+    {
+      "country": "Canada",
+      "source": "IESO participant APIs",
+      "would_unlock": "registered Ontario market tools, not the public reports"
+    },
+    {
+      "country": "Australia",
+      "source": "Service NSW FuelCheck",
+      "would_unlock": "published fuel prices"
+    },
+    {
+      "country": "New Zealand",
+      "source": "Companies Office and NZBN",
+      "would_unlock": "a business lookup"
+    },
+    {
+      "country": "United Kingdom",
+      "source": "Companies House",
+      "would_unlock": "company search and filings"
+    },
+    {
+      "country": "United Kingdom",
+      "source": "Met Office DataPoint",
+      "would_unlock": "forecasts and observations"
+    },
+    {
+      "country": "United Kingdom",
+      "source": "Energy Performance of Buildings",
+      "would_unlock": "home energy certificates"
+    },
+    {
+      "country": "United Kingdom",
+      "source": "Ordnance Survey",
+      "would_unlock": "detailed addresses and maps"
+    },
+    {
+      "country": "United Kingdom",
+      "source": "Transport for London",
+      "would_unlock": "a higher rate limit. The current lines work without it."
+    },
+    {
+      "country": "United Kingdom",
+      "source": "DVSA MOT history",
+      "would_unlock": "a vehicle test history"
+    }
+  ],
+  "blocked": [
+    {
+      "country": "Australia",
+      "source": "AEMO completed-day SA1/VIC1 monthly price CSV",
+      "status": 406,
+      "note": "Held: both regions were refused from the exact production Worker after intermittent preview success on 20 October 2026. No daily summaries are served; the existing grid snapshot remains available."
+    },
+    {
+      "country": "England",
+      "source": "ONS Manchester bedroom rent benchmark",
+      "status": 429,
+      "checked": "2026-10-20",
+      "note": "The bounded reader's normal official access returned HTTP 429 from the protected Cloudflare runtime. Offline original-data comparisons passed, but no actual native result was accepted and this candidate remains disconnected.",
+      "url": "https://www.ons.gov.uk/visualisations/housingpriceslocal/E08000003/"
+    },
+    {
+      "country": "England",
+      "source": "CQC State of Care assessment cohort workbook",
+      "status": 403,
+      "checked": "2026-10-20",
+      "note": "The official 2024-25 ratings workbook returned HTTP 403 from the protected Cloudflare runtime. This candidate remains disconnected; the result does not establish a block on other CQC publications.",
+      "url": "https://www.cqc.org.uk/system/files/2025-10/20251024_stateofcare2425_ratingsdata.xlsx"
+    },
+    {
+      "country": "Northern Ireland",
+      "source": "DfE/NISRA electricity consumption and renewable generation report",
+      "status": "invalid_response",
+      "checked": "2026-10-20",
+      "note": "The actual protected reader refused the report identity. One bounded diagnosis received a 247-byte HTTP 200 Request Rejected page, not the statistical report. No observations were accepted and this candidate remains disconnected.",
+      "url": "https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html"
+    },
+    {
+      "country": "Australia",
+      "source": "Australian Energy Regulator market-statistics discovery page",
+      "status": 503,
+      "note": "The official directory returned HTTP 503 in the workspace on 17 October 2026. No individual data file was validated; this does not establish a block on all AER datasets.",
+      "url": "https://www.aer.gov.au/industry/registers/market-statistics"
+    },
+    {
+      "country": "Australia",
+      "source": "Australian Antarctic Data Centre Macquarie Island AWS",
+      "status": "delayed",
+      "note": "The public station API reported its latest Macquarie Island observation at 2026-09-14T22:15:10Z when checked on 17 October. Not enabled as current weather; other stations have separate dates.",
+      "url": "https://data.aad.gov.au/aws/api/station"
+    },
+    {
+      "country": "United Kingdom",
+      "source": "Electoral Commission 2024 election report discovery page",
+      "status": 403,
+      "note": "The official report page refused the workspace request. No UK-wide data endpoint was validated; this does not cover all Commission downloads.",
+      "url": "https://www.electoralcommission.org.uk/research-reports-and-data/our-reports-and-data-past-elections-and-referendums/report-2024-uk-parliamentary-general-election-and-may-2024-elections"
+    },
+    {
+      "country": "England",
+      "source": "NHSBSA Prescription Cost Analysis SQL aggregate",
+      "status": 500,
+      "note": "The no-key monthly SQL aggregate works in the workspace but returns an internal-server-error envelope from Cloudflare preview using GET and POST. Pharmacy aggregates use the separately published complete CSV.",
+      "url": "https://opendata.nhsbsa.net/dataset/prescription-cost-analysis-pca-monthly-data"
+    },
+    {
+      "country": "New Zealand",
+      "source": "Ministry of Transport network-performance discovery page",
+      "status": 200,
+      "note": "The page returned an Incapsula HTML challenge in the workspace; no CSV observations were validated. Other ministry downloads remain candidates.",
+      "url": "https://www.transport.govt.nz/area-of-interest/strategy-and-direction/transport-network-performance"
+    },
+    {
+      "country": "Northern Ireland",
+      "source": "OpenDataNI traffic-count catalogue page",
+      "status": 403,
+      "note": "The admin.opendatani.gov.uk traffic-count dataset page refused the workspace request. DfI direct publications remain candidates.",
+      "url": "https://admin.opendatani.gov.uk/dataset/northern-ireland-traffic-count-data"
+    },
+    {
+      "country": "Canada",
+      "source": "Statistics Canada WDS temporary outage",
+      "status": 406,
+      "checked": "2026-10-17",
+      "url": "https://www150.statcan.gc.ca/t1/wds/rest/getChangedSeriesList",
+      "note": "New outage verified independently from the workspace: JSON requests return 406; ordinary HTML requests display Statistics Canada website currently unavailable. Five existing sections retain explicit errors while other Canadian sources continue. Keep readers enabled for recovery."
+    },
+    {
+      "country": "Scotland",
+      "source": "NRS weekly deaths CSV from Cloudflare Workers",
+      "status": 403,
+      "checked": "2026-10-17",
+      "url": "https://data.gov.scot/dataset/weekly_deaths",
+      "note": "Official CSV and parser work in the workspace; production returns 403 even with text/csv Accept. Candidate reader retained for future validation, but not enabled on the desk."
+    },
+    {
+      "country": "England",
+      "source": "UKHSA influenza test-positivity API from Cloudflare Workers",
+      "status": 403,
+      "checked": "2026-10-17",
+      "url": "https://ukhsa-dashboard.data.gov.uk/access-our-data/getting-started",
+      "note": "National test-positivity API works without authentication in the workspace but returns 403 from Workers, including application/json Accept. Candidate reader is not enabled on the desk."
+    },
+    {
+      "country": "United Kingdom",
+      "source": "DMO Gilts in Issue XML from Cloudflare Workers",
+      "status": "invalid_response",
+      "checked": "2026-10-17",
+      "url": "https://www.dmo.gov.uk/data/XmlDataReport?reportCode=D1A",
+      "note": "Workspace returns valid XML with 105 instruments; Worker response fails XML validation even with application/xml Accept. Candidate reader is not enabled; no figures embedded as fallback."
+    },
+    {
+      "country": "New Zealand",
+      "source": "MBIE weekly fuel price CSV",
+      "status": 200,
+      "checked": "2026-10-17",
+      "url": "https://www.mbie.govt.nz/assets/Data-Files/Energy/Weekly-fuel-price-monitoring/weekly-table.csv",
+      "note": "Workspace request returned an Incapsula HTML challenge instead of CSV. No price values copied or challenge bypass attempted."
+    },
+    {
+      "country": "Wales",
+      "source": "Senedd meeting and calendar web service",
+      "status": 403,
+      "checked": "2026-10-17",
+      "url": "https://business.senedd.wales/mgwebservice.asmx",
+      "note": "Official open-data directory documents OGL XML/JSON service, but the service returned Forbidden from the workspace. No meeting data copied."
+    },
+    {
+      "country": "England",
+      "source": "UKHSA influenza hospital and ICU/HDU admission-rate metrics",
+      "status": "delayed",
+      "checked": "2026-10-17",
+      "url": "https://ukhsa-dashboard.data.gov.uk/metrics-documentation/influenza-healthcare-hospital-admission-rate-by-week",
+      "note": "2026 national all-age/all-sex queries stop at 20 April 2026 despite active metric documentation. Not added as current hospital observations; the separate test-positivity series is available."
+    },
+    {
+      "country": "United Kingdom",
+      "source": "DBT UK trade quotas latest report",
+      "status": 404,
+      "checked": "2026-10-17",
+      "url": "https://data.api.trade.gov.uk/v1/datasets/uk-trade-quotas/versions/latest/reports/quotas-including-current-volumes/data?format=csv",
+      "note": "Catalogue and metadata respond, but latest v1.0.994 report returns NoSuchKey; filtered queries returned headers without observations. No empty quota series published."
+    },
+    {
+      "country": "United Kingdom",
+      "source": "The National Archives legislation Atom feeds from Cloudflare Workers",
+      "status": 404,
+      "checked": "2026-10-17",
+      "url": "https://www.legislation.gov.uk/new/ukpga/data.feed",
+      "note": "The documented UK Public General Acts feed returns Atom from the development workspace but HTTP 404 from Workers, including with the Atom Accept header. Logged as a runtime-specific failure; no feed titles are invented."
+    },
+    {
+      "country": "Australia",
+      "source": "Australian Financial Security Authority quarterly insolvency statistics discovery page",
+      "status": 503,
+      "checked": "2026-10-17",
+      "url": "https://www.afsa.gov.au/about-us/statistics-and-insights/headline-statistics/quarterly-personal-insolvency-statistics",
+      "note": "The discovery page returned HTTP 503 from the workspace. An official CSV link was not resolved; this does not establish that its underlying dataset is unavailable."
+    },
+    {
+      "country": "Australia",
+      "source": "ABS SDMX API from Cloudflare Workers",
+      "status": 403,
+      "checked": "2026-10-17",
+      "note": "CloudFront refuses Worker requests. The same API responds from the development workspace. No workaround or stored figures substituted."
+    },
+    {
+      "country": "United Kingdom, England, Scotland, Wales, Northern Ireland",
+      "source": "ONS CSV and timeseries API from Cloudflare Workers",
+      "status": 403,
+      "checked": "2026-10-17",
+      "note": "Publisher firewall refuses Worker requests. Other desk sources remain independent."
+    },
+    {
+      "country": "New Zealand",
+      "source": "Reserve Bank of New Zealand",
+      "status": 403,
+      "note": "The statistics pages refused the read. No open file was found."
+    },
+    {
+      "country": "New Zealand",
+      "source": "MetService",
+      "status": 403,
+      "note": "Missing authentication token. Listed under needs_a_key."
+    },
+    {
+      "country": "New Zealand",
+      "source": "NIWA",
+      "status": 401,
+      "note": "A key is required. Listed under needs_a_key."
+    },
+    {
+      "country": "New Zealand",
+      "source": "LINZ feature download",
+      "status": 404,
+      "note": "The layer list is public. A feature download was not found without a key."
+    },
+    {
+      "country": "United Kingdom",
+      "source": "Companies House",
+      "status": 401,
+      "note": "An empty authorisation header was refused. Listed under needs_a_key."
+    },
+    {
+      "country": "United Kingdom",
+      "source": "Bank of England database",
+      "status": 200,
+      "note": "The CSV address returned an HTML page, not the series. Not copied."
+    },
+    {
+      "country": "Scotland",
+      "source": "statistics.gov.scot",
+      "status": "closed",
+      "note": "The SPARQL service closed the connection. No rows were read."
+    },
+    {
+      "country": "Australia",
+      "source": "Parliament of Australia bills",
+      "status": 403,
+      "note": "The site firewall refused the read."
+    },
+    {
+      "country": "Australia",
+      "source": "Geoscience Australia hazard map",
+      "status": 403,
+      "note": "The map service refused the read. Earthquake rows already come from the open quake feed."
+    },
+    {
+      "country": "Canada",
+      "source": "IESO yearly price file",
+      "status": "stale",
+      "note": "The public file stops at 2025-04-30. It was not copied as a current price."
+    },
+    {
+      "country": "United Kingdom",
+      "source": "coronavirus.data.gov.uk",
+      "status": "gone",
+      "note": "The hostname did not resolve."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProxy environment variables detected. We'll use your proxy for fetch requests.[0m
+
+
+
+ ⛅️ wrangler 4.151.1 (update available 4.151.2)
+───────────────────────────────────────────────
+╭ Deploy Worker Versions by splitting traffic between multiple versions
+│
+├ Fetching latest deployment
+│
+├ Your current deployment has 1 version(s):
+│
+│ (100%) 7f93e660-666c-435a-9b8b-bc37c060ac02
+│       Created:  2026-10-20T10:47:14.246453Z
+│           Tag:  gap-held-aemo
+│       Message:  Verified FX and existing measure repairs; daily AEMO activation held
+│
+├ Fetching versions
+│
+├ Which version(s) do you want to deploy?
+├ 2 Worker Version(s) selected
+│
+├     Worker Version 1:  7f93e660-666c-435a-9b8b-bc37c060ac02
+│              Created:  2026-10-20T10:47:14.246453Z
+│                  Tag:  gap-held-aemo
+│              Message:  Verified FX and existing measure repairs; daily AEMO activation held
+│
+├     Worker Version 2:  ff344629-f392-44ec-b816-92d14f52bd07
+│              Created:  2026-10-20T11:24:06.893811Z
+│                  Tag:  remaining-sfc-cmhc-20261020
+│              Message:  Verified Scottish college activity and Canadian rent benchmarks
+│
+├ What percentage of traffic should Worker Version 1 receive?
+├ 100% of traffic
+├
+├ What percentage of traffic should Worker Version 2 receive?
+├ 0% of traffic
+├
+├ Add a deployment message
+│ Deployment message Zero traffic validation of SFC and CMHC candidate
+│
+├ Deploying 2 version(s)
+│
+├ Syncing non-versioned settings
+│
+│ Synced non-versioned settings:
+│                      logpush:  false
+│                observability:  enabled:             true
+│                                head_sampling_rate:  0.1
+│               tail_consumers:  <skipped>
+│     streaming_tail_consumers:  <skipped>
+│
+╰  SUCCESS  Deployed morning-rows version 7f93e660-666c-435a-9b8b-bc37c060ac02 at 100% and version ff344629-f392-44ec-b816-92d14f52bd07 at 0% (1.06 sec)

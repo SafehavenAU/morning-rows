@@ -1,0 +1,297 @@
+{
+  "started_at": "2026-10-20T10:15:25.407Z",
+  "environment": "Protected Cloudflare remote dev",
+  "attempts": 1,
+  "purpose": "One actual-clock invocation per selected source with exact retained independent-vintage comparisons; NI is separately owned and is not fetched here.",
+  "selected_sources": [
+    "college_activity",
+    "care_assessment_cohort"
+  ],
+  "git_head": "ba0812b493f7cc4ca47a9f726211d96903bd9597",
+  "production_version": null,
+  "code_before": {
+    "worker.js": "b19f6ea8445f3b061374e5955601c690686260c977203bb6e2b94582baa0915a",
+    "wrangler.toml": "17ff46e7dc20b292cfa600d894f934d13c6ca13084a6d5bd0fa76527e9d653fd",
+    "check-live.mjs": "8b196828e9acbb76bd31e22441ffba83096c94f9495f8b94e0ce9c1b7bc3ea9b",
+    "../../../lib/sfc-activity.js": "8d2aded4b9e0119734b8207723d837a6f53b9b948933f3667357cb5719a6656a",
+    "../../../lib/cqc-cohort.js": "1f2cab212db4e088a91458455bcc8936dd5f6c306f91cf99b087b4baa14b96d3",
+    "../../../lib/ons-rent.js": "5f924ae6c7ec0472be8eead46e70c5511b9c30022a7136b9e25656e6b394f281",
+    "../../../lib/cmhc-rent.js": "30fb4bbeaa4b02e3ab84c761e002237ba37146b09e6fd94705a6c35e92f89553",
+    "../../../lib/workbook.js": "2f9ab2128e36b520156e9ea05957fbc04e3b6da4ffcee358b7bc77cb586ea25a",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a"
+  },
+  "references": {
+    "college_activity": {
+      "file": "../sfc/independent-report.json",
+      "sha256": "2d8e11cd5e85a7071f2e1e41763678d6d700555eb7ef964108fd6404746eb71b",
+      "bytes": 1518
+    },
+    "care_assessment_cohort": {
+      "file": "../cqc/independent-reference.json",
+      "sha256": "e6cdd71bfb1fd84dd22e2b6e3c93473d1b00e345ab4968271186db492e89f6c1",
+      "bytes": 5731
+    },
+    "bedroom_rent": {
+      "file": "../ons-rent/independent-report.json",
+      "sha256": "1597720158153550a0a0f43c95a2428cdbace5bc1e81396234c5acab2cdd5b24",
+      "bytes": 2699
+    },
+    "rental_benchmark": {
+      "file": "../cmhc-rent/independent-report.json",
+      "sha256": "cf13f540076ea58c7afbe2f33cf00a5917dd5a792c30f4cd3e62001c14667d96",
+      "bytes": 2136
+    }
+  },
+  "sources": {
+    "college_activity": {
+      "health": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T10:15:27.917Z"
+      },
+      "timing": {
+        "started_at": "2026-10-20T10:15:27.917Z",
+        "finished_at": "2026-10-20T10:15:29.214Z"
+      },
+      "pass": true,
+      "comparisons": [
+        {
+          "measure_id": "part_time_fe",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 39655,
+          "actual": 39655,
+          "pass": true
+        },
+        {
+          "measure_id": "full_time_fe",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 47405,
+          "actual": 47405,
+          "pass": true
+        },
+        {
+          "measure_id": "part_time_he",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 4595,
+          "actual": 4595,
+          "pass": true
+        },
+        {
+          "measure_id": "full_time_he",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 24400,
+          "actual": 24400,
+          "pass": true
+        },
+        {
+          "measure_id": "total",
+          "period": "2024-25",
+          "unit": "full-time equivalents",
+          "expected": 116055,
+          "actual": 116055,
+          "pass": true
+        }
+      ],
+      "fresh_completion": true,
+      "valid_native": true,
+      "publication_matches": true,
+      "coverage": true,
+      "provenance_captured": true,
+      "original_bytes_match": true
+    },
+    "care_assessment_cohort": {
+      "health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T10:15:27.917Z",
+        "error": "www.cqc.org.uk returned HTTP 403",
+        "http_status": 403
+      },
+      "timing": {
+        "started_at": "2026-10-20T10:15:27.917Z",
+        "finished_at": "2026-10-20T10:15:28.264Z"
+      },
+      "pass": false,
+      "comparisons": [],
+      "fresh_completion": true,
+      "valid_native": false
+    }
+  },
+  "cpu_ms": null,
+  "cpu_evidence": "Not measured by remote-dev response. Exact integrated version trace is still required; wall duration is not CPU.",
+  "wrapper_status": 200,
+  "response_sha256": "aa3cb39d664db82aa24910ff053b4f175a0ea60e2337a9054c3244daa09cc8ed",
+  "response_bytes": 5139,
+  "live": {
+    "kind": "Protected actual source-reader proof; selected sources, one invocation each",
+    "selected_sources": [
+      "college_activity",
+      "care_assessment_cohort"
+    ],
+    "fixture": false,
+    "clock": "Actual Worker UTC clock",
+    "started_at": "2026-10-20T10:15:27.917Z",
+    "finished_at": "2026-10-20T10:15:29.214Z",
+    "timings": {
+      "college_activity": {
+        "started_at": "2026-10-20T10:15:27.917Z",
+        "finished_at": "2026-10-20T10:15:29.214Z"
+      },
+      "care_assessment_cohort": {
+        "started_at": "2026-10-20T10:15:27.917Z",
+        "finished_at": "2026-10-20T10:15:28.264Z"
+      }
+    },
+    "body": {
+      "college_activity": {
+        "status": "ok",
+        "source": "Scottish Funding Council",
+        "publisher": "Scottish Funding Council",
+        "source_url": "https://www.sfc.ac.uk/wp-content/uploads/2026/01/College-Statistics-2024-25-Background-Tables.xlsx",
+        "publication_url": "https://www.sfc.ac.uk/publications/college-statistics-2024-25/",
+        "methodology_url": "https://www.sfc.ac.uk/wp-content/uploads/2026/01/College-Statistics-2024-25-Annex.pdf",
+        "licence": "SFC permission for accurate attributed reproduction",
+        "licence_url": "https://www.sfc.ac.uk/wp-content/uploads/2024/03/SFC-Publication-Scheme.pdf",
+        "attribution": "Source: Scottish Funding Council, College Statistics 2024-25. Reproduced accurately with attribution; no endorsement implied.",
+        "geography": "Scotland",
+        "period": "2024-25",
+        "period_start": "2024-08-01",
+        "period_end": "2025-07-31",
+        "period_convention": "Academic year, 1 August through 31 July; not a calendar-year or current enrolment count.",
+        "publication_date": "2026-02-04",
+        "edition": "College Statistics 2024-25",
+        "unit": "full-time equivalents",
+        "adjustment": "Annual learning activity; no seasonal adjustment or annualisation performed",
+        "population": "Learning activity delivered by Scottish colleges, all funding sources; not Scottish-domiciled residents, university activity or individual student headcounts.",
+        "definition": "One full-time equivalent is 15 credits or 600 learning hours. Further and higher education activity is grouped by full-time and part-time mode.",
+        "rounding": "Published FTE values are rounded to the nearest five. Totals are calculated from unrounded data and can differ from rounded component sums.",
+        "missingness": "Numeric zero is valid. Blank, absent, suppression or error cells are not converted to zero by this contract; a newly blank selected cell requires review of the edition-specific disclosure rule.",
+        "revision_policy": "The named edition may be corrected. Retain the input digest and publication date; no immutable vintage or automatic adoption of a newer edition is claimed.",
+        "limitations": "The total overlaps the four components. FTE is learning volume, not people or available places. This fixed 2024-25 edition is not a claim that a newer release cannot exist. No demographic or geographic inference beyond college activity in Scotland.",
+        "statistical_status": "Official Statistics",
+        "rows": [
+          {
+            "measure": "part_time_fe",
+            "label": "Part-time further education",
+            "value": 39655,
+            "value_state": "observed",
+            "unit": "full-time equivalents",
+            "geography": "Scotland",
+            "period": "2024-25",
+            "period_start": "2024-08-01",
+            "period_end": "2025-07-31",
+            "mode": "part-time",
+            "level": "further education",
+            "rounding": "nearest five"
+          },
+          {
+            "measure": "full_time_fe",
+            "label": "Full-time further education",
+            "value": 47405,
+            "value_state": "observed",
+            "unit": "full-time equivalents",
+            "geography": "Scotland",
+            "period": "2024-25",
+            "period_start": "2024-08-01",
+            "period_end": "2025-07-31",
+            "mode": "full-time",
+            "level": "further education",
+            "rounding": "nearest five"
+          },
+          {
+            "measure": "part_time_he",
+            "label": "Part-time higher education",
+            "value": 4595,
+            "value_state": "observed",
+            "unit": "full-time equivalents",
+            "geography": "Scotland",
+            "period": "2024-25",
+            "period_start": "2024-08-01",
+            "period_end": "2025-07-31",
+            "mode": "part-time",
+            "level": "higher education",
+            "rounding": "nearest five"
+          },
+          {
+            "measure": "full_time_he",
+            "label": "Full-time higher education",
+            "value": 24400,
+            "value_state": "observed",
+            "unit": "full-time equivalents",
+            "geography": "Scotland",
+            "period": "2024-25",
+            "period_start": "2024-08-01",
+            "period_end": "2025-07-31",
+            "mode": "full-time",
+            "level": "higher education",
+            "rounding": "nearest five"
+          },
+          {
+            "measure": "total",
+            "label": "Total college activity",
+            "value": 116055,
+            "value_state": "observed",
+            "unit": "full-time equivalents",
+            "geography": "Scotland",
+            "period": "2024-25",
+            "period_start": "2024-08-01",
+            "period_end": "2025-07-31",
+            "mode": "all",
+            "level": "all",
+            "rounding": "nearest five"
+          }
+        ],
+        "provenance": [
+          {
+            "role": "workbook",
+            "url": "https://www.sfc.ac.uk/wp-content/uploads/2026/01/College-Statistics-2024-25-Background-Tables.xlsx",
+            "retrieved_at": "2026-10-20T10:15:29.214Z",
+            "bytes": 70694,
+            "sha256": "f4816a63e4ab246799f4cbb6075d3feba78ada67670e34d71e5900826c3b5979"
+          }
+        ]
+      },
+      "care_assessment_cohort": null,
+      "injected_isolation_failure": null,
+      "sources": {
+        "college_activity": {
+          "status": "ok",
+          "fetched_at": "2026-10-20T10:15:27.917Z"
+        },
+        "care_assessment_cohort": {
+          "status": "error",
+          "fetched_at": "2026-10-20T10:15:27.917Z",
+          "error": "www.cqc.org.uk returned HTTP 403",
+          "http_status": 403
+        },
+        "injected_isolation_failure": {
+          "status": "error",
+          "fetched_at": "2026-10-20T10:15:27.917Z",
+          "error": "Deliberate harness-only source failure"
+        }
+      }
+    },
+    "cpu_ms": null,
+    "cpu_evidence": "Unmeasured; elapsed wall time is not billed CPU. Exact integrated-version trace remains a release gate."
+  },
+  "actual_clock": true,
+  "injected_failure_isolated": true,
+  "selected_sources_match": true,
+  "pass": false,
+  "finished_at": "2026-10-20T10:15:29.336Z",
+  "code_after": {
+    "worker.js": "b19f6ea8445f3b061374e5955601c690686260c977203bb6e2b94582baa0915a",
+    "wrangler.toml": "17ff46e7dc20b292cfa600d894f934d13c6ca13084a6d5bd0fa76527e9d653fd",
+    "check-live.mjs": "8b196828e9acbb76bd31e22441ffba83096c94f9495f8b94e0ce9c1b7bc3ea9b",
+    "../../../lib/sfc-activity.js": "8d2aded4b9e0119734b8207723d837a6f53b9b948933f3667357cb5719a6656a",
+    "../../../lib/cqc-cohort.js": "1f2cab212db4e088a91458455bcc8936dd5f6c306f91cf99b087b4baa14b96d3",
+    "../../../lib/ons-rent.js": "5f924ae6c7ec0472be8eead46e70c5511b9c30022a7136b9e25656e6b394f281",
+    "../../../lib/cmhc-rent.js": "30fb4bbeaa4b02e3ab84c761e002237ba37146b09e6fd94705a6c35e92f89553",
+    "../../../lib/workbook.js": "2f9ab2128e36b520156e9ea05957fbc04e3b6da4ffcee358b7bc77cb586ea25a",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a"
+  },
+  "code_unchanged": true,
+  "references_unchanged": true
+}

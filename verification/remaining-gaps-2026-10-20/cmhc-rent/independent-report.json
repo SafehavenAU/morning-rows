@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "desk": "canada",
+  "source": "rental_benchmark",
+  "observations": 2,
+  "period": "2025",
+  "release_timestamp_raw": "2025-12-17T08:30",
+  "release_timezone": null,
+  "rows": [
+    {
+      "measure_id": "victoria.two_bedroom_average_rent",
+      "period": "2025",
+      "survey_month": "2025-10",
+      "value": 2121,
+      "unit": "CAD per month",
+      "geography": "Victoria, British Columbia",
+      "geography_code": "2011S0503935",
+      "geography_type": "CMA",
+      "classification_code": "935",
+      "coordinate": "186.3.3.0.0.0.0.0.0.0",
+      "vector_id": 3823106,
+      "release_timestamp_raw": "2025-12-17T08:30",
+      "release_timezone": null
+    },
+    {
+      "measure_id": "victoriaville.two_bedroom_average_rent",
+      "period": "2025",
+      "survey_month": "2025-10",
+      "value": 991,
+      "unit": "CAD per month",
+      "geography": "Victoriaville, Quebec",
+      "geography_code": "2011S0504440",
+      "geography_type": "CA",
+      "classification_code": "440",
+      "coordinate": "66.3.3.0.0.0.0.0.0.0",
+      "vector_id": 3823208,
+      "release_timestamp_raw": "2025-12-17T08:30",
+      "release_timezone": null
+    }
+  ],
+  "comparisons": [
+    {
+      "measure_id": "victoria.two_bedroom_average_rent",
+      "csv": "2121",
+      "wds": "2121.0",
+      "match": true
+    },
+    {
+      "measure_id": "victoriaville.two_bedroom_average_rent",
+      "csv": "991",
+      "wds": "991.0",
+      "match": true
+    }
+  ],
+  "missingness_control": {
+    "coordinate": "66.2.3",
+    "value": null,
+    "status": "F",
+    "converted_to_zero": false
+  },
+  "method": "Independent Python CSV and Decimal extraction reconciles original WDS points, series metadata and selected cube dimensions. No runtime parser imported.",
+  "independence_limit": "CSV and WDS share the same CMHC survey lineage. No independent rental survey or separately presented CMHC numerical table is claimed.",
+  "licence_status": "Conditional redistribution grant established; existing notice mechanism reused; no individual recipient acceptance observed or recorded.",
+  "actual_worker_resource_proof": "pending"
+}

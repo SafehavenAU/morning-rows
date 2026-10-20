@@ -1,0 +1,22 @@
+✔ Canada handler preserves four latest pairs and legacy fields while validating dated FX and all four headlines (88.329194ms)
+✔ wrong jobs identity and dated-FX failure leave legacy FX, GDP and other headline sources intact (14.219161ms)
+▶ Australia handler retains five-region snapshot and complete SA/VIC day; partial and total failures map explicitly
+  ✔ healthy (16.899465ms)
+  ✔ SA1 (7.088959ms)
+  ✔ SA1,VIC1 (5.562712ms)
+✔ Australia handler retains five-region snapshot and complete SA/VIC day; partial and total failures map explicitly (30.469224ms)
+✔ Australia fresh response and cached alias expire at fixed-AEST midnight, not local DST midnight (20.483261ms)
+✔ Canada fresh responses and selected-cache responses expire at UTC midnight (36.939884ms)
+✔ calendar cache without its explicit boundary is a miss (16.875732ms)
+▶ a complete desk crossing its calendar boundary refuses the old daily source and is not cached
+  ✔ /australia.json (6.668657ms)
+  ✔ /canada.json (15.526685ms)
+✔ a complete desk crossing its calendar boundary refuses the old daily source and is not cached (22.731958ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 376.971159

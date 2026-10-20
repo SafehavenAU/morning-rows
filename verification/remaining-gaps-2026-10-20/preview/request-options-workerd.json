@@ -1,0 +1,20 @@
+{
+  "pass": true,
+  "checked_at": "2026-10-20T10:15:17.990Z",
+  "environment": "Local installed workerd via Miniflare; no publisher HTTP",
+  "compatibility_date": "2026-10-16",
+  "script": "export default{fetch(){const results=[];for(const redirect of ['error','manual'])try{new Request('https://example.invalid',{redirect});results.push({redirect,valid:true});}catch(e){results.push({redirect,valid:false,name:e.name,message:e.message});}return Response.json(results)}}",
+  "rows": [
+    {
+      "redirect": "error",
+      "valid": false,
+      "name": "TypeError",
+      "message": "Invalid redirect value, must be one of \"follow\" or \"manual\" (\"error\" won't be implemented since it does not make sense at the edge; use \"manual\" and check the response status code)."
+    },
+    {
+      "redirect": "manual",
+      "valid": true
+    }
+  ],
+  "explanation": "The original SFC/CQC redirect:error option fails Request construction before network. Manual mode is supported; readers reject non-2xx status and changed URLs."
+}

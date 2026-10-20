@@ -1,0 +1,170 @@
+{
+  "kind": "Local-only phase-two merge and offline validation; no push, upload, deployment or checkpoint change",
+  "created_at": "2026-10-20T10:51:21.013971+00:00",
+  "source_revision": "e7c1f3acf1e417732da37e3428a345c269ae4033",
+  "tree": "2dfc6645eb68b894f440bc1ea9c9b88ac937fc45",
+  "parents": [
+    "cff9a37ef3b55cc465cb51063362e45bf55988fd",
+    "bf3110e3bcbbc7db6d629254a886356e80f4c24a"
+  ],
+  "source_fingerprint": "c204367b89f89d50",
+  "clean": true,
+  "protected_files": {
+    "operations/us-release-review.json": {
+      "before": "0f46582582547ce76134a48e47ce10637f416287814196b65b34917400bda2e6",
+      "after": "0f46582582547ce76134a48e47ce10637f416287814196b65b34917400bda2e6",
+      "unchanged": true
+    },
+    "operations/approved-observations.json": {
+      "before": "c2e444008d9943c253383a6bdbacd9035de59a53174782e967ecc70411cd2396",
+      "after": "c2e444008d9943c253383a6bdbacd9035de59a53174782e967ecc70411cd2396",
+      "unchanged": true
+    },
+    "operations/acceptance.json": {
+      "before": "34117e2116688dd234dc222177b571b52744d0b84c4deed40f737f722042eac3",
+      "after": "34117e2116688dd234dc222177b571b52744d0b84c4deed40f737f722042eac3",
+      "unchanged": true
+    },
+    "operations/monitor-policy.json": {
+      "before": "38be0e8a218930183fc6e4ff8e87eab4141bcf9db51430d8b2fb823a81d9a490",
+      "after": "38be0e8a218930183fc6e4ff8e87eab4141bcf9db51430d8b2fb823a81d9a490",
+      "unchanged": true
+    },
+    "verification/monitoring-baseline.json": {
+      "before": "49a7cef4e751778c8e92ce88affbc875809efb52fdb33f28eecf10ed4d01551a",
+      "after": "49a7cef4e751778c8e92ce88affbc875809efb52fdb33f28eecf10ed4d01551a",
+      "unchanged": true
+    },
+    ".github/workflows/monitor.yml": {
+      "before": "2c0e63ca24aeb1a10baf9ff45611bee862d809ea1cb92c5d34f03f2a76b5e3b0",
+      "after": "2c0e63ca24aeb1a10baf9ff45611bee862d809ea1cb92c5d34f03f2a76b5e3b0",
+      "unchanged": true
+    },
+    "wrangler.toml": {
+      "before": "04d23c1f0486a41d0b181c5a24cded79a09c43f3c075518fda10ebec575ab6e6",
+      "after": "04d23c1f0486a41d0b181c5a24cded79a09c43f3c075518fda10ebec575ab6e6",
+      "unchanged": true
+    },
+    "package.json": {
+      "before": "c00fc873d198f300174c38be74aa808870272f4224599daa5742d47ef10a5410",
+      "after": "c00fc873d198f300174c38be74aa808870272f4224599daa5742d47ef10a5410",
+      "unchanged": true
+    },
+    "package-lock.json": {
+      "before": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+      "after": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+      "unchanged": true
+    }
+  },
+  "focused_tests": 83,
+  "repository_tests": 1166,
+  "all_pass": true,
+  "checkers": {
+    "gap": {
+      "pass": true,
+      "result_groups": 30,
+      "checks": 747,
+      "schema_documents": 24,
+      "negative_schema_controls": 8
+    },
+    "remaining": {
+      "pass": true,
+      "result_groups": 26,
+      "checks": 345,
+      "schema_documents": 10,
+      "negative_schema_controls": 8
+    }
+  },
+  "build": {
+    "wrangler": "4.151.1",
+    "dry_run": true,
+    "upload_kib": 445.23,
+    "gzip_kib": 135.82,
+    "remote": false
+  },
+  "preservation": {
+    "phase_one_verification_files_all_byte_identical": true,
+    "phase_two_verification_files": "All phase-two verification paths remain byte-identical; inherited phase-one tooling/docs use updated bf3110e versions.",
+    "historical_shared_phase_two_monitoring_run": "Preserved at parent cff9a37ef3b55cc465cb51063362e45bf55988fd:verification/gap-pass-2026-10-20/monitoring/monitor-tests.tap; current phase-one113-test record comes from bf3110e."
+  },
+  "resolution_notes": [
+    "Combine phase-one held AEMO boundary with only SFC/CMHC additions.",
+    "Correct published x-usage.scope to describe the seven SFC/CMHC measurements; no additional runtime contract.",
+    "Inherited HTTP capture CRLF whitespace remains byte-identical; source-only diff whitespace checks pass."
+  ],
+  "source_hashes": {
+    "worker.js": "7e151f54ea159c0219f669152f7bf4d9c24d31b6542a6719a16009f57fb13a06",
+    "lib/information.js": "2697e98ca1c748665396749ddf3a02c3d303ba872ffcc788bbab61151dd0c262",
+    "lib/gap-information.js": "0e06d716f6dbf6c504bdb1549db2d25c9116ae369c434b889ff5d4b17a3ff476",
+    "lib/remaining-information.js": "ed0868c50acddc871a66d048effdefededaac567d8faba4a7b711e4ba5d3b557",
+    "lib/remaining-schema.js": "0fe0697858b69a25e7bb3529b36ec8840646209515a4bea23c6a58ccdcbb84cd",
+    "lib/sfc-activity.js": "8d2aded4b9e0119734b8207723d837a6f53b9b948933f3667357cb5719a6656a",
+    "lib/cmhc-rent.js": "4d5b744fd1ea89e9b56d8b7e5afbc5f9f0a62951910534ca71b38ccb7e7f24b9",
+    "lib/source-completion.js": "19c2cffbc5fc6a7151b8e935878c002b722e74a03a3ad54a86ea079a4b7e6f02",
+    "lib/monitor-contracts.js": "3138c07275674a9d60f97c5be621e15ea46b190cae65fbda521fda128d928f84",
+    "lib/monitor-state.js": "88dae19a3fec32eacedc7b9f5b8f513d59b4d892d90083a6203d6e1e6eb4b17d"
+  },
+  "runner": {
+    "path": "/tmp/mr-remaining-release-validate.sh",
+    "sha256": "cd76c600d5ca1822000dbd05751b862e1b874c3ae8095e4b75c2ad2984508723",
+    "review": "Requires one SFC workbook and three CMHC data/series/cube acquisition timestamps within exact CPU request start and source completion, completion no later than response. Final CMHC ordering guard is compatible. No new HTTP for this check."
+  },
+  "reporting_note": "An initial summary-assembly attempt used the wrong result-array index and failed before creating this report; test/checker results were unaffected.",
+  "evidence_files": [
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/commit.log",
+      "bytes": 121,
+      "sha256": "f34349dc037be1f7fb4f4405bcd992cb839c49806291bbee58b547b2039fffe7"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/focused-tests.tap",
+      "bytes": 9689,
+      "sha256": "686e9a4a4a23e4c36b46b638d88644488146a5720ffe5480b7a617e0d2bb96e9"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/full-check.log",
+      "bytes": 98541,
+      "sha256": "5bd8dc91fa9a67f7e286d04ae4123f8f27f118034cfc15077180c3758f024330"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/gap-checker-controls.json",
+      "bytes": 6445,
+      "sha256": "9bd207fa160ded9b26f5c49c02d83a5b1d17a3e9729c892c317a432b0edff8f6"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/gap-checker.log",
+      "bytes": 4941,
+      "sha256": "ae635f8768574cfbb31d377e9740abaf3cc6e052b887bc6860d00e8af47dc38d"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/merge.log",
+      "bytes": 1148,
+      "sha256": "7713738e23acf26e50078d1f8c091f3a795d2134281ecba9a8848f1a9a4ea60d"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/protected-before.json",
+      "bytes": 1056,
+      "sha256": "e1ff752631a21e272ccc93dcb28d92602006f72268845a2dae254eb9def38009"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/remaining-checker-controls.json",
+      "bytes": 5912,
+      "sha256": "62b6f8fd22907919569bd3df0a5f87aadd327977abce23ab416501f97fee96ed"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/remaining-checker.log",
+      "bytes": 4640,
+      "sha256": "4f40ef11d9c3f2c9b468381d77a328387bb88f017a7d7895a476f635a35e5371"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/wrangler-deploy-help.txt",
+      "bytes": 6287,
+      "sha256": "1a8af24dfaccd8c496bce34f0859173bbe36ed6dc384a0fe7706e1787a66b5f1"
+    },
+    {
+      "path": "/tmp/mr-remaining-merge-bf3110e/wrangler-dry-run.log",
+      "bytes": 616,
+      "sha256": "6887ab958cbee9552050f5454c507884246e486d1d84774dbae3552a6168a8d9"
+    }
+  ]
+}

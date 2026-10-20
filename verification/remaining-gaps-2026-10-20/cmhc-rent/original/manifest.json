@@ -1,0 +1,173 @@
+{
+  "acquisitions": [
+    {
+      "name": "cmhc-table",
+      "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3410013301",
+      "method": "GET",
+      "request_body": null,
+      "retrieved_at": "2026-10-20T09:42:28.801763+00:00",
+      "completed_at": "2026-10-20T09:42:29.086025+00:00",
+      "curl_exit": 0,
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "effective_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3410013301",
+      "bytes": 70207,
+      "sha256": "413d1b4387a1ce9704320341a553af8746de2babcdf5c76dee4b7e4bb556c619",
+      "signature": "3c21444f",
+      "transport_error": null,
+      "local_file": "cmhc-table.body"
+    },
+    {
+      "name": "cmhc-cube",
+      "url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+      "method": "POST",
+      "request_body": [
+        {
+          "productId": 34100133
+        }
+      ],
+      "retrieved_at": "2026-10-20T09:42:28.802184+00:00",
+      "completed_at": "2026-10-20T09:42:29.213502+00:00",
+      "curl_exit": 0,
+      "status": 200,
+      "content_type": "application/json",
+      "effective_url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+      "bytes": 67411,
+      "sha256": "56ca543c9a065f38119eefd37907187c0291beeca6235c9d0497565cbda45116",
+      "signature": "5b7b2273",
+      "transport_error": null,
+      "local_file": "cmhc-cube.body"
+    },
+    {
+      "name": "cmhc-bulk",
+      "url": "https://www150.statcan.gc.ca/n1/tbl/csv/34100133-eng.zip",
+      "method": "GET",
+      "request_body": null,
+      "retrieved_at": "2026-10-20T09:42:28.802425+00:00",
+      "completed_at": "2026-10-20T09:42:29.535516+00:00",
+      "curl_exit": 0,
+      "status": 200,
+      "content_type": "application/zip",
+      "effective_url": "https://www150.statcan.gc.ca/n1/tbl/csv/34100133-eng.zip",
+      "bytes": 1545574,
+      "sha256": "9085a5bdbcdd2f29a4235175a65d940d7b84346a09548a974ffff26fbf0523b2",
+      "signature": "504b0304",
+      "transport_error": null,
+      "local_file": "cmhc-bulk.body"
+    },
+    {
+      "name": "cmhc-points",
+      "url": "https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods",
+      "method": "POST",
+      "request_body": [
+        {
+          "productId": 34100133,
+          "coordinate": "186.3.3.0.0.0.0.0.0.0",
+          "latestN": 1
+        },
+        {
+          "productId": 34100133,
+          "coordinate": "66.3.3.0.0.0.0.0.0.0",
+          "latestN": 1
+        }
+      ],
+      "retrieved_at": "2026-10-20T09:43:33.050892+00:00",
+      "completed_at": "2026-10-20T09:43:33.550594+00:00",
+      "curl_exit": 0,
+      "status": 200,
+      "content_type": "application/json",
+      "effective_url": "https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods",
+      "bytes": 765,
+      "sha256": "4c1776ee5d3ec353da3d79d0810816c92399d2be16401a8e16a1ed3b1339823e",
+      "signature": "5b7b2273",
+      "transport_error": null,
+      "local_file": "cmhc-points.body"
+    },
+    {
+      "name": "cmhc-series",
+      "url": "https://www150.statcan.gc.ca/t1/wds/rest/getSeriesInfoFromCubePidCoord",
+      "method": "POST",
+      "request_body": [
+        {
+          "productId": 34100133,
+          "coordinate": "186.3.3.0.0.0.0.0.0.0"
+        },
+        {
+          "productId": 34100133,
+          "coordinate": "66.3.3.0.0.0.0.0.0.0"
+        }
+      ],
+      "retrieved_at": "2026-10-20T09:43:33.051374+00:00",
+      "completed_at": "2026-10-20T09:43:33.480939+00:00",
+      "curl_exit": 0,
+      "status": 200,
+      "content_type": "application/json",
+      "effective_url": "https://www150.statcan.gc.ca/t1/wds/rest/getSeriesInfoFromCubePidCoord",
+      "bytes": 959,
+      "sha256": "cad747496c0500daa5628e06b5b44fda877b4bb41ba255b024b0fd8e69f57c87",
+      "signature": "5b7b2273",
+      "transport_error": null,
+      "local_file": "cmhc-series.body"
+    },
+    {
+      "name": "cmhc-linked-terms",
+      "url": "https://www.cmhc-schl.gc.ca/about-us/terms-conditions/hmip-terms-conditions",
+      "method": "GET",
+      "request_body": null,
+      "retrieved_at": "2026-10-20T09:43:33.051895+00:00",
+      "completed_at": "2026-10-20T09:43:33.565623+00:00",
+      "curl_exit": 0,
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "effective_url": "https://www.cmhc-schl.gc.ca/about-us/terms-conditions/hmip-terms-conditions",
+      "bytes": 73744,
+      "sha256": "ca5757999f89c5d209284866c9b91738b4d127d8531be2cb026ee7e85571d957",
+      "signature": "0d0a3c21",
+      "transport_error": null,
+      "local_file": "cmhc-linked-terms.body"
+    },
+    {
+      "name": "cmhc-methodology",
+      "url": "https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-research/surveys/methods/methodology-rental-market-survey",
+      "method": "GET",
+      "request_body": null,
+      "retrieved_at": "2026-10-20T09:43:33.052422+00:00",
+      "completed_at": "2026-10-20T09:43:33.732682+00:00",
+      "curl_exit": 0,
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "effective_url": "https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-research/surveys/methods/methodology-rental-market-survey",
+      "bytes": 140886,
+      "sha256": "12c3c558d22376166f3c361412724d29527682eb25dbdef4d64f8e1eedfd031d",
+      "signature": "0d0a3c21",
+      "transport_error": null,
+      "local_file": "cmhc-methodology.body"
+    }
+  ],
+  "retained": [
+    {
+      "path": "cube-response-excerpt.json",
+      "bytes": 4251,
+      "sha256": "f0cbf2724b14384fe74e2eef9c2028db78e92c61aa8f44d7b4d2d113fb0ff317",
+      "transformation": "Required metadata/member/footnote fields selected and JSON reserialized."
+    },
+    {
+      "path": "points.json",
+      "bytes": 765,
+      "sha256": "4c1776ee5d3ec353da3d79d0810816c92399d2be16401a8e16a1ed3b1339823e",
+      "transformation": "Original bytes unchanged."
+    },
+    {
+      "path": "series.json",
+      "bytes": 959,
+      "sha256": "cad747496c0500daa5628e06b5b44fda877b4bb41ba255b024b0fd8e69f57c87",
+      "transformation": "Original bytes unchanged."
+    },
+    {
+      "path": "selected-csv.csv",
+      "bytes": 609,
+      "sha256": "a510a80fdc108c05c3fe77f025c7b581d7eb117243dc903b564606e9c797aaea",
+      "transformation": "Three selected original CSV rows; fields unchanged; CSV reserialized by prior independent extraction."
+    }
+  ]
+}

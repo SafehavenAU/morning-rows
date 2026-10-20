@@ -1,4 +1,93 @@
-# Current release — bounded gap pass, 20 October 2026
+# Current release — SFC and CMHC, 20 October 2026
+
+The second gap-list batch is accepted on both domains at clean source
+`3ae91ac1ce163008f05377acefc27cce488fbbed`, Worker
+`ff344629-f392-44ec-b816-92d14f52bd07`, fingerprint `e2a345caf4569e1f`.
+Deployment `fc98bcad-eb84-40d7-aeff-55460c0f5a58` promoted the exact tested
+version to 100% at `2026-10-20T11:28:10.036988Z`; acceptance was recorded at
+`2026-10-20T11:32:05.631Z`. Rollback is accepted phase-one source
+`bf3110e3bcbbc7db6d629254a886356e80f4c24a`, Worker
+`7f93e660-666c-435a-9b8b-bc37c060ac02`, fingerprint `f815539b2fa5b866`.
+See [release evidence](verification/remaining-gaps-2026-10-20/README.md) and
+[acceptance](verification/remaining-gaps-2026-10-20/release-acceptance.json).
+[PR16](https://github.com/SafehavenAU/morning-rows/pull/16) has exact-source CI
+`39414131265` passed; a documentation or merge revision is not deployed source.
+
+Only two sources are added within the existing nine desks. Scotland
+`college_activity` provides five fixed **2024–25 Scottish-college FTE** measures,
+published 4 February 2026: 39,655 / 47,405 / 4,595 / 24,400 / 116,055.
+They measure all-funding learning volume, not individual students or
+Scottish-domiciled residents; the total overlaps the four rounded components.
+The separate Parliament presentation shares SFC FES lineage. Retain SFC's
+accurate-attribution reproduction permission rather than an invented OGL claim.
+
+Canada `rental_benchmark` provides **2025 October-survey two-bedroom rents**:
+Victoria BC CMA 2,121 and Victoriaville Quebec CA 991 CAD/month. These are weighted
+averages for combined row-and-apartment structures with three or more units,
+not apartment-only, municipality-wide or current asking rents. WDS and CSV share
+CMHC survey lineage. Every representation retains the applicable HMIP licence,
+source/adaptation/no-endorsement notices and further-recipient agreement
+conditions. No individual assent or receipt is asserted. Neither source's exact
+approval certifies future vintages.
+
+The exact candidate passed **24 staged gates and 22 production gates**.
+The two-source production check covered **44 requests, 694 offline checks,
+seven unique independent reference cells / fourteen domain comparisons,
+20 schemas and 16 negative controls**. Existing phase-one contracts passed
+80 requests / 1,547 offline checks, alongside established GDP, claimant, rent,
+USA and core contracts; strict semantics passed **100/100** across both domains.
+Full smoke checks passed **18 apex / 17 www**. Ten additional discovery/refusal
+requests passed 164 checks confirming held sources remain inactive.
+CPU was **12 ms USA, 350 ms legacy maximum / Scotland, 71 ms Canada,
+52 ms claimant and 236 ms rent**, with fresh SFC/CMHC acquisition inside those
+full-desk captures and the unchanged 1,000 ms ceiling. The 236 source-state
+comparisons found only twelve known ONS 403→429 changes and two known TfL
+fluctuations; no unexplained regression was established.
+
+Earlier smoke captures remain successful checks with limited coverage; the
+failed remote ancestry preflight remains failed. Exact tree equivalence binds
+the deployed source to the locally verified tree without transferring the failed
+ancestry assertion. The original AEMO-active promotion and rollback remain
+historical; AEMO completed-day, NI electricity, CQC and ONS bedroom-rent candidates
+remain disconnected after 406, `Request Rejected`, 403 and 429 respectively.
+AER access and applicable upstream reuse terms remain open. The original grid
+snapshot and all previously accepted desks/contracts are preserved.
+
+Every currently actionable item in the bounded [gap list](GAP-LEDGER.md) has
+been handled. **This is not completion of every verification contract or the
+broader maintenance plan.** Twelve exact Stats NZ cells remain unresolved;
+NZ-PRICES remains tied to its 17 October Interim specimen; UK CPI remains parked.
+External blockers require new permitted usable evidence, not routine retries or
+new contracts. The transport edition check needed no reader correction.
+
+The accepted review appends the exact phase-one → SFC/CMHC edge, preserving all
+prior edges and approvals: **six edges, 23 exact approvals and 118 obligations
+in the existing 24 public probes**. Both-domain constructed replay preserves
+33 incidents, 36 repairs, outbox and history; 53 targeted monitoring tests passed
+after applying the review. No checkpoint was written. The next normal serialized
+collector may apply only the exact remaining suffix, retaining every intervening
+run/attempt/write; reviewed identities are not observed collections.
+
+Durable checkpoint remains **sequence 5 / run `39341442350`**, complete
+`2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`.
+There are **two legacy scheduled cycles and zero expanded-scope cycles**.
+The pending delivery event is unchanged and no receipt exists; build requests
+and upgrade are not acknowledgment. SHADOW starts at
+`2026-10-18T23:22:22.161Z`; nominal next cron `2026-10-20T23:17Z`, complete
+checkpoint deadline `2026-10-21T01:26:10.163Z`, with existing runtime/delay budgets.
+
+Keep hourly watchdog and daily collector unchanged, ordinary source alerts off,
+credentials private and automatic Builds disconnected. Do not repeat the test,
+release notices or unchanged incidents. Eight actual daily checkpoints, seven
+elapsed scheduled-completion days, no gap over 26 hours, independent watchdog
+proof and genuine delivery remain required for the applicable scope. Releases,
+previews, CI and replay do not add scheduled days or transfer legacy days to new
+semantics.
+
+---
+
+# Previous release — bounded gap pass, 20 October 2026
 
 Phase one is accepted on both domains at clean source
 `bf3110e3bcbbc7db6d629254a886356e80f4c24a`, Worker

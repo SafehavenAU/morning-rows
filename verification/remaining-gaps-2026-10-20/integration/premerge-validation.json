@@ -1,0 +1,32 @@
+{
+  "kind": "Pre-base-merge local integration evidence; not final source or release acceptance",
+  "checked_at": "2026-10-20T10:36:05.261947+00:00",
+  "initial_full_run": {
+    "tests": 1175,
+    "pass": 1174,
+    "fail": 1,
+    "reason": "Canada isolated reader test expected15 earlier requests and did not account for three new boundedCMHCrequests"
+  },
+  "fixed_focused_gap_worker_tests": 12,
+  "remaining_focused_tests": 152,
+  "final_base_merge_and_full_validation_required": true,
+  "cmhc_historical_capture_recheck": "Offline only through final timestamp validator; original protected acquisition is not rerun or relabelled",
+  "inputs": [
+    {
+      "file": "mr-remaining-premerge-tests-initial-failure.log",
+      "sha256": "22924525c7a0605502cd9c3eb65704224d2d2dec03e1a9ba20a6763e0490825f"
+    },
+    {
+      "file": "mr-remaining-canada-integration-fixed.log",
+      "sha256": "733ba253ec4436f19f37592cc899832f6398bf79c3e2c00a0f35039f422576d2"
+    },
+    {
+      "file": "mr-remaining-integration-tests.log",
+      "sha256": "15b3a9db8f36d9fcc09a7de9d30751f8e95b9da78c38c64cd00bd32b543b4865"
+    },
+    {
+      "file": "mr-cmhc-final-validator-historical-recheck.json",
+      "sha256": "1afcf5c9c929dad8b6d6ecf89d029ecbc5652ead065ee3169dc95e010491bc52"
+    }
+  ]
+}
