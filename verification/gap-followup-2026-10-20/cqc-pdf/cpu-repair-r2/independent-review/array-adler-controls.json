@@ -1,0 +1,1684 @@
+{
+  "pass": true,
+  "recorded_at": "2026-10-20T18:41:11.534Z",
+  "base_revision": "79e251cab4314c328e84d9ac4ca7bf5e5408bdbb",
+  "before_module_sha256": "7ee99d03615ee0cbfed4d7e8dff709f45dcde0839c410c2a56f0997563f61dbc",
+  "after_module_sha256": "f161ab460d0e489345edcd38c9bbe5c36b1a09990e5b53494a837f48931e27a9",
+  "groups": {
+    "array": {
+      "comparisons": 3543,
+      "accepted": 689,
+      "refused": 2854
+    },
+    "adler_decoder": {
+      "comparisons": 423,
+      "accepted": 117,
+      "refused": 306
+    }
+  },
+  "total_comparisons": 3966,
+  "arithmetic_controls": 72,
+  "adler_bound": {
+    "batch_bytes": 5552,
+    "max_a": 1481280,
+    "max_b": 4294690200,
+    "b_less_than_2_power_32": true,
+    "all_operations_exact_js_integers": true
+  },
+  "result_stream_sha256": "d97cdb24472781ad19d6a6c399c8442c098a9c35a0a6504436195b40bbd2b6bc",
+  "examples": [
+    {
+      "name": "virtual token limit position after comment",
+      "options": {
+        "maxTokens": 2
+      },
+      "depth": 0,
+      "ok": false,
+      "error": "Bounded PDF: Token limit exceeded",
+      "pos": 18,
+      "tokens": 3
+    },
+    {
+      "name": "depth wins before child replay skip",
+      "options": {
+        "maxDepth": 0,
+        "maxTokens": 2
+      },
+      "depth": 0,
+      "ok": false,
+      "error": "Bounded PDF: Value nesting exceeded",
+      "pos": 1,
+      "tokens": 2
+    },
+    {
+      "name": "malformed preliminary token wins before depth",
+      "options": {
+        "maxDepth": 0
+      },
+      "depth": 0,
+      "ok": false,
+      "error": "Bounded PDF: Invalid hexadecimal string",
+      "pos": 15,
+      "tokens": 2
+    },
+    {
+      "name": "unsafe preliminary token wins before depth",
+      "options": {
+        "maxDepth": 0
+      },
+      "depth": 0,
+      "ok": false,
+      "error": "Bounded PDF: Unsafe number",
+      "pos": 17,
+      "tokens": 2
+    },
+    {
+      "name": "child comment token limit with indirect lookahead",
+      "options": {
+        "maxTokens": 4
+      },
+      "depth": 0,
+      "ok": false,
+      "error": "Bounded PDF: Token limit exceeded",
+      "pos": 10,
+      "tokens": 5
+    },
+    {
+      "name": "array length 32767",
+      "options": {},
+      "depth": 0,
+      "value": "(exact value compared)",
+      "ok": true,
+      "pos": 163837,
+      "tokens": 65536
+    },
+    {
+      "name": "array length 32768",
+      "options": {},
+      "depth": 0,
+      "value": "(exact value compared)",
+      "ok": true,
+      "pos": 163842,
+      "tokens": 65538
+    },
+    {
+      "name": "array length 32769",
+      "options": {},
+      "depth": 0,
+      "ok": false,
+      "error": "Bounded PDF: Array limit exceeded",
+      "pos": 163845,
+      "tokens": 65539
+    },
+    {
+      "name": "nested depth 31",
+      "options": {},
+      "depth": 0,
+      "value": "(exact value compared)",
+      "ok": true,
+      "pos": 67,
+      "tokens": 94
+    },
+    {
+      "name": "nested depth 32",
+      "options": {},
+      "depth": 0,
+      "value": "(exact value compared)",
+      "ok": true,
+      "pos": 69,
+      "tokens": 97
+    },
+    {
+      "name": "nested depth 33",
+      "options": {},
+      "depth": 0,
+      "ok": false,
+      "error": "Bounded PDF: Value nesting exceeded",
+      "pos": 33,
+      "tokens": 66
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Zlib Adler32 mismatch"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "unexpected EOF"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "unexpected EOF"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "unexpected EOF"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Incomplete or trailing DEFLATE stream"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Unsupported zlib header/dictionary"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Unsupported zlib header/dictionary"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Unsupported zlib header/dictionary"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Compressed stream bound exceeded"
+    },
+    {
+      "name": "Error",
+      "ok": false,
+      "error": "Bounded PDF: Inflated stream bound exceeded"
+    }
+  ],
+  "full_native_deep_equal": true,
+  "native_sha256": "20ec5f620e7a5685df804fc5e6651feda6dd8d0fddb9cc02f8c9b7cff6ff790c",
+  "values": [
+    125,
+    809,
+    2063,
+    65,
+    3062
+  ],
+  "no_http": true,
+  "no_repository_writes": true,
+  "shim": "Private decodeZlib exported only within imported source copies in this external harness; repository module untouched.",
+  "scope": "Local semantic and refusal proof only; no Cloudflare CPU acceptance"
+}

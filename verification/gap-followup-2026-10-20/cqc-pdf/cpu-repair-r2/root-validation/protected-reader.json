@@ -1,0 +1,422 @@
+{
+  "started_at": "2026-10-20T18:40:57.708Z",
+  "environment": "Protected Cloudflare remote dev",
+  "purpose": "One bounded protected actual-reader request and constructed controls; no CPU or release claim",
+  "attempts": 1,
+  "git_head": "79e251cab4314c328e84d9ac4ca7bf5e5408bdbb",
+  "production_version": null,
+  "code_before": {
+    "reader-preview.js": "22311c2149d9079d7cd8c0a05fb7543f8f5b2791e6b1e381ff24027032c65af8",
+    "reader-integration.toml": "1f084bab9e53b715e67161b2a42dd5ac0e49631accb8b2459cc0f83405e6dc64",
+    "check-reader.mjs": "ec5dd73a7fb67e66aeaaaeecc340b2a7ab4bf0bdb17dc5b4bcc727b5a2ff3276",
+    "CONTRACT.md": "3414f7888d0a1b7a318fda806841831cddec051b041978eeb98ff7e235a7f2ad",
+    "../../../lib/cqc-pdf.js": "f161ab460d0e489345edcd38c9bbe5c36b1a09990e5b53494a837f48931e27a9",
+    "../../../lib/cqc-cohort.js": "1f2cab212db4e088a91458455bcc8936dd5f6c306f91cf99b087b4baa14b96d3",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../lib/workbook.js": "2f9ab2128e36b520156e9ea05957fbc04e3b6da4ffcee358b7bc77cb586ea25a",
+    "../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a"
+  },
+  "wrapper_status": 200,
+  "response_sha256": "c37eba7c7f2f9176a4d01953f3278742d5da965640bb85688832135397cac88b",
+  "response_bytes": 17132,
+  "live": {
+    "kind": "Actual protected Worker CQC original-PDF reader; one publisher GET plus constructed refusal controls",
+    "started_at": "2026-10-20T18:41:00.229Z",
+    "network_reads": 1,
+    "cpu_acceptance": false,
+    "controls": [
+      {
+        "name": "five values agree with independent PDF/workbook reference",
+        "pass": true
+      },
+      {
+        "name": "native acquisition, exact original bytes and fixed semantics",
+        "pass": true
+      },
+      {
+        "name": "wrong geography",
+        "pass": true
+      },
+      {
+        "name": "wrong cohort",
+        "pass": true
+      },
+      {
+        "name": "wrong framework",
+        "pass": true
+      },
+      {
+        "name": "wrong assessment unit",
+        "pass": true
+      },
+      {
+        "name": "unbalanced category",
+        "pass": true
+      },
+      {
+        "name": "suppression as zero",
+        "pass": true
+      },
+      {
+        "name": "partial coverage",
+        "pass": true
+      },
+      {
+        "name": "unknown missingness",
+        "pass": true
+      },
+      {
+        "name": "false live publication metadata",
+        "pass": true
+      },
+      {
+        "name": "wrong original digest",
+        "pass": true
+      },
+      {
+        "name": "changed original size",
+        "pass": true
+      },
+      {
+        "name": "missing live provenance",
+        "pass": true
+      },
+      {
+        "name": "explicit missing acquisition clock",
+        "pass": true
+      },
+      {
+        "name": "cache clock before acquisition",
+        "pass": true
+      },
+      {
+        "name": "manual redirect refusal",
+        "pass": true
+      },
+      {
+        "name": "changed bytes cannot become static fallback",
+        "pass": true
+      },
+      {
+        "name": "declared file bound",
+        "pass": true
+      }
+    ],
+    "native": {
+      "status": "ok",
+      "contract_id": "cqc-adult-social-care-pdf-2025-08-01",
+      "geography": "England",
+      "period": "2025-08-01",
+      "publication_date": "2025-10-24",
+      "edition": "State of Care 2024/25",
+      "framework": "CQC single assessment framework",
+      "population": "Adult social care overall ratings published under the single assessment framework as at 1 August 2025.",
+      "assessment_unit": "Ratings of individual adult social care services at a location; not unique locations, providers or patients.",
+      "unit": "ratings",
+      "kind": "observation",
+      "adjustment": "Published integer counts; not seasonally adjusted.",
+      "period_convention": "Historical snapshot as at 1 August 2025; not a current whole-England service census.",
+      "revision_policy": "Fixed original PDF bytes as well as historical edition and snapshot. Every count is structurally extracted from the fetched original; any changed PDF bytes require new independent evidence and reviewed acceptance. No automatic revision or future-edition substitution.",
+      "limitations": "Assessment was prioritised by risk and this cohort is unlikely to represent all adult social care services. Single-framework service-level ratings must not be combined with or compared with previous-framework location ratings or previous years. No whole-England quality rate, trend, care capacity, patient outcome or individual-provider recommendation is supported. The total overlaps the four categories and must not be added to them.",
+      "publisher": "Care Quality Commission",
+      "licence": "Open Government Licence v3.0",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "source_url": "https://assets.publishing.service.gov.uk/media/68fa3b4fe200d653d8b63735/care-quality-commission-state-of-health-care-and-adult-social-care-England-2024-2025.pdf",
+      "publication_url": "https://www.cqc.org.uk/publications/major-report/state-care/2024-2025/charts",
+      "edition_bytes": 7175967,
+      "edition_sha256": "61614bff618645c52cf61405b9c6a2115854e29262d76e324513d2348e555fef",
+      "publication_evidence": {
+        "kind": "retained_same_edition_publication_metadata",
+        "path": "verification/remaining-gaps-2026-10-20/prior-audit/cqc/original/state-of-care-index.html",
+        "sha256": "987986bb8ad36eda0d21eb30575b6551bdcdbe364c2af5c3a3dba165e4fdeb0d",
+        "original_url": "https://www.cqc.org.uk/publications/major-report/state-care",
+        "publication_date": "2025-10-24",
+        "edition": "State of Care 2024/25",
+        "live_retrieved": false
+      },
+      "rows": [
+        {
+          "measure": "inadequate",
+          "label": "Inadequate",
+          "measure_id": "inadequate",
+          "value": 125,
+          "unit": "ratings",
+          "period": "2025-08-01",
+          "value_state": "observed",
+          "geography": "England"
+        },
+        {
+          "measure": "requires_improvement",
+          "label": "Requires improvement",
+          "measure_id": "requires_improvement",
+          "value": 809,
+          "unit": "ratings",
+          "period": "2025-08-01",
+          "value_state": "observed",
+          "geography": "England"
+        },
+        {
+          "measure": "good",
+          "label": "Good",
+          "measure_id": "good",
+          "value": 2063,
+          "unit": "ratings",
+          "period": "2025-08-01",
+          "value_state": "observed",
+          "geography": "England"
+        },
+        {
+          "measure": "outstanding",
+          "label": "Outstanding",
+          "measure_id": "outstanding",
+          "value": 65,
+          "unit": "ratings",
+          "period": "2025-08-01",
+          "value_state": "observed",
+          "geography": "England"
+        },
+        {
+          "measure": "total",
+          "label": "Total",
+          "measure_id": "total",
+          "value": 3062,
+          "unit": "ratings",
+          "period": "2025-08-01",
+          "value_state": "observed",
+          "geography": "England"
+        }
+      ],
+      "definitions": [
+        {
+          "id": "inadequate",
+          "name": "Inadequate: adult social care service ratings in the single assessment framework cohort",
+          "geography": "England",
+          "population": "Adult social care overall ratings published under the single assessment framework as at 1 August 2025.",
+          "unit": "ratings",
+          "kind": "observation",
+          "cadence": "Fixed historical snapshot; no automatic edition advancement",
+          "dimensions": {
+            "sector": "Adult social care",
+            "framework": "CQC single assessment framework",
+            "snapshot_date": "2025-08-01",
+            "rating": "Inadequate",
+            "assessment_unit": "Individual service at a location"
+          },
+          "publisher": "Care Quality Commission",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://assets.publishing.service.gov.uk/media/68fa3b4fe200d653d8b63735/care-quality-commission-state-of-health-care-and-adult-social-care-England-2024-2025.pdf",
+          "period_convention": "Historical snapshot as at 1 August 2025; not a current whole-England service census.",
+          "adjustment": "Published integer counts; not seasonally adjusted.",
+          "limitations": "Assessment was prioritised by risk and this cohort is unlikely to represent all adult social care services. Single-framework service-level ratings must not be combined with or compared with previous-framework location ratings or previous years. No whole-England quality rate, trend, care capacity, patient outcome or individual-provider recommendation is supported. The total overlaps the four categories and must not be added to them.",
+          "revision_policy": "Fixed original PDF bytes as well as historical edition and snapshot. Every count is structurally extracted from the fetched original; any changed PDF bytes require new independent evidence and reviewed acceptance. No automatic revision or future-edition substitution.",
+          "publication_date": "2025-10-24",
+          "edition": "State of Care 2024/25",
+          "publication_evidence": {
+            "kind": "retained_same_edition_publication_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/prior-audit/cqc/original/state-of-care-index.html",
+            "sha256": "987986bb8ad36eda0d21eb30575b6551bdcdbe364c2af5c3a3dba165e4fdeb0d",
+            "original_url": "https://www.cqc.org.uk/publications/major-report/state-care",
+            "publication_date": "2025-10-24",
+            "edition": "State of Care 2024/25",
+            "live_retrieved": false
+          }
+        },
+        {
+          "id": "requires_improvement",
+          "name": "Requires improvement: adult social care service ratings in the single assessment framework cohort",
+          "geography": "England",
+          "population": "Adult social care overall ratings published under the single assessment framework as at 1 August 2025.",
+          "unit": "ratings",
+          "kind": "observation",
+          "cadence": "Fixed historical snapshot; no automatic edition advancement",
+          "dimensions": {
+            "sector": "Adult social care",
+            "framework": "CQC single assessment framework",
+            "snapshot_date": "2025-08-01",
+            "rating": "Requires improvement",
+            "assessment_unit": "Individual service at a location"
+          },
+          "publisher": "Care Quality Commission",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://assets.publishing.service.gov.uk/media/68fa3b4fe200d653d8b63735/care-quality-commission-state-of-health-care-and-adult-social-care-England-2024-2025.pdf",
+          "period_convention": "Historical snapshot as at 1 August 2025; not a current whole-England service census.",
+          "adjustment": "Published integer counts; not seasonally adjusted.",
+          "limitations": "Assessment was prioritised by risk and this cohort is unlikely to represent all adult social care services. Single-framework service-level ratings must not be combined with or compared with previous-framework location ratings or previous years. No whole-England quality rate, trend, care capacity, patient outcome or individual-provider recommendation is supported. The total overlaps the four categories and must not be added to them.",
+          "revision_policy": "Fixed original PDF bytes as well as historical edition and snapshot. Every count is structurally extracted from the fetched original; any changed PDF bytes require new independent evidence and reviewed acceptance. No automatic revision or future-edition substitution.",
+          "publication_date": "2025-10-24",
+          "edition": "State of Care 2024/25",
+          "publication_evidence": {
+            "kind": "retained_same_edition_publication_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/prior-audit/cqc/original/state-of-care-index.html",
+            "sha256": "987986bb8ad36eda0d21eb30575b6551bdcdbe364c2af5c3a3dba165e4fdeb0d",
+            "original_url": "https://www.cqc.org.uk/publications/major-report/state-care",
+            "publication_date": "2025-10-24",
+            "edition": "State of Care 2024/25",
+            "live_retrieved": false
+          }
+        },
+        {
+          "id": "good",
+          "name": "Good: adult social care service ratings in the single assessment framework cohort",
+          "geography": "England",
+          "population": "Adult social care overall ratings published under the single assessment framework as at 1 August 2025.",
+          "unit": "ratings",
+          "kind": "observation",
+          "cadence": "Fixed historical snapshot; no automatic edition advancement",
+          "dimensions": {
+            "sector": "Adult social care",
+            "framework": "CQC single assessment framework",
+            "snapshot_date": "2025-08-01",
+            "rating": "Good",
+            "assessment_unit": "Individual service at a location"
+          },
+          "publisher": "Care Quality Commission",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://assets.publishing.service.gov.uk/media/68fa3b4fe200d653d8b63735/care-quality-commission-state-of-health-care-and-adult-social-care-England-2024-2025.pdf",
+          "period_convention": "Historical snapshot as at 1 August 2025; not a current whole-England service census.",
+          "adjustment": "Published integer counts; not seasonally adjusted.",
+          "limitations": "Assessment was prioritised by risk and this cohort is unlikely to represent all adult social care services. Single-framework service-level ratings must not be combined with or compared with previous-framework location ratings or previous years. No whole-England quality rate, trend, care capacity, patient outcome or individual-provider recommendation is supported. The total overlaps the four categories and must not be added to them.",
+          "revision_policy": "Fixed original PDF bytes as well as historical edition and snapshot. Every count is structurally extracted from the fetched original; any changed PDF bytes require new independent evidence and reviewed acceptance. No automatic revision or future-edition substitution.",
+          "publication_date": "2025-10-24",
+          "edition": "State of Care 2024/25",
+          "publication_evidence": {
+            "kind": "retained_same_edition_publication_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/prior-audit/cqc/original/state-of-care-index.html",
+            "sha256": "987986bb8ad36eda0d21eb30575b6551bdcdbe364c2af5c3a3dba165e4fdeb0d",
+            "original_url": "https://www.cqc.org.uk/publications/major-report/state-care",
+            "publication_date": "2025-10-24",
+            "edition": "State of Care 2024/25",
+            "live_retrieved": false
+          }
+        },
+        {
+          "id": "outstanding",
+          "name": "Outstanding: adult social care service ratings in the single assessment framework cohort",
+          "geography": "England",
+          "population": "Adult social care overall ratings published under the single assessment framework as at 1 August 2025.",
+          "unit": "ratings",
+          "kind": "observation",
+          "cadence": "Fixed historical snapshot; no automatic edition advancement",
+          "dimensions": {
+            "sector": "Adult social care",
+            "framework": "CQC single assessment framework",
+            "snapshot_date": "2025-08-01",
+            "rating": "Outstanding",
+            "assessment_unit": "Individual service at a location"
+          },
+          "publisher": "Care Quality Commission",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://assets.publishing.service.gov.uk/media/68fa3b4fe200d653d8b63735/care-quality-commission-state-of-health-care-and-adult-social-care-England-2024-2025.pdf",
+          "period_convention": "Historical snapshot as at 1 August 2025; not a current whole-England service census.",
+          "adjustment": "Published integer counts; not seasonally adjusted.",
+          "limitations": "Assessment was prioritised by risk and this cohort is unlikely to represent all adult social care services. Single-framework service-level ratings must not be combined with or compared with previous-framework location ratings or previous years. No whole-England quality rate, trend, care capacity, patient outcome or individual-provider recommendation is supported. The total overlaps the four categories and must not be added to them.",
+          "revision_policy": "Fixed original PDF bytes as well as historical edition and snapshot. Every count is structurally extracted from the fetched original; any changed PDF bytes require new independent evidence and reviewed acceptance. No automatic revision or future-edition substitution.",
+          "publication_date": "2025-10-24",
+          "edition": "State of Care 2024/25",
+          "publication_evidence": {
+            "kind": "retained_same_edition_publication_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/prior-audit/cqc/original/state-of-care-index.html",
+            "sha256": "987986bb8ad36eda0d21eb30575b6551bdcdbe364c2af5c3a3dba165e4fdeb0d",
+            "original_url": "https://www.cqc.org.uk/publications/major-report/state-care",
+            "publication_date": "2025-10-24",
+            "edition": "State of Care 2024/25",
+            "live_retrieved": false
+          }
+        },
+        {
+          "id": "total",
+          "name": "Total: adult social care service ratings in the single assessment framework cohort",
+          "geography": "England",
+          "population": "Adult social care overall ratings published under the single assessment framework as at 1 August 2025.",
+          "unit": "ratings",
+          "kind": "observation",
+          "cadence": "Fixed historical snapshot; no automatic edition advancement",
+          "dimensions": {
+            "sector": "Adult social care",
+            "framework": "CQC single assessment framework",
+            "snapshot_date": "2025-08-01",
+            "rating": "Total",
+            "assessment_unit": "Individual service at a location"
+          },
+          "publisher": "Care Quality Commission",
+          "licence": "Open Government Licence v3.0",
+          "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "source_url": "https://assets.publishing.service.gov.uk/media/68fa3b4fe200d653d8b63735/care-quality-commission-state-of-health-care-and-adult-social-care-England-2024-2025.pdf",
+          "period_convention": "Historical snapshot as at 1 August 2025; not a current whole-England service census.",
+          "adjustment": "Published integer counts; not seasonally adjusted.",
+          "limitations": "Assessment was prioritised by risk and this cohort is unlikely to represent all adult social care services. Single-framework service-level ratings must not be combined with or compared with previous-framework location ratings or previous years. No whole-England quality rate, trend, care capacity, patient outcome or individual-provider recommendation is supported. The total overlaps the four categories and must not be added to them.",
+          "revision_policy": "Fixed original PDF bytes as well as historical edition and snapshot. Every count is structurally extracted from the fetched original; any changed PDF bytes require new independent evidence and reviewed acceptance. No automatic revision or future-edition substitution.",
+          "publication_date": "2025-10-24",
+          "edition": "State of Care 2024/25",
+          "publication_evidence": {
+            "kind": "retained_same_edition_publication_metadata",
+            "path": "verification/remaining-gaps-2026-10-20/prior-audit/cqc/original/state-of-care-index.html",
+            "sha256": "987986bb8ad36eda0d21eb30575b6551bdcdbe364c2af5c3a3dba165e4fdeb0d",
+            "original_url": "https://www.cqc.org.uk/publications/major-report/state-care",
+            "publication_date": "2025-10-24",
+            "edition": "State of Care 2024/25",
+            "live_retrieved": false
+          }
+        }
+      ],
+      "metadata": {
+        "count": 5,
+        "fixed_edition": true,
+        "pdf_page_count": 205,
+        "pdf_page_indices": [
+          187,
+          188
+        ],
+        "printed_pages": [
+          186,
+          187
+        ],
+        "figure": "A1",
+        "publication_date_basis": "Retained official publication metadata; PDF printing date is not publication date",
+        "publication_evidence": {
+          "kind": "retained_same_edition_publication_metadata",
+          "path": "verification/remaining-gaps-2026-10-20/prior-audit/cqc/original/state-of-care-index.html",
+          "sha256": "987986bb8ad36eda0d21eb30575b6551bdcdbe364c2af5c3a3dba165e4fdeb0d",
+          "original_url": "https://www.cqc.org.uk/publications/major-report/state-care",
+          "publication_date": "2025-10-24",
+          "edition": "State of Care 2024/25",
+          "live_retrieved": false
+        }
+      },
+      "published_at": null,
+      "publisher_updated_at": null,
+      "next_expected_update": null,
+      "provenance": [
+        {
+          "role": "original_pdf",
+          "url": "https://assets.publishing.service.gov.uk/media/68fa3b4fe200d653d8b63735/care-quality-commission-state-of-health-care-and-adult-social-care-England-2024-2025.pdf",
+          "retrieved_at": "2026-10-20T18:41:00.229Z",
+          "bytes": 7175967,
+          "sha256": "61614bff618645c52cf61405b9c6a2115854e29262d76e324513d2348e555fef"
+        }
+      ]
+    },
+    "checked_at": "2026-10-20T18:41:02.189Z",
+    "pass": true,
+    "count": 19,
+    "finished_at": "2026-10-20T18:41:02.189Z"
+  },
+  "pass": true,
+  "finished_at": "2026-10-20T18:41:02.914Z",
+  "code_after": {
+    "reader-preview.js": "22311c2149d9079d7cd8c0a05fb7543f8f5b2791e6b1e381ff24027032c65af8",
+    "reader-integration.toml": "1f084bab9e53b715e67161b2a42dd5ac0e49631accb8b2459cc0f83405e6dc64",
+    "check-reader.mjs": "ec5dd73a7fb67e66aeaaaeecc340b2a7ab4bf0bdb17dc5b4bcc727b5a2ff3276",
+    "CONTRACT.md": "3414f7888d0a1b7a318fda806841831cddec051b041978eeb98ff7e235a7f2ad",
+    "../../../lib/cqc-pdf.js": "f161ab460d0e489345edcd38c9bbe5c36b1a09990e5b53494a837f48931e27a9",
+    "../../../lib/cqc-cohort.js": "1f2cab212db4e088a91458455bcc8936dd5f6c306f91cf99b087b4baa14b96d3",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../lib/workbook.js": "2f9ab2128e36b520156e9ea05957fbc04e3b6da4ffcee358b7bc77cb586ea25a",
+    "../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a"
+  },
+  "code_unchanged": true
+}
