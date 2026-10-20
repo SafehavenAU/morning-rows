@@ -1,0 +1,337 @@
+{
+  "kind": "Research-only separate official CSV extraction, metadata and public export-route review",
+  "metadata_checks": {
+    "count": 25,
+    "pass": true,
+    "checks": [
+      {
+        "name": "annual notes exact title and dated2025 update",
+        "pass": true
+      },
+      {
+        "name": "annual notes original HTTP200",
+        "pass": true
+      },
+      {
+        "name": "quarter notes original HTTP200",
+        "pass": true
+      },
+      {
+        "name": "annual person-level tax identity",
+        "pass": true
+      },
+      {
+        "name": "annual age at tax-year start",
+        "pass": true
+      },
+      {
+        "name": "annual non-zero coverage",
+        "pass": true
+      },
+      {
+        "name": "annual valid tax identity",
+        "pass": true
+      },
+      {
+        "name": "annual before-tax metadata",
+        "pass": true
+      },
+      {
+        "name": "annual March-year convention",
+        "pass": true
+      },
+      {
+        "name": "annual total earnings combines wages and self-employment",
+        "pass": true
+      },
+      {
+        "name": "annual1.1 count differs from1.2 median",
+        "pass": true
+      },
+      {
+        "name": "negative self-employment retained",
+        "pass": true
+      },
+      {
+        "name": "annual rounding and small-cell suppression",
+        "pass": true
+      },
+      {
+        "name": "annual latest-year provisional policy",
+        "pass": true
+      },
+      {
+        "name": "quarter valid PAYE paid-job population",
+        "pass": true
+      },
+      {
+        "name": "quarter continuous full-quarter jobs",
+        "pass": true
+      },
+      {
+        "name": "quarter earnings gross including lumpsums",
+        "pass": true
+      },
+      {
+        "name": "quarter confidentiality rounding",
+        "pass": true
+      },
+      {
+        "name": "quarter median distinct from continuing/new-hire measures",
+        "pass": true
+      },
+      {
+        "name": "quarter revision window",
+        "pass": true
+      },
+      {
+        "name": "annual selected release exact title/date",
+        "pass": true
+      },
+      {
+        "name": "quarter selected release exact title/date",
+        "pass": true
+      },
+      {
+        "name": "no target number in acquired selected release bodies",
+        "pass": true
+      },
+      {
+        "name": "no LEED download in published CSV index",
+        "pass": true
+      },
+      {
+        "name": "initial Infoshare request refusal preserved",
+        "pass": true
+      }
+    ]
+  },
+  "quarter_comparison_checks": {
+    "count": 7,
+    "pass": true,
+    "checks": [
+      {
+        "name": "ordinary public UI five bounded requests succeeded",
+        "pass": true
+      },
+      {
+        "name": "wire CSV acquisition digest and length preserved",
+        "pass": true
+      },
+      {
+        "name": "retained CSV excerpt digest length and original line boundary",
+        "pass": true
+      },
+      {
+        "name": "CSV acquisition is original public form output",
+        "pass": true
+      },
+      {
+        "name": "exact selected quarterly integer matches separately retained reader target",
+        "pass": true
+      },
+      {
+        "name": "original update date matches selected official quarterly release",
+        "pass": true
+      },
+      {
+        "name": "native empty attributes are not interpreted as final status",
+        "pass": true
+      }
+    ]
+  },
+  "negative_controls": {
+    "count": 15,
+    "pass": true,
+    "checks": [
+      {
+        "name": "reject wrong value",
+        "pass": true
+      },
+      {
+        "name": "reject wrong quarter",
+        "pass": true
+      },
+      {
+        "name": "reject wrong sex",
+        "pass": true
+      },
+      {
+        "name": "reject wrong age",
+        "pass": true
+      },
+      {
+        "name": "reject wrong measure",
+        "pass": true
+      },
+      {
+        "name": "reject wrong magnitude",
+        "pass": true
+      },
+      {
+        "name": "reject wrong table",
+        "pass": true
+      },
+      {
+        "name": "reject different update vintage",
+        "pass": true
+      },
+      {
+        "name": "reject suppression must not become zero",
+        "pass": true
+      },
+      {
+        "name": "reject missing must not become zero",
+        "pass": true
+      },
+      {
+        "name": "reject blank must not become zero",
+        "pass": true
+      },
+      {
+        "name": "reject status boundary must remain explicit",
+        "pass": true
+      },
+      {
+        "name": "reject wrong reader period",
+        "pass": true
+      },
+      {
+        "name": "reject wrong reader unit",
+        "pass": true
+      },
+      {
+        "name": "reject wrong reader geography",
+        "pass": true
+      }
+    ]
+  },
+  "exact_numeric_comparisons": 1,
+  "completed_exact_cells": 1,
+  "remaining_exact_cells": 2,
+  "all_three_complete": false,
+  "full_status_and_future_acceptance": false,
+  "rows": [
+    {
+      "id": "LEED_AP1_001",
+      "period": "2024",
+      "target_value": 4091334,
+      "unit": "people",
+      "dimensions": {
+        "INCOME_SOURCE_LEED_AP1_001": {
+          "code": "IZ",
+          "label": "Total people"
+        },
+        "AGE_LEED_AP1_001": {
+          "code": "AZ",
+          "label": "Total age"
+        },
+        "SEX_LEED_AP1_001": {
+          "code": "XZ",
+          "label": "Total sex"
+        },
+        "REGION_LEED_AP1_001": {
+          "code": "RZ",
+          "label": "Total region"
+        }
+      },
+      "independent_exact_value": null,
+      "numeric_comparison": "not_performed_no_usable_separate_export",
+      "numeric_comparison_complete": false,
+      "full_status_and_future_acceptance": false,
+      "metadata_source": "original/annual-methods-canonical.json",
+      "reference": null,
+      "remaining_evidence": "Dated official selected annual table/CSV with exact period/value, unit, population, observation status and release/revision vintage; do not substitute a later vintage."
+    },
+    {
+      "id": "LEED_AP1_002",
+      "period": "2024",
+      "target_value": 57610,
+      "unit": "NZD per year",
+      "dimensions": {
+        "INCOME_SOURCE_LEED_AP1_002": {
+          "code": "IZ",
+          "label": "Total earnings"
+        },
+        "AGE_LEED_AP1_002": {
+          "code": "AZ",
+          "label": "Total age"
+        },
+        "SEX_LEED_AP1_002": {
+          "code": "XZ",
+          "label": "Total sex"
+        },
+        "REGION_LEED_AP1_002": {
+          "code": "RZ",
+          "label": "Total region"
+        }
+      },
+      "independent_exact_value": null,
+      "numeric_comparison": "not_performed_no_usable_separate_export",
+      "numeric_comparison_complete": false,
+      "full_status_and_future_acceptance": false,
+      "metadata_source": "original/annual-methods-canonical.json",
+      "reference": null,
+      "remaining_evidence": "Dated official selected annual table/CSV with exact period/value, unit, population, observation status and release/revision vintage; do not substitute a later vintage."
+    },
+    {
+      "id": "LEED_Q1W_001",
+      "period": "202506",
+      "target_value": 18100,
+      "unit": "NZD per quarter",
+      "dimensions": {
+        "AGE_LEED_Q1W_001": {
+          "code": "A3Z",
+          "label": "Total age"
+        },
+        "MEASURE_LEED_Q1W_001": {
+          "code": "MEDIAN_EARN",
+          "label": "Median earnings of full quarters jobs"
+        }
+      },
+      "independent_exact_value": 18100,
+      "numeric_comparison": "exact_published_value_match_zero_tolerance",
+      "numeric_comparison_complete": true,
+      "full_status_and_future_acceptance": false,
+      "metadata_source": "original/quarter-methods.json",
+      "reference": {
+        "table_reference": "LED005AA",
+        "selected_labels": {
+          "sex": "Total All Sexes",
+          "age": "Total All Ages",
+          "measure": "Median Earnings - All"
+        },
+        "period": "2025Q2",
+        "mapped_period": "202506",
+        "value": 18100,
+        "original_unit": "$, Magnitude = Units",
+        "unit": "NZD per quarter",
+        "source_updated_raw": "25 August 2026 10:45am",
+        "source_updated_timezone": "not stated; no UTC instant inferred",
+        "original_excerpt": "original/quarter-full-jobs-2025Q2.csv; original lines1–28, contact footer omitted",
+        "original_wire_sha256": "77d1c5e9b3f37d44a86b76717b0d5c05c47afba79f9337e837f19700c784e3a4",
+        "retained_excerpt_sha256": "6f55fecfedd91ca5d371294c22a7018beffe01aff51b47c70a1ddac0c0cba2ad",
+        "observed_status": "unknown; export explicitly does not display status flags",
+        "value_precision": "published integer dollars, confidentiality-rounded under LEED methodology"
+      },
+      "remaining_evidence": "Exact observation status is not displayed in this export; no future-vintage or finality approval."
+    }
+  ],
+  "crosswalk": {
+    "official_csv_table": "LED005AA",
+    "official_csv_population": "Total All Sexes / Total All Ages",
+    "ade_series": "LEED_Q1W_001",
+    "ade_key": ".A3Z.MEDIAN_EARN",
+    "official_measure": "Median Earnings - All",
+    "ade_measure": "Median earnings of full quarters jobs",
+    "period_mapping": "2025Q2 is 1 April–30 June 2025; ADE quarter-end code 202506",
+    "geography": "New Zealand national table; no selected regional restriction",
+    "population": "PAYE jobs for people aged 15+ with valid IRD identifier, continuous throughout the quarter; not a count or median of people, and not continuing-jobs-only or new-hires-only",
+    "tax_and_payments": "Quarterly gross earnings including lump sums; social assistance payments excluded",
+    "rounding": "Earnings statistics are rounded to base 10 or base 100 for confidentiality; exact equality is to the published value"
+  },
+  "scope_note": "No runtime, credentials, production endpoints, approval or monitoring changes. Evidence files only. Empty reader attributes do not establish final revision status.",
+  "independence": "Infoshare CSV and ADE reader use separate official presentations and independent Python extraction but share LEED administrative statistical lineage. No independent underlying statistical measurement is claimed.",
+  "annual_discovery_boundary": "The 21 visible public LED tables in this bounded visit were quarterly; no usable annual selected table was exposed. This does not establish that no annual public export exists elsewhere.",
+  "access_boundary": "Initial plain landing request 403 preserved. Later authorized normal public-form interaction succeeded; no cause for that difference is inferred. No denied ADE request was repeated."
+}

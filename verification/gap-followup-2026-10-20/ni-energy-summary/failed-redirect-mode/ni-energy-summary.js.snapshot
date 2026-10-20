@@ -1,0 +1,92 @@
+import {fetchOfficial,SourceError} from './sources.js';
+
+const source_url='https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics';
+const report_url='https://datavis.nisra.gov.uk/Economy/electricity-consumption-and-renewable-generation-report.html';
+const publisher='Department for the Economy, Northern Ireland',licence='Open Government Licence v3.0',licence_url='https://www.economy-ni.gov.uk/articles/crown-copyright-economy';
+const edition='fixed_2026-09-03',publication_date='2026-09-03',period_start='2025-07-01',period_end='2026-06-30',period=period_start+'/'+period_end;
+const publication_period='July 2025 to June 2026',latest_reference_month='2026-06',limit=262144;
+const methodology='Gross final electricity consumption includes metered and own-use renewable and non-renewable generation plus imports minus exports, gross of system losses; renewable numerator is indigenous renewable generation. Revised GFEC basis, not the superseded pre-2026 consumption measure.';
+const revision_status='Statistics in Development; rounded estimates and earlier periods may be revised, including own-use estimates and supplier corrections; not final.';
+const limitations='Fixed edition published 3 September 2026 for July 2025 to June 2026; does not claim the newest available publication. Northern Ireland rolling twelve-month totals, not a calendar year, monthly average, UK or all-island figure. No historical series or fuel breakdown. Do not add consumption to its overlapping generation/net-import components. Renewable/GFEC share is not share of generation. Full methodology and revision status are anchored to retained same-edition evidence; a later article edition requires review.';
+const metadata_evidence=Object.freeze({kind:'retained_same_edition_metadata',path:'verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html',sha256:'52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3',original_url:report_url,publication_date,period,live_retrieved:false});
+export const NI_ENERGY_SUMMARY_CONTRACT=Object.freeze({source_url,report_url,max_bytes:limit,timeout_ms:20000,edition,publication_date,period,period_start,period_end,metadata_evidence});
+const specs=[['renewable_share_gfec','Renewable generation as a proportion of gross final electricity consumption','%','ratio of rolling totals'],['gross_final_consumption','Gross final electricity consumption','GWh','rolling total'],['renewable_generation','Indigenous renewable electricity generation','GWh','rolling total'],['non_renewable_generation','Non-renewable electricity generation','GWh','rolling total'],['net_imports','Net electricity imports (imports minus exports)','GWh','rolling total']];
+const need=(ok,message)=>{if(!ok)throw new SourceError('NI electricity summary: '+message);};
+const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+const same=(a,b)=>a===b||(Array.isArray(a)||Array.isArray(b)?Array.isArray(a)&&Array.isArray(b)&&a.length===b.length&&a.every((v,i)=>same(v,b[i])):object(a)&&object(b)&&Object.keys(a).length===Object.keys(b).length&&Object.entries(b).every(([k,v])=>Object.hasOwn(a,k)&&same(a[k],v)));
+const instant=v=>typeof v==='string'&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(v)&&Number.isFinite(Date.parse(v))&&new Date(v).toISOString().replace('.000Z','Z')===v.replace('.000Z','Z');
+const clock=v=>need(instant(v)&&v.slice(0,10)>=publication_date,'Missing, invalid or earlier acquisition clock');
+const plain=v=>v.replace(/<[^>]*>/g,' ').replace(/&(?:nbsp|amp|lt|gt|quot|apos);/g,x=>({'&nbsp;':' ','&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&apos;':"'"}[x])).replace(/\s+/g,' ').trim();
+const numberPattern='(?:0|[1-9]\\d{0,2}(?:,\\d{3})*|[1-9]\\d*)';
+function integer(raw){need(typeof raw==='string'&&new RegExp('^-?'+numberPattern+'$').test(raw),'Missing or marked numeric value');const n=Number(raw.replaceAll(',',''));need(Number.isSafeInteger(n),'Unsafe numeric value');return n;}
+function matchOne(text,pattern,label){const matches=[...text.matchAll(pattern)];need(matches.length===1,'Missing, conflicting or duplicate '+label);return matches[0];}
+export function niEnergySummaryDefinitions(){
+ return specs.map(([id,name,unit,aggregation])=>({id,name,geography:'Northern Ireland',unit,kind:'observation',population:'Electricity generated and consumed in Northern Ireland, including metered and own-use generation; gross final consumption includes net imports and system losses.',adjustment:'Physical electricity quantities; not seasonally adjusted',period_convention:'Inclusive fixed rolling twelve-month window 2025-07-01/2026-06-30; month labels are not individual monthly observations',cadence:'Fixed 3 September 2026 edition; future editions require review',dimensions:{territory:'Northern Ireland',aggregation,methodology:'gross_final_consumption_including_own_use',measure:id,edition},publisher,licence,licence_url,source_url,methodology,revision_policy:revision_status,rounding:unit==='%'?'Publisher-rounded whole percentage point':'Publisher-rounded whole GWh',edition,metadata_evidence:{...metadata_evidence},limitations}));
+}
+function numeric(values){
+ need(Array.isArray(values)&&values.length===5&&values.every(Number.isSafeInteger),'Five integer observations required');const [share,gfec,renewable,nonrenewable,imports]=values;
+ need(share>=0&&gfec>0&&renewable>=0&&nonrenewable>=0,'Invalid generation or denominator');
+ need(Math.abs(gfec-renewable-nonrenewable-imports)<=2,'Rounded electricity balance does not reconcile');
+ need(Math.abs(100*renewable/gfec-share)<=0.5+1e-10,'Renewable percentage is incompatible with GFEC');
+}
+function build(values,provenance=[]){
+ numeric(values);const definitions=niEnergySummaryDefinitions();
+ const rows=definitions.map((d,i)=>({measure_id:d.id,value:values[i],value_state:'observed',geography:'Northern Ireland',unit:d.unit,period,period_start,period_end,publication_date,edition,methodology,revision_status,metadata_evidence:{...metadata_evidence},source_url}));
+ return {status:'ok',geography:'Northern Ireland',period,period_start,period_end,publication_date,edition,rows,definitions,metadata:{count:5,publication_period,latest_reference_month,report_anchor:{publication_date,period_start,period_end,latest_reference_month},fixed_edition:true,methodology,revision_status,metadata_evidence:{...metadata_evidence}},publisher,licence,licence_url,source_url,limitations,published_at:null,publisher_updated_at:null,next_expected_update:null,provenance};
+}
+export function parseNiEnergySummary(html,{retrieved_at}={}){
+ clock(retrieved_at);need(typeof html==='string'&&html.length<=limit&&new TextEncoder().encode(html).length<=limit,'Article exceeds bounded input');
+ const clean=html.replace(/<!--[^]*?-->/g,' ').replace(/<(script|style)\b[^>]*>[^]*?<\/\1>/gi,' ');
+ const headings=[...clean.matchAll(/<h1\b[^>]*>([^]*?)<\/h1>/gi)].map(m=>plain(m[1]));
+ need(headings.length===1&&headings[0]==='Electricity Consumption and Renewable Generation Statistics','Article title changed');
+ const latest=[...clean.matchAll(/<h2\b[^>]*>\s*Latest results published ([^]*?)<\/h2>/gi)];
+ need(latest.length===1&&plain(latest[0][1])==='3 September 2026','Unreviewed publication edition');
+ const text=plain(clean);
+ need(text.includes('Statistics and publications on Electricity Consumption and Renewable Generation in Northern Ireland are published by Northern Ireland Statistics and Research Agency statisticians within the Department for the Economy'),'Publisher or territory changed');
+ const methods=[...text.matchAll(/The measurement and reporting of Electricity Consumption and Renewable Generation moved to ([^.]+)\./g)];
+ need(methods.length>=1&&methods.every(m=>/^a Gross Final Electricity Consumption approach in March 2026(?:, following a user engagement exercise)?$/.test(m[1])),'GFEC methodology anchor missing or conflicting');
+ const section=clean.slice(latest[0].index+latest[0][0].length).split(/<h2\b/i)[0],sectionText=plain(section);
+ need((sectionText.match(/Key points for the 12-month period /g)||[]).length===1&&sectionText.startsWith('Key points for the 12-month period July 2025 to June 2026:'),'Fixed rolling window changed');
+ const links=[...section.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([^]*?)<\/a>/gi)].filter(m=>m[1]===report_url);
+ need(links.length===1&&plain(links[0][2])==='Electricity Consumption and Renewable Generation in Northern Ireland July 2025 to June 2026','Exact same-edition report link missing');
+ const items=[...section.matchAll(/<li\b[^>]*>([^]*?)<\/li>/gi)].map(m=>plain(m[1]));need(items.length===6,'Statistical paragraph coverage changed');
+ const p=numberPattern;
+ const share=matchOne(sectionText,new RegExp('The volume of electricity generated from renewable sources in the year to June 2026 \\(('+p+') GWh\\) was equivalent to ('+p+')% of gross final electricity consumption \\(('+p+') GWh\\), compared to ('+p+')% in the previous period \\(year to June 2025\\)','g'),'renewable/GFEC sentence');
+ const consumption=matchOne(sectionText,new RegExp('Gross Final Electricity Consumption, which comprises generation plus imports minus exports, and is equivalent to total electricity demand, has fallen slowly but steadily over the period from ('+p+') GWh at the year to December 2018 to ('+p+') GWh in the year to June 2026\\.','g'),'consumption definition');
+ const generation=matchOne(sectionText,new RegExp('Focusing specifically on generation, ('+p+') GWh of total electricity was generated, of which ('+p+') GWh was from renewable sources \\(('+p+')%\\) and ('+p+') GWh \\(('+p+')%\\) was from non-renewable sources\\.','g'),'generation composition');
+ const fuel=matchOne(sectionText,new RegExp('Of the ('+p+') GWh of renewable generation, the majority \\(('+p+')%\\) was from wind','g'),'repeated renewable total');
+ const imports=matchOne(sectionText,new RegExp('In the year to June 2026, Northern Ireland (imported more than it exported|exported more than it imported|imported as much as it exported) with net imports of (-?'+p+') GWh\\. This can be compared to the year to June 2025 when Northern Ireland imported more than it exported with net imports of ('+p+') GWh\\.','g'),'current net imports');
+ const values=[integer(share[2]),integer(share[3]),integer(share[1]),integer(generation[4]),integer(imports[2])];numeric(values);
+ need(integer(consumption[2])===values[1]&&integer(generation[2])===values[2]&&integer(fuel[1])===values[2],'Repeated current totals disagree');
+ const total=integer(generation[1]);need(total>0&&Math.abs(total-values[2]-values[3])<=1,'Rounded generation does not reconcile');
+ need(Math.abs(integer(generation[3])-100*values[2]/total)<=0.5+1e-10&&Math.abs(integer(generation[5])-100*values[3]/total)<=0.5+1e-10,'Generation percentages disagree');
+ need(values[4]>0?imports[1]==='imported more than it exported':values[4]<0?imports[1]==='exported more than it imported':imports[1]==='imported as much as it exported','Net-import sign conflicts with narrative');
+ // Count each semantic lead independently; a second unsupported conflicting sentence cannot hide behind the matching one.
+ for(const lead of ['The volume of electricity generated from renewable sources','Gross Final Electricity Consumption, which comprises','Focusing specifically on generation,','Of the ','In the year to June 2026, Northern Ireland '])need(sectionText.split(lead).length===2,'Duplicate statistical meaning');
+ return build(values);
+}
+function validate(value,acquisition){
+ need(object(value)&&Array.isArray(value.rows)&&value.rows.length===5&&Array.isArray(value.provenance)&&[0,1].includes(value.provenance.length),'Incomplete representation');
+ if(acquisition!==undefined)clock(acquisition?.retrieved_at);
+ for(const p of value.provenance){
+  need(object(p)&&Object.keys(p).sort().join(',')==='bytes,retrieved_at,role,sha256,url'&&p.role==='article'&&p.url===source_url&&Number.isSafeInteger(p.bytes)&&p.bytes>0&&p.bytes<=limit&&/^[a-f0-9]{64}$/.test(p.sha256),'Invalid article provenance');clock(p.retrieved_at);
+  if(acquisition!==undefined)need(Date.parse(p.retrieved_at)<=Date.parse(acquisition.retrieved_at),'Article provenance follows public acquisition');
+ }
+ return same(value,build(value.rows.map(r=>r.value),value.provenance));
+}
+export function validateNiEnergySummaryRepresentation(value,acquisition){try{if(arguments.length>1)clock(acquisition?.retrieved_at);return validate(value,acquisition);}catch{return false;}}
+export function niEnergySummaryRows(value){need(validateNiEnergySummaryRepresentation(value),'Native representation validation failed');return value.rows;}
+const sha256=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
+export async function readNiEnergySummary({fetcher=fetchOfficial,now=()=>new Date().toISOString()}={}){
+ const retrieved_at=now();clock(retrieved_at);
+ const response=await fetcher(source_url,{headers:{accept:'text/html'},redirect:'error',signal:AbortSignal.timeout(20000)});
+ need(response.ok,'Article returned HTTP '+response.status);need(!response.url||response.url===source_url,'Unexpected article redirect');
+ need(/^text\/html(?:;|$)/i.test(response.headers.get('content-type')||''),'Unexpected article content type');
+ const declared=response.headers.get('content-length');need(!declared||/^\d+$/.test(declared)&&Number(declared)<=limit,'Declared article exceeds bound');
+ need(response.body,'Missing article body');const reader=response.body.getReader(),chunks=[];let size=0;
+ try{for(;;){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;need(size<=limit,'Article stream exceeds bound');chunks.push(value);}}finally{await reader.cancel();}
+ const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
+ const value=parseNiEnergySummary(new TextDecoder('utf-8',{fatal:true}).decode(bytes),{retrieved_at});
+ value.provenance=[{role:'article',url:source_url,retrieved_at,bytes:size,sha256:await sha256(bytes)}];
+ need(validateNiEnergySummaryRepresentation(value,{retrieved_at}),'Acquired representation failed validation');return value;
+}

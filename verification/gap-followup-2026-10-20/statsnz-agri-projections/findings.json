@@ -1,0 +1,164 @@
+{
+  "verified_at": "2026-10-20T12:22:43.726112+00:00",
+  "scope": "Five pinned StatsNZ agriculture/projection exact-value gaps only",
+  "exact_numeric_gaps_closed": 3,
+  "exact_numeric_closures": [
+    {
+      "id": "AGR_AGR_001",
+      "period": "2018",
+      "exact_export_value": 8293,
+      "expected_reader_value": 8293,
+      "unit": "hectares",
+      "exact_tolerance": 0,
+      "exact_match": true,
+      "infoshare_variable": "New Area Planted in Production Forest",
+      "geography": "Total New Zealand",
+      "infoshare_table": "AGR001AA",
+      "publisher_updated_raw": "16 April 2026 10:45am",
+      "publisher_updated_timezone": "not stated; no UTC suffix inferred",
+      "separate_workbook": {
+        "name": "agriculture-2018-workbook",
+        "sheet": "Table 8",
+        "cell": "D34",
+        "displayed_value": 8300,
+        "scale": 1,
+        "precision_in_base_units": 100,
+        "rounded_match": true
+      },
+      "flags": "not displayed in export; no per-cell status verification claim",
+      "result": "exact_numeric_gap_closed_for_this_dated_specimen"
+    },
+    {
+      "id": "AGR_AGR_002",
+      "period": "2024",
+      "exact_export_value": 9522,
+      "expected_reader_value": 9522,
+      "unit": "hectares",
+      "exact_tolerance": 0,
+      "exact_match": true,
+      "infoshare_variable": "Apples",
+      "geography": "Total New Zealand",
+      "infoshare_table": "AGR001AA",
+      "publisher_updated_raw": "16 April 2026 10:45am",
+      "publisher_updated_timezone": "not stated; no UTC suffix inferred",
+      "separate_workbook": {
+        "name": "agriculture-2024-workbook",
+        "sheet": "Table 9",
+        "cell": "D29",
+        "displayed_value": 9520,
+        "scale": 1,
+        "precision_in_base_units": 10,
+        "rounded_match": true
+      },
+      "flags": "not displayed in export; no per-cell status verification claim",
+      "result": "exact_numeric_gap_closed_for_this_dated_specimen"
+    },
+    {
+      "id": "AGR_AGR_003",
+      "period": "2025",
+      "exact_export_value": 23252463,
+      "expected_reader_value": 23252463,
+      "unit": "animals",
+      "exact_tolerance": 0,
+      "exact_match": true,
+      "infoshare_variable": "Total Sheep",
+      "geography": "Total New Zealand",
+      "infoshare_table": "AGR001AA",
+      "publisher_updated_raw": "16 April 2026 10:45am",
+      "publisher_updated_timezone": "not stated; no UTC suffix inferred",
+      "separate_workbook": {
+        "name": "agriculture-2025-workbook",
+        "sheet": "Table 1",
+        "cell": "D29",
+        "displayed_value": 23252,
+        "scale": 1000,
+        "precision_in_base_units": 1000,
+        "rounded_match": true
+      },
+      "flags": "not displayed in export; no per-cell status verification claim",
+      "result": "exact_numeric_gap_closed_for_this_dated_specimen"
+    }
+  ],
+  "projection_gaps_blocked": 2,
+  "projection_blockers": [
+    {
+      "id": "POPPR_LAB_003",
+      "dimensions": {
+        "SCENARIO": "P50",
+        "SEX": "SEX3",
+        "AGE": "TOTALALLAGES"
+      },
+      "period": "2026",
+      "period_end": "2026-06-30",
+      "base": "2024",
+      "target_value": 3144100,
+      "unit": "people",
+      "kind": "projection",
+      "release_date": "2025-06-25",
+      "status": "blocked_exact_direct_total",
+      "observed_direct_total": {
+        "value": 3144,
+        "unit": "thousand people",
+        "cell": "Table1!E13"
+      },
+      "qualified_corroboration": {
+        "age_groups": {
+          "15–24": 463200,
+          "25–44": 1357600,
+          "45–64": 1088700,
+          "65+": 234600
+        },
+        "sum": 3144100,
+        "publisher_median_additivity": true,
+        "rounding_warning": true,
+        "closes_exact_direct_total": false
+      },
+      "required_to_close": "Permitted exact-precision official direct total for P50/SEX3/TOTALALLAGES at30June2026,2024-base; same-vintage separate presentation if available."
+    },
+    {
+      "id": "POPPR_FHH_003",
+      "dimensions": {
+        "PROJECTION": "MEDIUMA",
+        "MEASURE": "HH"
+      },
+      "period": "2028",
+      "period_end": "2028-06-30",
+      "target_value": 2087100,
+      "unit": "households",
+      "kind": "projection",
+      "expected_base": "2018",
+      "release_date": "2021-12-15",
+      "status": "blocked_exact_selected_scenario",
+      "assumptions": {
+        "population": "Medium fertility,medium mortality,medium migration",
+        "A": "Living-arrangement type rates constant at2018 levels",
+        "B": "Modelled living-arrangement type rates based on2001–2018 Census results"
+      },
+      "incompatible_comparisons": [
+        {
+          "base": "2018",
+          "scenario": "MediumB",
+          "value": 2028700,
+          "unit": "households",
+          "cell": "Table3!E58"
+        },
+        {
+          "base": "2013",
+          "scenario": "MediumA",
+          "value": 2021,
+          "unit": "thousand households",
+          "table": "DNH009AA"
+        }
+      ],
+      "required_to_close": "Permitted exact MediumA/HH 2028 export, explicitbase/vintage and same-vintage official independent presentation where available; never substitute MediumB or2013-base."
+    }
+  ],
+  "per_cell_status_flags_verified": false,
+  "runtime_changed": false,
+  "overall_maintenance_complete": false,
+  "evidence_controls": {
+    "agriculture_negative_controls": 12,
+    "projection_assertions": 19,
+    "projection_boundary_controls": 7
+  }
+}

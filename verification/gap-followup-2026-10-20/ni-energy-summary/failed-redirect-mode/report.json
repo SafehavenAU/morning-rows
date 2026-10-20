@@ -1,0 +1,93 @@
+{
+  "started_at": "2026-10-20T12:26:20.292Z",
+  "environment": "Protected Cloudflare remote dev",
+  "purpose": "One actual live article acquisition plus constructed faults through unchanged reader; no production release or schedule claim",
+  "production_version": null,
+  "live_publisher_requests": 1,
+  "code_before": {
+    "preview.js": "348521f83cca030424919d39bddd517768732f2d9c4047d7276866da6bd6436f",
+    "integration.toml": "2eff26fdfb1ee3963f1e33616aa6ae7af0590354841afc020c27d6e0ca356438",
+    "check-preview.mjs": "fa0ffe14009690fd3e473f25649df5236e96e3d1bd0992b0ad6672a78a2008dd",
+    "../../../lib/ni-energy-summary.js": "9e2c508808b7a0ffad9d4c11fc02a93ca590ac6706b8a4b97c2749e67aa02b54",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+    "../access-review/ni-article/statistical-article.excerpt.html": "a6550dcb2a14101d1d88bb74a88be623f3d57aca010519df0eb0cc3c0b5ceeba",
+    "../access-review/ni-article/comparison.json": "a9950e133e4f03dad5ffbf1a47f1e52b50ec9e7f42bcc39b2ddf84e9545f9a0f",
+    "../../remaining-gaps-2026-10-20/ni-energy/independent-report.json": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee"
+  },
+  "requests": [
+    {
+      "path": "/live",
+      "status": 200,
+      "started_at": "2026-10-20T12:26:22.441Z",
+      "completed_at": "2026-10-20T12:26:22.705Z",
+      "file": "01-live.json",
+      "sha256": "a49ea78487519c759d46f8d7919ad1ddd19c85e6cc6222529a8b1110bd7f6436",
+      "bytes": 453
+    }
+  ],
+  "checks": [
+    {
+      "fault": "live",
+      "positive": true,
+      "source_health": {
+        "status": "error",
+        "fetched_at": "2026-10-20T12:26:22.694Z",
+        "error": "Source response could not be read or parsed"
+      },
+      "observations": 0,
+      "pass": false
+    }
+  ],
+  "live_comparisons": [
+    {
+      "measure": "renewable_share_gfec",
+      "expected": 50,
+      "actual": null,
+      "pass": false
+    },
+    {
+      "measure": "gross_final_consumption",
+      "expected": 8865,
+      "actual": null,
+      "pass": false
+    },
+    {
+      "measure": "renewable_generation",
+      "expected": 4431,
+      "actual": null,
+      "pass": false
+    },
+    {
+      "measure": "non_renewable_generation",
+      "expected": 3855,
+      "actual": null,
+      "pass": false
+    },
+    {
+      "measure": "net_imports",
+      "expected": 578,
+      "actual": null,
+      "pass": false
+    }
+  ],
+  "original_wire_sha256": "7a1bc77b1363f1c188477a3dd9d2bf22f0640aeb632f73b82d242cd699c38e2c",
+  "same_original_article": false,
+  "live_provenance": [],
+  "live_pass": false,
+  "error": "live_reader_failed",
+  "pass": false,
+  "finished_at": "2026-10-20T12:26:22.712Z",
+  "code_after": {
+    "preview.js": "348521f83cca030424919d39bddd517768732f2d9c4047d7276866da6bd6436f",
+    "integration.toml": "2eff26fdfb1ee3963f1e33616aa6ae7af0590354841afc020c27d6e0ca356438",
+    "check-preview.mjs": "fa0ffe14009690fd3e473f25649df5236e96e3d1bd0992b0ad6672a78a2008dd",
+    "../../../lib/ni-energy-summary.js": "9e2c508808b7a0ffad9d4c11fc02a93ca590ac6706b8a4b97c2749e67aa02b54",
+    "../../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+    "../access-review/ni-article/statistical-article.excerpt.html": "a6550dcb2a14101d1d88bb74a88be623f3d57aca010519df0eb0cc3c0b5ceeba",
+    "../access-review/ni-article/comparison.json": "a9950e133e4f03dad5ffbf1a47f1e52b50ec9e7f42bcc39b2ddf84e9545f9a0f",
+    "../../remaining-gaps-2026-10-20/ni-energy/independent-report.json": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee"
+  },
+  "code_unchanged": true
+}

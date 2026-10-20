@@ -73,6 +73,10 @@ test('Stats NZ metadata retains exact selected codes while exposing household an
  const defs=measuresFor('new-zealand','stats'),income=defs.find(d=>d.id==='INC_INC_011');
  assert.match(income.population,/18–64/);assert.match(income.period_convention,/June-quarter/);
  assert.equal(income.unit,'NZD per week');assert.equal(income.adjustment,null);
+ const paid=defs.find(d=>d.id==='INC_INC_001');
+ assert.match(paid.name,/paid employment/);assert.match(paid.population,/self-employment/);
+ assert.match(paid.population,/15 years and over/);assert.match(paid.period_convention,/June-quarter/);
+ assert.match(paid.limitations,/wages-and-salaries-only/);assert.match(paid.limitations,/52/);
  for(const id of ['CORR_FIS_005','JUS_FIS_001']){
   const d=defs.find(d=>d.id===id);assert.match(d.period_convention,/Fiscal year/);assert.match(d.publication_status,/discontinued/);
  }

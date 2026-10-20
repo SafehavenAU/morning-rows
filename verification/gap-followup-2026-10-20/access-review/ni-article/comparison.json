@@ -1,0 +1,88 @@
+{
+  "pass": true,
+  "kind": "Independent offline extraction of newly acquired official article",
+  "verified_at": "2026-10-20T12:16:25.052200+00:00",
+  "network_requests_in_verifier": 0,
+  "runtime_reader_imports": 0,
+  "original_acquisition": {
+    "url": "https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics",
+    "started_at": "2026-10-20T12:10:42.648384+00:00",
+    "completed_at": "2026-10-20T12:10:43.050461+00:00",
+    "method": "GET",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 39615,
+    "wire_sha256": "7a1bc77b1363f1c188477a3dd9d2bf22f0640aeb632f73b82d242cd699c38e2c",
+    "redirects_followed": 0,
+    "reason": "One new acquisition after first HTTP200 body was not retained because the local excerpt guard failed. Original acquisition preserved separately; not a recovery or retry of blocked datavis route.",
+    "new_acquisition_number": 2
+  },
+  "article_excerpt_sha256": "a6550dcb2a14101d1d88bb74a88be623f3d57aca010519df0eb0cc3c0b5ceeba",
+  "prior_reference": "remaining-gaps-2026-10-20/ni-energy/independent-report.json",
+  "prior_reference_sha256": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee",
+  "publication_date": "2026-09-03",
+  "period_start": "2025-07-01",
+  "period_end": "2026-06-30",
+  "comparisons": [
+    {
+      "measure": "renewable_share_gfec",
+      "article": 50,
+      "original_workbook": 50,
+      "cell": "B94",
+      "figure": 1,
+      "pass": true
+    },
+    {
+      "measure": "gross_final_consumption",
+      "article": 8865,
+      "original_workbook": 8865,
+      "cell": "B94",
+      "figure": 3,
+      "pass": true
+    },
+    {
+      "measure": "renewable_generation",
+      "article": 4431,
+      "original_workbook": 4431,
+      "cell": "C94",
+      "figure": 3,
+      "pass": true
+    },
+    {
+      "measure": "non_renewable_generation",
+      "article": 3855,
+      "original_workbook": 3855,
+      "cell": "D94",
+      "figure": 3,
+      "pass": true
+    },
+    {
+      "measure": "net_imports",
+      "article": 578,
+      "original_workbook": 578,
+      "cell": "E94",
+      "figure": 3,
+      "pass": true
+    }
+  ],
+  "observations_compared": 5,
+  "metadata_present": [
+    "exact title",
+    "published date",
+    "rolling window",
+    "GFEC method from March2026",
+    "next publication December2026"
+  ],
+  "metadata_absent": [
+    "full own-use basis",
+    "full revisions policy",
+    "Statistics in Development status"
+  ],
+  "independent_statistical_lineage": false,
+  "worker_access_verified": false,
+  "release_accepted": false,
+  "limitations": [
+    "Same-vintage original report establishes fuller definitions; future editions need explicit metadata review.",
+    "Workspace article transport is not Worker access or production acceptance."
+  ]
+}

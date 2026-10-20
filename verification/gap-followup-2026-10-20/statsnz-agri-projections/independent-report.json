@@ -1,0 +1,142 @@
+{
+  "pass": true,
+  "method": "Python stdlib CSV extraction and separate OOXML cell extraction; no production reader imports",
+  "exact_comparisons": [
+    {
+      "id": "AGR_AGR_001",
+      "period": "2018",
+      "exact_export_value": 8293,
+      "expected_reader_value": 8293,
+      "unit": "hectares",
+      "exact_tolerance": 0,
+      "exact_match": true,
+      "infoshare_variable": "New Area Planted in Production Forest",
+      "geography": "Total New Zealand",
+      "infoshare_table": "AGR001AA",
+      "publisher_updated_raw": "16 April 2026 10:45am",
+      "publisher_updated_timezone": "not stated; no UTC suffix inferred",
+      "separate_workbook": {
+        "name": "agriculture-2018-workbook",
+        "sheet": "Table 8",
+        "cell": "D34",
+        "displayed_value": 8300,
+        "scale": 1,
+        "precision_in_base_units": 100,
+        "rounded_match": true
+      },
+      "flags": "not displayed in export; no per-cell status verification claim",
+      "result": "exact_numeric_gap_closed_for_this_dated_specimen"
+    },
+    {
+      "id": "AGR_AGR_002",
+      "period": "2024",
+      "exact_export_value": 9522,
+      "expected_reader_value": 9522,
+      "unit": "hectares",
+      "exact_tolerance": 0,
+      "exact_match": true,
+      "infoshare_variable": "Apples",
+      "geography": "Total New Zealand",
+      "infoshare_table": "AGR001AA",
+      "publisher_updated_raw": "16 April 2026 10:45am",
+      "publisher_updated_timezone": "not stated; no UTC suffix inferred",
+      "separate_workbook": {
+        "name": "agriculture-2024-workbook",
+        "sheet": "Table 9",
+        "cell": "D29",
+        "displayed_value": 9520,
+        "scale": 1,
+        "precision_in_base_units": 10,
+        "rounded_match": true
+      },
+      "flags": "not displayed in export; no per-cell status verification claim",
+      "result": "exact_numeric_gap_closed_for_this_dated_specimen"
+    },
+    {
+      "id": "AGR_AGR_003",
+      "period": "2025",
+      "exact_export_value": 23252463,
+      "expected_reader_value": 23252463,
+      "unit": "animals",
+      "exact_tolerance": 0,
+      "exact_match": true,
+      "infoshare_variable": "Total Sheep",
+      "geography": "Total New Zealand",
+      "infoshare_table": "AGR001AA",
+      "publisher_updated_raw": "16 April 2026 10:45am",
+      "publisher_updated_timezone": "not stated; no UTC suffix inferred",
+      "separate_workbook": {
+        "name": "agriculture-2025-workbook",
+        "sheet": "Table 1",
+        "cell": "D29",
+        "displayed_value": 23252,
+        "scale": 1000,
+        "precision_in_base_units": 1000,
+        "rounded_match": true
+      },
+      "flags": "not displayed in export; no per-cell status verification claim",
+      "result": "exact_numeric_gap_closed_for_this_dated_specimen"
+    }
+  ],
+  "negative_controls": [
+    {
+      "control": "wrong_geography",
+      "rejected": true
+    },
+    {
+      "control": "wrong_year",
+      "rejected": true
+    },
+    {
+      "control": "wrong_measure",
+      "rejected": true
+    },
+    {
+      "control": "wrong_units",
+      "rejected": true
+    },
+    {
+      "control": "rounded_value_substitution",
+      "rejected": true
+    },
+    {
+      "control": "suppressed_to_zero",
+      "rejected": true
+    },
+    {
+      "control": "missing_to_zero",
+      "rejected": true
+    },
+    {
+      "control": "wrong_release",
+      "rejected": true
+    },
+    {
+      "control": "wrong_table",
+      "rejected": true
+    },
+    {
+      "control": "dropped_year",
+      "rejected": true
+    },
+    {
+      "control": "status_claim_removed",
+      "rejected": true
+    },
+    {
+      "control": "forest_replanting_substitution",
+      "rejected": true
+    }
+  ],
+  "reproduced_original_workbooks": [
+    "agriculture-2018-workbook",
+    "agriculture-2024-workbook",
+    "agriculture-2025-workbook"
+  ],
+  "limits": [
+    "Exact matches do not verify undisplayed flags.",
+    "Infoshare and publication workbooks share Stats NZ survey lineage; this is independent extraction/presentation, not an independent survey.",
+    "No future release is approved by this dated specimen.",
+    "Projection blockers are described separately; they are not accepted by these checks."
+  ]
+}

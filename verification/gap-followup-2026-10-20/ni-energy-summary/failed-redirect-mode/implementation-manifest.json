@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-20T12:24:22.252937+00:00",
+  "implementation_status": "isolated_module_and_local_controls_passed",
+  "active_source": false,
+  "production_accepted": false,
+  "tests": {
+    "command": "node --test test/ni-energy-summary.test.js test/ni-energy.test.js",
+    "pass": 138,
+    "fail": 0,
+    "new_summary_controls": 75,
+    "unchanged_legacy_controls": 63,
+    "network_requests": 0,
+    "constructed_clock": "2026-10-20T12:30:00Z"
+  },
+  "initial_failure_and_fix": "The first local mutation changed one GFEC method statement while a duplicate correct statement remained later in the article. The original includes check could mask the conflict. Parser now checks every method statement; final controls all pass.",
+  "files": [
+    {
+      "file": "lib/ni-energy-summary.js",
+      "bytes": 14194,
+      "sha256": "9e2c508808b7a0ffad9d4c11fc02a93ca590ac6706b8a4b97c2749e67aa02b54"
+    },
+    {
+      "file": "test/ni-energy-summary.test.js",
+      "bytes": 10980,
+      "sha256": "982936fb50b8496864f468e94ef6a262cc6edcb89e376f0ec61c8c89fbf1d728"
+    },
+    {
+      "file": "verification/gap-followup-2026-10-20/ni-energy-summary/CONTRACT.md",
+      "bytes": 4760,
+      "sha256": "1b63b691f8a033c60c4b77636a26fb6e4312b0f9eed23041a9803e12c2e48ce5"
+    },
+    {
+      "file": "verification/gap-followup-2026-10-20/access-review/ni-article/statistical-article.excerpt.html",
+      "bytes": 6485,
+      "sha256": "a6550dcb2a14101d1d88bb74a88be623f3d57aca010519df0eb0cc3c0b5ceeba"
+    },
+    {
+      "file": "verification/gap-followup-2026-10-20/access-review/ni-article/comparison.json",
+      "bytes": 2819,
+      "sha256": "a9950e133e4f03dad5ffbf1a47f1e52b50ec9e7f42bcc39b2ddf84e9545f9a0f"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+      "bytes": 13475,
+      "sha256": "52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3"
+    },
+    {
+      "file": "verification/remaining-gaps-2026-10-20/ni-energy/independent-report.json",
+      "bytes": 6352,
+      "sha256": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee"
+    }
+  ]
+}

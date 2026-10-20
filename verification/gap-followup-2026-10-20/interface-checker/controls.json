@@ -1,0 +1,228 @@
+{
+  "kind": "Constructed offline NI checker controls; not actual Worker access or release acceptance",
+  "pass": true,
+  "independent_cells": 5,
+  "controls": 26,
+  "results": [
+    {
+      "label": "Constructed NI source failure preserves successful sibling and refuses selected substitution",
+      "pass": true,
+      "constructed": true
+    },
+    {
+      "label": "Constructed complete native/selectors match five independent cells",
+      "pass": true,
+      "expected_capture_pass": true,
+      "checks": 829
+    },
+    {
+      "label": "Constructed captured Draft2020-12 schema positives/negatives",
+      "pass": true,
+      "schema_checks": 13,
+      "negative_controls": 8
+    },
+    {
+      "label": "missing request",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact complete bounded request count",
+      "checks": 3
+    },
+    {
+      "label": "wrong Worker identity",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 exact candidate identity",
+      "checks": 5
+    },
+    {
+      "label": "failed capture falsely accepted",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "capture identity and successful status",
+      "checks": 1
+    },
+    {
+      "label": "independent reference substitution",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact frozen independent references",
+      "checks": 2
+    },
+    {
+      "label": "unsafe body path",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 safe unique capture filename",
+      "checks": 7
+    },
+    {
+      "label": "retained body hash mismatch",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 exact retained bytes",
+      "checks": 8
+    },
+    {
+      "label": "HEAD payload",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 16 empty conditional/HEAD body",
+      "checks": 779
+    },
+    {
+      "label": "HEAD unbounded cache",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json?source=electricity_balance&measure=renewable_share_gfec bounded cache lifetime",
+      "checks": 781
+    },
+    {
+      "label": "conditional ETag mismatch",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 15 original GET ETag retained",
+      "checks": 774
+    },
+    {
+      "label": "wrong exact renewable value",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json renewable_share_gfec exact value/unit/period/geography",
+      "checks": 32
+    },
+    {
+      "label": "share denominator silently generation",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json renewable_share_gfec retained own-use GFEC/revision qualifications",
+      "checks": 33
+    },
+    {
+      "label": "annual instead of rolling period",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json gross_final_consumption exact value/unit/period/geography",
+      "checks": 38
+    },
+    {
+      "label": "changed same-value edition",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json exact fixed native edition",
+      "checks": 25
+    },
+    {
+      "label": "claim fixed report metadata retrieved live",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json metadata is retained same edition, not live report retrieval",
+      "checks": 28
+    },
+    {
+      "label": "missing public provenance",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json one bounded actual article provenance",
+      "checks": 60
+    },
+    {
+      "label": "provenance after source completion",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json source completion follows provenance",
+      "checks": 62
+    },
+    {
+      "label": "invalid source completion",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json source completion follows provenance",
+      "checks": 62
+    },
+    {
+      "label": "selected same-value wrong qualification",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json?source=electricity_balance&measure=renewable_share_gfec complete renewable_share_gfec qualifications and definition",
+      "checks": 242
+    },
+    {
+      "label": "selected same-value wrong context edition",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json?source=electricity_balance complete selected context agrees with native",
+      "checks": 89
+    },
+    {
+      "label": "selected observation fake version",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json?source=electricity_balance&measure=renewable_share_gfec independently replayed renewable_share_gfec version",
+      "checks": 244
+    },
+    {
+      "label": "missing period replaced by zero",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 17 no substituted observations",
+      "checks": 789
+    },
+    {
+      "label": "catalogue loses exact measure",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/catalog.json?desk=northern-ireland exact five advertised measures",
+      "checks": 72
+    },
+    {
+      "label": "unbounded cache lifetime",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/northern-ireland.json bounded cache lifetime",
+      "checks": 23
+    }
+  ],
+  "runtime_subject_inputs": [
+    {
+      "path": "lib/ni-energy-summary.js",
+      "bytes": 14195,
+      "sha256": "5691532b9db9358f6e1d36648af8cbaf062f8c5c00c8f74f0e946eb7b14cbcc2"
+    },
+    {
+      "path": "lib/information.js",
+      "bytes": 65626,
+      "sha256": "042f32cee34393bf437409c69f73f9960b325afc67af043e3d5a8cfbceda2348"
+    },
+    {
+      "path": "lib/remaining-information.js",
+      "bytes": 2260,
+      "sha256": "279788e60b8f73bde7463c1b1adb2ae158fd97718daef9ba4b2b0863a00b4c52"
+    },
+    {
+      "path": "lib/remaining-schema.js",
+      "bytes": 12722,
+      "sha256": "43e2990a5ace5bfa1ce014d882d5a8b278bf7fa44fd70202554ec2aaa2ad32b0"
+    },
+    {
+      "path": "lib/inventory.js",
+      "bytes": 5647,
+      "sha256": "e7fa900b0d779dc95d3ad6989d9efe0d5c778493eb525653e799b37782a20e4e"
+    },
+    {
+      "path": "lib/gap-information.js",
+      "bytes": 5956,
+      "sha256": "0e06d716f6dbf6c504bdb1549db2d25c9116ae369c434b889ff5d4b17a3ff476"
+    },
+    {
+      "path": "lib/source-completion.js",
+      "bytes": 676,
+      "sha256": "19c2cffbc5fc6a7151b8e935878c002b722e74a03a3ad54a86ea079a4b7e6f02"
+    }
+  ],
+  "tool_versions": {
+    "node": "v24.19.0",
+    "python": "Python 3.12.14",
+    "jsonschema": "4.26.0"
+  }
+}

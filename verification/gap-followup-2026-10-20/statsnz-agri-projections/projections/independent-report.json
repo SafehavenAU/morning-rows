@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "scope": "Two exact Stats NZ projection cells, evidence-only follow-up",
+  "evidence_assertions_passed": 19,
+  "evidence_assertions": [
+    "labour_exact_year_is_2026",
+    "labour_direct_median_column_bound",
+    "labour_direct_unit_is_thousands",
+    "labour_direct_value_is_3144_thousand",
+    "labour_base_and_reference_day_bound",
+    "publisher_median_additivity_exception_retained",
+    "publisher_component_rounding_warning_retained",
+    "graph_exact_year_bound",
+    "graph_four_age_groups",
+    "sum_is_qualified_corroboration_only",
+    "household_rounded_table_is_medium_B",
+    "household_rounded_2028_total_is_2029_thousand",
+    "household_national_precise_B_control",
+    "household_national_aggregation_and_rounding_retained",
+    "infoshare_base_is_2013_not_2018",
+    "infoshare_medium_A_exact_selected",
+    "infoshare_target_year_different_value_and_thousands",
+    "household_A_constant_2018_versus_B_modelled",
+    "all_seven_boundary_controls_hold"
+  ],
+  "boundary_controls": {
+    "rounded_thousands_do_not_establish_extra_hundred": true,
+    "component_sum_is_not_direct_total": true,
+    "different_year_refused": true,
+    "different_percentile_refused": true,
+    "different_base_refused": true,
+    "household_mediumB_is_not_mediumA": true,
+    "2013base_is_not_2018base": true
+  },
+  "gap_completion": false,
+  "targets": [
+    {
+      "id": "POPPR_LAB_003",
+      "dimensions": {
+        "SCENARIO": "P50",
+        "SEX": "SEX3",
+        "AGE": "TOTALALLAGES"
+      },
+      "period": "2026",
+      "period_end": "2026-06-30",
+      "base": "2024",
+      "target_value": 3144100,
+      "unit": "people",
+      "kind": "projection",
+      "release_date": "2025-06-25",
+      "status": "blocked_exact_direct_total",
+      "observed_direct_total": {
+        "value": 3144,
+        "unit": "thousand people",
+        "cell": "Table1!E13"
+      },
+      "qualified_corroboration": {
+        "age_groups": {
+          "15–24": 463200,
+          "25–44": 1357600,
+          "45–64": 1088700,
+          "65+": 234600
+        },
+        "sum": 3144100,
+        "publisher_median_additivity": true,
+        "rounding_warning": true,
+        "closes_exact_direct_total": false
+      },
+      "required_to_close": "Permitted exact-precision official direct total for P50/SEX3/TOTALALLAGES at30June2026,2024-base; same-vintage separate presentation if available."
+    },
+    {
+      "id": "POPPR_FHH_003",
+      "dimensions": {
+        "PROJECTION": "MEDIUMA",
+        "MEASURE": "HH"
+      },
+      "period": "2028",
+      "period_end": "2028-06-30",
+      "target_value": 2087100,
+      "unit": "households",
+      "kind": "projection",
+      "expected_base": "2018",
+      "release_date": "2021-12-15",
+      "status": "blocked_exact_selected_scenario",
+      "assumptions": {
+        "population": "Medium fertility,medium mortality,medium migration",
+        "A": "Living-arrangement type rates constant at2018 levels",
+        "B": "Modelled living-arrangement type rates based on2001–2018 Census results"
+      },
+      "incompatible_comparisons": [
+        {
+          "base": "2018",
+          "scenario": "MediumB",
+          "value": 2028700,
+          "unit": "households",
+          "cell": "Table3!E58"
+        },
+        {
+          "base": "2013",
+          "scenario": "MediumA",
+          "value": 2021,
+          "unit": "thousand households",
+          "table": "DNH009AA"
+        }
+      ],
+      "required_to_close": "Permitted exact MediumA/HH 2028 export, explicitbase/vintage and same-vintage official independent presentation where available; never substitute MediumB or2013-base."
+    }
+  ],
+  "independence": "Python stdlib XML/CSV extraction is separate from production StatsNZ SDMX reader. Graph/workbook/metadata share StatsNZ statistical lineage; no separate statistical sample or exact-total validation claimed.",
+  "acquisition_log": "acquisitions.json",
+  "failed_route": "original/legacy-table-attempt.json",
+  "limitations": [
+    "ADE request returned only a public application shell with no selected observations. Authenticated data API was not retried.",
+    "Legacy NZ.Stat TABLECODE8602 failed at environment proxy tunnel, before a publisher response; no publisher HTTP403 claim.",
+    "Public Infoshare exposed2013-base household data only in inspected group; absence is not a claim about every possible publisher route.",
+    "All tests validate retained evidence and refusal boundaries, not runtime code or broader coverage."
+  ]
+}

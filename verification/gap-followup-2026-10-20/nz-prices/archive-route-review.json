@@ -1,0 +1,32 @@
+{
+  "recorded_at": "2026-10-20T12:09:07Z",
+  "kind": "Bounded new official route investigation; not a price acquisition",
+  "target": "Original 17 October 2026 Interim five-node/48-period specimen",
+  "official_archive_description_url": "https://www.emi.ea.govt.nz/Wholesale/Datasets/_AdditionalInformation/ArchivedDatasets/EnergyAndReservePrices",
+  "description": "The official index describes unmodified pricing-manager files and links a separate InterimEnergyPrices directory. This is a potential historical publication route, not evidence that the selected file is available.",
+  "observations": [
+    {
+      "url": "https://www.emi.ea.govt.nz/Wholesale/Datasets/_AdditionalInformation/ArchivedDatasets/EnergyAndReservePrices/InterimEnergyPrices",
+      "search_service_result": "timeout",
+      "workspace_result": "Python urllib read timeout with 40-second socket timeout",
+      "original_bytes_retained": false,
+      "price_comparisons": 0
+    },
+    {
+      "documentation_url": "https://forum.emi.ea.govt.nz/thread/new-access-arrangements-to-emi-datasets-retirement-of-anonymous-ftp/",
+      "documented_method": "Anonymous Azure container list with a bounded folder prefix",
+      "host": "emidatasets.blob.core.windows.net",
+      "workspace_result": "Proxy CONNECT tunnel returned 403 Forbidden before an origin response",
+      "classification": "Execution-network access denial, not an established publisher refusal",
+      "original_bytes_retained": false,
+      "price_comparisons": 0,
+      "action": "Stopped this route. No token, signed URI, alternate proxy or bypass used."
+    }
+  ],
+  "environment_check": "Current environment status reports unrestricted/enforced HTTP policy, no network diagnostic detail. This does not override the observed tunnel denial.",
+  "setup_note": "An initial local script stopped before any request because requests was not installed; the actual bounded request used Python standard-library urllib.",
+  "acceptance": false,
+  "phase": "blocked_external_evidence",
+  "required": "Usable permitted exact-version official interim report/export for all five nodes and 48 periods, with numerical and status reconciliation and remaining original-contract production gates.",
+  "later_final_or_newer_values_substituted": false
+}

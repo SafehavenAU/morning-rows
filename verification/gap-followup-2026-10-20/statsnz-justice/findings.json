@@ -1,0 +1,38 @@
+{
+  "evidence_extraction_pass": true,
+  "numeric_gates_closed": 0,
+  "runtime_defect_established": false,
+  "future_vintages_approved": false,
+  "same_underlying_administrative_lineage": true,
+  "independent_method": "Python stdlib HTMLParser and ZIP/XML; no runtime imports",
+  "rejected_comparator": {
+    "publisher": "New Zealand Ministry of Justice",
+    "edition": "June 2026, version 1.0",
+    "period": "2024/2025",
+    "value": 50737,
+    "unit": "people",
+    "population": "All people with convicted charges; not the separate Stats NZ adult population",
+    "exact_cell_repetitions": 3,
+    "retained_adult_target": 50741,
+    "difference_not_interpreted_as_reader_error": -4,
+    "reason": "Different population and later edition; no exact adult fiscal 2024/25 revision lineage. The 19-and-under age group cannot isolate 18+ with the July2019 transitional charge rule."
+  },
+  "contracts": [
+    {
+      "id": "CORR_FIS_005",
+      "period": "2024/2025",
+      "target_value": 8199,
+      "status": "blocked_external_evidence",
+      "new_exact_numeric_reference": null,
+      "reason": "No independently acquired exact fiscal sentenced-person cell. New Corrections and Stats NZ concept acquisitions returned HTTP403/error1010. Quarterly stocks and calendar years do not satisfy this contract."
+    },
+    {
+      "id": "JUS_FIS_001",
+      "period": "2024/2025",
+      "target_value": 50741,
+      "status": "blocked_external_evidence",
+      "new_exact_numeric_reference": null,
+      "reason": "New official metadata supports the adult counting rule, but the acquired workbook is all-person/later-vintage. Historical publication finder returned HTTP405."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "cause": "Workers does not implement Fetch redirect:error; TypeError arises before any publisher request. The original report intended one live request but its live_publisher_requests:1 is a configured intention, not an observed publisher request. The failed report remains byte-identical.",
+  "official_documentation": "https://developers.cloudflare.com/workers/runtime-apis/request/",
+  "correction": "Use redirect:manual, retaining exact URL and non-2xx rejection. No redirects followed, no alternate route, no access bypass. One corrected actual-reader acquisition is separately authorized after this implementation correction.",
+  "old_source_sha256": "9e2c508808b7a0ffad9d4c11fc02a93ca590ac6706b8a4b97c2749e67aa02b54",
+  "new_source_sha256": "5691532b9db9358f6e1d36648af8cbaf062f8c5c00c8f74f0e946eb7b14cbcc2"
+}
