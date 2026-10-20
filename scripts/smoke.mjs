@@ -2,6 +2,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeFile } from 'node:fs/promises';
 import { validateCpiRepresentation } from '../lib/information-v2.js';
+import { CLAIMANT_GEOGRAPHIES, validateClaimantRepresentation } from '../lib/claimant-count.js';
 const run = promisify(execFile);
 const base = process.env.SITE_URL || 'https://morningrows.com';
 const expected = process.env.EXPECTED_REVISION;
@@ -42,6 +43,11 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
    if(path==='/united-states.json') {
     if(d.country!=='United States'||d._meta?.schema_version!=='2.0'||d.sources?.cpi?.status!=='ok'||!validateCpiRepresentation(d.cpi))throw Error('US CPI requires the exact national NSA definition and 13 complete calendar slots, with missingness distinct from zero');
     if(process.env.EXPECTED_US_LATEST&&d.cpi.latest_period!==process.env.EXPECTED_US_LATEST)throw Error('US latest period differs from independently verified release');
+   }
+   const claimantDesk=path.slice(1,-5);
+   if(process.env.CHECK_CLAIMANTS==='1'&&Object.hasOwn(CLAIMANT_GEOGRAPHIES,claimantDesk)){
+    if(d.sources?.claimant_count?.status!=='ok'||!validateClaimantRepresentation(d.claimant_count,claimantDesk))throw Error('Claimant count requires thirteen complete national NSA months with the fixed administrative definition');
+    if(process.env.EXPECTED_CLAIMANT_LATEST&&d.claimant_count.metadata.latest_period!==process.env.EXPECTED_CLAIMANT_LATEST)throw Error('Claimant latest period differs from independently verified release');
    }
    if(desks.some(name=>path===`/${name}.json`)||path==='/morning.json') {
     if(d.error||!d.country||!d.sources)throw Error('Desk contract or whole-desk failure');

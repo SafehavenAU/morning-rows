@@ -1,0 +1,748 @@
+{
+  "pass": true,
+  "method": "Python csv.DictReader and Decimal vs independently acquired JSON; no runtime reader imports",
+  "observations_compared": 65,
+  "period_start": "2025-08",
+  "period_end": "2026-08",
+  "inputs": [
+    {
+      "file": "nomis-national.csv",
+      "sha256": "51b283c07addda72dd7c2d07979267f341bc86e3c23669612132c0eff9ec56c6",
+      "bytes": 23190,
+      "original_wire_sha256": "51b283c07addda72dd7c2d07979267f341bc86e3c23669612132c0eff9ec56c6",
+      "original_wire_bytes": 23190,
+      "transformation": null
+    },
+    {
+      "file": "nomis-national.excerpt.json",
+      "sha256": "322b61cf61600fcfc1ad6a7ab4ae872d7cdd7af1682dbd41abc931e045de8381",
+      "bytes": 96396,
+      "original_wire_sha256": "74c4e31d4428f75d723139aa42714e5d99fe8d6a1664c513e339ef8c09c2d38b",
+      "original_wire_bytes": 73145,
+      "transformation": "JSON parsed and reserialized with header.sender removed to omit publisher contact details; header provenance and all 65 complete observation objects unchanged."
+    },
+    {
+      "file": "nomis-dataset.json",
+      "sha256": "3ae6ae83bcb9632568a8ad83e14aa3f8e5fe4ba45a2a9f1ee4027cef3891c234",
+      "bytes": 4846,
+      "original_wire_sha256": "517abf99207923dd9d7b4566ae6fbbc7308903b4b559a6939679130a1f016ee7",
+      "original_wire_bytes": 2938,
+      "transformation": "JSON parsed and reserialized with structure.header.sender removed to omit publisher contact details; all other metadata, annotations and codelist values unchanged."
+    },
+    {
+      "file": "nomis-gender.json",
+      "sha256": "5878e74f7c05569dd4532745d6ae2b3a0ae827339b55964511ee098882e5a9bb",
+      "bytes": 3661,
+      "original_wire_sha256": "5acb5c005a882335f2670fe2174adfb162f5e082aff367aef1315d7ca212d882",
+      "original_wire_bytes": 1856,
+      "transformation": "JSON parsed and reserialized with structure.header.sender removed to omit publisher contact details; all other metadata, annotations and codelist values unchanged."
+    },
+    {
+      "file": "nomis-age.json",
+      "sha256": "30b16b95e5c2b26aa4330bb472f6daf362b15ffaaddfca749eef186c81110d00",
+      "bytes": 22214,
+      "original_wire_sha256": "be14af4427da520e103bdd384eb57857320582dfa048dbe50418865cef4d740c",
+      "original_wire_bytes": 9556,
+      "transformation": "JSON parsed and reserialized with structure.header.sender removed to omit publisher contact details; all other metadata, annotations and codelist values unchanged."
+    },
+    {
+      "file": "nomis-measure.json",
+      "sha256": "c85ade06b084ad53f136334ac8a60fcf0e15dfef4e8557038fd0c189a3b649ee",
+      "bytes": 4037,
+      "original_wire_sha256": "921a8e2ecad5aa32910d3c57910e5ea38a96425d040aeaf7ba435406315214da",
+      "original_wire_bytes": 2100,
+      "transformation": "JSON parsed and reserialized with structure.header.sender removed to omit publisher contact details; all other metadata, annotations and codelist values unchanged."
+    },
+    {
+      "file": "nomis-measures.json",
+      "sha256": "89f26581410f5ad35d8fd62d16c95a98c7db58bfd480db7b6dc1387613fec781",
+      "bytes": 2268,
+      "original_wire_sha256": "9159763ddd126c4f6f2dfc12b59b32facb20efbc1bf957d92ef41e9f0e383ce6",
+      "original_wire_bytes": 1300,
+      "transformation": "JSON parsed and reserialized with structure.header.sender removed to omit publisher contact details; all other metadata, annotations and codelist values unchanged."
+    },
+    {
+      "file": "nomis-time.json",
+      "sha256": "2a1de8957e5bb9f0da4cabaf9603cc74c5f58f9528d5d611ab32ec479bdcd864",
+      "bytes": 254742,
+      "original_wire_sha256": "6ed08c6488e6d6334f0f08c6e4136a43b59ce7ea4fd3199ac511ef97b9a71016",
+      "original_wire_bytes": 114460,
+      "transformation": "JSON parsed and reserialized with structure.header.sender removed to omit publisher contact details; all other metadata, annotations and codelist values unchanged."
+    },
+    {
+      "file": "nomis-countries.json",
+      "sha256": "e18b9a7930b586cc0fad39720f68b2faf186cf1d01ef5274366671cd08d04ce4",
+      "bytes": 5760,
+      "original_wire_sha256": "16a1de2ec120885b98c234f76682964a711e15346078cdbad3e5cdcaac863d8c",
+      "original_wire_bytes": 2792,
+      "transformation": "JSON parsed and reserialized with structure.header.sender removed to omit publisher contact details; all other metadata, annotations and codelist values unchanged."
+    },
+    {
+      "file": "nomis-regions.json",
+      "sha256": "44a89c452c970deaa1344bd29234c18b9ae1811527b52f99ab1c591eb2e5bc62",
+      "bytes": 5760,
+      "original_wire_sha256": "b5218823cb12cdb8a2cc5b6fe386ea82de927fcd6e1e46b427e830e1c9408100",
+      "original_wire_bytes": 2792,
+      "transformation": "JSON parsed and reserialized with structure.header.sender removed to omit publisher contact details; all other metadata, annotations and codelist values unchanged."
+    }
+  ],
+  "acquisition_completed_at": "2026-10-20T04:40:19.324986+00:00",
+  "publisher_json_prepared_raw": "2026-10-20T05:40:18Z",
+  "publisher_json_extracted_raw": "2026-10-20T05:40:18Z",
+  "dataset_annotations": {
+    "Status": "Current (being actively updated)",
+    "Units": "Persons",
+    "contenttype/sources": "cc",
+    "SubDescription": "previously unavailable",
+    "Mnemonic": "ucjsa",
+    "FirstReleased": "2015-06-17 09:30:00",
+    "LastUpdated": "2026-09-15 07:00:00",
+    "LastRevised": "2026-09-15 07:00:00"
+  },
+  "period_metadata": [
+    {
+      "period": "2025-08",
+      "MetaDescription": "Claimant Count taken on 2025-08-14",
+      "taken on": "2025-08-14",
+      "CurrentRevisionReleased": "2025-10-14 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2025-09",
+      "MetaDescription": "Claimant Count taken on 2025-09-11",
+      "taken on": "2025-09-11",
+      "CurrentRevisionReleased": "2025-11-11 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2025-10",
+      "MetaDescription": "Claimant Count taken on 2025-10-10",
+      "taken on": "2025-10-10",
+      "CurrentRevisionReleased": "2025-12-16 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2025-11",
+      "MetaDescription": "Claimant Count taken on 2025-11-14",
+      "taken on": "2025-11-14",
+      "CurrentRevisionReleased": "2026-01-20 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2025-12",
+      "MetaDescription": "Claimant Count taken on 2025-12-11",
+      "taken on": "2025-12-11",
+      "CurrentRevisionReleased": "2026-02-17 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2026-01",
+      "MetaDescription": "Claimant Count taken on 2026-01-08",
+      "taken on": "2026-01-08",
+      "CurrentRevisionReleased": "2026-03-19 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2026-02",
+      "MetaDescription": "Claimant Count taken on 2026-02-12",
+      "taken on": "2026-02-12",
+      "CurrentRevisionReleased": "2026-04-21 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2026-03",
+      "MetaDescription": "Claimant Count taken on 2026-03-12",
+      "taken on": "2026-03-12",
+      "CurrentRevisionReleased": "2026-05-19 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2026-04",
+      "MetaDescription": "Claimant Count taken on 2026-04-09",
+      "taken on": "2026-04-09",
+      "CurrentRevisionReleased": "2026-06-18 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2026-05",
+      "MetaDescription": "Claimant Count taken on 2026-05-14",
+      "taken on": "2026-05-14",
+      "CurrentRevisionReleased": "2026-07-21 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2026-06",
+      "MetaDescription": "Claimant Count taken on 2026-06-11",
+      "taken on": "2026-06-11",
+      "CurrentRevisionReleased": "2026-08-18 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2026-07",
+      "MetaDescription": "Claimant Count taken on 2026-07-09",
+      "taken on": "2026-07-09",
+      "CurrentRevisionReleased": "2026-09-15 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 1,
+      "MetadataCount": 1
+    },
+    {
+      "period": "2026-08",
+      "MetaDescription": "Claimant Count taken on 2026-08-13",
+      "taken on": "2026-08-13",
+      "CurrentRevisionReleased": "2026-09-15 07:00:00",
+      "CurrentRevisionStatus": "Live",
+      "CurrentRevisionVersion": 0,
+      "NextRevisionScheduled": "2026-10-20 07:00:00",
+      "NextRevisionStatus": "Pending",
+      "NextRevisionCertainty": "Confirmed",
+      "MetadataCount": 1
+    }
+  ],
+  "history": [
+    {
+      "geography_code": "K02000001",
+      "geography": "United Kingdom",
+      "observations": [
+        {
+          "period": "2025-08",
+          "count": 1663580,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-09",
+          "count": 1657110,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-10",
+          "count": 1650220,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-11",
+          "count": 1636235,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-12",
+          "count": 1625690,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-01",
+          "count": 1635860,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-02",
+          "count": 1686585,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-03",
+          "count": 1693865,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-04",
+          "count": 1678250,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-05",
+          "count": 1677865,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-06",
+          "count": 1672265,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-07",
+          "count": 1660035,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-08",
+          "count": 1698450,
+          "obs_status": "A",
+          "obs_conf": "F"
+        }
+      ],
+      "latest_count": 1698450,
+      "same_month_previous_year_count": 1663580,
+      "year_on_year_change_count": 34870
+    },
+    {
+      "geography_code": "E92000001",
+      "geography": "England",
+      "observations": [
+        {
+          "period": "2025-08",
+          "count": 1459710,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-09",
+          "count": 1456065,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-10",
+          "count": 1450235,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-11",
+          "count": 1436730,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-12",
+          "count": 1428420,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-01",
+          "count": 1435740,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-02",
+          "count": 1478960,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-03",
+          "count": 1484615,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-04",
+          "count": 1470440,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-05",
+          "count": 1472140,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-06",
+          "count": 1467245,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-07",
+          "count": 1455060,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-08",
+          "count": 1486460,
+          "obs_status": "A",
+          "obs_conf": "F"
+        }
+      ],
+      "latest_count": 1486460,
+      "same_month_previous_year_count": 1459710,
+      "year_on_year_change_count": 26750
+    },
+    {
+      "geography_code": "S92000003",
+      "geography": "Scotland",
+      "observations": [
+        {
+          "period": "2025-08",
+          "count": 104480,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-09",
+          "count": 101130,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-10",
+          "count": 100195,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-11",
+          "count": 101410,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-12",
+          "count": 100820,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-01",
+          "count": 103035,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-02",
+          "count": 107900,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-03",
+          "count": 109330,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-04",
+          "count": 108765,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-05",
+          "count": 108330,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-06",
+          "count": 108120,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-07",
+          "count": 108525,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-08",
+          "count": 112215,
+          "obs_status": "A",
+          "obs_conf": "F"
+        }
+      ],
+      "latest_count": 112215,
+      "same_month_previous_year_count": 104480,
+      "year_on_year_change_count": 7735
+    },
+    {
+      "geography_code": "W92000004",
+      "geography": "Wales",
+      "observations": [
+        {
+          "period": "2025-08",
+          "count": 62620,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-09",
+          "count": 62385,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-10",
+          "count": 62360,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-11",
+          "count": 62175,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-12",
+          "count": 62135,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-01",
+          "count": 62725,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-02",
+          "count": 64865,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-03",
+          "count": 65305,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-04",
+          "count": 64355,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-05",
+          "count": 64145,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-06",
+          "count": 64000,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-07",
+          "count": 63565,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-08",
+          "count": 65615,
+          "obs_status": "A",
+          "obs_conf": "F"
+        }
+      ],
+      "latest_count": 65615,
+      "same_month_previous_year_count": 62620,
+      "year_on_year_change_count": 2995
+    },
+    {
+      "geography_code": "N92000002",
+      "geography": "Northern Ireland",
+      "observations": [
+        {
+          "period": "2025-08",
+          "count": 36765,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-09",
+          "count": 37530,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-10",
+          "count": 37425,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-11",
+          "count": 35915,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2025-12",
+          "count": 34315,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-01",
+          "count": 34355,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-02",
+          "count": 34865,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-03",
+          "count": 34615,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-04",
+          "count": 34695,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-05",
+          "count": 33250,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-06",
+          "count": 32895,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-07",
+          "count": 32885,
+          "obs_status": "A",
+          "obs_conf": "F"
+        },
+        {
+          "period": "2026-08",
+          "count": 34155,
+          "obs_status": "A",
+          "obs_conf": "F"
+        }
+      ],
+      "latest_count": 34155,
+      "same_month_previous_year_count": 36765,
+      "year_on_year_change_count": -2610
+    }
+  ],
+  "uk_nation_rounding_checks": [
+    {
+      "period": "2025-08",
+      "uk": 1663580,
+      "four_nation_sum": 1663575,
+      "residual_persons": 5
+    },
+    {
+      "period": "2025-09",
+      "uk": 1657110,
+      "four_nation_sum": 1657110,
+      "residual_persons": 0
+    },
+    {
+      "period": "2025-10",
+      "uk": 1650220,
+      "four_nation_sum": 1650215,
+      "residual_persons": 5
+    },
+    {
+      "period": "2025-11",
+      "uk": 1636235,
+      "four_nation_sum": 1636230,
+      "residual_persons": 5
+    },
+    {
+      "period": "2025-12",
+      "uk": 1625690,
+      "four_nation_sum": 1625690,
+      "residual_persons": 0
+    },
+    {
+      "period": "2026-01",
+      "uk": 1635860,
+      "four_nation_sum": 1635855,
+      "residual_persons": 5
+    },
+    {
+      "period": "2026-02",
+      "uk": 1686585,
+      "four_nation_sum": 1686590,
+      "residual_persons": -5
+    },
+    {
+      "period": "2026-03",
+      "uk": 1693865,
+      "four_nation_sum": 1693865,
+      "residual_persons": 0
+    },
+    {
+      "period": "2026-04",
+      "uk": 1678250,
+      "four_nation_sum": 1678255,
+      "residual_persons": -5
+    },
+    {
+      "period": "2026-05",
+      "uk": 1677865,
+      "four_nation_sum": 1677865,
+      "residual_persons": 0
+    },
+    {
+      "period": "2026-06",
+      "uk": 1672265,
+      "four_nation_sum": 1672260,
+      "residual_persons": 5
+    },
+    {
+      "period": "2026-07",
+      "uk": 1660035,
+      "four_nation_sum": 1660035,
+      "residual_persons": 0
+    },
+    {
+      "period": "2026-08",
+      "uk": 1698450,
+      "four_nation_sum": 1698445,
+      "residual_persons": 5
+    }
+  ],
+  "limitations": [
+    "CSV and JSON are separate representations/extractions of the same Nomis statistical lineage.",
+    "This establishes the retained vintage only, not future releases or runtime retrieval.",
+    "Publisher unzoned release strings are preserved without inventing a UTC offset.",
+    "Publisher JSON prepared/extracted Z-labelled strings are approximately one hour ahead of the local UTC acquisition record; do not use them as independently verified retrieval timestamps.",
+    "Counts are administrative claimants, not ILO unemployment or available recruits."
+  ]
+}
