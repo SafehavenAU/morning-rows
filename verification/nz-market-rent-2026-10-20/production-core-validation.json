@@ -1,0 +1,613 @@
+{
+  "checked_at": "2026-10-20T07:37:07.817087+00:00",
+  "method": "Offline Draft2020-12/format assertions and Decimal comparison against separate retained Python workbook extraction",
+  "identity_valid": true,
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+    "source_dirty": false,
+    "build_fingerprint": "d06c032d78d73a12",
+    "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  },
+  "inputs": [
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/report.json",
+      "sha256": "3024286af4568f2b3e4aa79ef6ea8976df06a883bfda1bb02a9f72098f6b475e"
+    },
+    {
+      "file": "verification/us-paid-2026-10-20/workbook-recheck.json",
+      "sha256": "6dd9ee402385fc1f09f3b3abd4ff3700ae0d6ad1d779c5d56c292a4af70f8e9e"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fschema.json.body",
+      "sha256": "b28130e82090f7ba4cf2031345d0fcd31fcc3fa670be3ae39211e149c20db824"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fschema.v2.json.body",
+      "sha256": "0ba91e5a857e9306113273b3839695d2cb6dd2bec961a098d526258df1cb6463"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fcatalog.json.body",
+      "sha256": "44cc596696636befc74689fbcfb972b2aecb926a25771698656010304e871384"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fcatalog.v2.json.body",
+      "sha256": "072b0817b58386caaa23e1a4b3985e653215d91e4f7cdbaaceeeb41a2b84620a"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Faustralia.json.body",
+      "sha256": "f905b7f606d0d6e18d5941a77999fca8957103d8d7c89958aa72645e971a92c8"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fnew-zealand.json.body",
+      "sha256": "c4a25bd4facc50332faf9464c1aa65e58255b27bd3bb1a29a65c12bc6168d322"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fcanada.json.body",
+      "sha256": "9f3186daffe94d6baaa7fa5bcf38b7142ba54f91a25163425c28943bd26e3834"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Funited-kingdom.json.body",
+      "sha256": "12f96d787c3d2529dee2f2a390048c33965e92f2250befae09c25184606229da"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fengland.json.body",
+      "sha256": "abb98c8fc3854e613c62e3d14a1d8cfece2d876f1fbdd17588410efba627d7c6"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fscotland.json.body",
+      "sha256": "4525fc9cc1dc7bd53b27f6c08403a5e7885da6fd5c8cae66f0a095e8f417a7ba"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fwales.json.body",
+      "sha256": "fbcbc46ea19700ee042cad5a5754d05ae0f754ce7011bf3f80ada8b7ad883647"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Fnorthern-ireland.json.body",
+      "sha256": "e8c154162bb084ca50905e40dea508ae3f25eaf14901913f0b5752ebbfdd380d"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Funited-states.json.body",
+      "sha256": "81bc473bd325220b45994ee44f0027e0507033a6318d240137b132cf97b2730b"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/apex-%2Funited-states.json%3Fsource%3Dcpi%26measure%3DCUUR0000SA0.body",
+      "sha256": "c3bbae3d397be0a06a80898d81f13021921b5dfc2e954f2b4ab09a9134d36874"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fschema.json.body",
+      "sha256": "b28130e82090f7ba4cf2031345d0fcd31fcc3fa670be3ae39211e149c20db824"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fschema.v2.json.body",
+      "sha256": "0ba91e5a857e9306113273b3839695d2cb6dd2bec961a098d526258df1cb6463"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fcatalog.json.body",
+      "sha256": "44cc596696636befc74689fbcfb972b2aecb926a25771698656010304e871384"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fcatalog.v2.json.body",
+      "sha256": "072b0817b58386caaa23e1a4b3985e653215d91e4f7cdbaaceeeb41a2b84620a"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Faustralia.json.body",
+      "sha256": "ef56a51382fcc3eeb26f09b8cf4a4cef368d351160bda63645df0b37cddf1ad1"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fnew-zealand.json.body",
+      "sha256": "2c2192796282edf3b83082197316d045597603602a05cf9683adf2afc07e8488"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fcanada.json.body",
+      "sha256": "65a09031802e23a779c71b09bf209c7d0db4969dc90cf2d903de3d92f0f58d8e"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Funited-kingdom.json.body",
+      "sha256": "f54c11093335bca36ad03d0c7511b897099644641b895661ed9dc4d43fa5335c"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fengland.json.body",
+      "sha256": "6f397cf1bec505de6ba6de011e16d1a8d18e585de6b3dbf4f96ec06102374aee"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fscotland.json.body",
+      "sha256": "43654d2d0801965485fb880f86bd3e7e22131d7338bdff12ae7149d1b38d2e60"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fwales.json.body",
+      "sha256": "2a30fa4843dd72833c2a3af64665117c326e7a1abfa9974781fd47e95ccb8d39"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Fnorthern-ireland.json.body",
+      "sha256": "3fafdccfe1a6d4b5218a8374cad34860e9c1f279c2494080d58fd403a44f528f"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Funited-states.json.body",
+      "sha256": "81bc473bd325220b45994ee44f0027e0507033a6318d240137b132cf97b2730b"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/production-core/www-%2Funited-states.json%3Fsource%3Dcpi%26measure%3DCUUR0000SA0.body",
+      "sha256": "c3bbae3d397be0a06a80898d81f13021921b5dfc2e954f2b4ab09a9134d36874"
+    },
+    {
+      "file": "verification/nz-market-rent-2026-10-20/staged-semantic.json",
+      "sha256": "8065f459dfa780f9a2026cf1e4f3c9cd6a61c3502aa20c5c7f53105ed832cd64"
+    }
+  ],
+  "schema_checks": [
+    {
+      "domain": "apex",
+      "path": "/catalog.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/catalog.v2.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/australia.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/new-zealand.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/canada.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-kingdom.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/england.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/scotland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/wales.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/northern-ireland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-states.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/catalog.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/catalog.v2.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/australia.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/new-zealand.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/canada.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-kingdom.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/england.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/scotland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/wales.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/northern-ireland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-states.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    }
+  ],
+  "us_comparisons": [
+    {
+      "domain": "apex",
+      "period": "2025-09",
+      "expected_value_text": "324.800",
+      "observed_value_text": "324.800",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-10",
+      "expected_value_text": null,
+      "observed_value_text": "-",
+      "value_state": "unavailable",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-11",
+      "expected_value_text": "324.122",
+      "observed_value_text": "324.122",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-12",
+      "expected_value_text": "324.054",
+      "observed_value_text": "324.054",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-01",
+      "expected_value_text": "325.252",
+      "observed_value_text": "325.252",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-02",
+      "expected_value_text": "326.785",
+      "observed_value_text": "326.785",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-03",
+      "expected_value_text": "330.213",
+      "observed_value_text": "330.213",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-04",
+      "expected_value_text": "333.020",
+      "observed_value_text": "333.020",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-05",
+      "expected_value_text": "335.123",
+      "observed_value_text": "335.123",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-06",
+      "expected_value_text": "333.952",
+      "observed_value_text": "333.952",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-07",
+      "expected_value_text": "333.918",
+      "observed_value_text": "333.918",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-08",
+      "expected_value_text": "334.980",
+      "observed_value_text": "334.980",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-09",
+      "expected_value_text": "336.940",
+      "observed_value_text": "336.940",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-09",
+      "expected_value_text": "324.800",
+      "observed_value_text": "324.800",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-10",
+      "expected_value_text": null,
+      "observed_value_text": "-",
+      "value_state": "unavailable",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-11",
+      "expected_value_text": "324.122",
+      "observed_value_text": "324.122",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-12",
+      "expected_value_text": "324.054",
+      "observed_value_text": "324.054",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-01",
+      "expected_value_text": "325.252",
+      "observed_value_text": "325.252",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-02",
+      "expected_value_text": "326.785",
+      "observed_value_text": "326.785",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-03",
+      "expected_value_text": "330.213",
+      "observed_value_text": "330.213",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-04",
+      "expected_value_text": "333.020",
+      "observed_value_text": "333.020",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-05",
+      "expected_value_text": "335.123",
+      "observed_value_text": "335.123",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-06",
+      "expected_value_text": "333.952",
+      "observed_value_text": "333.952",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-07",
+      "expected_value_text": "333.918",
+      "observed_value_text": "333.918",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-08",
+      "expected_value_text": "334.980",
+      "observed_value_text": "334.980",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-09",
+      "expected_value_text": "336.940",
+      "observed_value_text": "336.940",
+      "value_state": "observed",
+      "pass": true
+    }
+  ],
+  "counts": {
+    "apex": {
+      "slots": 13,
+      "unique_periods": 13,
+      "reference_coverage": true
+    },
+    "www": {
+      "slots": 13,
+      "unique_periods": 13,
+      "reference_coverage": true
+    }
+  },
+  "source_comparison": {
+    "compared_source_states": 230,
+    "changes": [
+      {
+        "domain": "apex",
+        "desk": "england.json",
+        "source": "also.roads",
+        "staged": {
+          "status": "ok",
+          "fetched_at": "2026-10-20T07:27:46.567Z"
+        },
+        "production": {
+          "status": "error",
+          "fetched_at": "2026-10-20T07:35:55.699Z",
+          "error": "api.tfl.gov.uk returned HTTP 429",
+          "http_status": 429
+        },
+        "classification": "known intermittent TfL status change",
+        "resolved_laws_evidence": null
+      },
+      {
+        "domain": "www",
+        "desk": "england.json",
+        "source": "also.roads",
+        "staged": {
+          "status": "ok",
+          "fetched_at": "2026-10-20T07:27:46.567Z"
+        },
+        "production": {
+          "status": "error",
+          "fetched_at": "2026-10-20T07:36:05.635Z",
+          "error": "api.tfl.gov.uk returned HTTP 429",
+          "http_status": 429
+        },
+        "classification": "known intermittent TfL status change",
+        "resolved_laws_evidence": null
+      },
+      {
+        "domain": "www",
+        "desk": "england.json",
+        "source": "rail",
+        "staged": {
+          "status": "error",
+          "fetched_at": "2026-10-20T07:27:45.021Z",
+          "error": "api.tfl.gov.uk returned HTTP 429",
+          "http_status": 429
+        },
+        "production": {
+          "status": "ok",
+          "fetched_at": "2026-10-20T07:36:04.806Z"
+        },
+        "classification": "known intermittent TfL status change",
+        "resolved_laws_evidence": null
+      },
+      {
+        "domain": "www",
+        "desk": "england.json",
+        "source": "service",
+        "staged": {
+          "status": "error",
+          "fetched_at": "2026-10-20T07:27:45.018Z",
+          "error": "api.tfl.gov.uk returned HTTP 429",
+          "http_status": 429
+        },
+        "production": {
+          "status": "ok",
+          "fetched_at": "2026-10-20T07:36:04.787Z"
+        },
+        "classification": "known intermittent TfL status change",
+        "resolved_laws_evidence": null
+      }
+    ],
+    "requires_review": [],
+    "semantic_boundary": "Native source availability is not independent certification of coverage or correctness."
+  },
+  "pass": true,
+  "missing_value_comparison": "Workbook null with the October 2025 note equals public null numeric value, dash text, unavailable state and exact X footnote.",
+  "limitations": [
+    "All BLS presentations share statistical lineage; this is separate extraction/presentation evidence.",
+    "Does not make new network requests or establish sustained monitoring acceptance.",
+    "Original failed or mixed-rollout captures remain separate evidence and are not rewritten."
+  ]
+}

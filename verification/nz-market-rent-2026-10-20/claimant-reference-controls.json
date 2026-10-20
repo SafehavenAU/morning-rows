@@ -1,0 +1,134 @@
+{
+  "kind": "Offline argument/reference validation controls; constructed next-window data is not publisher evidence",
+  "pass": true,
+  "network_attempted": false,
+  "script_sha256": "21b8537c18265f611b87f9f70c2dea74ef5153d722abdc6f31964856a0e7ffec",
+  "controls": [
+    {
+      "case": "default_historical_reference",
+      "expected_success": true,
+      "exit_code": 0,
+      "pass": true,
+      "reference": {
+        "file": "/workspace/morning-rows-rent/verification/claimant-count-2026-10-20/independent-report.json",
+        "bytes": 21423,
+        "sha256": "f83c99c0146a4b2de9508d09f2ac6262270a2019388911109902fec2608dca1e",
+        "period_start": "2025-08",
+        "period_end": "2026-08",
+        "observations_compared": 65
+      }
+    },
+    {
+      "case": "explicit_reference_path",
+      "expected_success": true,
+      "exit_code": 0,
+      "pass": true,
+      "reference": {
+        "file": "/tmp/mr-claimant-reference-controls-53wm3ggl/valid.json",
+        "bytes": 15680,
+        "sha256": "ee08b8e9e6cac86378373fb95fa019359fc8954e625d11493ba8f3c29e847cfd",
+        "period_start": "2025-08",
+        "period_end": "2026-08",
+        "observations_compared": 65
+      }
+    },
+    {
+      "case": "reference_failed",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: must pass all 65 independent cells"
+    },
+    {
+      "case": "wrong_comparison_count",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: must pass all 65 independent cells"
+    },
+    {
+      "case": "nonconsecutive_history",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: invalid, missing or nonconsecutive national cells"
+    },
+    {
+      "case": "wrong_geography",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: wrong national geography"
+    },
+    {
+      "case": "duplicate_geography",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: five unique national histories required"
+    },
+    {
+      "case": "invalid_latest_month",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: invalid latest month"
+    },
+    {
+      "case": "missing_period_metadata",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: period metadata must cover the same thirteen months"
+    },
+    {
+      "case": "unrounded_count",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: invalid, missing or nonconsecutive national cells"
+    },
+    {
+      "case": "unpublished_cell",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: Invalid claimant reference: invalid, missing or nonconsecutive national cells"
+    },
+    {
+      "case": "missing_reference_file",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: ENOENT: no such file or directory, open '/tmp/mr-claimant-reference-controls-53wm3ggl/missing.json'"
+    },
+    {
+      "case": "empty_override",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: CLAIMANT_REFERENCE must name a nonempty file path"
+    },
+    {
+      "case": "constructed_next_window_no_network",
+      "expected_success": true,
+      "exit_code": 0,
+      "pass": true,
+      "reference": {
+        "file": "/tmp/mr-claimant-reference-controls-53wm3ggl/constructed-next-window.json",
+        "bytes": 15680,
+        "sha256": "3b55f81bb7cac797c8474645a78e41e9a7bbdb6d98bea2c0b3d20c2f178fb668",
+        "period_start": "2025-09",
+        "period_end": "2026-09",
+        "observations_compared": 65
+      }
+    },
+    {
+      "case": "existing_capture_directory_refused",
+      "expected_success": false,
+      "exit_code": 1,
+      "pass": true,
+      "rejection": "Error: EEXIST: file already exists, mkdir '/tmp/mr-claimant-reference-controls-53wm3ggl/existing-capture'"
+    }
+  ]
+}

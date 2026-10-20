@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-20T05:10:26.941251+00:00",
-  "scope": "Eight original desks and their original ten task targets, plus separately authorized USA CPI and national claimant history on five existing desks; broader acceptance incomplete",
+  "updated_at": "2026-10-20T07:40:49.489780+00:00",
+  "scope": "Original eight desks and original ten targets, plus separately authorized USA CPI, five-nation claimant history and two-locality NZ rent; broader acceptance incomplete",
   "complete": false,
   "worktree": "/workspace/morning-rows-operations",
   "source_base": "7231aab",
@@ -473,13 +473,21 @@
         "operations/us-release-review.json",
         "verification/claimant-count-2026-10-20/monitor-transition-replay.json"
       ]
+    },
+    "source_registry_115": {
+      "state": "115 obligations configured for exact reviewed NZ rent release; actual expanded-scope collection pending",
+      "evidence": [
+        "operations/source-contract-registry.json",
+        "operations/us-release-review.json",
+        "verification/nz-market-rent-2026-10-20/monitor-transition-replay.json"
+      ]
     }
   },
   "corrections": [
     "Period mismatch risk is in England UK-labelled CPI; UK native section currently contains index only. Shared reader will preserve legacy fields and explicitly qualify both.",
     "Remote main is 2cb3ffd; no Actions workflows/runs installed. Do not push main until Workers Builds delivery safety is established."
   ],
-  "status": "Two complete legacy scheduled cycles verified; USA and claimant implementations released; expanded-scope scheduled observation, seven-day SHADOW and delivery pending; NZ-PRICES evidence blocked",
+  "status": "Two legacy scheduled cycles verified; USA, claimant and NZ rent implementations released; expanded-scope actual scheduled observations, seven-day SHADOW and delivery remain incomplete; NZ-PRICES evidence blocked",
   "bounded_verification_continuation": {
     "task_id": "scheduled-cycle-and-one-verification-gap-2026-10-18",
     "phase": "blocked_external_evidence",
@@ -682,6 +690,105 @@
       "At least eight complete daily claimant scheduled checkpoints spanning seven elapsed days with no gap over26h",
       "Genuine delivery receipt and independent original maintenance gates remain unresolved"
     ],
-    "resume_condition": "Observe the normal serialized daily collector. Routine monitoring does not authorize repeated release or further expansion."
+    "resume_condition": "Observe the normal serialized daily collector. Routine monitoring does not authorize repeated release or further expansion.",
+    "latest_verified_refresh": {
+      "period_start": "2025-09",
+      "period_end": "2026-09",
+      "reference": "verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+      "reference_sha256": "6e35c48d68fb0f072bf697f0b520c755e231334f0b2e5168a94514faefd62d0e",
+      "original_cells": 65,
+      "production_cells": 130,
+      "separate_NISRA_comparable_cells": 1,
+      "note": "New September month plus all five August revisions independently reconciled. Prior August release proof retained; shared administrative lineage.",
+      "identity": {
+        "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+        "source_dirty": false,
+        "build_fingerprint": "d06c032d78d73a12",
+        "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad"
+      }
+    },
+    "superseded_by_compatible_release": {
+      "identity": {
+        "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+        "source_dirty": false,
+        "build_fingerprint": "d06c032d78d73a12",
+        "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad"
+      },
+      "evidence": "verification/nz-market-rent-2026-10-20/README.md",
+      "note": "Claimant contract preserved and newly published Sep2025–Sep2026 window independently reconciled."
+    }
+  },
+  "nz_market_rent_release": {
+    "task_id": "nz-local-market-rent-2026-10-20",
+    "phase": "released_observing",
+    "authorization": "User: keep building dont stop; find all gaps and keep filling them",
+    "scope": "Two fixed NZ localities: Auckland - Avondale and Wellington - Kelburn; weekly rent quartiles and separately defined active-bond counts",
+    "contract": "verification/nz-market-rent-2026-10-20/CONTRACT.md",
+    "evidence": "verification/nz-market-rent-2026-10-20/README.md",
+    "release_accepted": true,
+    "deployed": true,
+    "identity": {
+      "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+      "source_dirty": false,
+      "build_fingerprint": "d06c032d78d73a12",
+      "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad"
+    },
+    "deployment_id": "663484b4-bf7d-4d3e-8b66-1320fcdd8876",
+    "promoted_at": "2026-10-20T07:35:25.569148Z",
+    "accepted_at": "2026-10-20T07:40:49.489780+00:00",
+    "rollback_identity": {
+      "source_revision": "983904912d512b054ae3a7fa1cd1e6a65c353036",
+      "source_dirty": false,
+      "build_fingerprint": "5a0a0fe53d5f160c",
+      "worker_version": "21582063-b7df-456b-ba2f-4f629f9cc63d"
+    },
+    "initial_verified_window": {
+      "start": "2026-03-01",
+      "end": "2026-08-31",
+      "localities": 2,
+      "reported_rows": 29,
+      "numeric_cells": 116,
+      "supported_definitions": 200,
+      "production_native_cells": 232,
+      "production_selected_cells": 268
+    },
+    "independence_limit": "Separate extraction of official AJAX and separately selected full-page tables matches every reported tuple/cell; shared MBIE administrative/statistical lineage, not independent underlying statistical estimation. Provisional migration and revision caveats remain.",
+    "validation": {
+      "node_tests": 288,
+      "protected_fault_cases": 21,
+      "general_interface_checks": 151,
+      "rent_interface_checks": 224,
+      "rent_schema_documents": 42,
+      "rent_schema_negatives": 48,
+      "claimant_interface_checks": 366,
+      "claimant_original_cells": 65,
+      "claimant_production_cells": 130,
+      "claimant_schema_documents": 50,
+      "claimant_schema_negatives": 370,
+      "existing_schema_documents": 24,
+      "existing_semantic_checks": 100,
+      "usa_reference_slots": 26,
+      "apex_smoke_checks": 18,
+      "www_smoke_checks": 17,
+      "usa_cold_ms": 9,
+      "cold_legacy_max_ms": 296,
+      "fresh_rent_source_ms": 361,
+      "legacy_cpu_gate_ms": 500,
+      "usa_cpu_gate_ms": 100,
+      "worker_cpu_ceiling_ms": 1000,
+      "source_commit_node_tests": 287
+    },
+    "monitor_obligations": 115,
+    "public_probes": 24,
+    "source_alerts_enabled": false,
+    "checkpoint_mutated": false,
+    "complete_market_rent_scheduled_runs": 0,
+    "market_rent_shadow_started_at": null,
+    "remaining_operational_gates": [
+      "First actual scheduled collection under reviewed rent scope",
+      "At least eight complete daily scheduled checkpoints spanning seven elapsed days, no gap over26h",
+      "Independent watchdog proof and genuine delivery receipt; existing NZ-PRICES/CPI evidence gates remain unresolved"
+    ],
+    "resume_condition": "Observe normal serialized daily collector; routine monitoring does not authorize repeated release or new implementation."
   }
 }

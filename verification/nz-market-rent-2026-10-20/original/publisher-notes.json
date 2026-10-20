@@ -1,0 +1,142 @@
+{
+  "research_date": "2026-10-20",
+  "created_at": "2026-10-20T07:07:53.860842+00:00",
+  "purpose": "Fresh official method, reuse and bounded city/suburb selection evidence; no runtime or network acceptance claim.",
+  "publisher": "Tenancy Services, Ministry of Business, Innovation and Employment (MBIE), New Zealand",
+  "methodology": {
+    "url": "https://www.tenancy.govt.nz/rent-bond-and-bills/market-rent/market-rent-explained/",
+    "retrieved_at": "2026-10-20T07:05:08.643484+00:00",
+    "http_status": 200,
+    "curl_return_code": 0,
+    "bytes": 90497,
+    "sha256": "27d32100145c392a8e0b447186855646abf5fe04163fe07d10e40c6a0aff4613",
+    "page_last_updated": "2025-04-02",
+    "findings": [
+      "The tool covers non-government-owned properties represented in bond information for the displayed six-month window. It is a guide and must not alone determine an individual property rent.",
+      "The publisher describes rent quartiles as calculated from bonds lodged in the displayed six months. It separately explains the reporting lag as improving completeness by tenancy start date; preserve this wording rather than converting the table into a stock of all existing tenancies.",
+      "The green-box total includes all bonds. Each dwelling-type active-bonds count includes only current bonds within that six-month period. Do not use active count as the full denominator for rent quartiles.",
+      "Market-rent regions are based on suburbs in the New Zealand Address Dataset (NZAD). No stable numeric NZAD identifier is supplied by the tested tool selector.",
+      "Weekly rent figures are rounded. No numeric rounding base or web-table suppression threshold is stated on this methodology page.",
+      "House/Townhouse is a self-contained property usually with land. Apartment includes self-contained areas plus shared areas. Boarding House room has shared facilities in a building intended for at least six people; Room is separately rented with shared facilities in a building intended for fewer than six people. Bedsit/Flat includes part of a subdivided building or a dwelling independent of the primary residence.",
+      "The tool excludes the most recent month since June 2021. Late lodgements and recording delays cause considerable revisions; absence of a changed daily number is not evidence of stale collection."
+    ]
+  },
+  "licence": {
+    "source": "https://www.tenancy.govt.nz/rent-bond-and-bills/market-rent/market-rent-explained/",
+    "name": "Creative Commons Attribution 3.0 New Zealand",
+    "url": "https://creativecommons.org/licenses/by/3.0/nz/",
+    "copyright": "Crown copyright",
+    "required_context": "Credit MBIE/Tenancy Services and link the market-rent-explained methodology page when reproducing the figures. Preserve purpose and uncertainty limits.",
+    "note": "The downloads page expressly requests The Ministry of Business, Innovation and Employment as attribution for its downloadable raw data; this consistent publisher attribution is also retained for tool values."
+  },
+  "download_status": {
+    "url": "https://www.tenancy.govt.nz/about-tenancy-services/data-and-statistics/rental-bond-data/",
+    "retrieved_at": "2026-10-20T07:05:08.644004+00:00",
+    "http_status": 200,
+    "curl_return_code": 0,
+    "bytes": 93652,
+    "sha256": "bf629e4b72187c5251692b6f5873601c2363ce6610ca6a6d9fcf85d4d0c4514b",
+    "page_last_updated": "2026-10-13",
+    "findings": [
+      "Migration between the legacy and new bond management systems is ongoing. Data remains provisional, may be incomplete and may be revised.",
+      "Changes can reflect reclassification, system differences and methodology changes rather than market movement; recent releases may not be comparable with earlier periods.",
+      "Fixed random rounding to base three and suppression below five bonds are described for downloadable files using SA2-2019 areas and tenancy start dates. These rules are not independently established for the website NZAD suburb tables and must not be transferred.",
+      "The downloads page also describes alternative geometric means and synthetic quartiles for rent analysis. This is not evidence that the web table labelled median/lower quartile/upper quartile uses those alternative measures."
+    ]
+  },
+  "tool_cadence": {
+    "url": "https://www.tenancy.govt.nz/rent-bond-and-bills/market-rent/",
+    "retrieved_at": "2026-10-20T07:05:08.646078+00:00",
+    "http_status": 200,
+    "curl_return_code": 0,
+    "bytes": 89742,
+    "sha256": "e5d61d3f045ca359c558f6ad1edbea826f7e1856765ad327cc04a503a7080b2e",
+    "findings": [
+      "Tool page explicitly says it updates monthly and covers six months excluding the most recent month; its February example covers 1 July through 31 December.",
+      "The ordinary public form submits GET location and has a hidden period=42 field in this response. Treat 42 as an opaque interface value, not an observed month, release date, stable geography identifier or a reusable date formula.",
+      "Default or geolocated page content cannot establish a requested location; require explicit city-qualified result echo and the actual displayed date range."
+    ]
+  },
+  "selector_contract": {
+    "discovery": {
+      "tool_input_data_ajaxurl": "/market-rent-api/",
+      "script_behavior": "Publisher client script attaches suggestLocations to data-ajaxurl and groups suggestions by data.city.",
+      "script_provenance": {
+        "url": "https://www.tenancy.govt.nz/_resources/themes/tenancy/dist/js/script.min.js?m=1792306821",
+        "retrieved_at": "2026-10-20T07:06:14.944241+00:00",
+        "http_status": 200,
+        "curl_return_code": 0,
+        "bytes": 571919,
+        "sha256": "37f11af6aecd3bfc32d347dc56cfde1ac58872bbec1dd4459cbc4959a019e688"
+      },
+      "raw_script_not_retained": "Only hash/bytes/URL metadata retained here; full script remains outside repository and no unrelated embedded configuration values are copied."
+    },
+    "queries": [
+      {
+        "url": "https://www.tenancy.govt.nz/market-rent-api/suggestLocations?query=Avondale",
+        "retrieved_at": "2026-10-20T07:06:55.398052+00:00",
+        "http_status": 200,
+        "curl_return_code": 0,
+        "bytes": 162,
+        "sha256": "6c2b3dc63f794f13533168f80fa511de15497ba9f789b0013dd5bb46ebf5942e",
+        "response": {
+          "query": "Avondale",
+          "suggestions": [
+            {
+              "value": "Auckland - Avondale",
+              "data": {
+                "city": "Auckland"
+              }
+            },
+            {
+              "value": "Christchurch - Avondale",
+              "data": {
+                "city": "Christchurch"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "url": "https://www.tenancy.govt.nz/market-rent-api/suggestLocations?query=Kelburn",
+        "retrieved_at": "2026-10-20T07:06:55.398527+00:00",
+        "http_status": 200,
+        "curl_return_code": 0,
+        "bytes": 97,
+        "sha256": "ba30ee92df9cc992a5539ba610580e0440327b608ca9217d9cac97a05c110bcf",
+        "response": {
+          "query": "Kelburn",
+          "suggestions": [
+            {
+              "value": "Wellington - Kelburn",
+              "data": {
+                "city": "Wellington"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "permitted_initial_pairs": [
+      {
+        "city": "Auckland",
+        "suburb": "Avondale",
+        "official_value": "Auckland - Avondale"
+      },
+      {
+        "city": "Wellington",
+        "suburb": "Kelburn",
+        "official_value": "Wellington - Kelburn"
+      }
+    ],
+    "ambiguity": "Avondale also resolves to Christchurch; never use an unqualified suburb or substitute Christchurch values for Auckland.",
+    "access": "Two public GETs used ordinary X-Requested-With, Accept and Referer headers; no API key, user cookie or registration.",
+    "limit": "These tests validate two selected labels, not every NZAD suburb, city geography, nationwide inventory, stable API contract or documented-key API equivalence."
+  },
+  "privacy": "Full publisher pages and Javascript stay outside the repository because they contain unrelated navigation, contact/footer and other metadata. This note retains only paraphrases, public selector objects and wire hashes/bytes; no individual records.",
+  "limitations": [
+    "No independent rent calculation or survey validation.",
+    "No web-table rounding base, missing-marker vocabulary, web suppression threshold, explicit timezone or exact monthly release day established by these methodology pages.",
+    "Source-selection checks do not prove Cloudflare accessibility or actual reader numerical correctness."
+  ]
+}

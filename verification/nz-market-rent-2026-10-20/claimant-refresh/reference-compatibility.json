@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-20T07:35:30.378559+00:00",
+  "pass": true,
+  "reference_file": "verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+  "reference_sha256": "6e35c48d68fb0f072bf697f0b520c755e231334f0b2e5168a94514faefd62d0e",
+  "reference_bytes": 23219,
+  "reference_validator": {
+    "command": "CLAIMANT_REFERENCE=verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json node scripts/check-claimants.mjs --validate-reference",
+    "pass": true,
+    "network_requests": 0
+  },
+  "capture_verifier": {
+    "command": "node scripts/verify-claimant-captures.mjs /tmp/mr-claimant-refresh-reference-check verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json /tmp/mr-claimant-refresh-reference-check/report.json",
+    "pass": true,
+    "native_cells_compared": 65,
+    "selectors": 0,
+    "proof_sha256": "0838f4b5dd20dd3a133b9cb4322f9fc3cdad5fe263c973ab71d497f444962b1b",
+    "network_requests": 0,
+    "capture_projection_source": "verification/nz-market-rent-2026-10-20/legacy-cpu.json",
+    "capture_projection_source_sha256": "c04fd8910bb624102bb3c511f207071271db7c5520dddb8d68e92e4b7827109c",
+    "projection": "Only exact override health and five native public body objects from legacy-cpu.json reserialized to temporary capture filenames for existing offline verifier; no new capture and no HTTP transport or selector acceptance claimed."
+  },
+  "boundary": "Reference schema finalized and frozen before root fresh-selector capture. No capture-check code modified; original August reference preserved."
+}

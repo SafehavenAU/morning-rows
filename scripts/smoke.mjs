@@ -3,6 +3,7 @@ import { promisify } from 'node:util';
 import { writeFile } from 'node:fs/promises';
 import { validateCpiRepresentation } from '../lib/information-v2.js';
 import { CLAIMANT_GEOGRAPHIES, validateClaimantRepresentation } from '../lib/claimant-count.js';
+import { validateNzRentRepresentation } from '../lib/nz-market-rent.js';
 const run = promisify(execFile);
 const base = process.env.SITE_URL || 'https://morningrows.com';
 const expected = process.env.EXPECTED_REVISION;
@@ -56,6 +57,7 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     report.degraded.push(...problems(d).map(issue=>({desk:path,...issue})));
    }
    if(path==='/new-zealand.json') {
+    if(process.env.CHECK_NZ_RENT==='1'&&(d.sources?.market_rent?.status!=='ok'||!validateNzRentRepresentation(d.market_rent)))throw Error('NZ rent requires the two supported localities, coherent six-month windows, known categories and separate bond/rent units');
     const rows=d.stats?.rows||[];
     if(!d.stats?.present||rows.length!==23||rows.some(row=>row.status!=='ok'||!row.period||!Number.isFinite(row.value)||!row.geography||!row.unit))throw Error('Stats NZ requires 23 valid, described observations');
     if(process.env.CHECK_NZ_PRICES==='1') {
@@ -88,6 +90,7 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
    }
    if(process.env.CHECK_TRANSPORT_ADDITIONS==='1') {
     if(path==='/new-zealand.json') {
+    if(process.env.CHECK_NZ_RENT==='1'&&(d.sources?.market_rent?.status!=='ok'||!validateNzRentRepresentation(d.market_rent)))throw Error('NZ rent requires the two supported localities, coherent six-month windows, known categories and separate bond/rent units');
      const f=d.vehicle_fleet;
      if(f?.rows?.length!==8||f.geography!=='New Zealand'||f.period!=='2024'||f.rows.some(r=>!Number.isSafeInteger(r.value)||r.value<0||r.unit!=='vehicles'||r.geography!=='New Zealand'||r.period!==f.period))throw Error('Eight validated NZ fleet observations missing');
     }

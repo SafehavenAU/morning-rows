@@ -1,4 +1,73 @@
-# Current release — 20 October 2026
+# Current release — NZ local rent, 20 October 2026
+
+Clean source `f85224e6a9ee601d9e706ffab2cd133d3697c272`, Worker
+`b2a562a7-d137-4376-a6ca-54f29f1415ad`, fingerprint `d06c032d78d73a12`
+is live on both domains. Deployment `663484b4-bf7d-4d3e-8b66-1320fcdd8876`
+promoted the tested version to100% at `2026-10-20T07:35:25.569148Z`.
+The rollback target is the prior claimant Worker
+`21582063-b7df-456b-ba2f-4f629f9cc63d`, source
+`983904912d512b054ae3a7fa1cd1e6a65c353036`, fingerprint `5a0a0fe53d5f160c`.
+Documentation/merge commits do not identify the deployed source.
+See [release evidence](verification/nz-market-rent-2026-10-20/README.md) and
+[acceptance](verification/nz-market-rent-2026-10-20/release-acceptance.json).
+
+`/new-zealand.json?source=market_rent` adds official MBIE/Tenancy Services rent
+quartiles and separately defined active-bond counts for Auckland–Avondale and
+Wellington–Kelburn. Two city-qualified locality IDs, five dwelling types and
+five bedroom categories support200 finite definitions. The current inclusive
+March–August2026 window contains29 reported tuples/116 numeric cells, all
+independently reconciled across separately extracted official AJAX/full-page
+presentations. Both presentations share administrative lineage. Rent quartiles
+are weekly NZD; bond counts are not their established denominator. Five-plus
+means five or more. Provisional/migration/revision caveats remain; absent tuples
+are not zero. No arbitrary suburb search, property valuation or history is added.
+
+The claimant publisher released September during validation. Fresh official
+CSV/JSON/time metadata independently reconcile65 September2025–September2026
+cells, including all five revised August values. One separately presented
+comparable NISRA workbook cell matches34,225 for September; the differently
+classified/rounded headline34,228 is not substituted. The earlier August
+release evidence and approvals remain history, not proof of this new window.
+
+Acceptance passed 287 source tests and 288 final repository tests/build, 21 protected fault scenarios,151 general
+checks,224 rent interface checks,232 rent native cells and268 selected cells
+across both domains,42 rent schemas/48 negative controls,366 claimant checks,
+130 claimant cells and50 claimant schemas/370 negatives. Existing contracts
+passed100 semantic checks,24 schemas and26 BLS slots. Smoke checks passed18
+apex/17 www. CPU samples were9ms USA,296ms maximum across eight legacy desks,
+and361ms for a fresh www rent-source request, below100/500ms gates with the
+unchanged1,000ms Worker ceiling. Four known intermittent TfL status changes
+were the only stage/production source-state differences. The initial claimant
+schema invocation used a wrong capture-directory path; its failed zero-check
+report is retained alongside the successful final validation.
+
+The reviewed identity chain now extends old baseline → USA → claimant → rent.
+It configures115 source obligations in the existing24 public probes. The next
+normal serialized daily collector may apply the exact remaining reviewed
+suffix in one actual collection. Intermediate reviews are not observed runs.
+No checkpoint was written: sequence5/run39341442350 remains the durable
+baseline, completed `2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
+with33 incidents,36 pending repairs and the unchanged pending delivery event.
+Legacy scheduled count remains two; USA, claimant and rent each remain zero.
+SHADOW starts at the actual `2026-10-18T23:22:22.161Z` completion; the next
+complete checkpoint deadline remains `2026-10-21T01:26:10.163Z`.
+
+Keep the hourly watchdog, daily collector, disabled ordinary source alerts,
+disconnected automatic Builds and all credentials. Eight scheduled checkpoints,
+seven elapsed scheduled-completion days, no gap over26h and genuine delivery
+evidence remain required. Do not repeat the delivery test or treat build
+requests as acknowledgment. NZ-PRICES remains blocked on its selected17October
+specimen; UK CPI stays parked. Routine monitoring must not restart builds.
+
+The user's separate continuous-build request is tracked in
+[GAP-LEDGER.md](GAP-LEDGER.md). Existing Canada GDP semantics/parser guards are
+now the next selected correctness contract; AEMO daily prices and dated BoC FX
+remain queued. No all-gaps-closed claim is made.
+
+---
+
+# Previous claimant release — 20 October 2026
 
 The national claimant-count reader is deployed to both domains at clean source
 `983904912d512b054ae3a7fa1cd1e6a65c353036`, Worker
