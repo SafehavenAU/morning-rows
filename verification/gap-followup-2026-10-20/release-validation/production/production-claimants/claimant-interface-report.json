@@ -1,0 +1,4008 @@
+{
+  "started_at": "2026-10-20T12:54:25.364Z",
+  "kind": "Production interface",
+  "revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+  "version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89",
+  "reference": {
+    "file": "/workspace/morning-rows-gap-followup/verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+    "bytes": 23219,
+    "sha256": "6e35c48d68fb0f072bf697f0b520c755e231334f0b2e5168a94514faefd62d0e",
+    "period_start": "2025-09",
+    "period_end": "2026-09",
+    "observations_compared": 65
+  },
+  "requests": [
+    {
+      "origin": "https://morningrows.com",
+      "path": "/health.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:25.364Z",
+      "completed_at": "2026-10-20T12:54:25.437Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-cache",
+        "content-location": "https://morningrows.com/health.json",
+        "etag": "W/\"22f252c768994f58ffdb8826d49e0315cca9eaca524d99559cec4402909a68e5\"",
+        "link": "<https://morningrows.com/health.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 309,
+      "sha256": "aa4b101fb347c2c8944335d298cc5c53a61bfd19b4c75163da6879a57502c207",
+      "file": "apex-%2Fhealth.json.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:25.438Z",
+      "completed_at": "2026-10-20T12:54:25.719Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/united-kingdom.json",
+        "etag": "W/\"98d30957503dc547ce55e3f9c26892e7a278cf26f2ef1ea9b93b7f46a37a38ab\"",
+        "link": "<https://morningrows.com/united-kingdom.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:25.506Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 78450,
+      "sha256": "50bd1b9f25c475adadefe1484a8ab2154ccf51e576a28d5f55886b11f211ccf0",
+      "file": "apex-%2Funited-kingdom.json.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=united-kingdom",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:25.720Z",
+      "completed_at": "2026-10-20T12:54:25.807Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=united-kingdom",
+        "etag": "W/\"ea877cb5ae7a47159ec574d997488d74c0bc1be6ce3819611d461c3cc6c600a9\"",
+        "link": "<https://morningrows.com/catalog.json?desk=united-kingdom>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 9939,
+      "sha256": "0cd957624459c201a6a7cb15dc4a457085cbfd74d06c33a76ab07b011041346e",
+      "file": "apex-%2Fcatalog.json%3Fdesk%3Dunited-kingdom.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:25.808Z",
+      "completed_at": "2026-10-20T12:54:25.886Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count",
+        "etag": "W/\"4cc60704a77de38f0a6639563a94e9272dccafb0dc860b7058c3fe65be3cab07\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:25.506Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 57194,
+      "sha256": "3171be6569f44bc174725a82d4138cec1bda91fc4074357da559ded81b9d66f1",
+      "file": "apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:25.887Z",
+      "completed_at": "2026-10-20T12:54:25.968Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"f39b55692af63668c8c026b1b4dfc7bb3dcd2095c1375e3919d04941420043de\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:25.506Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 57212,
+      "sha256": "443d73c4830aa49bc336ddc55c460826a50fc0fe977f585e90932278033823f7",
+      "file": "apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:25.969Z",
+      "completed_at": "2026-10-20T12:54:26.051Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"7fd7d8fc0cead3b9e786ccff66d279cd704c974e6db4a0f8277ed7d8fb8f8f52\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:25.506Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8567,
+      "sha256": "3d2863789648db682393b93e6072f37576ec0e07529a08419817f462585a89a0",
+      "file": "apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:26.051Z",
+      "completed_at": "2026-10-20T12:54:26.126Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"ac28713ff903644886d94eaafc290e3547f93ae22b879b03d3391602b7deea2c\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:25.506Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8568,
+      "sha256": "d36fef28b448f72affd38741db570e6f1a92042c85c8f4eedf5c401e7e53ceb4",
+      "file": "apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:26.127Z",
+      "completed_at": "2026-10-20T12:54:26.764Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"f39b55692af63668c8c026b1b4dfc7bb3dcd2095c1375e3919d04941420043de\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:25.506Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:26.764Z",
+      "completed_at": "2026-10-20T12:54:26.850Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=28",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"f39b55692af63668c8c026b1b4dfc7bb3dcd2095c1375e3919d04941420043de\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:25.506Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:26.850Z",
+      "completed_at": "2026-10-20T12:54:26.922Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"b8695679e70c3312a110ba1e74ddf1879945b45a6379f4498942461883f00900\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:25.506Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4582,
+      "sha256": "4d0958d7c8ad36fef79fe0741ca0fbf9637aa485d39655bcb3303d3b11224050",
+      "file": "apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:26.922Z",
+      "completed_at": "2026-10-20T12:54:26.994Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:26.996Z",
+      "completed_at": "2026-10-20T12:54:27.050Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:27.051Z",
+      "completed_at": "2026-10-20T12:54:31.383Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/england.json",
+        "etag": "W/\"3bb80271da396192848292b27517a89bb0c277582c21a65a5877138ff098a0e0\"",
+        "link": "<https://morningrows.com/england.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:28.010Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 80688,
+      "sha256": "ed41ad07c8b344481492d4cd3853370ea222be95b5a3b2e7609f40e5b7925bb0",
+      "file": "apex-%2Fengland.json.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=england",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:31.385Z",
+      "completed_at": "2026-10-20T12:54:31.544Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=england",
+        "etag": "W/\"df763f4a199d355105bab6bd8954bf78aa55ecef1b798b52dafc03328c67e5be\"",
+        "link": "<https://morningrows.com/catalog.json?desk=england>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 21414,
+      "sha256": "63e64d30760cbc92e152957cd20ff603111bb688592059caffa5a8433081b8cf",
+      "file": "apex-%2Fcatalog.json%3Fdesk%3Dengland.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:31.546Z",
+      "completed_at": "2026-10-20T12:54:31.682Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count",
+        "etag": "W/\"c075b0118d2913337c3d1e582c7953b76ba5b404ed48de2c2e55f8b30872727c\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:27.101Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56704,
+      "sha256": "c819047f258a65c0b7fb1c3e8b7e03aa47e9245497d117c2bea6053ccaa1447f",
+      "file": "apex-%2Fengland.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:31.683Z",
+      "completed_at": "2026-10-20T12:54:31.762Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"7b76d6f7be3c5cb672fa6237b296cd0347c61c2a3a8b445897bd5c1f9cd6f39b\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:27.101Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56722,
+      "sha256": "478e5bde842f7cadf2dceeae667d36ba2e0e772e544fc41cd2cd18740ba4e88f",
+      "file": "apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:31.763Z",
+      "completed_at": "2026-10-20T12:54:31.829Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"384b945584371fd718b376fd42cfe1186d60ece7b12bf527a2554a2cc3a61ffa\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:27.101Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8497,
+      "sha256": "6e1b4a9f2a06078757bdf361221a7019255ac663a762e0a512698373de15d9ab",
+      "file": "apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:31.830Z",
+      "completed_at": "2026-10-20T12:54:31.919Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"00c350654a289e3b2b8cf52733ca1a63814c920f7e469e6bbd7fa8d8013f075a\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:27.101Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8498,
+      "sha256": "c322808b2f92f318289ba424a198cf933feb514e4a37b3f2045a7887cdb4a45a",
+      "file": "apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:31.919Z",
+      "completed_at": "2026-10-20T12:54:31.981Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"7b76d6f7be3c5cb672fa6237b296cd0347c61c2a3a8b445897bd5c1f9cd6f39b\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:27.101Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:31.981Z",
+      "completed_at": "2026-10-20T12:54:32.057Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=28",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"7b76d6f7be3c5cb672fa6237b296cd0347c61c2a3a8b445897bd5c1f9cd6f39b\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:27.101Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:32.057Z",
+      "completed_at": "2026-10-20T12:54:32.316Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"210916e11ee909597a225892309097f1954bf7f59cc112adbea49ff0cd4f41d3\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:27.101Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4547,
+      "sha256": "253038842635465dcf86950e462769b2309c740b54cd285eddaf61f4a5f8e46b",
+      "file": "apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:32.321Z",
+      "completed_at": "2026-10-20T12:54:32.394Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:32.396Z",
+      "completed_at": "2026-10-20T12:54:32.484Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:32.485Z",
+      "completed_at": "2026-10-20T12:54:33.345Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/scotland.json",
+        "etag": "W/\"8af98dc9ad2096aa2a8123e86d2701e6111f2b7116aba16cb67253bf3dbb2225\"",
+        "link": "<https://morningrows.com/scotland.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:32.815Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 33897,
+      "sha256": "3d5ce98c90d4331b15c1e59a26c3b0a5b128136d0b3cfdd336440ee0ea920484",
+      "file": "apex-%2Fscotland.json.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=scotland",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:33.346Z",
+      "completed_at": "2026-10-20T12:54:33.429Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=scotland",
+        "etag": "W/\"ba470a2dbb771e8986aff9982260502c1c0f4b4003a74188b7f40d562a36aa88\"",
+        "link": "<https://morningrows.com/catalog.json?desk=scotland>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 13379,
+      "sha256": "a253b2eee7064e16071edaee6896bc550ebfa3779af75a4133d50635180cf7ac",
+      "file": "apex-%2Fcatalog.json%3Fdesk%3Dscotland.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:33.429Z",
+      "completed_at": "2026-10-20T12:54:33.516Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count",
+        "etag": "W/\"c773dfcf6b605a8287a876cbbeb061cb45ee1eaae25db7499b8d850ef670b5cb\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:32.540Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56735,
+      "sha256": "e03364169896ef8d137ad545712e991965ebd6b68159cf0c02dc8cb448369f75",
+      "file": "apex-%2Fscotland.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:33.518Z",
+      "completed_at": "2026-10-20T12:54:33.589Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"b58071fa78fb4842a761f949ea023ce3b5fd0858c33f92e4370e58854ceadb6e\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:32.540Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56753,
+      "sha256": "e0174521c047893a231efab5d60eb75b4632489a5df1b9b53555ba8dc1cfc367",
+      "file": "apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:33.590Z",
+      "completed_at": "2026-10-20T12:54:33.658Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"d866504428573f59105a48d91e50fb5d8bc35f0b4b7c04f49ccfb367176ae614\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:32.540Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8504,
+      "sha256": "856791e5d72808f2dfb61bd7d092d2f1068a436f2565bdf57bab559c1d0b76c4",
+      "file": "apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:33.658Z",
+      "completed_at": "2026-10-20T12:54:33.754Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"96167305b292dcdf0bcc305d1bc6c1f0e2f6def56381a9b3aa9a1a2fb4864d41\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:32.540Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8505,
+      "sha256": "cdb96b62cb22dff3ffd6467fad13ffaede7990d7e06d434e0ae675cfb1697087",
+      "file": "apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:33.755Z",
+      "completed_at": "2026-10-20T12:54:33.865Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"b58071fa78fb4842a761f949ea023ce3b5fd0858c33f92e4370e58854ceadb6e\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:32.540Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:33.865Z",
+      "completed_at": "2026-10-20T12:54:33.924Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"b58071fa78fb4842a761f949ea023ce3b5fd0858c33f92e4370e58854ceadb6e\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:32.540Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:33.924Z",
+      "completed_at": "2026-10-20T12:54:34.003Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"d38b0fd7fcc8a209b55105cb14de0fbcfacb93f30707298c326a647ef45e6eca\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:32.540Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4552,
+      "sha256": "5154ca987321486e4f46935e5a49c1e98b96cf58d6e9924c94f6502391c93c9c",
+      "file": "apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:34.004Z",
+      "completed_at": "2026-10-20T12:54:34.084Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:34.085Z",
+      "completed_at": "2026-10-20T12:54:34.144Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:34.144Z",
+      "completed_at": "2026-10-20T12:54:35.492Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/wales.json",
+        "etag": "W/\"ee0a7e9e20991c1bfdcb2d995a9ca47ccce72e841475da261eb9857e9071a012\"",
+        "link": "<https://morningrows.com/wales.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:34.985Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 22400,
+      "sha256": "75716739a911a7d0e1c8afe8c59b8792bfd371c8b42bd506115c23c838a8a5f3",
+      "file": "apex-%2Fwales.json.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=wales",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:35.493Z",
+      "completed_at": "2026-10-20T12:54:35.597Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=wales",
+        "etag": "W/\"22eba92a398638cc3fe170c89325df8e7091f0701765d5cfac9bc89868dd9006\"",
+        "link": "<https://morningrows.com/catalog.json?desk=wales>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 9494,
+      "sha256": "42a3929997d2a43012f84ae354a64e8b3bf1fc53a501ae31c6b47ac73fed9a2c",
+      "file": "apex-%2Fcatalog.json%3Fdesk%3Dwales.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:35.598Z",
+      "completed_at": "2026-10-20T12:54:35.676Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count",
+        "etag": "W/\"10165d8c216b647b15c346193de0ca8578549a5fabd3f0f8a27282c2bd695137\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:34.225Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56486,
+      "sha256": "66a0bb470414786307f7464108002dc0d5974f23513967b9901c4a256d43be45",
+      "file": "apex-%2Fwales.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:35.677Z",
+      "completed_at": "2026-10-20T12:54:35.769Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"9ed789b9a99e71e1e2e225ce35338d2781f1c0942a187c7035df7c96d0dd3fc6\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:34.225Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56504,
+      "sha256": "2f68844ed65d06ca59898f50451a134d9fbeaef8fb9c9396f50b6d9559d685b5",
+      "file": "apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:35.771Z",
+      "completed_at": "2026-10-20T12:54:35.845Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"c086da193889d74a0bdf39ef9b0d11c474cb4e20d138b17cbb588f9c8eb52f0f\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:34.225Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8471,
+      "sha256": "ea07aa7a6a49d93b456ab03f19d97b4000844187aeac6d211420156dab67db79",
+      "file": "apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:35.846Z",
+      "completed_at": "2026-10-20T12:54:35.943Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"ef3323e69d6839244bccd8220c81a0439c931d440a7db66c163428aa16907bec\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:34.225Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8472,
+      "sha256": "731516d216db1290368978dd85aaff9263654b566d3aebc5fbd809e6bff8f981",
+      "file": "apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:35.945Z",
+      "completed_at": "2026-10-20T12:54:36.015Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"9ed789b9a99e71e1e2e225ce35338d2781f1c0942a187c7035df7c96d0dd3fc6\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:34.225Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:36.015Z",
+      "completed_at": "2026-10-20T12:54:36.107Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"9ed789b9a99e71e1e2e225ce35338d2781f1c0942a187c7035df7c96d0dd3fc6\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:34.225Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:36.107Z",
+      "completed_at": "2026-10-20T12:54:36.177Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"6efa18221986c49d36b53685e8006769b55c061253061298374fe71889db4758\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:34.225Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4537,
+      "sha256": "532d0d460982efdcbe203428df1c6d159b23fc04ce051f6496aa9ae0436f6186",
+      "file": "apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:36.178Z",
+      "completed_at": "2026-10-20T12:54:36.229Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:36.229Z",
+      "completed_at": "2026-10-20T12:54:36.320Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:36.321Z",
+      "completed_at": "2026-10-20T12:54:37.219Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/northern-ireland.json",
+        "etag": "W/\"5f02f18be6d3e69ed5dd56560339c2d8a451319970e0a606d3e436aa380e6455\"",
+        "link": "<https://morningrows.com/northern-ireland.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:36.541Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 49415,
+      "sha256": "380befdd04b01453c23fe735f0f30198796a5a50ab87102e5a54c284546cbf8b",
+      "file": "apex-%2Fnorthern-ireland.json.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=northern-ireland",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.224Z",
+      "completed_at": "2026-10-20T12:54:37.324Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=northern-ireland",
+        "etag": "W/\"a6bf45f0b2892aacdec3345617e17227a95e610c1a1a157ba981cb1fc04f1148\"",
+        "link": "<https://morningrows.com/catalog.json?desk=northern-ireland>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 14627,
+      "sha256": "223312189d3df08fc3f014250ce3448f1b04359f49d91ea27132bf54a30de818",
+      "file": "apex-%2Fcatalog.json%3Fdesk%3Dnorthern-ireland.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.325Z",
+      "completed_at": "2026-10-20T12:54:37.419Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count",
+        "etag": "W/\"393620d5dc1ecaed6f6e5960edee13b828bbe0384c16812fa301ca43e7b8dc8f\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:36.373Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 57256,
+      "sha256": "ff57eb77cea09b42cfbc8c02e562a05264665f2eacfaa87c26b50fa3b0ef08a5",
+      "file": "apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.420Z",
+      "completed_at": "2026-10-20T12:54:37.485Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"f15ab28a84a7f479f62292f68c5901d364c3638ce2db9b144b6330257b8a2473\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:36.373Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 57274,
+      "sha256": "b29f04d0ad9dd0fa762df4fe6f89edb45436ac25e01619bfef5338a17c40ea2c",
+      "file": "apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.486Z",
+      "completed_at": "2026-10-20T12:54:37.548Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"e0c41c828576b0f89fb0c46d6794853adfbad7753a9b86f79f0a834a7c8cf395\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:36.373Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8581,
+      "sha256": "ac3a412314393e0749a624973ccc119a53529c47d8b2c0bf570baa54534dfb6f",
+      "file": "apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.549Z",
+      "completed_at": "2026-10-20T12:54:37.611Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"a9b7470d44fde8d8bd1ae45f38a72e0f0428ab58059d319759e52bf2eb201919\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:36.373Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8582,
+      "sha256": "ae532dcb36c6899c40632487151f8f8a9afc2b7a12801fb601a0b7e5eab94b2d",
+      "file": "apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:37.612Z",
+      "completed_at": "2026-10-20T12:54:37.682Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"f15ab28a84a7f479f62292f68c5901d364c3638ce2db9b144b6330257b8a2473\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:36.373Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.682Z",
+      "completed_at": "2026-10-20T12:54:37.775Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"f15ab28a84a7f479f62292f68c5901d364c3638ce2db9b144b6330257b8a2473\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:36.373Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.775Z",
+      "completed_at": "2026-10-20T12:54:37.857Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"7e83ba8c58631b357e4a1acc8ceb8b22516d7e384ef3488cbce213e3b9789cd1\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:36.373Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4592,
+      "sha256": "c92329acb3c06eeeac0b424bac4285621d9e1dadc62fce1caa9e084fea87454f",
+      "file": "apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.857Z",
+      "completed_at": "2026-10-20T12:54:37.899Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.900Z",
+      "completed_at": "2026-10-20T12:54:37.966Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "apex-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/health.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:37.966Z",
+      "completed_at": "2026-10-20T12:54:38.023Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-cache",
+        "content-location": "https://morningrows.com/health.json",
+        "etag": "W/\"22f252c768994f58ffdb8826d49e0315cca9eaca524d99559cec4402909a68e5\"",
+        "link": "<https://morningrows.com/health.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 309,
+      "sha256": "aa4b101fb347c2c8944335d298cc5c53a61bfd19b4c75163da6879a57502c207",
+      "file": "www-%2Fhealth.json.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.023Z",
+      "completed_at": "2026-10-20T12:54:38.295Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/united-kingdom.json",
+        "etag": "W/\"a04e6ff0f8826d0ad8df3738c0c7f957c06bd2198ba21119331049ddf659776a\"",
+        "link": "<https://morningrows.com/united-kingdom.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:38.090Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 78450,
+      "sha256": "2e71e6eb319cc29662c3db37f634eb2880569d06f2d10ed520adc207bec5f0d1",
+      "file": "www-%2Funited-kingdom.json.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/catalog.json?desk=united-kingdom",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.296Z",
+      "completed_at": "2026-10-20T12:54:38.353Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=united-kingdom",
+        "etag": "W/\"ea877cb5ae7a47159ec574d997488d74c0bc1be6ce3819611d461c3cc6c600a9\"",
+        "link": "<https://morningrows.com/catalog.json?desk=united-kingdom>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 9939,
+      "sha256": "0cd957624459c201a6a7cb15dc4a457085cbfd74d06c33a76ab07b011041346e",
+      "file": "www-%2Fcatalog.json%3Fdesk%3Dunited-kingdom.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.353Z",
+      "completed_at": "2026-10-20T12:54:38.456Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count",
+        "etag": "W/\"bd859a7d9810f24e4be578d66e8dd5e2c9f39517ed3e5cf47355c30ff53b30d1\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:38.090Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 57194,
+      "sha256": "1e7058500fa7c451da0433120892b3652cf49992b99335d33b5939f66d0614ed",
+      "file": "www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.456Z",
+      "completed_at": "2026-10-20T12:54:38.525Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"c67ed20fe77311eacbd9d6723f9d4947914ab70df09e411e09948abf82b76b52\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:38.090Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 57212,
+      "sha256": "c9be6e848ee2f5ee79a55b18b39a30a0f31110cb458bec3fa96393ad4b25d28a",
+      "file": "www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.526Z",
+      "completed_at": "2026-10-20T12:54:38.602Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"f59602ca43f80c818898e869ab7d1e07ea06ee86ba4119398b5ef19c3acabae4\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:38.090Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8567,
+      "sha256": "8e5d4ea2004e04cd3096b0dde09d9707b5d6b0f7984fa3083b512817c0559fa5",
+      "file": "www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.602Z",
+      "completed_at": "2026-10-20T12:54:38.687Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"79e55540544f70361ed7b4237831bace3459c28fc4feed78ba9fc6b42e5689ef\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:38.090Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8568,
+      "sha256": "d48e069fef82e2a45ed503a006db7a7fd8560cb135b612335e28e511c9358155",
+      "file": "www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:38.688Z",
+      "completed_at": "2026-10-20T12:54:38.786Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"c67ed20fe77311eacbd9d6723f9d4947914ab70df09e411e09948abf82b76b52\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:38.090Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.786Z",
+      "completed_at": "2026-10-20T12:54:38.858Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"c67ed20fe77311eacbd9d6723f9d4947914ab70df09e411e09948abf82b76b52\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:38.090Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.858Z",
+      "completed_at": "2026-10-20T12:54:38.932Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"be0b3a86e8e3cada92856bdae6671fec33e56db987234e0e1f2c39cd04ca8828\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:38.090Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4582,
+      "sha256": "43b354869c6cf756da9d308c9d515c60b107e45d7e556f72637e4328326c8dd7",
+      "file": "www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:38.932Z",
+      "completed_at": "2026-10-20T12:54:39.000Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:39.000Z",
+      "completed_at": "2026-10-20T12:54:39.059Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Funited-kingdom.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:39.060Z",
+      "completed_at": "2026-10-20T12:54:42.114Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/england.json",
+        "etag": "W/\"d68f24e83ff24dae5effa6bb2696e173b46e6830c679273674c3398e440412f4\"",
+        "link": "<https://morningrows.com/england.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:39.729Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 80688,
+      "sha256": "a6968ebe4cb155523e3c7fbcfe7e21ab9dd8a5a5204a8cce2000254b687ca2d2",
+      "file": "www-%2Fengland.json.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/catalog.json?desk=england",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.115Z",
+      "completed_at": "2026-10-20T12:54:42.202Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=england",
+        "etag": "W/\"df763f4a199d355105bab6bd8954bf78aa55ecef1b798b52dafc03328c67e5be\"",
+        "link": "<https://morningrows.com/catalog.json?desk=england>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 21414,
+      "sha256": "63e64d30760cbc92e152957cd20ff603111bb688592059caffa5a8433081b8cf",
+      "file": "www-%2Fcatalog.json%3Fdesk%3Dengland.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.202Z",
+      "completed_at": "2026-10-20T12:54:42.276Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count",
+        "etag": "W/\"50b80ab1347aaa772ca6f686e2dee06e4e0578b6ce363642c3f291f4669eae7d\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:39.144Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56704,
+      "sha256": "b26f740b8ff722a10ce0dc64a8ef7a993856b0bbd1403d6022f2f4dadb33d0c3",
+      "file": "www-%2Fengland.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.277Z",
+      "completed_at": "2026-10-20T12:54:42.362Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"28f0c387d09af5657c2af0380c1777e444243dbf39fcaa1f89c8385027307d32\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:39.144Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56722,
+      "sha256": "25f9f11b248e80c37e9a3f616c69d3e04f746841b787772f8c9f20918b376816",
+      "file": "www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.363Z",
+      "completed_at": "2026-10-20T12:54:42.422Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"a5cbc66865eeb37a9e5ba2f8b5034ba2948fe55fb29dcbaa800e26f7105a8c06\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:39.144Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8497,
+      "sha256": "2db23ea7b27d190c2bf0d6d368a825e33a370363b8d3ec7896c37d20ce94d084",
+      "file": "www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.422Z",
+      "completed_at": "2026-10-20T12:54:42.580Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"beffe317083329afe9ba79843b454a6473b8f2d599d25c8f2e7e943676c65b88\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:39.144Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8498,
+      "sha256": "a0a52b2e21377421daa6c6bc0824f549fe25921666bc4dcb8cf78a1e5369c3d2",
+      "file": "www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:42.580Z",
+      "completed_at": "2026-10-20T12:54:42.639Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"28f0c387d09af5657c2af0380c1777e444243dbf39fcaa1f89c8385027307d32\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:39.144Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.639Z",
+      "completed_at": "2026-10-20T12:54:42.700Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"28f0c387d09af5657c2af0380c1777e444243dbf39fcaa1f89c8385027307d32\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:39.144Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.700Z",
+      "completed_at": "2026-10-20T12:54:42.786Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"6cafd82bcfa810b392bb06f8f3bafdb4a3846c6151e7a4e9679cc312cc5fb0a9\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:39.144Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4547,
+      "sha256": "797e3aeb9171d10b3288d920a277a563439599aeafd988911ac962649f72d6ed",
+      "file": "www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.786Z",
+      "completed_at": "2026-10-20T12:54:42.938Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.941Z",
+      "completed_at": "2026-10-20T12:54:42.989Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/england.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/england.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Fengland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:42.989Z",
+      "completed_at": "2026-10-20T12:54:43.982Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/scotland.json",
+        "etag": "W/\"56121f10eeed106aa19c8189abec00ff73bc3dfe62b5dc756a63c3b0e74edefb\"",
+        "link": "<https://morningrows.com/scotland.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:43.542Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 33897,
+      "sha256": "aad0e2c9310bbd33253e40e03c6e19c8334a28c8860ddb68096cc93c00b14edf",
+      "file": "www-%2Fscotland.json.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/catalog.json?desk=scotland",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:43.983Z",
+      "completed_at": "2026-10-20T12:54:44.037Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=scotland",
+        "etag": "W/\"ba470a2dbb771e8986aff9982260502c1c0f4b4003a74188b7f40d562a36aa88\"",
+        "link": "<https://morningrows.com/catalog.json?desk=scotland>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 13379,
+      "sha256": "a253b2eee7064e16071edaee6896bc550ebfa3779af75a4133d50635180cf7ac",
+      "file": "www-%2Fcatalog.json%3Fdesk%3Dscotland.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.037Z",
+      "completed_at": "2026-10-20T12:54:44.183Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count",
+        "etag": "W/\"6ff4695b3451973816e21eae52b412731a391bb66dc7cc8f14eb1133d2815f06\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:43.067Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56735,
+      "sha256": "a8c773c86f1647921b0c813cb21854b2f489740d2706eca95acb1a5d81486c33",
+      "file": "www-%2Fscotland.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.184Z",
+      "completed_at": "2026-10-20T12:54:44.245Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"683950b5c957f9412f782a87a176e8cd39c673870d91b9147a2551f348ed91ed\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:43.067Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56753,
+      "sha256": "3f1ffefb0b8c631517b6ff919ae58e63f488155ccc459acb0261eb273d2c4e2c",
+      "file": "www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.250Z",
+      "completed_at": "2026-10-20T12:54:44.354Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"bc11ab947efdde07f8a1f29ac80f436e90c101b2a5afd8d64a1cb46b83acc534\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:43.067Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8504,
+      "sha256": "01c2d229c16b853f62f8ed99affd6f2957eed05a1e3b2ee0f79a080ed30c3d6c",
+      "file": "www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.355Z",
+      "completed_at": "2026-10-20T12:54:44.428Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"e13e8392fac8bb45833fdf50d86b9e36f23d791781da8ab1deecb6baba763b4e\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:43.067Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8505,
+      "sha256": "8521c649dadf136dbfa90e9994c9a437f75d311904eddad7d2a4701619f48b17",
+      "file": "www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:44.428Z",
+      "completed_at": "2026-10-20T12:54:44.555Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"683950b5c957f9412f782a87a176e8cd39c673870d91b9147a2551f348ed91ed\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:43.067Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.555Z",
+      "completed_at": "2026-10-20T12:54:44.635Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"683950b5c957f9412f782a87a176e8cd39c673870d91b9147a2551f348ed91ed\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:43.067Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.635Z",
+      "completed_at": "2026-10-20T12:54:44.804Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"6784450607a6b06fc190ea257eea0063f3ee8a0d1a4dd16009da392c3da3072a\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:43.067Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4552,
+      "sha256": "bcc145d62dc24d03be3506106a887a780a30a6d046b8ad6112cd27de82038033",
+      "file": "www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.804Z",
+      "completed_at": "2026-10-20T12:54:44.858Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.859Z",
+      "completed_at": "2026-10-20T12:54:44.926Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/scotland.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Fscotland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:44.926Z",
+      "completed_at": "2026-10-20T12:54:45.490Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/wales.json",
+        "etag": "W/\"e22fa4bd438d8731a6c40c86b7b10863ae5ad2ab01551c339fc302fc9cb96929\"",
+        "link": "<https://morningrows.com/wales.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:45.206Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 22400,
+      "sha256": "4762140fb17cb971e03a6254ce4795153a3a8197afc1d90c88f065bd54898114",
+      "file": "www-%2Fwales.json.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/catalog.json?desk=wales",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:45.491Z",
+      "completed_at": "2026-10-20T12:54:45.549Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=wales",
+        "etag": "W/\"22eba92a398638cc3fe170c89325df8e7091f0701765d5cfac9bc89868dd9006\"",
+        "link": "<https://morningrows.com/catalog.json?desk=wales>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 9494,
+      "sha256": "42a3929997d2a43012f84ae354a64e8b3bf1fc53a501ae31c6b47ac73fed9a2c",
+      "file": "www-%2Fcatalog.json%3Fdesk%3Dwales.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:45.550Z",
+      "completed_at": "2026-10-20T12:54:45.644Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count",
+        "etag": "W/\"016895543b7ac16b69234af1bfaa59c836cd4a284213178dc0aafdc506db1b5e\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:44.993Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56486,
+      "sha256": "0ee815049471ee3c14332e1aa3fa98eea1ece8faada19f6dcb29c4f994f4f70b",
+      "file": "www-%2Fwales.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:45.644Z",
+      "completed_at": "2026-10-20T12:54:45.725Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"2caf00acba2f00ee1e988416c7c16da8855050df79f9d12a0226918976797833\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:44.993Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 56504,
+      "sha256": "8e2b95e4fc61a8a20c56ac49c14cb2a893b69b50d26ecacbbe023824a68ae62b",
+      "file": "www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:45.726Z",
+      "completed_at": "2026-10-20T12:54:45.801Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"7d822f8e092f216cb7554804e70cc6157461b54829243ce69479ba49da39a8e5\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:44.993Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8471,
+      "sha256": "77a25338d35edf4ea6c6170e750757b0fa603fd99c3f597a90f1da1015f39437",
+      "file": "www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:45.802Z",
+      "completed_at": "2026-10-20T12:54:46.036Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"f53ee305c40d7c501450d3472401819d629c50310d0be11f5b341e980906eef6\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:44.993Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8472,
+      "sha256": "5d51f22382e1be7ce68bcf87b80c6f7fb5e9a07397c6eb477f12579ea3e7c918",
+      "file": "www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:46.036Z",
+      "completed_at": "2026-10-20T12:54:46.136Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"2caf00acba2f00ee1e988416c7c16da8855050df79f9d12a0226918976797833\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:44.993Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:46.136Z",
+      "completed_at": "2026-10-20T12:54:46.217Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"2caf00acba2f00ee1e988416c7c16da8855050df79f9d12a0226918976797833\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:44.993Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:46.217Z",
+      "completed_at": "2026-10-20T12:54:46.320Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"20f3b06580078d864bb0c221841d9fc909e9f4123137937e057ba464992de176\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:44.993Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4537,
+      "sha256": "f271512f576af3f87cd3bf91c8aba986e4343e83b2531aaa060e4494f02023d8",
+      "file": "www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:46.320Z",
+      "completed_at": "2026-10-20T12:54:46.376Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:46.377Z",
+      "completed_at": "2026-10-20T12:54:46.515Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/wales.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/wales.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Fwales.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:46.517Z",
+      "completed_at": "2026-10-20T12:54:46.786Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=30",
+        "content-location": "https://morningrows.com/northern-ireland.json",
+        "etag": "W/\"018f55a6cbb700c103e716fdd5a241c12af5e0467c25fd098768cb1ee891291a\"",
+        "link": "<https://morningrows.com/northern-ireland.json>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:46.588Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 49415,
+      "sha256": "8b3a3699581db8211f473720f2bca151b9916799740d0c8c5ec0a07ba80c9f87",
+      "file": "www-%2Fnorthern-ireland.json.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/catalog.json?desk=northern-ireland",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:46.786Z",
+      "completed_at": "2026-10-20T12:54:46.847Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-location": "https://morningrows.com/catalog.json?desk=northern-ireland",
+        "etag": "W/\"a6bf45f0b2892aacdec3345617e17227a95e610c1a1a157ba981cb1fc04f1148\"",
+        "link": "<https://morningrows.com/catalog.json?desk=northern-ireland>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\", <https://morningrows.com/catalog.v2.json>; rel=\"successor-version\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 14627,
+      "sha256": "223312189d3df08fc3f014250ce3448f1b04359f49d91ea27132bf54a30de818",
+      "file": "www-%2Fcatalog.json%3Fdesk%3Dnorthern-ireland.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:46.847Z",
+      "completed_at": "2026-10-20T12:54:46.916Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count",
+        "etag": "W/\"403a104cda3297b3bb0d2e45d18b6653abd38b4eedd114656b269e52ccd54d60\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:46.576Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 57256,
+      "sha256": "33ce0f8154f658160a1868c6c8bd24ee224cc70c0422e8b89fe664371d5ce944",
+      "file": "www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:46.916Z",
+      "completed_at": "2026-10-20T12:54:47.028Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"eb2f31689846dcc216d12a10447cd2921a66f465e5a32b8c6ecd1eaac3b7d659\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:46.576Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 57274,
+      "sha256": "a7e12fe9195be912462436bae9f21bc3da94b22b1ba94326e4ad0d2e668f6273",
+      "file": "www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:47.029Z",
+      "completed_at": "2026-10-20T12:54:47.083Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+        "etag": "W/\"a9e897c5a8851b024e4350ec74c7ca100604b4c7acf2fcc128b62943a0fa7d48\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:46.576Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8581,
+      "sha256": "26820aacd82714eb3d3dffcd668b5536b4fa04c298d65194aa7129ae1fd1b673",
+      "file": "www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2025-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:47.083Z",
+      "completed_at": "2026-10-20T12:54:47.140Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+        "etag": "W/\"cc845fe9dc8d492619f869968df059dabe984733ae493910ff231bf8935350b9\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:46.576Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 8582,
+      "sha256": "afdb9dfce1836cafe87540cc6ff3f95a5dd49ee96c26a9d4275adc8fe1d61688",
+      "file": "www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D2026-09.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "GET",
+      "conditional": true,
+      "started_at": "2026-10-20T12:54:47.140Z",
+      "completed_at": "2026-10-20T12:54:47.227Z",
+      "status": 304,
+      "expected_status": 304,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"eb2f31689846dcc216d12a10447cd2921a66f465e5a32b8c6ecd1eaac3b7d659\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:46.576Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "method": "HEAD",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:47.227Z",
+      "completed_at": "2026-10-20T12:54:47.299Z",
+      "status": 200,
+      "expected_status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=29",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants",
+        "etag": "W/\"eb2f31689846dcc216d12a10447cd2921a66f465e5a32b8c6ecd1eaac3b7d659\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:46.576Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:47.299Z",
+      "completed_at": "2026-10-20T12:54:47.409Z",
+      "status": 404,
+      "expected_status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+        "etag": "W/\"da2fa5b26f0e6bc9e96f07ff286ad3ac8842df5f93dd8b253c58b5d64d924679\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-retrieved-at": "2026-10-20T12:54:46.576Z",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 4592,
+      "sha256": "ae6c9ccfd37656a300400ddabbe74610043a744c96deac0aa7cb94ef9cf17e4a",
+      "file": "www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26observation%3D1900-01.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:47.410Z",
+      "completed_at": "2026-10-20T12:54:47.500Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&geography=London>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26geography%3DLondon.body"
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "method": "GET",
+      "conditional": false,
+      "started_at": "2026-10-20T12:54:47.500Z",
+      "completed_at": "2026-10-20T12:54:47.628Z",
+      "status": 400,
+      "expected_status": 400,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        "content-location": "https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+        "etag": "W/\"fa9afef37554be01b76ae04cd8fe93ea7eeea258b476fa341800168675320012\"",
+        "link": "<https://morningrows.com/northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09>; rel=\"canonical\", <https://morningrows.com/catalog.json>; rel=\"index\", <https://morningrows.com/schema.json>; rel=\"describedby\"",
+        "x-source-revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+        "x-worker-version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+      },
+      "bytes": 229,
+      "sha256": "7bc31270730958f540822a09f4fec68683682229bf429cd1303acb2869b32328",
+      "file": "www-%2Fnorthern-ireland.json%3Fsource%3Dclaimant_count%26measure%3Dclaimants%26date%3D2026-09.body"
+    }
+  ],
+  "checks": [
+    {
+      "label": "status /health.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /health.json",
+      "pass": true
+    },
+    {
+      "label": "clean health https://morningrows.com",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=united-kingdom GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=united-kingdom",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /england.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json",
+      "pass": true
+    },
+    {
+      "label": "england healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=england GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=england",
+      "pass": true
+    },
+    {
+      "label": "england discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "england thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "england thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "england measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "england exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "england exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "england HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json",
+      "pass": true
+    },
+    {
+      "label": "scotland healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=scotland GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=scotland",
+      "pass": true
+    },
+    {
+      "label": "scotland discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "scotland thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "scotland thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "scotland measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "scotland exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "scotland exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "scotland HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json",
+      "pass": true
+    },
+    {
+      "label": "wales healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=wales GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=wales",
+      "pass": true
+    },
+    {
+      "label": "wales discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "wales thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "wales thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "wales measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "wales exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "wales exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "wales HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=northern-ireland GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=northern-ireland",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /health.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /health.json",
+      "pass": true
+    },
+    {
+      "label": "clean health https://www.morningrows.com",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=united-kingdom GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=united-kingdom",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /united-kingdom.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "united-kingdom HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /united-kingdom.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /england.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json",
+      "pass": true
+    },
+    {
+      "label": "england healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=england GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=england",
+      "pass": true
+    },
+    {
+      "label": "england discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /england.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "england thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "england thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "england measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "england exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "england exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /england.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "england HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /england.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /england.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json",
+      "pass": true
+    },
+    {
+      "label": "scotland healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=scotland GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=scotland",
+      "pass": true
+    },
+    {
+      "label": "scotland discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /scotland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "scotland thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "scotland thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "scotland measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "scotland exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "scotland exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /scotland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "scotland HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /scotland.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /scotland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json",
+      "pass": true
+    },
+    {
+      "label": "wales healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=wales GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=wales",
+      "pass": true
+    },
+    {
+      "label": "wales discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /wales.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "wales thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "wales thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "wales measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "wales exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "wales exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /wales.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "wales HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /wales.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /wales.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland healthy native history",
+      "pass": true
+    },
+    {
+      "label": "status /catalog.json?desk=northern-ireland GET",
+      "pass": true
+    },
+    {
+      "label": "identity /catalog.json?desk=northern-ireland",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland discoverable measure",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /northern-ireland.json?source=claimant_count",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland thirteen observation identities",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland measure retains rows",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland exact month 2025-09",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "bounded cache /northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland exact month 2026-09",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants HEAD",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "empty body /northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true
+    },
+    {
+      "label": "northern-ireland HEAD ETag",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&observation=1900-01",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&geography=London GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&geography=London",
+      "pass": true
+    },
+    {
+      "label": "status /northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09 GET",
+      "pass": true
+    },
+    {
+      "label": "identity /northern-ireland.json?source=claimant_count&measure=claimants&date=2026-09",
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "finished_at": "2026-10-20T12:54:47.628Z"
+}

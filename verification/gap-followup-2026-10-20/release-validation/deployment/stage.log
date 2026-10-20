@@ -1,0 +1,53 @@
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProxy environment variables detected. We'll use your proxy for fetch requests.[0m
+
+
+
+ ⛅️ wrangler 4.151.1 (update available 4.151.3)
+───────────────────────────────────────────────
+╭ Deploy Worker Versions by splitting traffic between multiple versions
+│
+├ Fetching latest deployment
+│
+├ Your current deployment has 1 version(s):
+│
+│ (100%) ff344629-f392-44ec-b816-92d14f52bd07
+│       Created:  2026-10-20T11:24:06.893811Z
+│           Tag:  remaining-sfc-cmhc-20261020
+│       Message:  Verified Scottish college activity and Canadian rent benchmarks
+│
+├ Fetching versions
+│
+├ Which version(s) do you want to deploy?
+├ 2 Worker Version(s) selected
+│
+├     Worker Version 1:  ff344629-f392-44ec-b816-92d14f52bd07
+│              Created:  2026-10-20T11:24:06.893811Z
+│                  Tag:  remaining-sfc-cmhc-20261020
+│              Message:  Verified Scottish college activity and Canadian rent benchmarks
+│
+├     Worker Version 2:  34d6966c-0c3f-40dd-8b61-b4a696b09b89
+│              Created:  2026-10-20T12:45:56.138859Z
+│                  Tag:  ni-stats-followup-20261020
+│              Message:  PR17 verified NI electricity and Stats NZ evidence
+│
+├ What percentage of traffic should Worker Version 1 receive?
+├ 100% of traffic
+├
+├ What percentage of traffic should Worker Version 2 receive?
+├ 0% of traffic
+├
+├ Add a deployment message
+│ Deployment message Stage PR17 exact tested source for zero-traffic validation
+│
+├ Deploying 2 version(s)
+│
+├ Syncing non-versioned settings
+│
+│ Synced non-versioned settings:
+│                      logpush:  false
+│                observability:  enabled:             true
+│                                head_sampling_rate:  0.1
+│               tail_consumers:  <skipped>
+│     streaming_tail_consumers:  <skipped>
+│
+╰  SUCCESS  Deployed morning-rows version ff344629-f392-44ec-b816-92d14f52bd07 at 100% and version 34d6966c-0c3f-40dd-8b61-b4a696b09b89 at 0% (1.13 sec)

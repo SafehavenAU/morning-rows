@@ -1,0 +1,82 @@
+{
+  "kind": "Offline fresh publisher acquisitions bound to actual full-desk CPU samples",
+  "pass": true,
+  "input": "/tmp/mr-ni-release-staged/staged-legacy-cpu.json",
+  "input_sha256": "b4d750e31e267750f881c5e277455c46009861783a26c73f1a9d6938b66cae6d",
+  "revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+  "version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89",
+  "sources": [
+    {
+      "source": "scotland/college_activity",
+      "path": "/scotland.json",
+      "full_desk_cpu_ms": 157,
+      "request_started_at": "2026-10-20T12:47:03.066Z",
+      "request_completed_at": "2026-10-20T12:47:06.009Z",
+      "health_completed_at": "2026-10-20T12:47:04.345Z",
+      "publisher_acquisitions": [
+        {
+          "role": "workbook",
+          "url": "https://www.sfc.ac.uk/wp-content/uploads/2026/01/College-Statistics-2024-25-Background-Tables.xlsx",
+          "retrieved_at": "2026-10-20T12:47:04.345Z",
+          "bytes": 70694,
+          "sha256": "f4816a63e4ab246799f4cbb6075d3feba78ada67670e34d71e5900826c3b5979"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "canada/rental_benchmark",
+      "path": "/canada.json",
+      "full_desk_cpu_ms": 81,
+      "request_started_at": "2026-10-20T12:46:46.371Z",
+      "request_completed_at": "2026-10-20T12:46:48.814Z",
+      "health_completed_at": "2026-10-20T12:46:47.324Z",
+      "publisher_acquisitions": [
+        {
+          "role": "data",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods",
+          "retrieved_at": "2026-10-20T12:46:47.324Z",
+          "bytes": 765,
+          "sha256": "4c1776ee5d3ec353da3d79d0810816c92399d2be16401a8e16a1ed3b1339823e"
+        },
+        {
+          "role": "series",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getSeriesInfoFromCubePidCoord",
+          "retrieved_at": "2026-10-20T12:46:47.155Z",
+          "bytes": 959,
+          "sha256": "cad747496c0500daa5628e06b5b44fda877b4bb41ba255b024b0fd8e69f57c87"
+        },
+        {
+          "role": "cube",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+          "retrieved_at": "2026-10-20T12:46:47.313Z",
+          "bytes": 67411,
+          "sha256": "56ca543c9a065f38119eefd37907187c0291beeca6235c9d0497565cbda45116"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "northern-ireland/electricity_balance",
+      "path": "/northern-ireland.json",
+      "full_desk_cpu_ms": 85,
+      "request_started_at": "2026-10-20T12:47:08.333Z",
+      "request_completed_at": "2026-10-20T12:47:09.983Z",
+      "health_completed_at": "2026-10-20T12:47:09.904Z",
+      "publisher_acquisitions": [
+        {
+          "role": "article",
+          "url": "https://www.economy-ni.gov.uk/articles/electricity-consumption-and-renewable-generation-statistics",
+          "retrieved_at": "2026-10-20T12:47:08.694Z",
+          "bytes": 39615,
+          "sha256": "a7e5cbcf4a74f365981aa910c6544cacd38b1f55111440286721185706294a95"
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "CPU is the full-desk sample, not per-source CPU.",
+    "One sampled request per desk; no percentile, sustained-operation or scheduled-acceptance claim."
+  ]
+}

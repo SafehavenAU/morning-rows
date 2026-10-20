@@ -1,0 +1,1464 @@
+{
+  "checked_at": "2026-10-20T12:48:04.499398+00:00",
+  "method": "Offline Draft 2020-12 and format assertions against captured schema.json; semantic mutations of actual captured responses",
+  "capture_directory": "/tmp/mr-ni-release-staged/staged-claimants",
+  "schema_capture_directory": "/tmp/mr-ni-release-staged/staged-core",
+  "inputs": [
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/claimant-interface-report.json",
+      "bytes": 90841,
+      "sha256": "cf170c78cb1f308e8fdbd36039cc2f271599dfdeaf5256608e4250cb46087cec"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-core/staged-preview-report.json",
+      "bytes": 56784,
+      "sha256": "1968693e6788b475cf7e61162c6658eb0c2d9d5ff37f64a4aba0b5fd2a413233"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_health.json.response",
+      "bytes": 309,
+      "sha256": "aa4b101fb347c2c8944335d298cc5c53a61bfd19b4c75163da6879a57502c207"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-core/.requests/2.response",
+      "bytes": 1278051,
+      "sha256": "9d6ecd26a8337d6330baea8eced92946d87fca94c773aeb179fb4058d4974ca4"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_united-kingdom.json.response",
+      "bytes": 78450,
+      "sha256": "69dc9fd1260eb4cee9d3764017113c958ea433ae6c50e4d0767cfcb865ba4e2b"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_united-kingdom.json?source=claimant_count.response",
+      "bytes": 57194,
+      "sha256": "5a13b7b8d533df9f24f51e5e73b0d802f7e02ad41c6bc3807e777e05cf72db08"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_united-kingdom.json?source=claimant_count&measure=claimants.response",
+      "bytes": 57212,
+      "sha256": "b15bcf8300e3bb5cd6f4e1f13d7c69734ed8a1dd460c25b91a873d945d3cba11"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09.response",
+      "bytes": 8567,
+      "sha256": "b611f7894b3df2700038905619a76a3ecbfd3c7bdf2f1dffd5a333bc35dcbb4d"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09.response",
+      "bytes": 8568,
+      "sha256": "e23a0a40d857197d286e07e6996877da0d85c700ac07a94c35ce1851ba3ad657"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_england.json.response",
+      "bytes": 84757,
+      "sha256": "1881abc2dabc04952c702fffa4d3f5a67cf2bd61942e1d104294c95d50a323b0"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_england.json?source=claimant_count.response",
+      "bytes": 56704,
+      "sha256": "2a279acb4e7e5aed95eeb538145679917995fc67fb6664d25ac1f8dddd1ae1d2"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_england.json?source=claimant_count&measure=claimants.response",
+      "bytes": 56722,
+      "sha256": "6ddb69ce315f33ff79a4d13e8f1ca20fd64940e33a71b5958daeb2adc1aff747"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_england.json?source=claimant_count&measure=claimants&observation=2025-09.response",
+      "bytes": 8497,
+      "sha256": "3c0e4401f6e3e17f368f6ccb02a5dc16c5c459552fcdb7cc8f6ad426a20af9ca"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_england.json?source=claimant_count&measure=claimants&observation=2026-09.response",
+      "bytes": 8498,
+      "sha256": "876fe6d88ecffcdd13294eb7cab25aa6ad0da6c1342c59ae3ea4c161b84aafa6"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_scotland.json.response",
+      "bytes": 33897,
+      "sha256": "321d4192cdd622d2d6dcb28d4d0812569dec067ea360d99110c55d511c8e2619"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_scotland.json?source=claimant_count.response",
+      "bytes": 56735,
+      "sha256": "587e5eb987b76580ecbee93ef11386796f602fba8c9f57009e782194d8d2d0e2"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_scotland.json?source=claimant_count&measure=claimants.response",
+      "bytes": 56753,
+      "sha256": "378c2a974914040328c31133f41896d64806e4fb58c33b175e7d1b017f956519"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_scotland.json?source=claimant_count&measure=claimants&observation=2025-09.response",
+      "bytes": 8504,
+      "sha256": "09646e7a568aaa2947ff1ebcc302711ddf6c12e86c3816f4b924c88399520a88"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_scotland.json?source=claimant_count&measure=claimants&observation=2026-09.response",
+      "bytes": 8505,
+      "sha256": "10bf0eb71814555e0a9fb92b36fe36fbc1965145a1e7169035a391d5b24b3406"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_wales.json.response",
+      "bytes": 22400,
+      "sha256": "353c3fb6842c7d29c122ce8eadbe370014e0e405e846eab82dcb2ba7889ec0fb"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_wales.json?source=claimant_count.response",
+      "bytes": 56486,
+      "sha256": "62fce57da5112b81a1ffb3219df85e4a688aeb41a82809839db33a41e1fa6b72"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_wales.json?source=claimant_count&measure=claimants.response",
+      "bytes": 56504,
+      "sha256": "2f235f794e44cd4fa814ca538a2d60992db711372d6defb35b3ed24772c5dc9f"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_wales.json?source=claimant_count&measure=claimants&observation=2025-09.response",
+      "bytes": 8471,
+      "sha256": "fb3b05ed2b1392eda896db7ffb09e2df66c65898976ad41ad1ec26d52b9ba887"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_wales.json?source=claimant_count&measure=claimants&observation=2026-09.response",
+      "bytes": 8472,
+      "sha256": "e28bdb24dce2eb29af898f10b41de2c4d768d9c5f758d13c4872aaa2032f19c0"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_northern-ireland.json.response",
+      "bytes": 49415,
+      "sha256": "812409cc0ab0ff4978eb3164b2ba25a0dcfbd5c3aa88d73b3f29b4d82696cbdf"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_northern-ireland.json?source=claimant_count.response",
+      "bytes": 57256,
+      "sha256": "7162ed25c6d0839eb15d79e9b54857e0555f78bc85e47af88e9baaa5b9e83076"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_northern-ireland.json?source=claimant_count&measure=claimants.response",
+      "bytes": 57274,
+      "sha256": "5229c258a7d33124ece8084dec1cc9b23db142c0cf9241c99819b0da7b6926c6"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09.response",
+      "bytes": 8581,
+      "sha256": "ccb0bd3f679e2886ddcf5bcfdc58b2d378365d0a037ac1cdf13e3c22597220cf"
+    },
+    {
+      "file": "/tmp/mr-ni-release-staged/staged-claimants/_northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09.response",
+      "bytes": 8582,
+      "sha256": "2e48c5edccad583d3ddeed3e59658c313f3348301d81078b18d6e3e0ca72f205"
+    }
+  ],
+  "schema_checks": [
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "pass": true,
+      "errors": []
+    }
+  ],
+  "negative_contracts": [
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json",
+      "case": "wrong native geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json",
+      "case": "wrong native unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json",
+      "case": "wrong native adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json",
+      "case": "wrong native population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json",
+      "case": "partial native history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/united-kingdom.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json",
+      "case": "wrong native geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json",
+      "case": "wrong native unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json",
+      "case": "wrong native adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json",
+      "case": "wrong native population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json",
+      "case": "partial native history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/england.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json",
+      "case": "wrong native geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json",
+      "case": "wrong native unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json",
+      "case": "wrong native adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json",
+      "case": "wrong native population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json",
+      "case": "partial native history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/scotland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json",
+      "case": "wrong native geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json",
+      "case": "wrong native unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json",
+      "case": "wrong native adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json",
+      "case": "wrong native population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json",
+      "case": "partial native history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/wales.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json",
+      "case": "wrong native geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json",
+      "case": "wrong native unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json",
+      "case": "wrong native adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json",
+      "case": "wrong native population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json",
+      "case": "partial native history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants",
+      "case": "partial selected history",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2025-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong adjustment",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "wrong population definition",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "missing observation",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "suppressed claimed as observed",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "unrounded person count",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/northern-ireland.json?source=claimant_count&measure=claimants&observation=2026-09",
+      "case": "history substituted for exact month",
+      "pass": true
+    }
+  ],
+  "windows": [
+    {
+      "origin": "https://morningrows.com",
+      "desk": "united-kingdom",
+      "first_period": "2025-09",
+      "latest_period": "2026-09",
+      "slots": 13
+    },
+    {
+      "origin": "https://morningrows.com",
+      "desk": "england",
+      "first_period": "2025-09",
+      "latest_period": "2026-09",
+      "slots": 13
+    },
+    {
+      "origin": "https://morningrows.com",
+      "desk": "scotland",
+      "first_period": "2025-09",
+      "latest_period": "2026-09",
+      "slots": 13
+    },
+    {
+      "origin": "https://morningrows.com",
+      "desk": "wales",
+      "first_period": "2025-09",
+      "latest_period": "2026-09",
+      "slots": 13
+    },
+    {
+      "origin": "https://morningrows.com",
+      "desk": "northern-ireland",
+      "first_period": "2025-09",
+      "latest_period": "2026-09",
+      "slots": 13
+    }
+  ],
+  "limitations": [
+    "This checks retained capture consistency, schema behavior and bounded history. It makes no HTTP requests and cannot independently authenticate a supplied capture.",
+    "Schema acceptance is separate from publisher numerical reconciliation, CPU acceptance, production promotion and sustained monitoring.",
+    "Negative cases are mutations of actual captures, not additional publisher observations.",
+    "Historical fixtures and constructed fault previews are not used as actual-release proof."
+  ],
+  "pass": true,
+  "capture_kind": "Exact zero-percent candidate interface",
+  "source_revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+  "worker_version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89"
+}

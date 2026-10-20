@@ -1,0 +1,767 @@
+{
+  "pass": true,
+  "method": "Offline exact capture identity/hash/schema binding; independently extracted original publisher levels and Decimal ordinary growth; no runtime parser imported",
+  "expected_revision": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+  "expected_version": "34d6966c-0c3f-40dd-8b61-b4a696b09b89",
+  "domains": "both",
+  "inputs": [
+    {
+      "file": "verification/statcan-gdp-2026-10-20/independent-report.json",
+      "sha256": "b53ec1b446b7c3406d09e100468208653914dd13bfc9625474c12a365b7c3f3f",
+      "bytes": 4718
+    },
+    {
+      "file": "/tmp/mr-ni-release-production/production-gdp/gdp-interface-report.json",
+      "sha256": "8dc8dc59427e2d6cc33dae86ff3be312be1cfe45f4be97b69068d0e89a46c0e7",
+      "bytes": 73624
+    }
+  ],
+  "transport": [
+    {
+      "request": 0,
+      "label": "https://morningrows.com GET /health.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 1,
+      "label": "https://morningrows.com GET /schema.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 2,
+      "label": "https://morningrows.com GET /canada.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 3,
+      "label": "https://morningrows.com GET /catalog.json?desk=canada",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 4,
+      "label": "https://morningrows.com GET /canada.json?source=product",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 5,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 6,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=2026-Q1",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 7,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=2026-Q2",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 8,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 9,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change&observation=2026-Q2",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 10,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 11,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level",
+      "status": 304,
+      "pass": true
+    },
+    {
+      "request": 12,
+      "label": "https://morningrows.com HEAD /canada.json?source=product&measure=level",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 13,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&observation=1900-Q1",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "request": 14,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=quarter_change&observation=2026-Q1",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "request": 15,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=nominal_gdp",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "request": 16,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&geography=Ontario",
+      "status": 400,
+      "pass": true
+    },
+    {
+      "request": 17,
+      "label": "https://morningrows.com GET /canada.json?source=product&measure=level&date=2026-04",
+      "status": 400,
+      "pass": true
+    },
+    {
+      "request": 18,
+      "label": "https://morningrows.com GET /canada.json?source=product&source=price_index",
+      "status": 400,
+      "pass": true
+    },
+    {
+      "request": 19,
+      "label": "https://www.morningrows.com GET /health.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 20,
+      "label": "https://www.morningrows.com GET /schema.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 21,
+      "label": "https://www.morningrows.com GET /canada.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 22,
+      "label": "https://www.morningrows.com GET /catalog.json?desk=canada",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 23,
+      "label": "https://www.morningrows.com GET /canada.json?source=product",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 24,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=level",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 25,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=level&observation=2026-Q1",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 26,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=level&observation=2026-Q2",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 27,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=quarter_change",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 28,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=quarter_change&observation=2026-Q2",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 29,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=level",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 30,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=level",
+      "status": 304,
+      "pass": true
+    },
+    {
+      "request": 31,
+      "label": "https://www.morningrows.com HEAD /canada.json?source=product&measure=level",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "request": 32,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=level&observation=1900-Q1",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "request": 33,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=quarter_change&observation=2026-Q1",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "request": 34,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=nominal_gdp",
+      "status": 404,
+      "pass": true
+    },
+    {
+      "request": 35,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=level&geography=Ontario",
+      "status": 400,
+      "pass": true
+    },
+    {
+      "request": 36,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&measure=level&date=2026-04",
+      "status": 400,
+      "pass": true
+    },
+    {
+      "request": 37,
+      "label": "https://www.morningrows.com GET /canada.json?source=product&source=price_index",
+      "status": 400,
+      "pass": true
+    }
+  ],
+  "native_comparisons": [
+    {
+      "origin": "https://morningrows.com",
+      "measure": "level",
+      "period": "2026-Q1",
+      "expected": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "measure": "level",
+      "period": "2026-Q2",
+      "expected": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "expected": 0.82,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "measure": "level",
+      "period": "2026-Q1",
+      "expected": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "measure": "level",
+      "period": "2026-Q2",
+      "expected": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "expected": 0.82,
+      "pass": true
+    }
+  ],
+  "selected_comparisons": [
+    {
+      "origin": "https://morningrows.com",
+      "request": 4,
+      "measure": "level",
+      "period": "2026-Q1",
+      "value": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 4,
+      "measure": "level",
+      "period": "2026-Q2",
+      "value": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 4,
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "value": 0.82,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 5,
+      "measure": "level",
+      "period": "2026-Q1",
+      "value": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 5,
+      "measure": "level",
+      "period": "2026-Q2",
+      "value": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 6,
+      "measure": "level",
+      "period": "2026-Q1",
+      "value": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 7,
+      "measure": "level",
+      "period": "2026-Q2",
+      "value": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 8,
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "value": 0.82,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 9,
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "value": 0.82,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 10,
+      "measure": "level",
+      "period": "2026-Q1",
+      "value": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "request": 10,
+      "measure": "level",
+      "period": "2026-Q2",
+      "value": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 23,
+      "measure": "level",
+      "period": "2026-Q1",
+      "value": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 23,
+      "measure": "level",
+      "period": "2026-Q2",
+      "value": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 23,
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "value": 0.82,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 24,
+      "measure": "level",
+      "period": "2026-Q1",
+      "value": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 24,
+      "measure": "level",
+      "period": "2026-Q2",
+      "value": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 25,
+      "measure": "level",
+      "period": "2026-Q1",
+      "value": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 26,
+      "measure": "level",
+      "period": "2026-Q2",
+      "value": 2524127,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 27,
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "value": 0.82,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 28,
+      "measure": "quarter_change",
+      "period": "2026-Q2",
+      "value": 0.82,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 29,
+      "measure": "level",
+      "period": "2026-Q1",
+      "value": 2503604,
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "request": 29,
+      "measure": "level",
+      "period": "2026-Q2",
+      "value": 2524127,
+      "pass": true
+    }
+  ],
+  "schema_checks": [
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/catalog.json?desk=canada",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level&observation=2026-Q1",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level&observation=2026-Q2",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=quarter_change",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=quarter_change&observation=2026-Q2",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "path": "/canada.json?source=product&measure=level",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/canada.json",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/catalog.json?desk=canada",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/canada.json?source=product",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/canada.json?source=product&measure=level",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/canada.json?source=product&measure=level&observation=2026-Q1",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/canada.json?source=product&measure=level&observation=2026-Q2",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/canada.json?source=product&measure=quarter_change",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/canada.json?source=product&measure=quarter_change&observation=2026-Q2",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "path": "/canada.json?source=product&measure=level",
+      "pass": true
+    }
+  ],
+  "schema_negative_controls": [
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "geography",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "unit",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "scalar",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "suppression",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "status",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "zero",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "null",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "annualized",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "growthkind",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "timezone",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "badtime",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "unzonetime",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "badcalendar",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "baduri",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "symbol",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "symbolmismatch",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "missingrow",
+      "pass": true
+    },
+    {
+      "origin": "https://morningrows.com",
+      "mutation": "extraquarter",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "geography",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "unit",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "scalar",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "suppression",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "status",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "zero",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "null",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "annualized",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "growthkind",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "timezone",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "badtime",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "unzonetime",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "badcalendar",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "baduri",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "symbol",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "symbolmismatch",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "missingrow",
+      "pass": true
+    },
+    {
+      "origin": "https://www.morningrows.com",
+      "mutation": "extraquarter",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "All official views share Statistics Canada national-accounts lineage.",
+    "This verifies retained evidence consistency, not independent authentication of supplied captures.",
+    "Constructed controls are not live publisher or sustained scheduled evidence."
+  ],
+  "reference_sha256": "b53ec1b446b7c3406d09e100468208653914dd13bfc9625474c12a365b7c3f3f",
+  "verified_quarters": [
+    "2026-Q1",
+    "2026-Q2"
+  ],
+  "verified_levels": [
+    2503604,
+    2524127
+  ],
+  "ordinary_growth": "0.82",
+  "counts": {
+    "transport": 38,
+    "native_comparisons": 6,
+    "selected_comparisons": 22,
+    "schema_checks": 18,
+    "schema_negative_controls": 36
+  }
+}

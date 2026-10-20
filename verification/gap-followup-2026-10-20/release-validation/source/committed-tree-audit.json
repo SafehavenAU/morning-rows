@@ -1,0 +1,3242 @@
+{
+  "kind": "Read-only committed-tree evidence package verification; no release or scheduled acceptance",
+  "pass": true,
+  "commit": "8a25fb62bad7096421ac17f6974b3aa421fe37c3",
+  "tree": "0f6e80f9dfb67da5c4e0689924cd42fbc55bab13",
+  "config_sha256": "697678fba40b1b8e9f87a731c893bd6e88ff44720184bd0af080db903164ad41",
+  "coverage_roots": [
+    "verification/gap-followup-2026-10-20",
+    "lib",
+    "scripts",
+    "test",
+    ".github/workflows",
+    "worker.js",
+    "package.json",
+    "package-lock.json",
+    "wrangler.toml",
+    "operations/monitor-policy.json",
+    "verification/gap-pass-2026-10-20/statsnz",
+    "verification/monitoring-baseline.json",
+    "verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+    "verification/nz-market-rent-2026-10-20/independent-report.json",
+    "verification/remaining-gaps-2026-10-20/interface-checker/check-controls.mjs",
+    "verification/remaining-gaps-2026-10-20/interface-checker/verify-schemas.py",
+    "verification/remaining-gaps-2026-10-20/ni-energy/independent-report.json",
+    "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+    "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/approvals.json",
+    "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/review.json",
+    "verification/remaining-gaps-2026-10-20/release-validation/production/production-apex-capture/_new-zealand.json.response",
+    "verification/statcan-gdp-2026-10-20/independent-report.json",
+    "verification/us-paid-2026-10-20/checkpoint-predecessor/fresh-checkpoint.json",
+    "verification/us-paid-2026-10-20/checkpoint-predecessor/report.json",
+    "verification/us-paid-2026-10-20/workbook-recheck.json"
+  ],
+  "manifest_records_verified": 20,
+  "manifests": [
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/report.json",
+      "git_blob": "0b9f94022243e07f34847e9d418d13c86a82bd6a",
+      "bytes": 14836,
+      "sha256": "7b742cfbf3bd9d1672213961e6917a779ac6ff91a50b536a28e608b5694cff3e",
+      "entries_key": "requests",
+      "verified_records": 19,
+      "expected_records": 19,
+      "source_pass": true,
+      "require_pass": true
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/report.json",
+      "git_blob": "539f579d47fa894443c105951d896ebbd6fbb13c",
+      "bytes": 3826,
+      "sha256": "5ed5c8449d147f0c076f670c3d560ff86dac3cc3a5211cd60d518ce10378698d",
+      "entries_key": "requests",
+      "verified_records": 1,
+      "expected_records": 1,
+      "source_pass": false,
+      "require_pass": false
+    }
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/check.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "61f4b9659d11a6ad27e51d27c580232cfc54e67d",
+      "bytes": 2074,
+      "sha256": "b2b8d9f64cfac2ca9a6c5ddc0b1130dd6b7c7286ee7ce99ec48a9ef71e5f2b1e"
+    },
+    {
+      "path": ".github/workflows/monitor.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "425f51046033759443e6bc770e8fd5047293b58c",
+      "bytes": 3903,
+      "sha256": "2c0e63ca24aeb1a10baf9ff45611bee862d809ea1cb92c5d34f03f2a76b5e3b0"
+    },
+    {
+      "path": "lib/aemo-day.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "4e216da528feb815bec212f0b909ef7762fc768d",
+      "bytes": 13418,
+      "sha256": "c22c80f3a603849f9167a9092eebfd23f20c9ba0d737eb5b51f83dc5c3377189"
+    },
+    {
+      "path": "lib/boc-history.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "94276a989d92f28fb06e311a5978aa6a96613c2d",
+      "bytes": 11336,
+      "sha256": "997ab7de7fbd8311226912327bcd1b7034b87e826adbb35e6670297d4120a186"
+    },
+    {
+      "path": "lib/claimant-count.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "04c3c92648aaa0cf33aa1bb428eaedf8721858ba",
+      "bytes": 18313,
+      "sha256": "e77a50925572c929ea1da413e12c2d32e89857dad77356013b50d014efc3cf6d"
+    },
+    {
+      "path": "lib/cmhc-rent.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d0f4016004c689cc891a6c964e9d0986ec3a9ec3",
+      "bytes": 16962,
+      "sha256": "4d5b744fd1ea89e9b56d8b7e5afbc5f9f0a62951910534ca71b38ccb7e7f24b9"
+    },
+    {
+      "path": "lib/cqc-cohort.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7ac19efa21c5369eb35e2e57be69f0ff515cb5dc",
+      "bytes": 10916,
+      "sha256": "1f2cab212db4e088a91458455bcc8936dd5f6c306f91cf99b087b4baa14b96d3"
+    },
+    {
+      "path": "lib/discovery-feeds.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6c95d36185dbc39e2cddb9c15191a7bcc080b51e",
+      "bytes": 6375,
+      "sha256": "d5c633c83285713d420bdf2c14cf3c78bb9ee328205d3ae307af29b85f0525e2"
+    },
+    {
+      "path": "lib/fiscal-observations.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "54e2e419d31c6609889269ea1e7c3a119132713b",
+      "bytes": 9179,
+      "sha256": "ce13935c9f6addb8464385acd44eed555b4bac2e166e66d612d6284d11dbe42d"
+    },
+    {
+      "path": "lib/gap-information.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "433f1f1f0accf219ba91b9c3d7b038a417baf66e",
+      "bytes": 5956,
+      "sha256": "0e06d716f6dbf6c504bdb1549db2d25c9116ae369c434b889ff5d4b17a3ff476"
+    },
+    {
+      "path": "lib/gap-schema.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "4a096eebc2727fffce4c67a78fd2cde592b31207",
+      "bytes": 17293,
+      "sha256": "e006a3d5de639f3f2e1d37d05095d343b1caf4ed44be87716dc5ce66bd59bac6"
+    },
+    {
+      "path": "lib/information-v2.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5214d9d8c16201e7e31012c9f24001b11496c42d",
+      "bytes": 14844,
+      "sha256": "df60d12fe6fcb5282eff867facb88e90c26eb004d2b8f2a15f9b14b6ceab7617"
+    },
+    {
+      "path": "lib/information.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c67db188e9ab122321797598e84912a6bac54edc",
+      "bytes": 65626,
+      "sha256": "042f32cee34393bf437409c69f73f9960b325afc67af043e3d5a8cfbceda2348"
+    },
+    {
+      "path": "lib/inventory.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "17e05d0d091c6acfd6439c26c947e32ab1527591",
+      "bytes": 5647,
+      "sha256": "e7fa900b0d779dc95d3ad6989d9efe0d5c778493eb525653e799b37782a20e4e"
+    },
+    {
+      "path": "lib/monitor-artifact.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ff317f9d32c3e71a5f63b99c8163bea843e8688d",
+      "bytes": 6733,
+      "sha256": "7c332d79cc5e6f9deb345d39d2cee368d13901d17e3728ec546b005d5ba35170"
+    },
+    {
+      "path": "lib/monitor-contracts.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "f5a5abdc473a07a2bab3abd83f0878012641bfd6",
+      "bytes": 23299,
+      "sha256": "e4df84b7894aa71b8bc9b51cb8ced8b94ecf01e1539bd3041300ed9cf6c118b2"
+    },
+    {
+      "path": "lib/monitor-state.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "44f0bf8f763c4af9037ae37fffd6195a5c3cd1d5",
+      "bytes": 19801,
+      "sha256": "e11f0da7a2c160ee7e4839454fe14cf0031bf03dab5ff9b9e1096173ea1649cb"
+    },
+    {
+      "path": "lib/monitor-store.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1143270274e01584c0ac0d8fe13572c1b1fc3056",
+      "bytes": 2298,
+      "sha256": "6570240b11b5fd3993f09bf0e7764dbcccd67b8c1dc170190d85220331f06aef"
+    },
+    {
+      "path": "lib/national-observations.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b6a567e06daea3627e0d0320c98ae83c49791c51",
+      "bytes": 11808,
+      "sha256": "3f79053d748ca90305ee82267e091f0014f9733b1ef84b24ff20459ee07fea6f"
+    },
+    {
+      "path": "lib/ni-energy-summary.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0469f446563da7d05d076282d93c44ea4cea4dce",
+      "bytes": 14195,
+      "sha256": "5691532b9db9358f6e1d36648af8cbaf062f8c5c00c8f74f0e946eb7b14cbcc2"
+    },
+    {
+      "path": "lib/ni-energy.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "174f2ba7a8309cd04548299e467723383e3d0167",
+      "bytes": 19442,
+      "sha256": "9e4100825c49e2e28f424716b369be4c02d64643f63eec1cb4d97e034934c5a5"
+    },
+    {
+      "path": "lib/nz-market-rent.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0455a1638e0672449eb1eb5cf3aa37b60900891a",
+      "bytes": 19878,
+      "sha256": "9ef4d34d0a964e5b89438e80d752e4fcb23a4576e40164955c7086bd31c60128"
+    },
+    {
+      "path": "lib/nz-prices.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bbe171ba8e9fb61d4f70a661a8b1c3a4f06d1d0a",
+      "bytes": 6274,
+      "sha256": "c0c26765bc4f75bae8c1a3234d7e63e7c140dbb6df84d68701cfa01049e1caaf"
+    },
+    {
+      "path": "lib/ons-rent.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6617ba2a5141067d2c0f135b3279acfd8038346b",
+      "bytes": 15964,
+      "sha256": "b2f728f2ec5b7a5d9c1f0a86b14438ebe68e8218a97fb4af327fcf4f5c87fb36"
+    },
+    {
+      "path": "lib/open-observations.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bfa9841db8c777e2931db315dea6d8ad3bdf2937",
+      "bytes": 11875,
+      "sha256": "7b14814c99b3c4d77f8720a15ecec4f71340c9d43cc097cf8c10671e5ed5d823"
+    },
+    {
+      "path": "lib/pharmacies.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6f4f6de2cc0f58232d8174cad15d251a66f7d9fb",
+      "bytes": 6436,
+      "sha256": "0b70ebbd4dc704e9d6ff43948036abfe28d3464720a6e43ef92379b90e9759c2"
+    },
+    {
+      "path": "lib/public-data.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d73957749c04eaccda4a958b4b377b43055f9705",
+      "bytes": 11050,
+      "sha256": "3012261a65c82b3b88fb1e686f353515dce017dfe16e394a3a381cfa5138138b"
+    },
+    {
+      "path": "lib/remaining-information.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "147fec63870b5e1de0d79d119c879b54486d798d",
+      "bytes": 2260,
+      "sha256": "279788e60b8f73bde7463c1b1adb2ae158fd97718daef9ba4b2b0863a00b4c52"
+    },
+    {
+      "path": "lib/remaining-schema.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e7449f3a681dcfd647c20d518ae0332b26e3acf0",
+      "bytes": 12722,
+      "sha256": "43e2990a5ace5bfa1ce014d882d5a8b278bf7fa44fd70202554ec2aaa2ad32b0"
+    },
+    {
+      "path": "lib/sfc-activity.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "8dd1e685bfe681ba5ed1564e8c6a09b1f86568af",
+      "bytes": 10235,
+      "sha256": "8d2aded4b9e0119734b8207723d837a6f53b9b948933f3667357cb5719a6656a"
+    },
+    {
+      "path": "lib/source-completion.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3cc0600681e4e510d6bc35fe6cd4c80635dfb584",
+      "bytes": 676,
+      "sha256": "19c2cffbc5fc6a7151b8e935878c002b722e74a03a3ad54a86ea079a4b7e6f02"
+    },
+    {
+      "path": "lib/sources.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c04a18e90732c7c52d4fd2353630e70cdf3e28d3",
+      "bytes": 3133,
+      "sha256": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a"
+    },
+    {
+      "path": "lib/statcan-gdp.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3442cc95fb6a160e6d31f2a9aa20c29d6c75972b",
+      "bytes": 15009,
+      "sha256": "5fcc856095d0da517678abc242fdffdd96cdb9dc066fba0e28b98e4f466b7bc1"
+    },
+    {
+      "path": "lib/statcan-headlines-contracts.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "dc71a6a38bf4ebf643b5e7e2f6ebbd39b76d836a",
+      "bytes": 44117,
+      "sha256": "1565cdd31d23148da3cca309f065f0d904f9ac86b2284f79e30bc037770a6d24"
+    },
+    {
+      "path": "lib/statcan-headlines.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "21a05b5e50418ccd4a48bb2b2d1137d0c7b204d8",
+      "bytes": 14984,
+      "sha256": "d992d716cc65e6ce62b4278cd42f30fa9f9a01b2f391d1ea1ea7a8e4aad39210"
+    },
+    {
+      "path": "lib/stats-nz-series.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e00b2aa5e5a17238b91a310ece4778bccfa9b7a3",
+      "bytes": 37295,
+      "sha256": "8aa012db1e2877c747e62eae97a400b3e5040a92fbc5c41fb5914408af05c97f"
+    },
+    {
+      "path": "lib/stats-nz.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "863c6a2b066b0fff937229817f9227ed0e515060",
+      "bytes": 5448,
+      "sha256": "c2ce5abfb7a57296f0e0b9a69bf740891d54a3877229a40b36eeb6618449b07a"
+    },
+    {
+      "path": "lib/transport-observations.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "44fe7c3c8fcbb4f88276195d196ec3f465c869a6",
+      "bytes": 5585,
+      "sha256": "4cc5a4b2093e6e40e8611a680193388a49a3744afcde783e665555d83cf548c1"
+    },
+    {
+      "path": "lib/us-cpi-table.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "fa585373eef91c056997d6375b4b94946c4dfa2d",
+      "bytes": 5224,
+      "sha256": "782509da4fda47c79e88c8bb0fb0f7094c5b85f41f2cbe0c3f1894487b8eecf2"
+    },
+    {
+      "path": "lib/us-cpi-workbook.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "8dcf0e886d20ad2aa8437a5288c6c5b519e03b3f",
+      "bytes": 10410,
+      "sha256": "73c5cfe0f8aad563333aeb2742c8a53972393e76c93e05302d4eb9a1db4041bc"
+    },
+    {
+      "path": "lib/us-cpi.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d8116d079679a4c93b52b8ea41113a9f44496072",
+      "bytes": 11849,
+      "sha256": "25867ee3bd77235296dcca8248365ae4bb141b25577aab95e20db69180e44bed"
+    },
+    {
+      "path": "lib/us-desk.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "580e2863d38ff2524914b0adecbf280594b70e24",
+      "bytes": 6566,
+      "sha256": "62f5a2a72bf3ec5705b54f0d3e686c46a2340cefb70c0cddfa9edaffa3c63067"
+    },
+    {
+      "path": "lib/workbook.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2848ca829ebf48f4b3dc6053582ddb14e66d55c6",
+      "bytes": 3816,
+      "sha256": "2f9ab2128e36b520156e9ea05957fbc04e3b6da4ffcee358b7bc77cb586ea25a"
+    },
+    {
+      "path": "lib/wra-depth.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b227e6a3b8fbf38f65f6eb6c20783656f8ab307d",
+      "bytes": 4279,
+      "sha256": "3e7f58e3fc4026eb4fcc6b0b120c89999475ebc71c5405865f7ce01da2f40645"
+    },
+    {
+      "path": "operations/monitor-policy.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7e95d4326589d370b0aa405b29e6c9f39b95a97b",
+      "bytes": 902,
+      "sha256": "38be0e8a218930183fc6e4ff8e87eab4141bcf9db51430d8b2fb823a81d9a490"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "fc81686c45a14bcc7596ef211bbdecb216a44a34",
+      "bytes": 53911,
+      "sha256": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "69ba6528ec86f27f2add355157e0f19ad9b7409d",
+      "bytes": 553,
+      "sha256": "c00fc873d198f300174c38be74aa808870272f4224599daa5742d47ef10a5410"
+    },
+    {
+      "path": "scripts/audit-shadow-window.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9436d749029c4aba82ca4ec81c4310a64d2b79d1",
+      "bytes": 2327,
+      "sha256": "1a61fd391192a3df9a982d61a6efc305f876da8d1b7a5029e4e6864d34417398"
+    },
+    {
+      "path": "scripts/build-info.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1dd031a4f501b4b724cd4c062be8302a6baa49c3",
+      "bytes": 1056,
+      "sha256": "af29ccc7e4424c50f6d52839149775269b49552d76e55813282ded0f015573b0"
+    },
+    {
+      "path": "scripts/check-claimants.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "cd9aada2c31f6f2bc56e0ae3f0ade0f1cc033de0",
+      "bytes": 8569,
+      "sha256": "21b8537c18265f611b87f9f70c2dea74ef5153d722abdc6f31964856a0e7ffec"
+    },
+    {
+      "path": "scripts/check-gap-pass.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "37feb12eae28232701a8090bda01d9469ce4adbc",
+      "bytes": 5115,
+      "sha256": "06072122a3b2525b13401f969f46922083f9943a379ed235aa851c3621c14d5f"
+    },
+    {
+      "path": "scripts/check-information.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "744199a318604bcc154b3dfa1c32879bc9aa4fa9",
+      "bytes": 9375,
+      "sha256": "272cfea9845e4bb80c24c7455a48ad251f43e02a5e8f8ad2b37737f43dbe0036"
+    },
+    {
+      "path": "scripts/check-market-rent.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "91ffdb382c5df5de2f6414b4e36e50a8c387a5e1",
+      "bytes": 6715,
+      "sha256": "ab97c88edc08a4145db0f06e6a45d3d118866b0def3de4707cecff21789cae8b"
+    },
+    {
+      "path": "scripts/check-ni-energy-summary.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d47251e57f25966471a8b173cdbe304d9f9235a3",
+      "bytes": 5004,
+      "sha256": "2ac1f5f9a00926b2960c7c29330fa1815cd8c7f6f21dc91b2cdfeedb44f9a84b"
+    },
+    {
+      "path": "scripts/check-remaining-gaps.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b5ebcd68981400da21cb6e2ef9c2bed6e6fbe690",
+      "bytes": 4860,
+      "sha256": "6ff0dde00eb914c4e656c6dab29e3cd301ecb38284aafb00ee309bfa81e1b132"
+    },
+    {
+      "path": "scripts/check-statcan-gdp.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1be6a89529d2719e808166980612f9c7f05ee539",
+      "bytes": 12513,
+      "sha256": "991b38dd2a8ca5540e11188a649175d9b91943eb5319d3a3e20bd0d303364e94"
+    },
+    {
+      "path": "scripts/evaluate-structure.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a9c9d150e53189ee39dd7de70f4913c737065f8a",
+      "bytes": 5363,
+      "sha256": "a0b6ae5471a0154a9d354dfcfb43688fb430fce911a15f730a7562b1488f98fe"
+    },
+    {
+      "path": "scripts/exercise-maintenance.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "829ddda3ad1ca47e660c0586e67b9cb4a1fc9543",
+      "bytes": 4618,
+      "sha256": "1617d3192adc7cf3c775413e6c1aa18874f73ad9c8ef1d753379dca3354b24db"
+    },
+    {
+      "path": "scripts/lib/legacy-cpu-evidence.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "79d64e7a6e1c80ad0a3f33e024d0733d1d419342",
+      "bytes": 4713,
+      "sha256": "70e24f6cc626344dd71235464535064bca64e87987fde18ecec918529fdda2d5"
+    },
+    {
+      "path": "scripts/lib/us-cpu-evidence.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "befa7af7b20f341fd5059d9824d169a4d21066a0",
+      "bytes": 4703,
+      "sha256": "cb3dcd84670bccdf822070d8e06ffa74738b894c6ce18abc35bb83dea7097a34"
+    },
+    {
+      "path": "scripts/monitor-artifact.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ae2626e75a83b12d2a0b683c523dfd3af9b13a81",
+      "bytes": 5412,
+      "sha256": "9656d635fc0c7425961e39c2095b2b19689723a0e794297bf5a7d0d252c8d1b0"
+    },
+    {
+      "path": "scripts/monitor-registry.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3134ec40ed80089a1dd4c77225d29f0bad2fc9e1",
+      "bytes": 8814,
+      "sha256": "c96799d7baa9b2d3e6f06083059deaa5f4685e82608d334f2ec1c0ea47201bf9"
+    },
+    {
+      "path": "scripts/monitor.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7b3eae91597e7235c12e1cb2156f4cbebebe5f59",
+      "bytes": 10997,
+      "sha256": "a2e5bd55c99c50a2355b0f476ab7a57e25e8d4de73a603507f79a7a6994f9e56"
+    },
+    {
+      "path": "scripts/reconcile-insolvency-specimen.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "fed05b64dba26d76074f4bd15efe733582d7f062",
+      "bytes": 2250,
+      "sha256": "fc59726448e59a0ebbbb1c75e849edfe145c8f5052f27a4c55a9c79ce427c62a"
+    },
+    {
+      "path": "scripts/reconcile-operations.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "f358edabfc742e81bfe31f432adccc9e09ea320c",
+      "bytes": 8032,
+      "sha256": "075f118e3a33bd7672c5a90b74acc90aaba5f73fbecb1d22026ca2a0531403e1"
+    },
+    {
+      "path": "scripts/rehearse-checkpoint-recovery.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "988d1ee3e4d659c2b6c8975a47c198c347b08b66",
+      "bytes": 3887,
+      "sha256": "960863c57f9d8e9887f99955b23b26aaca4a364e9effcc08e8aac9e311bfdcef"
+    },
+    {
+      "path": "scripts/remote-check.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "39b62ef1a8bf5dfe9f1b67504a0749948d6c00a5",
+      "bytes": 5749,
+      "sha256": "2a2b9773747cb2350495521856e1262fa019bed25e65a71d3cea51eb25fb0d07"
+    },
+    {
+      "path": "scripts/replay-claimant-release.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "50498adb41a2b920e23a01f2c7f7cef2ff89e167",
+      "bytes": 10327,
+      "sha256": "407fcc04149ae41c54edb903322dd8b9f41ab235985e882026f2d7297d637ea2"
+    },
+    {
+      "path": "scripts/replay-gap-release.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ca27579fea592ba6d42052be5ef7803259e8e636",
+      "bytes": 16741,
+      "sha256": "6e93da323ba485f6265dd171ecb1177daf2a84897903cabbe45a1046fcb8d93d"
+    },
+    {
+      "path": "scripts/replay-gdp-release.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "8cd2f7f6aabc9149a6927796179b223448c2623a",
+      "bytes": 18399,
+      "sha256": "2bf0ad87786975ea0764ed271f57faffb4ebb2114e12fed10e1d95f39809deca"
+    },
+    {
+      "path": "scripts/replay-ni-energy-release.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "76e43798a5c68652309fed7f0ef309f3fc14f02d",
+      "bytes": 22554,
+      "sha256": "17d2783eda8c435c8c56cd06f01bb49e51e296d90d421c8d684d0cf2cb47b74d"
+    },
+    {
+      "path": "scripts/replay-remaining-release.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "55e5481d728a33f692951c3ddaf682c843106fe7",
+      "bytes": 19547,
+      "sha256": "f7bc92d9e2c5e5196441f829ebb01e377a9547f4f795b2fa590da38ae029bc5e"
+    },
+    {
+      "path": "scripts/replay-rent-release.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "063d1ed1d4555c4f408256d30e557edddc89db25",
+      "bytes": 15392,
+      "sha256": "9e14859d3f3cfd570e4050b26798aec3e0d566185447fa809d220ad3ce327a59"
+    },
+    {
+      "path": "scripts/replay-us-release.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ffd0b1377a70f807ecc273f29d369025a4a4eac0",
+      "bytes": 7992,
+      "sha256": "b81b4b103d35cb98cdc6581849548c84a2196a75ce804e2cc94de256b5afd0b2"
+    },
+    {
+      "path": "scripts/smoke.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "91838ab1fc8134991111c9011e9bdee78df7f980",
+      "bytes": 12744,
+      "sha256": "770acee1a98d5776360a5a69cf2acc32ef90683c944bb044312d8e72aa41923f"
+    },
+    {
+      "path": "scripts/verify-checkpoint-recovery.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "36ca2d5a7cf8713fadb30d38398914e4ff433ec1",
+      "bytes": 2298,
+      "sha256": "f05ffade4bb295766db0634c4f13e5dabd6326f3d5d677cf6c866c5a8bde18b3"
+    },
+    {
+      "path": "scripts/verify-claimant-captures.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b4ce94db38df89ba3857d1eed50d2aac34f94e53",
+      "bytes": 23076,
+      "sha256": "40ec6c232757b7fbb68671c87742c5b0773c6c6913b2fcab4cc75c56f6c4d7fe"
+    },
+    {
+      "path": "scripts/verify-claimant-repeat-cpu.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "179e416b97c9ea6570de7f16df07cdbcd5332b52",
+      "bytes": 10537,
+      "sha256": "4f5ca41f4b25b9bf7eac1f690145b0375cc1219360a5a2ea49ec1bf05641635f"
+    },
+    {
+      "path": "scripts/verify-claimant-schemas.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5cdedff5bf6919309ab98c9d5d2e5c39779c38a7",
+      "bytes": 15356,
+      "sha256": "faeb9081b4ba1f05c1b026b8f44c985fb15f9412384611bf62a9d35255f37ee9"
+    },
+    {
+      "path": "scripts/verify-followup-statsnz.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bb7525a12f30fb8e3b6bf3d83504a549e8e7ceee",
+      "bytes": 16212,
+      "sha256": "23ae12f1230ba08a9a7c82513bd3c35b5a43406d262b22b9aabff97ade91f2d9"
+    },
+    {
+      "path": "scripts/verify-gap-statsnz.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "73bf19f09e467721cc9ca6b9f8a21375d719543a",
+      "bytes": 12008,
+      "sha256": "9418d9adc548fe70be0baf806a5b15dd1d5766aa1a467c8a8a817bf30c03055d"
+    },
+    {
+      "path": "scripts/verify-legacy-version-cpu.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6f4699963dc2982a895512fcfad2a7235e26da71",
+      "bytes": 8317,
+      "sha256": "51d8dba5bcdab64bcd22ec99da4d6e9250064718ec6eaf4e5d15d639b61f2d74"
+    },
+    {
+      "path": "scripts/verify-monitor-references.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "26d140b484870cdf957731cea83a89f2f17d468c",
+      "bytes": 4255,
+      "sha256": "fb645147a4f8591e51e309645a4f0f31be91f25f30486edc5308c3d6295ce048"
+    },
+    {
+      "path": "scripts/verify-nz-prices.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c3b2b36777d4c6ec41376070bf553a376473a0ed",
+      "bytes": 3522,
+      "sha256": "ed3730f45ab5bf1137c34391da6d1d394351fb16d3b8d7c42f03fb58b6bf2b06"
+    },
+    {
+      "path": "scripts/verify-paid-production.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "77dd1502ee90b4a0a72f70cb882fb2344cb7edff",
+      "bytes": 9665,
+      "sha256": "b8c989f024ddad93f2bc93ed1bb6cda7691b888cb66d154a7bde6b9565585d82"
+    },
+    {
+      "path": "scripts/verify-preview-bodies.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1a7bb35085dddbbec8878a90b2b4afb334ffd200",
+      "bytes": 9714,
+      "sha256": "719c3e3ea6ab413992e6906ad2a2dd05a909cb080fb2ed6ec45d86d869665ba8"
+    },
+    {
+      "path": "scripts/verify-rent-captures.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "77d7d8375d1e39f51b759b7521f7efc2b2bbea6e",
+      "bytes": 33166,
+      "sha256": "2e1107f5ea575a2bb1469d643e6e29d1bcdbba9d3cf8b1054891b4895ec97aae"
+    },
+    {
+      "path": "scripts/verify-rent-source-cpu.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e841b0227045976eb8ba8664c5a0c632e45608de",
+      "bytes": 15817,
+      "sha256": "7e48cf5f3978a4cef71aa718a754de6faf20b8b11185f3784923b611494d8dc0"
+    },
+    {
+      "path": "scripts/verify-staged-preview.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a6172377dc3846d823a3b54c3ac92491e710295f",
+      "bytes": 10539,
+      "sha256": "adaced1caf865cf27704f95265f4283e8ff7e7a0d508ad0ccedb2272098f8ead"
+    },
+    {
+      "path": "scripts/verify-statcan-gdp-captures.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "03746d661ab920855a88a53db69cb560880b6da8",
+      "bytes": 18809,
+      "sha256": "86d7ae2a032b22abc37e07f91f199475381a1444adfe59fe4fa133e3c2e82746"
+    },
+    {
+      "path": "scripts/verify-structure-reference.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5682facb6efe255f3dd9ed0cec6d47b7c52cd97f",
+      "bytes": 1701,
+      "sha256": "45af664a431d25f132f8fe8acf8cabb85a487e8584a10cc07b42d2c54d66f9f9"
+    },
+    {
+      "path": "scripts/verify-us-contract.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3c0a4d01f48f044f50b411049910c0489711532a",
+      "bytes": 3626,
+      "sha256": "5002cdc519b031a908ec0fd3afc1ce40a4f02046af9bff66e6dc78482bf748d4"
+    },
+    {
+      "path": "scripts/verify-us-schema.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bacf70622c877acc37f0d3bcefe0d7b701114061",
+      "bytes": 1719,
+      "sha256": "50df70deebeb23b30a06ac48b3dbf8b3e73083b478d9db9497078b3ae3898090"
+    },
+    {
+      "path": "scripts/verify-us-version-cpu.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3eeccccbd9b4e360ce40c749fe3d3fbe9ea649ab",
+      "bytes": 6186,
+      "sha256": "5954e457ade67aa5f891471da95d623c824dd0e664b250c29aab173dd20d3bd0"
+    },
+    {
+      "path": "test/aemo-day.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c41abd73e05640251c57365b01d2037fe44fce8a",
+      "bytes": 8150,
+      "sha256": "cd338cc4105b5221086f68fa478e80e14e96976eb06206dd0d3f9c365bb8b0d0"
+    },
+    {
+      "path": "test/boc-history.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "39d1139351e271dc35c5eac0263fdce963f9c86f",
+      "bytes": 11530,
+      "sha256": "b37527636d5d10ac602700719bf32d54a6c26b7cbdce329d36284c0aff5b0f27"
+    },
+    {
+      "path": "test/claimant-count.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "22a306615d9461285998140f22b00b79a384a2df",
+      "bytes": 14287,
+      "sha256": "c0824072b558a6de778416d5f5f76230637987983a94c32eec80b99928b6ef20"
+    },
+    {
+      "path": "test/claimant-information.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "413b9689ab4cab329f483bf2d09f5606761b5ce1",
+      "bytes": 13573,
+      "sha256": "3d497a3d6b17ca3c0da83cb6b6845ff35e6b13c96c2551da0ceb0d1733a30d39"
+    },
+    {
+      "path": "test/cmhc-rent.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c97b438c47636b118037f6d58352ea751508d992",
+      "bytes": 17762,
+      "sha256": "359eac5820418b2890a2f9cc3edc3ca19beadd5063f3c749a8b47c46d90b7229"
+    },
+    {
+      "path": "test/cqc-cohort.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "29fd51001eff2c1218c08668c8b09bd2e6747cd8",
+      "bytes": 13539,
+      "sha256": "9d9a6511dec0b2471e0705ec2fd418c1182f55b6b78ca5fa5aec6d5a55dfe12e"
+    },
+    {
+      "path": "test/discovery-feeds.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "af74eb4bd2b496c740802bcf5ad68fa0ff29767c",
+      "bytes": 3463,
+      "sha256": "732096ef567b703ad7d5adbc70d11af8dea94ecd9663f1a3fb6e7fbc3cd8e11b"
+    },
+    {
+      "path": "test/fiscal-observations.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2c5396a7115b3dd82535d967cc7f94adf3b49cdb",
+      "bytes": 4965,
+      "sha256": "c8f026405c25118a59d4b1efa5fb59f0a2280db30758ece2586fc29f78fa3bb9"
+    },
+    {
+      "path": "test/fixtures/insolvency-metadata.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "4bf0bd855a48b7b1b1c1e4f44fe8778c80885222",
+      "bytes": 1586,
+      "sha256": "aa4c69e8784f21254f4a9f16c4983e328b03bbdc64b17d126e42a2e7f60fcec1"
+    },
+    {
+      "path": "test/fixtures/insolvency.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "588d6f0fc63a337376530bbdc935c8fc8a49b5e3",
+      "bytes": 255,
+      "sha256": "889c53848096f1bbd1be5e02963e27ab60c62d732aa988d1a0a722992189caec"
+    },
+    {
+      "path": "test/fixtures/nz-transport.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6e14cc46936a587184654c7fc3c21864c7e23e3b",
+      "bytes": 4501,
+      "sha256": "7c75b3721bb36a3c1bf48adb35feaa8a1613ac567f7fe7e7635740c4131c4b27"
+    },
+    {
+      "path": "test/fixtures/scot-transport.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "753dde4351c532bb7dcbd12b48d600d188000b57",
+      "bytes": 3302,
+      "sha256": "ad32ce7fa7769c9a6205fc76667433f249ba92f6c7d4a9e83d8db6d8264e99ac"
+    },
+    {
+      "path": "test/fixtures/uk-cpi.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c95ade217cab9ecc758e9eb2a1bd9d7b569f7502",
+      "bytes": 3983,
+      "sha256": "13990416c5d10625a8b54fe738457ce911433a6d8a8c096b6644e70131b9fc28"
+    },
+    {
+      "path": "test/fixtures/us-cpi-table.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ba25a2b3c6eb16527bcf4080404e730d971d5c58",
+      "bytes": 2562,
+      "sha256": "1a301a74ab20ce6817190fbc03815f348af35c36b8e383a35cecaf34cefb0b02"
+    },
+    {
+      "path": "test/fixtures/us-cpi-workbook.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3a8e778cf650c68c7c4c26da00b3b8db3997a7fb",
+      "bytes": 32579,
+      "sha256": "ba6d473d2b1b7db069006802a65355865f8179188a10b24b3d34c3cd55535f44"
+    },
+    {
+      "path": "test/fixtures/us-cpi.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1ce89c6dcb8a525c09747d982c7e360195148e24",
+      "bytes": 1535,
+      "sha256": "c86cc684968a33ccb6198b896fa6a6117902df463886c2b51d17df0fbea4de3b"
+    },
+    {
+      "path": "test/fixtures/wra-tax.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d622699b61bdcf4b56fca7126d026c968c200ae6",
+      "bytes": 672,
+      "sha256": "8c0234eb09e38f668e1652f0f13a93eafdbd168fc263693b2736ba46bd8356b4"
+    },
+    {
+      "path": "test/gap-information.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "58af8120b7e3cdb7e798843e31613e5ee7953bde",
+      "bytes": 9420,
+      "sha256": "796a01bf1058b15dbeaf67d4b877b83de7a9f6c480ea2212ba7557c3e52cdf90"
+    },
+    {
+      "path": "test/gap-schema.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6e8698770d9aaac3396f87091e94ce0dfc55c8c0",
+      "bytes": 10314,
+      "sha256": "976d316e1f90fd008ccdcdb8222011b22bc5d2d1d1467a48ccb533c16a305771"
+    },
+    {
+      "path": "test/gap-selection.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "06644ca044520c1adba0c181fb8da6212ebedc99",
+      "bytes": 6343,
+      "sha256": "585d0fd409d6b6a0391ccdb105341fc85855fe6de42ddfd30f38f3beb94086ef"
+    },
+    {
+      "path": "test/gap-worker-integration.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "78a8c36eb15439ccf826af3689ca28774536a3ad",
+      "bytes": 10591,
+      "sha256": "334300f65bf55e9e9f06f49319329d00d60416a021fc750fe1887d233a2d5ed4"
+    },
+    {
+      "path": "test/information.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6e67fa6567b254cd390a19f114f42cc2015ce08b",
+      "bytes": 13790,
+      "sha256": "44e471d138f753c9e99ea4f1dad8871c6cb480513fd57997adfd7e7a6efd9f5c"
+    },
+    {
+      "path": "test/legacy-cpu-evidence.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d1d7c2d40c9bfc1f317262cdede36052543aa779",
+      "bytes": 11856,
+      "sha256": "f79e5f25c2571049619ffbcbbdd2840bbdda0816fdebe792a30b3f965808264f"
+    },
+    {
+      "path": "test/monitor-artifact.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "579d6fb4dce5cd47e4791a8e96900e4a98d06f82",
+      "bytes": 9053,
+      "sha256": "1d7da0b45b70bad6e37c246679495963edc4061d02e5459510673dd42aeb90b1"
+    },
+    {
+      "path": "test/monitor-claimants.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "54f452f187673a4a16cadaf80f2ac885444cb8f5",
+      "bytes": 14435,
+      "sha256": "71611197a9f9219ef538ada198fc7042e295178d87c41f7bd08c1e69b12b4e0c"
+    },
+    {
+      "path": "test/monitor-gap-pass.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bf30156ed7df853f7a5d96271a7f1f058834ad59",
+      "bytes": 15246,
+      "sha256": "cc5b7fb23292023b795612f3e41a39f97f3ed49fb9e1fb6b8b0c66cea13c280b"
+    },
+    {
+      "path": "test/monitor-ni-electricity-contract.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "57d9ab7f9f1dcf69fe562c956296709522997dad",
+      "bytes": 6841,
+      "sha256": "7749c557a9b1a9e32b77e53d2d0bcd9096c5076fa6a908a8e45a9d5dd9ea46a6"
+    },
+    {
+      "path": "test/monitor-ni-electricity-scope.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "357868501c524400d82b75dad783110f088146e5",
+      "bytes": 11985,
+      "sha256": "7f3783a962de96d192b5ecba5a19d57729ed2741fe23afc08159124aaa38f2a5"
+    },
+    {
+      "path": "test/monitor-release-chain.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "f0d9a72f5c4f04c3aa4ea1cd6ce14993b49440b6",
+      "bytes": 16506,
+      "sha256": "f2003adb6ed5cda0c22fc7782d0164b63a52cda7e3a39b5e04550c7daeac3bee"
+    },
+    {
+      "path": "test/monitor-release-continuations.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5485c4bde019a39b6b67aeb00e93bf8c62a19864",
+      "bytes": 21020,
+      "sha256": "cbf326f7ad713aa40ad18cacd65ed77651f62b47dd644b252c04ec81869de719"
+    },
+    {
+      "path": "test/monitor-remaining-contracts.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0b4ad2916ec3ba144b5c5c40147bb839d7462f36",
+      "bytes": 7794,
+      "sha256": "f98c60247824a7fa008f6c2986b885a8ab1148095cddf8bab8d0a3148bcf5a57"
+    },
+    {
+      "path": "test/monitor-remaining-scope.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "35da43273b9891ced0d853e1689c63e1829cb820",
+      "bytes": 11038,
+      "sha256": "b81783aeafe43d85fc33cd1269bc5c29e0e9cf81c0c1838bdc3f9498681a669e"
+    },
+    {
+      "path": "test/monitor-rent.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "75479a857890625c7fb90d4ee53813e5cda95c06",
+      "bytes": 18989,
+      "sha256": "a172a422c5a06c29c4813263baed03c806b25fb1b7ad9721dbc3806f762a1c55"
+    },
+    {
+      "path": "test/monitor.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "58531372a1038e2ec7484a37c381319b45cb8b15",
+      "bytes": 12679,
+      "sha256": "4b4996156251a27ba60d05ebb7062739a32448867f345a99c1eef3cd12f83d4e"
+    },
+    {
+      "path": "test/national-observations.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7d4cc8ff2f045fd56084b0b967f2ffd7cf1c40f6",
+      "bytes": 5966,
+      "sha256": "3f8f43cbb0295aea7fd81e412fca1c652626b9a39db7d5a3c5dd12d098dae6f3"
+    },
+    {
+      "path": "test/ni-energy-summary-information.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d1a7e5807dfacae238f7d105184a5018bc839691",
+      "bytes": 8249,
+      "sha256": "87abbf6cd68a67cd2703c41e0418600669aa419dc23f43d5ca087aa225ba013c"
+    },
+    {
+      "path": "test/ni-energy-summary.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ee640ac63e1fcbe36a27103b4c920ea29577e116",
+      "bytes": 10981,
+      "sha256": "174302643cc1dd0d99ab76ee7d743aeea8632d504f32a0ff5d2dad8f2c29da72"
+    },
+    {
+      "path": "test/ni-energy.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "adb7b740884ef7449f1c2aa609fd424986c310c3",
+      "bytes": 11662,
+      "sha256": "10a6b6cc01ee0b52374e0f17b422cce22155a16b842ef82b0dde647b0ebe235c"
+    },
+    {
+      "path": "test/nz-market-rent.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "012f1107e198b4ff20c2c8dd2add1c8a3b69edaa",
+      "bytes": 17128,
+      "sha256": "f1acddd5b13404659a6440558e6520d9a86c918f46fac3e61fd464a0926a5ec2"
+    },
+    {
+      "path": "test/nz-prices.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ec5d7c0b88f85fac3c158c487055ee47f0e7304b",
+      "bytes": 6539,
+      "sha256": "fd89270e2d62ab9e40c4f2044a550f03b6acdbbcc89c9be50baf30c09a3e05f1"
+    },
+    {
+      "path": "test/nz-rent-information.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "91587c975427fc190138b34d20f85c9cc9223e8f",
+      "bytes": 16130,
+      "sha256": "efbd4096d6cbe02ba7acc1be2192ce17975b21dc57fcc8278f002017b9a1973c"
+    },
+    {
+      "path": "test/ons-rent.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3f0a0e36d4d427ccc1a8bc7f08670f36da1d21de",
+      "bytes": 9148,
+      "sha256": "eaf535d9a03c40b75cdc4503715d4437be79ca72bd7dc3e21d7e77af37f5900f"
+    },
+    {
+      "path": "test/open-observations.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6cf92f927b94789fcc3816d1940c24cd8b9cd0df",
+      "bytes": 8107,
+      "sha256": "4c09fd5695fb5b2e9bdd740302bd81ba8b667ce7bacb95f5e8b80feba6cfd66c"
+    },
+    {
+      "path": "test/pharmacies.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "dbd6d4e35a06bd67a2e32d2782acfd048d307c7c",
+      "bytes": 3729,
+      "sha256": "b66ef08b5e215cedd80c311b7480c19b3fd853fa49e39052d5318d57c59e7a38"
+    },
+    {
+      "path": "test/public-data.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c715c44d19856b9b19080ab531b089421b20f9f7",
+      "bytes": 5562,
+      "sha256": "12d840b1a64c5a51a6cdf6f7de8f3f11957b5be6b2ec022fd6573637c75ee740"
+    },
+    {
+      "path": "test/remaining-information.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "f9664c882dfe0bd058edfc24a1f000feafadc867",
+      "bytes": 11497,
+      "sha256": "416ac812f55695eb6cacec69c8d531fe12e9d2c03a67a28a6028db034b2cf57e"
+    },
+    {
+      "path": "test/remaining-schema.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "df59b9fe73d78731718193cb8248092f819b1271",
+      "bytes": 10540,
+      "sha256": "db76969516825cd4d633f75bc447f1eb46b0ee48f09d5731a5de59ba0b332ec1"
+    },
+    {
+      "path": "test/sfc-activity.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c61a6955d4a2a17459066815ee330e187b9558dc",
+      "bytes": 12838,
+      "sha256": "1173093cf61c9bf9b458170c61415cbb1924490a1d219b2dcdc3cae0793d2641"
+    },
+    {
+      "path": "test/shadow-audit-cli.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bf95fb71f4ac715ebce7531991673d752e887098",
+      "bytes": 1972,
+      "sha256": "055b63b4bc5fdca172416915cf41ac499e9ac08c65e9a6e159885b57d6039e69"
+    },
+    {
+      "path": "test/shadow-window.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d4dd99314acf43df1c63319c58d37a1d7a035b9c",
+      "bytes": 2822,
+      "sha256": "b67297f904b0aba180dab21cab433bddf0311fc2046e79944a979126e5a14f41"
+    },
+    {
+      "path": "test/source-completion.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "613910d183fbd1a396840e546ad8612a641c688d",
+      "bytes": 2572,
+      "sha256": "6277a0d0ed1784f783764b2e14058399747c69b92ca0c7e9794f5c774b5b45e6"
+    },
+    {
+      "path": "test/sources.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "47b349a7159df861ea3947d30877fbbac97619ba",
+      "bytes": 4558,
+      "sha256": "65bc6419af1e3261eecc46f8ebd4ccfa618a8f95b247a99adf215a0d0984e2ba"
+    },
+    {
+      "path": "test/statcan-gdp-information.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c114db60b8662356a339ecbf0439f68a35fe7f9e",
+      "bytes": 22871,
+      "sha256": "e51ea01d7cc42b45b65d1fbefc1f5062b3f0d81d9caadfe8fe9882786bd5cf82"
+    },
+    {
+      "path": "test/statcan-gdp-monitor.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "88782075287b29923f73ad6c99f5f67321c112fd",
+      "bytes": 17532,
+      "sha256": "959ba4938f976948f807e7a12d3a7c08ca9ea0d2e73b9bb6e4eedccd1ce40cb9"
+    },
+    {
+      "path": "test/statcan-gdp.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9515c2093eecd5d69f8282a7299c299c91089a8a",
+      "bytes": 14991,
+      "sha256": "23188266a66b56d1b15c6941b7ef14a4af76f745dfc5af7d962732c782b94a64"
+    },
+    {
+      "path": "test/statcan-headlines.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "737c2d60739eb1a87867a7f218758f34b68d4f4e",
+      "bytes": 13184,
+      "sha256": "bea4965b585a7a719705de8adcf4b00d04a14d1738cd9290da7b0e60a50ede88"
+    },
+    {
+      "path": "test/stats-nz.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "90fbc2187964a68d91e57ee51babd293867d798e",
+      "bytes": 3676,
+      "sha256": "959361fd05ca00da9278fea7c86fffcb41b1d6b0b98e473b517ceca97fe6d3c0"
+    },
+    {
+      "path": "test/transport-observations.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "fccf0bc7d10822aaeb89a40ad55375c08f5d0277",
+      "bytes": 3673,
+      "sha256": "5c16f2e4405b317b5a294fb05c6b40919da4197b857d7fd139e48e76c6a713cc"
+    },
+    {
+      "path": "test/us-cache.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5bdef69fdc3821b415b1930416f65cbb3f631bcd",
+      "bytes": 3927,
+      "sha256": "d2afcd13f9cf88d48b8601a0832b67c2c4e2f3ec75220a8abec3bad44d017ea3"
+    },
+    {
+      "path": "test/us-cold-path.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "099c26263e27b2aa5d39aed6a2e20944bdfab451",
+      "bytes": 3510,
+      "sha256": "34ba41dc786a8dbe509bf7c4509f9986b8afd2f033ba2909d83f12f3e7c9b4f1"
+    },
+    {
+      "path": "test/us-cpi.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d5b45e8c518603ab8759970a039ff6cef3449aa0",
+      "bytes": 6992,
+      "sha256": "248985d0c614f4f040723426e77fe8ef5af216366978805d0d080f45101adee6"
+    },
+    {
+      "path": "test/us-cpu-evidence.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "05f424740f0b5c03720006bec0d232239ba5a768",
+      "bytes": 5989,
+      "sha256": "1d40aa568426d50ca012ed0774607a516e942e902b151dd0e0b0bab576ec8e3a"
+    },
+    {
+      "path": "test/us-information.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3c56a6efe97d1b0b45937f686f9c335eac4da1e4",
+      "bytes": 7879,
+      "sha256": "d71bfdc8572dd1503e3ff6e7b5e01fedf8489ad3f02572c27cd75c2e4e6b7c62"
+    },
+    {
+      "path": "test/us-monitor.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "083a5f7f495543c27147cbceae5844099429cf9b",
+      "bytes": 6222,
+      "sha256": "87d71074c606ed074006a478e9c2c6f15bf7b8031a5a38e9d6fb91cb23a5fcde"
+    },
+    {
+      "path": "test/us-table.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0ae1fbb9dee3340d602e71787ae3839220374814",
+      "bytes": 2436,
+      "sha256": "ff735236844391a86a81039d4ee87d4d89a4986d76f54219a2b64e39ee0451bc"
+    },
+    {
+      "path": "test/us-workbook.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e4a563ba4cd3880e7e4f7ba0ad091a5ebc82b2f4",
+      "bytes": 4128,
+      "sha256": "73a6e914d388b99b01ac6381f93631f7652cc4e89dbb51202d7087070cb09b04"
+    },
+    {
+      "path": "test/wra-depth.test.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0514f60b5c9200784b51a8ec63403c343bb30b2f",
+      "bytes": 2662,
+      "sha256": "784af2d85e323e455ccad1f6b9f8b830ff47354263528523a4cab3d56835dcf8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1a2f142c7b41a078db73f67563a39354108ccd99",
+      "bytes": 4978,
+      "sha256": "bc337f76ed3bde58183032740228beb8d97cdb9a4c8a0341eb82225e72b21406"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "4f0fc4e25424c0335c4c54f76c3d948458280818",
+      "bytes": 3723,
+      "sha256": "40bef92b985f5fee23f272c3113283ad2e5ddcc48e8af474a16edcd67e9f6343"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/AEMO-ALTERNATE-PROPOSAL.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "056d66ac8f350672f31a88bd3fe14bb39b607e6e",
+      "bytes": 4689,
+      "sha256": "4c1ac4a6c8b02d302c371f765059cc4b2adc8de1c94e0ec026b03f3c9d41463a"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5822d9967148cd79d0e82d18cc7f29af77231efa",
+      "bytes": 8610,
+      "sha256": "cc9c77caf866befb32d7743359b728dfba7b281e2c24ea95643c4e15138ed5ce"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/acquire-originals.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "4342ac55555ec6e41e81275a146b5ec4f98fc07a",
+      "bytes": 5188,
+      "sha256": "7dc5b051a9a135b4fce5cd914615d40fc28b7bfc939bfeb175b01bba9ad75d57"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/aemo-worker/worker-access.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "24866f6b3a80b14a4df8fbb117e26be1918f29f6",
+      "bytes": 863,
+      "sha256": "ffc11809d9d8c537236d4dcb2e829719405626947cd4daa4818cb3035041fd09"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/aemo-worker/worker-access.log",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "aad5adf0c3363b4afe2c0645c8e0798512e50cf4",
+      "bytes": 269,
+      "sha256": "b1271d4e33de01fb131daead03fedcad20b4f3b233bc3b1070f7f84ff09bf9e1"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/acquisition.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "f66f01b5d3ce1d7383fa29190cdcbcabf61dd264",
+      "bytes": 1204,
+      "sha256": "be7eb87a943f720513ed109dab4a7a7e8a650f9e2ceb5b708b9b8d92da975bc7"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/cohort-pages.excerpt.pdf",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "67996c661f04824e9768c396003f7fd7a06f0ff5",
+      "bytes": 149299,
+      "sha256": "cf62939a8099ad9f46b92adfb3d5c7284b1c4cd6b48c25ca5f3cc4e65bb01c1d"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/cohort-pages.txt",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "320a6718e1ca4695fd6a0c653bf1eefaaa94ff1d",
+      "bytes": 2738,
+      "sha256": "61dde767ca7d529b20a7338871eda387e47484999de420726947105eb4e2c525"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/comparison.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5e925567c0a0a8c8b0074f7740e6a3008981b227",
+      "bytes": 2863,
+      "sha256": "4a79f03db9e28ff5d6b397db38a7ce2da8f7509a5bc60c09c1cc33890bab423f"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/verify-cohort.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b2ba502c8dc185f3ad86a0cde39b188a9a165049",
+      "bytes": 2362,
+      "sha256": "08d772d49f9aadd7e2b95524617e7a107b4b712bfdb6e6993f344d2bf2b6b837"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/CONTRACT-PROPOSAL.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "cbb1a33482bb210273dd4151d53310b9657d91da",
+      "bytes": 4536,
+      "sha256": "1ca3fc8c9e5fae2fe5c84c0421b270eaf1b142710f4f74dfdb22cfbd4b149395"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/acquisition.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bd8194fdc08f2b38aa0c6f042da0bebf2147e3f0",
+      "bytes": 689,
+      "sha256": "e4a3757f2a52043d01ffad697db99131d6892eb92f13385b179c763325e99312"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/comparison.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "61fb97730cbd58bff51ae66cdd84c3b414ab50a1",
+      "bytes": 2819,
+      "sha256": "a9950e133e4f03dad5ffbf1a47f1e52b50ec9e7f42bcc39b2ddf84e9545f9a0f"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/copyright-link.excerpt.html",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "97505f73418d849b23a0ee15248febbe85a61ce6",
+      "bytes": 64,
+      "sha256": "c6447d31ab28b1087641ceb232eb7fd5380859d0a8519f563dd58b76620f7a74"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/second-acquisition.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2ca92fa63742c898ca1ee574e20ac083ecf374c9",
+      "bytes": 673,
+      "sha256": "941936bf61d365c8159633333a6fe84a60e67fbd16b71d41c6cfe34d733c4d2b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/statistical-article.excerpt.html",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3f5b35c829c70548cef0f58c238e101c73974b3e",
+      "bytes": 6485,
+      "sha256": "a6550dcb2a14101d1d88bb74a88be623f3d57aca010519df0eb0cc3c0b5ceeba"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/verify-article.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "06c6efda2e041b22bf9e0d27283bf9fa77a2061f",
+      "bytes": 4023,
+      "sha256": "462bab088da50f5e7f2c2fe5679cfc33b5c540922feeb1357002da9aa079dbae"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/aemo-access-preview.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "deaa2d4f4a52248964e309a127345300dc94549f",
+      "bytes": 2139,
+      "sha256": "6ffca7ff09faa38829a7ce508fde8418226a56f71a95b792affd42f09cfc3b5a"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "837c563ae90801f9ee9ce842ebea3ea9a43cf62f",
+      "bytes": 6317,
+      "sha256": "b9e9199eb79a289e30be605faa7f6e09688bde72051257e16f04fed81efab1e8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/check-controls.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3a6b60c30e9094fb1c0f0fd3d78f4ae24c6a3e21",
+      "bytes": 8850,
+      "sha256": "13633d475a00d46b17911d29b08058c16d3a47b12a1ca7f97b6d96e612b157d9"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/check-existing-remaining-compatibility.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9d8a8c91f9c76487caeb63515bdea684939532a3",
+      "bytes": 7887,
+      "sha256": "48967d349dea4b7e6059c7b13737c388b4ac6b12c3f78d6274f176f7d0158169"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/compatibility.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1a44a3ecdcbea7b429db19f4996b072bad7daf11",
+      "bytes": 836,
+      "sha256": "34ff5f2ee4c6d0caa8feeffb1d249af343446a9d8fab5607094c84b31910f035"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/control-attempts.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b75dde52a0bef49e4fae1703cc4f0a06367bf541",
+      "bytes": 606,
+      "sha256": "2f8a274990a8efd4975ab911f497386b7f40bc749c2a36bc73a7aaa881ba6d1c"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/controls.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "41d15b83c2e81c139b188caeaccca19b5dbfd995",
+      "bytes": 7146,
+      "sha256": "a483ea5432aca04275a447dc236da8aefe430eb59f5b7c12e2b993a03f5e2573"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/existing-remaining-compatibility-controls.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0eb5a46d40b9883129b3ce0b18f976a43df1dd64",
+      "bytes": 845,
+      "sha256": "f492517aec221fec61323693881284aa59dfbca12f9c005daa438b96ec413746"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "318282a1433af92b41e464db8f8c77088303cb9f",
+      "bytes": 2676,
+      "sha256": "c582aa8079a1834774b722b45d5c853070acd6560004fca46f2438af99e91c46"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/support.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a2a2575d9ef8599b50e9ed9e5b2bf3afce7753ae",
+      "bytes": 16771,
+      "sha256": "ab536ad65926d9a1649f46feba02f4800de3bfdf95630b5111b712417de81913"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/verify-captures.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ce42a4e832a29756a4479b81633845b989ad14a4",
+      "bytes": 1058,
+      "sha256": "6f855e23f34f1ab76d40c6b7872e576312d0793786fb38420eceed345fc7b9bc"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/verify-existing-remaining-schemas.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a1bac099cb760757215e884899ed33bf490913e0",
+      "bytes": 8741,
+      "sha256": "6c148bd6ed66275d80f3260711b36610b557557058892641043571b85a8e3e38"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/verify-schemas.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "31fb5793336322cb4c2b72dca4241c8939b1f601",
+      "bytes": 10746,
+      "sha256": "78722df0dd55dc945a44ea7a80bb557bc763b57a77b7f54b5468e72525104634"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-access-preview.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "69206a487d237b9af1e460a9117c06719f9d38dc",
+      "bytes": 2598,
+      "sha256": "95f3e1d359edc1bb04b1e4f3471c06e56d024a3d64b5b83d66cf7bdcc399def2"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ad9702fb246740abc56a261fd15ef5a5b5c056ad",
+      "bytes": 4789,
+      "sha256": "ddc3d888ea433c3dff9ad8cac42037f999205bf00c77195dd948e50bdff9c529"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "492b617e8e02dbf64ce6a58769105343436bd08d",
+      "bytes": 2644,
+      "sha256": "ac10a6d255a36d2a0237ecef2fa7929a3295add981ed19a13635b636cb1f643b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/access/worker-access.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "10cbcb6987c8ccfa7b6a0e134114a9957900b78a",
+      "bytes": 2631,
+      "sha256": "b4d7c562b4414f0dab76a20cfa9e250fec798ec31d1cd92a5b8e3d30d5fc3962"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/access/worker-access.log",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0aa929db5bb1859cecf151587e66bbd93d93977f",
+      "bytes": 268,
+      "sha256": "e045b314061390d3dfeb2a1aa223f55049d290c7c325c18c5d645c3e78bc03ec"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/check-preview.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "96cbdd77f64a8c8e9bca732a756ea572b67e57b0",
+      "bytes": 7344,
+      "sha256": "6570e324ea9e4de60a67670b40cea959adc19f40df5f4b71a7e83d0936da9753"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/01-live.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c0e566687ca31fdb62ad648ea44d47d01dd8f912",
+      "bytes": 453,
+      "sha256": "a49ea78487519c759d46f8d7919ad1ddd19c85e6cc6222529a8b1110bd7f6436"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5d2eb6191a52c51ee7d7ad8bb61d09ceba7e64f3",
+      "bytes": 4760,
+      "sha256": "1b63b691f8a033c60c4b77636a26fb6e4312b0f9eed23041a9803e12c2e48ce5"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/check-preview.mjs.snapshot",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "fd755fcfcc84268e27b92e21a12e17b4bb4b1a64",
+      "bytes": 7337,
+      "sha256": "fa0ffe14009690fd3e473f25649df5236e96e3d1bd0992b0ad6672a78a2008dd"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/implementation-manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "db6303140871b642ace248cace97120d0d74d6be",
+      "bytes": 2147,
+      "sha256": "85d26fc637e040492d35844b0558a2b041d93ae62cb41d5559c28234563b8323"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/integration.toml.snapshot",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "72b5c5fef298acced664c8792d7eb56700027c1f",
+      "bytes": 204,
+      "sha256": "2eff26fdfb1ee3963f1e33616aa6ae7af0590354841afc020c27d6e0ca356438"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/ni-energy-summary.js.snapshot",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3c42c6f119ef3d724699fcd423a63c8eed3d3b1b",
+      "bytes": 14194,
+      "sha256": "9e2c508808b7a0ffad9d4c11fc02a93ca590ac6706b8a4b97c2749e67aa02b54"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/ni-energy-summary.test.js.snapshot",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "607667124fbe27c003dd18bf41d85a2a6d60592e",
+      "bytes": 10980,
+      "sha256": "982936fb50b8496864f468e94ef6a262cc6edcb89e376f0ec61c8c89fbf1d728"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/preview.js.snapshot",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3c2c4dbdad2820bbe214e205c25034481b449055",
+      "bytes": 3458,
+      "sha256": "348521f83cca030424919d39bddd517768732f2d9c4047d7276866da6bd6436f"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "539f579d47fa894443c105951d896ebbd6fbb13c",
+      "bytes": 3826,
+      "sha256": "5ed5c8449d147f0c076f670c3d560ff86dac3cc3a5211cd60d518ce10378698d"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/implementation-manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "18c117190f6de6408a8dbe5c606ca09672607428",
+      "bytes": 2426,
+      "sha256": "bcde6a5fd59712505c1056d6421fd3a6797c57c23a9a66b4398a2f5585b6b559"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/integration.toml",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "72b5c5fef298acced664c8792d7eb56700027c1f",
+      "bytes": 204,
+      "sha256": "2eff26fdfb1ee3963f1e33616aa6ae7af0590354841afc020c27d6e0ca356438"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/monitoring/replay-helper-controls.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9e480b04a609c60a658a81420d4934a9f091ad51",
+      "bytes": 2601,
+      "sha256": "19e119f4e7d694c405dc7e7126a97b0d3bf900d2c8158c91ffb30ce1ce4c9539"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/monitoring/replay-helper-controls.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "684dc9fa0ed718574fdb8dd3ade3509b5824b479",
+      "bytes": 6035,
+      "sha256": "6c0b179e321020625f2b252aacc41b765852d3647a2f7528d9006355d05ed8c3"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/preview.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3c2c4dbdad2820bbe214e205c25034481b449055",
+      "bytes": 3458,
+      "sha256": "348521f83cca030424919d39bddd517768732f2d9c4047d7276866da6bd6436f"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/01-live.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "050a5238357fa8abaf43ec148ed91b172fecd130",
+      "bytes": 22328,
+      "sha256": "22c38066e3d61b2ea995bbafd3aa264b1650e1c1cb8383e423a598db0d6c8470"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/02-none.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0889184d3e9fec94e4407b1c902b2487ebeb1791",
+      "bytes": 22522,
+      "sha256": "f1c24f4149fd2824087f39976e333fdf000ff86874b92347c605add85951e088"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/03-wrong-edition.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e4ab5f51a4ffc1e74c04e93ca47f5945fac01835",
+      "bytes": 668,
+      "sha256": "23cb78e31098c06ca510ddc2c9f07dfae269ced73f6b1d0a3b4d749d31ac506b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/04-wrong-window.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "cb3a937c489dabd469b183b065260c67012082c4",
+      "bytes": 665,
+      "sha256": "bb9c0814c2d6b68c1900b3a6b03a672886a90bfda2ff1398d158d518dab6b26c"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/05-wrong-method.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "12ae78abbfa1cae14addff9c753a190a746ca239",
+      "bytes": 683,
+      "sha256": "92289005ff19eb8741596350c27cb0a35f6a92db7d50978e5c54788272d6c5f2"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/06-wrong-geography.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6e9b497f8933cdf498a63470835b6a1aacc6d799",
+      "bytes": 670,
+      "sha256": "b40dcac72790e8ef2ae364ebf457f585e5efb0c9a205a3b4e01e9f743e2eabcb"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/07-missing.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "4af1b40a3a4fa41393ef137b9100707ee60d769b",
+      "bytes": 689,
+      "sha256": "69a1157a4f99b5152b24cbd241a440f2c856d7cfc66c39f7b0f45ff2650fae14"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/08-suppression.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "09200f88b97d4a11a8461a3be4823adc40557bce",
+      "bytes": 693,
+      "sha256": "f5c80a9d85a2c3513bb93af8b9fafec72edc14cabca624fdce58ba3b38a7edc8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/09-prior-imports.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d405226121b0e0dd7309fa45de8ef583bacbdced",
+      "bytes": 684,
+      "sha256": "f77bab19235f42d656d8907a73c1b43acaf90037228b13eb3ccce0ccc6fd9f3b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/10-duplicate.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "749ef91a1fffe71988a1febb2a931a14ae22df9b",
+      "bytes": 655,
+      "sha256": "8c5ca2d5d544bb64071efbf0ee1c61f4c90429257d0306896e72791a0da3e271"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/11-conflicting-total.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "67ec480661d6b9103bfb314c4ee3156a271cb40d",
+      "bytes": 674,
+      "sha256": "86131a80b7cb4afdaeef919b36406f5a12c73a0269eff5748f7f0092349c6588"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/12-denominator.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "50d1c726f5eeccbd47e62f79375ce0865fbc8085",
+      "bytes": 693,
+      "sha256": "73cbde69c674f647e4aa7fbd45c344028cc219a72b747637bd22138dbf55ffe4"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/13-redirect.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "312fb8d3e00431392e65c330539a361c04e390d6",
+      "bytes": 658,
+      "sha256": "e3ecc81d71a92d3cb27583f5c361762bbdb962d60bee56fd0bf768f009a85021"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/14-http.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "81189821e6ee4620647a1fc47b338a3aed3f0668",
+      "bytes": 652,
+      "sha256": "98465dee72d256f18c8aed7fc0101cf46c722d1d56733ee9d8f9d0ee551ef325"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/15-timeout.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7dc6a12f013d627ba98408b80b2597466635d5f2",
+      "bytes": 632,
+      "sha256": "572873ad0ab47979626f6d8301af28167c57356e424446c61295fba55e88ae18"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/16-oversize.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "da9dd8774587ff6da8c189297c263fa560141e5e",
+      "bytes": 661,
+      "sha256": "cb63c8ac1e1f2849f371a81f131927f8478ba9b4cf209e615743d596083aaeb4"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/17-bad-clock.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "85bada5254bde70adcb801587f2c31b5e02e3d9f",
+      "bytes": 530,
+      "sha256": "7eddad5deb6046c30fe2254d2d1a6af4fa6b2c521f374a23d87eea2730a8f381"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/18-zero-imports.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e9a310ae3e6f5c1d74c8bcff5b0ad1254f578332",
+      "bytes": 22528,
+      "sha256": "d0a92c2f5453af7835d4724becb91922fafa28247ae6ace7357c504cee093c8f"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/19-negative-imports.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6faf7402708ab132dcf45936ba8a7385a843c8ea",
+      "bytes": 22535,
+      "sha256": "237d3d8fca34f8065ad5655cd8773e9adde8088ed39034e6ae93a6b9ff157f3c"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/capture-manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d9bf4c1597513d5d71f894a7a9e68c5249af758d",
+      "bytes": 3163,
+      "sha256": "5fa7556b1f4dbe685b1253a66f54437aeaad50aa2d96155bed7ef29b9aabfcfa"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0b9f94022243e07f34847e9d418d13c86a82bd6a",
+      "bytes": 14836,
+      "sha256": "7b742cfbf3bd9d1672213961e6917a779ac6ff91a50b536a28e608b5694cff3e"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/redirect-mode-correction.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c5d2d1e52218423831391e0d06f50c22827bfaa2",
+      "bytes": 821,
+      "sha256": "4ffe2cfaaddf71d47c04a6d7331288f9533d7b239d245c200a0a884bb2ec665f"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/nz-prices/archive-route-review.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "407dccfcda5f11460e7adb3129dcc173c14e5991",
+      "bytes": 2277,
+      "sha256": "dcd97e0c8feb3e8e13824844076c8e4bfa9ee2d16cd150393bdebc26a6581943"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5e02e9f344d8a3189bbc61de4507e3fbd26de818",
+      "bytes": 3172,
+      "sha256": "2bc44490e4b9635cec3e21d203a23b6ffda2e8269b314af0e21090f303fefeff"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/audit-reports.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "54dc05eeab143463e3377acc22eb19f32ecb2c5b",
+      "bytes": 7866,
+      "sha256": "b2d6ad1d9c2f69fe3cab8f995456d2fb8747f715f14d44ab04e495cdee371830"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/preflight.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "996d0df03b229288bb73a3b927ebd479e122912d",
+      "bytes": 3061,
+      "sha256": "9e351105397e171f4c13a31cdd2ccc2f51634003dedfbd7e4bf40ccbc56389f5"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/runner-controls.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0be714256d48870c739d588276c3c9eb8465b9c6",
+      "bytes": 1910,
+      "sha256": "00fdf824a2b11d24657c4963b2df03f6fceb99e61119ef20cd9c3a43173dbbfb"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/runner-controls.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "067067cd0971ff210650e4a11fef63b94b91e9ca",
+      "bytes": 4261,
+      "sha256": "bb320c2a6b7d991e2b683dc22b5c9942829ea5387e4627740b25752342ac4d22"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/validate-release.sh",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2d2a145124f6672a744749d64e5b2d915949f633",
+      "bytes": 17859,
+      "sha256": "ea7388afb0fd1492cabd53358c65ecf5d9d7efa7e6a7e9f1ad1bcd8399c48655"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/verify-added-source-cpu.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e8b02db485caafd1a53fa8a966cb3e7b9c17e9b3",
+      "bytes": 3512,
+      "sha256": "1337129d713e77483de8216371941331e80f1505348ad4b4224efea100dd3ca1"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/verify-source-states.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "8f8546dbc763cfa3846b472afa5f9253084437a9",
+      "bytes": 4835,
+      "sha256": "91bec4d8459f85f51dfb6bc24b93e7e0d779f5c327670f78f381c546ade86324"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a7694b747c9ce82f7d76ff503b5c2ff54c32265e",
+      "bytes": 2700,
+      "sha256": "b6dc42450740bdc7f9e0c39e33118bf5f0d99adc4cc6cd2b4f6775ef8b9a99eb"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3517433b8972b32826837eeedb41d0b8adac661e",
+      "bytes": 8725,
+      "sha256": "794ce3f8dd7af23d5d8c3df2aa8f14fb7061e0d126a3d89addeb8401057d461d"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/acquisitions.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "194b4847e26a6eefed80f1fc60ff1eb4537182e5",
+      "bytes": 7027,
+      "sha256": "7af1425e0de296f0aff6de6ba1d2cc6cc94eee473331c50594e02e7303bddce8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/findings.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ec7d990d8fec10884256facd6a97d0c2900ac915",
+      "bytes": 5452,
+      "sha256": "beb07ff2c748dccfa70d0666e35d629028314aee7d0c55fc88fb2a56ab6db69b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/independent-report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2577954d5c9a1389f37bfc828f8d382da69b0829",
+      "bytes": 4220,
+      "sha256": "9d267f3eedf70642381538293faf619db2272704f691da895bf936fa7e697b16"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "4712cde9598971973791df7e1cc1147e5251af32",
+      "bytes": 6100,
+      "sha256": "776aa350ab8d1773deee72a81e3b1071ed814307a9dfdde9e0c8911edb4ba074"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/original/agriculture-selected.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d97892eb6f4c7cec5fcd77615846b9b8dd97496c",
+      "bytes": 812,
+      "sha256": "60c9307c1570aaee85de4d5f5d0e07ee363374ce975de8f9d3fe219c9442a03a"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/original/infoshare-follow-on-errors.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d636f4eee8a9bc5d725f448dafcd5d1b9f5a6720",
+      "bytes": 927,
+      "sha256": "3c032f333473ee09fb9020f115353280811fbb0a98cf210f6ec7e1e4c0f815f2"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/original/methodology-excerpts.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "adae047e14628317ef3829b8d2fbb1040457e1f4",
+      "bytes": 8544,
+      "sha256": "1e9bb5709f07a91a4f81b797d97b68b422018fcb36125df079ab5bb67cf1a423"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/original/workbook-cells.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b3f6322cd0fb91bbd39d84d88f858bddd78098b0",
+      "bytes": 5208,
+      "sha256": "1b7b6542cff2b7c988eff92f096b1844141e5ce3f0f9387c58d1baa9396c254c"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/prepare-agriculture.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "113302382ad07fb624006ac502cb9d8c781aa494",
+      "bytes": 5181,
+      "sha256": "323223664c9269784e814185ca5a2300f1efd71222e35321fd90e798ee4a8a10"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5295df4217a34168b9b4e06256f82eec59240b60",
+      "bytes": 5710,
+      "sha256": "3259bc08a19d4d2d63b73c9fb5de105d38288ab8b86f38f2f20d2ecc70614eff"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/acquisitions.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2333c4ce24b38445e4c3339cd08345bce3d9e987",
+      "bytes": 11541,
+      "sha256": "5e731fd66cea7e3384a12b94a8c0c8e9276cd8f16d3f42cd7840df0f798ab4cf"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/independent-report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e8fd4ea8613d979d859a1bbe471a8a94aa865633",
+      "bytes": 4533,
+      "sha256": "8343a42648e73dc2a11bdadb59ef782f69ccd2cbb4a9a6f58258638c380c4b08"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2b234cb6e3d5af010ab51ef1d81cdc6249a8a8fa",
+      "bytes": 3627,
+      "sha256": "fe60521245cd89548f9e5730a7c6690a5948613f8128756205e95cd94564f91b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-2018-collection-excerpt.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b06c6869d1bb76e5773aacbe920ecd215438b4fa",
+      "bytes": 2921,
+      "sha256": "0c8e5f2c4d4ddd3731e8510833ed7d88e41147774eee6fcd0c30f88270a51456"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table1-mapping.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "71527b499fc20c0e2933c35505f5493e744419c8",
+      "bytes": 1347,
+      "sha256": "011ad1319a710b481c9c4c6b31f9464fb28eacddf0a0337515975eb934040051"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table1-strings.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "458926b010c022d74026289c702438844256542c",
+      "bytes": 883,
+      "sha256": "de88da76e6f9b3180faaac1a16f75f1f2dcc594fec4ad48981ac3c765b3691c1"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table1.xml",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2edc362471c3c9ff2270c13515cb5aab7c5ca854",
+      "bytes": 2759,
+      "sha256": "2f11bcca14e1ccc7c0dd9bef80bb05ce9f75e0db2792547cca436956e875188f"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table3-mapping.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "687d9ed611f955724d0a2d5135401639057ae94f",
+      "bytes": 1347,
+      "sha256": "f72cdfd37f9fe575f5977548bae0e990d29f66d2d557959ee93b93aa7033bee6"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table3-strings.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bfcdc5a9b4b1b5b3033a17418f74baafe9e3ed30",
+      "bytes": 955,
+      "sha256": "168f1f84846f1893ef042a378434b221d0d470808df81e2ad984bfe5c73ab23a"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table3.xml",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d89f6c02010171dab69a2ad7f92dacfa11516c33",
+      "bytes": 3834,
+      "sha256": "abc210bdc7870948ee83ba4006c9b6725507df90be836ba0fd6d9a696cde1540"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/infoshare-household-2013base.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7242a2463cbb56577f8ed4e041fd0540081e25f8",
+      "bytes": 541,
+      "sha256": "218bcd7a359e6f6eba86b47d2f465bd9320d5945f17d5f5627b92be75b96d721"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/infoshare-household-mapping.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "dcb8d64805596a3af68498def3d48b8935f76d27",
+      "bytes": 1238,
+      "sha256": "7240b4ab0bf3f31c5d3b2cd84773de03335c2f18594590dd53e4fa0e7653308a"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-2024-collection-excerpt.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7855525dd61bca9b2798e15b5b609141be742fe7",
+      "bytes": 2202,
+      "sha256": "e16ffa6d03b40342782a839106a8f8078a62743711af358d30e7e1132998b4cd"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-broad-age-2026.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9f3d555f95c9f59c61a7dba762a958cbc9df037f",
+      "bytes": 76,
+      "sha256": "70c9cdb3f8f173a998b23942cd9f7da44e093db4f4c84034388d36b818f925e9"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-graph-mapping.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0aa63a8daeb6156459167a4da4e28b1c8b07b1cb",
+      "bytes": 1268,
+      "sha256": "c386a760b1fe52b9ea5202bfb7103f6b3ee45441adf02c5cea68a2caf08e00f3"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-table1-mapping.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c1e7fc3a1dd6fc4045f357dd4665e170d189b205",
+      "bytes": 1356,
+      "sha256": "abe52255fbaf547a778995a9669691d7cee58e1c5f74b005e4b2d44b0ebfa980"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-table1-strings.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "51e52166091965346c4f4447cb50e6ef1a128dd4",
+      "bytes": 965,
+      "sha256": "0c848942cbf7b467a6a64431229f842c664042b8417e6b8a9b6500f1efefddf9"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-table1.xml",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "f2ee44a27c7404c69bde54b26bd6acb00b28303b",
+      "bytes": 3233,
+      "sha256": "85a6d80416d3852eae874fb366caf5eb25f704027e1389b39580a043d2cac698"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/legacy-table-attempt.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bd466138b614bd02b09cc53040d06b80e859e307",
+      "bytes": 482,
+      "sha256": "1b458f4c4acc208cd97be7a5e4c5728c7052d08faaba807f12009405b1a10268"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/prepare-excerpts.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "26fdf15cab7a80a8af04523c18821e34af3b1e09",
+      "bytes": 6755,
+      "sha256": "21337ebaf4751074904bb6dc0b46016f5d0a8baf9cee63667916f01e5f032d3d"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/verify-projections.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "29335c5e1e24247608c23fcead18538960be44a2",
+      "bytes": 7091,
+      "sha256": "7ed2c289ffe17eb3ff56ea12f9e09b737fe367d6a0bc5c52a5a8bf636659707d"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/public-selection.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1beb9980ea5e892965967d90819cf6895efbc42b",
+      "bytes": 1737,
+      "sha256": "8c4506807ac86f01d97cdee3abd9bcb466773739cf2c3bfb260951661b075ebc"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/targets.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "44a57c7ba6c6f4e3e7be1891598155255df29b11",
+      "bytes": 4506,
+      "sha256": "293ed6bb54830b2fdde2fceb9dfdcc869b370680e57648c6ea28811fd7f3a322"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/verify.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5053b295cd5bcb87813ae940afd8f8421f3baad2",
+      "bytes": 8404,
+      "sha256": "07b9692feb1e0a7ec821b3c84c4c6f97c8846e34fa60a0d5fdc83e2e16228f22"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "17ef5b836611b1ade2610c536c61865867e7809a",
+      "bytes": 4537,
+      "sha256": "4b5afda908997ef40293fee354cb0ae7aa761ee26256bbf082b9d18d724be6fe"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b8207d7c2ec1cdbae176d3950b287730746dddd2",
+      "bytes": 1250,
+      "sha256": "b777f79534199e8846bcd0b046bcc4cd4ea264486671f07236c1ff17878b460a"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/metadata-contract.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6b4df1185b0e460352626dd1053492315f65b4be",
+      "bytes": 5220,
+      "sha256": "a047b6269bacac816c31f58a69eca467f6109fd5e43418015b1cf7f1bcee47b5"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/prior-release-rejection.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c31f7f40e2c3556a4d4d129784047e4c0bf80a2b",
+      "bytes": 8967,
+      "sha256": "5dfa0eba5f6858b9d5188da08f367e2f301c505f7335d9069936f05575c23f7b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/test-verifier.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "09c0b47e220827c2de05417a21a99b668aa6a3e4",
+      "bytes": 8396,
+      "sha256": "54ccb213cd678ddde7c90985ffc0e3d446dcf3059fdd63d323371e79e63d7f47"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/verifier-controls.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "aa020f7ce3398aa655be7f007404ec308a025d5e",
+      "bytes": 21369,
+      "sha256": "980d71a4ff4bd1a403852d7b121e5d85490339b60ac9ddf11b5d5bd76c375d7a"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1aff9b64f38962f6bc0f1ce44551deeb31b4c454",
+      "bytes": 2842,
+      "sha256": "90c3228c4d3aebcd0149ef1fb702f86de04e07bef1315c4029981e0363cdf3d8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6ea96c8db699b535d67014854d9ccf36a7f83375",
+      "bytes": 5753,
+      "sha256": "d03767d8679bbd85fb50aeaaf6aa1ad81a736e70d709ff901c87f8bb72566c7c"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/extract-retained-structure.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "637affaa81994a7da2cd695016b2c66b2a84250d",
+      "bytes": 3401,
+      "sha256": "0b27bf9d2745e8d228f0d3240e43f2a26709d037aaf1399fa533fe7efe4b4fb3"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/independent-results.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "fc036ff5a0cec89c219f16f9077bedd46818ffc9",
+      "bytes": 2111,
+      "sha256": "2ee4e0c05341cfb31b91c45bf283236d8da6a459de17189cdb56d74c3c429ed0"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/inspect-labour-export.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "90285934f5a78822d9568d2f5a78af277cb7ee8f",
+      "bytes": 1595,
+      "sha256": "79c8f0d280f6bea8e514ab337b3b9c654ec13855637ec8a89ee76cf65739bbaa"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9d5c46c9dc5c087d72fc906fe617d8967e59e636",
+      "bytes": 2223,
+      "sha256": "dfc2506d87c59bf03542fdebcf631e44cdacde33f4e6b9ba18d229c69ede19b8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3236d97c8835d0615fc198e142bb39783d632fba",
+      "bytes": 7872,
+      "sha256": "18a471cef7cf1adc9849d7812bd029cacaa6d5ff114c4580c06a00f843ef2e21"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/infoshare-public-ui.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "6a6e12b96388cd56c41f8b4a0c69c90f55b18274",
+      "bytes": 4643,
+      "sha256": "1cade0cfa330395df9d9f7b76b103e70be05034f20912d7a5d702274c3dd448e"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1a5dcf7370c766acde9367490dd4a93c5fda79fe",
+      "bytes": 4191,
+      "sha256": "9df6dd564235aa9e22283927c0f5d784b91e0bcf8b1c4c9df0963d954706726b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/minimise-originals.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0615cd53abacf755514029a9f77a4797372cd1ac",
+      "bytes": 2828,
+      "sha256": "6f9d4aba2f71a960040ac9b85712b0e7f9b076e0ff403adb9c21fa03546fb92a"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/annual-methods-canonical.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "481e8d878c98ea5df04692c38fb55985e354f3a9",
+      "bytes": 18285,
+      "sha256": "4d91974a6537335975fc2a596920c588489e9884a84f9268bba2b1b330e95519"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/annual-methods-search.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "eb83d3cc26d2fe8b8ce0753b843dc128c3ea587f",
+      "bytes": 852,
+      "sha256": "b720480f5b334ff590248379cc25d6ef45a5dce8dc492c46dab3f820df220f15"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/annual-methods.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a2a03b99eb3659b39dcf8ba5b01c5b9cd7a4710b",
+      "bytes": 715,
+      "sha256": "7ec4577bf99be82a4a367b1d0c299bb7e27acd1b750a60cd64a2876bc95d1cb8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/annual-release.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "33e2d9951afa1e3a51ee8fe7a8011c0c1fabe660",
+      "bytes": 2695,
+      "sha256": "1087bd4d499708469e5a284ca9a3f8a498d2463604f587018329a9bbc44009ea"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/csv-index.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "828757f356a4f3c55ff9b782b99f7bbb781a4b73",
+      "bytes": 44289,
+      "sha256": "28c16bb8ce01013a1bc6f23b85fd87d4f3191a6b8355bafd7b264ca61877373e"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/infoshare-landing.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7e324975ab31fcdefdf5965ec289ed3f3cd70aed",
+      "bytes": 628,
+      "sha256": "0e883519f36e7b772fd1216e550e931b852290d7541de34f6b9a8b8a75aab206"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/methods-guide.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2d806f036fc27dfdfc569054d334b903cf219bab",
+      "bytes": 1063,
+      "sha256": "c7e24b7b1134430c6d5ae30272294393cd3e31bb5350786638576b5594939a8d"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/publication-index.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b01b7cb02ec9f7ff6414e961b4c1afee30d7e443",
+      "bytes": 895,
+      "sha256": "4c5af6efbaa0562882c8ab226a2de449960dac8b96cf9326a679784c8bb07ea3"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/quarter-export-excerpt.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "17a58744cf6a8b69c30190bb90a13ffff853ec64",
+      "bytes": 864,
+      "sha256": "ea880f40d1681674a8f08ffdec61561d8cf1495508ff09859f0a6623ffa5a1b8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/quarter-full-jobs-2025Q2.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "8db92987cc6964fbae7fb7c6fae22a37ef9dcf3a",
+      "bytes": 521,
+      "sha256": "6f55fecfedd91ca5d371294c22a7018beffe01aff51b47c70a1ddac0c0cba2ad"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/quarter-methods.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "050de3a84a6ff3d59549db8524335edcd23f8354",
+      "bytes": 11694,
+      "sha256": "48a5a0b29ce1b6132ca4b8f0ac2e261c54739187e3648cfe5a91abce1bebcc9f"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/quarter-release.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "7df26fb27fe1438d7d1162d4d6e4cc765ab10863",
+      "bytes": 3565,
+      "sha256": "f73061f560dffc47f1ac031a9fc092a5d1898aa93aaa176aa6b4f786e276d069"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/pinned-reader-targets.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "cf70c0bce35909879bf5012590bd35b8cebcbacf",
+      "bytes": 3419,
+      "sha256": "915fce3d08e4e5eca752aee061ebd05a9f73202213316bba4a135dfb6f716f6b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "007227ab4fa1de7f1fcc54771d6d25fb4790f0e8",
+      "bytes": 10660,
+      "sha256": "a4af6857ba590d00d9655a927b7bb9846e1512d05ed5d2ca7cf63f4a17ff4d2d"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/ui-acquisitions.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c74c684a376ed047b2191154f7b875b148c72e80",
+      "bytes": 2537,
+      "sha256": "0d22779e5aa25c4d48efb40c577999cbb1c13efa9caf19d5e2aef1926f2fe5fc"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/ui-visible-led-tables.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b4f45aa198cab4d099d3fe6d7d0fc73109febdd4",
+      "bytes": 2253,
+      "sha256": "d90f8de3e13500cf04907d482a5eaba37ae80a595fb2f4c807441e5d839b1de6"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/verify-csv-excerpt.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a187fc8c712f06bffa8235686afc19006dfe77e0",
+      "bytes": 1466,
+      "sha256": "aa4993e9c42db6202d34637c9237d89e70a7363a897c74946fb9cc74e6d669a0"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/verify-retained.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b5fec24a3d69faf74d90756333b984c286715236",
+      "bytes": 13767,
+      "sha256": "7d6d59272cace436c926c4e8099134a7474850f30b1355d962d273f593c10aa2"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c66dbcfec094bd46905296f100baa1b37529a1e7",
+      "bytes": 3488,
+      "sha256": "db996398790ea1428ef380cd3aa6f76e5006552f3c7856b563e72c3bde64dcb3"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/metadata-contract.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5e8d6e14ae01cf4a83d9b7d57a7038f2ca5b35a0",
+      "bytes": 1097,
+      "sha256": "a27c395aa71e7f9f968846eb84d158ef9f5d3b950f311cbfc6bfc36c02fa671c"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/INC_INC_001-structure.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c369c4258cb41041fafae9deecc842773424a4db",
+      "bytes": 9535,
+      "sha256": "334ae49601d74d03077bc93c1717d04a7346b873a393c6b5fc0da13dfdbb63a1"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/INC_INC_011-structure.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "04433919cf6bd157fa009023ff02e08e1912e055",
+      "bytes": 6947,
+      "sha256": "d37969d7de5946d44358adf7d691baf6462853db4c101f35787f98bed280e7ab"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/direct-access-boundaries.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e9238508e399814e6c339f3f4d8bb8c7460162cd",
+      "bytes": 3932,
+      "sha256": "929a9b93451fa841acf8d5b06126ec603bf6a87eca6b670dad428aa5088065af"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/income-infoshare-acquisitions.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3b4fc4ee79f9f4155eb2a58c06fbee767ab6bd9c",
+      "bytes": 2804,
+      "sha256": "ef5c25419f0b3f7ed80cd9ffe0ec79c42cafd9853bc283b10208b48ff60c9557"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/income-infoshare-hlfs-tables.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "903b73e9c1a36dd40ddc265b807c986a42550208",
+      "bytes": 62910,
+      "sha256": "b30cfa37a3ea5b8c5ce3ef37beb07ac2b86e3417073c30edbffa589d0584195b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/june-2026-methods-browser.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "502b86c13a0f72aa5a19e3927e0282ef064332fd",
+      "bytes": 1029,
+      "sha256": "fed944d84894465307107418e0ab65d1a3aee0c5a995eb4a92bfb1390f8f78c9"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/labour-market-export-inspection.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "384492379f7b1efd6c8926dd57f4d4a8559b45df",
+      "bytes": 10400,
+      "sha256": "9d00f4be3ec6515a12b905b030c8ca822d289c31c760efd2c850b8decd34d0be"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/labour-market-jun26-members.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "cd9c161249e9b5b440c1fcb4173e8ca06894c80c",
+      "bytes": 774,
+      "sha256": "8aac5c522e19608da635303a9900f475c9646c55db5ddff8846af0882cdff4ef"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/paid-employment-browser.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0d907f418a0c8bbe042e1c73274cd69595e734dc",
+      "bytes": 996,
+      "sha256": "39be1130040fe6909a90548bf0143e5207c2986b38b203ab80e63a47b3a3e7ee"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/prior-evidence-references.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1b944bc59646f419d3006f84b538f9bec5b7eb8b",
+      "bytes": 751,
+      "sha256": "e9c2623d4347a11e08c74764709439a603d6c9bb4898792af3cdc67047d58c65"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/wages-salaries-browser.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5e1718cf6584cc797173cbd9bc6544f58f258c8a",
+      "bytes": 982,
+      "sha256": "18681a621ab3075947df1641625b2273f67def4ca84120566cc6b1f72c8dbde6"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/verify-income-evidence.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c0642c04c5d5d989a1383a757ea72e848a0b2fd1",
+      "bytes": 4838,
+      "sha256": "fdd242b3c73e1cedcbe3955715e727908d7e324f0367aa6619a66580b24719d5"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e5c8bc899d2836f21c3803acf13f18bdd80a49fa",
+      "bytes": 2657,
+      "sha256": "44aaff647e590bb3ebe816b02be4ee9ea3270fd50d89ba49bd2eafcd836db76b"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "cca0403189be906270289f5c8265121f9533c78d",
+      "bytes": 5316,
+      "sha256": "2d63d04d8136d71c6335b449de5903e0ab95fa0a526d379b24e0bc31768fd8cf"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/acquisitions.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d1c7b759ec9a44b9566e555aeaf4232b7c2180e5",
+      "bytes": 3892,
+      "sha256": "bf5adc8556dc011719575fed15a812624df44a115d7b2d3fb356e26687a188bb"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/extract-official.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "47953ac123be5be76a0bb38014b9865f0d0f3717",
+      "bytes": 13023,
+      "sha256": "19e2f17e596c150c02b401d0ebb74db61ad57c1d7383e007b1d8673297747f12"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/findings.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "82502677ef26d12df98632b2aebe50bdd7db27f1",
+      "bytes": 1682,
+      "sha256": "a8e102f092f4434514181c4fd21485297f68087943eabdc60018f17a21d42874"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/infoshare-browse.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "1abc4f063999b0622151e0255498833bd7de6399",
+      "bytes": 2351,
+      "sha256": "ef7bdef2e081748d855268bb91d18b5db25051d1284fe3d1d7cc360f36fb4187"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "aff14b7a845453206d599db7c9f135ecb98c6a5f",
+      "bytes": 2060,
+      "sha256": "0632e8311111a33d3649e7cd3f792f8d1117e3e6c7059a30811482ddd1ccab12"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/corrections-index.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bac28c3b7cfbd419a42113d0f4155dd07456d28f",
+      "bytes": 582,
+      "sha256": "c7ba67a1b6e662bc26362f0cbc9d9b0a08ef878a6538e9b66279746263faff43"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-adult-method.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bd63b39e29b33ccb54e4e4e09fe416f9102dbdc5",
+      "bytes": 2670,
+      "sha256": "3002a8a5f0a9aa3b462fcc71b935f19638f5a2314f42a3fdd5cf08a547d81a90"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-copyright.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "457f009666c991dfb9bdf17570d459de7dba54a1",
+      "bytes": 2109,
+      "sha256": "d0706e1c8f13b9074fe4f41213c03af55bd4c170a3833f12f0f7984d6541c3d8"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-data-tables.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3b97517eef73d48f6abadb5abfb40d5e9bbbe963",
+      "bytes": 1772,
+      "sha256": "2259a27e817f93d061ba6aaf3d215cac00f49a35a2cc7d08fe4c40ece76fa816"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-people-jun2026.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "bcac8a32c34392b73bb38ad6b7e2d560615b2cf3",
+      "bytes": 9796,
+      "sha256": "dacb3708c2f8388fe766c44f73bdde478ae1a6609103014668745be06fabc1d9"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-publication-finder.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "902b77f1b2c1ad85f58677d778057c91e7efeaca",
+      "bytes": 576,
+      "sha256": "1a57634d8974960260b2965931a0282bfedcd170ca625a3123237ed71863d3f7"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-sep2025-news.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "00367a0bf6fdab1339a682f0e1011695c9d5630e",
+      "bytes": 1176,
+      "sha256": "9ed97238f1b75e71e931717bc307df22b41844d2166d7c0c0329d74207541737"
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/stats-sentenced-concept.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e1c9c88a8570373c3c253da72043441121c31b21",
+      "bytes": 664,
+      "sha256": "0e0f4210446f833c92bf25a0ef35bdaf30a0601505652d535e2f4a5fbc479d24"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b5a6f6b81493cb9fe1113618a318caba3e0e6959",
+      "bytes": 4027,
+      "sha256": "ac9b30184940aa6bb2ddd33206f1e1b25b64e014729a14279f5167571172b88c"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "407a43bec98e7d1304eeae81daf1901e7702abe7",
+      "bytes": 9408,
+      "sha256": "8d8a09317ab56edcf936f5df27ca6cf7c62168189b71a727cf0c6f589bc9f2be"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/capture-metadata-contract.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "09ede82368294d6a221ebbc7e86a784f841bb00b",
+      "bytes": 2134,
+      "sha256": "d2d0c990e0306e6abebd5c35777c7891a1d64ed6252ef5651734025f2f340961"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/capture-verifier-controls.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "fabaa3a74a5fe792227c41d789661875225165e6",
+      "bytes": 5275,
+      "sha256": "53b66b7b952dfd066ba56a1e1821f2f073387396cefa9e2444f7657c891accb5"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/comparison-results.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "123aab01c5fc09cf214603da16301812bdde56f0",
+      "bytes": 4957,
+      "sha256": "b9721155b9dce7b1dfaf1245d34feb0c250d4b9d2177a207626c8bf42a763676"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/coverage-23.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d80f3352e862d35073747ff525acc12c5c8ed770",
+      "bytes": 21384,
+      "sha256": "b1cbebfd8981afe3db6e01a5f1023c2adef7c692f72b1b34392b305a14153ba4"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/extract-publications.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "90bd0eeb4361481f15a6d5872affa3dfac0bcd6a",
+      "bytes": 4518,
+      "sha256": "cec5dfd3ecb4d640265a751257e4c2a00c9bc3d3c72c9390d42425081789d90f"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/historical-capture-control.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "72fb4f6b47d9124cf4a6615152c84a8fc794a410",
+      "bytes": 4603,
+      "sha256": "2334287e7f98c1d60a0d13474b180ed47c825db4013c794c7100c22d67426280"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c514ae6f1deb2d74935edf9d0045032e02f5bd7a",
+      "bytes": 7769,
+      "sha256": "eef22778801636f9d721399729dd77bb0ace87af83f880a8ff8bedb659ad651e"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/metadata-recommendations.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "79e19533c6ebc09053c1571764a59091abbef62c",
+      "bytes": 3397,
+      "sha256": "ae9d6c0c828818125cd0d59eb52c416b89cc15ae96f95de73ba2e9454e450163"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/nz-prices/cla3wr-20261017-OTA2201-final.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9c223b0feec09bda95986952d818a77db35cd9fa",
+      "bytes": 1961,
+      "sha256": "8e95386719d3d882c8a3417c5034cbc92b8d46c17f7a8a9e2752733b16f867f4"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/nz-prices/comparison.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2d93b0a0579f8b3ac50932068b30d38ad1e16f2e",
+      "bytes": 1174,
+      "sha256": "1b4ae5dd811c8f37fbba66dcd8e950367842f8b06f577e20c3cdc9f8992acc07"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/reader-targets.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "391864eecda288aa7d3202d3cf6c1c5ae10a8877",
+      "bytes": 23715,
+      "sha256": "b7339b8f0946cf5b535cca61862db70aec42d50454893e72c19fb4ee4ca36665"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/agriculture-2018.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "cfeef358da9528a550e8a0c1e6f43668d1106626",
+      "bytes": 1193,
+      "sha256": "95a2ed17d8b17c287bdb6d52ed1400a4d26a5b5d09de2289b1abd7cfe5ffd435"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/agriculture-2024.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "97b50715bc1e18001f5896ad03cffcd50ec41909",
+      "bytes": 1217,
+      "sha256": "7d2bb0d418cf2a727f815665490f922a7d0970fc04d1584f930915f40cc2d498"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/agriculture.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "f9f95d4aae187ac876fb6a79883d2bffc6264406",
+      "bytes": 1823,
+      "sha256": "6380b9f3601d21eda606662f37aa0dd21b15741f14dfdeb7b6ff85a8a73f1c95"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/enterprise.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "03f8f2797cc8d57b0d2aea2e2292896b9ce8fe54",
+      "bytes": 3665,
+      "sha256": "e215c5e0875189a922e1a6eb82fabcf99136ffbab448cfef0c1e2f0bb4cc326b"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/hes.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "15a4515adfafb75aa209b878ebe8b8e24c9c95c1",
+      "bytes": 4070,
+      "sha256": "3521306c7615faa6674ca9ab42e1474e34a29ad10eddf007377524b80a100179"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/household-projection.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ac455b10e324869364cc3b648f900ec8ed98671a",
+      "bytes": 1421,
+      "sha256": "fb13d52bef0e38a0652e6561aee2b055224ec3c71fb2123ac05ebd52e651f8af"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/income-metadata.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e380354fe4076012e1abd18af4b6354f9db44fb2",
+      "bytes": 4264,
+      "sha256": "477de9b52bbbd8ace2db21bc7d5df9cb8d0585a36525a82190179b6e528f1d95"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/income-release.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "0d9bfa8fcca4932b34c1436431267e734d048305",
+      "bytes": 10948,
+      "sha256": "086c52ce897d00bb3fffd0d624809c7edaf2052981fd6273a8cdcf6cea6eb58a"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/injury-current-acquisition.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d04a22f786780d15b3ab0de90c6e62b962eecf69",
+      "bytes": 513,
+      "sha256": "96789f0801829aa18e7a9b5374b9e27c0a296c391c51251e5425cf68bc716772"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/injury-current-selected.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "f0906b123e2db632b268d9697c35c9f7887ef5b5",
+      "bytes": 538,
+      "sha256": "f18a03fac141f9c72bbfdd16b4cc2f72f1d10ca82a311e710b9493a664e9a0d0"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/injury-current.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "27e3273dfc15b213617af426a74c05b51039ec9d",
+      "bytes": 6120,
+      "sha256": "2d99c6fce8535cdbe93a58f51c5ec68890bb5994ab9f8d10cca8b009210d98fd"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/injury.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "864a9d0bb0268faa754f8c2ddb65925a7ee55303",
+      "bytes": 3487,
+      "sha256": "645f100f748781f9e10d173b2d02f20157e506d33a6b6a82cd41459769876208"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/iwi.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "62b01385eedcb6681e059b57ef2928f3b9148782",
+      "bytes": 3723,
+      "sha256": "0433a9d1164e97ed05857647606320927cefabeb22268cc9845c6ff4ba1af52a"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/justice.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5bede8d4cf8bb23a87b81086b4e44a4947f0a54d",
+      "bytes": 3462,
+      "sha256": "f7fa22f32383b9714c5301d8c0f719d86c62729c21eb05f84c3049b3ba0dda25"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/lab-projection.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d364bd1bfb7df832b9aacec4dd34d7cedc23d3a1",
+      "bytes": 14242,
+      "sha256": "244fb48928b8bf639992ae1254f61c2df206a0345d806d22c890b2b3939e59a4"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/leed-annual.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "9af909d0a670cb166973c2361b4a7ef2dee166a1",
+      "bytes": 2036,
+      "sha256": "62a8888163eec5cd966074b4f00c58263f3e9af81a9b7b0f7423fdda738163fe"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/leed-quarter.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "cf0b428f7791f311e3765442cc01c6e6a30b78d1",
+      "bytes": 2573,
+      "sha256": "051b90fefaa9cdd9976fdc6e8718d6a0f5a5d6086d38db4b69ee92e3d2014777"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/pop-projection.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "74af8156cd583176add2fb723c663d9236b5e6c2",
+      "bytes": 5034,
+      "sha256": "726f48d87206fb392c836f8e1f1e47e965d3d4b0afda0ea5f6b2a5679732dbcf"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/pop-sub-workbook-acquisition.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "253c9792bf23fe3deb21d30c7a39d194ecf7d710",
+      "bytes": 416,
+      "sha256": "7d526e4e57b3d6addaec5d430648bdffdb25213dd757a64295d2ce2237e4e718"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/pop-sub-workbook.xlsx",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "8b551d33580e198a4d18e4c8677372a2637daa50",
+      "bytes": 97990,
+      "sha256": "001e8a896cfb50f5ed17836dc815b235e3bcca55ee91c9869a2afaeb054b50a6"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/prison.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ebc39cb09ef0f182979b5c60869f8795daad69d3",
+      "bytes": 4255,
+      "sha256": "139c337cf540245bbbc4d91145d60250a909cb6f392a2c0f7f80a843260885db"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/productivity.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a8f8fece6c3aab0eed063001a769de8df4e3da36",
+      "bytes": 14356,
+      "sha256": "b12012aae32652704b42137e1956f0a4a891729dca0b56d322f8c13fbb7bae3f"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/rounded-workbook-excerpts.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "d3c14a88473554a3c43b4ba1ea8c2e45a1020301",
+      "bytes": 13305,
+      "sha256": "083017381479ec1da457a8db4347877b4ae4381931971a812e35efc16bbd7e9c"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/test-capture-verifier.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "c2b7e3c744ea63ddba180f4f6c1ff3105fbd24fb",
+      "bytes": 6377,
+      "sha256": "52add7e4c174981fc58c1f3e926d57014b0bf1dc8e206b7df739cf173abdafba"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/verify-retained.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "730a84541788d5079f90c4996da08500930256c2",
+      "bytes": 6731,
+      "sha256": "4c1df16ae82d60e60271989ad2cc3ba34642f847e20f049015fa84769965bbd3"
+    },
+    {
+      "path": "verification/monitoring-baseline.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "ff9bf8c980d5263dc5312488682c8fd5b1a0a918",
+      "bytes": 325241,
+      "sha256": "d5bce7d79ddf6914e285f239b633a7e6c2974abaf4ae9293c33b1ddbc54099f5"
+    },
+    {
+      "path": "verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3a447d783130ac2fef97da5bbef907415f35db26",
+      "bytes": 23219,
+      "sha256": "6e35c48d68fb0f072bf697f0b520c755e231334f0b2e5168a94514faefd62d0e"
+    },
+    {
+      "path": "verification/nz-market-rent-2026-10-20/independent-report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a521f887225d7ba5fe778092880757c978368844",
+      "bytes": 16144,
+      "sha256": "c4f5e6a571d0f2d47f60d9e746eb54ac6826b7c784f762516b0da1ac399b2b55"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/interface-checker/check-controls.mjs",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "49251dc2a1e912dda32d95f918a13a22977f3cca",
+      "bytes": 10573,
+      "sha256": "ce37fc5dcd9d3b4e451dce6e80e688af6427fcc759ec876ea9d65c4c5c359c53"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/interface-checker/verify-schemas.py",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a32d4c0bafac9e047a8da36a8fc096c23ab918e5",
+      "bytes": 8703,
+      "sha256": "5f776735aa0b6327be535a49ebcbf7853324aa2b8bc6c30b09e9ae8afedd0824"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/ni-energy/independent-report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "b66de4519083a2fdb1babfa1980c16a93d5ccf1b",
+      "bytes": 6352,
+      "sha256": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "fbe1ebcd4086c2c0203ad642efc1849ac5b82492",
+      "bytes": 13475,
+      "sha256": "52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/approvals.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "98185e2e591d545a383a980bb9fbc553a06f2517",
+      "bytes": 12950,
+      "sha256": "6bbb8c57460e067f3dabef2147688d6ceca7a569d8c40e92ecc6e861ed5a637d"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/review.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e904f44d4d9d141473f4606244feab1d7f3a9eaa",
+      "bytes": 3892,
+      "sha256": "f817c73aa310e200c173a58fb4c25aa3fc6dccce6213b0b97f0b3ddc5b925e53"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/release-validation/production/production-apex-capture/_new-zealand.json.response",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "e37470c62c404206fc9e8cb43c072cde608de7c7",
+      "bytes": 93473,
+      "sha256": "f4bbce1dcc607553650259b493d5c0000febb205917f4ba9db0d7496f646774d"
+    },
+    {
+      "path": "verification/statcan-gdp-2026-10-20/independent-report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "5823b84247398af9d1500a591e53c164573c3c10",
+      "bytes": 4718,
+      "sha256": "b53ec1b446b7c3406d09e100468208653914dd13bfc9625474c12a365b7c3f3f"
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/checkpoint-predecessor/fresh-checkpoint.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "2ec3d915bc3056a3df47f7ce321902eaa86513d3",
+      "bytes": 463375,
+      "sha256": "73c0614e23bb044dc4b95aea7fff9a84120a795005667db95863d561cd0cd955"
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/checkpoint-predecessor/report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "68269c4beb95402e5e9dd38340ac71f663ccae5d",
+      "bytes": 709656,
+      "sha256": "4ffc99d952e162adf588342dfa62612a2dd11aac0c923434a6dd495dbfb2a807"
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/workbook-recheck.json",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "adf36ae9992f59389ba06989313558d8df5f6f3f",
+      "bytes": 2424,
+      "sha256": "6dd9ee402385fc1f09f3b3abd4ff3700ae0d6ad1d779c5d56c292a4af70f8e9e"
+    },
+    {
+      "path": "worker.js",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "a1d6ec2d63a5c23bae33dca48b29dc5b7b2051a4",
+      "bytes": 116019,
+      "sha256": "302a08977b800cc28d29d3f1158d76da0f9a9893fbc31fce4eb45466cf9e1bbf"
+    },
+    {
+      "path": "wrangler.toml",
+      "mode": "100644",
+      "kind": "blob",
+      "git_blob": "3ed9f47cbf58c68e12a9fea9009aee191cc5a0d7",
+      "bytes": 570,
+      "sha256": "04d23c1f0486a41d0b181c5a24cded79a09c43f3c075518fda10ebec575ab6e6"
+    }
+  ],
+  "failures": [],
+  "ignored_worktree_files_do_not_count": true,
+  "worktree_evidence_read": false,
+  "repository_written": false,
+  "network_calls": 0
+}

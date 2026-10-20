@@ -1,0 +1,1941 @@
+{
+  "coverage_roots": [
+    "verification/gap-followup-2026-10-20",
+    "lib",
+    "scripts",
+    "test",
+    ".github/workflows",
+    "worker.js",
+    "package.json",
+    "package-lock.json",
+    "wrangler.toml",
+    "operations/monitor-policy.json",
+    "verification/gap-pass-2026-10-20/statsnz",
+    "verification/monitoring-baseline.json",
+    "verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+    "verification/nz-market-rent-2026-10-20/independent-report.json",
+    "verification/remaining-gaps-2026-10-20/interface-checker/check-controls.mjs",
+    "verification/remaining-gaps-2026-10-20/interface-checker/verify-schemas.py",
+    "verification/remaining-gaps-2026-10-20/ni-energy/independent-report.json",
+    "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+    "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/approvals.json",
+    "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/review.json",
+    "verification/remaining-gaps-2026-10-20/release-validation/production/production-apex-capture/_new-zealand.json.response",
+    "verification/statcan-gdp-2026-10-20/independent-report.json",
+    "verification/us-paid-2026-10-20/checkpoint-predecessor/fresh-checkpoint.json",
+    "verification/us-paid-2026-10-20/checkpoint-predecessor/report.json",
+    "verification/us-paid-2026-10-20/workbook-recheck.json"
+  ],
+  "manifests": [
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/report.json",
+      "base": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview",
+      "entries_key": "requests",
+      "require_pass": true
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/report.json",
+      "base": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode",
+      "entries_key": "requests",
+      "require_pass": false
+    }
+  ],
+  "additional_files": [
+    {
+      "path": ".github/workflows/check.yml",
+      "sha256": "b2b8d9f64cfac2ca9a6c5ddc0b1130dd6b7c7286ee7ce99ec48a9ef71e5f2b1e",
+      "bytes": 2074
+    },
+    {
+      "path": ".github/workflows/monitor.yml",
+      "sha256": "2c0e63ca24aeb1a10baf9ff45611bee862d809ea1cb92c5d34f03f2a76b5e3b0",
+      "bytes": 3903
+    },
+    {
+      "path": "lib/aemo-day.js",
+      "sha256": "c22c80f3a603849f9167a9092eebfd23f20c9ba0d737eb5b51f83dc5c3377189",
+      "bytes": 13418
+    },
+    {
+      "path": "lib/boc-history.js",
+      "sha256": "997ab7de7fbd8311226912327bcd1b7034b87e826adbb35e6670297d4120a186",
+      "bytes": 11336
+    },
+    {
+      "path": "lib/claimant-count.js",
+      "sha256": "e77a50925572c929ea1da413e12c2d32e89857dad77356013b50d014efc3cf6d",
+      "bytes": 18313
+    },
+    {
+      "path": "lib/cmhc-rent.js",
+      "sha256": "4d5b744fd1ea89e9b56d8b7e5afbc5f9f0a62951910534ca71b38ccb7e7f24b9",
+      "bytes": 16962
+    },
+    {
+      "path": "lib/cqc-cohort.js",
+      "sha256": "1f2cab212db4e088a91458455bcc8936dd5f6c306f91cf99b087b4baa14b96d3",
+      "bytes": 10916
+    },
+    {
+      "path": "lib/discovery-feeds.js",
+      "sha256": "d5c633c83285713d420bdf2c14cf3c78bb9ee328205d3ae307af29b85f0525e2",
+      "bytes": 6375
+    },
+    {
+      "path": "lib/fiscal-observations.js",
+      "sha256": "ce13935c9f6addb8464385acd44eed555b4bac2e166e66d612d6284d11dbe42d",
+      "bytes": 9179
+    },
+    {
+      "path": "lib/gap-information.js",
+      "sha256": "0e06d716f6dbf6c504bdb1549db2d25c9116ae369c434b889ff5d4b17a3ff476",
+      "bytes": 5956
+    },
+    {
+      "path": "lib/gap-schema.js",
+      "sha256": "e006a3d5de639f3f2e1d37d05095d343b1caf4ed44be87716dc5ce66bd59bac6",
+      "bytes": 17293
+    },
+    {
+      "path": "lib/information-v2.js",
+      "sha256": "df60d12fe6fcb5282eff867facb88e90c26eb004d2b8f2a15f9b14b6ceab7617",
+      "bytes": 14844
+    },
+    {
+      "path": "lib/information.js",
+      "sha256": "042f32cee34393bf437409c69f73f9960b325afc67af043e3d5a8cfbceda2348",
+      "bytes": 65626
+    },
+    {
+      "path": "lib/inventory.js",
+      "sha256": "e7fa900b0d779dc95d3ad6989d9efe0d5c778493eb525653e799b37782a20e4e",
+      "bytes": 5647
+    },
+    {
+      "path": "lib/monitor-artifact.js",
+      "sha256": "7c332d79cc5e6f9deb345d39d2cee368d13901d17e3728ec546b005d5ba35170",
+      "bytes": 6733
+    },
+    {
+      "path": "lib/monitor-contracts.js",
+      "sha256": "e4df84b7894aa71b8bc9b51cb8ced8b94ecf01e1539bd3041300ed9cf6c118b2",
+      "bytes": 23299
+    },
+    {
+      "path": "lib/monitor-state.js",
+      "sha256": "e11f0da7a2c160ee7e4839454fe14cf0031bf03dab5ff9b9e1096173ea1649cb",
+      "bytes": 19801
+    },
+    {
+      "path": "lib/monitor-store.js",
+      "sha256": "6570240b11b5fd3993f09bf0e7764dbcccd67b8c1dc170190d85220331f06aef",
+      "bytes": 2298
+    },
+    {
+      "path": "lib/national-observations.js",
+      "sha256": "3f79053d748ca90305ee82267e091f0014f9733b1ef84b24ff20459ee07fea6f",
+      "bytes": 11808
+    },
+    {
+      "path": "lib/ni-energy-summary.js",
+      "sha256": "5691532b9db9358f6e1d36648af8cbaf062f8c5c00c8f74f0e946eb7b14cbcc2",
+      "bytes": 14195
+    },
+    {
+      "path": "lib/ni-energy.js",
+      "sha256": "9e4100825c49e2e28f424716b369be4c02d64643f63eec1cb4d97e034934c5a5",
+      "bytes": 19442
+    },
+    {
+      "path": "lib/nz-market-rent.js",
+      "sha256": "9ef4d34d0a964e5b89438e80d752e4fcb23a4576e40164955c7086bd31c60128",
+      "bytes": 19878
+    },
+    {
+      "path": "lib/nz-prices.js",
+      "sha256": "c0c26765bc4f75bae8c1a3234d7e63e7c140dbb6df84d68701cfa01049e1caaf",
+      "bytes": 6274
+    },
+    {
+      "path": "lib/ons-rent.js",
+      "sha256": "b2f728f2ec5b7a5d9c1f0a86b14438ebe68e8218a97fb4af327fcf4f5c87fb36",
+      "bytes": 15964
+    },
+    {
+      "path": "lib/open-observations.js",
+      "sha256": "7b14814c99b3c4d77f8720a15ecec4f71340c9d43cc097cf8c10671e5ed5d823",
+      "bytes": 11875
+    },
+    {
+      "path": "lib/pharmacies.js",
+      "sha256": "0b70ebbd4dc704e9d6ff43948036abfe28d3464720a6e43ef92379b90e9759c2",
+      "bytes": 6436
+    },
+    {
+      "path": "lib/public-data.js",
+      "sha256": "3012261a65c82b3b88fb1e686f353515dce017dfe16e394a3a381cfa5138138b",
+      "bytes": 11050
+    },
+    {
+      "path": "lib/remaining-information.js",
+      "sha256": "279788e60b8f73bde7463c1b1adb2ae158fd97718daef9ba4b2b0863a00b4c52",
+      "bytes": 2260
+    },
+    {
+      "path": "lib/remaining-schema.js",
+      "sha256": "43e2990a5ace5bfa1ce014d882d5a8b278bf7fa44fd70202554ec2aaa2ad32b0",
+      "bytes": 12722
+    },
+    {
+      "path": "lib/sfc-activity.js",
+      "sha256": "8d2aded4b9e0119734b8207723d837a6f53b9b948933f3667357cb5719a6656a",
+      "bytes": 10235
+    },
+    {
+      "path": "lib/source-completion.js",
+      "sha256": "19c2cffbc5fc6a7151b8e935878c002b722e74a03a3ad54a86ea079a4b7e6f02",
+      "bytes": 676
+    },
+    {
+      "path": "lib/sources.js",
+      "sha256": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+      "bytes": 3133
+    },
+    {
+      "path": "lib/statcan-gdp.js",
+      "sha256": "5fcc856095d0da517678abc242fdffdd96cdb9dc066fba0e28b98e4f466b7bc1",
+      "bytes": 15009
+    },
+    {
+      "path": "lib/statcan-headlines-contracts.js",
+      "sha256": "1565cdd31d23148da3cca309f065f0d904f9ac86b2284f79e30bc037770a6d24",
+      "bytes": 44117
+    },
+    {
+      "path": "lib/statcan-headlines.js",
+      "sha256": "d992d716cc65e6ce62b4278cd42f30fa9f9a01b2f391d1ea1ea7a8e4aad39210",
+      "bytes": 14984
+    },
+    {
+      "path": "lib/stats-nz-series.js",
+      "sha256": "8aa012db1e2877c747e62eae97a400b3e5040a92fbc5c41fb5914408af05c97f",
+      "bytes": 37295
+    },
+    {
+      "path": "lib/stats-nz.js",
+      "sha256": "c2ce5abfb7a57296f0e0b9a69bf740891d54a3877229a40b36eeb6618449b07a",
+      "bytes": 5448
+    },
+    {
+      "path": "lib/transport-observations.js",
+      "sha256": "4cc5a4b2093e6e40e8611a680193388a49a3744afcde783e665555d83cf548c1",
+      "bytes": 5585
+    },
+    {
+      "path": "lib/us-cpi-table.js",
+      "sha256": "782509da4fda47c79e88c8bb0fb0f7094c5b85f41f2cbe0c3f1894487b8eecf2",
+      "bytes": 5224
+    },
+    {
+      "path": "lib/us-cpi-workbook.js",
+      "sha256": "73c5cfe0f8aad563333aeb2742c8a53972393e76c93e05302d4eb9a1db4041bc",
+      "bytes": 10410
+    },
+    {
+      "path": "lib/us-cpi.js",
+      "sha256": "25867ee3bd77235296dcca8248365ae4bb141b25577aab95e20db69180e44bed",
+      "bytes": 11849
+    },
+    {
+      "path": "lib/us-desk.js",
+      "sha256": "62f5a2a72bf3ec5705b54f0d3e686c46a2340cefb70c0cddfa9edaffa3c63067",
+      "bytes": 6566
+    },
+    {
+      "path": "lib/workbook.js",
+      "sha256": "2f9ab2128e36b520156e9ea05957fbc04e3b6da4ffcee358b7bc77cb586ea25a",
+      "bytes": 3816
+    },
+    {
+      "path": "lib/wra-depth.js",
+      "sha256": "3e7f58e3fc4026eb4fcc6b0b120c89999475ebc71c5405865f7ce01da2f40645",
+      "bytes": 4279
+    },
+    {
+      "path": "operations/monitor-policy.json",
+      "sha256": "38be0e8a218930183fc6e4ff8e87eab4141bcf9db51430d8b2fb823a81d9a490",
+      "bytes": 902
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+      "bytes": 53911
+    },
+    {
+      "path": "package.json",
+      "sha256": "c00fc873d198f300174c38be74aa808870272f4224599daa5742d47ef10a5410",
+      "bytes": 553
+    },
+    {
+      "path": "scripts/audit-shadow-window.mjs",
+      "sha256": "1a61fd391192a3df9a982d61a6efc305f876da8d1b7a5029e4e6864d34417398",
+      "bytes": 2327
+    },
+    {
+      "path": "scripts/build-info.mjs",
+      "sha256": "af29ccc7e4424c50f6d52839149775269b49552d76e55813282ded0f015573b0",
+      "bytes": 1056
+    },
+    {
+      "path": "scripts/check-claimants.mjs",
+      "sha256": "21b8537c18265f611b87f9f70c2dea74ef5153d722abdc6f31964856a0e7ffec",
+      "bytes": 8569
+    },
+    {
+      "path": "scripts/check-gap-pass.mjs",
+      "sha256": "06072122a3b2525b13401f969f46922083f9943a379ed235aa851c3621c14d5f",
+      "bytes": 5115
+    },
+    {
+      "path": "scripts/check-information.mjs",
+      "sha256": "272cfea9845e4bb80c24c7455a48ad251f43e02a5e8f8ad2b37737f43dbe0036",
+      "bytes": 9375
+    },
+    {
+      "path": "scripts/check-market-rent.mjs",
+      "sha256": "ab97c88edc08a4145db0f06e6a45d3d118866b0def3de4707cecff21789cae8b",
+      "bytes": 6715
+    },
+    {
+      "path": "scripts/check-ni-energy-summary.mjs",
+      "sha256": "2ac1f5f9a00926b2960c7c29330fa1815cd8c7f6f21dc91b2cdfeedb44f9a84b",
+      "bytes": 5004
+    },
+    {
+      "path": "scripts/check-remaining-gaps.mjs",
+      "sha256": "6ff0dde00eb914c4e656c6dab29e3cd301ecb38284aafb00ee309bfa81e1b132",
+      "bytes": 4860
+    },
+    {
+      "path": "scripts/check-statcan-gdp.mjs",
+      "sha256": "991b38dd2a8ca5540e11188a649175d9b91943eb5319d3a3e20bd0d303364e94",
+      "bytes": 12513
+    },
+    {
+      "path": "scripts/evaluate-structure.mjs",
+      "sha256": "a0b6ae5471a0154a9d354dfcfb43688fb430fce911a15f730a7562b1488f98fe",
+      "bytes": 5363
+    },
+    {
+      "path": "scripts/exercise-maintenance.mjs",
+      "sha256": "1617d3192adc7cf3c775413e6c1aa18874f73ad9c8ef1d753379dca3354b24db",
+      "bytes": 4618
+    },
+    {
+      "path": "scripts/lib/legacy-cpu-evidence.mjs",
+      "sha256": "70e24f6cc626344dd71235464535064bca64e87987fde18ecec918529fdda2d5",
+      "bytes": 4713
+    },
+    {
+      "path": "scripts/lib/us-cpu-evidence.mjs",
+      "sha256": "cb3dcd84670bccdf822070d8e06ffa74738b894c6ce18abc35bb83dea7097a34",
+      "bytes": 4703
+    },
+    {
+      "path": "scripts/monitor-artifact.mjs",
+      "sha256": "9656d635fc0c7425961e39c2095b2b19689723a0e794297bf5a7d0d252c8d1b0",
+      "bytes": 5412
+    },
+    {
+      "path": "scripts/monitor-registry.mjs",
+      "sha256": "c96799d7baa9b2d3e6f06083059deaa5f4685e82608d334f2ec1c0ea47201bf9",
+      "bytes": 8814
+    },
+    {
+      "path": "scripts/monitor.mjs",
+      "sha256": "a2e5bd55c99c50a2355b0f476ab7a57e25e8d4de73a603507f79a7a6994f9e56",
+      "bytes": 10997
+    },
+    {
+      "path": "scripts/reconcile-insolvency-specimen.py",
+      "sha256": "fc59726448e59a0ebbbb1c75e849edfe145c8f5052f27a4c55a9c79ce427c62a",
+      "bytes": 2250
+    },
+    {
+      "path": "scripts/reconcile-operations.py",
+      "sha256": "075f118e3a33bd7672c5a90b74acc90aaba5f73fbecb1d22026ca2a0531403e1",
+      "bytes": 8032
+    },
+    {
+      "path": "scripts/rehearse-checkpoint-recovery.mjs",
+      "sha256": "960863c57f9d8e9887f99955b23b26aaca4a364e9effcc08e8aac9e311bfdcef",
+      "bytes": 3887
+    },
+    {
+      "path": "scripts/remote-check.mjs",
+      "sha256": "2a2b9773747cb2350495521856e1262fa019bed25e65a71d3cea51eb25fb0d07",
+      "bytes": 5749
+    },
+    {
+      "path": "scripts/replay-claimant-release.mjs",
+      "sha256": "407fcc04149ae41c54edb903322dd8b9f41ab235985e882026f2d7297d637ea2",
+      "bytes": 10327
+    },
+    {
+      "path": "scripts/replay-gap-release.mjs",
+      "sha256": "6e93da323ba485f6265dd171ecb1177daf2a84897903cabbe45a1046fcb8d93d",
+      "bytes": 16741
+    },
+    {
+      "path": "scripts/replay-gdp-release.mjs",
+      "sha256": "2bf0ad87786975ea0764ed271f57faffb4ebb2114e12fed10e1d95f39809deca",
+      "bytes": 18399
+    },
+    {
+      "path": "scripts/replay-ni-energy-release.mjs",
+      "sha256": "17d2783eda8c435c8c56cd06f01bb49e51e296d90d421c8d684d0cf2cb47b74d",
+      "bytes": 22554
+    },
+    {
+      "path": "scripts/replay-remaining-release.mjs",
+      "sha256": "f7bc92d9e2c5e5196441f829ebb01e377a9547f4f795b2fa590da38ae029bc5e",
+      "bytes": 19547
+    },
+    {
+      "path": "scripts/replay-rent-release.mjs",
+      "sha256": "9e14859d3f3cfd570e4050b26798aec3e0d566185447fa809d220ad3ce327a59",
+      "bytes": 15392
+    },
+    {
+      "path": "scripts/replay-us-release.mjs",
+      "sha256": "b81b4b103d35cb98cdc6581849548c84a2196a75ce804e2cc94de256b5afd0b2",
+      "bytes": 7992
+    },
+    {
+      "path": "scripts/smoke.mjs",
+      "sha256": "770acee1a98d5776360a5a69cf2acc32ef90683c944bb044312d8e72aa41923f",
+      "bytes": 12744
+    },
+    {
+      "path": "scripts/verify-checkpoint-recovery.mjs",
+      "sha256": "f05ffade4bb295766db0634c4f13e5dabd6326f3d5d677cf6c866c5a8bde18b3",
+      "bytes": 2298
+    },
+    {
+      "path": "scripts/verify-claimant-captures.mjs",
+      "sha256": "40ec6c232757b7fbb68671c87742c5b0773c6c6913b2fcab4cc75c56f6c4d7fe",
+      "bytes": 23076
+    },
+    {
+      "path": "scripts/verify-claimant-repeat-cpu.mjs",
+      "sha256": "4f5ca41f4b25b9bf7eac1f690145b0375cc1219360a5a2ea49ec1bf05641635f",
+      "bytes": 10537
+    },
+    {
+      "path": "scripts/verify-claimant-schemas.py",
+      "sha256": "faeb9081b4ba1f05c1b026b8f44c985fb15f9412384611bf62a9d35255f37ee9",
+      "bytes": 15356
+    },
+    {
+      "path": "scripts/verify-followup-statsnz.py",
+      "sha256": "23ae12f1230ba08a9a7c82513bd3c35b5a43406d262b22b9aabff97ade91f2d9",
+      "bytes": 16212
+    },
+    {
+      "path": "scripts/verify-gap-statsnz.py",
+      "sha256": "9418d9adc548fe70be0baf806a5b15dd1d5766aa1a467c8a8a817bf30c03055d",
+      "bytes": 12008
+    },
+    {
+      "path": "scripts/verify-legacy-version-cpu.mjs",
+      "sha256": "51d8dba5bcdab64bcd22ec99da4d6e9250064718ec6eaf4e5d15d639b61f2d74",
+      "bytes": 8317
+    },
+    {
+      "path": "scripts/verify-monitor-references.py",
+      "sha256": "fb645147a4f8591e51e309645a4f0f31be91f25f30486edc5308c3d6295ce048",
+      "bytes": 4255
+    },
+    {
+      "path": "scripts/verify-nz-prices.py",
+      "sha256": "ed3730f45ab5bf1137c34391da6d1d394351fb16d3b8d7c42f03fb58b6bf2b06",
+      "bytes": 3522
+    },
+    {
+      "path": "scripts/verify-paid-production.py",
+      "sha256": "b8c989f024ddad93f2bc93ed1bb6cda7691b888cb66d154a7bde6b9565585d82",
+      "bytes": 9665
+    },
+    {
+      "path": "scripts/verify-preview-bodies.mjs",
+      "sha256": "719c3e3ea6ab413992e6906ad2a2dd05a909cb080fb2ed6ec45d86d869665ba8",
+      "bytes": 9714
+    },
+    {
+      "path": "scripts/verify-rent-captures.py",
+      "sha256": "2e1107f5ea575a2bb1469d643e6e29d1bcdbba9d3cf8b1054891b4895ec97aae",
+      "bytes": 33166
+    },
+    {
+      "path": "scripts/verify-rent-source-cpu.mjs",
+      "sha256": "7e48cf5f3978a4cef71aa718a754de6faf20b8b11185f3784923b611494d8dc0",
+      "bytes": 15817
+    },
+    {
+      "path": "scripts/verify-staged-preview.mjs",
+      "sha256": "adaced1caf865cf27704f95265f4283e8ff7e7a0d508ad0ccedb2272098f8ead",
+      "bytes": 10539
+    },
+    {
+      "path": "scripts/verify-statcan-gdp-captures.py",
+      "sha256": "86d7ae2a032b22abc37e07f91f199475381a1444adfe59fe4fa133e3c2e82746",
+      "bytes": 18809
+    },
+    {
+      "path": "scripts/verify-structure-reference.py",
+      "sha256": "45af664a431d25f132f8fe8acf8cabb85a487e8584a10cc07b42d2c54d66f9f9",
+      "bytes": 1701
+    },
+    {
+      "path": "scripts/verify-us-contract.mjs",
+      "sha256": "5002cdc519b031a908ec0fd3afc1ce40a4f02046af9bff66e6dc78482bf748d4",
+      "bytes": 3626
+    },
+    {
+      "path": "scripts/verify-us-schema.py",
+      "sha256": "50df70deebeb23b30a06ac48b3dbf8b3e73083b478d9db9497078b3ae3898090",
+      "bytes": 1719
+    },
+    {
+      "path": "scripts/verify-us-version-cpu.mjs",
+      "sha256": "5954e457ade67aa5f891471da95d623c824dd0e664b250c29aab173dd20d3bd0",
+      "bytes": 6186
+    },
+    {
+      "path": "test/aemo-day.test.js",
+      "sha256": "cd338cc4105b5221086f68fa478e80e14e96976eb06206dd0d3f9c365bb8b0d0",
+      "bytes": 8150
+    },
+    {
+      "path": "test/boc-history.test.js",
+      "sha256": "b37527636d5d10ac602700719bf32d54a6c26b7cbdce329d36284c0aff5b0f27",
+      "bytes": 11530
+    },
+    {
+      "path": "test/claimant-count.test.js",
+      "sha256": "c0824072b558a6de778416d5f5f76230637987983a94c32eec80b99928b6ef20",
+      "bytes": 14287
+    },
+    {
+      "path": "test/claimant-information.test.js",
+      "sha256": "3d497a3d6b17ca3c0da83cb6b6845ff35e6b13c96c2551da0ceb0d1733a30d39",
+      "bytes": 13573
+    },
+    {
+      "path": "test/cmhc-rent.test.js",
+      "sha256": "359eac5820418b2890a2f9cc3edc3ca19beadd5063f3c749a8b47c46d90b7229",
+      "bytes": 17762
+    },
+    {
+      "path": "test/cqc-cohort.test.js",
+      "sha256": "9d9a6511dec0b2471e0705ec2fd418c1182f55b6b78ca5fa5aec6d5a55dfe12e",
+      "bytes": 13539
+    },
+    {
+      "path": "test/discovery-feeds.test.js",
+      "sha256": "732096ef567b703ad7d5adbc70d11af8dea94ecd9663f1a3fb6e7fbc3cd8e11b",
+      "bytes": 3463
+    },
+    {
+      "path": "test/fiscal-observations.test.js",
+      "sha256": "c8f026405c25118a59d4b1efa5fb59f0a2280db30758ece2586fc29f78fa3bb9",
+      "bytes": 4965
+    },
+    {
+      "path": "test/fixtures/insolvency-metadata.csv",
+      "sha256": "aa4c69e8784f21254f4a9f16c4983e328b03bbdc64b17d126e42a2e7f60fcec1",
+      "bytes": 1586
+    },
+    {
+      "path": "test/fixtures/insolvency.csv",
+      "sha256": "889c53848096f1bbd1be5e02963e27ab60c62d732aa988d1a0a722992189caec",
+      "bytes": 255
+    },
+    {
+      "path": "test/fixtures/nz-transport.json",
+      "sha256": "7c75b3721bb36a3c1bf48adb35feaa8a1613ac567f7fe7e7635740c4131c4b27",
+      "bytes": 4501
+    },
+    {
+      "path": "test/fixtures/scot-transport.json",
+      "sha256": "ad32ce7fa7769c9a6205fc76667433f249ba92f6c7d4a9e83d8db6d8264e99ac",
+      "bytes": 3302
+    },
+    {
+      "path": "test/fixtures/uk-cpi.json",
+      "sha256": "13990416c5d10625a8b54fe738457ce911433a6d8a8c096b6644e70131b9fc28",
+      "bytes": 3983
+    },
+    {
+      "path": "test/fixtures/us-cpi-table.json",
+      "sha256": "1a301a74ab20ce6817190fbc03815f348af35c36b8e383a35cecaf34cefb0b02",
+      "bytes": 2562
+    },
+    {
+      "path": "test/fixtures/us-cpi-workbook.json",
+      "sha256": "ba6d473d2b1b7db069006802a65355865f8179188a10b24b3d34c3cd55535f44",
+      "bytes": 32579
+    },
+    {
+      "path": "test/fixtures/us-cpi.json",
+      "sha256": "c86cc684968a33ccb6198b896fa6a6117902df463886c2b51d17df0fbea4de3b",
+      "bytes": 1535
+    },
+    {
+      "path": "test/fixtures/wra-tax.csv",
+      "sha256": "8c0234eb09e38f668e1652f0f13a93eafdbd168fc263693b2736ba46bd8356b4",
+      "bytes": 672
+    },
+    {
+      "path": "test/gap-information.test.js",
+      "sha256": "796a01bf1058b15dbeaf67d4b877b83de7a9f6c480ea2212ba7557c3e52cdf90",
+      "bytes": 9420
+    },
+    {
+      "path": "test/gap-schema.test.js",
+      "sha256": "976d316e1f90fd008ccdcdb8222011b22bc5d2d1d1467a48ccb533c16a305771",
+      "bytes": 10314
+    },
+    {
+      "path": "test/gap-selection.test.js",
+      "sha256": "585d0fd409d6b6a0391ccdb105341fc85855fe6de42ddfd30f38f3beb94086ef",
+      "bytes": 6343
+    },
+    {
+      "path": "test/gap-worker-integration.test.js",
+      "sha256": "334300f65bf55e9e9f06f49319329d00d60416a021fc750fe1887d233a2d5ed4",
+      "bytes": 10591
+    },
+    {
+      "path": "test/information.test.js",
+      "sha256": "44e471d138f753c9e99ea4f1dad8871c6cb480513fd57997adfd7e7a6efd9f5c",
+      "bytes": 13790
+    },
+    {
+      "path": "test/legacy-cpu-evidence.test.js",
+      "sha256": "f79e5f25c2571049619ffbcbbdd2840bbdda0816fdebe792a30b3f965808264f",
+      "bytes": 11856
+    },
+    {
+      "path": "test/monitor-artifact.test.js",
+      "sha256": "1d7da0b45b70bad6e37c246679495963edc4061d02e5459510673dd42aeb90b1",
+      "bytes": 9053
+    },
+    {
+      "path": "test/monitor-claimants.test.js",
+      "sha256": "71611197a9f9219ef538ada198fc7042e295178d87c41f7bd08c1e69b12b4e0c",
+      "bytes": 14435
+    },
+    {
+      "path": "test/monitor-gap-pass.test.js",
+      "sha256": "cc5b7fb23292023b795612f3e41a39f97f3ed49fb9e1fb6b8b0c66cea13c280b",
+      "bytes": 15246
+    },
+    {
+      "path": "test/monitor-ni-electricity-contract.test.js",
+      "sha256": "7749c557a9b1a9e32b77e53d2d0bcd9096c5076fa6a908a8e45a9d5dd9ea46a6",
+      "bytes": 6841
+    },
+    {
+      "path": "test/monitor-ni-electricity-scope.test.js",
+      "sha256": "7f3783a962de96d192b5ecba5a19d57729ed2741fe23afc08159124aaa38f2a5",
+      "bytes": 11985
+    },
+    {
+      "path": "test/monitor-release-chain.test.js",
+      "sha256": "f2003adb6ed5cda0c22fc7782d0164b63a52cda7e3a39b5e04550c7daeac3bee",
+      "bytes": 16506
+    },
+    {
+      "path": "test/monitor-release-continuations.test.js",
+      "sha256": "cbf326f7ad713aa40ad18cacd65ed77651f62b47dd644b252c04ec81869de719",
+      "bytes": 21020
+    },
+    {
+      "path": "test/monitor-remaining-contracts.test.js",
+      "sha256": "f98c60247824a7fa008f6c2986b885a8ab1148095cddf8bab8d0a3148bcf5a57",
+      "bytes": 7794
+    },
+    {
+      "path": "test/monitor-remaining-scope.test.js",
+      "sha256": "b81783aeafe43d85fc33cd1269bc5c29e0e9cf81c0c1838bdc3f9498681a669e",
+      "bytes": 11038
+    },
+    {
+      "path": "test/monitor-rent.test.js",
+      "sha256": "a172a422c5a06c29c4813263baed03c806b25fb1b7ad9721dbc3806f762a1c55",
+      "bytes": 18989
+    },
+    {
+      "path": "test/monitor.test.js",
+      "sha256": "4b4996156251a27ba60d05ebb7062739a32448867f345a99c1eef3cd12f83d4e",
+      "bytes": 12679
+    },
+    {
+      "path": "test/national-observations.test.js",
+      "sha256": "3f8f43cbb0295aea7fd81e412fca1c652626b9a39db7d5a3c5dd12d098dae6f3",
+      "bytes": 5966
+    },
+    {
+      "path": "test/ni-energy-summary-information.test.js",
+      "sha256": "87abbf6cd68a67cd2703c41e0418600669aa419dc23f43d5ca087aa225ba013c",
+      "bytes": 8249
+    },
+    {
+      "path": "test/ni-energy-summary.test.js",
+      "sha256": "174302643cc1dd0d99ab76ee7d743aeea8632d504f32a0ff5d2dad8f2c29da72",
+      "bytes": 10981
+    },
+    {
+      "path": "test/ni-energy.test.js",
+      "sha256": "10a6b6cc01ee0b52374e0f17b422cce22155a16b842ef82b0dde647b0ebe235c",
+      "bytes": 11662
+    },
+    {
+      "path": "test/nz-market-rent.test.js",
+      "sha256": "f1acddd5b13404659a6440558e6520d9a86c918f46fac3e61fd464a0926a5ec2",
+      "bytes": 17128
+    },
+    {
+      "path": "test/nz-prices.test.js",
+      "sha256": "fd89270e2d62ab9e40c4f2044a550f03b6acdbbcc89c9be50baf30c09a3e05f1",
+      "bytes": 6539
+    },
+    {
+      "path": "test/nz-rent-information.test.js",
+      "sha256": "efbd4096d6cbe02ba7acc1be2192ce17975b21dc57fcc8278f002017b9a1973c",
+      "bytes": 16130
+    },
+    {
+      "path": "test/ons-rent.test.js",
+      "sha256": "eaf535d9a03c40b75cdc4503715d4437be79ca72bd7dc3e21d7e77af37f5900f",
+      "bytes": 9148
+    },
+    {
+      "path": "test/open-observations.test.js",
+      "sha256": "4c09fd5695fb5b2e9bdd740302bd81ba8b667ce7bacb95f5e8b80feba6cfd66c",
+      "bytes": 8107
+    },
+    {
+      "path": "test/pharmacies.test.js",
+      "sha256": "b66ef08b5e215cedd80c311b7480c19b3fd853fa49e39052d5318d57c59e7a38",
+      "bytes": 3729
+    },
+    {
+      "path": "test/public-data.test.js",
+      "sha256": "12d840b1a64c5a51a6cdf6f7de8f3f11957b5be6b2ec022fd6573637c75ee740",
+      "bytes": 5562
+    },
+    {
+      "path": "test/remaining-information.test.js",
+      "sha256": "416ac812f55695eb6cacec69c8d531fe12e9d2c03a67a28a6028db034b2cf57e",
+      "bytes": 11497
+    },
+    {
+      "path": "test/remaining-schema.test.js",
+      "sha256": "db76969516825cd4d633f75bc447f1eb46b0ee48f09d5731a5de59ba0b332ec1",
+      "bytes": 10540
+    },
+    {
+      "path": "test/sfc-activity.test.js",
+      "sha256": "1173093cf61c9bf9b458170c61415cbb1924490a1d219b2dcdc3cae0793d2641",
+      "bytes": 12838
+    },
+    {
+      "path": "test/shadow-audit-cli.test.js",
+      "sha256": "055b63b4bc5fdca172416915cf41ac499e9ac08c65e9a6e159885b57d6039e69",
+      "bytes": 1972
+    },
+    {
+      "path": "test/shadow-window.test.js",
+      "sha256": "b67297f904b0aba180dab21cab433bddf0311fc2046e79944a979126e5a14f41",
+      "bytes": 2822
+    },
+    {
+      "path": "test/source-completion.test.js",
+      "sha256": "6277a0d0ed1784f783764b2e14058399747c69b92ca0c7e9794f5c774b5b45e6",
+      "bytes": 2572
+    },
+    {
+      "path": "test/sources.test.js",
+      "sha256": "65bc6419af1e3261eecc46f8ebd4ccfa618a8f95b247a99adf215a0d0984e2ba",
+      "bytes": 4558
+    },
+    {
+      "path": "test/statcan-gdp-information.test.js",
+      "sha256": "e51ea01d7cc42b45b65d1fbefc1f5062b3f0d81d9caadfe8fe9882786bd5cf82",
+      "bytes": 22871
+    },
+    {
+      "path": "test/statcan-gdp-monitor.test.js",
+      "sha256": "959ba4938f976948f807e7a12d3a7c08ca9ea0d2e73b9bb6e4eedccd1ce40cb9",
+      "bytes": 17532
+    },
+    {
+      "path": "test/statcan-gdp.test.js",
+      "sha256": "23188266a66b56d1b15c6941b7ef14a4af76f745dfc5af7d962732c782b94a64",
+      "bytes": 14991
+    },
+    {
+      "path": "test/statcan-headlines.test.js",
+      "sha256": "bea4965b585a7a719705de8adcf4b00d04a14d1738cd9290da7b0e60a50ede88",
+      "bytes": 13184
+    },
+    {
+      "path": "test/stats-nz.test.js",
+      "sha256": "959361fd05ca00da9278fea7c86fffcb41b1d6b0b98e473b517ceca97fe6d3c0",
+      "bytes": 3676
+    },
+    {
+      "path": "test/transport-observations.test.js",
+      "sha256": "5c16f2e4405b317b5a294fb05c6b40919da4197b857d7fd139e48e76c6a713cc",
+      "bytes": 3673
+    },
+    {
+      "path": "test/us-cache.test.js",
+      "sha256": "d2afcd13f9cf88d48b8601a0832b67c2c4e2f3ec75220a8abec3bad44d017ea3",
+      "bytes": 3927
+    },
+    {
+      "path": "test/us-cold-path.test.js",
+      "sha256": "34ba41dc786a8dbe509bf7c4509f9986b8afd2f033ba2909d83f12f3e7c9b4f1",
+      "bytes": 3510
+    },
+    {
+      "path": "test/us-cpi.test.js",
+      "sha256": "248985d0c614f4f040723426e77fe8ef5af216366978805d0d080f45101adee6",
+      "bytes": 6992
+    },
+    {
+      "path": "test/us-cpu-evidence.test.js",
+      "sha256": "1d40aa568426d50ca012ed0774607a516e942e902b151dd0e0b0bab576ec8e3a",
+      "bytes": 5989
+    },
+    {
+      "path": "test/us-information.test.js",
+      "sha256": "d71bfdc8572dd1503e3ff6e7b5e01fedf8489ad3f02572c27cd75c2e4e6b7c62",
+      "bytes": 7879
+    },
+    {
+      "path": "test/us-monitor.test.js",
+      "sha256": "87d71074c606ed074006a478e9c2c6f15bf7b8031a5a38e9d6fb91cb23a5fcde",
+      "bytes": 6222
+    },
+    {
+      "path": "test/us-table.test.js",
+      "sha256": "ff735236844391a86a81039d4ee87d4d89a4986d76f54219a2b64e39ee0451bc",
+      "bytes": 2436
+    },
+    {
+      "path": "test/us-workbook.test.js",
+      "sha256": "73a6e914d388b99b01ac6381f93631f7652cc4e89dbb51202d7087070cb09b04",
+      "bytes": 4128
+    },
+    {
+      "path": "test/wra-depth.test.js",
+      "sha256": "784af2d85e323e455ccad1f6b9f8b830ff47354263528523a4cab3d56835dcf8",
+      "bytes": 2662
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/CONTRACT.md",
+      "sha256": "bc337f76ed3bde58183032740228beb8d97cdb9a4c8a0341eb82225e72b21406",
+      "bytes": 4978
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/README.md",
+      "sha256": "40bef92b985f5fee23f272c3113283ad2e5ddcc48e8af474a16edcd67e9f6343",
+      "bytes": 3723
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/AEMO-ALTERNATE-PROPOSAL.md",
+      "sha256": "4c1ac4a6c8b02d302c371f765059cc4b2adc8de1c94e0ec026b03f3c9d41463a",
+      "bytes": 4689
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/README.md",
+      "sha256": "cc9c77caf866befb32d7743359b728dfba7b281e2c24ea95643c4e15138ed5ce",
+      "bytes": 8610
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/acquire-originals.py",
+      "sha256": "7dc5b051a9a135b4fce5cd914615d40fc28b7bfc939bfeb175b01bba9ad75d57",
+      "bytes": 5188
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/aemo-worker/worker-access.json",
+      "sha256": "ffc11809d9d8c537236d4dcb2e829719405626947cd4daa4818cb3035041fd09",
+      "bytes": 863
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/aemo-worker/worker-access.log",
+      "sha256": "b1271d4e33de01fb131daead03fedcad20b4f3b233bc3b1070f7f84ff09bf9e1",
+      "bytes": 269
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/acquisition.json",
+      "sha256": "be7eb87a943f720513ed109dab4a7a7e8a650f9e2ceb5b708b9b8d92da975bc7",
+      "bytes": 1204
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/cohort-pages.excerpt.pdf",
+      "sha256": "cf62939a8099ad9f46b92adfb3d5c7284b1c4cd6b48c25ca5f3cc4e65bb01c1d",
+      "bytes": 149299
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/cohort-pages.txt",
+      "sha256": "61dde767ca7d529b20a7338871eda387e47484999de420726947105eb4e2c525",
+      "bytes": 2738
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/comparison.json",
+      "sha256": "4a79f03db9e28ff5d6b397db38a7ce2da8f7509a5bc60c09c1cc33890bab423f",
+      "bytes": 2863
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/cqc-gov-pdf/verify-cohort.py",
+      "sha256": "08d772d49f9aadd7e2b95524617e7a107b4b712bfdb6e6993f344d2bf2b6b837",
+      "bytes": 2362
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/CONTRACT-PROPOSAL.md",
+      "sha256": "1ca3fc8c9e5fae2fe5c84c0421b270eaf1b142710f4f74dfdb22cfbd4b149395",
+      "bytes": 4536
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/acquisition.json",
+      "sha256": "e4a3757f2a52043d01ffad697db99131d6892eb92f13385b179c763325e99312",
+      "bytes": 689
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/comparison.json",
+      "sha256": "a9950e133e4f03dad5ffbf1a47f1e52b50ec9e7f42bcc39b2ddf84e9545f9a0f",
+      "bytes": 2819
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/copyright-link.excerpt.html",
+      "sha256": "c6447d31ab28b1087641ceb232eb7fd5380859d0a8519f563dd58b76620f7a74",
+      "bytes": 64
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/second-acquisition.json",
+      "sha256": "941936bf61d365c8159633333a6fe84a60e67fbd16b71d41c6cfe34d733c4d2b",
+      "bytes": 673
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/statistical-article.excerpt.html",
+      "sha256": "a6550dcb2a14101d1d88bb74a88be623f3d57aca010519df0eb0cc3c0b5ceeba",
+      "bytes": 6485
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/access-review/ni-article/verify-article.py",
+      "sha256": "462bab088da50f5e7f2c2fe5679cfc33b5c540922feeb1357002da9aa079dbae",
+      "bytes": 4023
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/aemo-access-preview.js",
+      "sha256": "6ffca7ff09faa38829a7ce508fde8418226a56f71a95b792affd42f09cfc3b5a",
+      "bytes": 2139
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/README.md",
+      "sha256": "b9e9199eb79a289e30be605faa7f6e09688bde72051257e16f04fed81efab1e8",
+      "bytes": 6317
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/check-controls.mjs",
+      "sha256": "13633d475a00d46b17911d29b08058c16d3a47b12a1ca7f97b6d96e612b157d9",
+      "bytes": 8850
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/check-existing-remaining-compatibility.mjs",
+      "sha256": "48967d349dea4b7e6059c7b13737c388b4ac6b12c3f78d6274f176f7d0158169",
+      "bytes": 7887
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/compatibility.json",
+      "sha256": "34ff5f2ee4c6d0caa8feeffb1d249af343446a9d8fab5607094c84b31910f035",
+      "bytes": 836
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/control-attempts.json",
+      "sha256": "2f8a274990a8efd4975ab911f497386b7f40bc749c2a36bc73a7aaa881ba6d1c",
+      "bytes": 606
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/controls.json",
+      "sha256": "a483ea5432aca04275a447dc236da8aefe430eb59f5b7c12e2b993a03f5e2573",
+      "bytes": 7146
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/existing-remaining-compatibility-controls.json",
+      "sha256": "f492517aec221fec61323693881284aa59dfbca12f9c005daa438b96ec413746",
+      "bytes": 845
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/manifest.json",
+      "sha256": "c582aa8079a1834774b722b45d5c853070acd6560004fca46f2438af99e91c46",
+      "bytes": 2676
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/support.mjs",
+      "sha256": "ab536ad65926d9a1649f46feba02f4800de3bfdf95630b5111b712417de81913",
+      "bytes": 16771
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/verify-captures.mjs",
+      "sha256": "6f855e23f34f1ab76d40c6b7872e576312d0793786fb38420eceed345fc7b9bc",
+      "bytes": 1058
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/verify-existing-remaining-schemas.py",
+      "sha256": "6c148bd6ed66275d80f3260711b36610b557557058892641043571b85a8e3e38",
+      "bytes": 8741
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/interface-checker/verify-schemas.py",
+      "sha256": "78722df0dd55dc945a44ea7a80bb557bc763b57a77b7f54b5468e72525104634",
+      "bytes": 10746
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-access-preview.js",
+      "sha256": "95f3e1d359edc1bb04b1e4f3471c06e56d024a3d64b5b83d66cf7bdcc399def2",
+      "bytes": 2598
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/CONTRACT.md",
+      "sha256": "ddc3d888ea433c3dff9ad8cac42037f999205bf00c77195dd948e50bdff9c529",
+      "bytes": 4789
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/README.md",
+      "sha256": "ac10a6d255a36d2a0237ecef2fa7929a3295add981ed19a13635b636cb1f643b",
+      "bytes": 2644
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/access/worker-access.json",
+      "sha256": "b4d7c562b4414f0dab76a20cfa9e250fec798ec31d1cd92a5b8e3d30d5fc3962",
+      "bytes": 2631
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/access/worker-access.log",
+      "sha256": "e045b314061390d3dfeb2a1aa223f55049d290c7c325c18c5d645c3e78bc03ec",
+      "bytes": 268
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/check-preview.mjs",
+      "sha256": "6570e324ea9e4de60a67670b40cea959adc19f40df5f4b71a7e83d0936da9753",
+      "bytes": 7344
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/01-live.json",
+      "sha256": "a49ea78487519c759d46f8d7919ad1ddd19c85e6cc6222529a8b1110bd7f6436",
+      "bytes": 453
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/CONTRACT.md",
+      "sha256": "1b63b691f8a033c60c4b77636a26fb6e4312b0f9eed23041a9803e12c2e48ce5",
+      "bytes": 4760
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/check-preview.mjs.snapshot",
+      "sha256": "fa0ffe14009690fd3e473f25649df5236e96e3d1bd0992b0ad6672a78a2008dd",
+      "bytes": 7337
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/implementation-manifest.json",
+      "sha256": "85d26fc637e040492d35844b0558a2b041d93ae62cb41d5559c28234563b8323",
+      "bytes": 2147
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/integration.toml.snapshot",
+      "sha256": "2eff26fdfb1ee3963f1e33616aa6ae7af0590354841afc020c27d6e0ca356438",
+      "bytes": 204
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/ni-energy-summary.js.snapshot",
+      "sha256": "9e2c508808b7a0ffad9d4c11fc02a93ca590ac6706b8a4b97c2749e67aa02b54",
+      "bytes": 14194
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/ni-energy-summary.test.js.snapshot",
+      "sha256": "982936fb50b8496864f468e94ef6a262cc6edcb89e376f0ec61c8c89fbf1d728",
+      "bytes": 10980
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/preview.js.snapshot",
+      "sha256": "348521f83cca030424919d39bddd517768732f2d9c4047d7276866da6bd6436f",
+      "bytes": 3458
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/failed-redirect-mode/report.json",
+      "sha256": "5ed5c8449d147f0c076f670c3d560ff86dac3cc3a5211cd60d518ce10378698d",
+      "bytes": 3826
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/implementation-manifest.json",
+      "sha256": "bcde6a5fd59712505c1056d6421fd3a6797c57c23a9a66b4398a2f5585b6b559",
+      "bytes": 2426
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/integration.toml",
+      "sha256": "2eff26fdfb1ee3963f1e33616aa6ae7af0590354841afc020c27d6e0ca356438",
+      "bytes": 204
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/monitoring/replay-helper-controls.json",
+      "sha256": "19e119f4e7d694c405dc7e7126a97b0d3bf900d2c8158c91ffb30ce1ce4c9539",
+      "bytes": 2601
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/monitoring/replay-helper-controls.mjs",
+      "sha256": "6c0b179e321020625f2b252aacc41b765852d3647a2f7528d9006355d05ed8c3",
+      "bytes": 6035
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/preview.js",
+      "sha256": "348521f83cca030424919d39bddd517768732f2d9c4047d7276866da6bd6436f",
+      "bytes": 3458
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/01-live.json",
+      "sha256": "22c38066e3d61b2ea995bbafd3aa264b1650e1c1cb8383e423a598db0d6c8470",
+      "bytes": 22328
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/02-none.json",
+      "sha256": "f1c24f4149fd2824087f39976e333fdf000ff86874b92347c605add85951e088",
+      "bytes": 22522
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/03-wrong-edition.json",
+      "sha256": "23cb78e31098c06ca510ddc2c9f07dfae269ced73f6b1d0a3b4d749d31ac506b",
+      "bytes": 668
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/04-wrong-window.json",
+      "sha256": "bb9c0814c2d6b68c1900b3a6b03a672886a90bfda2ff1398d158d518dab6b26c",
+      "bytes": 665
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/05-wrong-method.json",
+      "sha256": "92289005ff19eb8741596350c27cb0a35f6a92db7d50978e5c54788272d6c5f2",
+      "bytes": 683
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/06-wrong-geography.json",
+      "sha256": "b40dcac72790e8ef2ae364ebf457f585e5efb0c9a205a3b4e01e9f743e2eabcb",
+      "bytes": 670
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/07-missing.json",
+      "sha256": "69a1157a4f99b5152b24cbd241a440f2c856d7cfc66c39f7b0f45ff2650fae14",
+      "bytes": 689
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/08-suppression.json",
+      "sha256": "f5c80a9d85a2c3513bb93af8b9fafec72edc14cabca624fdce58ba3b38a7edc8",
+      "bytes": 693
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/09-prior-imports.json",
+      "sha256": "f77bab19235f42d656d8907a73c1b43acaf90037228b13eb3ccce0ccc6fd9f3b",
+      "bytes": 684
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/10-duplicate.json",
+      "sha256": "8c5ca2d5d544bb64071efbf0ee1c61f4c90429257d0306896e72791a0da3e271",
+      "bytes": 655
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/11-conflicting-total.json",
+      "sha256": "86131a80b7cb4afdaeef919b36406f5a12c73a0269eff5748f7f0092349c6588",
+      "bytes": 674
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/12-denominator.json",
+      "sha256": "73cbde69c674f647e4aa7fbd45c344028cc219a72b747637bd22138dbf55ffe4",
+      "bytes": 693
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/13-redirect.json",
+      "sha256": "e3ecc81d71a92d3cb27583f5c361762bbdb962d60bee56fd0bf768f009a85021",
+      "bytes": 658
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/14-http.json",
+      "sha256": "98465dee72d256f18c8aed7fc0101cf46c722d1d56733ee9d8f9d0ee551ef325",
+      "bytes": 652
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/15-timeout.json",
+      "sha256": "572873ad0ab47979626f6d8301af28167c57356e424446c61295fba55e88ae18",
+      "bytes": 632
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/16-oversize.json",
+      "sha256": "cb63c8ac1e1f2849f371a81f131927f8478ba9b4cf209e615743d596083aaeb4",
+      "bytes": 661
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/17-bad-clock.json",
+      "sha256": "7eddad5deb6046c30fe2254d2d1a6af4fa6b2c521f374a23d87eea2730a8f381",
+      "bytes": 530
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/18-zero-imports.json",
+      "sha256": "d0a92c2f5453af7835d4724becb91922fafa28247ae6ace7357c504cee093c8f",
+      "bytes": 22528
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/19-negative-imports.json",
+      "sha256": "237d3d8fca34f8065ad5655cd8773e9adde8088ed39034e6ae93a6b9ff157f3c",
+      "bytes": 22535
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/capture-manifest.json",
+      "sha256": "5fa7556b1f4dbe685b1253a66f54437aeaad50aa2d96155bed7ef29b9aabfcfa",
+      "bytes": 3163
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/protected-preview/report.json",
+      "sha256": "7b742cfbf3bd9d1672213961e6917a779ac6ff91a50b536a28e608b5694cff3e",
+      "bytes": 14836
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/ni-energy-summary/redirect-mode-correction.json",
+      "sha256": "4ffe2cfaaddf71d47c04a6d7331288f9533d7b239d245c200a0a884bb2ec665f",
+      "bytes": 821
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/nz-prices/archive-route-review.json",
+      "sha256": "dcd97e0c8feb3e8e13824844076c8e4bfa9ee2d16cd150393bdebc26a6581943",
+      "bytes": 2277
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/README.md",
+      "sha256": "2bc44490e4b9635cec3e21d203a23b6ffda2e8269b314af0e21090f303fefeff",
+      "bytes": 3172
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/audit-reports.mjs",
+      "sha256": "b2d6ad1d9c2f69fe3cab8f995456d2fb8747f715f14d44ab04e495cdee371830",
+      "bytes": 7866
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/preflight.mjs",
+      "sha256": "9e351105397e171f4c13a31cdd2ccc2f51634003dedfbd7e4bf40ccbc56389f5",
+      "bytes": 3061
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/runner-controls.json",
+      "sha256": "00fdf824a2b11d24657c4963b2df03f6fceb99e61119ef20cd9c3a43173dbbfb",
+      "bytes": 1910
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/runner-controls.py",
+      "sha256": "bb320c2a6b7d991e2b683dc22b5c9942829ea5387e4627740b25752342ac4d22",
+      "bytes": 4261
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/validate-release.sh",
+      "sha256": "ea7388afb0fd1492cabd53358c65ecf5d9d7efa7e6a7e9f1ad1bcd8399c48655",
+      "bytes": 17859
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/verify-added-source-cpu.mjs",
+      "sha256": "1337129d713e77483de8216371941331e80f1505348ad4b4224efea100dd3ca1",
+      "bytes": 3512
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/release-tools/verify-source-states.py",
+      "sha256": "91bec4d8459f85f51dfb6bc24b93e7e0d779f5c327670f78f381c546ade86324",
+      "bytes": 4835
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/CONTRACT.md",
+      "sha256": "b6dc42450740bdc7f9e0c39e33118bf5f0d99adc4cc6cd2b4f6775ef8b9a99eb",
+      "bytes": 2700
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/README.md",
+      "sha256": "794ce3f8dd7af23d5d8c3df2aa8f14fb7061e0d126a3d89addeb8401057d461d",
+      "bytes": 8725
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/acquisitions.json",
+      "sha256": "7af1425e0de296f0aff6de6ba1d2cc6cc94eee473331c50594e02e7303bddce8",
+      "bytes": 7027
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/findings.json",
+      "sha256": "beb07ff2c748dccfa70d0666e35d629028314aee7d0c55fc88fb2a56ab6db69b",
+      "bytes": 5452
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/independent-report.json",
+      "sha256": "9d267f3eedf70642381538293faf619db2272704f691da895bf936fa7e697b16",
+      "bytes": 4220
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/manifest.json",
+      "sha256": "776aa350ab8d1773deee72a81e3b1071ed814307a9dfdde9e0c8911edb4ba074",
+      "bytes": 6100
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/original/agriculture-selected.csv",
+      "sha256": "60c9307c1570aaee85de4d5f5d0e07ee363374ce975de8f9d3fe219c9442a03a",
+      "bytes": 812
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/original/infoshare-follow-on-errors.json",
+      "sha256": "3c032f333473ee09fb9020f115353280811fbb0a98cf210f6ec7e1e4c0f815f2",
+      "bytes": 927
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/original/methodology-excerpts.json",
+      "sha256": "1e9bb5709f07a91a4f81b797d97b68b422018fcb36125df079ab5bb67cf1a423",
+      "bytes": 8544
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/original/workbook-cells.json",
+      "sha256": "1b7b6542cff2b7c988eff92f096b1844141e5ce3f0f9387c58d1baa9396c254c",
+      "bytes": 5208
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/prepare-agriculture.py",
+      "sha256": "323223664c9269784e814185ca5a2300f1efd71222e35321fd90e798ee4a8a10",
+      "bytes": 5181
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/README.md",
+      "sha256": "3259bc08a19d4d2d63b73c9fb5de105d38288ab8b86f38f2f20d2ecc70614eff",
+      "bytes": 5710
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/acquisitions.json",
+      "sha256": "5e731fd66cea7e3384a12b94a8c0c8e9276cd8f16d3f42cd7840df0f798ab4cf",
+      "bytes": 11541
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/independent-report.json",
+      "sha256": "8343a42648e73dc2a11bdadb59ef782f69ccd2cbb4a9a6f58258638c380c4b08",
+      "bytes": 4533
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/manifest.json",
+      "sha256": "fe60521245cd89548f9e5730a7c6690a5948613f8128756205e95cd94564f91b",
+      "bytes": 3627
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-2018-collection-excerpt.json",
+      "sha256": "0c8e5f2c4d4ddd3731e8510833ed7d88e41147774eee6fcd0c30f88270a51456",
+      "bytes": 2921
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table1-mapping.json",
+      "sha256": "011ad1319a710b481c9c4c6b31f9464fb28eacddf0a0337515975eb934040051",
+      "bytes": 1347
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table1-strings.json",
+      "sha256": "de88da76e6f9b3180faaac1a16f75f1f2dcc594fec4ad48981ac3c765b3691c1",
+      "bytes": 883
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table1.xml",
+      "sha256": "2f11bcca14e1ccc7c0dd9bef80bb05ce9f75e0db2792547cca436956e875188f",
+      "bytes": 2759
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table3-mapping.json",
+      "sha256": "f72cdfd37f9fe575f5977548bae0e990d29f66d2d557959ee93b93aa7033bee6",
+      "bytes": 1347
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table3-strings.json",
+      "sha256": "168f1f84846f1893ef042a378434b221d0d470808df81e2ad984bfe5c73ab23a",
+      "bytes": 955
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/household-table3.xml",
+      "sha256": "abc210bdc7870948ee83ba4006c9b6725507df90be836ba0fd6d9a696cde1540",
+      "bytes": 3834
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/infoshare-household-2013base.csv",
+      "sha256": "218bcd7a359e6f6eba86b47d2f465bd9320d5945f17d5f5627b92be75b96d721",
+      "bytes": 541
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/infoshare-household-mapping.json",
+      "sha256": "7240b4ab0bf3f31c5d3b2cd84773de03335c2f18594590dd53e4fa0e7653308a",
+      "bytes": 1238
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-2024-collection-excerpt.json",
+      "sha256": "e16ffa6d03b40342782a839106a8f8078a62743711af358d30e7e1132998b4cd",
+      "bytes": 2202
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-broad-age-2026.csv",
+      "sha256": "70c9cdb3f8f173a998b23942cd9f7da44e093db4f4c84034388d36b818f925e9",
+      "bytes": 76
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-graph-mapping.json",
+      "sha256": "c386a760b1fe52b9ea5202bfb7103f6b3ee45441adf02c5cea68a2caf08e00f3",
+      "bytes": 1268
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-table1-mapping.json",
+      "sha256": "abe52255fbaf547a778995a9669691d7cee58e1c5f74b005e4b2d44b0ebfa980",
+      "bytes": 1356
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-table1-strings.json",
+      "sha256": "0c848942cbf7b467a6a64431229f842c664042b8417e6b8a9b6500f1efefddf9",
+      "bytes": 965
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/labour-table1.xml",
+      "sha256": "85a6d80416d3852eae874fb366caf5eb25f704027e1389b39580a043d2cac698",
+      "bytes": 3233
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/original/legacy-table-attempt.json",
+      "sha256": "1b458f4c4acc208cd97be7a5e4c5728c7052d08faaba807f12009405b1a10268",
+      "bytes": 482
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/prepare-excerpts.py",
+      "sha256": "21337ebaf4751074904bb6dc0b46016f5d0a8baf9cee63667916f01e5f032d3d",
+      "bytes": 6755
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/projections/verify-projections.py",
+      "sha256": "7ed2c289ffe17eb3ff56ea12f9e09b737fe367d6a0bc5c52a5a8bf636659707d",
+      "bytes": 7091
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/public-selection.json",
+      "sha256": "8c4506807ac86f01d97cdee3abd9bcb466773739cf2c3bfb260951661b075ebc",
+      "bytes": 1737
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/targets.json",
+      "sha256": "293ed6bb54830b2fdde2fceb9dfdcc869b370680e57648c6ea28811fd7f3a322",
+      "bytes": 4506
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-agri-projections/verify.py",
+      "sha256": "07b9692feb1e0a7ec821b3c84c4c6f97c8846e34fa60a0d5fdc83e2e16228f22",
+      "bytes": 8404
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/README.md",
+      "sha256": "4b5afda908997ef40293fee354cb0ae7aa761ee26256bbf082b9d18d724be6fe",
+      "bytes": 4537
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/manifest.json",
+      "sha256": "b777f79534199e8846bcd0b046bcc4cd4ea264486671f07236c1ff17878b460a",
+      "bytes": 1250
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/metadata-contract.json",
+      "sha256": "a047b6269bacac816c31f58a69eca467f6109fd5e43418015b1cf7f1bcee47b5",
+      "bytes": 5220
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/prior-release-rejection.json",
+      "sha256": "5dfa0eba5f6858b9d5188da08f367e2f301c505f7335d9069936f05575c23f7b",
+      "bytes": 8967
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/test-verifier.py",
+      "sha256": "54ccb213cd678ddde7c90985ffc0e3d446dcf3059fdd63d323371e79e63d7f47",
+      "bytes": 8396
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-cumulative/verifier-controls.json",
+      "sha256": "980d71a4ff4bd1a403852d7b121e5d85490339b60ac9ddf11b5d5bd76c375d7a",
+      "bytes": 21369
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/CONTRACT.md",
+      "sha256": "90c3228c4d3aebcd0149ef1fb702f86de04e07bef1315c4029981e0363cdf3d8",
+      "bytes": 2842
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/README.md",
+      "sha256": "d03767d8679bbd85fb50aeaaf6aa1ad81a736e70d709ff901c87f8bb72566c7c",
+      "bytes": 5753
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/extract-retained-structure.py",
+      "sha256": "0b27bf9d2745e8d228f0d3240e43f2a26709d037aaf1399fa533fe7efe4b4fb3",
+      "bytes": 3401
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/independent-results.json",
+      "sha256": "2ee4e0c05341cfb31b91c45bf283236d8da6a459de17189cdb56d74c3c429ed0",
+      "bytes": 2111
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/inspect-labour-export.py",
+      "sha256": "79c8f0d280f6bea8e514ab337b3b9c654ec13855637ec8a89ee76cf65739bbaa",
+      "bytes": 1595
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/CONTRACT.md",
+      "sha256": "dfc2506d87c59bf03542fdebcf631e44cdacde33f4e6b9ba18d229c69ede19b8",
+      "bytes": 2223
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/README.md",
+      "sha256": "18a471cef7cf1adc9849d7812bd029cacaa6d5ff114c4580c06a00f843ef2e21",
+      "bytes": 7872
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/infoshare-public-ui.py",
+      "sha256": "1cade0cfa330395df9d9f7b76b103e70be05034f20912d7a5d702274c3dd448e",
+      "bytes": 4643
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/manifest.json",
+      "sha256": "9df6dd564235aa9e22283927c0f5d784b91e0bcf8b1c4c9df0963d954706726b",
+      "bytes": 4191
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/minimise-originals.py",
+      "sha256": "6f9d4aba2f71a960040ac9b85712b0e7f9b076e0ff403adb9c21fa03546fb92a",
+      "bytes": 2828
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/annual-methods-canonical.json",
+      "sha256": "4d91974a6537335975fc2a596920c588489e9884a84f9268bba2b1b330e95519",
+      "bytes": 18285
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/annual-methods-search.json",
+      "sha256": "b720480f5b334ff590248379cc25d6ef45a5dce8dc492c46dab3f820df220f15",
+      "bytes": 852
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/annual-methods.json",
+      "sha256": "7ec4577bf99be82a4a367b1d0c299bb7e27acd1b750a60cd64a2876bc95d1cb8",
+      "bytes": 715
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/annual-release.json",
+      "sha256": "1087bd4d499708469e5a284ca9a3f8a498d2463604f587018329a9bbc44009ea",
+      "bytes": 2695
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/csv-index.json",
+      "sha256": "28c16bb8ce01013a1bc6f23b85fd87d4f3191a6b8355bafd7b264ca61877373e",
+      "bytes": 44289
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/infoshare-landing.json",
+      "sha256": "0e883519f36e7b772fd1216e550e931b852290d7541de34f6b9a8b8a75aab206",
+      "bytes": 628
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/methods-guide.json",
+      "sha256": "c7e24b7b1134430c6d5ae30272294393cd3e31bb5350786638576b5594939a8d",
+      "bytes": 1063
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/publication-index.json",
+      "sha256": "4c5af6efbaa0562882c8ab226a2de449960dac8b96cf9326a679784c8bb07ea3",
+      "bytes": 895
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/quarter-export-excerpt.json",
+      "sha256": "ea880f40d1681674a8f08ffdec61561d8cf1495508ff09859f0a6623ffa5a1b8",
+      "bytes": 864
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/quarter-full-jobs-2025Q2.csv",
+      "sha256": "6f55fecfedd91ca5d371294c22a7018beffe01aff51b47c70a1ddac0c0cba2ad",
+      "bytes": 521
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/quarter-methods.json",
+      "sha256": "48a5a0b29ce1b6132ca4b8f0ac2e261c54739187e3648cfe5a91abce1bebcc9f",
+      "bytes": 11694
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/original/quarter-release.json",
+      "sha256": "f73061f560dffc47f1ac031a9fc092a5d1898aa93aaa176aa6b4f786e276d069",
+      "bytes": 3565
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/pinned-reader-targets.json",
+      "sha256": "915fce3d08e4e5eca752aee061ebd05a9f73202213316bba4a135dfb6f716f6b",
+      "bytes": 3419
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/report.json",
+      "sha256": "a4af6857ba590d00d9655a927b7bb9846e1512d05ed5d2ca7cf63f4a17ff4d2d",
+      "bytes": 10660
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/ui-acquisitions.json",
+      "sha256": "0d22779e5aa25c4d48efb40c577999cbb1c13efa9caf19d5e2aef1926f2fe5fc",
+      "bytes": 2537
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/ui-visible-led-tables.json",
+      "sha256": "d90f8de3e13500cf04907d482a5eaba37ae80a595fb2f4c807441e5d839b1de6",
+      "bytes": 2253
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/verify-csv-excerpt.py",
+      "sha256": "aa4993e9c42db6202d34637c9237d89e70a7363a897c74946fb9cc74e6d669a0",
+      "bytes": 1466
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/leed/verify-retained.py",
+      "sha256": "7d6d59272cace436c926c4e8099134a7474850f30b1355d962d273f593c10aa2",
+      "bytes": 13767
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/manifest.json",
+      "sha256": "db996398790ea1428ef380cd3aa6f76e5006552f3c7856b563e72c3bde64dcb3",
+      "bytes": 3488
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/metadata-contract.json",
+      "sha256": "a27c395aa71e7f9f968846eb84d158ef9f5d3b950f311cbfc6bfc36c02fa671c",
+      "bytes": 1097
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/INC_INC_001-structure.json",
+      "sha256": "334ae49601d74d03077bc93c1717d04a7346b873a393c6b5fc0da13dfdbb63a1",
+      "bytes": 9535
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/INC_INC_011-structure.json",
+      "sha256": "d37969d7de5946d44358adf7d691baf6462853db4c101f35787f98bed280e7ab",
+      "bytes": 6947
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/direct-access-boundaries.json",
+      "sha256": "929a9b93451fa841acf8d5b06126ec603bf6a87eca6b670dad428aa5088065af",
+      "bytes": 3932
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/income-infoshare-acquisitions.json",
+      "sha256": "ef5c25419f0b3f7ed80cd9ffe0ec79c42cafd9853bc283b10208b48ff60c9557",
+      "bytes": 2804
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/income-infoshare-hlfs-tables.json",
+      "sha256": "b30cfa37a3ea5b8c5ce3ef37beb07ac2b86e3417073c30edbffa589d0584195b",
+      "bytes": 62910
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/june-2026-methods-browser.json",
+      "sha256": "fed944d84894465307107418e0ab65d1a3aee0c5a995eb4a92bfb1390f8f78c9",
+      "bytes": 1029
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/labour-market-export-inspection.json",
+      "sha256": "9d00f4be3ec6515a12b905b030c8ca822d289c31c760efd2c850b8decd34d0be",
+      "bytes": 10400
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/labour-market-jun26-members.json",
+      "sha256": "8aac5c522e19608da635303a9900f475c9646c55db5ddff8846af0882cdff4ef",
+      "bytes": 774
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/paid-employment-browser.json",
+      "sha256": "39be1130040fe6909a90548bf0143e5207c2986b38b203ab80e63a47b3a3e7ee",
+      "bytes": 996
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/prior-evidence-references.json",
+      "sha256": "e9c2623d4347a11e08c74764709439a603d6c9bb4898792af3cdc67047d58c65",
+      "bytes": 751
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/original/wages-salaries-browser.json",
+      "sha256": "18681a621ab3075947df1641625b2273f67def4ca84120566cc6b1f72c8dbde6",
+      "bytes": 982
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-income/verify-income-evidence.py",
+      "sha256": "fdd242b3c73e1cedcbe3955715e727908d7e324f0367aa6619a66580b24719d5",
+      "bytes": 4838
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/CONTRACT.md",
+      "sha256": "44aaff647e590bb3ebe816b02be4ee9ea3270fd50d89ba49bd2eafcd836db76b",
+      "bytes": 2657
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/README.md",
+      "sha256": "2d63d04d8136d71c6335b449de5903e0ab95fa0a526d379b24e0bc31768fd8cf",
+      "bytes": 5316
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/acquisitions.json",
+      "sha256": "bf5adc8556dc011719575fed15a812624df44a115d7b2d3fb356e26687a188bb",
+      "bytes": 3892
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/extract-official.py",
+      "sha256": "19e2f17e596c150c02b401d0ebb74db61ad57c1d7383e007b1d8673297747f12",
+      "bytes": 13023
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/findings.json",
+      "sha256": "a8e102f092f4434514181c4fd21485297f68087943eabdc60018f17a21d42874",
+      "bytes": 1682
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/infoshare-browse.json",
+      "sha256": "ef7bdef2e081748d855268bb91d18b5db25051d1284fe3d1d7cc360f36fb4187",
+      "bytes": 2351
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/manifest.json",
+      "sha256": "0632e8311111a33d3649e7cd3f792f8d1117e3e6c7059a30811482ddd1ccab12",
+      "bytes": 2060
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/corrections-index.json",
+      "sha256": "c7ba67a1b6e662bc26362f0cbc9d9b0a08ef878a6538e9b66279746263faff43",
+      "bytes": 582
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-adult-method.json",
+      "sha256": "3002a8a5f0a9aa3b462fcc71b935f19638f5a2314f42a3fdd5cf08a547d81a90",
+      "bytes": 2670
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-copyright.json",
+      "sha256": "d0706e1c8f13b9074fe4f41213c03af55bd4c170a3833f12f0f7984d6541c3d8",
+      "bytes": 2109
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-data-tables.json",
+      "sha256": "2259a27e817f93d061ba6aaf3d215cac00f49a35a2cc7d08fe4c40ece76fa816",
+      "bytes": 1772
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-people-jun2026.json",
+      "sha256": "dacb3708c2f8388fe766c44f73bdde478ae1a6609103014668745be06fabc1d9",
+      "bytes": 9796
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-publication-finder.json",
+      "sha256": "1a57634d8974960260b2965931a0282bfedcd170ca625a3123237ed71863d3f7",
+      "bytes": 576
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/moj-sep2025-news.json",
+      "sha256": "9ed97238f1b75e71e931717bc307df22b41844d2166d7c0c0329d74207541737",
+      "bytes": 1176
+    },
+    {
+      "path": "verification/gap-followup-2026-10-20/statsnz-justice/sources/stats-sentenced-concept.json",
+      "sha256": "0e0f4210446f833c92bf25a0ef35bdaf30a0601505652d535e2f4a5fbc479d24",
+      "bytes": 664
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/capture-metadata-contract.json",
+      "sha256": "d2d0c990e0306e6abebd5c35777c7891a1d64ed6252ef5651734025f2f340961"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/manifest.json",
+      "sha256": "eef22778801636f9d721399729dd77bb0ace87af83f880a8ff8bedb659ad651e",
+      "bytes": 7769
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/reader-targets.json",
+      "sha256": "b7339b8f0946cf5b535cca61862db70aec42d50454893e72c19fb4ee4ca36665"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/agriculture-2018.json",
+      "sha256": "95a2ed17d8b17c287bdb6d52ed1400a4d26a5b5d09de2289b1abd7cfe5ffd435"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/agriculture-2024.json",
+      "sha256": "7d2bb0d418cf2a727f815665490f922a7d0970fc04d1584f930915f40cc2d498"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/agriculture.json",
+      "sha256": "6380b9f3601d21eda606662f37aa0dd21b15741f14dfdeb7b6ff85a8a73f1c95"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/enterprise.json",
+      "sha256": "e215c5e0875189a922e1a6eb82fabcf99136ffbab448cfef0c1e2f0bb4cc326b"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/hes.json",
+      "sha256": "3521306c7615faa6674ca9ab42e1474e34a29ad10eddf007377524b80a100179"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/household-projection.json",
+      "sha256": "fb13d52bef0e38a0652e6561aee2b055224ec3c71fb2123ac05ebd52e651f8af"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/income-metadata.json",
+      "sha256": "477de9b52bbbd8ace2db21bc7d5df9cb8d0585a36525a82190179b6e528f1d95"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/income-release.json",
+      "sha256": "086c52ce897d00bb3fffd0d624809c7edaf2052981fd6273a8cdcf6cea6eb58a"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/injury-current-acquisition.json",
+      "sha256": "96789f0801829aa18e7a9b5374b9e27c0a296c391c51251e5425cf68bc716772"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/injury-current-selected.csv",
+      "sha256": "f18a03fac141f9c72bbfdd16b4cc2f72f1d10ca82a311e710b9493a664e9a0d0"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/injury-current.json",
+      "sha256": "2d99c6fce8535cdbe93a58f51c5ec68890bb5994ab9f8d10cca8b009210d98fd"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/injury.json",
+      "sha256": "645f100f748781f9e10d173b2d02f20157e506d33a6b6a82cd41459769876208"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/iwi.json",
+      "sha256": "0433a9d1164e97ed05857647606320927cefabeb22268cc9845c6ff4ba1af52a"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/justice.json",
+      "sha256": "f7fa22f32383b9714c5301d8c0f719d86c62729c21eb05f84c3049b3ba0dda25"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/lab-projection.json",
+      "sha256": "244fb48928b8bf639992ae1254f61c2df206a0345d806d22c890b2b3939e59a4"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/leed-annual.json",
+      "sha256": "62a8888163eec5cd966074b4f00c58263f3e9af81a9b7b0f7423fdda738163fe"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/leed-quarter.json",
+      "sha256": "051b90fefaa9cdd9976fdc6e8718d6a0f5a5d6086d38db4b69ee92e3d2014777"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/pop-projection.json",
+      "sha256": "726f48d87206fb392c836f8e1f1e47e965d3d4b0afda0ea5f6b2a5679732dbcf"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/pop-sub-workbook-acquisition.json",
+      "sha256": "7d526e4e57b3d6addaec5d430648bdffdb25213dd757a64295d2ce2237e4e718"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/pop-sub-workbook.xlsx",
+      "sha256": "001e8a896cfb50f5ed17836dc815b235e3bcca55ee91c9869a2afaeb054b50a6"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/prison.json",
+      "sha256": "139c337cf540245bbbc4d91145d60250a909cb6f392a2c0f7f80a843260885db"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/productivity.json",
+      "sha256": "b12012aae32652704b42137e1956f0a4a891729dca0b56d322f8c13fbb7bae3f"
+    },
+    {
+      "path": "verification/gap-pass-2026-10-20/statsnz/sources/rounded-workbook-excerpts.json",
+      "sha256": "083017381479ec1da457a8db4347877b4ae4381931971a812e35efc16bbd7e9c"
+    },
+    {
+      "path": "verification/monitoring-baseline.json",
+      "sha256": "d5bce7d79ddf6914e285f239b633a7e6c2974abaf4ae9293c33b1ddbc54099f5",
+      "bytes": 325241
+    },
+    {
+      "path": "verification/nz-market-rent-2026-10-20/claimant-refresh/independent-report.json",
+      "sha256": "6e35c48d68fb0f072bf697f0b520c755e231334f0b2e5168a94514faefd62d0e",
+      "bytes": 23219
+    },
+    {
+      "path": "verification/nz-market-rent-2026-10-20/independent-report.json",
+      "sha256": "c4f5e6a571d0f2d47f60d9e746eb54ac6826b7c784f762516b0da1ac399b2b55",
+      "bytes": 16144
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/interface-checker/check-controls.mjs",
+      "sha256": "ce37fc5dcd9d3b4e451dce6e80e688af6427fcc759ec876ea9d65c4c5c359c53",
+      "bytes": 10573
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/interface-checker/verify-schemas.py",
+      "sha256": "5f776735aa0b6327be535a49ebcbf7853324aa2b8bc6c30b09e9ae8afedd0824",
+      "bytes": 8703
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/ni-energy/independent-report.json",
+      "sha256": "86b456beeef7b08eb6eb79b0de9e42519f98acf157972f72519ea76573efb9ee",
+      "bytes": 6352
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/ni-energy/original/report.excerpt.html",
+      "sha256": "52978d72db205be7d9a146daeaedea467a7c9853304f2d0b43d770ef14c549f3",
+      "bytes": 13475
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/approvals.json",
+      "sha256": "6bbb8c57460e067f3dabef2147688d6ceca7a569d8c40e92ecc6e861ed5a637d"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/release-validation/monitoring/proposal/review.json",
+      "sha256": "f817c73aa310e200c173a58fb4c25aa3fc6dccce6213b0b97f0b3ddc5b925e53"
+    },
+    {
+      "path": "verification/remaining-gaps-2026-10-20/release-validation/production/production-apex-capture/_new-zealand.json.response",
+      "sha256": "f4bbce1dcc607553650259b493d5c0000febb205917f4ba9db0d7496f646774d",
+      "bytes": 93473
+    },
+    {
+      "path": "verification/statcan-gdp-2026-10-20/independent-report.json",
+      "sha256": "b53ec1b446b7c3406d09e100468208653914dd13bfc9625474c12a365b7c3f3f",
+      "bytes": 4718
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/checkpoint-predecessor/fresh-checkpoint.json",
+      "sha256": "73c0614e23bb044dc4b95aea7fff9a84120a795005667db95863d561cd0cd955"
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/checkpoint-predecessor/report.json",
+      "sha256": "4ffc99d952e162adf588342dfa62612a2dd11aac0c923434a6dd495dbfb2a807"
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/workbook-recheck.json",
+      "sha256": "6dd9ee402385fc1f09f3b3abd4ff3700ae0d6ad1d779c5d56c292a4af70f8e9e",
+      "bytes": 2424
+    },
+    {
+      "path": "worker.js",
+      "sha256": "302a08977b800cc28d29d3f1158d76da0f9a9893fbc31fce4eb45466cf9e1bbf",
+      "bytes": 116019
+    },
+    {
+      "path": "wrangler.toml",
+      "sha256": "04d23c1f0486a41d0b181c5a24cded79a09c43f3c075518fda10ebec575ab6e6",
+      "bytes": 570
+    }
+  ]
+}
