@@ -1,0 +1,202 @@
+{
+  "kind": "Constructed offline checker controls; not live capture or operational acceptance",
+  "pass": true,
+  "controls": 28,
+  "results": [
+    {
+      "label": "Complete constructed actual-adapter outputs agree with independent references",
+      "pass": true,
+      "expected_capture_pass": true,
+      "checks": 835
+    },
+    {
+      "label": "missing route",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact complete route count",
+      "checks": 3
+    },
+    {
+      "label": "wrong identity",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 exact candidate identity",
+      "checks": 5
+    },
+    {
+      "label": "claimed failed capture",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "capture identity and pass",
+      "checks": 1
+    },
+    {
+      "label": "reference substitution",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "exact pinned reference manifest",
+      "checks": 2
+    },
+    {
+      "label": "unsafe path",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 safe unique capture path",
+      "checks": 7
+    },
+    {
+      "label": "body hash mismatch",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 0 retained bytes/hash",
+      "checks": 8
+    },
+    {
+      "label": "HEAD payload",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 30 no conditional/HEAD body",
+      "checks": 742
+    },
+    {
+      "label": "conditional wrong ETag",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 29 exact prior GET ETag",
+      "checks": 738
+    },
+    {
+      "label": "invented missing-date zero",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "request 37 no substituted observations",
+      "checks": 787
+    },
+    {
+      "label": "wrong AEMO interval",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json grid_day SA1 288 original intervals",
+      "checks": 28
+    },
+    {
+      "label": "wrong AEMO day",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json grid_day complete current AEMO day",
+      "checks": 27
+    },
+    {
+      "label": "partial AEMO region",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json grid_day complete current AEMO day",
+      "checks": 27
+    },
+    {
+      "label": "wrong derived AEMO mean",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json grid_day SA1 all five independent summaries",
+      "checks": 30
+    },
+    {
+      "label": "wrong FX quote direction",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json exchange_history complete 38 dated exchange cells",
+      "checks": 55
+    },
+    {
+      "label": "missing FX date",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json exchange_history complete 38 dated exchange cells",
+      "checks": 55
+    },
+    {
+      "label": "silent old FX tail",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json exchange_history exact rolling window",
+      "checks": 54
+    },
+    {
+      "label": "wrong provincial unemployment assignment",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json jobs newfoundland_and_labrador exact period/value/unit/geography",
+      "checks": 63
+    },
+    {
+      "label": "invented release UTC timezone",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json price_index index exact publisher identities/release",
+      "checks": 106
+    },
+    {
+      "label": "retail wrong scale",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json shop total_retail_sales exact period/value/unit/geography",
+      "checks": 111
+    },
+    {
+      "label": "housing month replaces quarter",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json homes starts exact period/value/unit/geography",
+      "checks": 117
+    },
+    {
+      "label": "lost CMHC conditions",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json homes legacy quarter alias and CMHC conditions",
+      "checks": 120
+    },
+    {
+      "label": "WRA confidential zero",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/wales.json land_transaction_tax all_inclusive exact period/value/unit/geography",
+      "checks": 142
+    },
+    {
+      "label": "wrong selected observation version",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json?source=jobs&measure=alberta stable selector observation version",
+      "checks": 504
+    },
+    {
+      "label": "selected plausible wrong number",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/wales.json?source=land_transaction_tax&measure=all_disclosed&observation=2025-26 all_disclosed 2025-26 exact selected value",
+      "checks": 728
+    },
+    {
+      "label": "selected extra observation",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/canada.json?source=price_index&measure=index complete selected observation coverage",
+      "checks": 551
+    },
+    {
+      "label": "discovery omission",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/catalog.json?desk=canada jobs exact discoverable identities",
+      "checks": 129
+    },
+    {
+      "label": "cache crosses AEST day",
+      "pass": true,
+      "expected_capture_pass": false,
+      "rejected_for": "/australia.json cache expires by calendar boundary",
+      "checks": 24
+    }
+  ]
+}

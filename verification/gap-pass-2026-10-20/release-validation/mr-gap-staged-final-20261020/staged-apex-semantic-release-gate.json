@@ -1,0 +1,23 @@
+{
+  "kind": "Implementation release semantic gate with explicit upstream availability boundary",
+  "checked_at": "2026-10-20T10:13:18.712213+00:00",
+  "strict_report": "/tmp/mr-gap-staged-final-20261020/staged-apex-semantic.json",
+  "strict_report_sha256": "6045f73f9818b0c516887aea633da22983f2eb47da0675c961df22ed40880c43",
+  "strict_semantics_pass": false,
+  "release_gate_pass": true,
+  "unresolved_source_availability": [
+    {
+      "source": "scotland/river_level",
+      "status": "error",
+      "http_status": 503,
+      "interpretation": "Same publisher refusal under accepted production and candidate; reader and fetch modules unchanged. No successful SEPA observation or source recovery claimed.",
+      "candidate_scotland_sha256": "585fd426516ac7328d7cf99be133dc3c5254cf155bac1257be303a1a6172a1c9",
+      "accepted_production_comparison_sha256": "7e9b479e00b60a02eca74115136604cf43199edef50d4da4f84b7bf68783037e",
+      "unchanged_git_blobs": {
+        "lib/open-observations.js": "bfa9841db8c777e2931db315dea6d8ad3bdf2937",
+        "lib/sources.js": "c04a18e90732c7c52d4fd2353630e70cdf3e28d3"
+      },
+      "monitoring": "Existing source remains enabled with honest error and independent siblings. No checkpoint, receipt, schedule or source alert changed."
+    }
+  ]
+}

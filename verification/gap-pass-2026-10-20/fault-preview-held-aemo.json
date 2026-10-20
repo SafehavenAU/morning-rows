@@ -1,0 +1,2925 @@
+{
+  "started_at": "2026-10-20T10:37:42.272Z",
+  "environment": "Protected Cloudflare remote dev",
+  "kind": "Constructed faults through actual BoC and four StatCan readers and typed selectors; WRA bounded-read/parser and selector. Held AEMO selector/discovery refusal only, without reader invocation.",
+  "active_contracts": [
+    "canada/exchange_history",
+    "canada/jobs",
+    "canada/price_index",
+    "canada/shop",
+    "canada/homes",
+    "wales/land_transaction_tax"
+  ],
+  "held_contracts": [
+    "australia/grid_day"
+  ],
+  "publisher_http": false,
+  "fixture_clock": "2026-10-20T10:00:00.000Z",
+  "freshness_evidence": false,
+  "historical_manifest": {
+    "file": "fault-harness-before-aemo-hold/manifest.json",
+    "sha256": "3f18c50c7896d316439b74c2ff2d835d251a9b1e3ee28e18135722dfc95a7b74"
+  },
+  "checks": [
+    {
+      "source": "grid_day",
+      "fault": "held",
+      "measure": null,
+      "period": null,
+      "expected": 404,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 404,
+      "source_health": "held",
+      "selected_error": "unknown_source",
+      "discovery": {
+        "native_inventory_absent": true,
+        "typed_adapter_absent": true,
+        "source_directory_absent": true,
+        "schema_absent": true,
+        "v1_count_matches": true,
+        "v2_count_matches": true
+      },
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "d098e34be7ae244c330a687d604ab7eebff1562a8f5f6405aeec30cfe2e3428b",
+      "bytes": 468,
+      "calls": [],
+      "pass": true
+    },
+    {
+      "source": "grid_day",
+      "fault": "held",
+      "measure": "SA1.mean",
+      "period": null,
+      "expected": 404,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 404,
+      "source_health": "held",
+      "selected_error": "unknown_source",
+      "discovery": {
+        "native_inventory_absent": true,
+        "typed_adapter_absent": true,
+        "source_directory_absent": true,
+        "schema_absent": true,
+        "v1_count_matches": true,
+        "v2_count_matches": true
+      },
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "d098e34be7ae244c330a687d604ab7eebff1562a8f5f6405aeec30cfe2e3428b",
+      "bytes": 468,
+      "calls": [],
+      "pass": true
+    },
+    {
+      "source": "grid_day",
+      "fault": "held",
+      "measure": "SA1.mean",
+      "period": "2026-10-19",
+      "expected": 404,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 404,
+      "source_health": "held",
+      "selected_error": "unknown_source",
+      "discovery": {
+        "native_inventory_absent": true,
+        "typed_adapter_absent": true,
+        "source_directory_absent": true,
+        "schema_absent": true,
+        "v1_count_matches": true,
+        "v2_count_matches": true
+      },
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "d098e34be7ae244c330a687d604ab7eebff1562a8f5f6405aeec30cfe2e3428b",
+      "bytes": 468,
+      "calls": [],
+      "pass": true
+    },
+    {
+      "source": "exchange_history",
+      "fault": "none",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 38,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-21",
+          "value": 1.4021,
+          "period": "2026-09-21",
+          "version": "9d4bcc3c6dda00d24476d7807fafd5f9013abf40b3eb3eec9f966fedf1699cb3",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-21",
+          "value": 1.8755,
+          "period": "2026-09-21",
+          "version": "bbbd48408f20454283784980e64ec1c66e62cd9ef23dcc5efec711cfee67951c",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-22",
+          "value": 1.4064,
+          "period": "2026-09-22",
+          "version": "164cd8a6a45fd8b3ebfaec738ac5e358b36603132091455edf6cc4a661487a73",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-22",
+          "value": 1.8765,
+          "period": "2026-09-22",
+          "version": "97d9798246c58becd8c68b32e8886aa3ac213ffa457e1b9a6ee0cf3b6e330038",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-23",
+          "value": 1.4096,
+          "period": "2026-09-23",
+          "version": "49333203da25403312a4233cccc5dbdcefe8d53d2b896688a1794191d220cfb0",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-23",
+          "value": 1.8683,
+          "period": "2026-09-23",
+          "version": "939c94905f3629f33c90262bb191ed8a1dd544b1a61c12f41afdd6b350282b41",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-24",
+          "value": 1.4136,
+          "period": "2026-09-24",
+          "version": "65486def829c4e33de327be316477eab54c1914431933e0fcd9c2870a36b5765",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-24",
+          "value": 1.8688,
+          "period": "2026-09-24",
+          "version": "4785165a8f9e7a9eb474b86474623073debb74199a4ebbb307d3a4fa9b762e3c",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-25",
+          "value": 1.4145,
+          "period": "2026-09-25",
+          "version": "66489e08e8491c0a6f46354612f8601fac5833e722092a99cb1454cc0a4845e8",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-25",
+          "value": 1.874,
+          "period": "2026-09-25",
+          "version": "e4cdebaeb63690ea57de9bedbe9db7fb32fe20158002f96e25af8dc8ab2fdb9a",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-28",
+          "value": 1.4168,
+          "period": "2026-09-28",
+          "version": "c11d92eca82be228bc453d63ce2b571530d01b2cf1583f0c1c44d33fd6f41a2b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-28",
+          "value": 1.8787,
+          "period": "2026-09-28",
+          "version": "ff41a2dba8d482a9689aa9014ff53caf750a15414b548bcc58a05b749d37a85b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-29",
+          "value": 1.4188,
+          "period": "2026-09-29",
+          "version": "63827a00460fdf7399e7c1c4944716ae46cac4fcc95af0990cfcdfa03df7d7da",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-29",
+          "value": 1.8758,
+          "period": "2026-09-29",
+          "version": "07583c95357f0f85d7c18408eb5879cb039f98821f24c27804d69baac3c5bb58",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-01",
+          "value": 1.4243,
+          "period": "2026-10-01",
+          "version": "daf96103a9b04577d83da5856bfc77c9dc488d502e712e24bc93966772958acd",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-01",
+          "value": 1.881,
+          "period": "2026-10-01",
+          "version": "03db3bf1a78e340be1dd597115f4c20c03c8d31f42c135ccc11b8e6af52c0af1",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-02",
+          "value": 1.4246,
+          "period": "2026-10-02",
+          "version": "7301cabb129c86eb013cde23b7581ec75f409c3d412884ba83314014b0a00b84",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-02",
+          "value": 1.8853,
+          "period": "2026-10-02",
+          "version": "293085a9aec08120fdc48a131b3f0bd04133b69999d75652b413fbd1ecc712e6",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-05",
+          "value": 1.4254,
+          "period": "2026-10-05",
+          "version": "1027850b095b72a26020ee94141f633f6b4cbbc0c3b52cbacd37531e34abdfee",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-05",
+          "value": 1.8836,
+          "period": "2026-10-05",
+          "version": "6fb7f2c114238191582bd48d52b6a08bf36a1e82ebf7db69b24a02742c80f50f",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-06",
+          "value": 1.4226,
+          "period": "2026-10-06",
+          "version": "4b7d281e9916894b07020bae63061a2c317f10e566d070350705c910f64104e9",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-06",
+          "value": 1.8884,
+          "period": "2026-10-06",
+          "version": "9efdb0cc1e928930ff2b8da9e9ecb1d38265b6b45d803be2b927f65db89d8316",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-07",
+          "value": 1.4257,
+          "period": "2026-10-07",
+          "version": "dc2b8fa110a12049a1d21a8619902815781c2ecdb02f1d52e3748e8061695a53",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-07",
+          "value": 1.8834,
+          "period": "2026-10-07",
+          "version": "bd319991f630e77f3cdb1d142b5c6e6c360c576207617568962f7bba9213abd5",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-08",
+          "value": 1.424,
+          "period": "2026-10-08",
+          "version": "3c059a27fd28113780657662747514750b374d50d8a811a61d069961b1354987",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-08",
+          "value": 1.8822,
+          "period": "2026-10-08",
+          "version": "634961523632d7faf1a341ad0180a28acc9b7c882a6a980e42bd44f5a6ff4c2d",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-09",
+          "value": 1.4271,
+          "period": "2026-10-09",
+          "version": "96d7cfaf726dddecba4f36310d2b7119be89009c3e24512a292ef89042ed9d7b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-09",
+          "value": 1.8879,
+          "period": "2026-10-09",
+          "version": "54c0390439534b077caaa611d6ea8c414456a25e9dc85e79a0cb3346a7c742e4",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-13",
+          "value": 1.4222,
+          "period": "2026-10-13",
+          "version": "add65cc6b93e6ee73ae208a8f03a53b54bfc29231e6e19cfc5827e5bde66bd69",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-13",
+          "value": 1.8841,
+          "period": "2026-10-13",
+          "version": "fd89a592d6907878d175f3569eb0038d93fb252441d8571121a1f9b67b8d40d7",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-14",
+          "value": 1.4263,
+          "period": "2026-10-14",
+          "version": "27d13ef34ccd604997060f651f3ee3fe372e66767df8f58ed0ffc57acea4c562",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-14",
+          "value": 1.8796,
+          "period": "2026-10-14",
+          "version": "6f33870b0461a8dac8438577d0049a1aff7dae2a98adc46c4786dd8465da8506",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-15",
+          "value": 1.4196,
+          "period": "2026-10-15",
+          "version": "9e09eb950181f3cadbb0f32a7a1fe3ccf15fce68b0e91351f02fd18f688f39cf",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-15",
+          "value": 1.8824,
+          "period": "2026-10-15",
+          "version": "455ff942554878e04f2850da75a712780b340df936bb57ea51f75c485015f869",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-16",
+          "value": 1.4154,
+          "period": "2026-10-16",
+          "version": "284ffb39fe8ffbfbadfc15316dcd924306baf711bd57980d0282b1ab802f791b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-16",
+          "value": 1.8871,
+          "period": "2026-10-16",
+          "version": "d427fe0e852ae4e57061285b311ef1ddb203ce81fd27115d0fa4d35d58980c1e",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-19",
+          "value": 1.4097,
+          "period": "2026-10-19",
+          "version": "941aa6184e80c10c87d6b646b7260e34bf9134ddc81004b09219bcfc0f6ec3fc",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-19",
+          "value": 1.8767,
+          "period": "2026-10-19",
+          "version": "391eb7b5c9882c36ca5d388aaed3ae3d88fbd7af98344b873cef17a99faa8805",
+          "publisher_status": null
+        }
+      ],
+      "content_version": "bd27a3724ce92ec8ab329370276fdd332c27ff9358fadb96cbdaa85c1ad69a96",
+      "body_sha256": "286b91a0d37bfe61a9feb154b99bdfcc0b21df042e533c9fe0728a59658ecb94",
+      "bytes": 104274,
+      "calls": [
+        {
+          "role": "window",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?start_date=2026-09-20&end_date=2026-10-20"
+        },
+        {
+          "role": "latest",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?recent=1"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "exchange_history",
+      "fault": "none",
+      "measure": "FXUSDCAD",
+      "period": "2026-10-19",
+      "expected": 200,
+      "expected_observations": 1,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-19",
+          "value": 1.4097,
+          "period": "2026-10-19",
+          "version": "941aa6184e80c10c87d6b646b7260e34bf9134ddc81004b09219bcfc0f6ec3fc",
+          "publisher_status": null
+        }
+      ],
+      "content_version": "df882f59ea71a745aaa63d071e019c91b2dbfb9349d419bc0c7a0366b58cf73d",
+      "body_sha256": "c1c1e203e20a168567bafb385950c29e01a3a70e48acde8ea2d44e7d6990a6a1",
+      "bytes": 9122,
+      "calls": [
+        {
+          "role": "window",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?start_date=2026-09-20&end_date=2026-10-20"
+        },
+        {
+          "role": "latest",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?recent=1"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "exchange_history",
+      "fault": "none",
+      "measure": "FXUSDCAD",
+      "period": "2026-10-12",
+      "expected": 404,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 404,
+      "source_health": "ok",
+      "selected_error": "not_published_on_date",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "b251284b72cde9c5fc0d8ccce426e64a92510e8eafcc84e01c7d778484059ab2",
+      "bytes": 6626,
+      "calls": [
+        {
+          "role": "window",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?start_date=2026-09-20&end_date=2026-10-20"
+        },
+        {
+          "role": "latest",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?recent=1"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "exchange_history",
+      "fault": "wrong-direction",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "eba6a10882da86bec7c23bd52bd5bc29cb7c58b59d6147d370aad483f4d217f4",
+      "bytes": 1368,
+      "calls": [
+        {
+          "role": "window",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?start_date=2026-09-20&end_date=2026-10-20"
+        },
+        {
+          "role": "latest",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?recent=1"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "exchange_history",
+      "fault": "missing-pair",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "48f753e6d6a218749d73a111105a65ba1ee9153da72907abc2e19c0c4f072dae",
+      "bytes": 1385,
+      "calls": [
+        {
+          "role": "window",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?start_date=2026-09-20&end_date=2026-10-20"
+        },
+        {
+          "role": "latest",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?recent=1"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "exchange_history",
+      "fault": "stale-tail",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "70affa3bdd1e573f5bd3eabb3d384d384e4108ec86acb0b5499303595db4c2ff",
+      "bytes": 1409,
+      "calls": [
+        {
+          "role": "window",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?start_date=2026-09-20&end_date=2026-10-20"
+        },
+        {
+          "role": "latest",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?recent=1"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "exchange_history",
+      "fault": "acquisition-only",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 38,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-21",
+          "value": 1.4021,
+          "period": "2026-09-21",
+          "version": "9d4bcc3c6dda00d24476d7807fafd5f9013abf40b3eb3eec9f966fedf1699cb3",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-21",
+          "value": 1.8755,
+          "period": "2026-09-21",
+          "version": "bbbd48408f20454283784980e64ec1c66e62cd9ef23dcc5efec711cfee67951c",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-22",
+          "value": 1.4064,
+          "period": "2026-09-22",
+          "version": "164cd8a6a45fd8b3ebfaec738ac5e358b36603132091455edf6cc4a661487a73",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-22",
+          "value": 1.8765,
+          "period": "2026-09-22",
+          "version": "97d9798246c58becd8c68b32e8886aa3ac213ffa457e1b9a6ee0cf3b6e330038",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-23",
+          "value": 1.4096,
+          "period": "2026-09-23",
+          "version": "49333203da25403312a4233cccc5dbdcefe8d53d2b896688a1794191d220cfb0",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-23",
+          "value": 1.8683,
+          "period": "2026-09-23",
+          "version": "939c94905f3629f33c90262bb191ed8a1dd544b1a61c12f41afdd6b350282b41",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-24",
+          "value": 1.4136,
+          "period": "2026-09-24",
+          "version": "65486def829c4e33de327be316477eab54c1914431933e0fcd9c2870a36b5765",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-24",
+          "value": 1.8688,
+          "period": "2026-09-24",
+          "version": "4785165a8f9e7a9eb474b86474623073debb74199a4ebbb307d3a4fa9b762e3c",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-25",
+          "value": 1.4145,
+          "period": "2026-09-25",
+          "version": "66489e08e8491c0a6f46354612f8601fac5833e722092a99cb1454cc0a4845e8",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-25",
+          "value": 1.874,
+          "period": "2026-09-25",
+          "version": "e4cdebaeb63690ea57de9bedbe9db7fb32fe20158002f96e25af8dc8ab2fdb9a",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-28",
+          "value": 1.4168,
+          "period": "2026-09-28",
+          "version": "c11d92eca82be228bc453d63ce2b571530d01b2cf1583f0c1c44d33fd6f41a2b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-28",
+          "value": 1.8787,
+          "period": "2026-09-28",
+          "version": "ff41a2dba8d482a9689aa9014ff53caf750a15414b548bcc58a05b749d37a85b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-29",
+          "value": 1.4188,
+          "period": "2026-09-29",
+          "version": "63827a00460fdf7399e7c1c4944716ae46cac4fcc95af0990cfcdfa03df7d7da",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-29",
+          "value": 1.8758,
+          "period": "2026-09-29",
+          "version": "07583c95357f0f85d7c18408eb5879cb039f98821f24c27804d69baac3c5bb58",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-01",
+          "value": 1.4243,
+          "period": "2026-10-01",
+          "version": "daf96103a9b04577d83da5856bfc77c9dc488d502e712e24bc93966772958acd",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-01",
+          "value": 1.881,
+          "period": "2026-10-01",
+          "version": "03db3bf1a78e340be1dd597115f4c20c03c8d31f42c135ccc11b8e6af52c0af1",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-02",
+          "value": 1.4246,
+          "period": "2026-10-02",
+          "version": "7301cabb129c86eb013cde23b7581ec75f409c3d412884ba83314014b0a00b84",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-02",
+          "value": 1.8853,
+          "period": "2026-10-02",
+          "version": "293085a9aec08120fdc48a131b3f0bd04133b69999d75652b413fbd1ecc712e6",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-05",
+          "value": 1.4254,
+          "period": "2026-10-05",
+          "version": "1027850b095b72a26020ee94141f633f6b4cbbc0c3b52cbacd37531e34abdfee",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-05",
+          "value": 1.8836,
+          "period": "2026-10-05",
+          "version": "6fb7f2c114238191582bd48d52b6a08bf36a1e82ebf7db69b24a02742c80f50f",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-06",
+          "value": 1.4226,
+          "period": "2026-10-06",
+          "version": "4b7d281e9916894b07020bae63061a2c317f10e566d070350705c910f64104e9",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-06",
+          "value": 1.8884,
+          "period": "2026-10-06",
+          "version": "9efdb0cc1e928930ff2b8da9e9ecb1d38265b6b45d803be2b927f65db89d8316",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-07",
+          "value": 1.4257,
+          "period": "2026-10-07",
+          "version": "dc2b8fa110a12049a1d21a8619902815781c2ecdb02f1d52e3748e8061695a53",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-07",
+          "value": 1.8834,
+          "period": "2026-10-07",
+          "version": "bd319991f630e77f3cdb1d142b5c6e6c360c576207617568962f7bba9213abd5",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-08",
+          "value": 1.424,
+          "period": "2026-10-08",
+          "version": "3c059a27fd28113780657662747514750b374d50d8a811a61d069961b1354987",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-08",
+          "value": 1.8822,
+          "period": "2026-10-08",
+          "version": "634961523632d7faf1a341ad0180a28acc9b7c882a6a980e42bd44f5a6ff4c2d",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-09",
+          "value": 1.4271,
+          "period": "2026-10-09",
+          "version": "96d7cfaf726dddecba4f36310d2b7119be89009c3e24512a292ef89042ed9d7b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-09",
+          "value": 1.8879,
+          "period": "2026-10-09",
+          "version": "54c0390439534b077caaa611d6ea8c414456a25e9dc85e79a0cb3346a7c742e4",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-13",
+          "value": 1.4222,
+          "period": "2026-10-13",
+          "version": "add65cc6b93e6ee73ae208a8f03a53b54bfc29231e6e19cfc5827e5bde66bd69",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-13",
+          "value": 1.8841,
+          "period": "2026-10-13",
+          "version": "fd89a592d6907878d175f3569eb0038d93fb252441d8571121a1f9b67b8d40d7",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-14",
+          "value": 1.4263,
+          "period": "2026-10-14",
+          "version": "27d13ef34ccd604997060f651f3ee3fe372e66767df8f58ed0ffc57acea4c562",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-14",
+          "value": 1.8796,
+          "period": "2026-10-14",
+          "version": "6f33870b0461a8dac8438577d0049a1aff7dae2a98adc46c4786dd8465da8506",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-15",
+          "value": 1.4196,
+          "period": "2026-10-15",
+          "version": "9e09eb950181f3cadbb0f32a7a1fe3ccf15fce68b0e91351f02fd18f688f39cf",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-15",
+          "value": 1.8824,
+          "period": "2026-10-15",
+          "version": "455ff942554878e04f2850da75a712780b340df936bb57ea51f75c485015f869",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-16",
+          "value": 1.4154,
+          "period": "2026-10-16",
+          "version": "284ffb39fe8ffbfbadfc15316dcd924306baf711bd57980d0282b1ab802f791b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-16",
+          "value": 1.8871,
+          "period": "2026-10-16",
+          "version": "d427fe0e852ae4e57061285b311ef1ddb203ce81fd27115d0fa4d35d58980c1e",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-19",
+          "value": 1.4097,
+          "period": "2026-10-19",
+          "version": "941aa6184e80c10c87d6b646b7260e34bf9134ddc81004b09219bcfc0f6ec3fc",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-19",
+          "value": 1.8767,
+          "period": "2026-10-19",
+          "version": "391eb7b5c9882c36ca5d388aaed3ae3d88fbd7af98344b873cef17a99faa8805",
+          "publisher_status": null
+        }
+      ],
+      "content_version": "bd27a3724ce92ec8ab329370276fdd332c27ff9358fadb96cbdaa85c1ad69a96",
+      "body_sha256": "48893282c12f198b1b514d8434531b60d60e48d5327361e7bef0d8b148008be2",
+      "bytes": 104286,
+      "calls": [
+        {
+          "role": "window",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?start_date=2026-09-20&end_date=2026-10-20"
+        },
+        {
+          "role": "latest",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?recent=1"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "exchange_history",
+      "fault": "revision",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 38,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-21",
+          "value": 1.4022,
+          "period": "2026-09-21",
+          "version": "5ec5fc32d7600948c21528634e46b3736264337639d7278328d1c0c4db187959",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-21",
+          "value": 1.8755,
+          "period": "2026-09-21",
+          "version": "bbbd48408f20454283784980e64ec1c66e62cd9ef23dcc5efec711cfee67951c",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-22",
+          "value": 1.4064,
+          "period": "2026-09-22",
+          "version": "164cd8a6a45fd8b3ebfaec738ac5e358b36603132091455edf6cc4a661487a73",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-22",
+          "value": 1.8765,
+          "period": "2026-09-22",
+          "version": "97d9798246c58becd8c68b32e8886aa3ac213ffa457e1b9a6ee0cf3b6e330038",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-23",
+          "value": 1.4096,
+          "period": "2026-09-23",
+          "version": "49333203da25403312a4233cccc5dbdcefe8d53d2b896688a1794191d220cfb0",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-23",
+          "value": 1.8683,
+          "period": "2026-09-23",
+          "version": "939c94905f3629f33c90262bb191ed8a1dd544b1a61c12f41afdd6b350282b41",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-24",
+          "value": 1.4136,
+          "period": "2026-09-24",
+          "version": "65486def829c4e33de327be316477eab54c1914431933e0fcd9c2870a36b5765",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-24",
+          "value": 1.8688,
+          "period": "2026-09-24",
+          "version": "4785165a8f9e7a9eb474b86474623073debb74199a4ebbb307d3a4fa9b762e3c",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-25",
+          "value": 1.4145,
+          "period": "2026-09-25",
+          "version": "66489e08e8491c0a6f46354612f8601fac5833e722092a99cb1454cc0a4845e8",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-25",
+          "value": 1.874,
+          "period": "2026-09-25",
+          "version": "e4cdebaeb63690ea57de9bedbe9db7fb32fe20158002f96e25af8dc8ab2fdb9a",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-28",
+          "value": 1.4168,
+          "period": "2026-09-28",
+          "version": "c11d92eca82be228bc453d63ce2b571530d01b2cf1583f0c1c44d33fd6f41a2b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-28",
+          "value": 1.8787,
+          "period": "2026-09-28",
+          "version": "ff41a2dba8d482a9689aa9014ff53caf750a15414b548bcc58a05b749d37a85b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-29",
+          "value": 1.4188,
+          "period": "2026-09-29",
+          "version": "63827a00460fdf7399e7c1c4944716ae46cac4fcc95af0990cfcdfa03df7d7da",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-09-29",
+          "value": 1.8758,
+          "period": "2026-09-29",
+          "version": "07583c95357f0f85d7c18408eb5879cb039f98821f24c27804d69baac3c5bb58",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-01",
+          "value": 1.4243,
+          "period": "2026-10-01",
+          "version": "daf96103a9b04577d83da5856bfc77c9dc488d502e712e24bc93966772958acd",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-01",
+          "value": 1.881,
+          "period": "2026-10-01",
+          "version": "03db3bf1a78e340be1dd597115f4c20c03c8d31f42c135ccc11b8e6af52c0af1",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-02",
+          "value": 1.4246,
+          "period": "2026-10-02",
+          "version": "7301cabb129c86eb013cde23b7581ec75f409c3d412884ba83314014b0a00b84",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-02",
+          "value": 1.8853,
+          "period": "2026-10-02",
+          "version": "293085a9aec08120fdc48a131b3f0bd04133b69999d75652b413fbd1ecc712e6",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-05",
+          "value": 1.4254,
+          "period": "2026-10-05",
+          "version": "1027850b095b72a26020ee94141f633f6b4cbbc0c3b52cbacd37531e34abdfee",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-05",
+          "value": 1.8836,
+          "period": "2026-10-05",
+          "version": "6fb7f2c114238191582bd48d52b6a08bf36a1e82ebf7db69b24a02742c80f50f",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-06",
+          "value": 1.4226,
+          "period": "2026-10-06",
+          "version": "4b7d281e9916894b07020bae63061a2c317f10e566d070350705c910f64104e9",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-06",
+          "value": 1.8884,
+          "period": "2026-10-06",
+          "version": "9efdb0cc1e928930ff2b8da9e9ecb1d38265b6b45d803be2b927f65db89d8316",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-07",
+          "value": 1.4257,
+          "period": "2026-10-07",
+          "version": "dc2b8fa110a12049a1d21a8619902815781c2ecdb02f1d52e3748e8061695a53",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-07",
+          "value": 1.8834,
+          "period": "2026-10-07",
+          "version": "bd319991f630e77f3cdb1d142b5c6e6c360c576207617568962f7bba9213abd5",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-08",
+          "value": 1.424,
+          "period": "2026-10-08",
+          "version": "3c059a27fd28113780657662747514750b374d50d8a811a61d069961b1354987",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-08",
+          "value": 1.8822,
+          "period": "2026-10-08",
+          "version": "634961523632d7faf1a341ad0180a28acc9b7c882a6a980e42bd44f5a6ff4c2d",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-09",
+          "value": 1.4271,
+          "period": "2026-10-09",
+          "version": "96d7cfaf726dddecba4f36310d2b7119be89009c3e24512a292ef89042ed9d7b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-09",
+          "value": 1.8879,
+          "period": "2026-10-09",
+          "version": "54c0390439534b077caaa611d6ea8c414456a25e9dc85e79a0cb3346a7c742e4",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-13",
+          "value": 1.4222,
+          "period": "2026-10-13",
+          "version": "add65cc6b93e6ee73ae208a8f03a53b54bfc29231e6e19cfc5827e5bde66bd69",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-13",
+          "value": 1.8841,
+          "period": "2026-10-13",
+          "version": "fd89a592d6907878d175f3569eb0038d93fb252441d8571121a1f9b67b8d40d7",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-14",
+          "value": 1.4263,
+          "period": "2026-10-14",
+          "version": "27d13ef34ccd604997060f651f3ee3fe372e66767df8f58ed0ffc57acea4c562",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-14",
+          "value": 1.8796,
+          "period": "2026-10-14",
+          "version": "6f33870b0461a8dac8438577d0049a1aff7dae2a98adc46c4786dd8465da8506",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-15",
+          "value": 1.4196,
+          "period": "2026-10-15",
+          "version": "9e09eb950181f3cadbb0f32a7a1fe3ccf15fce68b0e91351f02fd18f688f39cf",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-15",
+          "value": 1.8824,
+          "period": "2026-10-15",
+          "version": "455ff942554878e04f2850da75a712780b340df936bb57ea51f75c485015f869",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-16",
+          "value": 1.4154,
+          "period": "2026-10-16",
+          "version": "284ffb39fe8ffbfbadfc15316dcd924306baf711bd57980d0282b1ab802f791b",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-16",
+          "value": 1.8871,
+          "period": "2026-10-16",
+          "version": "d427fe0e852ae4e57061285b311ef1ddb203ce81fd27115d0fa4d35d58980c1e",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-10-19",
+          "value": 1.4097,
+          "period": "2026-10-19",
+          "version": "941aa6184e80c10c87d6b646b7260e34bf9134ddc81004b09219bcfc0f6ec3fc",
+          "publisher_status": null
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=exchange_history&measure=FXGBPCAD&observation=2026-10-19",
+          "value": 1.8767,
+          "period": "2026-10-19",
+          "version": "391eb7b5c9882c36ca5d388aaed3ae3d88fbd7af98344b873cef17a99faa8805",
+          "publisher_status": null
+        }
+      ],
+      "content_version": "82f9740d195922e8426f0ade59720e3d9fa88a3e24d2f7662b2b8eaac7851aee",
+      "body_sha256": "119955520baf7506e3a78151eb17f9c4adeaba8ab4083a6b6bbcaeee1c44e68b",
+      "bytes": 104278,
+      "calls": [
+        {
+          "role": "window",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?start_date=2026-09-20&end_date=2026-10-20"
+        },
+        {
+          "role": "latest",
+          "url": "https://www.bankofcanada.ca/valet/observations/FXUSDCAD,FXGBPCAD/json?recent=1"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "jobs",
+      "fault": "none",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 11,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=canada&observation=2026-09",
+          "value": 6.5,
+          "period": "2026-09",
+          "version": "ff8fc86b495c83ca4fc46e6567b8dcdaa139f3f7a5c781d637e446639de5a68d",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=newfoundland_and_labrador&observation=2026-09",
+          "value": 9.1,
+          "period": "2026-09",
+          "version": "a0252b87aed0df00312a910a7292a0f92110b24e41d9a1dc438b632e20bf94ab",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=prince_edward_island&observation=2026-09",
+          "value": 7.3,
+          "period": "2026-09",
+          "version": "13203fb4c1da52311c630fb774bbb74f476a1dd0c78da4d1bf7a04522ff0cf8b",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=nova_scotia&observation=2026-09",
+          "value": 6.3,
+          "period": "2026-09",
+          "version": "5a90bd53579b083d77e7f862071d4b62c342796eaa000b27400ba9f23d3f944b",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=new_brunswick&observation=2026-09",
+          "value": 7.4,
+          "period": "2026-09",
+          "version": "49838dbac401b47bb8b070b2df9c6a83c766e9d5f115b5ed3ee6db2655b7416e",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=quebec&observation=2026-09",
+          "value": 6,
+          "period": "2026-09",
+          "version": "458b8ff22a2110017031ee51693c3af247967c9527ef56342ab8f493635e6fdb",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=ontario&observation=2026-09",
+          "value": 7,
+          "period": "2026-09",
+          "version": "1cd39266c2a28444e3faac701f138f2ab90fd55951bb60d91cc87508756e08df",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=manitoba&observation=2026-09",
+          "value": 5,
+          "period": "2026-09",
+          "version": "48e841dabe2ba7efeb4652ade0b451cb7917c55b1fa62d56ff8cf20631d42ebe",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=saskatchewan&observation=2026-09",
+          "value": 5.4,
+          "period": "2026-09",
+          "version": "260a4a950bbcde0bb8b61967fafc4b2b1873d54a0ce6893e87483986363fb0ec",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=alberta&observation=2026-09",
+          "value": 6.4,
+          "period": "2026-09",
+          "version": "b1d1d7896975e3b0e4fc1a3c74c137d6d87c26279eaf019c688339fb2f8699d1",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=british_columbia&observation=2026-09",
+          "value": 6.4,
+          "period": "2026-09",
+          "version": "5604a2d80a2de77c8745d89408923a9b76b6b8014c4ac0f1baf6179a09f5cae3",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        }
+      ],
+      "content_version": "5fe8abbdc9b66eba341960b721b2cf050fc79cf6632021eb7659b12ee854e143",
+      "body_sha256": "88bae32b0864b93e9d203c199882bbb9f94831087af187b47e30aa7ae33bf87f",
+      "bytes": 85930,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "jobs",
+      "fault": "none",
+      "measure": "newfoundland_and_labrador",
+      "period": "2026-09",
+      "expected": 200,
+      "expected_observations": 1,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=newfoundland_and_labrador&observation=2026-09",
+          "value": 9.1,
+          "period": "2026-09",
+          "version": "a0252b87aed0df00312a910a7292a0f92110b24e41d9a1dc438b632e20bf94ab",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        }
+      ],
+      "content_version": "3e0dfc5b10ce6db5cb0e5907e89a35e0334e26c2dcb6d377c51959e37d43e3a8",
+      "body_sha256": "899fd3657324beed9ca7780847bef2f4970773c661e318a5646f50e1c00e97a7",
+      "bytes": 10267,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "jobs",
+      "fault": "wrong-province",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "62c3f5519d85f5d211b9697000a394fb5427109504493e4667271bd744882a5f",
+      "bytes": 2644,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "jobs",
+      "fault": "reversed",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 11,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=canada&observation=2026-09",
+          "value": 6.5,
+          "period": "2026-09",
+          "version": "ff8fc86b495c83ca4fc46e6567b8dcdaa139f3f7a5c781d637e446639de5a68d",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=newfoundland_and_labrador&observation=2026-09",
+          "value": 9.1,
+          "period": "2026-09",
+          "version": "a0252b87aed0df00312a910a7292a0f92110b24e41d9a1dc438b632e20bf94ab",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=prince_edward_island&observation=2026-09",
+          "value": 7.3,
+          "period": "2026-09",
+          "version": "13203fb4c1da52311c630fb774bbb74f476a1dd0c78da4d1bf7a04522ff0cf8b",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=nova_scotia&observation=2026-09",
+          "value": 6.3,
+          "period": "2026-09",
+          "version": "5a90bd53579b083d77e7f862071d4b62c342796eaa000b27400ba9f23d3f944b",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=new_brunswick&observation=2026-09",
+          "value": 7.4,
+          "period": "2026-09",
+          "version": "49838dbac401b47bb8b070b2df9c6a83c766e9d5f115b5ed3ee6db2655b7416e",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=quebec&observation=2026-09",
+          "value": 6,
+          "period": "2026-09",
+          "version": "458b8ff22a2110017031ee51693c3af247967c9527ef56342ab8f493635e6fdb",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=ontario&observation=2026-09",
+          "value": 7,
+          "period": "2026-09",
+          "version": "1cd39266c2a28444e3faac701f138f2ab90fd55951bb60d91cc87508756e08df",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=manitoba&observation=2026-09",
+          "value": 5,
+          "period": "2026-09",
+          "version": "48e841dabe2ba7efeb4652ade0b451cb7917c55b1fa62d56ff8cf20631d42ebe",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=saskatchewan&observation=2026-09",
+          "value": 5.4,
+          "period": "2026-09",
+          "version": "260a4a950bbcde0bb8b61967fafc4b2b1873d54a0ce6893e87483986363fb0ec",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=alberta&observation=2026-09",
+          "value": 6.4,
+          "period": "2026-09",
+          "version": "b1d1d7896975e3b0e4fc1a3c74c137d6d87c26279eaf019c688339fb2f8699d1",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=british_columbia&observation=2026-09",
+          "value": 6.4,
+          "period": "2026-09",
+          "version": "5604a2d80a2de77c8745d89408923a9b76b6b8014c4ac0f1baf6179a09f5cae3",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        }
+      ],
+      "content_version": "5fe8abbdc9b66eba341960b721b2cf050fc79cf6632021eb7659b12ee854e143",
+      "body_sha256": "580ea8f35af1fbf09842f33a98b5c9625844d8aa6682f1d7cef71ca5aa0d9707",
+      "bytes": 85934,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "jobs",
+      "fault": "acquisition-only",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 11,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=canada&observation=2026-09",
+          "value": 6.5,
+          "period": "2026-09",
+          "version": "ff8fc86b495c83ca4fc46e6567b8dcdaa139f3f7a5c781d637e446639de5a68d",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=newfoundland_and_labrador&observation=2026-09",
+          "value": 9.1,
+          "period": "2026-09",
+          "version": "a0252b87aed0df00312a910a7292a0f92110b24e41d9a1dc438b632e20bf94ab",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=prince_edward_island&observation=2026-09",
+          "value": 7.3,
+          "period": "2026-09",
+          "version": "13203fb4c1da52311c630fb774bbb74f476a1dd0c78da4d1bf7a04522ff0cf8b",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=nova_scotia&observation=2026-09",
+          "value": 6.3,
+          "period": "2026-09",
+          "version": "5a90bd53579b083d77e7f862071d4b62c342796eaa000b27400ba9f23d3f944b",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=new_brunswick&observation=2026-09",
+          "value": 7.4,
+          "period": "2026-09",
+          "version": "49838dbac401b47bb8b070b2df9c6a83c766e9d5f115b5ed3ee6db2655b7416e",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=quebec&observation=2026-09",
+          "value": 6,
+          "period": "2026-09",
+          "version": "458b8ff22a2110017031ee51693c3af247967c9527ef56342ab8f493635e6fdb",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=ontario&observation=2026-09",
+          "value": 7,
+          "period": "2026-09",
+          "version": "1cd39266c2a28444e3faac701f138f2ab90fd55951bb60d91cc87508756e08df",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=manitoba&observation=2026-09",
+          "value": 5,
+          "period": "2026-09",
+          "version": "48e841dabe2ba7efeb4652ade0b451cb7917c55b1fa62d56ff8cf20631d42ebe",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=saskatchewan&observation=2026-09",
+          "value": 5.4,
+          "period": "2026-09",
+          "version": "260a4a950bbcde0bb8b61967fafc4b2b1873d54a0ce6893e87483986363fb0ec",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=alberta&observation=2026-09",
+          "value": 6.4,
+          "period": "2026-09",
+          "version": "b1d1d7896975e3b0e4fc1a3c74c137d6d87c26279eaf019c688339fb2f8699d1",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        },
+        {
+          "id": "https://morningrows.com/canada.json?source=jobs&measure=british_columbia&observation=2026-09",
+          "value": 6.4,
+          "period": "2026-09",
+          "version": "5604a2d80a2de77c8745d89408923a9b76b6b8014c4ac0f1baf6179a09f5cae3",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        }
+      ],
+      "content_version": "5fe8abbdc9b66eba341960b721b2cf050fc79cf6632021eb7659b12ee854e143",
+      "body_sha256": "79ff79362110aca7393119828bb2297a4309031d67b0b31ddedbc314559ecb02",
+      "bytes": 85942,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287,
+              "coordinate": "1.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "2.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "3.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "4.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "5.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "6.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "7.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "8.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "9.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "10.7.1.1.1.1.0.0.0.0"
+            },
+            {
+              "productId": 14100287,
+              "coordinate": "11.7.1.1.1.1.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 14100287
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "price_index",
+      "fault": "none",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 1,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=price_index&measure=index&observation=2026-09",
+          "value": 170,
+          "period": "2026-09",
+          "version": "50a90f3418b5448e7ea83baf7bffc2645c2a531c8fde11f1054b84f27752dfa0",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        }
+      ],
+      "content_version": "f31d5840eec2439d8213acb37da041930fd084894b35cf16ef9cf82cbd7d1e02",
+      "body_sha256": "720607dc29550bca1a6816589d9061eb5394e975d4d5e05e19cbc5f5c3a4f61f",
+      "bytes": 11991,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 18100004,
+              "coordinate": "2.2.0.0.0.0.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 18100004,
+              "coordinate": "2.2.0.0.0.0.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 18100004
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "price_index",
+      "fault": "unit",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "8f7291c65dbb80fbe2fbb6b78e53d7f016ac56139ef4542dadd22522aeea36fb",
+      "bytes": 1357,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 18100004,
+              "coordinate": "2.2.0.0.0.0.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 18100004,
+              "coordinate": "2.2.0.0.0.0.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 18100004
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "shop",
+      "fault": "none",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 1,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=shop&measure=total_retail_sales&observation=2026-07",
+          "value": 73696547,
+          "period": "2026-07",
+          "version": "b000dbe7d5ce34d258e99a7299b8c603bbc4697c2bf674c06229815b6169e0cc",
+          "publisher_status": {
+            "status_code": 3,
+            "quality": "A — data quality: excellent",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        }
+      ],
+      "content_version": "0fa0bb0ad313652c68519e460d757a768957f567a99b3562787417191743c4b0",
+      "body_sha256": "2eae232ec7d2075ea50fb68efff6ee174caac66b1b5051362cae78ddd9d9fcdc",
+      "bytes": 13433,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 20100056,
+              "coordinate": "1.1.1.2.0.0.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 20100056,
+              "coordinate": "1.1.1.2.0.0.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 20100056
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "shop",
+      "fault": "suppression",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "b711fec4056f72c5552f77acebaf8a7aec13887dc45fe2879ce0378f4bbbbd96",
+      "bytes": 1377,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 20100056,
+              "coordinate": "1.1.1.2.0.0.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 20100056,
+              "coordinate": "1.1.1.2.0.0.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 20100056
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "homes",
+      "fault": "none",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 1,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/canada.json?source=homes&measure=starts&observation=2026-Q3",
+          "value": 57947,
+          "period": "2026-Q3",
+          "version": "088b7c60fac0409b19467620e0de3f82ce5fe5ee762281998b1e33b3e6387583",
+          "publisher_status": {
+            "status_code": 0,
+            "quality": "normal",
+            "security_level_code": 0,
+            "symbol_code": 0,
+            "symbol": "none"
+          }
+        }
+      ],
+      "content_version": "93640d7a1ec08acc9cfb4cdbab0ade9f8293a8128bb1c295ca0605484196d1df",
+      "body_sha256": "ff4eeb2e802e24d4adaf0a1ea83ccbd444b2f98013283d50793e229feba4c1a0",
+      "bytes": 19564,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136,
+              "coordinate": "1.1.1.0.0.0.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136,
+              "coordinate": "1.1.1.0.0.0.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "homes",
+      "fault": "none",
+      "measure": "starts",
+      "period": "2026-07",
+      "expected": 404,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 404,
+      "source_health": "ok",
+      "selected_error": "observation_not_retained",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "db3cebfecc6b043d80e9d58ac284770290ec84b7e2c206976b9acfaa6e0fce00",
+      "bytes": 5730,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136,
+              "coordinate": "1.1.1.0.0.0.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136,
+              "coordinate": "1.1.1.0.0.0.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "homes",
+      "fault": "quarter-unit",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "15d05beec6d6eb7e14a38f335662595ae24fcafec72dc1da25c887c5f2ae3d0e",
+      "bytes": 1347,
+      "calls": [
+        {
+          "role": "data",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136,
+              "coordinate": "1.1.1.0.0.0.0.0.0.0",
+              "latestN": 1
+            }
+          ]
+        },
+        {
+          "role": "series",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136,
+              "coordinate": "1.1.1.0.0.0.0.0.0.0"
+            }
+          ]
+        },
+        {
+          "role": "cube",
+          "method": "POST",
+          "body": [
+            {
+              "productId": 34100136
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "land_transaction_tax",
+      "fault": "none",
+      "measure": null,
+      "period": null,
+      "expected": 200,
+      "expected_observations": 4,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/wales.json?source=land_transaction_tax&measure=all_inclusive&observation=2025-26",
+          "value": 371,
+          "period": "2025-26",
+          "version": "bb1057e5d907e211c1266c1964ebf4947e12c167b3828e75cd46927b5e37ab42",
+          "publisher_status": {
+            "notes": "Revised"
+          }
+        },
+        {
+          "id": "https://morningrows.com/wales.json?source=land_transaction_tax&measure=all_disclosed&observation=2025-26",
+          "value": 370.8,
+          "period": "2025-26",
+          "version": "e13f67b1b0adaf3ef2b0cde118f36eb7e75a601651840577c18da7e9173bb2d6",
+          "publisher_status": {
+            "notes": "Revised"
+          }
+        },
+        {
+          "id": "https://morningrows.com/wales.json?source=land_transaction_tax&measure=residential_disclosed&observation=2025-26",
+          "value": 294,
+          "period": "2025-26",
+          "version": "7eb730ba412a85308c112120dddb8d38aa1f81a3bd74e4788747c4eb3da63906",
+          "publisher_status": {
+            "notes": "Revised"
+          }
+        },
+        {
+          "id": "https://morningrows.com/wales.json?source=land_transaction_tax&measure=non_residential_disclosed&observation=2025-26",
+          "value": 76.8,
+          "period": "2025-26",
+          "version": "ddbc4221db8f4100e1eff9278f6ed0ed6a2595aebc97d113fac417dd4904bbe4",
+          "publisher_status": {
+            "notes": "Revised"
+          }
+        }
+      ],
+      "content_version": "21f3717db4fe814c0bcd391c66df83df75644f1140db83714ce831fff3e8fec0",
+      "body_sha256": "ebb1cc5fa6cff156a012b643a78a6dbff38a1136169274e275c53468065e8c8e",
+      "bytes": 13965,
+      "calls": [
+        {
+          "role": "csv",
+          "url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "land_transaction_tax",
+      "fault": "none",
+      "measure": "all_inclusive",
+      "period": "2025-26",
+      "expected": 200,
+      "expected_observations": 1,
+      "status": 200,
+      "selected_status": 200,
+      "source_health": "ok",
+      "selected_error": null,
+      "observations": [
+        {
+          "id": "https://morningrows.com/wales.json?source=land_transaction_tax&measure=all_inclusive&observation=2025-26",
+          "value": 371,
+          "period": "2025-26",
+          "version": "bb1057e5d907e211c1266c1964ebf4947e12c167b3828e75cd46927b5e37ab42",
+          "publisher_status": {
+            "notes": "Revised"
+          }
+        }
+      ],
+      "content_version": "7a4e74ad04df19f24a3b81cd3ea3b97858f650dc4b53003ccccce10d067e679b",
+      "body_sha256": "0a613f374b137a4e990b3f2256f068a7df1e3f1b090b6d8d1abb16520dbd194d",
+      "bytes": 4892,
+      "calls": [
+        {
+          "role": "csv",
+          "url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "land_transaction_tax",
+      "fault": "missing",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "b2ad0da2186b753d0b5ccda7c9d5ca3a25dcb9c0dfdd5b19c856cf93d1a83ff6",
+      "bytes": 1196,
+      "calls": [
+        {
+          "role": "csv",
+          "url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "land_transaction_tax",
+      "fault": "suppression",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "error",
+      "selected_error": "retrieval_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "821891a1b9ec838e094a26dbeaf6899e36780f8b2ec6241e9735a5935167b831",
+      "bytes": 1200,
+      "calls": [
+        {
+          "role": "csv",
+          "url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "land_transaction_tax",
+      "fault": "null-native-row",
+      "measure": null,
+      "period": null,
+      "expected": 503,
+      "expected_observations": 0,
+      "status": 200,
+      "selected_status": 503,
+      "source_health": "ok",
+      "selected_error": "representation_validation_failed",
+      "observations": [],
+      "content_version": null,
+      "body_sha256": "2673bb4c8e76e59c613c5cf917205732409e2cff63e2bd62d7089d79f42fdf35",
+      "bytes": 2037,
+      "calls": [
+        {
+          "role": "csv",
+          "url": "https://api.stats.gov.wales/v2/60a57730-166f-486d-9315-69f7fd4c78b1/data?format=csv"
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "code_sha256_before": {
+    "../../lib/boc-history.js": "997ab7de7fbd8311226912327bcd1b7034b87e826adbb35e6670297d4120a186",
+    "../../lib/claimant-count.js": "e77a50925572c929ea1da413e12c2d32e89857dad77356013b50d014efc3cf6d",
+    "../../lib/fiscal-observations.js": "ce13935c9f6addb8464385acd44eed555b4bac2e166e66d612d6284d11dbe42d",
+    "../../lib/gap-information.js": "025715db9ea765c99232606fde11242a41610c3fac877b1498cf057a19bd8e39",
+    "../../lib/gap-schema.js": "e006a3d5de639f3f2e1d37d05095d343b1caf4ed44be87716dc5ce66bd59bac6",
+    "../../lib/information-v2.js": "df60d12fe6fcb5282eff867facb88e90c26eb004d2b8f2a15f9b14b6ceab7617",
+    "../../lib/information.js": "3110219caac02df1c22df226e46e33acc986a82205ec5bd1ef6f29f87617ab8c",
+    "../../lib/inventory.js": "8e20a654516a381e7720bec54b53ee2f04324b8e9e5abefcda467f7d907bd48a",
+    "../../lib/nz-market-rent.js": "9ef4d34d0a964e5b89438e80d752e4fcb23a4576e40164955c7086bd31c60128",
+    "../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../lib/statcan-gdp.js": "5fcc856095d0da517678abc242fdffdd96cdb9dc066fba0e28b98e4f466b7bc1",
+    "../../lib/statcan-headlines-contracts.js": "1565cdd31d23148da3cca309f065f0d904f9ac86b2284f79e30bc037770a6d24",
+    "../../lib/statcan-headlines.js": "d992d716cc65e6ce62b4278cd42f30fa9f9a01b2f391d1ea1ea7a8e4aad39210",
+    "../../lib/stats-nz-series.js": "18741243faf6d1b1de72a3001c48a74f71a9f0112106e56e2481b941e61ca008",
+    "../../lib/stats-nz.js": "c2ce5abfb7a57296f0e0b9a69bf740891d54a3877229a40b36eeb6618449b07a",
+    "../../lib/us-cpi-table.js": "782509da4fda47c79e88c8bb0fb0f7094c5b85f41f2cbe0c3f1894487b8eecf2",
+    "../../lib/us-cpi-workbook.js": "73c5cfe0f8aad563333aeb2742c8a53972393e76c93e05302d4eb9a1db4041bc",
+    "../../lib/us-cpi.js": "25867ee3bd77235296dcca8248365ae4bb141b25577aab95e20db69180e44bed",
+    "../../lib/wra-depth.js": "3e7f58e3fc4026eb4fcc6b0b120c89999475ebc71c5405865f7ce01da2f40645",
+    "../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+    "boc/original/latest.json": "b39e47b2afea9da4b6761a6ecb88ee4551e1af78fac9a0f13f6c900542f6332e",
+    "boc/original/window.json": "d21098483e797570d64ddc12937d7cf9bfef524ec8fb7cb81580adf7c3261b4e",
+    "check-preview.mjs": "6700b809265c00b83ef84dda554f9b7816c11053175f6114d9f41b0f918d6233",
+    "integration.toml": "a79895ae45d9b7e03437b56b0a580e5297ce5e208436b8e91371eefbb1d16c4a",
+    "preview-worker.js": "b5d62462604d04275f97a802b63e5654d1c3ae5c61f1769903db6986c6495aac",
+    "statcan/homes/original/cube-metadata.json": "5e6752543bcae72b9fe6bbbb19e9f043dc369cd516cb66b8e73d14ff3536f932",
+    "statcan/homes/original/series-metadata.json": "9f0771892668578fb4c27f5f62336cdfbba7043849652f8e4a22c166bdeb777e",
+    "statcan/homes/original/wds-selected.json": "763fa7c1496775155ff7c3c75a2803cc3bc0a62bc7e5fb2b55d8e7d65850b47f",
+    "statcan/jobs/original/cube-metadata.json": "ffcd3e6de2538f6af58566747791f43190798cea5da7850bb7c27475aa24b8c7",
+    "statcan/jobs/original/series-metadata.json": "7d3a43539df708ec986257a6abf99bd8e523c1090f1dfb328cf1470cbe165209",
+    "statcan/jobs/original/wds-selected.json": "e1e113eb495b00d7384a313c608754c8239bf4f14f55b78792184bf8e722becf",
+    "statcan/price_index/original/cube-metadata.json": "0a403d7e4ba715605cdc7e8c6feffe5d61c824d0b6fc95c6c4871ca777ae482f",
+    "statcan/price_index/original/series-metadata.json": "46ab8ced94ee6577a77dd338a312da5800db75c8841399c6369ba263eaf11f17",
+    "statcan/price_index/original/wds-selected.json": "5fdfc312d2c59aba496b781735f1aad291c12b1307adcd2ca28813bd1bd61ecf",
+    "statcan/shop/original/cube-metadata.json": "ac06ea9ef699e44b2254852b9927e3ca8e186b974911de20a95075aed26c5138",
+    "statcan/shop/original/series-metadata.json": "d0105a8148ed11a49256cb2af3c82088d569af50b94897d59c8d2ecfdc8cfe32",
+    "statcan/shop/original/wds-selected.json": "7e17444b74bf1a10af97c1cdf6cd4a91076a5de6a159cd7fb6f582b467d9828e",
+    "wra/original/wra-data.csv": "3b4a0faaf7537d76e0cb7918abc7e75c31a63813c278ba580167e52f35618480"
+  },
+  "order": {
+    "jobs": {
+      "pass": true
+    }
+  },
+  "acquisition_only": {
+    "exchange_history": {
+      "pass": true
+    },
+    "jobs": {
+      "pass": true
+    }
+  },
+  "aemo_held": {
+    "cases": 3,
+    "pass": true
+  },
+  "fx_revision": {
+    "changed": [
+      "https://morningrows.com/canada.json?source=exchange_history&measure=FXUSDCAD&observation=2026-09-21"
+    ],
+    "pass": true
+  },
+  "qualifiers": {
+    "pass": true
+  },
+  "pass": true,
+  "finished_at": "2026-10-20T10:37:47.852Z",
+  "code_sha256": {
+    "../../lib/boc-history.js": "997ab7de7fbd8311226912327bcd1b7034b87e826adbb35e6670297d4120a186",
+    "../../lib/claimant-count.js": "e77a50925572c929ea1da413e12c2d32e89857dad77356013b50d014efc3cf6d",
+    "../../lib/fiscal-observations.js": "ce13935c9f6addb8464385acd44eed555b4bac2e166e66d612d6284d11dbe42d",
+    "../../lib/gap-information.js": "025715db9ea765c99232606fde11242a41610c3fac877b1498cf057a19bd8e39",
+    "../../lib/gap-schema.js": "e006a3d5de639f3f2e1d37d05095d343b1caf4ed44be87716dc5ce66bd59bac6",
+    "../../lib/information-v2.js": "df60d12fe6fcb5282eff867facb88e90c26eb004d2b8f2a15f9b14b6ceab7617",
+    "../../lib/information.js": "3110219caac02df1c22df226e46e33acc986a82205ec5bd1ef6f29f87617ab8c",
+    "../../lib/inventory.js": "8e20a654516a381e7720bec54b53ee2f04324b8e9e5abefcda467f7d907bd48a",
+    "../../lib/nz-market-rent.js": "9ef4d34d0a964e5b89438e80d752e4fcb23a4576e40164955c7086bd31c60128",
+    "../../lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "../../lib/statcan-gdp.js": "5fcc856095d0da517678abc242fdffdd96cdb9dc066fba0e28b98e4f466b7bc1",
+    "../../lib/statcan-headlines-contracts.js": "1565cdd31d23148da3cca309f065f0d904f9ac86b2284f79e30bc037770a6d24",
+    "../../lib/statcan-headlines.js": "d992d716cc65e6ce62b4278cd42f30fa9f9a01b2f391d1ea1ea7a8e4aad39210",
+    "../../lib/stats-nz-series.js": "18741243faf6d1b1de72a3001c48a74f71a9f0112106e56e2481b941e61ca008",
+    "../../lib/stats-nz.js": "c2ce5abfb7a57296f0e0b9a69bf740891d54a3877229a40b36eeb6618449b07a",
+    "../../lib/us-cpi-table.js": "782509da4fda47c79e88c8bb0fb0f7094c5b85f41f2cbe0c3f1894487b8eecf2",
+    "../../lib/us-cpi-workbook.js": "73c5cfe0f8aad563333aeb2742c8a53972393e76c93e05302d4eb9a1db4041bc",
+    "../../lib/us-cpi.js": "25867ee3bd77235296dcca8248365ae4bb141b25577aab95e20db69180e44bed",
+    "../../lib/wra-depth.js": "3e7f58e3fc4026eb4fcc6b0b120c89999475ebc71c5405865f7ce01da2f40645",
+    "../../package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a",
+    "boc/original/latest.json": "b39e47b2afea9da4b6761a6ecb88ee4551e1af78fac9a0f13f6c900542f6332e",
+    "boc/original/window.json": "d21098483e797570d64ddc12937d7cf9bfef524ec8fb7cb81580adf7c3261b4e",
+    "check-preview.mjs": "6700b809265c00b83ef84dda554f9b7816c11053175f6114d9f41b0f918d6233",
+    "integration.toml": "a79895ae45d9b7e03437b56b0a580e5297ce5e208436b8e91371eefbb1d16c4a",
+    "preview-worker.js": "b5d62462604d04275f97a802b63e5654d1c3ae5c61f1769903db6986c6495aac",
+    "statcan/homes/original/cube-metadata.json": "5e6752543bcae72b9fe6bbbb19e9f043dc369cd516cb66b8e73d14ff3536f932",
+    "statcan/homes/original/series-metadata.json": "9f0771892668578fb4c27f5f62336cdfbba7043849652f8e4a22c166bdeb777e",
+    "statcan/homes/original/wds-selected.json": "763fa7c1496775155ff7c3c75a2803cc3bc0a62bc7e5fb2b55d8e7d65850b47f",
+    "statcan/jobs/original/cube-metadata.json": "ffcd3e6de2538f6af58566747791f43190798cea5da7850bb7c27475aa24b8c7",
+    "statcan/jobs/original/series-metadata.json": "7d3a43539df708ec986257a6abf99bd8e523c1090f1dfb328cf1470cbe165209",
+    "statcan/jobs/original/wds-selected.json": "e1e113eb495b00d7384a313c608754c8239bf4f14f55b78792184bf8e722becf",
+    "statcan/price_index/original/cube-metadata.json": "0a403d7e4ba715605cdc7e8c6feffe5d61c824d0b6fc95c6c4871ca777ae482f",
+    "statcan/price_index/original/series-metadata.json": "46ab8ced94ee6577a77dd338a312da5800db75c8841399c6369ba263eaf11f17",
+    "statcan/price_index/original/wds-selected.json": "5fdfc312d2c59aba496b781735f1aad291c12b1307adcd2ca28813bd1bd61ecf",
+    "statcan/shop/original/cube-metadata.json": "ac06ea9ef699e44b2254852b9927e3ca8e186b974911de20a95075aed26c5138",
+    "statcan/shop/original/series-metadata.json": "d0105a8148ed11a49256cb2af3c82088d569af50b94897d59c8d2ecfdc8cfe32",
+    "statcan/shop/original/wds-selected.json": "7e17444b74bf1a10af97c1cdf6cd4a91076a5de6a159cd7fb6f582b467d9828e",
+    "wra/original/wra-data.csv": "3b4a0faaf7537d76e0cb7918abc7e75c31a63813c278ba580167e52f35618480"
+  },
+  "code_unchanged": true
+}

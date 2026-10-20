@@ -1,0 +1,28 @@
+{
+  "kind": "Implementation release semantic gate with explicit upstream availability boundary",
+  "checked_at": "2026-10-20T10:30:56.971718+00:00",
+  "strict_report": "/tmp/mr-gap-sepa-timeout-reviewed-final-semantic.json",
+  "strict_report_sha256": "e281ae82112b2e01450c4cb3705b95346b51b5f62b6cfd9713a6635d224238ee",
+  "strict_semantics_pass": false,
+  "release_gate_pass": true,
+  "unresolved_source_availability": [
+    {
+      "source": "scotland/river_level",
+      "status": "error",
+      "http_status": null,
+      "error": "Source request timed out",
+      "approved_transport_states": [
+        "exact publisher HTTP503",
+        "exact source timeout with no HTTPstatus and null native value"
+      ],
+      "interpretation": "Existing reader remains unavailable: accepted production returned503; this capture reports the exact recorded503 or timeout with null native value. Reader and fetch modules are unchanged. Transport outcomes are distinguished; no successful observation or numerical recovery is claimed.",
+      "candidate_scotland_sha256": "6f14612668e0dbd7b8b2d363032108ad452c31c7b873dbbd17a50157221cabb1",
+      "accepted_production_comparison_sha256": "7e9b479e00b60a02eca74115136604cf43199edef50d4da4f84b7bf68783037e",
+      "unchanged_git_blobs": {
+        "lib/open-observations.js": "bfa9841db8c777e2931db315dea6d8ad3bdf2937",
+        "lib/sources.js": "c04a18e90732c7c52d4fd2353630e70cdf3e28d3"
+      },
+      "monitoring": "Existing source remains enabled with honest error and independent siblings. No checkpoint, receipt, schedule or source alert changed."
+    }
+  ]
+}

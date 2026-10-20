@@ -1,0 +1,88 @@
+{
+  "kind": "Static audit and immutable revised release-gate tooling snapshot",
+  "recorded_at": "2026-10-20T10:36:09.797706+00:00",
+  "files": [
+    {
+      "original_path": "/tmp/mr-gap-core-semantic-gate.py",
+      "file": "mr-gap-core-semantic-gate.py",
+      "bytes": 4946,
+      "sha256": "fdcdbaffde91dbe32652596499b2ec5213f2dda287749487a0550e4804d511f3"
+    },
+    {
+      "original_path": "/tmp/mr-gap-production-health-gate.py",
+      "file": "mr-gap-production-health-gate.py",
+      "bytes": 17883,
+      "sha256": "2d2baa38c04117e338834bfd7ffbc2feeeb1ae646900b3140ea25da19d69611b"
+    },
+    {
+      "original_path": "/tmp/mr-gap-production-health-gate-controls-v3.json",
+      "file": "mr-gap-production-health-gate-controls-v3.json",
+      "bytes": 1091,
+      "sha256": "88090b7750b7c4edc0bbb279586b7b5c16709f7be6108ffc11ff12387e967df3"
+    },
+    {
+      "original_path": "/tmp/mr-gap-sepa-timeout-reviewed-final-semantic.json",
+      "file": "mr-gap-sepa-timeout-reviewed-final-semantic.json",
+      "bytes": 23797,
+      "sha256": "e281ae82112b2e01450c4cb3705b95346b51b5f62b6cfd9713a6635d224238ee"
+    },
+    {
+      "original_path": "/tmp/mr-gap-sepa-timeout-reviewed-final-semantic-release-gate.json",
+      "file": "mr-gap-sepa-timeout-reviewed-final-semantic-release-gate.json",
+      "bytes": 1602,
+      "sha256": "697ed153324cce02e8c1291f1184e3c5f984b62f8563107cbfac975ac2598e71"
+    },
+    {
+      "original_path": "/tmp/mr-gap-sepa-timeout-reviewed-semantic.json",
+      "file": "mr-gap-sepa-timeout-reviewed-semantic.json",
+      "bytes": 23685,
+      "sha256": "2e32ddd1da69f218abb327dd7a54cca1dc049d9dd7c5d92991dd08367639dce2"
+    },
+    {
+      "original_path": "/tmp/mr-gap-sepa-timeout-reviewed-semantic-release-gate.json",
+      "file": "mr-gap-sepa-timeout-reviewed-semantic-release-gate.json",
+      "bytes": 484,
+      "sha256": "3cc0a8b81159b41caece26a73f87c6ee81e6a7b8d3405c6decb5087a78e97b5a"
+    }
+  ],
+  "control_report_sha256_matches_helper": true,
+  "constructed_controls_pass": 11,
+  "audit": {
+    "method": "Read-only source review, retained report/hash binding and Git blob comparison; no wrapper execution or HTTP during packaging.",
+    "only_semantic_exception": "Exactly the single SEPA Galashiels observation failure among 50 checks, with strict result retained as false and native scotland.river_level null.",
+    "exact_allowed_transport_states": [
+      {
+        "status": "error",
+        "http_status": 503,
+        "error": "timeseries.sepa.org.uk returned HTTP 503"
+      },
+      {
+        "status": "error",
+        "http_status": "property must be absent",
+        "error": "Source request timed out"
+      }
+    ],
+    "baseline_binding": "Accepted GDP identity, exact earlier SEPA503/null body digest, acquisition within six hours, and unchanged reader/fetch Git blobs are required.",
+    "unchanged_git_blobs": {
+      "lib/open-observations.js": "bfa9841db8c777e2931db315dea6d8ad3bdf2937",
+      "lib/sources.js": "c04a18e90732c7c52d4fd2353630e70cdf3e28d3"
+    },
+    "generic_parse_failure_permitted": false,
+    "non_null_failed_observation_permitted": false,
+    "unrelated_semantic_failure_permitted": false,
+    "reader_change_permitted": false,
+    "genuine_strict_pass_supported_without_exception": true,
+    "production_success_implied": false,
+    "prior_failed_reports_rewritten": false
+  },
+  "sensitive_scan": {
+    "categories": [
+      "credential",
+      "private_auth_header",
+      "signed_url",
+      "private_key",
+      "bearer"
+    ],
+    "findings": []
+  }
+}

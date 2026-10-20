@@ -1,0 +1,264 @@
+{
+  "pass": true,
+  "passed": true,
+  "verified_at": "2026-10-20T09:34:11.245Z",
+  "method": "Actual existing JavaScript readers decode retained original workbook bytes offline and reconcile all12 cells with independently extracted Python XML reference.",
+  "observations_compared": 12,
+  "negative_cases": 12,
+  "reference_sha256": "03c57b0b2401e7d3efc79619842f55736dd4247a3ffd2d1bb14917bf1a21a854",
+  "runtime_source_hashes": {
+    "lib/transport-observations.js": "4cc5a4b2093e6e40e8611a680193388a49a3744afcde783e665555d83cf548c1",
+    "lib/workbook.js": "2f9ab2128e36b520156e9ea05957fbc04e3b6da4ffcee358b7bc77cb586ea25a"
+  },
+  "comparisons": [
+    {
+      "source": "new_zealand",
+      "category": "Light passenger",
+      "original_cell": "B27",
+      "value": 3534392,
+      "pass": true
+    },
+    {
+      "source": "new_zealand",
+      "category": "Light commercial",
+      "original_cell": "C27",
+      "value": 775441,
+      "pass": true
+    },
+    {
+      "source": "new_zealand",
+      "category": "MCycle",
+      "original_cell": "D27",
+      "value": 209417,
+      "pass": true
+    },
+    {
+      "source": "new_zealand",
+      "category": "Trucks",
+      "original_cell": "E27",
+      "value": 174787,
+      "pass": true
+    },
+    {
+      "source": "new_zealand",
+      "category": "Bus",
+      "original_cell": "F27",
+      "value": 12057,
+      "pass": true
+    },
+    {
+      "source": "new_zealand",
+      "category": "Other",
+      "original_cell": "G27",
+      "value": 39005,
+      "pass": true
+    },
+    {
+      "source": "new_zealand",
+      "category": "Total",
+      "original_cell": "H27",
+      "value": 4745099,
+      "pass": true
+    },
+    {
+      "source": "new_zealand",
+      "category": "Total light",
+      "original_cell": "I27",
+      "value": 4309833,
+      "pass": true
+    },
+    {
+      "source": "scotland",
+      "category": "Motorways",
+      "original_cell": "AE6",
+      "value": 8742,
+      "pass": true
+    },
+    {
+      "source": "scotland",
+      "category": "All A roads Total",
+      "original_cell": "AE15",
+      "value": 22937,
+      "pass": true
+    },
+    {
+      "source": "scotland",
+      "category": "All minor roads",
+      "original_cell": "AE19",
+      "value": 17633,
+      "pass": true
+    },
+    {
+      "source": "scotland",
+      "category": "All roads",
+      "original_cell": "AE23",
+      "value": 49313,
+      "pass": true
+    }
+  ],
+  "mutations": [
+    {
+      "name": "NZ wrong national workbook title",
+      "rejected": true
+    },
+    {
+      "name": "NZ wrong table/units label",
+      "rejected": true
+    },
+    {
+      "name": "NZ missing latest count",
+      "rejected": true
+    },
+    {
+      "name": "NZ suppressed count",
+      "rejected": true
+    },
+    {
+      "name": "NZ duplicate latest period",
+      "rejected": true
+    },
+    {
+      "name": "NZ new unreviewed edition",
+      "rejected": true
+    },
+    {
+      "name": "Scotland wrong units",
+      "rejected": true
+    },
+    {
+      "name": "Scotland changed statistical status",
+      "rejected": true
+    },
+    {
+      "name": "Scotland missing latest count",
+      "rejected": true
+    },
+    {
+      "name": "Scotland suppressed estimate",
+      "rejected": true
+    },
+    {
+      "name": "Scotland duplicate latest period",
+      "rejected": true
+    },
+    {
+      "name": "Scotland new unreviewed edition",
+      "rejected": true
+    }
+  ],
+  "native": {
+    "new_zealand": {
+      "source": "New Zealand Ministry of Transport",
+      "source_url": "https://www.transport.govt.nz/assets/Uploads/NZVehicleFleet_2024-1.xlsx",
+      "publication_url": "https://www.transport.govt.nz/statistics-and-insights/fleet-statistics/sheet/annual-fleet-statistics",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Source: the Ministry of Transport and licensed by the Ministry of Transport for re-use under CC BY 4.0.",
+      "geography": "New Zealand",
+      "period": "2024",
+      "release": "Annual Motor Vehicle Fleet Statistics 2024, published October/November 2025",
+      "rows": [
+        {
+          "category": "Light passenger",
+          "value": 3534392,
+          "unit": "vehicles",
+          "geography": "New Zealand",
+          "period": "2024"
+        },
+        {
+          "category": "Light commercial",
+          "value": 775441,
+          "unit": "vehicles",
+          "geography": "New Zealand",
+          "period": "2024"
+        },
+        {
+          "category": "Motorcycles",
+          "value": 209417,
+          "unit": "vehicles",
+          "geography": "New Zealand",
+          "period": "2024"
+        },
+        {
+          "category": "Trucks",
+          "value": 174787,
+          "unit": "vehicles",
+          "geography": "New Zealand",
+          "period": "2024"
+        },
+        {
+          "category": "Bus",
+          "value": 12057,
+          "unit": "vehicles",
+          "geography": "New Zealand",
+          "period": "2024"
+        },
+        {
+          "category": "Other",
+          "value": 39005,
+          "unit": "vehicles",
+          "geography": "New Zealand",
+          "period": "2024"
+        },
+        {
+          "category": "Total",
+          "value": 4745099,
+          "unit": "vehicles",
+          "geography": "New Zealand",
+          "period": "2024"
+        },
+        {
+          "category": "Total light",
+          "value": 4309833,
+          "unit": "vehicles",
+          "geography": "New Zealand",
+          "period": "2024"
+        }
+      ],
+      "note": "Published annual fleet composition, table 1.1; not a live vehicle-register count. Ministry categories differ from NZTA classifications. This table includes Other; Total light overlaps the passenger and commercial categories. Do not add subtotals to component categories. Vehicles exempt from licensing and restoration licences are excluded. This is the explicitly dated 2024 release, not a claim that newer releases cannot exist."
+    },
+    "scotland": {
+      "source": "Transport Scotland; Department for Transport estimates",
+      "source_url": "https://www.transport.gov.scot/media/rjzlatp0/chapter-5-road-traffic-excel.xlsx",
+      "publication_url": "https://www.transport.gov.scot/publication/scottish-transport-statistics-2025/",
+      "licence": "Open Government Licence v3.0",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "geography": "Scotland",
+      "period": "2024",
+      "release": "Scottish Transport Statistics 2025, published 25 March 2026",
+      "statistical_status": "Not Accredited Official Statistics",
+      "rows": [
+        {
+          "road_type": "Motorways",
+          "value": 8742,
+          "unit": "million vehicle kilometres",
+          "geography": "Scotland",
+          "period": "2024"
+        },
+        {
+          "road_type": "All A roads Total",
+          "value": 22937,
+          "unit": "million vehicle kilometres",
+          "geography": "Scotland",
+          "period": "2024"
+        },
+        {
+          "road_type": "All minor roads",
+          "value": 17633,
+          "unit": "million vehicle kilometres",
+          "geography": "Scotland",
+          "period": "2024"
+        },
+        {
+          "road_type": "All roads",
+          "value": 49313,
+          "unit": "million vehicle kilometres",
+          "geography": "Scotland",
+          "period": "2024"
+        }
+      ],
+      "note": "Calendar-year distance travelled on Scottish roads, not the number of vehicles or road length. Table 5.1. Minor-road estimates since 2000 have been revised following benchmarking; totals may differ from sums because of rounding. Motorways include A(M) roads. The total overlaps all three component categories. This reader uses the explicitly named 2025 publication."
+    }
+  },
+  "limits": "No live desk, production identity, deployment or scheduled monitoring acceptance is claimed. Python and JS decode the same original workbooks; independently edited Scotland chapter corroborates rounded values."
+}

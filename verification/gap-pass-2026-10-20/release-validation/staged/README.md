@@ -1,0 +1,7 @@
+# Completed staged evidence
+
+The original 251 files are retained byte-identically from the completed `/tmp/mr-gap-held-staged-20261020` run. `summary.json` records all 19 staged gates passing for source `bf3110e3bcbbc7db6d629254a886356e80f4c24a`, Worker `7f93e660-666c-435a-9b8b-bc37c060ac02`, fingerprint `f815539b2fa5b866`. The candidate remained at zero percent during staging. This package does not establish production acceptance.
+
+`packaging-manifest.json` binds every retained original file by bytes and SHA-256 and supplies relocation prefixes; original embedded paths and reports have not been rewritten. The original summary covers its 250 constituent files; the packaging manifest also binds the original summary itself. All six independent reference hashes match the repository specimens. Strict core semantics passed 50/50 with no SEPA availability exception; the six active contracts reconcile 56 values. AEMO completed-day discovery and requests remain disabled. Stats NZ retains 11 exact independent numerical comparisons, not acceptance of all 23 numerical selections.
+
+Automated scans of all original staged files found no private authorization/cookie headers, signed download URLs, token prefixes, private keys, or email addresses. This bounded scan is recorded in the manifest; no source body was transformed. Historical failed evidence elsewhere in this directory remains unchanged.

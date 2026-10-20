@@ -1,0 +1,202 @@
+{
+  "passed": true,
+  "synthetic_positive_fixture": true,
+  "actual_reader_capture_tested": false,
+  "independent_references_extracted": 11,
+  "negative_controls": 24,
+  "rejected": 24,
+  "controls": [
+    {
+      "control": "wrong_period_new_vintage",
+      "rejected": true,
+      "errors": [
+        "POPPR_NAT_007 has a different period; new vintage not approved"
+      ]
+    },
+    {
+      "control": "wrong_projection_scenario",
+      "rejected": true,
+      "errors": [
+        "POPPR_NAT_007.dimensions differs from pinned selection metadata"
+      ]
+    },
+    {
+      "control": "wrong_held_household_scenario",
+      "rejected": true,
+      "errors": [
+        "POPPR_FHH_003.dimensions differs from pinned selection metadata"
+      ]
+    },
+    {
+      "control": "wrong_measure",
+      "rejected": true,
+      "errors": [
+        "INC_INC_010.dimensions differs from pinned selection metadata"
+      ]
+    },
+    {
+      "control": "rounded_numeric",
+      "rejected": true,
+      "errors": [
+        "HES_HES_001 differs from exact official reference; rounding/substitution not permitted"
+      ]
+    },
+    {
+      "control": "missing_numeric",
+      "rejected": true,
+      "errors": [
+        "BDS_BDS_004 is not a native finite numeric value"
+      ]
+    },
+    {
+      "control": "numeric_string",
+      "rejected": true,
+      "errors": [
+        "BDS_BDS_004 is not a native finite numeric value"
+      ]
+    },
+    {
+      "control": "numeric_boolean",
+      "rejected": true,
+      "errors": [
+        "BDS_BDS_004 is not a native finite numeric value"
+      ]
+    },
+    {
+      "control": "numeric_nan",
+      "rejected": true,
+      "errors": [
+        "BDS_BDS_004 differs from exact official reference; rounding/substitution not permitted"
+      ]
+    },
+    {
+      "control": "suppression_converted_to_zero",
+      "rejected": true,
+      "errors": [
+        "BDS_BDS_004 differs from exact official reference; rounding/substitution not permitted"
+      ]
+    },
+    {
+      "control": "wrong_kind",
+      "rejected": true,
+      "errors": [
+        "POPPR_NAT_007.kind differs from pinned selection metadata"
+      ]
+    },
+    {
+      "control": "wrong_geography",
+      "rejected": true,
+      "errors": [
+        "HES_HES_001.geography differs from pinned selection metadata"
+      ]
+    },
+    {
+      "control": "wrong_unit",
+      "rejected": true,
+      "errors": [
+        "HES_HES_001.unit differs from pinned selection metadata"
+      ]
+    },
+    {
+      "control": "missing_population",
+      "rejected": true,
+      "errors": [
+        "INC_INC_011.population_group missing or differs from source-backed metadata contract"
+      ]
+    },
+    {
+      "control": "wrong_household_population",
+      "rejected": true,
+      "errors": [
+        "INC_INC_011.population_group missing or differs from source-backed metadata contract"
+      ]
+    },
+    {
+      "control": "missing_snapshot_convention",
+      "rejected": true,
+      "errors": [
+        "INC_INC_011.period_convention missing or differs from source-backed metadata contract"
+      ]
+    },
+    {
+      "control": "missing_snapshot_limitation",
+      "rejected": true,
+      "errors": [
+        "INC_INC_011.limitations missing or differs from source-backed metadata contract"
+      ]
+    },
+    {
+      "control": "missing_prison_discontinuation",
+      "rejected": true,
+      "errors": [
+        "CORR_FIS_005.publication_status missing or differs from source-backed metadata contract"
+      ]
+    },
+    {
+      "control": "missing_justice_discontinuation",
+      "rejected": true,
+      "errors": [
+        "JUS_FIS_001.publication_status missing or differs from source-backed metadata contract"
+      ]
+    },
+    {
+      "control": "missing_index_reference",
+      "rejected": true,
+      "errors": [
+        "PRD_PRD_001.index_reference missing or differs from source-backed metadata contract"
+      ]
+    },
+    {
+      "control": "reference_row_error",
+      "rejected": true,
+      "errors": [
+        "IWI18_GRP_001 is not available for exact numerical verification"
+      ]
+    },
+    {
+      "control": "duplicate_row",
+      "rejected": true,
+      "errors": [
+        "Duplicate row id: AGR_AGR_002",
+        "Native Stats NZ row id set differs from the fixed 23 definitions"
+      ]
+    },
+    {
+      "control": "missing_row",
+      "rejected": true,
+      "errors": [
+        "Expected exactly 23 native Stats NZ rows",
+        "Native Stats NZ row id set differs from the fixed 23 definitions"
+      ]
+    },
+    {
+      "control": "missing_native_rows",
+      "rejected": true,
+      "errors": [
+        "Missing native stats.rows array",
+        "Expected exactly 23 native Stats NZ rows",
+        "Native Stats NZ row id set differs from the fixed 23 definitions"
+      ]
+    }
+  ],
+  "cli_checks": [
+    {
+      "control": "synthetic_valid_cli",
+      "exit_code": 0,
+      "report_written": true
+    },
+    {
+      "control": "invalid_json_cli",
+      "exit_code": 1,
+      "report_written": true
+    },
+    {
+      "control": "nonfinite_json_cli",
+      "exit_code": 1,
+      "report_written": true
+    }
+  ],
+  "unverified_cell_does_not_gain_numeric_acceptance": true,
+  "all_23_numeric_acceptance": false,
+  "future_vintages_approved": false
+}

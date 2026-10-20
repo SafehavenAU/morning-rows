@@ -1,0 +1,535 @@
+{
+  "checked_at": "2026-10-20T10:52:23.749258+00:00",
+  "method": "Offline Draft2020-12/format assertions and Decimal comparison against separate retained Python workbook extraction",
+  "identity_valid": true,
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "bf3110e3bcbbc7db6d629254a886356e80f4c24a",
+    "source_dirty": false,
+    "build_fingerprint": "f815539b2fa5b866",
+    "worker_version": "7f93e660-666c-435a-9b8b-bc37c060ac02",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  },
+  "inputs": [
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/report.json",
+      "sha256": "4e90db3a0c3dcbde130efcf7136828b4690104ad9d8a07881510a5f57f3f4be3"
+    },
+    {
+      "file": "verification/us-paid-2026-10-20/workbook-recheck.json",
+      "sha256": "6dd9ee402385fc1f09f3b3abd4ff3700ae0d6ad1d779c5d56c292a4af70f8e9e"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fschema.json.body",
+      "sha256": "1b6322517ffba7ec55e9735eee7c40f6d495746af7e1fe2586d3bc614d38b79c"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fschema.v2.json.body",
+      "sha256": "0ba91e5a857e9306113273b3839695d2cb6dd2bec961a098d526258df1cb6463"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fcatalog.json.body",
+      "sha256": "5b74d83dc03adb79e15c12daa3351a253ced5643bf6a0c664f2262352e7165ce"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fcatalog.v2.json.body",
+      "sha256": "e5a665c2689e1a12c071f771ced8935b54865f9f5bd5c0ba3e8eaead79c85cc6"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Faustralia.json.body",
+      "sha256": "74d8b659c329709c4110ec4c467f66015ebcbbb216d95744877797fd7076ae68"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fnew-zealand.json.body",
+      "sha256": "c4579bab6caaa5a1f57cd4d38ddf827e3dbab2251629d2aae94113aef4418aac"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fcanada.json.body",
+      "sha256": "be13e22157070cb76e00475f9bd939e96ac9da8a7e15b1b1c5b9dab719df9bd9"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Funited-kingdom.json.body",
+      "sha256": "d4fcc8ab2c33da75ece903808b5342e563c42506893fccd13b82a8326841c478"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fengland.json.body",
+      "sha256": "f0e4c32744870640cb1bc2846189649d5b025224fa8173f4870563855f0c28f0"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fscotland.json.body",
+      "sha256": "49f168bb9c412455262dad0d7d0c3273dfd049476bc6f61c06f4452e3c949483"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fwales.json.body",
+      "sha256": "006c96c8cd7d030b1c7b2ca464c62f38b93faddbc748447b30f1f8abb1e42be9"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Fnorthern-ireland.json.body",
+      "sha256": "2c1e073208f3e6d108c6a7537c97da116e3dcee5b39e26f57a367788ac175ccf"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Funited-states.json.body",
+      "sha256": "ed1966f1f26ffc676cc4dd965982daa035d8c4414da316a772e4822ff3ca8143"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/apex-%2Funited-states.json%3Fsource%3Dcpi%26measure%3DCUUR0000SA0.body",
+      "sha256": "8f58cc6b4da8dde85636e9287bc526a7ad362b557cf96f2b10902fab66d99176"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fschema.json.body",
+      "sha256": "1b6322517ffba7ec55e9735eee7c40f6d495746af7e1fe2586d3bc614d38b79c"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fschema.v2.json.body",
+      "sha256": "0ba91e5a857e9306113273b3839695d2cb6dd2bec961a098d526258df1cb6463"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fcatalog.json.body",
+      "sha256": "5b74d83dc03adb79e15c12daa3351a253ced5643bf6a0c664f2262352e7165ce"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fcatalog.v2.json.body",
+      "sha256": "e5a665c2689e1a12c071f771ced8935b54865f9f5bd5c0ba3e8eaead79c85cc6"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Faustralia.json.body",
+      "sha256": "b6ecc8cc52680d1f40592cfc1cdccb03192cd0dfc8ead8dcae0acf9e048c31d6"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fnew-zealand.json.body",
+      "sha256": "96a111553bdcb2ccd497e8f595ab108e991586accd175959a70bf30dfa6647c1"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fcanada.json.body",
+      "sha256": "1d3c9464edc350a96ccd602fddd1e982a326ebe871a14f97bbcc671f3ae4e397"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Funited-kingdom.json.body",
+      "sha256": "f87926d5a02d79ecc18c488df69c3af9f4773c56ac6842cf40fb583ad3b0b2c8"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fengland.json.body",
+      "sha256": "3d1121045e56e9d32d2a7ea17c14cc42e90b994a05caf6ce2370b4294b2aa2aa"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fscotland.json.body",
+      "sha256": "92e534e1d837ddcc7f1316c7f57ffd9ced6200e9f72474e3c55876de3ab758cd"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fwales.json.body",
+      "sha256": "f24dec26a26d03076251c3e57e3044f3ee8c47ed2895945abca1c7e094f5cf4b"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Fnorthern-ireland.json.body",
+      "sha256": "2d44dc6edc32db5d6492b49c7355f769c62fae6c6558506e751ac80df0d8f23e"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Funited-states.json.body",
+      "sha256": "ed1966f1f26ffc676cc4dd965982daa035d8c4414da316a772e4822ff3ca8143"
+    },
+    {
+      "file": "/tmp/mr-gap-held-production-20261020/production-core/www-%2Funited-states.json%3Fsource%3Dcpi%26measure%3DCUUR0000SA0.body",
+      "sha256": "8f58cc6b4da8dde85636e9287bc526a7ad362b557cf96f2b10902fab66d99176"
+    }
+  ],
+  "schema_checks": [
+    {
+      "domain": "apex",
+      "path": "/catalog.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/catalog.v2.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/australia.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/new-zealand.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/canada.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-kingdom.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/england.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/scotland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/wales.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/northern-ireland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-states.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "apex",
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/catalog.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/catalog.v2.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/australia.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/new-zealand.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/canada.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-kingdom.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/england.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/scotland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/wales.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/northern-ireland.json",
+      "schema": "v1",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-states.json",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "domain": "www",
+      "path": "/united-states.json?source=cpi&measure=CUUR0000SA0",
+      "schema": "v2",
+      "pass": true,
+      "errors": []
+    }
+  ],
+  "us_comparisons": [
+    {
+      "domain": "apex",
+      "period": "2025-09",
+      "expected_value_text": "324.800",
+      "observed_value_text": "324.800",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-10",
+      "expected_value_text": null,
+      "observed_value_text": "-",
+      "value_state": "unavailable",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-11",
+      "expected_value_text": "324.122",
+      "observed_value_text": "324.122",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2025-12",
+      "expected_value_text": "324.054",
+      "observed_value_text": "324.054",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-01",
+      "expected_value_text": "325.252",
+      "observed_value_text": "325.252",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-02",
+      "expected_value_text": "326.785",
+      "observed_value_text": "326.785",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-03",
+      "expected_value_text": "330.213",
+      "observed_value_text": "330.213",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-04",
+      "expected_value_text": "333.020",
+      "observed_value_text": "333.020",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-05",
+      "expected_value_text": "335.123",
+      "observed_value_text": "335.123",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-06",
+      "expected_value_text": "333.952",
+      "observed_value_text": "333.952",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-07",
+      "expected_value_text": "333.918",
+      "observed_value_text": "333.918",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-08",
+      "expected_value_text": "334.980",
+      "observed_value_text": "334.980",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "apex",
+      "period": "2026-09",
+      "expected_value_text": "336.940",
+      "observed_value_text": "336.940",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-09",
+      "expected_value_text": "324.800",
+      "observed_value_text": "324.800",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-10",
+      "expected_value_text": null,
+      "observed_value_text": "-",
+      "value_state": "unavailable",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-11",
+      "expected_value_text": "324.122",
+      "observed_value_text": "324.122",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2025-12",
+      "expected_value_text": "324.054",
+      "observed_value_text": "324.054",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-01",
+      "expected_value_text": "325.252",
+      "observed_value_text": "325.252",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-02",
+      "expected_value_text": "326.785",
+      "observed_value_text": "326.785",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-03",
+      "expected_value_text": "330.213",
+      "observed_value_text": "330.213",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-04",
+      "expected_value_text": "333.020",
+      "observed_value_text": "333.020",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-05",
+      "expected_value_text": "335.123",
+      "observed_value_text": "335.123",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-06",
+      "expected_value_text": "333.952",
+      "observed_value_text": "333.952",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-07",
+      "expected_value_text": "333.918",
+      "observed_value_text": "333.918",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-08",
+      "expected_value_text": "334.980",
+      "observed_value_text": "334.980",
+      "value_state": "observed",
+      "pass": true
+    },
+    {
+      "domain": "www",
+      "period": "2026-09",
+      "expected_value_text": "336.940",
+      "observed_value_text": "336.940",
+      "value_state": "observed",
+      "pass": true
+    }
+  ],
+  "counts": {
+    "apex": {
+      "slots": 13,
+      "unique_periods": 13,
+      "reference_coverage": true
+    },
+    "www": {
+      "slots": 13,
+      "unique_periods": 13,
+      "reference_coverage": true
+    }
+  },
+  "source_comparison": null,
+  "pass": true,
+  "missing_value_comparison": "Workbook null with the October 2025 note equals public null numeric value, dash text, unavailable state and exact X footnote.",
+  "limitations": [
+    "All BLS presentations share statistical lineage; this is separate extraction/presentation evidence.",
+    "Does not make new network requests or establish sustained monitoring acceptance.",
+    "Original failed or mixed-rollout captures remain separate evidence and are not rewritten."
+  ]
+}

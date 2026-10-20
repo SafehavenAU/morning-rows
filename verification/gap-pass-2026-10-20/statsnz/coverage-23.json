@@ -1,0 +1,584 @@
+{
+  "scope": "23 fixed selected Stats NZ cells only",
+  "exact_numeric_comparisons": 11,
+  "unresolved": 12,
+  "completed_23_series_acceptance": false,
+  "credential_boundary": "No key read, extracted, changed, registered or used outside existing Worker. Original public metadata/publications/workbooks only.",
+  "rows": [
+    {
+      "id": "AGR_AGR_001",
+      "name": "New forest area planted",
+      "period": "2018",
+      "value": 8293,
+      "unit": "hectares",
+      "dimensions": {
+        "FORESTRY_AGR_AGR_001": {
+          "code": "6050",
+          "label": "Total new area planted (hectares)"
+        },
+        "AREA_AGR_AGR_001": {
+          "code": "20",
+          "label": "Total New Zealand"
+        }
+      },
+      "status": "rounded_official_only",
+      "reason": "The dated 2018 original workbook Table 8 D34 reports 8,300 hectares of new exotic forest area for the year to 31 March 2018. This supports the retained 8,293 only at the workbook precision, not all reported digits.",
+      "evidence": "sources/rounded-workbook-excerpts.json",
+      "required_to_close": "Dated original exact-precision 2018 forestry export and its table metadata."
+    },
+    {
+      "id": "AGR_AGR_002",
+      "name": "Apple growing area",
+      "period": "2024",
+      "value": 9522,
+      "unit": "hectares",
+      "dimensions": {
+        "HORTICULTURE_AGR_AGR_002": {
+          "code": "8500",
+          "label": "Total apples (hectares)"
+        },
+        "AREA_AGR_AGR_002": {
+          "code": "20",
+          "label": "Total New Zealand"
+        }
+      },
+      "status": "rounded_official_only",
+      "reason": "Original 2024 final workbook Table 9 D29 reports 9,520 hectares of apples at 30 June 2024; retained target is 9,522. Agreement at published workbook precision is not exact verification.",
+      "evidence": "sources/rounded-workbook-excerpts.json",
+      "required_to_close": "Exact-precision 2024 apple-area export with national dimension, coverage and revision vintage."
+    },
+    {
+      "id": "AGR_AGR_003",
+      "name": "Total sheep",
+      "period": "2025",
+      "value": 23252463,
+      "unit": "animals",
+      "dimensions": {
+        "LIVESTOCK_AGR_AGR_003": {
+          "code": "6731",
+          "label": "Total sheep"
+        },
+        "AREA_AGR_AGR_003": {
+          "code": "20",
+          "label": "Total New Zealand"
+        }
+      },
+      "status": "rounded_official_only",
+      "reason": "Dated 2025 final release graph reports 23,252,000 sheep at 30 June 2025; retained target is 23,252,463. Only rounded agreement is supported.",
+      "evidence": "sources/agriculture.json",
+      "required_to_close": "Exact-precision final 2025 total sheep official table/export."
+    },
+    {
+      "id": "BDS_BDS_004",
+      "name": "Enterprises, all industries",
+      "period": "2025",
+      "value": 617334,
+      "unit": "enterprises",
+      "dimensions": {
+        "ANZSIC06_BDS_BDS_004": {
+          "code": "TOTAL",
+          "label": "Total Industry"
+        },
+        "MEASURE_BDS_BDS_004": {
+          "code": "ENT_COUNT",
+          "label": "Enterprises"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/enterprise.json /PageBlocks/3",
+      "qualification": "At February 2025; economically significant enterprises, provisional. Graph preserves exact count while prose rounds to ten.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "CORR_FIS_005",
+      "name": "Sentenced prisoners, all offences and demographic groups",
+      "period": "2025",
+      "value": 8199,
+      "unit": "people",
+      "dimensions": {
+        "OFFENCE_CORR_FIS_005": {
+          "code": "X",
+          "label": "Total offence"
+        },
+        "SEX_CORR_FIS_005": {
+          "code": "X",
+          "label": "Total sex"
+        },
+        "ETHNICITY_CORR_FIS_005": {
+          "code": "X",
+          "label": "Total ethnicity"
+        },
+        "DURATION_CORR_FIS_005": {
+          "code": "X",
+          "label": "Total duration"
+        },
+        "AGE_CORR_FIS_005": {
+          "code": "X",
+          "label": "Total age"
+        }
+      },
+      "status": "public_release_links_to_ADE_only",
+      "reason": "Dated June-2025 fiscal release provides ADE access and metadata, but no independently presented exact 8,199 cell in the acquired publication. Its 11 September 2026 notice discontinues fiscal releases.",
+      "evidence": "sources/prison.json",
+      "required_to_close": "Dated official total-sentenced-prisoners fiscal 2024/25 table/export, with counting/rounding semantics. Do not substitute calendar year or quarterly stock."
+    },
+    {
+      "id": "HES_HES_001",
+      "name": "Average weekly household expenditure, total",
+      "period": "2023",
+      "value": 1597.5,
+      "unit": "NZD per week",
+      "dimensions": {
+        "NZHEC_LEV_HES_HES_001": {
+          "code": "98",
+          "label": "Total"
+        },
+        "MEASURE_HES_HES_001": {
+          "code": "AV_WKLY_AMT",
+          "label": "Average weekly household expenditure"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/hes.json /PageBlocks/5",
+      "qualification": "Year ended June 2023; average weekly expenditure net of deductions; same 1597.5 published graph cell.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "INC_INC_001",
+      "name": "Median weekly earnings, all groups",
+      "period": "202606",
+      "value": 1391,
+      "unit": "NZD per week",
+      "dimensions": {
+        "ETHGP_INC_INC_001": {
+          "code": "98",
+          "label": "Total Ethnic Groups"
+        },
+        "LGR_INC_INC_001": {
+          "code": "98",
+          "label": "Total Regions"
+        },
+        "SEX_INC_INC_001": {
+          "code": "98",
+          "label": "Total Both Sexes"
+        },
+        "AGEGP_INC_INC_001": {
+          "code": "98",
+          "label": "Total Age Groups"
+        },
+        "MEASURE_INC_INC_001": {
+          "code": "MED_WEEK_INC",
+          "label": "Median Weekly Earnings"
+        }
+      },
+      "status": "exact_measure_or_vintage_unresolved",
+      "reason": "Retained 202606 target is 1,391. Original June-2026 release separately presents 1,419 for median weekly wage/salary earnings. The exact ADE table population/measure/vintage has not been reconciled; no defect or replacement value is asserted.",
+      "evidence": "sources/income-release.json",
+      "required_to_close": "Exact INC_INC_001 table metadata and original dated 202606 cell resolving earnings population and apparent headline difference."
+    },
+    {
+      "id": "INC_INC_010",
+      "name": "Gender pay gap, all ages",
+      "period": "202606",
+      "value": 5.3,
+      "unit": "percent",
+      "dimensions": {
+        "AGEGP_INC_INC_010": {
+          "code": "98",
+          "label": "Total Age Groups"
+        },
+        "MEASURE_INC_INC_010": {
+          "code": "MEDIAN_PAY_GAP",
+          "label": "Gender pay gap based on median hourly earnings (percent)"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/income-release.json /PageBlocks/8",
+      "qualification": "June-quarter median hourly wage/salary gap; 5.3 percent at published one-decimal precision, not an adjusted pay-equality measure.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "INC_INC_011",
+      "name": "Median household income from all sources, all regions and household types",
+      "period": "202606",
+      "value": 2438,
+      "unit": "NZD per week",
+      "dimensions": {
+        "LGR_INC_INC_011": {
+          "code": "98",
+          "label": "Total Regions"
+        },
+        "HHTYPE_INC_INC_011": {
+          "code": "98",
+          "label": "Total Household Type"
+        },
+        "MEASURE_INC_INC_011": {
+          "code": "MED_INC_ALL_SOUR",
+          "label": "Median Income from All Sources collected"
+        }
+      },
+      "status": "exact_household_cell_unavailable",
+      "reason": "Official income metadata establishes the household age exclusion and June-quarter weekly snapshot, but acquired publication has no household 2,438 cell. Individual income statistics cannot certify this household estimate.",
+      "evidence": "sources/income-metadata.json",
+      "required_to_close": "Exact dated INC_INC_011 household table/export for 202606, total LGR/HHTYPE and MED_INC_ALL_SOUR; confirm household aggregation/basis and revision status."
+    },
+    {
+      "id": "INJ_INJ_001",
+      "name": "Fatal and serious non-fatal injuries, all groups",
+      "period": "2021",
+      "value": 15525,
+      "unit": "injuries",
+      "dimensions": {
+        "SEVERITY_INJ_INJ_001": {
+          "code": "1",
+          "label": "Total fatal and serious non fatal injuries"
+        },
+        "SEX_INJ_INJ_001": {
+          "code": "1",
+          "label": "Total both sexes"
+        },
+        "ETHNIC_INJ_INJ_001": {
+          "code": "1",
+          "label": "Total all ethnic groups"
+        },
+        "AGE_INJ_INJ_001": {
+          "code": "1",
+          "label": "Total all ages"
+        },
+        "INJURY_INJ_INJ_001": {
+          "code": "1",
+          "label": "Total all injuries"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/injury-current-selected.csv, W_I21/2021",
+      "qualification": "Original updated 2000–2024 release CSV: all-population/all-age/all-cause combined serious injuries, 2021. Publication points to INJ_INJ_001. Later nonfatal-only year is not substituted; mortality/revision caveats remain.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "IWI18_GRP_001",
+      "name": "Ngai Tahu Whanui iwi grouping, Maori descent usually resident population",
+      "period": "2018",
+      "value": 75393,
+      "unit": "estimated people",
+      "dimensions": {
+        "IWI_IWI18_GRP_001": {
+          "code": "03",
+          "label": "Ngai Tahu Whanui"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/iwi.json /PageBlocks/24",
+      "qualification": "2018 estimated iwi grouping count; shared census/admin/nonresponse-weighting lineage, not an official 2018 Census count or 2023 observation.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "JUS_FIS_001",
+      "name": "Adults convicted, all regions and groups",
+      "period": "2025",
+      "value": 50741,
+      "unit": "people",
+      "dimensions": {
+        "COURT_CLUSTER_JUS_FIS_001": {
+          "code": "T",
+          "label": "Total Regions"
+        },
+        "MAIN_OFFENCE_JUS_FIS_001": {
+          "code": "00",
+          "label": "Total offences"
+        },
+        "AGE_GROUP_JUS_FIS_001": {
+          "code": "T",
+          "label": "Total Age"
+        },
+        "GENDER_JUS_FIS_001": {
+          "code": "T",
+          "label": "Total Gender"
+        },
+        "ETHNICITY_JUS_FIS_001": {
+          "code": "T",
+          "label": "Total Ethnicity"
+        },
+        "SENTENCE_JUS_FIS_001": {
+          "code": "T",
+          "label": "Total sentences"
+        }
+      },
+      "status": "public_release_links_to_ADE_only",
+      "reason": "Dated June-2025 fiscal release links ADE but does not independently present exact 50,741 adult convicted count. Fiscal releases discontinued by notice dated 11 September 2026.",
+      "evidence": "sources/justice.json",
+      "required_to_close": "Dated fiscal 2024/25 adult convictions exact total, counting scope/rounding; not calendar-year, charges or prosecutions."
+    },
+    {
+      "id": "LEED_AP1_001",
+      "name": "People with taxable income, all groups",
+      "period": "2024",
+      "value": 4091334,
+      "unit": "people",
+      "dimensions": {
+        "INCOME_SOURCE_LEED_AP1_001": {
+          "code": "IZ",
+          "label": "Total people"
+        },
+        "AGE_LEED_AP1_001": {
+          "code": "AZ",
+          "label": "Total age"
+        },
+        "SEX_LEED_AP1_001": {
+          "code": "XZ",
+          "label": "Total sex"
+        },
+        "REGION_LEED_AP1_001": {
+          "code": "RZ",
+          "label": "Total region"
+        }
+      },
+      "status": "public_release_links_to_ADE_only",
+      "reason": "Dated March-2024 annual LEED release states person-level March-year statistics and links ADE; no exact 4,091,334 total people with taxable income cell appears in acquired public release.",
+      "evidence": "sources/leed-annual.json",
+      "required_to_close": "Dated March-year 2024 IZ/AZ/XZ/RZ official export and population/tax-source definitions."
+    },
+    {
+      "id": "LEED_AP1_002",
+      "name": "Median annual earnings, total earnings and all groups",
+      "period": "2024",
+      "value": 57610,
+      "unit": "NZD per year",
+      "dimensions": {
+        "INCOME_SOURCE_LEED_AP1_002": {
+          "code": "IZ",
+          "label": "Total earnings"
+        },
+        "AGE_LEED_AP1_002": {
+          "code": "AZ",
+          "label": "Total age"
+        },
+        "SEX_LEED_AP1_002": {
+          "code": "XZ",
+          "label": "Total sex"
+        },
+        "REGION_LEED_AP1_002": {
+          "code": "RZ",
+          "label": "Total region"
+        }
+      },
+      "status": "public_release_links_to_ADE_only",
+      "reason": "Dated March-2024 annual LEED release links ADE; no independent 57,610 annual median-earnings cell appears. Taxable income population and total earnings must be distinguished.",
+      "evidence": "sources/leed-annual.json",
+      "required_to_close": "Dated 2024 total-earnings median exact export with income-source scope and tax-year convention."
+    },
+    {
+      "id": "LEED_Q1W_001",
+      "name": "Median earnings of full-quarter jobs, all ages",
+      "period": "202506",
+      "value": 18100,
+      "unit": "NZD per quarter",
+      "dimensions": {
+        "AGE_LEED_Q1W_001": {
+          "code": "A3Z",
+          "label": "Total age"
+        },
+        "MEASURE_LEED_Q1W_001": {
+          "code": "MEDIAN_EARN",
+          "label": "Median earnings of full quarters jobs"
+        }
+      },
+      "status": "public_release_links_to_ADE_or_Infoshare_only",
+      "reason": "Dated June-2025 quarterly LEED release links ADE and Infoshare. It has no independently presented exact 18,100 full-quarter-job median earnings cell. Jobs are not people and full-quarter jobs are not all/new-hire jobs.",
+      "evidence": "sources/leed-quarter.json",
+      "required_to_close": "Exact 202506 full-quarter jobs MEDIAN_EARN export with gross/tax/coverage and quarter convention."
+    },
+    {
+      "id": "POPES_SUB_001",
+      "name": "Estimated resident population, New Zealand",
+      "period": "2025",
+      "value": 5324700,
+      "unit": "people",
+      "dimensions": {
+        "AREA_POPES_SUB_001": {
+          "code": "RC9999",
+          "label": "Total New Zealand by regional council"
+        },
+        "MEASURE_POPES_SUB_001": {
+          "code": "POP",
+          "label": "Population"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/pop-sub-workbook.xlsx Table 1 D25",
+      "qualification": "At 30 June 2025 provisional national estimated resident population, regional council total; 2023 census base.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "POPES_ERP_005",
+      "name": "Estimated resident population, all ethnic groups, sexes and ages",
+      "period": "2023",
+      "value": 5200000,
+      "unit": "people",
+      "dimensions": {
+        "ETHNIC_POPES_ERP_005": {
+          "code": "9999",
+          "label": "Total people, ethnic group"
+        },
+        "SEX_POPES_ERP_005": {
+          "code": "3",
+          "label": "Total people, sex"
+        },
+        "AGE_POPES_ERP_005": {
+          "code": "999999",
+          "label": "Total people, age"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/pop-sub-workbook.xlsx Table 1 B25",
+      "qualification": "At 30 June 2023 national estimated resident population, all people. Exact all-person total; does not certify the ethnic disaggregation or its broader dataset.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "POPPR_NAT_007",
+      "name": "Population projection, median scenario, current calendar year",
+      "period": "2026",
+      "value": 5387700,
+      "unit": "people",
+      "dimensions": {
+        "SCENARIO_POPPR_NAT_007": {
+          "code": "P50",
+          "label": "50th percentile (median)"
+        },
+        "SEX_POPPR_NAT_007": {
+          "code": "SEX3",
+          "label": "Total people, sex"
+        },
+        "AGE_POPPR_NAT_007": {
+          "code": "TOTALALLAGES",
+          "label": "Total people, age"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/pop-projection.json /PageBlocks/28",
+      "qualification": "2024-base median projection at 30 June 2026; not an observed population count.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "POPPR_LAB_003",
+      "name": "Labour force projection, median scenario, current calendar year",
+      "period": "2026",
+      "value": 3144100,
+      "unit": "people",
+      "dimensions": {
+        "SCENARIO_POPPR_LAB_003": {
+          "code": "P50",
+          "label": "50th percentile (median)"
+        },
+        "SEX_POPPR_LAB_003": {
+          "code": "SEX3",
+          "label": "Total people, sex"
+        },
+        "AGE_POPPR_LAB_003": {
+          "code": "TOTALALLAGES",
+          "label": "Total people, ages"
+        }
+      },
+      "status": "rounded_official_only",
+      "reason": "2024-base original labour-force projection workbook Table 1 E13 gives median 2026 value 3,144 thousand. Retained 3,144,100 cannot be verified to the extra hundred from this rounded table.",
+      "evidence": "sources/rounded-workbook-excerpts.json",
+      "required_to_close": "Exact-precision P50, SEX3, total ages 2026 official export; projection not observed workforce or employment."
+    },
+    {
+      "id": "POPPR_FHH_003",
+      "name": "Household projection, Medium A, next published horizon",
+      "period": "2028",
+      "value": 2087100,
+      "unit": "households",
+      "dimensions": {
+        "PROJECTION_POPPR_FHH_003": {
+          "code": "MEDIUMA",
+          "label": "Medium A"
+        },
+        "MEASURE_POPPR_FHH_003": {
+          "code": "HH",
+          "label": "Total households"
+        }
+      },
+      "status": "different_scenario_not_substituted",
+      "reason": "Original 2018-base household workbook presents B living-arrangement-rate scenarios; target selects MEDIUMA at 2028 with 2,087,100. Medium B 2,029 thousand is a different scenario and is not comparable.",
+      "evidence": "sources/rounded-workbook-excerpts.json",
+      "required_to_close": "Exact Medium A 2028 household projection export, base and A-assumption definitions. Do not switch to recommended Medium B silently."
+    },
+    {
+      "id": "PRD_PRD_001",
+      "name": "Labour productivity index, measured sector",
+      "period": "2025",
+      "value": 1391,
+      "unit": "index",
+      "dimensions": {
+        "INDUSTRY_PRD_PRD_001": {
+          "code": "MSZ",
+          "label": "Measured sector"
+        },
+        "VAR_PRD_PRD_001": {
+          "code": "2",
+          "label": "Labour productivity"
+        },
+        "SERIESTYPE_PRD_PRD_001": {
+          "code": "I",
+          "label": "Index"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/productivity.json /PageBlocks/3",
+      "qualification": "Measured sector, year ended March 2025; 1996=1000 index; provisional.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "PRD_PRD_002",
+      "name": "Labour productivity annual change, measured sector",
+      "period": "2025",
+      "value": 0.8,
+      "unit": "percent",
+      "dimensions": {
+        "INDUSTRY_PRD_PRD_002": {
+          "code": "MSZ",
+          "label": "Measured sector"
+        },
+        "VAR_PRD_PRD_002": {
+          "code": "2",
+          "label": "Labour productivity"
+        },
+        "SERIESTYPE_PRD_PRD_002": {
+          "code": "P",
+          "label": "Percentage change"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/productivity.json /PageBlocks/2, latest annual 2025 column",
+      "qualification": "Measured-sector year ended March 2025 annual percentage change; provisional, not the longer growth-cycle columns.",
+      "future_vintages_approved": false
+    },
+    {
+      "id": "PRD_PRD_003",
+      "name": "Output annual growth, measured sector",
+      "period": "2025",
+      "value": -1.5,
+      "unit": "percent",
+      "dimensions": {
+        "INDUSTRY_PRD_PRD_003": {
+          "code": "MSZ",
+          "label": "Measured sector"
+        },
+        "VAR_PRD_PRD_003": {
+          "code": "4",
+          "label": "Output"
+        },
+        "SERIESTYPE_PRD_PRD_003": {
+          "code": "P",
+          "label": "Percentage change"
+        }
+      },
+      "status": "exact_dated_official_comparison",
+      "evidence": "sources/productivity.json /PageBlocks/2, latest annual 2025 column",
+      "qualification": "Measured-sector year ended March 2025 annual percentage change; provisional, not the longer growth-cycle columns.",
+      "future_vintages_approved": false
+    }
+  ]
+}

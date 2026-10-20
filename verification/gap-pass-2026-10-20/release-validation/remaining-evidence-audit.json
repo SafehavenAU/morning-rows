@@ -1,0 +1,228 @@
+{
+  "kind": "Read-only completeness audit of retained Stats NZ and held-queue evidence",
+  "audited_at": "2026-10-20T10:29:51.378238+00:00",
+  "no_new_publisher_search": true,
+  "no_runtime_or_operations_updates": true,
+  "statsnz": {
+    "coverage_file": "verification/gap-pass-2026-10-20/statsnz/coverage-23.json",
+    "coverage_sha256": "b1cbebfd8981afe3db6e01a5f1023c2adef7c692f72b1b34392b305a14153ba4",
+    "unique_selections": 23,
+    "exact_dated_reference_comparisons": 11,
+    "unresolved_exact_cells": 12,
+    "all_23_accepted": false,
+    "matched_ids": [
+      "BDS_BDS_004",
+      "HES_HES_001",
+      "INC_INC_010",
+      "INJ_INJ_001",
+      "IWI18_GRP_001",
+      "POPES_SUB_001",
+      "POPES_ERP_005",
+      "POPPR_NAT_007",
+      "PRD_PRD_001",
+      "PRD_PRD_002",
+      "PRD_PRD_003"
+    ],
+    "unresolved": [
+      {
+        "id": "AGR_AGR_001",
+        "period": "2018",
+        "value": 8293,
+        "unit": "hectares",
+        "status": "rounded_official_only",
+        "reason": "The dated 2018 original workbook Table 8 D34 reports 8,300 hectares of new exotic forest area for the year to 31 March 2018. This supports the retained 8,293 only at the workbook precision, not all reported digits.",
+        "required_to_close": "Dated original exact-precision 2018 forestry export and its table metadata.",
+        "evidence": "sources/rounded-workbook-excerpts.json"
+      },
+      {
+        "id": "AGR_AGR_002",
+        "period": "2024",
+        "value": 9522,
+        "unit": "hectares",
+        "status": "rounded_official_only",
+        "reason": "Original 2024 final workbook Table 9 D29 reports 9,520 hectares of apples at 30 June 2024; retained target is 9,522. Agreement at published workbook precision is not exact verification.",
+        "required_to_close": "Exact-precision 2024 apple-area export with national dimension, coverage and revision vintage.",
+        "evidence": "sources/rounded-workbook-excerpts.json"
+      },
+      {
+        "id": "AGR_AGR_003",
+        "period": "2025",
+        "value": 23252463,
+        "unit": "animals",
+        "status": "rounded_official_only",
+        "reason": "Dated 2025 final release graph reports 23,252,000 sheep at 30 June 2025; retained target is 23,252,463. Only rounded agreement is supported.",
+        "required_to_close": "Exact-precision final 2025 total sheep official table/export.",
+        "evidence": "sources/agriculture.json"
+      },
+      {
+        "id": "CORR_FIS_005",
+        "period": "2025",
+        "value": 8199,
+        "unit": "people",
+        "status": "public_release_links_to_ADE_only",
+        "reason": "Dated June-2025 fiscal release provides ADE access and metadata, but no independently presented exact 8,199 cell in the acquired publication. Its 11 September 2026 notice discontinues fiscal releases.",
+        "required_to_close": "Dated official total-sentenced-prisoners fiscal 2024/25 table/export, with counting/rounding semantics. Do not substitute calendar year or quarterly stock.",
+        "evidence": "sources/prison.json"
+      },
+      {
+        "id": "INC_INC_001",
+        "period": "202606",
+        "value": 1391,
+        "unit": "NZD per week",
+        "status": "exact_measure_or_vintage_unresolved",
+        "reason": "Retained 202606 target is 1,391. Original June-2026 release separately presents 1,419 for median weekly wage/salary earnings. The exact ADE table population/measure/vintage has not been reconciled; no defect or replacement value is asserted.",
+        "required_to_close": "Exact INC_INC_001 table metadata and original dated 202606 cell resolving earnings population and apparent headline difference.",
+        "evidence": "sources/income-release.json"
+      },
+      {
+        "id": "INC_INC_011",
+        "period": "202606",
+        "value": 2438,
+        "unit": "NZD per week",
+        "status": "exact_household_cell_unavailable",
+        "reason": "Official income metadata establishes the household age exclusion and June-quarter weekly snapshot, but acquired publication has no household 2,438 cell. Individual income statistics cannot certify this household estimate.",
+        "required_to_close": "Exact dated INC_INC_011 household table/export for 202606, total LGR/HHTYPE and MED_INC_ALL_SOUR; confirm household aggregation/basis and revision status.",
+        "evidence": "sources/income-metadata.json"
+      },
+      {
+        "id": "JUS_FIS_001",
+        "period": "2025",
+        "value": 50741,
+        "unit": "people",
+        "status": "public_release_links_to_ADE_only",
+        "reason": "Dated June-2025 fiscal release links ADE but does not independently present exact 50,741 adult convicted count. Fiscal releases discontinued by notice dated 11 September 2026.",
+        "required_to_close": "Dated fiscal 2024/25 adult convictions exact total, counting scope/rounding; not calendar-year, charges or prosecutions.",
+        "evidence": "sources/justice.json"
+      },
+      {
+        "id": "LEED_AP1_001",
+        "period": "2024",
+        "value": 4091334,
+        "unit": "people",
+        "status": "public_release_links_to_ADE_only",
+        "reason": "Dated March-2024 annual LEED release states person-level March-year statistics and links ADE; no exact 4,091,334 total people with taxable income cell appears in acquired public release.",
+        "required_to_close": "Dated March-year 2024 IZ/AZ/XZ/RZ official export and population/tax-source definitions.",
+        "evidence": "sources/leed-annual.json"
+      },
+      {
+        "id": "LEED_AP1_002",
+        "period": "2024",
+        "value": 57610,
+        "unit": "NZD per year",
+        "status": "public_release_links_to_ADE_only",
+        "reason": "Dated March-2024 annual LEED release links ADE; no independent 57,610 annual median-earnings cell appears. Taxable income population and total earnings must be distinguished.",
+        "required_to_close": "Dated 2024 total-earnings median exact export with income-source scope and tax-year convention.",
+        "evidence": "sources/leed-annual.json"
+      },
+      {
+        "id": "LEED_Q1W_001",
+        "period": "202506",
+        "value": 18100,
+        "unit": "NZD per quarter",
+        "status": "public_release_links_to_ADE_or_Infoshare_only",
+        "reason": "Dated June-2025 quarterly LEED release links ADE and Infoshare. It has no independently presented exact 18,100 full-quarter-job median earnings cell. Jobs are not people and full-quarter jobs are not all/new-hire jobs.",
+        "required_to_close": "Exact 202506 full-quarter jobs MEDIAN_EARN export with gross/tax/coverage and quarter convention.",
+        "evidence": "sources/leed-quarter.json"
+      },
+      {
+        "id": "POPPR_LAB_003",
+        "period": "2026",
+        "value": 3144100,
+        "unit": "people",
+        "status": "rounded_official_only",
+        "reason": "2024-base original labour-force projection workbook Table 1 E13 gives median 2026 value 3,144 thousand. Retained 3,144,100 cannot be verified to the extra hundred from this rounded table.",
+        "required_to_close": "Exact-precision P50, SEX3, total ages 2026 official export; projection not observed workforce or employment.",
+        "evidence": "sources/rounded-workbook-excerpts.json"
+      },
+      {
+        "id": "POPPR_FHH_003",
+        "period": "2028",
+        "value": 2087100,
+        "unit": "households",
+        "status": "different_scenario_not_substituted",
+        "reason": "Original 2018-base household workbook presents B living-arrangement-rate scenarios; target selects MEDIUMA at 2028 with 2,087,100. Medium B 2,029 thousand is a different scenario and is not comparable.",
+        "required_to_close": "Exact Medium A 2028 household projection export, base and A-assumption definitions. Do not switch to recommended Medium B silently.",
+        "evidence": "sources/rounded-workbook-excerpts.json"
+      }
+    ],
+    "runtime_metadata_boundary": "Supported metadata corrections passed staged capture checks, but the first phase-one promotion failed and rolled back. This audit does not claim those changes are live.",
+    "future_vintages_approved": false
+  },
+  "held_queue": [
+    {
+      "key": "NZ-PRICES",
+      "status": "blocked_external_evidence",
+      "boundary": "Fixed 17 October 2026 Interim specimen. Acquired official OTA2201 export has 48 matching numbers but Final status; a status/release replacement cannot certify it.",
+      "required_to_close": "Usable dated official evidence for the exact held Interim version, across the selected contract coverage.",
+      "evidence": "verification/gap-pass-2026-10-20/statsnz/nz-prices/comparison.json"
+    },
+    {
+      "key": "UK-CPI",
+      "status": "parked_access_review",
+      "boundary": "Existing explicit access contract remains; no new lookup or preview attempt in this audit.",
+      "required_to_close": "New evidence satisfying operations/UK-CPI-CONTRACT.md and its reviewed access conditions.",
+      "evidence": "operations/UK-CPI-CONTRACT.md"
+    },
+    {
+      "key": "AER-quarterly-prices",
+      "status": "blocked_original_transport",
+      "boundary": "Exact demand-weighted quarterly five-region CSV identified, but original workspace transport returns 503. No numeric/latest-quarter acceptance from filename or search snippet.",
+      "required_to_close": "Permitted original CSV access, applicable upstream reuse terms, and exact independently checked quarterly cells before implementation/release.",
+      "evidence": "verification/gap-pass-2026-10-20/held-queue/aer/README.md"
+    },
+    {
+      "key": "northern-ireland/electricity_balance",
+      "status": "blocked_actual_worker_access",
+      "boundary": "Local extraction and five separate official values match; protected Worker receives an HTTP 200 access-refusal page (247 bytes). Module remains disconnected.",
+      "required_to_close": "New permitted evidence of usable original report access, then actual-reader and integrated release gates; no routine retry.",
+      "evidence": "verification/remaining-gaps-2026-10-20/ni-energy/cloudflare-report-diagnostic.json"
+    },
+    {
+      "key": "england/care_assessment_cohort",
+      "status": "blocked_actual_worker_access",
+      "boundary": "Five historical cohort cells and local parser pass. Corrected actual Worker reaches publisher but receives 403. Module remains disconnected; cohort is not all-England quality.",
+      "required_to_close": "New permitted usable official-workbook access and subsequent actual-reader/integrated release evidence; preserve fixed snapshot/population.",
+      "evidence": "verification/remaining-gaps-2026-10-20/preview/cloudflare-workbooks-live.json"
+    },
+    {
+      "key": "england/bedroom_rent",
+      "status": "blocked_actual_worker_access",
+      "boundary": "Four Manchester bedroom-only cells independently match; actual Worker receives 429. Module remains disconnected. No joint bedroom/property interpretation or fixture fallback.",
+      "required_to_close": "New permitted usable official access and actual-reader/integrated release proof for the exact monthly release.",
+      "evidence": "verification/remaining-gaps-2026-10-20/preview/cloudflare-reader-live.json"
+    },
+    {
+      "key": "scotland/college_activity",
+      "status": "protected_reader_pass_release_pending",
+      "boundary": "Five fixed 2024-25 FTE cells match original workbook and separate Parliament table; actual protected reader passes. Not yet accepted production or scheduled operation.",
+      "required_to_close": "Exact final integrated candidate CPU/interface/regression/reviewed release gates and later genuine scheduled evidence.",
+      "evidence": "verification/remaining-gaps-2026-10-20/preview/accepted-reader-proof.json"
+    },
+    {
+      "key": "canada/rental_benchmark",
+      "status": "protected_reader_pass_release_pending",
+      "boundary": "Two exact 2025 annual CMHC cells and metadata pass actual protected reader. Conditional licence notices retained; no recipient agreement invented. Not yet accepted production.",
+      "required_to_close": "Exact final integrated candidate CPU/interface/regression/reviewed release gates with conditional CMHC notices and later genuine scheduled evidence.",
+      "evidence": "verification/remaining-gaps-2026-10-20/preview/accepted-reader-proof.json"
+    }
+  ],
+  "phase_two_boundary": {
+    "worktree": "/workspace/morning-rows-remaining",
+    "proof_file": "verification/remaining-gaps-2026-10-20/preview/accepted-reader-proof.json",
+    "proof_sha256": "852dd2f9caac4b521817900bed9e7f3b664022a660c5ae17ae971710e163f102",
+    "protected_sources": [
+      "canada/rental_benchmark",
+      "scotland/college_activity"
+    ],
+    "exact_cells": 7,
+    "production_accepted": false,
+    "note": "Phase-two evidence paths belong to that separate worktree and are not part of the failed phase-one release."
+  },
+  "newly_blocked_after_production": {
+    "key": "australia/grid_day",
+    "status": "removed_from_next_candidate_pending_permitted_access",
+    "reason": "Both production domains returned 406 for SA1 and VIC1 after same-candidate staged confirmation; original production attempt rolled back. 576 independently reconciled historical cells and implementation tests do not establish reliable accepted production access.",
+    "no_further_publisher_requests": true
+  },
+  "completion_boundary": "Every Stats NZ selection and every held-queue item has an explicit result or closure requirement. None of the eight held items is falsely marked production-complete; operational shadow and genuine delivery gates remain separate and incomplete."
+}

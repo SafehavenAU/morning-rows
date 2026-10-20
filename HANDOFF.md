@@ -1,4 +1,82 @@
-# Current release — Canada GDP correctness, 20 October 2026
+# Current release — bounded gap pass, 20 October 2026
+
+Phase one is accepted on both domains at clean source
+`bf3110e3bcbbc7db6d629254a886356e80f4c24a`, Worker
+`7f93e660-666c-435a-9b8b-bc37c060ac02`, fingerprint `f815539b2fa5b866`.
+Deployment `5dd15b87-3455-4939-a3fb-85128f25d852` promoted the exact tested
+version to 100% at `2026-10-20T10:51:30.095999Z`. The rollback is accepted
+GDP source `a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b`, Worker
+`775bfe2d-491b-4bf5-a257-4d3465003351`, fingerprint `fc27e14328f2c397`.
+A merge or evidence commit is not the deployed source. See the
+[release evidence](verification/gap-pass-2026-10-20/README.md) and
+[exact accepted candidate](verification/gap-pass-2026-10-20/release-validation/accepted-candidate-bf3110e3/README.md).
+
+The six accepted typed contracts are Canada `exchange_history`, `jobs`,
+`price_index`, `shop`, `homes`, and Wales `land_transaction_tax`. Dated FX
+adds two CAD-per-foreign-unit series over 31 calendar days while preserving the
+four latest pairs. Exact identity joins repair ten provincial unemployment
+mislabels caused by WDS response ordering; Canada's label was correct. The other
+three headline readers now validate their own identities, units, flags and
+periods. WRA exposes four overlapping financial-year tax-due measures, not
+receipts. Supported Stats NZ household, fiscal-series and productivity metadata
+is released, but only **11 of 23** selected numeric cells are independently
+reconciled; [twelve exact gaps remain](GAP-LEDGER.md#remaining-stats-nz-exact-cell-evidence).
+The transport edition check reconciled twelve retained cells and required no
+reader change. Future vintages are not blanket-approved.
+
+Acceptance passed **832 local tests**, the build and **28 protected fault
+cases**; source CI was `39410289205`. The final production run passed all
+**18 gates**, including **100 core semantic checks**, existing GDP/claimant/rent
+contracts, 24 core schemas and 26 BLS slots. Gap checks covered **80 requests,
+1,547 independent checks, 56 unique reference cells / 112 domain cells,
+48 schemas and 16 negative controls**. Smoke checks passed **18 apex / 17 www**.
+Staged CPU was **13 ms USA, 306 ms legacy maximum, 25 ms claimant and 201 ms
+rent**, within the existing gates and unchanged 1,000 ms ceiling.
+
+AEMO completed-day activation remains **held**. The first, different candidate
+was promoted at 10:21 UTC but returned HTTP 406 on both production domains and
+was rolled back to GDP at `2026-10-20T10:24:42.151362Z`. Its successful staged
+proof and failed production attempt remain separately retained. This accepted
+revision excludes its activation, discovery and monitoring; the original
+five-region `grid` snapshot remains. Do not retry or treat the 576-cell historical
+comparison as proof of reliable access.
+
+The isolated second batch has prepared **SFC college activity and CMHC rental
+benchmark** implementations with seven protected actual-reader comparisons;
+**neither is released here**. NI electricity, CQC and ONS bedroom-rent candidates
+remain disconnected after actual Worker access refusal / 403 / 429. AER access
+and applicable upstream reuse evidence remain open. NZ-PRICES stays
+`blocked_external_evidence` on the same 17 October Interim specimen; a Final
+export or later release cannot certify it. UK CPI remains parked. See the
+[complete queue disposition](GAP-LEDGER.md); this is not all-gap completion.
+
+The reviewed identity chain adds the exact GDP → accepted-gap edge, preserving
+all four prior edges. **Five edges, 21 exact observation approvals and 116
+obligations / 24 public probes** are retained. Both-domain offline replay proves
+state preservation, not a collection. The next normal serialized collector may
+apply the exact remaining reviewed suffix in one actual write; never invent
+intermediate checkpoints or skip a newer missing artifact.
+
+The durable checkpoint remains **sequence 5**, scheduled run `39341442350`,
+completed `2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
+with **33 incidents, 36 repairs and the unchanged pending delivery event**.
+No receipt exists; build requests and account upgrade are not acknowledgments.
+There are **two actual legacy scheduled cycles and zero expanded-scope cycles**.
+SHADOW starts at `2026-10-18T23:22:22.161Z`; the next nominal daily cron is
+`2026-10-20T23:17Z`, with complete-checkpoint deadline
+`2026-10-21T01:26:10.163Z` and the existing delay/runtime allowances.
+
+Preserve the hourly watchdog, daily collector, disabled ordinary source alerts,
+credentials and disconnected Builds. Do not repeat the delivery test or unchanged
+incidents. Seven-day acceptance still requires at least eight actual daily
+checkpoints, seven elapsed days between scheduled completions, no gap over
+26 hours, independent watchdog proof and genuine delivery evidence. Reviews,
+previews, releases and replay do not add scheduled days or close the broader plan.
+
+---
+
+# Previous release — Canada GDP correctness, 20 October 2026
 
 The existing Canada GDP reader is released on both domains at clean source
 `a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b`, Worker

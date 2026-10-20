@@ -1,0 +1,40 @@
+{
+  "started_at": "2026-10-20T09:46:26.251Z",
+  "environment": "Protected Cloudflare remote dev",
+  "purpose": "Single bounded same-URL request to diagnose existing live HTTP406; no header/URL variation or bypass",
+  "code_before": {
+    "diagnostic-preview-worker.js": "61d5f1d98eb3943da759a2c8d4d9039801919e543eceb28327b1ec03a3905f7f",
+    "diagnostic-integration.toml": "adbe5a94889a622081ed5b0761bea553cd82e8d9823c4d413c25a9f08a74b567",
+    "check-diagnostic-preview.mjs": "216fdfd7e620f933e91c38557d795e42754c4728b00daa6ef383f061bcba5909"
+  },
+  "diagnostic": {
+    "started_at": "2026-10-20T09:46:28.500Z",
+    "finished_at": "2026-10-20T09:46:28.620Z",
+    "request": {
+      "url": "https://www.aemo.com.au/aemo/data/nem/priceanddemand/PRICE_AND_DEMAND_202610_SA1.csv",
+      "method": "GET",
+      "accept": "text/csv",
+      "redirect": "manual",
+      "timeout_ms": 20000,
+      "requests": 1
+    },
+    "response": {
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "declared_content_length": "244124",
+      "retained_bytes": 8192,
+      "body_complete": false,
+      "retained_body_sha256": "9ae0a24e88d1ee665103d001acf8f2bd704f9995c2dda6fdb756da5680aebd6e",
+      "public_text_excerpt": "REGION,SETTLEMENTDATE,TOTALDEMAND,RRP,PERIODTYPE SA1,2026/10/01 00:05:00,1299.03,119.62,TRADE SA1,2026/10/01 00:10:00,1320.82,101.02,TRADE SA1,2026/10/01 00:15:00,1328.39,118.93,TRADE SA1,2026/10/01 00:20:00,1355.16,120.14,TRADE SA1,2026/10/01 00:25:00,1348.45,120.07,TRADE SA1,2026/10/01 00:30:00,1336.27,101.02,TRADE SA1,2026/10/01 00:35:00,1361.79,106.66,TRADE SA1,2026/10/01 00:40:00,1367.42,123.90,TRADE SA1,2026/10/01 00:45:00,1374,110.29,TRADE SA1,2026/10/01 00:50:00,1377.91,107.86,TRADE SA1,2026/10/01 00:55:00,1381.92,104.51,TRADE SA1,2026/10/01 01:00:00,1385.59,101.55,TRADE SA1,2026/10/01 01:05:00,1371.23,110.73,TRADE SA1,2026/10/01 01:10:00,1361.82,112.87,TRADE SA1,2026/10/01 01:15:00,1348.96,106.51,TRADE SA1,2026/10/01 01:20:00,1335.14,105.73,TRADE SA1,2026/10/01 01:25:00,1306.98,104.19,TRADE SA1,2026/10/01 01:30:00,1286.57,102.36,TRADE SA1,2026/10/01 01:35:00,1262.83,105.17,TRADE SA1,2026/10/01 01:40:00,1286.48,105.66,TRADE SA1,2026/10/01 01:45:00,1272.3,104.80,TRADE SA1,2026/10/01 01:50:00,1274.86,117.02,TRADE SA1,2026/10/01 01:55:00,1245.76,101.04,TRADE SA1,2026/10/01 02:00:00,1274.68,101.02,TRADE SA1,2026/10/01 02:05:00,1251.16,101.02,TRADE SA1,2026/10/01 02:10:00,1254.8"
+    },
+    "retention": "HTML scripts/styles and tags removed; email/IP/request identifiers redacted; excerpt limited to1200 characters. Hash identifies the bounded original response prefix; no response cookies or private headers retained."
+  },
+  "probe_completed": true,
+  "finished_at": "2026-10-20T09:46:28.636Z",
+  "code_after": {
+    "diagnostic-preview-worker.js": "61d5f1d98eb3943da759a2c8d4d9039801919e543eceb28327b1ec03a3905f7f",
+    "diagnostic-integration.toml": "adbe5a94889a622081ed5b0761bea553cd82e8d9823c4d413c25a9f08a74b567",
+    "check-diagnostic-preview.mjs": "216fdfd7e620f933e91c38557d795e42754c4728b00daa6ef383f061bcba5909"
+  },
+  "code_unchanged": true
+}

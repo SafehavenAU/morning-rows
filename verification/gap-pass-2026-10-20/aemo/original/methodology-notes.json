@@ -1,0 +1,44 @@
+{
+  "checked_on": "2026-10-20",
+  "publisher": "Australian Energy Market Operator (AEMO)",
+  "copyright": {
+    "url": "https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions",
+    "access": "Search Service opened the current official page successfully; direct workspace curl received HTTP403, retained as metadata-access evidence in acquisition.json.",
+    "finding": "AEMO permits use of publicly available AEMO-created material for any purpose with accurate, appropriate attribution of the material and AEMO as author; specific permission is not required for that use. Confidential or third-party-owned commissioned material is excluded.",
+    "licence_label": "AEMO copyright permissions; not Creative Commons or Open Government Licence",
+    "attribution": "Source: Australian Energy Market Operator (AEMO), PRICE_AND_DEMAND and NEMweb PUBLIC_PRICES. Daily summaries calculated by Morning Rows."
+  },
+  "clock": [
+    {
+      "url": "https://nemweb.com.au/Reports/Current/MMSDataModelReport/Electricity/Electricity%20Data%20Model%20Report_files/Elec61.htm",
+      "access": "Official data-model page returned by Search Service",
+      "finding": "TRADINGPRICE describes five-minute spot market prices, and PERIODID 1 is the interval ending 00:05 AEST. Its revision notes distinguish RRP from pre-adjustment ROP. Some descriptive sentences still refer to the former 30-minute system; do not apply those stale cadence sentences to the observed 2026 five-minute files."
+    },
+    {
+      "url": "https://tech-specs.docs.public.aemo.com.au/Content/TSP_EMMSDM55_Apr2025/EMMS_DMv5.5_Apr25_1.htm?TocPath=Electricity+Data%C2%A0Model%7CDM+5.5+-+April+2025%7C_____4",
+      "access": "Official technical-specification search result",
+      "finding": "The Electricity Data Model describes NEM time as fixed UTC+10."
+    },
+    {
+      "url": "https://www.aemo.com.au/-/media/files/electricity/der/2020/guide-to-aemo-vpp-demonstration-apis.pdf",
+      "access": "Official AEMO PDF excerpt returned by Search Service",
+      "finding": "The NEM-time timestamp convention is AEST with +10:00 offset and dispatch-interval-ending alignment. This supports the market-clock convention, not any VPP-data substitution."
+    }
+  ],
+  "price_definition": {
+    "url": "https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/data-dashboard-nem/",
+    "access": "Current official page opened through Search Service; direct workspace curl received403, retained in acquisition.json.",
+    "finding": "The dispatch price view describes five-minute current/historical spot prices; displayed spot prices are time weighted, with the source named TradingPrice.RRP. The average-price explanation gives RRP units of dollars perMWh. Forecast pre-dispatch prices are a separate series."
+  },
+  "observed_semantics": [
+    "Both monthly CSV files provide REGION, SETTLEMENTDATE, TOTALDEMAND, RRP and PERIODTYPE; selected rows are exactly TRADE. TOTALDEMAND is retained only because complete original CSV lines are kept; it is not used in price calculations.",
+    "Observed September files contain 8,640 five-minute rows each and include October 1 midnight; October files start October 1 at 00:05. A single target calendar day is owned by the month containing its interval starts.",
+    "PUBLIC_PRICES daily files contain DREGION versions 2 and 3 and span 04:05 through the next 04:00. Two adjacent trading-day bundles were used to assemble the target calendar day. Version 3 is selected explicitly and each selected version-2 RRP is retained to demonstrate identical price values across layouts.",
+    "The complete 576 regional comparisons use PUBLIC_PRICES/DREGION rather than DISPATCH/PRICE. There is no PRICESTATUS field in these retained tables and no FIRM or finality claim.",
+    "The selected daily rows all have RUNNO 1, INTERVENTION 0, APCFLAG 0 and MARKETSUSPENDEDFLAG 0. These flags describe this acquired specimen and do not certify future prices or an immutable final vintage.",
+    "The monthly files publish cents or integer zeros; daily RRP retains higher precision and one positive scientific-notation value, 3E-05. Decimal extraction preserves that value. No monthly zero masked a negative daily price in this specimen.",
+    "The monthly refresh/correction service level and finality are not established. Prices can be revised; source-vintage hashes are retained. No older day or alternate publisher dataset is silently substituted."
+  ],
+  "independence_limit": "Both presentations share AEMO market-calculation lineage. Different daily/monthly transport and independent Python CSV/Decimal extraction check selection, coverage, rounded prices and summaries, not independent market clearing.",
+  "privacy": "No HTMLfooter, contacts, personalrecords, credentials or unrelated unit-level records are retained."
+}

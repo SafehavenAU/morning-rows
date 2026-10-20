@@ -1,0 +1,39 @@
+{
+  "source": "price_index",
+  "checked_at": "2026-10-20T09:29:48.009501+00:00",
+  "passed": true,
+  "pass": true,
+  "tests": [
+    {
+      "mutation": "wrong_geography",
+      "rejected": true,
+      "hashes_updated_to_exercise_semantics": true,
+      "reason": "AssertionError: CSV dimension GEO"
+    },
+    {
+      "mutation": "wrong_value",
+      "rejected": true,
+      "hashes_updated_to_exercise_semantics": true,
+      "reason": "AssertionError: CSV date and exact value"
+    },
+    {
+      "mutation": "wrong_period",
+      "rejected": true,
+      "hashes_updated_to_exercise_semantics": true,
+      "reason": "AssertionError: CSV date and exact value"
+    },
+    {
+      "mutation": "extra_observation",
+      "rejected": true,
+      "hashes_updated_to_exercise_semantics": true,
+      "reason": "AssertionError: one CSV observation"
+    },
+    {
+      "mutation": "wrong_metadata_member",
+      "rejected": true,
+      "hashes_updated_to_exercise_semantics": true,
+      "reason": "AssertionError: exact member Geography"
+    }
+  ],
+  "method": "Temporary copy mutation controls; retained original untouched; updated mutation hash/byte counts to require semantic rejection rather than hash mismatch."
+}

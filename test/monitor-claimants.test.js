@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {parseClaimantTime, parseClaimantCounts} from '../lib/claimant-count.js';
 import {
-  REGISTRY, US_CONTRACT, CLAIMANT_CONTRACTS, RENT_CONTRACT, ORIGINS, inspectSource, fingerprint,
+  REGISTRY, US_CONTRACT, CLAIMANT_CONTRACTS, RENT_CONTRACT, GRID_DAY_CONTRACT, EXCHANGE_HISTORY_CONTRACT, ORIGINS, inspectSource, fingerprint,
 } from '../lib/monitor-contracts.js';
 import {initialState, applyRun} from '../lib/monitor-state.js';
 import {catalogue} from '../lib/information.js';
@@ -90,17 +90,17 @@ test('five explicit claimant obligations do not silently expand the original or 
   }
 
   for (const [activation, active, staged] of [
-    [{enabled: false}, 108, 7],
-    [usaReview, 109, 6],
-    [review(), 114, 1],
+    [{enabled: false}, 108, 9],
+    [usaReview, 109, 8],
+    [review(), 114, 3],
   ]) {
     const registry = buildMonitorRegistry(activation);
     assert.equal(registry.sources.length, active);
     assert.equal(registry.staged_sources.length, staged);
     const keys = [...registry.sources, ...registry.staged_sources].map(contract => contract.key);
-    assert.equal(keys.length, 115);
-    assert.equal(new Set(keys).size, 115);
-    assert.deepEqual(keys.sort(), [...REGISTRY, US_CONTRACT, ...CLAIMANT_CONTRACTS, RENT_CONTRACT].map(c => c.key).sort());
+    assert.equal(keys.length, 117);
+    assert.equal(new Set(keys).size, 117);
+    assert.deepEqual(keys.sort(), [...REGISTRY, US_CONTRACT, ...CLAIMANT_CONTRACTS, RENT_CONTRACT, GRID_DAY_CONTRACT, EXCHANGE_HISTORY_CONTRACT].map(c => c.key).sort());
   }
 });
 

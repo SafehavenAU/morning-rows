@@ -41,7 +41,7 @@ test('malformed semantic cache data is not published as a selected measure',asyn
 });
 test('US outage preserves another successful desk and full US remains explicit about failure',async t=>{
  const canada=JSON.parse(readFileSync(new URL('../verification/structure-2026-10-17/selected-snapshot.json',import.meta.url))).canada;
- globalThis.caches={default:{match:async req=>new URL(req.url).pathname==='/canada.json'?Response.json(canada,{headers:{'x-mr-cache-expires-at':String(Date.now()+60000)}}):undefined,put:async()=>{}}};t.after(()=>{delete globalThis.caches;});t.mock.method(globalThis,'fetch',async()=>new Response('blocked',{status:403}));t.mock.method(console,'warn',()=>{});
+ globalThis.caches={default:{match:async req=>new URL(req.url).pathname==='/canada.json'?Response.json(canada,{headers:{'x-mr-cache-expires-at':String(Date.now()+60000),'x-mr-calendar-boundary':String((Math.floor(Date.now()/86400000)+1)*86400000)}}):undefined,put:async()=>{}}};t.after(()=>{delete globalThis.caches;});t.mock.method(globalThis,'fetch',async()=>new Response('blocked',{status:403}));t.mock.method(console,'warn',()=>{});
  const us=await worker.fetch(new Request(US_MEASURE_URL));assert.equal(us.status,503);const ca=await worker.fetch(new Request('https://morningrows.com/canada.json?source=exchange&measure=FXUSDCAD'));assert.equal(ca.status,200);assert.equal((await ca.json()).observations[0].value,1.4154);
  const full=await worker.fetch(new Request(US_DESK_URL));assert.equal(full.status,200);const b=await full.json();assert.equal(b.cpi,null);assert.equal(b.sources.cpi.status,'error');
 });

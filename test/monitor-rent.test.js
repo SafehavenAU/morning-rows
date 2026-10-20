@@ -329,12 +329,12 @@ test('collector retains partial rent observations without turning a source failu
 test('registry stages rent behind its own reviewed edge and retains earlier contract evidence paths', () => {
   const existing = buildMonitorRegistry(claimantReview);
   assert.equal(existing.sources.length, 114);
-  assert.equal(existing.staged_sources.length, 1);
+  assert.equal(existing.staged_sources.length, 3);
   assert.equal(existing.staged_sources[0].key, RENT_CONTRACT.key);
   const approved = review(), saved = structuredClone(approved), expanded = buildMonitorRegistry(approved);
   assert.deepEqual(approved, saved);
   assert.equal(expanded.sources.length, 115);
-  assert.equal(expanded.staged_sources.length, 0);
+  assert.equal(expanded.staged_sources.length, 2);
   assert.equal(new Set(expanded.sources.map(contract => contract.key)).size, 115);
   const rent = expanded.sources.find(contract => contract.key === RENT_CONTRACT.key);
   assert.equal(rent.evidence, approved.continuations[1].evidence);

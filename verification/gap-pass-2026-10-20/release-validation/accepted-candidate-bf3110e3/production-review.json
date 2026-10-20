@@ -1,0 +1,86 @@
+{
+  "kind": "Read-only independent review of completed candidate and production evidence",
+  "reviewed_at": "2026-10-20T10:56:39.165971+00:00",
+  "pass": true,
+  "source_revision": "bf3110e3bcbbc7db6d629254a886356e80f4c24a",
+  "worker_version": "7f93e660-666c-435a-9b8b-bc37c060ac02",
+  "build_fingerprint": "f815539b2fa5b866",
+  "source_dirty": false,
+  "deployment": {
+    "id": "5dd15b87-3455-4939-a3fb-85128f25d852",
+    "created_on": "2026-10-20T10:51:30.095999Z",
+    "percentage": 100
+  },
+  "evidence": [
+    {
+      "file": "../staged/summary.json",
+      "sha256": "ab2b42d890f1b60994ebc17d62f194429fb365da96e391131fed40adfe94b32d"
+    },
+    {
+      "file": "../production/summary.json",
+      "sha256": "ba2229d02fdc9ed290e781069612ec63c0f1b13833055f9ec2c44156f8936647"
+    },
+    {
+      "file": "../production/packaging-manifest.json",
+      "sha256": "cd13db5d6f4ed76158af91897c520c1156db878a31bba16065e9752e0fe208d1"
+    },
+    {
+      "file": "../smokes/packaging-manifest.json",
+      "sha256": "4f54e95aebc28941bb87274b75eedc19683cd6abeaf014b6b3c69853e7d7272a"
+    }
+  ],
+  "staged": {
+    "gates": 19,
+    "manifest_files": 250,
+    "strict_core": 50,
+    "cpu_ms_max": {
+      "usa": 13,
+      "legacy": 306,
+      "claimant_www": 25,
+      "rent_www": 201
+    },
+    "production_deployment_unchanged": true
+  },
+  "production": {
+    "gates": 18,
+    "manifest_files": 454,
+    "strict_core": 100,
+    "availability_exceptions": [],
+    "source_states_compared_independently": 232,
+    "actual_state_transitions": 11,
+    "transition_details": {
+      "known_ONS_403_to_429": 10,
+      "known_TfL_429_to_healthy": 1
+    },
+    "unexplained_regressions": 0,
+    "source_comparison_note": "The retained helper classifies 16 entries; five TfL entries have unchanged status/error/http_status. There are 11 actual state transitions after excluding retrieval timestamps.",
+    "gap_requests": 80,
+    "gap_offline_checks": 1547,
+    "unique_independent_values": {
+      "boc": 38,
+      "statcan": 14,
+      "wra": 4
+    },
+    "gap_schemas": 48,
+    "gap_schema_negatives": 16,
+    "claimant_native_comparisons": 130,
+    "claimant_schemas": 50,
+    "claimant_schema_negatives": 370,
+    "rent_native_comparisons": 232,
+    "core_schemas": 24,
+    "USA_reference_slots": 26,
+    "smoke": {
+      "apex": 18,
+      "www": 17
+    },
+    "sepa": "strict healthy on both domains",
+    "aemo": "grid_day absent/refused; legacy grid preserved"
+  },
+  "limitations": [
+    "This accepts this bounded implementation release only, not seven-day SHADOW or notification-delivery acceptance.",
+    "Stats NZ has 11 exact independent numerical comparisons per domain; all 23 numerical acceptance remains false.",
+    "NZ-PRICES external presentation evidence gap and missing delivery receipt remain unresolved.",
+    "CPU measurements are samples; no percentile, sustained performance or scheduled-operation claim.",
+    "Original failed AEMO release/rollback and strict failed reports remain retained unchanged."
+  ]
+}

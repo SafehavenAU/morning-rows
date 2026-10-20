@@ -15,6 +15,8 @@ import { readAssemblyDivisions } from './lib/national-observations.js';
 import { readClaimantCount } from './lib/claimant-count.js';
 import { readNzMarketRent } from './lib/nz-market-rent.js';
 import { readStatcanGdp } from './lib/statcan-gdp.js';
+import { readStatcanHeadline } from './lib/statcan-headlines.js';
+import { readBocHistory } from './lib/boc-history.js';
 
 const TRIAGE = ["Resuscitation", "Emergency", "Urgent", "Semi-urgent", "Non-urgent"];
 const REGIONS = { NSW1: "New South Wales", QLD1: "Queensland", VIC1: "Victoria", SA1: "South Australia", TAS1: "Tasmania" };
@@ -311,7 +313,7 @@ const LLMS = `# Morning Rows
 
 ## Limits
 
-Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Historical FX, local claimant histories and completed-day AEMO averages remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
+Only the selections listed by each desk are served. The UK and each constituent nation provide thirteen published months of claimant counts via source=claimant_count and measure=claimants; these are administrative counts, not unemployment estimates. The New Zealand desk also provides six-month MBIE rental benchmarks for the two explicitly supported NZAD localities, Auckland–Avondale and Wellington–Kelburn, across published dwelling and bedroom categories. Discover supported measure IDs through its catalogue. These are provisional weekly-rent quartiles and separate active-bond counts, not listings, valuations or a nationwide rent service. Canada GDP supports the latest two explicit calendar quarters: real expenditure-based levels in millions of chained (2017) dollars at seasonally adjusted annual rates, and their ordinary nonannualized growth. Select product, then level or quarter_change; exact observations use YYYY-Qn. Canada adds dated FXUSDCAD/FXGBPCAD reference rates over a 31-calendar-day window, in CAD per foreign unit; exact-date absence is not carried forward. Local claimant histories remain research. Unknown date/geography filters are rejected, not ignored. Native-only sections have incomplete common metadata; inspect their fields and qualify or decline unsupported comparisons.
 
 A new observation period, a changed value/caveat at the same period, unchanged valid data and failed retrieval are different states. Read source health even on HTTP 200; suppressed, missing and unavailable values are never zero. A failed source does not invalidate successful siblings.
 
@@ -698,31 +700,20 @@ function escapeHtml(value) {
   return String(value).replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
 }
 
-async function statcan(payload) {
-  const response = await fetchOfficial("https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods", {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(payload),
-  });
-  if (!response.ok) throw new Error("statcan");
-  return response.json();
-}
-
 async function readCanada() {
-  const provinces = ["Canada", "Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia", "New Brunswick", "Quebec", "Ontario", "Manitoba", "Saskatchewan", "Alberta", "British Columbia"];
-  const point = async (productId, coordinate) => (await statcan([{ productId, coordinate, latestN: 1 }]))[0].object.vectorDataPoint[0];
   const data = await readSections({
-    jobs: async () => (await statcan(provinces.map((_, index) => ({ productId: 14100287, coordinate: `${index + 1}.7.1.1.1.1.0.0.0.0`, latestN: 1 })))).map((row, index) => ({ name: provinces[index], rate: row.object.vectorDataPoint[0].value, period: row.object.vectorDataPoint[0].refPer.slice(0, 7), source: "Statistics Canada", licence: "Statistics Canada Open Licence" })),
-    price_index: async () => { const p = await point(18100004, "2.2.0.0.0.0.0.0.0.0"); return { period: p.refPer.slice(0, 7), index: p.value }; },
-    shop: async () => { const p = await point(20100056, "1.1.1.2.0.0.0.0.0.0"); return { period: p.refPer.slice(0, 7), thousand_dollars: p.value }; },
+    jobs: () => readStatcanHeadline('jobs'),
+    price_index: () => readStatcanHeadline('price_index'),
+    shop: () => readStatcanHeadline('shop'),
     rate: readCanadaRate,
     exchange: readCanadaExchange,
+    exchange_history: readBocHistory,
     product: readStatcanGdp,
     bonds: async () => {
       const last = (await fetchOfficial("https://www.bankofcanada.ca/valet/observations/BD.CDN.2YR.DQ.YLD,BD.CDN.10YR.DQ.YLD/json?recent=1").then(r => r.json())).observations.at(-1);
       return { date: last.d, two_year: Number(last["BD.CDN.2YR.DQ.YLD"].v), ten_year: Number(last["BD.CDN.10YR.DQ.YLD"].v) };
     },
-    homes: async () => { const p = await point(34100136, "1.1.1.0.0.0.0.0.0.0"); return { period: p.refPer.slice(0,7), starts: p.value }; },
+    homes: () => readStatcanHeadline('homes'),
     ontario: async () => {
       const xml = await fetchOfficial("https://reports-public.ieso.ca/public/RealtimeOntarioZonalPrice/PUB_RealtimeOntarioZonalPrice.xml").then(r => r.text());
       const latest = [...xml.matchAll(/<ZonalPrice>[\s\S]*?<Interval>(\d+)<\/Interval>[\s\S]*?<LmpCap>([^<]*)<\/LmpCap>/g)].filter(m => m[2] !== "").at(-1);
@@ -740,6 +731,10 @@ async function readCanada() {
     recalls: readCanadianRecalls, mortgages: readCanadaMortgages, posted_rates: readPostedRates, air: readAir, demand: readOntarioDemand, commodities: readCommodityIndex,
   });
   const also = await readSections({ world: () => readWorld("CA"), space: readSpace });
+  if (data.exchange_history && data.exchange_history.window.end !== new Date().toISOString().slice(0,10)) {
+    data.exchange_history = null;
+    data.sources.exchange_history = {status:'error',fetched_at:new Date().toISOString(),error:'Desk acquisition crossed UTC midnight; retry for the current exchange-rate window'};
+  }
   return { site: "https://morningrows.com", country: "Canada", page: "/canada", ...data, also, omitted_sources: [{ source: "Elections Canada 2025 turnout CSV", reason: "Not republished: general terms require prior written permission for commercial redistribution; an unrestricted dataset-specific licence was not established.", terms_url: "https://www.elections.ca/content.aspx?section=pri&document=index&lang=e" }] };
 }
 
@@ -1140,12 +1135,23 @@ const HOLD_SECONDS = {
   "/canada.json": 3600,
 };
 
-async function held(request, response) {
-  const seconds = response.headers.get("x-data-status") === "degraded" ? 30 : HOLD_SECONDS[new URL(request.url).pathname];
+function calendarCacheBoundary(path, now) {
+  if (path === '/canada' || path === '/canada.json') return (Math.floor(now / 86400000) + 1) * 86400000;
+  return null;
+}
+
+async function held(request, response, requestedAt = Date.now()) {
+  const path = new URL(request.url).pathname, now = Date.now();
+  const hold = response.headers.get("x-data-status") === "degraded" ? 30 : HOLD_SECONDS[path];
+  const boundary = calendarCacheBoundary(path, requestedAt);
+  const seconds = boundary === null ? hold : Math.max(0, Math.min(hold, Math.floor((boundary-now)/1000)));
   const headers = new Headers(response.headers);
+  if (boundary !== null) headers.set('x-mr-calendar-boundary', String(boundary));
   if (seconds) {
     headers.set("Cache-Control", `public, max-age=${seconds}`);
-    headers.set("x-mr-cache-expires-at", String(Date.now()+seconds*1000));
+    headers.set("x-mr-cache-expires-at", String(now+seconds*1000));
+  } else if (boundary !== null) {
+    headers.set("Cache-Control", "no-store");
   }
   const stored = new Response(response.body, { status: response.status, headers });
   if (!seconds) return stored;
@@ -1161,6 +1167,7 @@ async function held(request, response) {
 const worker = {
   async fetch(request, env) {
     const url = new URL(request.url);
+    const requestedAt = Date.now();
     if (url.pathname === "/health.json") return json({ service: "Morning Rows", source_revision: BUILD_REVISION, source_dirty: BUILD_DIRTY, build_fingerprint: BUILD_FINGERPRINT, worker_version: env.WORKER_VERSION?.id || null, note: "Runtime identity only; inspect each desk sources field for data health." });
     if (url.pathname === "/llms.txt") return new Response(LLMS, { headers: { "content-type": "text/plain; charset=utf-8" } });
     if (url.pathname === "/robots.txt") return new Response(ROBOTS, { headers: { "content-type": "text/plain; charset=utf-8" } });
@@ -1196,6 +1203,7 @@ const worker = {
         { country: "United Kingdom", source: "DVSA MOT history", would_unlock: "a vehicle test history" },
       ],
       blocked: [
+        { country: "Australia", source: "AEMO completed-day SA1/VIC1 monthly price CSV", status: 406, note: "Held: both regions were refused from the exact production Worker after intermittent preview success on 20 October 2026. No daily summaries are served; the existing grid snapshot remains available." },
         { country: "Australia", source: "Australian Energy Regulator market-statistics discovery page", status: 503, note: "The official directory returned HTTP 503 in the workspace on 17 October 2026. No individual data file was validated; this does not establish a block on all AER datasets.", url: "https://www.aer.gov.au/industry/registers/market-statistics" },
         { country: "Australia", source: "Australian Antarctic Data Centre Macquarie Island AWS", status: "delayed", note: "The public station API reported its latest Macquarie Island observation at 2026-09-14T22:15:10Z when checked on 17 October. Not enabled as current weather; other stations have separate dates.", url: "https://data.aad.gov.au/aws/api/station" },
         { country: "United Kingdom", source: "Electoral Commission 2024 election report discovery page", status: 403, note: "The official report page refused the workspace request. No UK-wide data endpoint was validated; this does not cover all Commission downloads.", url: "https://www.electoralcommission.org.uk/research-reports-and-data/our-reports-and-data-past-elections-and-referendums/report-2024-uk-parliamentary-general-election-and-may-2024-elections" },
@@ -1234,12 +1242,15 @@ const worker = {
         const hit = await caches.default.match(new Request(`${url.origin}${url.pathname}?release=${BUILD_CACHE_KEY}`, { method: "GET" }));
         if (hit) {
           const expires=Number(hit.headers.get('x-mr-cache-expires-at'));
+          const now=Date.now(),boundary=calendarCacheBoundary(url.pathname,now);
+          const calendarMatches=boundary===null||Number(hit.headers.get('x-mr-calendar-boundary'))===boundary;
           // Edge/cache configuration can rewrite Cache-Control (observed as
           // four hours in preview). Enforce our own lifetime before reuse.
-          if(Number.isFinite(expires)&&expires>Date.now()) {
+          if(calendarMatches&&Number.isFinite(expires)&&expires>now) {
             const headers=new Headers(hit.headers);
             const limit=headers.get('x-data-status')==='degraded'?30:hold;
-            headers.set('Cache-Control',`public, max-age=${Math.min(limit,Math.max(0,Math.floor((expires-Date.now())/1000)))}`);
+            const effectiveExpiry=boundary===null?expires:Math.min(expires,boundary);
+            headers.set('Cache-Control',`public, max-age=${Math.min(limit,Math.max(0,Math.floor((effectiveExpiry-now)/1000)))}`);
             return new Response(hit.body,{status:hit.status,headers});
           }
         }
@@ -1283,9 +1294,9 @@ const worker = {
     }
     if (url.pathname === "/canada" || url.pathname === "/canada.json") {
       const canada = await readCanada().catch(() => ({ site: "https://morningrows.com", country: "Canada", error: "not read" }));
-      if (url.pathname === "/canada.json") return held(request, json(canada));
+      if (url.pathname === "/canada.json") return held(request, json(canada), requestedAt);
       const rows = (canada.jobs || []).map((row) => `<tr><td>${escapeHtml(row.name)}</td><td>${row.rate}%</td></tr>`).join("");
-      return held(request, new Response(simplePage("Morning Canada", `<p>The file is <a href="/canada.json">canada.json</a>.</p><h2>The job</h2><table>${rows}</table><h2>The price of living</h2><p>${canada.price_index ? canada.price_index.index : ""}</p><h2>The shop</h2><p>${canada.shop ? canada.shop.thousand_dollars : ""} thousand dollars</p>${alsoSection(canada.also)}`), { headers: { "content-type": "text/html; charset=utf-8" } }));
+      return held(request, new Response(simplePage("Morning Canada", `<p>The file is <a href="/canada.json">canada.json</a>.</p><h2>The job</h2><table>${rows}</table><h2>The price of living</h2><p>${canada.price_index ? canada.price_index.index : ""}</p><h2>The shop</h2><p>${canada.shop ? canada.shop.thousand_dollars : ""} thousand dollars</p>${alsoSection(canada.also)}`), { headers: { "content-type": "text/html; charset=utf-8" } }), requestedAt);
     }
     if (url.pathname === "/united-kingdom" || url.pathname === "/united-kingdom.json") {
       const uk = await readUnitedKingdom().catch(() => ({ site: "https://morningrows.com", country: "United Kingdom", error: "not read" }));
@@ -1344,14 +1355,15 @@ const worker = {
     const hospital = settled[21].status === "fulfilled" ? settled[21].value : { states: [], year: null, ...describeError(settled[21].reason) };
     const rfs_incidents = settled[22].status === "fulfilled" ? settled[22].value : null;
     const body = { sources, site: "https://morningrows.com", country: "Australia", page: "/australia", read_at: grid[0]?.at ?? null, grid, quakes, jobs, price, approvals, wage, shop, people, spend: spend.rows, spend_total_million: spend.australia_million, works, service, cash, exchange, bonds, commodities, money, credit, rba, laws, hospital, rfs_incidents, catalog: CATALOG.sets, also, omitted_sources: [{ source: "ARPANSA UV observations", reason: "Not republished: developer terms restrict redistribution and commercial use without written approval.", terms_url: "https://www.arpansa.gov.au/our-services/monitoring/ultraviolet-radiation-monitoring/ultraviolet-radation-data-information" }] };
-    if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body));
-    return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }));
+    if (url.pathname === "/morning.json" || url.pathname === "/australia.json") return held(request, json(body), requestedAt);
+    return held(request, new Response(page(body), { headers: { "content-type": "text/html; charset=utf-8" } }), requestedAt);
   },
 };
 
 export default {
   async fetch(request, env = {}) {
     const url=new URL(request.url);
+    const requestedAt=Date.now();
     if(isUsRoute(url.pathname)) {
       const response=await handleUsRequest(request,{cacheKey:BUILD_CACHE_KEY});
       response.headers.set('x-source-revision',BUILD_REVISION);
@@ -1394,6 +1406,13 @@ export default {
     }
     const headers=new Headers(response.headers);
     headers.delete('x-mr-cache-expires-at');
+    headers.delete('x-mr-calendar-boundary');
+    const boundary=calendarCacheBoundary(url.pathname,requestedAt);
+    const maxAge=headers.get('Cache-Control')?.match(/max-age=(\d+)/)?.[1];
+    if(boundary!==null&&maxAge!==undefined) {
+      const seconds=Math.max(0,Math.min(Number(maxAge),Math.floor((boundary-Date.now())/1000)));
+      headers.set('Cache-Control',seconds?`public, max-age=${seconds}`:'no-store');
+    }
     headers.set('x-source-revision',BUILD_REVISION);
     if(env.WORKER_VERSION?.id) headers.set('x-worker-version',env.WORKER_VERSION.id);
     if(url.pathname==='/health.json') headers.set('Cache-Control','no-cache');
