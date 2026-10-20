@@ -1,6 +1,7 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeFile } from 'node:fs/promises';
+import { validateCpiRepresentation } from '../lib/information-v2.js';
 const run = promisify(execFile);
 const base = process.env.SITE_URL || 'https://morningrows.com';
 const expected = process.env.EXPECTED_REVISION;
@@ -25,7 +26,7 @@ function problems(value,path='') {
  if(value.error)return [{path,error:value.error,http_status:value.http_status}];
  return Object.entries(value).flatMap(([k,v])=>problems(v,path?`${path}.${k}`:k));
 }
-for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...desks.map(d=>`/${d}.json`),'/morning.json','/missing-route-check']) {
+for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...desks.map(d=>`/${d}.json`),...(process.env.CHECK_US==='1'?['/catalog.v2.json','/schema.v2.json','/united-states.json']:[]),'/morning.json','/missing-route-check']) {
  try {
   const r=await read(path);const wanted=path==='/missing-route-check'?404:200;
   if(r.status!==wanted)throw Error(`HTTP ${r.status}; expected ${wanted}`);
@@ -36,6 +37,12 @@ for(const path of ['/health.json','/llms.txt','/catalog.json','/keys.json',...de
     report.identity={source_revision:d.source_revision,source_dirty:d.source_dirty,worker_version:d.worker_version,build_fingerprint:d.build_fingerprint};
    }
    if(path==='/catalog.json'&&d.countries?.length!==8)throw Error('Eight desks missing from catalogue');
+   if(path==='/catalog.v2.json'&&(d.schema_version!=='2.0'||d.countries?.length!==9||new Set(d.countries.map(c=>c.id)).size!==9||!d.countries.some(c=>c.id==='https://morningrows.com/united-states.json'&&c.resource_schema_version==='2.0')||d.countries.filter(c=>c.resource_schema_version==='1.0').length!==8))throw Error('Versioned catalogue must preserve eight v1 resources and one US v2 resource');
+   if(path==='/schema.v2.json'&&d.$id!=='https://morningrows.com/schema.v2.json')throw Error('US schema link mismatch');
+   if(path==='/united-states.json') {
+    if(d.country!=='United States'||d._meta?.schema_version!=='2.0'||d.sources?.cpi?.status!=='ok'||!validateCpiRepresentation(d.cpi))throw Error('US CPI requires the exact national NSA definition and 13 complete calendar slots, with missingness distinct from zero');
+    if(process.env.EXPECTED_US_LATEST&&d.cpi.latest_period!==process.env.EXPECTED_US_LATEST)throw Error('US latest period differs from independently verified release');
+   }
    if(desks.some(name=>path===`/${name}.json`)||path==='/morning.json') {
     if(d.error||!d.country||!d.sources)throw Error('Desk contract or whole-desk failure');
     const good=Object.values(d.sources).filter(s=>s.status==='ok').length;

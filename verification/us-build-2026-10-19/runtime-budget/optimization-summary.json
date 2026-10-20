@@ -1,0 +1,248 @@
+{
+  "verified_at": "2026-10-20T03:43:26.449Z",
+  "user_decision": "Keep Free; pursue further optimization",
+  "cpu_limit_ms": 10,
+  "final_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
+  "final_worker_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
+  "final_cold_cpu_ms": 21,
+  "best_observed_cold_ms": 12,
+  "release_accepted": false,
+  "interpretation": "No complete measured cold candidate met the 10ms limit. Latest exact-fragment/table-boundary trial measured21ms; the earlier simplified confirmation measured29ms and best12ms. These sparse results do not establish a reproducible improvement or a percentile. HTTP success does not pass capacity acceptance.",
+  "retained_changes": [
+    "ASCII ordering of validated YYYY-MM strings",
+    "JSON response fingerprinting without Response-text-JSON roundtrip",
+    "bounded native byte-stream read with fatal UTF-8 decode",
+    "minified build"
+  ],
+  "removed_experiments": [
+    "bounded-year acquisition29ms",
+    "generic hash helper14ms",
+    "direct validated-byte hashing17ms",
+    "composed selected fingerprints19ms/incomplete later routing capture",
+    "exact canonical fragments plus guarded table-boundary extraction21ms"
+  ],
+  "rejected_transport": "Official CSV formatting omits catalogue dimensions; cannot replace runtime semantic checks without another metadata acquisition. No CSV runtime implementation.",
+  "tests": {
+    "node": 180,
+    "independent_python": 20,
+    "actual_preview_scenarios": 22,
+    "legacy_cases": 315,
+    "us_interface_cases": 8,
+    "schema_responses": 221,
+    "schema_negative_checks": 3,
+    "independent_publisher_slots": 13
+  },
+  "reports": [
+    {
+      "file": "version-bounded-probe.json",
+      "sha256": "770f59dda899f806da8c537cafebcf30e11da30a7efc8eb6629ef4a8b50d4b0e",
+      "worker_version": "e245ea37-f725-4baa-98f3-0007a8f20a2c",
+      "started_at": "2026-10-18T23:53:01.745Z",
+      "finished_at": "2026-10-18T23:53:07.167Z",
+      "cold_selected_cpu_ms": [
+        29
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-bulk-probe.json",
+      "sha256": "7bc34f795223da643d783bc9b1e9ee4ba94176c73620c365f273c07af54271e5",
+      "worker_version": "658e23e9-6533-4510-983d-b73c35c2a99d",
+      "started_at": "2026-10-18T23:13:38.020Z",
+      "finished_at": "2026-10-18T23:13:46.186Z",
+      "cold_selected_cpu_ms": [
+        87
+      ],
+      "complete_event_coverage": "not recorded by earlier verifier; inspect serial trace",
+      "cold_retrieval_confirmed": "not recorded by earlier verifier; inspect retrieval timestamp",
+      "budget_pass": false
+    },
+    {
+      "file": "version-byob-probe.json",
+      "sha256": "083e7592472f35d87340bbf95792887be19fcf496ef908121559c255665a64e2",
+      "worker_version": "ca1e17fb-84ba-4a4a-adba-04be04c8c5bb",
+      "started_at": "2026-10-18T23:50:35.340Z",
+      "finished_at": "2026-10-18T23:50:40.965Z",
+      "cold_selected_cpu_ms": [
+        12
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-bytes-probe.json",
+      "sha256": "0bf7b0b134e037137ce5e556662b6bb5250690a871a45f37d8f0db17e107e3ce",
+      "worker_version": "6c45558a-ef92-4e5c-8e97-6eb502da0f2a",
+      "started_at": "2026-10-19T00:03:23.165Z",
+      "finished_at": "2026-10-19T00:03:28.730Z",
+      "cold_selected_cpu_ms": [
+        17
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-composed-probe.json",
+      "sha256": "5f6093aa614cf32cd03eadbbd092fbfc96dfd63e17c7700921ae40ecbc9b9a4e",
+      "worker_version": "536c906e-ed67-4e34-a1bf-d9e23b8432ce",
+      "started_at": "2026-10-19T00:05:46.539Z",
+      "finished_at": "2026-10-19T00:06:03.810Z",
+      "cold_selected_cpu_ms": [
+        19
+      ],
+      "complete_event_coverage": false,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-final-confirmation.json",
+      "sha256": "138d84ec2e8c5cb770e7d004a1c4f4dba057d0a630cf9188b25b294a9605a27c",
+      "worker_version": "b8c7eb23-bade-40d0-a35d-5496165ecde1",
+      "started_at": "2026-10-19T00:07:18.478Z",
+      "finished_at": "2026-10-19T00:07:23.938Z",
+      "cold_selected_cpu_ms": [
+        29
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-hash-probe.json",
+      "sha256": "128e3a4400e9f3e29bac48695c540c10883f2d4ace6bb9e16c2cbfca66659d23",
+      "worker_version": "a0f9595c-36d0-47b7-be43-912a8149b979",
+      "started_at": "2026-10-18T23:56:31.901Z",
+      "finished_at": "2026-10-18T23:56:37.192Z",
+      "cold_selected_cpu_ms": [
+        14
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-json-confirmation.json",
+      "sha256": "81609ec3340d91dd1dbec3305fb2350c087dd48551c8e97f1b9b1b2456bf2353",
+      "worker_version": "242d9d4a-cbd3-46e1-888b-9758eb6d9a94",
+      "started_at": "2026-10-18T23:48:27.161Z",
+      "finished_at": "2026-10-18T23:48:32.516Z",
+      "cold_selected_cpu_ms": [
+        29
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-json-probe-incomplete.json",
+      "sha256": "e8080c9098a384cf485c19524723fdee35fbdd4d1d516025413a870fc481b858",
+      "worker_version": "fd29efa8-05e9-4056-9204-45331f275f29",
+      "started_at": "2026-10-18T23:43:57.340Z",
+      "finished_at": "2026-10-18T23:44:05.817Z",
+      "cold_selected_cpu_ms": [],
+      "complete_event_coverage": "not recorded by earlier verifier; inspect serial trace",
+      "cold_retrieval_confirmed": "not recorded by earlier verifier; inspect retrieval timestamp",
+      "budget_pass": false
+    },
+    {
+      "file": "version-json-probe.json",
+      "sha256": "5c3c44572faff65675b56a7e73f388af5b1a9719b08178515f3c1f751dc327d9",
+      "worker_version": "befb8b49-56a0-461c-818e-65b40b2b2175",
+      "started_at": "2026-10-18T23:46:53.748Z",
+      "finished_at": "2026-10-18T23:46:59.175Z",
+      "cold_selected_cpu_ms": [
+        17
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-lexical-probe.json",
+      "sha256": "36bf892958d321aa57ec483f5cd61d8e883f6a93a0c2158bee500250d2bca89c",
+      "worker_version": "c6f52fb7-eae5-4b28-acce-79d5af42b774",
+      "started_at": "2026-10-18T23:40:53.725Z",
+      "finished_at": "2026-10-18T23:41:02.143Z",
+      "cold_selected_cpu_ms": [
+        18
+      ],
+      "complete_event_coverage": "not recorded by earlier verifier; inspect serial trace",
+      "cold_retrieval_confirmed": "not recorded by earlier verifier; inspect retrieval timestamp",
+      "budget_pass": false
+    },
+    {
+      "file": "version-minify-probe.json",
+      "sha256": "696a1b3699be301785a0655a174a8dbbba8d3c6673c34c47f2886a50e65743aa",
+      "worker_version": "b406b0b3-8a48-4f94-95f4-64228b740718",
+      "started_at": "2026-10-18T23:54:45.953Z",
+      "finished_at": "2026-10-18T23:54:51.350Z",
+      "cold_selected_cpu_ms": [
+        12
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "budget_pass": false
+    },
+    {
+      "file": "version-table-probe.json",
+      "sha256": "9b883d16e8b450957e5acb8c2c702dc1aef49804a35b1ce67faa4b7f3335f2b4",
+      "worker_version": "08940f49-9a42-4329-8609-5d04aeb5545d",
+      "started_at": "2026-10-18T23:23:20.007Z",
+      "finished_at": "2026-10-18T23:23:28.413Z",
+      "cold_selected_cpu_ms": [
+        27
+      ],
+      "complete_event_coverage": "not recorded by earlier verifier; inspect serial trace",
+      "cold_retrieval_confirmed": "not recorded by earlier verifier; inspect retrieval timestamp",
+      "budget_pass": false
+    },
+    {
+      "file": "version-workbook-js-probe.json",
+      "sha256": "566b272b08820de9850d4abaf411527fc1761dd4dd2f3ecaf8587b6fb1991947",
+      "worker_version": "ac67c559-6b09-4f7b-98b0-c479d63a2d00",
+      "started_at": "2026-10-18T23:18:17.645Z",
+      "finished_at": "2026-10-18T23:18:25.817Z",
+      "cold_selected_cpu_ms": [
+        38
+      ],
+      "complete_event_coverage": "not recorded by earlier verifier; inspect serial trace",
+      "cold_retrieval_confirmed": "not recorded by earlier verifier; inspect retrieval timestamp",
+      "budget_pass": false
+    },
+    {
+      "file": "version-workbook-native-probe.json",
+      "sha256": "7b0ecf7251479bb6e82e55a17667795ab4b2a30968cb19dd3f659f2f174fe7b1",
+      "worker_version": "72060dc7-06ad-4345-a155-5108f3e53c8b",
+      "started_at": "2026-10-18T23:20:15.650Z",
+      "finished_at": "2026-10-18T23:20:23.666Z",
+      "cold_selected_cpu_ms": [
+        50
+      ],
+      "complete_event_coverage": "not recorded by earlier verifier; inspect serial trace",
+      "cold_retrieval_confirmed": "not recorded by earlier verifier; inspect retrieval timestamp",
+      "budget_pass": false
+    },
+    {
+      "file": "version-cold-fragments-probe.json",
+      "sha256": "4aac6ab78ac01a0050e3f5fa0425704b992dee4b8e7eae16b9238f4224240693",
+      "worker_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
+      "source_revision": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
+      "started_at": "2026-10-20T03:42:10.098Z",
+      "finished_at": "2026-10-20T03:42:18.749Z",
+      "cold_selected_cpu_ms": [
+        21
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "production_identity_confirmed": true,
+      "deployment_unchanged": true,
+      "budget_pass": false,
+      "runtime_retained": false
+    }
+  ],
+  "final_runtime_disposition": "Exact-fragment/table-boundary runtime changes removed after the failed gate; simpler runtime restored byte-identically to bb41f961 for the three changed modules."
+}

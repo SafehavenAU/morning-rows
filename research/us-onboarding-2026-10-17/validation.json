@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-10-17T11:14:59.283773+00:00",
+  "research_only": true,
+  "runtime_deployment": false,
+  "semantic_tests": {
+    "command": "python research/us-onboarding-2026-10-17/test_demo.py",
+    "passed": 20,
+    "failed": 0,
+    "method": "unittest; constructed failure cases plus real publisher specimens"
+  },
+  "task_cases": {
+    "command": "python research/us-onboarding-2026-10-17/evaluate.py",
+    "representative_passed": 3,
+    "held_out_passed": 3,
+    "held_out_limit": "Three final new inputs after reader freeze; same researcher and previously seen aggregate dataset, not blinded or independent.",
+    "reader_sha256": "101a8bfc03df043c3c0d2e8f575ad9ec866e7a9a2763f0b8062bbc05ac5db6df"
+  },
+  "live_replay": {
+    "commands": [
+      "python research/us-onboarding-2026-10-17/capture.py --live --output /tmp/mr-us-fresh",
+      "python research/us-onboarding-2026-10-17/demo.py --specimens /tmp/mr-us-fresh/specimens"
+    ],
+    "source_calls": 6,
+    "semantic_versions_and_answers_equal": true,
+    "retrieval_times_different": true,
+    "manifest": "live-replay-manifest.json"
+  },
+  "retained_specimen_hashes_verified": true,
+  "independent_agent": "Unavailable before task execution; see agent-client.json",
+  "cloudflare_preview": "Not run; actual US Worker implementation is a future gate, not authorized production work in this planning task",
+  "existing_runtime_tests": "Not rerun: no runtime code changed; public smoke executed on both domains",
+  "production_checks": {
+    "apex": "14/15 with all addition flags; NZ prices fails",
+    "www": "13/14 with all addition flags; NZ prices fails",
+    "runtime_identity": "7d614e2e78a63fc16f705b67e35ed0438baa7d87 / 739b9031-305c-4bc7-afc5-79a82c654ac7",
+    "core_contracts": "23 Stats NZ numeric rows; AIHW 2024-25 40 numeric cells; Wales mid-2026 projection 3195431; NISRA 2024/25 values 6.3,23.2,6.0,26.5",
+    "supplemental_status": "production-status.json; NZ price timeout persists at 11:14; transient Australia grid timeout recovered on both domains."
+  },
+  "limitations": [
+    "Shared BLS statistical lineage; three independent official-table cells, not all historical release tables",
+    "No production US HTTP behavior or independent agent result",
+    "No long-term upstream reliability or adoption measurement",
+    "Current exhaustive territory-frame confirmation outstanding",
+    "Bulk conditional request returned full HTTP 200; no 304 savings assumed"
+  ]
+}

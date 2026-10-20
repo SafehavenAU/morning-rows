@@ -1,0 +1,102 @@
+{
+  "method": "Deterministic case replay; no independent agent results",
+  "held_out_protocol": "Reader frozen before final H1-H3 inputs: new interval, separately requested DC, quarterly aggregation. No reader changes made after their run. Same researcher and already-seen dataset; not blinded. Earlier December-June example remains an additional development case, not held-out.",
+  "reader_sha256": "101a8bfc03df043c3c0d2e8f575ad9ec866e7a9a2763f0b8062bbc05ac5db6df",
+  "evidence_basis": {
+    "R1": "Docusign price-adjustment workflow; exact annual interval chosen for the test",
+    "R2": "Actual BLS October 2025 unavailable index and MCP missingness issue #58",
+    "R3": "Docusign latest-available fallback code; explicit future-month request is constructed",
+    "H1": "Same two-month index-ratio capability, new interval",
+    "H2": "Constructed DC inclusion versus separately available geography adversary",
+    "H3": "Constructed aggregation/period-convention adversary"
+  },
+  "cases": [
+    {
+      "id": "R1",
+      "group": "representative",
+      "constructed_question": "Annual reference change September 2025 to September 2026",
+      "expected": "3.74",
+      "actual": "3.74",
+      "checks": {
+        "correctness": true,
+        "completeness": true,
+        "caveat_retention": true,
+        "citation_traceability": true
+      }
+    },
+    {
+      "id": "R2",
+      "group": "representative",
+      "constructed_question": "Explain whether October 2025 is a usable numeric base",
+      "expected": "unavailable",
+      "actual": "unavailable",
+      "checks": {
+        "correctness": true,
+        "completeness": true,
+        "caveat_retention": true,
+        "citation_traceability": true
+      }
+    },
+    {
+      "id": "R3",
+      "group": "representative",
+      "constructed_question": "Exact October 2026 index; do not substitute September",
+      "expected": "observation_not_retained",
+      "actual": "observation_not_retained",
+      "checks": {
+        "correctness": true,
+        "completeness": true,
+        "caveat_retention": true,
+        "citation_traceability": "not_applicable_to_refusal; contract and source remain in directory"
+      }
+    },
+    {
+      "id": "H1",
+      "group": "held_out",
+      "constructed_question": "Explicit November 2025 to February 2026 reference change",
+      "expected": "0.82",
+      "actual": "0.82",
+      "checks": {
+        "correctness": true,
+        "completeness": true,
+        "caveat_retention": true,
+        "citation_traceability": true
+      }
+    },
+    {
+      "id": "H2",
+      "group": "held_out",
+      "constructed_question": "September 2026 index for District of Columbia separately",
+      "expected": "unsupported_dimensions",
+      "actual": "unsupported_dimensions",
+      "checks": {
+        "correctness": true,
+        "completeness": true,
+        "caveat_retention": true,
+        "citation_traceability": "not_applicable_to_refusal; contract and source remain in directory"
+      }
+    },
+    {
+      "id": "H3",
+      "group": "held_out",
+      "constructed_question": "Third-quarter 2026 average index",
+      "expected": "unsupported_period_convention",
+      "actual": "unsupported_period_convention",
+      "checks": {
+        "correctness": true,
+        "completeness": true,
+        "caveat_retention": true,
+        "citation_traceability": "not_applicable_to_refusal; contract and source remain in directory"
+      }
+    }
+  ],
+  "effort": {
+    "offline_network_calls": 0,
+    "live_demonstration_source_calls": 6,
+    "live_calls_meaning": "Bulk, metadata, footnotes, API cross-check, FRED cross-check and archive; not six calls per end-user query.",
+    "planned_known_measure_calls": 1,
+    "planned_first_discovery_calls": 4,
+    "planned_discovery_path": "llms.txt -> catalog.v2.json -> US source directory -> selected measure",
+    "qualification": "Planned route counts only; no US HTTP service exists. Raw BLS API already returns known-series data in one call. Morning Rows is not proven to reduce calls or latency."
+  }
+}

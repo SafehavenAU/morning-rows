@@ -1,6 +1,11 @@
 name = "morning-rows"
 main = "worker.js"
 compatibility_date = "2026-10-16"
+minify = true
+
+# Whole-Worker safety ceiling; USA release acceptance is separately 100 ms.
+[limits]
+cpu_ms = 1000
 
 [[routes]]
 pattern = "morningrows.com"

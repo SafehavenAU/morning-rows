@@ -1,0 +1,33 @@
+{
+  "node": "v24.19.0",
+  "dependencies": {
+    "miniflare": "5.20261012.1-beta",
+    "esbuild": "0.28.2",
+    "ws": "8.21.0"
+  },
+  "files": {
+    "baseline-1-first.cpuprofile": "bd6a84cd0eb28b6be43afc2908ad216e1db08ed402d7feb462eacbeeabeadf0c",
+    "baseline-1-repeated.cpuprofile": "52d5998ee3b4e33481f575b521fbaca8f199d3d4008af6b423a68f14832b1d7d",
+    "baseline-2-first.cpuprofile": "a3b92fd4b9bcf0d8e9f5aa355b1b1195f943661af2f7e02978c1fca16f311b92",
+    "baseline-summary.json": "91d2ce485cb3d06de6719e2ceb6351b1c1df8d3a760ad5526909a58b68fc0052",
+    "baseline.bundle.mjs": "a42135adef61b9b0c5b020fbe59f848287eeeb040174f9321f8298d74ed6264a",
+    "baseline.bundle.mjs.map": "ab16f097499ddb1c488583cd82b408ebb7f5d1f1f6d877daf7b40d8b6a6ca83b",
+    "combined-1-first.cpuprofile": "38daafb2f9823490927c8a4c5d1f998d55085678c5b4e01da5c72dd149004f77",
+    "combined-1-repeated.cpuprofile": "990fe99ea9cd3bed8ddad62c510ab21e3928b239af59730bdbd84aa5fce1ba78",
+    "combined-2-first.cpuprofile": "f635ae25bd937c933c82f8971c80c1cecef14e145113e6a8f0fe251e8f3dcbaa",
+    "combined-summary.json": "9824f9538fa7198d9a35efe165fbcd5d6a4f8858bd1b6971c9b2a4df30dc7e9f",
+    "combined-worker.mjs": "90d80e23331d53f459a5579940a6304cc1e34c5f0d501b4c6138c853ae6553c8",
+    "combined.bundle.mjs": "d2a388463a307647ace0572d8dee62c69000e6f8ffbd6ce2bc159d1bd279b317",
+    "combined.bundle.mjs.map": "e2dd24877b0ee4a96766344d71f6685d65a49039dd6d27e412794b127007086d",
+    "comparison.json": "128d3d7ed746328be9a0ffcd5c450b37a5da4f94b7dc46307229631fa4e10799",
+    "profile.mjs": "48faa5fec881dab0cf060f236b0798ea9cfe5704a282ca93bf7fd523170542f3"
+  },
+  "limitations": [
+    "Local CDP sampling is not billed edge CPU",
+    "Fixture reads and cache:null remove network and cache work",
+    "Nonidle deltas may include host descheduling",
+    "Two fresh isolates per variant; baseline then combined, not randomized",
+    "Source-map function entries identify JS attribution; native CPU is incompletely symbolized",
+    "No production resources, credentials or external requests used"
+  ]
+}

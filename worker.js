@@ -1,4 +1,6 @@
 import { ORIGIN, DESKS, SCHEMA_VERSION, INFORMATION_SCHEMA, catalogue, validateSelection, selectedResponse, finishResponse } from './lib/information.js';
+import { CURRENT_DESKS } from './lib/information-v2.js';
+import { isUsRoute, handleUsRequest } from './lib/us-desk.js';
 import { readNzPrices } from './lib/nz-prices.js';
 import { readNzFleet, readScottishTraffic } from './lib/transport-observations.js';
 import { readPharmacies } from './lib/pharmacies.js';
@@ -290,17 +292,19 @@ function page(data) {
 
 const LLMS = `# Morning Rows
 
-> Official public aggregate data across eight desks. Fetch JSON; human pages are views of the same data. No account required.
+> Official public aggregate data across nine desks. Fetch JSON; human pages are views of the same data. No account required.
 
 ## Discover, select, cite, return
 
-1. [Catalogue](https://morningrows.com/catalog.json) lists eight desks. Follow a desk's catalog link to its existing sources and described measures.
+1. [Current catalogue](https://morningrows.com/catalog.v2.json) lists nine desks. Follow each desk's catalog and resource_schema links: the existing eight resources retain v1; the US uses v2. [Legacy catalogue](https://morningrows.com/catalog.json) remains the eight-desk compatibility view.
 2. Follow the exact records URL. For example [Canada FX](https://morningrows.com/canada.json?source=exchange) or [Wales projection](https://morningrows.com/wales.json?source=projection&measure=population-2024-based). Full desk URLs remain supported.
 3. Read definition, exact period, value_state, source_url, licence and qualifications before answering. A desk name is not the observation geography. Projections are not estimates. Unknown metadata must remain unknown.
 4. Cite the observation id, version and publisher URL. Observation URLs select only a currently retained period, not an archive. Save the response for historical audit.
 5. Retain ETag and use If-None-Match on the same URL. 304 means unchanged selected content/health within cache policy. Retrieval time is not publication time. Annual/monthly observations need not change daily.
 
 [Schema and usage contract](https://morningrows.com/schema.json) defines selectors, identity, comparison rules, missingness and revisions. [Runtime identity](https://morningrows.com/health.json) is separate from data health. [Manual access queue](https://morningrows.com/keys.json) is not deployed coverage.
+
+[US contract](https://morningrows.com/schema.v2.json): one [national urban CPI-U measure](https://morningrows.com/united-states.json?source=cpi&measure=CUUR0000SA0), all items, not seasonally adjusted, index 1982-84=100. Retains 13 calendar months, including unavailable months. Use exact periods; do not replace a missing month, infer state/DC-only data, or substitute annual averages. An annual price review is supported only when both exact reference months are retained and numeric. This supplies statistical inputs, not contract interpretation.
 
 ## Limits
 
@@ -310,7 +314,7 @@ A new observation period, a changed value/caveat at the same period, unchanged v
 
 ## Desks
 
-${Object.entries(DESKS).map(([slug,name])=>`- [${name}](https://morningrows.com/${slug}.json)`).join('\n')}
+${Object.entries(CURRENT_DESKS).map(([slug,name])=>`- [${name}](https://morningrows.com/${slug}.json)`).join('\n')}
 
 Australia's /morning.json alias remains available. Search and agent retrieval are allowed; training crawler restrictions remain in robots.txt.
 `;
@@ -341,12 +345,15 @@ const CATALOG = {
 
 const AI_CATALOG = {
   name: "Morning Rows",
-  description: "Eight public aggregate data desks. Discover sources and described measures through the catalogue; do not infer geographic scope from a desk name.",
+  description: "Nine public aggregate data desks. Follow each catalogue entry's resource schema; existing eight resources stay v1, United States uses v2. Do not infer geographic scope from a desk name.",
   auth: { type: "none" },
   schema_version: SCHEMA_VERSION,
   services: [
-    { name: "records", path: "/morning.json", description: "Legacy Australia alias. Follow catalog for all eight desks.", methods: ["GET","HEAD"] },
-    { name: "catalog", path: "/catalog.json", description: "Eight desks with source-directory links.", methods: ["GET","HEAD"] },
+    { name: "records", path: "/morning.json", description: "Legacy Australia alias. Follow current_catalog for all desks.", methods: ["GET","HEAD"] },
+    { name: "catalog", path: "/catalog.json", description: "Eight-desk v1 compatibility catalogue.", methods: ["GET","HEAD"] },
+    { name: "current_catalog", path: "/catalog.v2.json", description: "Nine desks with explicit linked-resource schema versions.", methods: ["GET","HEAD"] },
+    { name: "us_schema", path: "/schema.v2.json", methods: ["GET","HEAD"] },
+    { name: "United States", path: "/united-states.json", catalog: "/catalog.v2.json?desk=united-states", schema: "/schema.v2.json", methods: ["GET","HEAD"] },
     { name: "index", path: "/llms.txt", description: "Discovery, interpretation, citation and repeat-visit instructions.", methods: ["GET","HEAD"] },
     { name: "schema", path: "/schema.json", description: "Selected-response schema and usage contract.", methods: ["GET","HEAD"] },
     ...Object.entries(DESKS).map(([slug,name])=>({name,path:`/${slug}.json`,catalog:`/catalog.json?desk=${slug}`,methods:["GET","HEAD"]})),
@@ -395,7 +402,9 @@ const DESK = `<!doctype html><html lang="en"><head><meta charset="utf-8"><link r
 <p>A public data desk. Any official figure from a reliable source, fetched from a free API when you ask. Not a building site.</p>
 <ol>
 <li><a href="/llms.txt">/llms.txt</a>, the index and the rules.</li>
-<li><a href="/catalog.json">/catalog.json</a>, the desks.</li>
+<li><a href="/catalog.v2.json">/catalog.v2.json</a>, all nine desks and their data contracts.</li>
+<li><a href="/united-states">United States</a>: national urban CPI-U, exact retained calendar months.</li>
+<li><a href="/catalog.json">/catalog.json</a>, the eight-desk v1 compatibility view.</li>
 <li><a href="/keys.json">/keys.json</a>, free sources that still need a key.</li>
 <li>One desk. <a href="/australia.json">Australia</a>, <a href="/new-zealand.json">New Zealand</a>, <a href="/canada.json">Canada</a>, <a href="/united-kingdom.json">United Kingdom</a>, <a href="/england.json">England</a>, <a href="/scotland.json">Scotland</a>, <a href="/wales.json">Wales</a>, or <a href="/northern-ireland.json">Northern Ireland</a>.</li>
 </ol>
@@ -1340,13 +1349,19 @@ const worker = {
 export default {
   async fetch(request, env = {}) {
     const url=new URL(request.url);
+    if(isUsRoute(url.pathname)) {
+      const response=await handleUsRequest(request,{cacheKey:BUILD_CACHE_KEY});
+      response.headers.set('x-source-revision',BUILD_REVISION);
+      if(env.WORKER_VERSION?.id)response.headers.set('x-worker-version',env.WORKER_VERSION.id);
+      return response;
+    }
     const selection=validateSelection(url);
     let response, retrievedAt=null;
     const canon=new URL(url.pathname+url.search,ORIGIN);
     if(canon.pathname==='/morning.json') canon.pathname='/australia.json';
     if(!['GET','HEAD'].includes(request.method)) response=new Response(JSON.stringify({error:'method_not_allowed'}),{status:405,headers:{'content-type':'application/json','Allow':'GET, HEAD'}});
     else if(selection.status) response=new Response(JSON.stringify({error:selection.code,message:selection.message||'Selection not supported',catalog:`${ORIGIN}/catalog.json`,schema:`${ORIGIN}/schema.json`}),{status:selection.status,headers:{'content-type':'application/json','Cache-Control':'no-store'}});
-    else if(url.pathname==='/sitemap.xml') response=new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/','/catalog.json','/llms.txt',...Object.keys(DESKS).flatMap(d=>[`/${d}`,`/${d}.json`])].map(p=>`<url><loc>${ORIGIN}${p}</loc></url>`).join('')}</urlset>`,{headers:{'content-type':'application/xml; charset=utf-8'}});
+    else if(url.pathname==='/sitemap.xml') response=new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['/','/catalog.json','/catalog.v2.json','/llms.txt',...Object.keys(CURRENT_DESKS).flatMap(d=>[`/${d}`,`/${d}.json`])].map(p=>`<url><loc>${ORIGIN}${p}</loc></url>`).join('')}</urlset>`,{headers:{'content-type':'application/xml; charset=utf-8'}});
     else {
       // Only validated selectors reach here. Reuse the existing complete-desk
       // cache, never cache one selection under another selection's URL.
@@ -1380,7 +1395,9 @@ export default {
     if(env.WORKER_VERSION?.id) headers.set('x-worker-version',env.WORKER_VERSION.id);
     if(url.pathname==='/health.json') headers.set('Cache-Control','no-cache');
     response=new Response(response.body,{status:response.status,headers});
-    return finishResponse(request,response,canon.href,retrievedAt);
+    const finished=await finishResponse(request,response,canon.href,retrievedAt);
+    if(url.pathname==='/catalog.json')finished.headers.append('Link',`<${ORIGIN}/catalog.v2.json>; rel="successor-version"`);
+    return finished;
   },
 };
 

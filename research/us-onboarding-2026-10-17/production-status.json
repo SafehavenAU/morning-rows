@@ -1,0 +1,33 @@
+{
+  "last_checked_at": "2026-10-17T11:14:38.403096+00:00",
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "7d614e2e78a63fc16f705b67e35ed0438baa7d87",
+    "source_dirty": false,
+    "build_fingerprint": "44967a5319167783",
+    "worker_version": "739b9031-305c-4bc7-afc5-79a82c654ac7",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  },
+  "domains_identity_catalogue_schema_match": true,
+  "catalogue_desks": 8,
+  "us_route_status": 404,
+  "existing_desk_sources": "Every desk retained at least one successful source on both domain smoke runs; no whole-desk loss.",
+  "core_contracts": "Stats NZ 23; AIHW eight jurisdictions and 40 numeric cells, 2024-25; Wales 3195431 mid-2026 all ages/persons projection; NISRA four national all-persons aggregates, 2024/25.",
+  "new_persistent_degradation": {
+    "source": "NZ EMI prices",
+    "first_observed": "2026-10-17T11:02:17Z",
+    "confirmed_checks": [
+      "2026-10-17T11:06:33Z",
+      "2026-10-17T11:14:38Z"
+    ],
+    "state": "Source request timed out; empty prices array; Stats NZ unaffected",
+    "notified_in_this_task": true
+  },
+  "transient_recheck": {
+    "source": "Australia grid",
+    "initial_state": "timeout in both 11:02 smoke runs",
+    "final_state": "recovered on both domains by 11:14; five current entries",
+    "notification": "No unresolved new alert; recorded as transient."
+  },
+  "unchanged_degradation": "ABS, ONS, StatCan, legislation, RFS and intermittent TfL are already acknowledged; no repeat alerts."
+}

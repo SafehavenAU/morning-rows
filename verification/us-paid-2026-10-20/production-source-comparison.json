@@ -1,0 +1,85 @@
+{
+  "checked_at": "2026-10-20T04:22:51.119716+00:00",
+  "compared_source_states": 218,
+  "changes": [
+    {
+      "url": "https://morningrows.com/australia.json",
+      "source": "laws",
+      "staged": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T04:12:14.385Z"
+      },
+      "production": {
+        "status": "degraded",
+        "fetched_at": "2026-10-20T04:19:50.810Z"
+      },
+      "classification": "Isolated apex timeout; same-version www success and one subsequent fresh apex success. No persistent regression established.",
+      "confirmation_retrieved_at": "2026-10-20T04:21:05.307Z"
+    },
+    {
+      "url": "https://morningrows.com/england.json",
+      "source": "service",
+      "staged": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T04:12:39.752Z"
+      },
+      "production": {
+        "status": "error",
+        "fetched_at": "2026-10-20T04:19:56.006Z",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "classification": "known intermittent TfL429 state change"
+    },
+    {
+      "url": "https://morningrows.com/england.json",
+      "source": "also.roads",
+      "staged": {
+        "status": "error",
+        "fetched_at": "2026-10-20T04:12:41.974Z",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "production": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T04:19:58.053Z"
+      },
+      "classification": "known intermittent TfL429 state change"
+    },
+    {
+      "url": "https://www.morningrows.com/england.json",
+      "source": "service",
+      "staged": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T04:12:39.752Z"
+      },
+      "production": {
+        "status": "error",
+        "fetched_at": "2026-10-20T04:19:56.327Z",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "classification": "known intermittent TfL429 state change"
+    },
+    {
+      "url": "https://www.morningrows.com/england.json",
+      "source": "also.roads",
+      "staged": {
+        "status": "error",
+        "fetched_at": "2026-10-20T04:12:41.974Z",
+        "error": "api.tfl.gov.uk returned HTTP 429",
+        "http_status": 429
+      },
+      "production": {
+        "status": "ok",
+        "fetched_at": "2026-10-20T04:19:57.994Z"
+      },
+      "classification": "known intermittent TfL429 state change"
+    }
+  ],
+  "unexplained_persistent_regressions": [],
+  "pending_confirmation": [],
+  "note": "Existing ABS/ONS and UK legislation blocks are retained; unchanged annual/monthly observations are valid. Final timeout disposition requires parent confirmation; this check performs no network.",
+  "initial_review_at": "2026-10-20T04:21:32.584974+00:00",
+  "targeted_confirmation": "laws-confirmation.json"
+}

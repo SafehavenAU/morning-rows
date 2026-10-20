@@ -1,0 +1,43 @@
+{
+  "recorded_at": "2026-10-17T12:13:45.124748+00:00",
+  "base_git_revision": "7231aab5475c03e3c8075bffdba2c994c0eebf04",
+  "candidate_uncommitted": true,
+  "source_sha256": {
+    "worker.js": "728e8d4cf2353528bcefb435b277ae889c31a62ce1a079288ea943d5b07514a3",
+    "lib/us-cpi.js": "58abf67729520a93f42ca11b6477798c4fbf07b0e214b81c400390e2677c9e08",
+    "lib/information-v2.js": "3ba2ed07e00a56c75b4e2c4dda8b026cbb46c4f16d72442d4bd72a8fb6943d70",
+    "lib/us-desk.js": "c4ad5457dbb859eabaf170eaebb5b5d301f8b36fca08b2dad34961fc5ea520dd",
+    "scripts/check-information.mjs": "272cfea9845e4bb80c24c7455a48ad251f43e02a5e8f8ad2b37737f43dbe0036",
+    "scripts/smoke.mjs": "dd94f079dad9f192adb392984f3940ecc1c2f78d4aac646cff49c28097916fa9",
+    "scripts/verify-us-contract.mjs": "58299551113b30842ac1539cbb5d9eb878e0915b342946587fd51996bd0e65f5",
+    "scripts/verify-us-schema.py": "50df70deebeb23b30a06ac48b3dbf8b3e73083b478d9db9497078b3ae3898090",
+    "test/us-cpi.test.js": "aa933a27c9d68a3675d7fa4131a53ce3e9b8ca397ee3d9857f12ac66ee039e88",
+    "test/us-information.test.js": "bd1dd9273edcd788271ea1b7640049fec1a6808eb2d6bccee7aaa646ae366308",
+    "test/us-cache.test.js": "d2afcd13f9cf88d48b8601a0832b67c2c4e2f3ec75220a8abec3bad44d017ea3",
+    "test/fixtures/us-cpi.json": "c86cc684968a33ccb6198b896fa6a6117902df463886c2b51d17df0fbea4de3b"
+  },
+  "tools": {
+    "node": "v24.19.0",
+    "wrangler": "4.151.1",
+    "jsonschema": "4.26.0"
+  },
+  "validation": {
+    "node_tests": 116,
+    "node_failures": 0,
+    "dry_run": "pass; 432.90 KiB / gzip 111.28 KiB",
+    "legacy_cases": 315,
+    "offline_schema_responses": 221,
+    "independent_python_slot_agreement": 13,
+    "preview_scenarios": 22,
+    "preview_status_passes": 21,
+    "preview_schema_responses": 16,
+    "live_source_gate": false,
+    "deployed": false
+  },
+  "limitations": [
+    "Cloudflare BLS access refused; no production US data claim",
+    "Real BLS payload/CPU/full integrated eight-desk preview pending live access",
+    "Independent agent/adoption evaluation unavailable",
+    "No global cache or rate-limit guarantee"
+  ]
+}

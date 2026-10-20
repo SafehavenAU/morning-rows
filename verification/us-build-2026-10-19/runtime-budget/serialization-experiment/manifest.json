@@ -1,0 +1,40 @@
+{
+  "scope": "Rejected local Node diagnostic; not Cloudflare CPU evidence",
+  "baseline_git_revision": "fb64c1bccc8bc1ecc31f655cba859ce3354022ab",
+  "node_version": "v24.19.0",
+  "baseline_files": {
+    "lib/us-desk.js": "62f5a2a72bf3ec5705b54f0d3e686c46a2340cefb70c0cddfa9edaffa3c63067",
+    "lib/information-v2.js": "df60d12fe6fcb5282eff867facb88e90c26eb004d2b8f2a15f9b14b6ceab7617",
+    "lib/information.js": "b25e53bb30f70d04450bb0e26a09f402eb7561370c03a5b08b4b0dbb684681e9",
+    "lib/us-cpi.js": "25867ee3bd77235296dcca8248365ae4bb141b25577aab95e20db69180e44bed",
+    "lib/us-cpi-table.js": "782509da4fda47c79e88c8bb0fb0f7094c5b85f41f2cbe0c3f1894487b8eecf2",
+    "lib/us-cpi-workbook.js": "73c5cfe0f8aad563333aeb2742c8a53972393e76c93e05302d4eb9a1db4041bc",
+    "lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "package-lock.json": "652c5d6c12ba2b3bb45a24382bdb834e2e53789977aa42123913fcc3abf6bf5a"
+  },
+  "inputs": [
+    {
+      "file": "inputs/publisher-index.html",
+      "bytes": 86962,
+      "sha256": "05b0c665e2d4eb6c889e80e4ec603b0f45c013eac4bc672500e8723b7d7454d4",
+      "expected_publisher_url": "https://www.bls.gov/cpi/tables/supplemental-files/home.htm",
+      "copied_from_existing_local_file": "/tmp/mr-cpi-index.html",
+      "retrieved_at": null,
+      "provenance_limit": "Original local retrieval timestamp and HTTP metadata are unavailable. No new publisher retrieval was performed for this experiment. These files are diagnostic fixtures, not new independent publisher evidence."
+    },
+    {
+      "file": "inputs/database-table.html",
+      "bytes": 92520,
+      "sha256": "7b6318de5bdaa6a6c0af7723c28af78eb0a08a83c3cb9cc2c0c9242eb69af81e",
+      "expected_publisher_url": "https://data.bls.gov/timeseries/CUUR0000SA0?years_option=all_years",
+      "copied_from_existing_local_file": "/tmp/mr-bls-all.html",
+      "retrieved_at": null,
+      "provenance_limit": "Original local retrieval timestamp and HTTP metadata are unavailable. No new publisher retrieval was performed for this experiment. These files are diagnostic fixtures, not new independent publisher evidence."
+    }
+  ],
+  "results_sha256": {
+    "repeated-results.json": "d9805805f9362cada2a9269cdedaf03b5309aaacf8cd8fe5d3abe8a80f53cffd",
+    "first-results.json": "4f8598f69c9d013fa9d6a2041da828eb7a1bd9a2c33f7b2b11fede88fe30c07f",
+    "first-transport-warm-results.json": "b97cfdb73dd150c1c313b59c4df3c32cc04b6c75db7ad7e6295795d78eff7778"
+  }
+}

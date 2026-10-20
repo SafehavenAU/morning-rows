@@ -34,7 +34,7 @@ jobs:
           node-version-file: .node-version
       - name: Verify the reviewed deployed revision, not a monitoring-only commit
         run: |
-          EXPECTED_REVISION=$(node -p "require('./verification/monitoring-baseline.json').identity.source_revision") npm run smoke
+          CHECK_US=$(node -p "require('./operations/us-release-review.json').enabled ? '1' : '0'") EXPECTED_REVISION=$(node -p "require('./verification/monitoring-baseline.json').identity.source_revision") npm run smoke
       - uses: actions/upload-artifact@v4
         if: always()
         with:

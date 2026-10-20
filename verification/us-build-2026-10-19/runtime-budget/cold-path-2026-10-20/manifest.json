@@ -1,0 +1,81 @@
+{
+  "scope": "Local cold-path diagnostic artifacts; candidate edge investigation pending, not resource acceptance",
+  "baseline_git_revision": "bb41f961014febb46f9544676caebe9319feadc3",
+  "baseline_snapshot_transform": "Source loaded with git show from the stated revision; sibling imports remain inside the pinned dependency closure. No runtime behavior edits in baseline/.",
+  "original_git_source_sha256": {
+    "information-v2.js": "df60d12fe6fcb5282eff867facb88e90c26eb004d2b8f2a15f9b14b6ceab7617",
+    "information.js": "b25e53bb30f70d04450bb0e26a09f402eb7561370c03a5b08b4b0dbb684681e9",
+    "inventory.js": "78b9476ecc4edf237a8f1a641fd44ac4abde6a595cf4349bc2409e99da061dea",
+    "sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "stats-nz-series.js": "a953cd33e88611dd8e6bbc8a63dc18b1a57cbb7771db835d3324b95985ece31a",
+    "us-cpi-table.js": "782509da4fda47c79e88c8bb0fb0f7094c5b85f41f2cbe0c3f1894487b8eecf2",
+    "us-cpi-workbook.js": "73c5cfe0f8aad563333aeb2742c8a53972393e76c93e05302d4eb9a1db4041bc",
+    "us-cpi.js": "25867ee3bd77235296dcca8248365ae4bb141b25577aab95e20db69180e44bed",
+    "us-desk.js": "62f5a2a72bf3ec5705b54f0d3e686c46a2340cefb70c0cddfa9edaffa3c63067"
+  },
+  "tool_versions": {
+    "node": "v24.19.0",
+    "miniflare": "5.20261012.1-beta",
+    "workerd": "1.20261012.1",
+    "esbuild": "0.28.2",
+    "ws": "8.21.0",
+    "@jridgewell/trace-mapping": "0.3.9",
+    "wrangler": "4.151.1"
+  },
+  "inputs": [
+    {
+      "file": "../serialization-experiment/inputs/publisher-index.html",
+      "bytes": 86962,
+      "sha256": "05b0c665e2d4eb6c889e80e4ec603b0f45c013eac4bc672500e8723b7d7454d4",
+      "expected_publisher_url": "https://www.bls.gov/cpi/tables/supplemental-files/home.htm",
+      "retrieved_at": null,
+      "provenance_limit": "Original local retrieval timestamp and HTTP metadata are unavailable. No new publisher retrieval was performed for this experiment. These files are diagnostic fixtures, not new independent publisher evidence."
+    },
+    {
+      "file": "../serialization-experiment/inputs/database-table.html",
+      "bytes": 92520,
+      "sha256": "7b6318de5bdaa6a6c0af7723c28af78eb0a08a83c3cb9cc2c0c9242eb69af81e",
+      "expected_publisher_url": "https://data.bls.gov/timeseries/CUUR0000SA0?years_option=all_years",
+      "retrieved_at": null,
+      "provenance_limit": "Original local retrieval timestamp and HTTP metadata are unavailable. No new publisher retrieval was performed for this experiment. These files are diagnostic fixtures, not new independent publisher evidence."
+    }
+  ],
+  "files": {
+    "README.md": "d5aeaa84d8724098feaabd0d17fc730a312de83065c2782c92d4426094dd7c85",
+    "baseline/information-v2.js": "df60d12fe6fcb5282eff867facb88e90c26eb004d2b8f2a15f9b14b6ceab7617",
+    "baseline/information.js": "b25e53bb30f70d04450bb0e26a09f402eb7561370c03a5b08b4b0dbb684681e9",
+    "baseline/inventory.js": "78b9476ecc4edf237a8f1a641fd44ac4abde6a595cf4349bc2409e99da061dea",
+    "baseline/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "baseline/stats-nz-series.js": "a953cd33e88611dd8e6bbc8a63dc18b1a57cbb7771db835d3324b95985ece31a",
+    "baseline/us-cpi-table.js": "782509da4fda47c79e88c8bb0fb0f7094c5b85f41f2cbe0c3f1894487b8eecf2",
+    "baseline/us-cpi-workbook.js": "73c5cfe0f8aad563333aeb2742c8a53972393e76c93e05302d4eb9a1db4041bc",
+    "baseline/us-cpi.js": "25867ee3bd77235296dcca8248365ae4bb141b25577aab95e20db69180e44bed",
+    "baseline/us-desk.js": "62f5a2a72bf3ec5705b54f0d3e686c46a2340cefb70c0cddfa9edaffa3c63067",
+    "bench-fragments.mjs": "94c00954378c497d1aa9de13b6aa3f46be74780e5235144dbe0ecb2bfd50f29b",
+    "check-combined.mjs": "635f1d2b26066ea976044b4b3f4f2ce29dbb972750c2b2295e6b8d66319fb3d4",
+    "check-fragments.mjs": "716ea1588db9a0688b6f4c05617e0480acafa471a2833218c20ac94a007df806",
+    "check-table-contract.mjs": "eaa1f8b75502a76b580248d7dc8504bf070cb3140f2cc66a2eb68cab57814359",
+    "check-table-equivalence.mjs": "7b2674f7e0635f1a3c81ab34a4263ba2419218328e842ff9f3a6abd0362f5201",
+    "commands.json": "7afefad8af8968475dc974d3329be68bfc820606bd47451ddc4be8d7e8228c40",
+    "fragment-desk.mjs": "d1ef209ed97223345cd17e802701a27b221f286ef0f3490bbda7c17621b8fa36",
+    "fragment-information.mjs": "008b8e0402ad945da859b61dc22f8798cb6b46d9a7e93a57db384cae900fc666",
+    "prepare.mjs": "d0ff237173d97509d4d0ff7d36e7d835714be62968caad2e95babfbd5b039288",
+    "profile.mjs": "b85372c425889807f38ce05f5601ae02e0c81f704ce21bf0f3daab278af9c185",
+    "results/baseline-1-first.cpuprofile": "bd6a84cd0eb28b6be43afc2908ad216e1db08ed402d7feb462eacbeeabeadf0c",
+    "results/baseline-1-repeated.cpuprofile": "52d5998ee3b4e33481f575b521fbaca8f199d3d4008af6b423a68f14832b1d7d",
+    "results/baseline-2-first.cpuprofile": "a3b92fd4b9bcf0d8e9f5aa355b1b1195f943661af2f7e02978c1fca16f311b92",
+    "results/combined-1-first.cpuprofile": "38daafb2f9823490927c8a4c5d1f998d55085678c5b4e01da5c72dd149004f77",
+    "results/combined-1-repeated.cpuprofile": "990fe99ea9cd3bed8ddad62c510ab21e3928b239af59730bdbd84aa5fce1ba78",
+    "results/combined-2-first.cpuprofile": "f635ae25bd937c933c82f8971c80c1cecef14e145113e6a8f0fe251e8f3dcbaa",
+    "results/compact-response-before-change.json": "eba46902ce8015e89c07e134a8377ba91bb0fc23a9c17dfce8f668db0de551ee",
+    "results/direct-baseline-summary.json": "91d2ce485cb3d06de6719e2ceb6351b1c1df8d3a760ad5526909a58b68fc0052",
+    "results/direct-combined-equivalence.json": "4f605f074511d13ff0151e019e55af2406edb7275ae5cbfb307ec6e26ef32ae6",
+    "results/direct-combined-summary.json": "9824f9538fa7198d9a35efe165fbcd5d6a4f8858bd1b6971c9b2a4df30dc7e9f",
+    "results/direct-comparison.json": "128d3d7ed746328be9a0ffcd5c450b37a5da4f94b7dc46307229631fa4e10799",
+    "results/direct-manifest.json": "430269aaab17f37bde1f3de5fb3a115eca39205f1042014dd4edf4156e195b3e",
+    "results/fragment-node-cold-before-fixes.json": "de013301859913cd39d6164a9a367bc829f849ea58a9c1985314e43341c0947f",
+    "results/fragment-wrangler-before-fixes.json": "2aa2d7364a49834e273ceb5ddc5863eaa581080760d7533cec9420a1a92311a7",
+    "results/table-node-before-identity-guard.json": "541ece4b93adf5281a9d4f1571e417d2446bb2ac7b59b557391998bfef784206",
+    "table-candidate.mjs": "2a9ddd06a4508041bee2a0662aec2de39d7ce76695df7766f84797802c24d5a0"
+  }
+}

@@ -1,3 +1,87 @@
+# Current release — 20 October 2026
+
+The USA CPI reader is released after the user confirmed “worker upgraded”.
+Both domains match clean source `c6a96283743476af730dc2ff4bd915463e47d03c`,
+Worker `e0224d26-6bcb-4f96-a580-460919a0d195`, and fingerprint
+`42edef0b385e972f`. The rollback target remains
+`739b9031-305c-4bc7-afc5-79a82c654ac7` (source
+`7d614e2e78a63fc16f705b67e35ed0438baa7d87`).
+See [the release evidence](verification/us-paid-2026-10-20/README.md).
+
+The same single BLS series, `CUUR0000SA0`, is available through the USA desk
+and v2 catalogue; the v1 catalogue preserves its eight desks. Three fresh USA
+CPU captures measured **23 / 12 / 13 ms**, passing the **100 ms USA gate**.
+The whole-Worker **1,000 ms safety ceiling** is separate; the legacy cold sweep
+peaked at **292 ms**. This ceiling is not a monthly spending cap. All earlier
+Free-plan failures remain failed or incomplete evidence under their 10 ms gate.
+
+Validation passed **187 tests** and the build, **137 staged interface assertions**,
+**50 staged semantic checks**, and **nine actual desk schemas**. Settled production
+passed **151 checks over 104 requests** with no revision mismatches, plus smoke
+checks **18/18 on the apex domain and 17/17 on www**. The initial propagation
+check with mixed revisions is retained separately and is not a passing result.
+Credentials and disconnected automatic Builds are preserved.
+
+The reviewed collector transition adds USA through the existing serialized daily
+collection: **24 public probes / 109 source obligations**, retaining the v1 checks.
+It does not create a scheduled observation by itself. The latest actual checkpoint
+is still **sequence 5**, scheduled run `39341442350`, completed
+`2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
+with **33 incidents and 36 pending repairs**. There are **two actual scheduled
+cycles and no USA scheduled observation**. SHADOW started at
+`2026-10-18T23:22:22.161Z`; the next complete checkpoint deadline is
+`2026-10-21T01:26:10.163Z`. Keep the hourly watchdog, daily collector and disabled
+ordinary source alerts.
+
+Seven-day acceptance still requires at least eight daily scheduled checkpoints,
+seven elapsed days spanned by scheduled completions, no gap over 26 hours and a
+genuine delivery receipt. The already-announced delivery test remains unacknowledged;
+do not repeat it. NZ-PRICES remains `blocked_external_evidence` on the selected
+17 October specimen; UK CPI remains parked. This release does not complete those
+gates or the broader maintenance plan.
+
+---
+
+# Historical snapshots
+
+All sections below record their stated dates. The current release and monitoring
+state above supersede their former “unreleased”, Free-plan, scheduled-count and
+deadline statements. Preserve their evidence; do not restart those release trials.
+
+# USA cold-path edge trial — 20 October 2026
+
+The combined exact-JSON-fragment/table-boundary candidate at clean source
+0447e490c5d8fed1550d6c4b359db1f1aaab7d9a / Worker
+61bb5ada-00cb-48b9-b6b5-fc173fbcf082 measured **21 ms cold CPU**, above the Free
+10 ms gate. All four traces, exact routing, fresh retrieval, unchanged staging
+and both-domain production identity passed. This is a valid failed budget test,
+not a reliable improvement over the earlier variable 12–29 ms observations.
+
+The added runtime complexity is removed. Retain the pinned prototypes, portable
+local workerd profiler, independent hash regression tests and all evidence.
+180 Node tests, independent 13-slot extractions, 315 legacy cases, 221 schema
+responses and 22 protected Cloudflare scenarios passed for the candidate.
+See `verification/us-build-2026-10-19/CONTINUATION.md`.
+
+Testing ended at deployment baebe78f-5094-41c8-aa46-8a96d2b131cf with approved
+Worker739b9031 as the sole active version at100%. Both domains independently
+match clean source7d614e2 and fingerprint44967a5319167783. USA remains unreleased;
+no billing, credentials, routes, Builds, collector, outbox or alert-scope change.
+
+# Further USA investigation — 20 October 2026 Brisbane
+
+PR10 merged at936e552 and passed main build/production verification. This branch
+includes the scheduled-span acceptance fix. The USA canonical-string reuse
+experiment showed no reliable cold benefit and is retained only as diagnostic
+evidence; no reader or deployment change. The current reader remains blocked by
+the Free 10 ms limit.
+
+The CPU evidence guard now uses the actual response contract: clean/fingerprint
+from the health body, version/revision from emitted headers. Independent review
+and a regression using retained production evidence verify the correction.
+See `verification/us-build-2026-10-19/CONTINUATION.md` for reproduction and limits.
+
 # Shadow acceptance arithmetic repair — 20 October 2026 Brisbane
 
 Added an offline checkpoint audit and fixed `shadowStatus`: seven days must be
@@ -6,6 +90,37 @@ cannot refresh the scheduled deadline; invalid or duplicate run history fails
 closed. See `operations/README.md` for the read-only command and its trust boundary.
 No checkpoint, notification, schedule, production Worker or acceptance gate was
 changed by running this tooling. The pending delivery test remains unacknowledged.
+
+# CPU evidence guard — 20 October 2026 Brisbane
+
+Strengthened `scripts/verify-us-version-cpu.mjs` to prove zero-percent staging,
+unchanged deployment and both-domain approved production identity before and
+after CPU probes. Malformed CPU, future retrieval times, dirty/mixed builds and
+exception traces now fail closed. The actual former candidate is no longer
+staged and the new preflight correctly refused it before any HTTP probes.
+No reader change or new CPU result; USA remains blocked by the 10 ms Free gate.
+See `verification/us-build-2026-10-19/CONTINUATION.md`.
+
+# USA CPI candidate — Free-plan optimization pass complete; release blocked
+
+The user chose **Keep Free; pursue further optimization**. Draft PR8 retains the
+one-series USA candidate.169 Node tests,20 independent Python tests,22 actual
+Cloudflare integration scenarios,315 legacy cases and13 independent publisher
+slots pass. Cold CPU still exceeds the10ms limit: best12ms, final confirmation
+**29ms**. No reproducible reduction or release acceptance is claimed.
+[All measurements and continuation](verification/us-build-2026-10-19/CONTINUATION.md).
+
+Retain the simpler lexical sort, JSON fast path, bounded native byte read and
+minified build. Unsuccessful extra hashing/transport experiments are removed;
+evidence remains. Resume the same contract only with a justified measured CPU
+correction, not repeated uploads looking for a passing sample. No billing change.
+
+Testing ended with approved Worker739b9031 as sole active version at100%,
+deployment99833025-0360-45e2-9a2f-700de2c1c4b3. Both domains match clean source
+7d614e2. USA is **not released**; nine-desk monitoring stays staged and disabled.
+Constructed replay from verified sequence4 preserves33 incidents,35 repairs,
+outbox and actual SHADOW start. No delivery receipt or checkpoint write invented.
+The hourly watchdog/daily collector continue; no source alerts or new infrastructure.
 
 # First scheduled cycle verified — 19 October 2026 Brisbane
 

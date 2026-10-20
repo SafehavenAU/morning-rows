@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-10-17T11:14:19.567241+00:00",
+  "entries": [
+    {
+      "publisher": "BLS",
+      "option": "Optional registered Public Data API v2",
+      "registration_url": "https://data.bls.gov/registrationEngine/",
+      "documentation": "https://www.bls.gov/developers/api_faqs.htm",
+      "purpose": "Higher API limits / registered capabilities if later justified; not needed for recommended bulk transport",
+      "limits_checked": "500 daily queries registered vs 25 unregistered; no claim that a key supplies global rate coordination",
+      "status": "manual setup only; not registered, no credentials accessed"
+    },
+    {
+      "publisher": "Federal Reserve Bank of St. Louis / FRED",
+      "option": "FRED REST API key",
+      "registration_url": "https://fred.stlouisfed.org/docs/api/api_key.html",
+      "purpose": "Supported API access, optional historical/vintage research; not needed for working public CSV demonstration",
+      "probe": "Unauthenticated series observations request returned HTTP 400 missing api_key",
+      "status": "manual setup only; not registered, authenticated route untested"
+    }
+  ]
+}

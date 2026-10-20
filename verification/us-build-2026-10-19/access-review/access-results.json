@@ -1,0 +1,66 @@
+{
+  "started_at": "2026-10-18T22:54:34.656Z",
+  "environment": "Cloudflare remote dev; protected preview token not retained",
+  "checks": [
+    {
+      "label": "official source access",
+      "path": "/access",
+      "status": 200,
+      "expected": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "bytes": 1057,
+      "body": {
+        "checked_at": "2026-10-18T22:54:37.949Z",
+        "request_identification": "MorningRows/1.0 (+https://morningrows.com)",
+        "results": [
+          {
+            "name": "bulk_accept_any",
+            "url": "https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems",
+            "accept": "*/*",
+            "status": 200,
+            "content_type": "text/plain",
+            "bytes": 2690809,
+            "sha256": "f3c22c8592d9134fa5ab305fa2df6e37dfd2388f10168985fdbc84082deb4ff0",
+            "elapsed_ms": 129,
+            "error_class": null
+          },
+          {
+            "name": "official_workbook_index",
+            "url": "https://www.bls.gov/cpi/tables/supplemental-files/home.htm",
+            "accept": "text/html",
+            "status": 200,
+            "content_type": "text/html",
+            "bytes": 86962,
+            "sha256": "05b0c665e2d4eb6c889e80e4ec603b0f45c013eac4bc672500e8723b7d7454d4",
+            "elapsed_ms": 105,
+            "error_class": null
+          },
+          {
+            "name": "official_historical_workbook",
+            "url": "https://www.bls.gov/cpi/tables/supplemental-files/historical-cpi-u-202609.xlsx",
+            "accept": "*/*",
+            "status": 200,
+            "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "bytes": 24238,
+            "sha256": "473d3f67308952760245ff65946457a92ebde2bad3d8ba9db1ede89c89222d35",
+            "elapsed_ms": 27,
+            "error_class": null
+          }
+        ]
+      },
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "One bounded diagnostic per documented official route; no production change or retry loop."
+  ],
+  "all_statuses_pass": true,
+  "finished_at": "2026-10-18T22:54:37.998Z",
+  "code_sha256": {
+    "access-worker.js": "3f7a0e4fca173cb2fd5789ba8915318c77548c1d13a528222d4e61f36015d22a",
+    "wrangler.toml": "142ca84af1cd012dba727f41927d5fbfa7ee565a33efdce5c368a37f9e289861",
+    "check-access.mjs": "e9a63e2d18960459dd6646f19549b15df0e47c9d8488930af2f7e3ef15b592e3"
+  }
+}

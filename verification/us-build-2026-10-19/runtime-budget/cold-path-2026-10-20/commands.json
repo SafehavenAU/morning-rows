@@ -1,0 +1,52 @@
+{
+  "recorded_at": "2026-10-20T03:40:09.774658+00:00",
+  "scope": "Packaging validation of diagnostic artifacts only; no new benchmark isolates, publisher requests or remote operations",
+  "commands": [
+    {
+      "command": "node verification/us-build-2026-10-19/runtime-budget/cold-path-2026-10-20/check-fragments.mjs",
+      "result": {
+        "comparisons": 104,
+        "bodies_versions_content_versions_etags_headers_equal": true
+      }
+    },
+    {
+      "command": "node verification/us-build-2026-10-19/runtime-budget/cold-path-2026-10-20/check-table-equivalence.mjs",
+      "result": {
+        "extra_structural_cases": 38,
+        "route_body_headers_and_etag_equal": true
+      }
+    },
+    {
+      "command": "node --test verification/us-build-2026-10-19/runtime-budget/cold-path-2026-10-20/check-table-contract.mjs",
+      "result": {
+        "existing_contract_cases": 4,
+        "pass": 4,
+        "fail": 0
+      }
+    },
+    {
+      "command": "node verification/us-build-2026-10-19/runtime-budget/cold-path-2026-10-20/check-combined.mjs",
+      "result": {
+        "route_body_headers_and_etag_equal": true,
+        "observations": 13
+      }
+    },
+    {
+      "command": "node --check verification/us-build-2026-10-19/runtime-budget/cold-path-2026-10-20/profile.mjs",
+      "result": "passed"
+    },
+    {
+      "command": "node --check verification/us-build-2026-10-19/runtime-budget/cold-path-2026-10-20/prepare.mjs",
+      "result": "passed"
+    },
+    {
+      "command": "node verification/us-build-2026-10-19/runtime-budget/cold-path-2026-10-20/prepare.mjs /tmp/mr-cold-path-portable-check",
+      "result": "four worker entries and fixture module generated outside checkout; manifest verified"
+    },
+    {
+      "command": "node - <<'JS'\nconst {createRequire}=require('node:module');const req=createRequire('/workspace/.morning-rows-tools/package.json');\n(async()=>{for(const variant of ['baseline','combined'])await req('esbuild').build({entryPoints:['/tmp/mr-cold-path-portable-check/'+variant+'-worker.mjs'],bundle:true,minify:true,format:'esm',platform:'browser',target:'es2022',sourcemap:'external',outfile:'/tmp/mr-cold-path-portable-check/'+variant+'.bundle.mjs'});console.log('Portable baseline and combined entries bundle successfully; no isolates started.');})().catch(e=>{console.error(e);process.exitCode=1;});\nJS",
+      "result": "both portable entries bundled successfully; no isolates started"
+    }
+  ],
+  "packaging_correction": "Initial generated file:// import specifiers failed esbuild resolution. prepare.mjs now generates filesystem import paths outside the checkout; final bundling passed."
+}
