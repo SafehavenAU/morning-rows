@@ -1,0 +1,68 @@
+{
+  "kind": "Offline refusal controls only; no release or scheduled acceptance",
+  "pass": true,
+  "controls": [
+    {
+      "control": "missing arguments",
+      "pass": true,
+      "refusal": "REPO CONFIG_JSON NEW_PLAN_DIR required",
+      "output_created": false
+    },
+    {
+      "control": "existing output directory",
+      "pass": true,
+      "refusal": "Output directory must not already exist",
+      "output_created": false
+    },
+    {
+      "control": "repository output forbidden",
+      "pass": true,
+      "refusal": "Output must remain outside repository",
+      "output_created": false
+    },
+    {
+      "control": "repository symlink forbidden",
+      "pass": true,
+      "refusal": "Output must remain outside repository",
+      "output_created": false
+    },
+    {
+      "control": "rolled back candidate forbidden",
+      "pass": true,
+      "refusal": "Rolled-back AEMO candidate cannot be approved",
+      "output_created": false
+    },
+    {
+      "control": "invalid prior review pin",
+      "pass": true,
+      "refusal": "Explicit accepted phase-one review digest required",
+      "output_created": false
+    },
+    {
+      "control": "invalid prior approvals pin",
+      "pass": true,
+      "refusal": "Explicit accepted phase-one approval digest required",
+      "output_created": false
+    },
+    {
+      "control": "wrong retained prior review hash",
+      "pass": true,
+      "refusal": "Exact retained predecessor required",
+      "output_created": false
+    }
+  ],
+  "script_sha256": "12f2aae13717dfd8c9b5874a30509ee3d4c41ca45dc78fa9cd481fcb81fc7984",
+  "protected_input_hashes": {
+    "operations/us-release-review.json": "8fd057437f4ad8ae219f75e7c8121e33ee9f174f2ca8e2371171486a9051409f",
+    "operations/approved-observations.json": "e28a6f40b4fb62e73a0af80c404470063be3b601503de4f5539d2bebac2ce018",
+    "operations/acceptance.json": "ab5448d99ef141658d53513cd79077e2d354df5d6ab4abb58d8a332340941d08",
+    "operations/source-contract-registry.json": "f783ec1e05c382d385e343b9d612f1b7fe9291270fba5c6b7874fefed668cea0",
+    "verification/monitoring-baseline.json": "8ff3ae9076287822ad624e12df10a3a8adfadf854be2b0867f5fc5bb23d163cd",
+    "verification/us-paid-2026-10-20/checkpoint-predecessor/fresh-checkpoint.json": "73c0614e23bb044dc4b95aea7fff9a84120a795005667db95863d561cd0cd955"
+  },
+  "active_inputs_unchanged": true,
+  "successful_production_preparation": "not run; accepted phase-one pins and phase-two candidate/captures pending",
+  "publisher_requests": 0,
+  "repository_writes": 0,
+  "checkpoint_written": false
+}

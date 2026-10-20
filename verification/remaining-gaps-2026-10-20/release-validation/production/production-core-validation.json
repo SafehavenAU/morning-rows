@@ -1,0 +1,351 @@
+{
+  "kind": "Offline production source-health gate preserving strict SEPA failure",
+  "checked_at": "2026-10-20T11:29:02.273550+00:00",
+  "inputs": [
+    {
+      "path": "/tmp/mr-remaining-production-20261020/production-core/report.json",
+      "sha256": "14b8c4738da0d3c566a2df20d2705db79a8f8f1614fa203f281919529db77b9c"
+    },
+    {
+      "path": "verification/us-paid-2026-10-20/workbook-recheck.json",
+      "sha256": "6dd9ee402385fc1f09f3b3abd4ff3700ae0d6ad1d779c5d56c292a4af70f8e9e"
+    },
+    {
+      "path": "/tmp/mr-remaining-staged-20261020/staged-apex-semantic-release-gate.json",
+      "sha256": "afc44e56a9ce01dd51401955afdb3c0b1ac7c5cbd3d366e0cd487b0ea8b40a71"
+    },
+    {
+      "path": "/tmp/mr-remaining-staged-20261020/staged-apex-semantic.json",
+      "sha256": "db4ed2279c45953c8d719796d91e637fb655e115e16ee592d60b6092bdf3d17f"
+    },
+    {
+      "path": "/workspace/morning-rows-remaining/scripts/verify-paid-production.py",
+      "sha256": "b8c989f024ddad93f2bc93ed1bb6cda7691b888cb66d154a7bde6b9565585d82"
+    },
+    {
+      "path": "/workspace/morning-rows-remaining/scripts/verify-preview-bodies.mjs",
+      "sha256": "719c3e3ea6ab413992e6906ad2a2dd05a909cb080fb2ed6ec45d86d869665ba8"
+    },
+    {
+      "path": "/tmp/mr-gap-production-health-gate.py",
+      "sha256": "2d2baa38c04117e338834bfd7ffbc2feeeb1ae646900b3140ea25da19d69611b"
+    }
+  ],
+  "pass": true,
+  "scope": "Schema/BLS/source availability only; independent gap, GDP, claimant and rent gates remain required",
+  "independent_gap_gate_required": true,
+  "source_comparison": {
+    "apex": {
+      "compared_source_states": 118,
+      "changes": [
+        {
+          "desk": "england",
+          "source": "also.roads",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:22.479Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "ok",
+            "fetched_at": "2026-10-20T11:28:32.714Z"
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "england",
+          "source": "rail",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:20.875Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:32.051Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "scotland",
+          "source": "job",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:30.338Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:33.726Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "scotland",
+          "source": "people",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:30.338Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:33.726Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "wales",
+          "source": "job",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:32.867Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:34.578Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "wales",
+          "source": "people",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:32.867Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:34.578Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "northern-ireland",
+          "source": "job",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:34.667Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:35.436Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "northern-ireland",
+          "source": "people",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:34.667Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:35.436Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        }
+      ],
+      "requires_review": []
+    },
+    "www": {
+      "compared_source_states": 118,
+      "changes": [
+        {
+          "desk": "england",
+          "source": "also.roads",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:22.479Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:54.723Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "england",
+          "source": "rail",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:20.875Z",
+            "error": "api.tfl.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "production": {
+            "status": "ok",
+            "fetched_at": "2026-10-20T11:28:53.915Z"
+          },
+          "classification": "known_intermittent_TfL_429"
+        },
+        {
+          "desk": "scotland",
+          "source": "job",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:30.338Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:55.025Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "scotland",
+          "source": "people",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:30.338Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:55.025Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "wales",
+          "source": "job",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:32.867Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:55.351Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "wales",
+          "source": "people",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:32.867Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:55.351Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "northern-ireland",
+          "source": "job",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:34.667Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:56.256Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        },
+        {
+          "desk": "northern-ireland",
+          "source": "people",
+          "staged": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:25:34.667Z",
+            "error": "www.ons.gov.uk returned HTTP 403",
+            "http_status": 403
+          },
+          "production": {
+            "status": "error",
+            "fetched_at": "2026-10-20T11:28:56.256Z",
+            "error": "www.ons.gov.uk returned HTTP 429",
+            "http_status": 429
+          },
+          "classification": "known_ONS_403_429_availability_change"
+        }
+      ],
+      "requires_review": []
+    }
+  },
+  "semantic": {
+    "apex": {
+      "strict_semantics_pass": true,
+      "release_semantic_gate_pass": true,
+      "exception": null,
+      "file": "/tmp/mr-remaining-production-20261020/production-core-validation.apex-strict.json",
+      "sha256": "5c5f27fef88beb160035d4ef69cc347aaf9028f2e7b28defcb7cc5d066b219f0",
+      "strict_exit_code": 0
+    },
+    "www": {
+      "strict_semantics_pass": true,
+      "release_semantic_gate_pass": true,
+      "exception": null,
+      "file": "/tmp/mr-remaining-production-20261020/production-core-validation.www-strict.json",
+      "sha256": "46a86d32c23503d749174e0556f5b1e68e1395e080a869cd9e64dd0e0af4dcaf",
+      "strict_exit_code": 0
+    }
+  },
+  "base": {
+    "file": "/tmp/mr-remaining-production-20261020/production-core-validation.base.json",
+    "sha256": "b518b816db0c0255f8f5d17985ff4f569cfc56da73997414797ecfd6bbb4ea4e",
+    "pass": true,
+    "exit_code": 0
+  },
+  "identity": {
+    "service": "Morning Rows",
+    "source_revision": "3ae91ac1ce163008f05377acefc27cce488fbbed",
+    "source_dirty": false,
+    "build_fingerprint": "e2a345caf4569e1f",
+    "worker_version": "ff344629-f392-44ec-b816-92d14f52bd07",
+    "note": "Runtime identity only; inspect each desk sources field for data health."
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "kind": "Offline new-source freshness within actual full-desk CPU capture",
+  "pass": true,
+  "input": "/tmp/mr-remaining-staged-20261020/staged-legacy-cpu.json",
+  "input_sha256": "f8276562f359032c3c18270fb310eaf5f725be6e921d14445ce651677aee9453",
+  "revision": "3ae91ac1ce163008f05377acefc27cce488fbbed",
+  "version": "ff344629-f392-44ec-b816-92d14f52bd07",
+  "sources": [
+    {
+      "source": "college_activity",
+      "path": "/scotland.json",
+      "full_desk_cpu_ms": 350,
+      "request_started_at": "2026-10-20T11:25:30.244Z",
+      "request_completed_at": "2026-10-20T11:25:32.778Z",
+      "health_completed_at": "2026-10-20T11:25:32.023Z",
+      "publisher_acquisitions": [
+        {
+          "role": "workbook",
+          "url": "https://www.sfc.ac.uk/wp-content/uploads/2026/01/College-Statistics-2024-25-Background-Tables.xlsx",
+          "retrieved_at": "2026-10-20T11:25:32.023Z",
+          "bytes": 70694,
+          "sha256": "f4816a63e4ab246799f4cbb6075d3feba78ada67670e34d71e5900826c3b5979"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "source": "rental_benchmark",
+      "path": "/canada.json",
+      "full_desk_cpu_ms": 71,
+      "request_started_at": "2026-10-20T11:24:54.671Z",
+      "request_completed_at": "2026-10-20T11:25:11.859Z",
+      "health_completed_at": "2026-10-20T11:24:55.756Z",
+      "publisher_acquisitions": [
+        {
+          "role": "data",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getDataFromCubePidCoordAndLatestNPeriods",
+          "retrieved_at": "2026-10-20T11:24:55.756Z",
+          "bytes": 765,
+          "sha256": "4c1776ee5d3ec353da3d79d0810816c92399d2be16401a8e16a1ed3b1339823e"
+        },
+        {
+          "role": "series",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getSeriesInfoFromCubePidCoord",
+          "retrieved_at": "2026-10-20T11:24:55.657Z",
+          "bytes": 959,
+          "sha256": "cad747496c0500daa5628e06b5b44fda877b4bb41ba255b024b0fd8e69f57c87"
+        },
+        {
+          "role": "cube",
+          "url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+          "retrieved_at": "2026-10-20T11:24:55.742Z",
+          "bytes": 67411,
+          "sha256": "56ca543c9a065f38119eefd37907187c0291beeca6235c9d0497565cbda45116"
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "CPU is the correlated full-desk sample, not a separately measured per-source cost.",
+    "One observed sample per desk; no percentile, sustained-operation or scheduled-acceptance claim."
+  ]
+}
