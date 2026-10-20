@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
-import {INFORMATION_SCHEMA,selectedResponse} from '../lib/information.js';
+import {INFORMATION_SCHEMA} from '../lib/information.js';
 import {installAemoDailySchema} from '../lib/aemo-daily-schema.js';
 import {AEMO_DAILY_INDEX,AEMO_DAILY_LIMITS,discoverAemoDailyBundles,readAemoDailyBundles,
   validateAemoDailyBundlesRepresentation,aemoDailyBundleDefinitions} from '../lib/aemo-daily-bundles.js';
@@ -45,12 +45,6 @@ function desk(native) {
     grid_day:native,
   };
 }
-async function selected(native,measure,observation) {
-  const result=await selectedResponse(desk(native),{
-    desk:'australia',source:'grid_day',entry:['grid_day','grid_day','sources.grid_day'],measure,observation,
-  },{now:NOW});
-  return {status:result.status,body:JSON.parse(JSON.stringify(result.body))};
-}
 function validate(group,cases) {
   // Draft 2020-12 has mathematical decimal multiples. Exact Decimal input
   // prevents binary floating-point artefacts such as 6.73 / 0.01.
@@ -82,7 +76,7 @@ sys.exit(not all(c["pass"] for c in checks))
   return report.checks.length;
 }
 
-test('AEMO public native schema has complete regional coverage and explicit isolated failures',async t=>{
+test('Unactivated AEMO candidate native schema has complete regional coverage and explicit isolated failures',async t=>{
   const native=await nativePromise;
   assert.equal(validateAemoDailyBundlesRepresentation(native,{now:NOW}),true);
   assert.deepEqual(native.regions.map(r=>r.summary),[
@@ -184,97 +178,6 @@ test('AEMO public native schema has complete regional coverage and explicit isol
   t.diagnostic(`${count} independent native-schema cases`);
 });
 
-test('AEMO source, measure and exact selectors preserve canonical identity and degraded coverage',async t=>{
-  const native=await nativePromise,cases=[],examples={};
-  const add=async(value,measure,observation,label)=>{
-    const result=await selected(value,measure,observation);
-    assert.equal(result.status,200,JSON.stringify(result.body));
-    cases.push({name:label,valid:true,value:result.body});
-    return result.body;
-  };
-  examples.source=await add(native,undefined,undefined,'Healthy complete source');
-  for(const definition of definitions) {
-    await add(native,definition.id,undefined,definition.id+' measure');
-    const body=await add(native,definition.id,native.calendar_day,definition.id+' exact observation');
-    examples[definition.id]=body;
-  }
-  for(const failed of [0,1]) {
-    const value=failRegion(native,failed);
-    examples['degraded'+failed]=await add(value,undefined,undefined,'Degraded source failed index '+failed);
-    assert.equal(examples['degraded'+failed].observations.length,5);
-    assert.equal(examples['degraded'+failed].unavailable_measures.length,5);
-    for(const definition of definitions) {
-      if(definition.dimensions.region===value.regions[failed].region) {
-        for(const observation of [undefined,native.calendar_day]) {
-          const result=await selected(value,definition.id,observation);
-          assert.equal(result.status,503,'Failed region must refuse exact and measure selections');
-          assert.deepEqual(result.body.observations,[]);
-          cases.push({name:definition.id+' failed regional '+(observation?'exact':'measure'),valid:true,value:result.body});
-        }
-      } else {
-        const body=await add(value,definition.id,undefined,definition.id+' healthy sibling under degradation');
-        assert.equal(body.retrieval.status,'degraded');
-        assert.deepEqual(body.unavailable_measures,[]);
-      }
-    }
-  }
-  const allFailed=await selected(failRegion(failRegion(native,0),1));
-  assert.equal(allFailed.status,503);
-  cases.push({name:'Both failed source selection',valid:true,value:allFailed.body});
-  const bad=(name,change,base=examples['SA1.mean'])=>{
-    const body=clone(base);change(body);cases.push({name,valid:false,value:body});
-  };
-  for(const [name,change] of Object.entries({
-    'Wrong source':v=>v.source='https://morningrows.com/australia.json?source=grid',
-    'Foreign canonical host':v=>v.id=v.id.replace('morningrows.com','example.org'),
-    'Alias used as canonical identity':v=>v.id=v.id.replace('australia','morning'),
-    'Different country desk':v=>v.desk='https://morningrows.com/new-zealand.json',
-    'Lowercase region selector':v=>v.id=v.id.replace('SA1','sa1'),
-    'Unapproved selector':v=>v.id+='&region=all',
-    'Unknown exact period shape':v=>v.id=v.id.replace('2026-10-19','latest'),
-    'Missing observation':v=>v.observations=[],
-    'Duplicated observation':v=>v.observations.push(clone(v.observations[0])),
-    'Wrong observation canonical identity':v=>v.observations[0].id=v.observations[0].id.replace('SA1.mean','VIC1.mean'),
-    'Wrong observation measure':v=>v.observations[0].measure=v.observations[0].measure.replace('SA1.mean','SA1.maximum'),
-    'Invalid observation calendar date':v=>v.observations[0].period='2026-02-30',
-    'Missing typed qualification':v=>delete v.observations[0].qualifications,
-    'Null observation':v=>v.observations[0].value=null,
-    'Suppressed zero':v=>{v.observations[0].value=0;v.observations[0].value_state='suppressed';},
-    'Non-cent observation':v=>v.observations[0].value=0.001,
-    'Fake FIRM publisher status':v=>v.observations[0].publisher_status={status:'FIRM'},
-    'Invented publication instant':v=>v.observations[0].published_at=NOW,
-    'Malformed observation version':v=>v.observations[0].version='unknown',
-    'Malformed source version':v=>v.content_version='unknown',
-    'Wrong native pointer':v=>v.observations[0].native_pointer='/grid_day/regions/1/summary/mean',
-    'Wrong publisher':v=>v.observations[0].definition.publisher='Other publisher',
-    'Wrong observation unit':v=>v.observations[0].definition.unit='AUD/kWh',
-    'Typed row geography swapped':v=>v.data.geography='Victoria',
-    'Typed row statistic swapped':v=>v.data.statistic='maximum',
-    'Typed row missing measure identity':v=>delete v.data.measure_id,
-    'Typed row invented TRADE flag':v=>v.data.period_type='TRADE',
-    'Typed row wrong cadence':v=>v.data.interval_minutes=30,
-    'Typed qualification wrong run':v=>v.observations[0].qualifications.runno=2,
-    'Missing native context':v=>delete v.context,
-    'Context provenance omitted':v=>v.context.provenance=[],
-    'Retained context regions omitted':v=>delete v.context.regions,
-    'Invalid retrieval instant':v=>v.retrieval.retrieved_at='2026-02-30T12:00:00Z',
-    'Healthy context with degraded retrieval':v=>v.retrieval.status='degraded',
-    'Healthy selected measure advertises unavailable sibling':v=>v.unavailable_measures=[clone(examples.degraded0.unavailable_measures[0])],
-  }))bad(name,change);
-  bad('Source omits one observation',v=>v.observations.pop(),examples.source);
-  bad('Source repeats one measure instead of all ten',v=>v.observations[1]=clone(v.observations[0]),examples.source);
-  bad('Source data replaces native with typed row',v=>v.data=clone(examples['SA1.mean'].data),examples.source);
-  bad('Degraded source invents one failed observation',v=>v.observations.push(clone(examples['SA1.mean'].observations[0])),examples.degraded0);
-  bad('Degraded source omits unavailability',v=>v.unavailable_measures=[],examples.degraded0);
-  bad('Degraded unavailable definition from healthy region',v=>v.unavailable_measures[0]=clone({
-    measure:examples['VIC1.mean'].observations[0].measure,definition:definitions[5],state:'unavailable',error:'constructed',
-  }),examples.degraded0);
-  bad('Degraded unavailable row fabricates value',v=>v.unavailable_measures[0].value=0,examples.degraded0);
-  bad('Failed source fabricates observation',v=>v.observations=[clone(examples['SA1.mean'].observations[0])],allFailed.body);
-  const count=validate('selected',cases);
-  t.diagnostic(`${count} actual selected-response and adversarial schema cases`);
-});
-
 test('Schema validation is separate from exact whole-day semantic validation',async()=>{
   const value=clone(await nativePromise);
   value.regions[0].summary.mean=99;
@@ -287,14 +190,14 @@ test.after(()=>{
   const unchanged=boundPaths.every(path=>sha(readFileSync(new URL('../'+path,import.meta.url)))===bindings[path]);
   assert.equal(unchanged,true,'Source bindings must remain fixed during retained schema evidence run');
   writeFileSync(process.env.AEMO_SCHEMA_REPORT,JSON.stringify({
-    method:'Offline actual bounded reader using retained original bytes, actual selectedResponse adapter, independent Python Draft 2020-12 with exact decimal numeric parsing',
+    method:'Offline unactivated candidate reader and manually installed native schema using retained original bytes; independent Python Draft 2020-12 with exact decimal numeric parsing. Historical active-selector tests are retained separately and not counted here.',
     executed_at:new Date().toISOString(),clock:NOW,clock_is_test_fixture:true,network_requests:0,release_acceptance:false,
     bindings,originals:{
       'directory-listing-excerpt.html':{bytes:Buffer.byteLength(index),sha256:sha(index)},
       ...Object.fromEntries(bundles.map((b,i)=>[b.filename,{bytes:originals[i].length,sha256:sha(originals[i])}])),
     },
     schema_bytes:Buffer.byteLength(JSON.stringify(schema)),case_count:reports.reduce((sum,r)=>sum+r.checks.length,0),
-    pass:reports.length===3&&reports.every(r=>r.pass),groups:reports,
+    pass:reports.length===2&&reports.every(r=>r.pass),groups:reports,
     limits:'Structural schema cannot prove current day, cross-field equality, canonical period equality, raw layout equality, arithmetic or publication timing. Frozen reader, clock checks and independent release evidence remain required.',
   },null,2)+'\n');
 });

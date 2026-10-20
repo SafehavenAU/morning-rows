@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: CQC-only monitoring refuses valid AEMO daily candidate data while the monthly route stays held
+ok 1 - CQC-only monitoring refuses valid AEMO daily candidate data while the monthly route stays held
+  ---
+  duration_ms: 23.213035
+  type: 'test'
+  ...
+# Subtest: AEMO public acquisition/current-day clocks independently fail closed at the 14:00 UTC boundary
+ok 2 - AEMO public acquisition/current-day clocks independently fail closed at the 14:00 UTC boundary
+  ---
+  duration_ms: 26.458259
+  type: 'test'
+  ...
+# Subtest: CQC-only monitoring cannot assign versions or observations to reacquired or revised AEMO candidates
+ok 3 - CQC-only monitoring cannot assign versions or observations to reacquired or revised AEMO candidates
+  ---
+  duration_ms: 51.007901
+  type: 'test'
+  ...
+# Subtest: AEMO incomplete/wrong summaries are semantic failures; transport state is not numeric success
+ok 4 - AEMO incomplete/wrong summaries are semantic failures; transport state is not numeric success
+  ---
+  duration_ms: 6.691673
+  type: 'test'
+  ...
+# Subtest: CQC fixed historical PDF keeps exact five values and does not age into a daily freshness failure
+ok 5 - CQC fixed historical PDF keeps exact five values and does not age into a daily freshness failure
+  ---
+  duration_ms: 18.187272
+  type: 'test'
+  ...
+# Subtest: CQC wrong cohort, changed bytes, partial rows, bad units and missing clock cannot become approved values
+ok 6 - CQC wrong cohort, changed bytes, partial rows, bad units and missing clock cannot become approved values
+  ---
+  duration_ms: 1.027416
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 266.465913

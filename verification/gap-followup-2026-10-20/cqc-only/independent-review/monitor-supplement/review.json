@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "checked_at": "2026-10-20T18:17:43.078989+00:00",
+  "scope": "Independent review of test-only held-AEMO monitor supplement",
+  "test_sha256": "92050cb19deffb333e12466664208c578574710cfdc42ff3eb9b23f2d603671f",
+  "activation_manifest_sha256": "0715fb0cd64d69ebf81cba919136abb05af0c14332218c8f32ee2886e712748e",
+  "manifest_bindings_verified": 33,
+  "runtime_unchanged_from_prior_independent_review": true,
+  "old_test_snapshot_matches_exact_combined_git": true,
+  "independent_focused_tests": {
+    "count": 6,
+    "passed": 6,
+    "failed": 0,
+    "report_sha256": "97dc151a2e5c2c51970607ef2ca7542910c33b72ec878b2512ab123c8ab15e7c"
+  },
+  "findings": [],
+  "reasoning": [
+    "Three separately constructed otherwise-valid AEMO candidate representations still pass pure candidate validation, so the expected monitoring refusal is due to disconnection rather than accidentally invalid inputs.",
+    "Each refused representation must have semantic/described_measure_coverage and no observations, version or periods. The test cannot pass by comparing two absent versions.",
+    "The historical monthly-route activation refusal and all existing CQC controls remain unchanged.",
+    "No monitoring implementation, runtime wiring, budget, operational approval, schedule or checkpoint was changed."
+  ],
+  "retained_failed_full_build": {
+    "path": "/workspace/morning-rows-cqc-cpu-repair/verification/gap-followup-2026-10-20/cqc-only/full-build-before-monitor-test-adjustment.log",
+    "sha256": "b0294026b9efdf7b8ecfc5e7dac4588ebc1860bf4ed007808c1ddf3fd187fe9a",
+    "passed": 1443,
+    "failed": 2,
+    "accepted": false
+  },
+  "limitations": [
+    "This focused6-test run is not a full-build rerun or remote release acceptance. Root still needs a fresh full build and remote gates.",
+    "The earlier activation review referred to intermediate manifest01ad7c6547c8fca271b02b21732eaa4c8a7ced2b6f89e594893ba57ca76eb7b9. Its exact bytes were not separately retained before the author updated the working file. The earlier report remains historical, not a claim that intermediate bytes are currently retained. This supplement verifies and snapshots the actual final0715 manifest and README without reconstructing any missing intermediate artifact."
+  ],
+  "review_harness_note": "An initial metadata check expected TAP-style total lines in the retained full-build log. That non-product check failed because the build uses human-readable \u2139 totals; the final check verifies the actual retained format. The independent six-test run passed on its only execution.",
+  "previous_review_preserved": true,
+  "no_http": true,
+  "no_repository_writes": true
+}

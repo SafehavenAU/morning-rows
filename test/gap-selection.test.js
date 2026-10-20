@@ -19,9 +19,9 @@ async function select(desk,key,native,measure,observation,{clock=now,status=nati
  const body={[key]:native,sources:{[key]:{status,fetched_at:clock}}};
  return selectedResponse(body,selection,{now:clock});
 }
-test('AEMO selection refuses incomplete unvalidated native data',async()=>{
- assert.equal((await select('australia','grid_day',{})).status,503);
- assert.equal((await select('australia','grid_day',{},'SA1.mean','2026-10-19')).status,503);
+test('held AEMO daily source is not selectable',async()=>{
+ assert.equal((await select('australia','grid_day',{})).status,404);
+ assert.equal((await select('australia','grid_day',{},'SA1.mean','2026-10-19')).status,404);
 });
 test('FX selectors distinguish a missing publication date, an unretained date and a failed source',async()=>{
  const native=boc(),all=await select('canada','exchange_history',native);

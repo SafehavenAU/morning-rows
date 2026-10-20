@@ -17,14 +17,13 @@ const samples=[['canada','exchange_history',boc,38],...STATCAN_HEADLINE_SOURCES.
 const select=(desk,key,value,options={})=>gapSelectedData(desk,key,value,{...acquisition,...options});
 const failure=(desk,key,value,options={})=>gapSelectionFailure(desk,key,value,{...acquisition,...options});
 
-test('inventory exposes the reviewed daily AEMO source while keeping legacy grid and dated FX',()=>{
+test('inventory holds the blocked daily AEMO source while keeping legacy grid and dated FX',()=>{
  for(const [desk,oldKey,newKey] of [['canada','exchange','exchange_history']]){
   for(const key of [oldKey,newKey])assert.deepEqual(INVENTORY[desk].filter(x=>x[0]===key),[[key,key,'sources.'+key]]);
  }
  assert.ok(INVENTORY.australia.some(x=>x[0]==='grid'));
- assert.ok(INVENTORY.australia.some(x=>x[0]==='grid_day'));
- assert.equal(isGapSource('australia','grid_day'),true);
- for(const [desk,key] of [['canada','grid_day'],['australia','exchange_history'],['england','land_transaction_tax'],['canada','product']]){
+ assert.ok(!INVENTORY.australia.some(x=>x[0]==='grid_day'));
+ for(const [desk,key] of [['australia','grid_day'],['canada','grid_day'],['australia','exchange_history'],['england','land_transaction_tax'],['canada','product']]){
   assert.equal(isGapSource(desk,key),false);assert.equal(gapDefinitions(desk,key),null);
   assert.equal(gapCells(desk,key,{},acquisition),null);assert.equal(gapSelectionFailure(desk,key,{},acquisition),null);
   assert.equal(gapSelectedData(desk,key,{},acquisition),undefined);

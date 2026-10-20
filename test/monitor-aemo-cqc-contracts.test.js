@@ -9,10 +9,15 @@ const cqc=load('verification/gap-followup-2026-10-20/cqc-pdf/worker-reader.json'
 const now='2026-10-20T13:10:00.000Z';
 const cqcContract=REMAINING_CONTRACTS.find(c=>c.key==='england/care_assessment_cohort');
 const body=(contract,native,clock=now)=>({country:contract.country,[contract.source]:structuredClone(native),sources:{[contract.source]:{status:'ok',fetched_at:clock}}});
+const heldAemo=result=>{
+ assert.equal(result.kind,'semantic');assert.equal(result.reason,'described_measure_coverage');
+ for(const field of ['observations','version','periods'])assert.equal(Object.hasOwn(result,field),false,'Held data must not acquire '+field);
+};
 
-test('AEMO daily ZIP contract verifies ten derived cells while historical monthly route stays held',async()=>{
+test('CQC-only monitoring refuses valid AEMO daily candidate data while the monthly route stays held',async()=>{
+ assert.equal(validateAemoDailyBundlesRepresentation(aemo,{now}),true,'Offline candidate validity does not activate its public contract');
  const b=body(AEMO_DAILY_BUNDLE_CONTRACT,aemo),current=await inspectSource(b,AEMO_DAILY_BUNDLE_CONTRACT,{now});
- assert.equal(current.kind,'success',current.reason);assert.equal(current.observations.length,10);assert.deepEqual(current.periods,['2026-10-19']);
+ heldAemo(current);
  assert.equal((await inspectSource(b,GRID_DAY_CONTRACT,{now})).reason,'source_contract_not_activated');
 });
 
@@ -24,16 +29,18 @@ test('AEMO public acquisition/current-day clocks independently fail closed at th
  assert.equal((await inspectSource(body(AEMO_DAILY_BUNDLE_CONTRACT,aemo),AEMO_DAILY_BUNDLE_CONTRACT,{now:'2026-10-20T14:00:00.000Z'})).kind,'semantic');
 });
 
-test('AEMO acquisition changes preserve versions; balanced input revisions change source evidence',async()=>{
+test('CQC-only monitoring cannot assign versions or observations to reacquired or revised AEMO candidates',async()=>{
  const original=await inspectSource(body(AEMO_DAILY_BUNDLE_CONTRACT,aemo),AEMO_DAILY_BUNDLE_CONTRACT,{now});
+ heldAemo(original);
  const reacquired=structuredClone(aemo);for(const [i,p]of reacquired.provenance.entries()){p.requested_at=`2026-10-20T13:00:0${i*2}.000Z`;p.retrieved_at=`2026-10-20T13:00:0${i*2+1}.000Z`;p.sha256='a'.repeat(64);} // Constructed metadata-only control.
- assert.equal((await inspectSource(body(AEMO_DAILY_BUNDLE_CONTRACT,reacquired),AEMO_DAILY_BUNDLE_CONTRACT,{now})).version,original.version);
+ assert.equal(validateAemoDailyBundlesRepresentation(reacquired,{now}),true);
+ heldAemo(await inspectSource(body(AEMO_DAILY_BUNDLE_CONTRACT,reacquired),AEMO_DAILY_BUNDLE_CONTRACT,{now}));
  const revised=structuredClone(aemo),r=revised.regions[0];
  const candidates=r.intervals.filter(i=>i.price>Math.max(1,r.summary.minimum+1)&&i.price<r.summary.maximum-1).slice(0,2);
  assert.equal(candidates.length,2);for(const [i,row]of candidates.entries()){row.price=Number((row.price+(i?-0.01:0.01)).toFixed(2));row.price_raw=row.layout2_price_raw=row.price.toFixed(5);}
  assert.equal(validateAemoDailyBundlesRepresentation(revised,{now}),true);
  const result=await inspectSource(body(AEMO_DAILY_BUNDLE_CONTRACT,revised),AEMO_DAILY_BUNDLE_CONTRACT,{now});
- assert.equal(result.kind,'success',result.reason);assert.deepEqual(result.observations,original.observations);assert.notEqual(result.version,original.version);
+ heldAemo(result);
 });
 
 test('AEMO incomplete/wrong summaries are semantic failures; transport state is not numeric success',async()=>{

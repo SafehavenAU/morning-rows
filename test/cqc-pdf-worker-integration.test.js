@@ -41,7 +41,7 @@ test('CQC catalogue exposes exactly five fixed cohort definitions while preservi
  assert.ok(card.measures.every(m=>m.geography==='England'&&m.unit==='ratings'));
  assert.match(card.limits,/unlikely to represent all adult social care services/);
  const schema=await(await worker.fetch(new Request('https://example.com/schema.json'))).json();
- assert.ok(schema.$defs.remainingCqcNative);assert.ok(schema.$defs.aemoDailyNative);assert.ok(schema.$defs.remainingNiNative);
+ assert.ok(schema.$defs.remainingCqcNative);assert.equal(schema.$defs.aemoDailyNative,undefined);assert.ok(schema.$defs.remainingNiNative);
  const keys=await(await worker.fetch(new Request('https://example.com/keys.json'))).json();
  const history=keys.blocked.find(row=>row.source==='CQC State of Care assessment cohort workbook');
  assert.equal(history.status,403);assert.match(history.note,/workbook route remains disconnected/);assert.match(history.note,/separate official GOV.UK PDF/);

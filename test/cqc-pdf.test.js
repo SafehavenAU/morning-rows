@@ -52,6 +52,16 @@ for(const [name,change]of [
 test('encrypted trailer refuses',()=>assert.throws(()=>parse(revise([],{trailer:{Encrypt:{kind:'ref',id:1,generation:0}}}))));
 test('changed page count refuses actual tree',()=>{const root=model.object(model.root_ref),ref=root.Pages;assert.throws(()=>parse(revise([{id:ref.id,dict:{...model.object(ref),Count:204}}])));});
 for(const text of ['<< /A 1 /A 2 >>','(unterminated','1 1 R','<< /A 1 >> 2'])test('malformed PDF value '+text+' refuses',()=>assert.throws(()=>{const l=new PdfLexer(encode(text));l.value();l.complete();}));
+test('dictionary bound includes every unique key, remains local to nested dictionaries and rejects duplicates',()=>{
+ const entries=Array.from({length:1024},(_,i)=>`/K${i} true`).join(' '),read=text=>{const lexer=new PdfLexer(encode(text));const value=lexer.value();lexer.complete();return value;};
+ const value=read(`<< ${entries} >>`);assert.equal(Object.keys(value).length,1024);assert.equal(value.K1023,true);
+ assert.throws(()=>read(`<< ${entries} /Extra true >>`),/Dictionary limit exceeded/);
+ assert.throws(()=>read(`<< ${entries} /K1023 false >>`),/Invalid or duplicate dictionary key/);
+ const nested=read(`<< /Outer << ${entries} >> /Other << ${entries} >> >>`);
+ assert.equal(Object.keys(nested.Outer).length,1024);assert.equal(Object.keys(nested.Other).length,1024);
+ const names=read('<< /__proto__ true /constructor false /toString 7 >>');
+ assert.equal(Object.getPrototypeOf(names),null);assert.equal(names.__proto__,true);assert.equal(names.constructor,false);assert.equal(names.toString,7);
+});
 
 for(const corrupt of ['checksum','truncated'])test('incomplete or corrupt zlib '+corrupt+' refuses',()=>{const bytes=revise([{id:count.id,dict:model.object(count),stream:model.stream(count),corrupt}]);assert.throws(()=>parse(bytes));});
 test('content decompression bound refuses a compressible oversized stream',()=>{const bytes=revise([{id:count.id,dict:model.object(count),stream:' '.repeat(300000)}]);assert.throws(()=>parse(bytes));});

@@ -11,10 +11,6 @@ const roles={getDataFromCubePidCoordAndLatestNPeriods:'wds-selected.json',getSer
 const headlines=Object.fromEntries(Object.values(products).map(source=>[source,Object.fromEntries(Object.values(roles).map(file=>[file,json(source==='product'?`verification/statcan-gdp-2026-10-20/original/${file}`:evidence+`statcan/${source}/original/${file}`)]))]));
 const latestExchange={observations:[{d:'2026-10-19',FXUSDCAD:{v:'1.4097'},FXAUDCAD:{v:'0.9100'},FXGBPCAD:{v:'1.8767'},FXNZDCAD:{v:'0.8100'}}]};
 const snapshot=json('verification/structure-2026-10-17/selected-snapshot.json');
-const aemoRoot=new URL('../verification/gap-followup-2026-10-20/aemo-daily/original/',import.meta.url);
-const aemoIndex=readFileSync(new URL('directory-listing-excerpt.html',aemoRoot),'utf8');
-const aemoNames=['PUBLIC_PRICES_202610180000_20261019040502.zip','PUBLIC_PRICES_202610190000_20261020040503.zip'];
-const aemoZips=new Map(aemoNames.map(name=>[name,readFileSync(new URL(name,aemoRoot))]));
 function setup(t,{at='2026-10-20T10:00:00Z',invalidJobs=false,failBoc=false,delay}={}) {
  t.mock.timers.enable({apis:['Date'],now:new Date(at)});t.mock.method(console,'warn',()=>{});
  const values=new Map(),calls=[];
@@ -23,9 +19,7 @@ function setup(t,{at='2026-10-20T10:00:00Z',invalidJobs=false,failBoc=false,dela
  t.mock.method(globalThis,'fetch',async(url,options={})=>{
   url=String(url);calls.push({url,body:options.body,method:options.method});
   if(delay)await delay(url);
-  if(url.includes('PRICE_AND_DEMAND_'))throw Error('Held AEMO daily source must not be requested');
-  if(url==='https://nemweb.com.au/Reports/CURRENT/Public_Prices/')return new Response(aemoIndex);
-  if(url.startsWith('https://nemweb.com.au/Reports/CURRENT/Public_Prices/')){const zip=aemoZips.get(url.split('/').at(-1));assert.ok(zip,'Only the two advertised daily bundles');return new Response(zip);}
+  if(url.includes('PRICE_AND_DEMAND_')||url.includes('/Reports/CURRENT/Public_Prices/'))throw Error('Held AEMO daily source must not be requested');
   if(url.includes('ELEC_NEM_SUMMARY'))return Response.json({ELEC_NEM_SUMMARY:['NSW1','QLD1','VIC1','SA1','TAS1'].map(REGIONID=>({REGIONID,PRICE:42,TOTALDEMAND:100,PRICE_STATUS:'FIRM',SETTLEMENTDATE:'2026-10-20T20:00:00'}))});
   if(url.includes('/valet/observations/FXUSDCAD,FXAUDCAD,'))return Response.json(latestExchange);
   if(url.includes('/valet/observations/FXUSDCAD,FXGBPCAD/'))return failBoc?new Response('Unavailable',{status:503}):Response.json(boc[url.endsWith('recent=1')?'latest':'window']);
@@ -76,22 +70,20 @@ test('wrong jobs identity and dated-FX failure leave legacy FX, GDP and other he
  assert.equal(value.exchange.rows.length,4);assert.equal(value.product.level,2524127);assert.equal(value.price_index.index,170);assert.equal(value.shop.thousand_dollars,73696547);assert.equal(value.homes.starts,57947);
 });
 
-test('Australia keeps its five-region snapshot and advertises only the bounded daily-bundle contract',async t=>{
+test('Australia keeps its five-region snapshot without requesting or advertising the held daily feed',async t=>{
  const h=setup(t,{at:'2026-10-20T13:59:58Z'});const response=await request('/morning.json'),value=await response.json();
- assert.equal(value.grid.length,5);assert.equal(value.sources.grid.status,'ok');assert.equal(value.grid_day.status,'ok');assert.equal(value.sources.grid_day.status,'ok');
- assert.equal(value.grid_day.regions.reduce((n,r)=>n+r.intervals.length,0),576);
- assert.equal(h.calls.some(c=>c.url.includes('PRICE_AND_DEMAND_')),false);assert.equal(maxAge(response),2);
- assert.equal(h.calls.filter(c=>c.url.includes('/Reports/CURRENT/Public_Prices/')).length,3);
- const stored=[...h.values.values()][0];assert.equal(stored.headers.get('x-mr-calendar-boundary'),String(Date.parse('2026-10-20T14:00:00Z')));
- const count=h.calls.length;const selected=await request('/australia.json?source=grid_day');assert.equal(selected.status,200);assert.equal((await selected.json()).observations.length,10);assert.equal(h.calls.length,count);
- const catalogue=await(await request('/catalog.json?desk=australia')).json();assert.equal(catalogue.sources.find(source=>source.key==='grid_day').measure_count,10);
- assert.match(catalogue.limits,/AEMO|AEST|daily electricity summaries/i);
+ assert.equal(value.grid.length,5);assert.equal(value.sources.grid.status,'ok');assert.equal(value.grid_day,undefined);assert.equal(value.sources.grid_day,undefined);
+ assert.equal(h.calls.some(c=>c.url.includes('PRICE_AND_DEMAND_')||c.url.includes('/Reports/CURRENT/Public_Prices/')),false);assert.equal(maxAge(response),30);
+ const stored=[...h.values.values()][0];assert.equal(stored.headers.get('x-mr-calendar-boundary'),null);
+ const count=h.calls.length;assert.equal((await request('/australia.json?source=grid_day')).status,404);assert.equal(h.calls.length,count);
+ const catalogue=await(await request('/catalog.json?desk=australia')).json();assert.ok(!JSON.stringify(catalogue).includes('grid_day'));
+ assert.doesNotMatch(catalogue.limits,/AEMO|AEST|daily electricity summaries/i);
  assert.ok(catalogue.sources.some(source=>source.key==='grid'),'The five-region snapshot remains discoverable');
  const schema=await(await request('/schema.json')).json(),usage=schema['x-usage'];
- for(const key of ['revisits','daily_windows'])assert.match(usage[key],/AEMO|AEST|daily electricity summaries/i);
+ for(const key of ['revisits','daily_windows'])assert.doesNotMatch(usage[key],/AEMO|AEST|daily electricity summaries/i,`No held daily-electricity claim in ${key}`);
  assert.match(usage.daily_windows,/31-calendar-day request window/);assert.match(usage.daily_windows,/UTC midnight/);
  assert.match(usage.daily_windows,/Absent FX dates are not inferred holidays or carried forward/);
- const llms=await(await request('/llms.txt')).text();assert.match(llms,/completed-day SA1\/VIC1 price summaries/);
+ const llms=await(await request('/llms.txt')).text();assert.doesNotMatch(llms,/grid_day|completed-day SA1\/VIC1 price summaries/);
  const keys=await(await request('/keys.json')).json();assert.ok(keys.blocked.some(r=>r.source==='AEMO completed-day SA1/VIC1 monthly price CSV'&&r.status===406));
 });
 
@@ -109,46 +101,10 @@ test('calendar cache without its explicit boundary is a miss',async t=>{
  const response=await request('/canada.json');const value=await response.json();assert.ok(h.calls.length>0);assert.equal(value.exchange_history.rows.length,38);
 });
 
-test('Australia cached aliases expire at fixed-AEST midnight even if their ordinary expiry is extended',async t=>{
- const h=setup(t,{at:'2026-10-20T13:59:58Z'});let response=await request('/australia.json');assert.equal((await response.json()).grid_day.calendar_day,'2026-10-19');
- const [key,stored]=[...h.values.entries()][0],count=h.calls.length;t.mock.timers.tick(1000);
- response=await request('/morning.json?source=grid_day&measure=SA1.mean');assert.equal(response.status,200);assert.equal(maxAge(response),1);assert.equal(h.calls.length,count);
- const extended=stored.clone();extended.headers.set('cache-control','public, max-age=14400');extended.headers.set('x-mr-cache-expires-at',String(Date.parse('2026-10-20T18:00:00Z')));h.values.set(key,extended);
- t.mock.timers.tick(1000);response=await request('/australia.json');const value=await response.json();
- assert.ok(h.calls.length>count);assert.equal(value.grid_day,null);assert.equal(value.sources.grid_day.status,'error');assert.equal(value.grid.length,5);
- const refusal=await request('/australia.json?source=grid_day&measure=SA1.mean&observation=2026-10-19');assert.equal(refusal.status,503);assert.equal((await refusal.json()).data,null);
-});
-
-test('Australia calendar cache without an explicit boundary cannot serve a retained old day',async t=>{
- const h=setup(t,{at:'2026-10-20T13:59:58Z'});const old=await(await request('/australia.json')).json(),count=h.calls.length;
- globalThis.caches.default.match=async()=>Response.json(old,{headers:{'x-mr-cache-expires-at':String(Date.now()+60000)}});
- const response=await request('/australia.json');assert.equal((await response.json()).grid_day.calendar_day,'2026-10-19');assert.ok(h.calls.length>count);
-});
-
 test('a complete desk crossing its calendar boundary refuses the old daily source and is not cached',async t=>{
- for(const [path,at,trigger,field] of [['/canada.json','2026-10-20T23:59:59Z','api.worldbank.org','exchange_history'],['/australia.json','2026-10-20T13:59:59Z','api.worldbank.org','grid_day']])await t.test(path,async child=>{
+ for(const [path,at,trigger,field] of [['/canada.json','2026-10-20T23:59:59Z','api.worldbank.org','exchange_history']])await t.test(path,async child=>{
   let shifted=false;const h=setup(child,{at,delay:async url=>{if(url.includes(trigger)&&!shifted){await new Promise(resolve=>setImmediate(resolve));shifted=true;child.mock.timers.tick(1000);}}});
   const response=await request(path),value=await response.json();assert.equal(shifted,true);assert.equal(value[field],null);assert.equal(value.sources[field].status,'error');assert.equal(response.headers.get('cache-control'),'no-store');assert.equal(h.values.size,0);
   assert.equal(path.includes('canada')?value.exchange.rows.length:value.grid.length,path.includes('canada')?4:5);
  });
-});
-
-test('Australia refuses a stale completed day if conditional-response hashing crosses midnight',async t=>{
- for(const path of ['/australia.json','/australia.json?source=grid_day&measure=SA1.mean'])await t.test(path,async child=>{
-  setup(child,{at:'2026-10-20T13:59:58Z'});
-  const original=await request(path),etag=original.headers.get('etag');assert.ok(etag);
-  let shifted=false;const digest=crypto.subtle.digest.bind(crypto.subtle);
-  child.mock.method(crypto.subtle,'digest',async(...args)=>{const value=await digest(...args);if(!shifted){shifted=true;child.mock.timers.tick(2000);}return value;});
-  const response=await worker.fetch(new Request('https://example.com'+path,{headers:{'If-None-Match':etag}}));
-  assert.equal(shifted,true);assert.notEqual(response.status,304);assert.equal(response.headers.get('cache-control'),'no-store');
-  const value=await response.json();if(path.includes('?')){assert.equal(response.status,503);assert.equal(value.data,null);assert.deepEqual(value.observations,[]);}else{assert.equal(response.status,200);assert.equal(value.grid_day,null);assert.equal(value.grid.length,5);}
- });
-});
-
-test('public Australia cache TTL accounts for response hashing before the boundary',async t=>{
- setup(t,{at:'2026-10-20T13:59:58Z'});
- await request('/australia.json');
- let shifted=false;const digest=crypto.subtle.digest.bind(crypto.subtle);
- t.mock.method(crypto.subtle,'digest',async(...args)=>{const value=await digest(...args);if(!shifted&&Date.now()===Date.parse('2026-10-20T13:59:58Z')){shifted=true;t.mock.timers.tick(1000);}return value;});
- const response=await request('/australia.json');assert.equal(response.status,200);assert.equal(maxAge(response),1);assert.equal((await response.json()).grid_day.status,'ok');
 });

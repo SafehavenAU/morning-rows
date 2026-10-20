@@ -1,0 +1,1412 @@
+!file
+dataset: public-prices
+description: Next Day Public Daily Prices Dispatch Reports
+nameMenu: Trading and Dispatch Prices
+namePage: Trading and Dispatch Prices
+reports: 
+- !report
+   name: DREGION-NULL-2
+   fields: 
+   - !field
+      name: SETTLEMENTDATE
+      format: DATE
+   - !field
+      name: RUNNO
+      format: NUMBER(38)
+   - !field
+      name: REGIONID
+      format: VARCHAR2(20)
+   - !field
+      name: INTERVENTION
+      format: NUMBER(38)
+   - !field
+      name: RRP
+      description: Regional Energy Price - EnergyPrice attribute after capping/flooring and scaling
+      format: NUMBER(15,5)
+   - !field
+      name: EEP
+      format: NUMBER
+   - !field
+      name: ROP
+      description: Regional Original Price - EnergyPrice attribute uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: APCFLAG
+      description: BitFlag field for Price adjustments - "1" = APC/APF; "2" = Voll_Override; "4" = Floor_VoLL;
+         "8" = Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: MARKETSUSPENDEDFLAG
+      description: '0 or null for no suspension; 1 for suspension with "DISPATCH" pricing regime; 2 for
+         suspension with "SCHEDULE" pricing regime. Pre 2017 EoY release this was a boolean field: null
+         or 0 for no suspension; 1 for suspension'
+      format: NUMBER(1)
+   - !field
+      name: TOTALDEMAND
+      format: NUMBER(15,5)
+   - !field
+      name: DEMANDFORECAST
+      format: NUMBER(15,5)
+   - !field
+      name: DISPATCHABLEGENERATION
+      format: NUMBER(15,5)
+   - !field
+      name: DISPATCHABLELOAD
+      format: NUMBER(15,5)
+   - !field
+      name: NETINTERCHANGE
+      description: Total Export (+ve) or Import (-ve) to/from Region - RegionSolution element NetExport
+         attribute
+      format: NUMBER(15,5)
+   - !field
+      name: EXCESSGENERATION
+      description: Total Energy imbalance - RegionSolution element SurplusGeneration attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINLOCALDISPATCH
+      description: Total Lower5Min Dispatched in Region - RegionSolution element L5Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECLOCALDISPATCH
+      description: Total Lower60Sec Dispatched in Region - RegionSolution element L60Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECLOCALDISPATCH
+      description: Total Lower6Sec Dispatched in Region - RegionSolution element L6Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINLOCALDISPATCH
+      description: Total Raise5Min Dispatched in Region - RegionSolution element R5Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECLOCALDISPATCH
+      description: Total Raise60Sec Dispatched in Region - RegionSolution element R60Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECLOCALDISPATCH
+      description: Total Raise6Sec Dispatched in Region - RegionSolution element R6Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: AGGREGATEDISPATCHERROR
+      description: SCADA sourced value - from Input element, ADE attribute
+      format: NUMBER(15,5)
+   - !field
+      name: AVAILABLEGENERATION
+      description: Total declared Generation for Region. Summation from Input element - Post solve calculation
+      format: NUMBER(15,5)
+   - !field
+      name: AVAILABLELOAD
+      description: Total declared Load for Region. Summation from Input element - Post solve calculation
+      format: NUMBER(15,5)
+   - !field
+      name: INITIALSUPPLY
+      description: SCADA sourced value - from Input element, InitialDemand attribute
+      format: NUMBER(15,5)
+   - !field
+      name: CLEAREDSUPPLY
+      description: Sum of cleared generation and import for Region - RegionSolution element ClearedDemand
+         attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: LOWERREGLOCALDISPATCH
+      description: Total LowerRegulation Dispatched in Region - RegionSolution element L5RegDispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWERREGREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGLOCALDISPATCH
+      description: Total RaiseRegulation Dispatched in Region - RegionSolution element R5RegDispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWERREGLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWERREGVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECRRP
+      description: Regional Raise 6Sec Price - R6Price attribute after capping/flooring
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECROP
+      description: Raise6Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE60SECRRP
+      description: Regional Raise 60Sec Price - RegionSolution element R60Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECROP
+      description: Raise60Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE5MINRRP
+      description: Regional Raise 5Min Price - RegionSolution element R5Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINROP
+      description: Raise5Min Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISEREGRRP
+      description: Regional Raise Regulation Price - RegionSolution element R5RegPrice attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGROP
+      description: RaiseReg Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWER6SECRRP
+      description: Regional Lower 6Sec Price - RegionSolution element L6Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECROP
+      description: Lower6Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWER60SECRRP
+      description: Regional Lower 60Sec Price - RegionSolution element L60Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECROP
+      description: Lower60Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWER5MINRRP
+      description: Regional Lower 5Min Price - RegionSolution element L5Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINROP
+      description: Lower5Min Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWERREGRRP
+      description: Regional Lower Regulation Price - RegionSolution element L5RegPrice attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGROP
+      description: LowerReg Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWER1SECRRP
+      description: Regional Lower 1Sec Price - RegionSolution element L1Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER1SECROP
+      description: Lower1Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER1SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE1SECRRP
+      description: Regional Raise 1Sec Price - R1Price attribute after capping/flooring
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE1SECROP
+      description: Raise1Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE1SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE1SECLOCALDISPATCH
+      description: Total Raise1Sec Dispatched in Region - RegionSolution element R1Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER1SECLOCALDISPATCH
+      description: Total Lower1Sec Dispatched in Region - RegionSolution element L1Dispatch attribute
+      format: NUMBER(15,5)
+   reportSubType: NULL
+   reportType: DREGION
+   reportVersion: 2
+- !report
+   name: DREGION-NULL-3
+   fields: 
+   - !field
+      name: SETTLEMENTDATE
+      format: DATE
+   - !field
+      name: RUNNO
+      format: NUMBER(38)
+   - !field
+      name: REGIONID
+      format: VARCHAR2(20)
+   - !field
+      name: INTERVENTION
+      format: NUMBER(38)
+   - !field
+      name: RRP
+      description: Regional Energy Price - EnergyPrice attribute after capping/flooring and scaling
+      format: NUMBER(15,5)
+   - !field
+      name: EEP
+      format: NUMBER
+   - !field
+      name: ROP
+      description: Regional Original Price - EnergyPrice attribute uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: APCFLAG
+      description: BitFlag field for Price adjustments - "1" = APC/APF; "2" = Voll_Override; "4" = Floor_VoLL;
+         "8" = Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: MARKETSUSPENDEDFLAG
+      description: '0 or null for no suspension; 1 for suspension with "DISPATCH" pricing regime; 2 for
+         suspension with "SCHEDULE" pricing regime. Pre 2017 EoY release this was a boolean field: null
+         or 0 for no suspension; 1 for suspension'
+      format: NUMBER(1)
+   - !field
+      name: TOTALDEMAND
+      format: NUMBER(15,5)
+   - !field
+      name: DEMANDFORECAST
+      format: NUMBER(15,5)
+   - !field
+      name: DISPATCHABLEGENERATION
+      format: NUMBER(15,5)
+   - !field
+      name: DISPATCHABLELOAD
+      format: NUMBER(15,5)
+   - !field
+      name: NETINTERCHANGE
+      description: Total Export (+ve) or Import (-ve) to/from Region - RegionSolution element NetExport
+         attribute
+      format: NUMBER(15,5)
+   - !field
+      name: EXCESSGENERATION
+      description: Total Energy imbalance - RegionSolution element SurplusGeneration attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINLOCALDISPATCH
+      description: Total Lower5Min Dispatched in Region - RegionSolution element L5Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECLOCALDISPATCH
+      description: Total Lower60Sec Dispatched in Region - RegionSolution element L60Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECLOCALDISPATCH
+      description: Total Lower6Sec Dispatched in Region - RegionSolution element L6Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINLOCALDISPATCH
+      description: Total Raise5Min Dispatched in Region - RegionSolution element R5Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECLOCALDISPATCH
+      description: Total Raise60Sec Dispatched in Region - RegionSolution element R60Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECDISPATCH
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECLOCALDISPATCH
+      description: Total Raise6Sec Dispatched in Region - RegionSolution element R6Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECSUPPLYPRICE
+      format: VARCHAR2(0)
+   - !field
+      name: AGGREGATEDISPATCHERROR
+      description: SCADA sourced value - from Input element, ADE attribute
+      format: NUMBER(15,5)
+   - !field
+      name: AVAILABLEGENERATION
+      description: Total declared Generation for Region. Summation from Input element - Post solve calculation
+      format: NUMBER(15,5)
+   - !field
+      name: AVAILABLELOAD
+      description: Total declared Load for Region. Summation from Input element - Post solve calculation
+      format: NUMBER(15,5)
+   - !field
+      name: INITIALSUPPLY
+      description: SCADA sourced value - from Input element, InitialDemand attribute
+      format: NUMBER(15,5)
+   - !field
+      name: CLEAREDSUPPLY
+      description: Sum of cleared generation and import for Region - RegionSolution element ClearedDemand
+         attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: LOWERREGLOCALDISPATCH
+      description: Total LowerRegulation Dispatched in Region - RegionSolution element L5RegDispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: LOWERREGREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGIMPORT
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGLOCALDISPATCH
+      description: Total RaiseRegulation Dispatched in Region - RegionSolution element R5RegDispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGLOCALREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGREQ
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWERREGLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECLOCALVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE5MINVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISEREGVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE60SECVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER5MINVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWERREGVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER60SECVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER6SECVIOLATION
+      format: VARCHAR2(0)
+   - !field
+      name: RAISE6SECRRP
+      description: Regional Raise 6Sec Price - R6Price attribute after capping/flooring
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECROP
+      description: Raise6Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE60SECRRP
+      description: Regional Raise 60Sec Price - RegionSolution element R60Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECROP
+      description: Raise60Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE5MINRRP
+      description: Regional Raise 5Min Price - RegionSolution element R5Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINROP
+      description: Raise5Min Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISEREGRRP
+      description: Regional Raise Regulation Price - RegionSolution element R5RegPrice attribute
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGROP
+      description: RaiseReg Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWER6SECRRP
+      description: Regional Lower 6Sec Price - RegionSolution element L6Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECROP
+      description: Lower6Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWER60SECRRP
+      description: Regional Lower 60Sec Price - RegionSolution element L60Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECROP
+      description: Lower60Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWER5MINRRP
+      description: Regional Lower 5Min Price - RegionSolution element L5Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINROP
+      description: Lower5Min Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: LOWERREGRRP
+      description: Regional Lower Regulation Price - RegionSolution element L5RegPrice attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGROP
+      description: LowerReg Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE6SECACTUALAVAILABILITY
+      description: Trapezium adjusted Raise6Sec availability (summated from UnitSolution)
+      format: NUMBER(16,6)
+   - !field
+      name: RAISE60SECACTUALAVAILABILITY
+      description: Trapezium adjusted Raise60Sec availability (summated from UnitSolution)
+      format: NUMBER(16,6)
+   - !field
+      name: RAISE5MINACTUALAVAILABILITY
+      description: Trapezium adjusted Raise5Min availability (summated from UnitSolution)
+      format: NUMBER(16,6)
+   - !field
+      name: RAISEREGACTUALAVAILABILITY
+      description: Trapezium adjusted RaiseReg availability (summated from UnitSolution)
+      format: NUMBER(16,6)
+   - !field
+      name: LOWER6SECACTUALAVAILABILITY
+      description: Trapezium adjusted Lower6Sec availability (summated from UnitSolution)
+      format: NUMBER(16,6)
+   - !field
+      name: LOWER60SECACTUALAVAILABILITY
+      description: Trapezium adjusted Lower60Sec availability (summated from UnitSolution)
+      format: NUMBER(16,6)
+   - !field
+      name: LOWER5MINACTUALAVAILABILITY
+      description: Trapezium adjusted Lower5Min availability (summated from UnitSolution)
+      format: NUMBER(16,6)
+   - !field
+      name: LOWERREGACTUALAVAILABILITY
+      description: Trapezium adjusted LowerReg availability (summated from UnitSolution)
+      format: NUMBER(16,6)
+   - !field
+      name: LORSURPLUS
+      format: VARCHAR2(0)
+   - !field
+      name: LRCSURPLUS
+      format: VARCHAR2(0)
+   - !field
+      name: LOWER1SECRRP
+      description: Regional Lower 1Sec Price - RegionSolution element L1Price attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER1SECROP
+      description: Lower1Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER1SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE1SECRRP
+      description: Regional Raise 1Sec Price - R1Price attribute after capping/flooring
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE1SECROP
+      description: Raise1Sec Regional Original Price - uncapped/unfloored and unscaled
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE1SECAPCFLAG
+      description: BitFlag field for Price adjustments - "1" = Voll_Override; "4" = Floor_VoLL; "8" =
+         Manual_Override; "16" = Price_Scaled
+      format: NUMBER(3)
+   - !field
+      name: RAISE1SECLOCALDISPATCH
+      description: Total Raise1Sec Dispatched in Region - RegionSolution element R1Dispatch attribute
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER1SECLOCALDISPATCH
+      description: Total Lower1Sec Dispatched in Region - RegionSolution element L1Dispatch attribute
+      format: NUMBER(15,5)
+   reportSubType: NULL
+   reportType: DREGION
+   reportVersion: 3
+- !report
+   name: TREGION-NULL-1
+   fields: 
+   - !field
+      name: SETTLEMENTDATE
+      format: DATE
+   - !field
+      name: RUNNO
+      format: NUMBER(3)
+   - !field
+      name: REGIONID
+      format: VARCHAR2(10)
+   - !field
+      name: RRP
+      format: NUMBER(15,5)
+   - !field
+      name: EEP
+      format: NUMBER(15,5)
+   - !field
+      name: INVALIDFLAG
+      format: VARCHAR2(1)
+   - !field
+      name: TOTALDEMAND
+      format: NUMBER(15,5)
+   - !field
+      name: DEMANDFORECAST
+      format: NUMBER(15,5)
+   - !field
+      name: DISPATCHABLEGENERATION
+      format: NUMBER(15,5)
+   - !field
+      name: DISPATCHABLELOAD
+      format: NUMBER(15,5)
+   - !field
+      name: NETINTERCHANGE
+      format: NUMBER(15,5)
+   - !field
+      name: EXCESSGENERATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECSUPPLYPRICE
+      format: NUMBER(15,5)
+   reportSubType: NULL
+   reportType: TREGION
+   reportVersion: 1
+- !report
+   name: TREGION-NULL-2
+   fields: 
+   - !field
+      name: SETTLEMENTDATE
+      format: DATE
+   - !field
+      name: RUNNO
+      format: NUMBER(3)
+   - !field
+      name: REGIONID
+      format: VARCHAR2(10)
+   - !field
+      name: RRP
+      format: NUMBER(15,5)
+   - !field
+      name: EEP
+      format: NUMBER(15,5)
+   - !field
+      name: INVALIDFLAG
+      format: VARCHAR2(1)
+   - !field
+      name: TOTALDEMAND
+      format: NUMBER(15,5)
+   - !field
+      name: DEMANDFORECAST
+      format: NUMBER(15,5)
+   - !field
+      name: DISPATCHABLEGENERATION
+      format: NUMBER(15,5)
+   - !field
+      name: DISPATCHABLELOAD
+      format: NUMBER(15,5)
+   - !field
+      name: NETINTERCHANGE
+      format: NUMBER(15,5)
+   - !field
+      name: EXCESSGENERATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECSUPPLYPRICE
+      format: NUMBER(15,5)
+   - !field
+      name: AVAILABLEGENERATION
+      format: NUMBER(15,5)
+   - !field
+      name: AVAILABLELOAD
+      format: NUMBER(15,5)
+   - !field
+      name: INITIALSUPPLY
+      format: NUMBER(15,5)
+   - !field
+      name: CLEAREDSUPPLY
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGIMPORT
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGLOCALDISPATCH
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGLOCALREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGREQ
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINLOCALVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGLOCALVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECLOCALVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECLOCALVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINLOCALVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGLOCALVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECLOCALVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECLOCALVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECVIOLATION
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE6SECRRP
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE60SECRRP
+      format: NUMBER(15,5)
+   - !field
+      name: RAISE5MINRRP
+      format: NUMBER(15,5)
+   - !field
+      name: RAISEREGRRP
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER6SECRRP
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER60SECRRP
+      format: NUMBER(15,5)
+   - !field
+      name: LOWER5MINRRP
+      format: NUMBER(15,5)
+   - !field
+      name: LOWERREGRRP
+      format: NUMBER(15,5)
+   reportSubType: NULL
+   reportType: TREGION
+   reportVersion: 2

@@ -1,0 +1,35 @@
+{
+  "reviewed_at": "2026-10-20T18:06:58.344338+00:00",
+  "pass": true,
+  "scope": "Independent review of local CQC dictionary CPU repair; remote release acceptance remains pending",
+  "base_revision": "baa10d13f62b5a74c6f67ff2c0d1f05a4523d394",
+  "module_sha256": "7ee99d03615ee0cbfed4d7e8dff709f45dcde0839c410c2a56f0997563f61dbc",
+  "manifest_sha256": "7297f3260c2c28f2fc25d205b5815f95a0229d1a02acc4e41eaa49225fdb0ba5",
+  "manifest_bindings_verified": 15,
+  "control_count": 20,
+  "full_native_deep_equal": true,
+  "findings": [],
+  "reasoning": [
+    "Runtime diff is only a local inserted-key counter replacing repeated enumerable own-key enumeration.",
+    "Object.create(null), hasOwn duplicate rejection, value parsing before bound checking and the exact 1024 limit are retained; each recursive dictionary has its own counter.",
+    "Independent controls compare result or exact error plus parser position and token count against the original Git blob, including escaped duplicate names, numeric keys, prototype-like keys, nested limits and error precedence.",
+    "Whole-file PDF length/hash checks, acquisition and all statistical/structural parsing outside the counter are byte-identical. No static value shortcut was introduced.",
+    "The complete retained original PDF produced deep-equal native objects and all five source values.",
+    "Frozen local evidence explicitly separates Node timings/work census from Cloudflare CPU. Original 794 ms failure and old reader proof remain bound to the old module."
+  ],
+  "remote_acceptance": false,
+  "required_next": [
+    "Fresh exact-source CI",
+    "New protected actual-reader proof",
+    "Fresh full-desk Cloudflare CPU within unchanged 500 ms legacy gate",
+    "All established staged/production gates"
+  ],
+  "retained_failure": {
+    "path": "/tmp/mr-combined-prepublication-legacy-cpu.json",
+    "sha256": "d2a9de904c2598d494026d05cbfeecf3b375ae1a10150c28e42e7c389ff77269",
+    "budget_pass": false
+  },
+  "failed_review_harness": "failed-unpinned-harness.json",
+  "no_http": true,
+  "no_repository_writes": true
+}

@@ -1,0 +1,136 @@
+{
+  "pass": true,
+  "recorded_at": "2026-10-20T18:06:26.277Z",
+  "scope": "Independent local differential parser review only; no remote release or CPU acceptance",
+  "before_module_sha256": "a2e719e1dc9fa145bbabc329b21dca71e302bfed43c47cb07eb3e936fca20115",
+  "after_module_sha256": "7ee99d03615ee0cbfed4d7e8dff709f45dcde0839c410c2a56f0997563f61dbc",
+  "original_pdf_sha256": "61614bff618645c52cf61405b9c6a2115854e29262d76e324513d2348e555fef",
+  "original_pdf_bytes": 7175967,
+  "checks": [
+    {
+      "name": "empty dictionary",
+      "pass": true,
+      "expected_acceptance": true
+    },
+    {
+      "name": "single key",
+      "pass": true,
+      "expected_acceptance": true
+    },
+    {
+      "name": "1023 keys",
+      "pass": true,
+      "expected_acceptance": true
+    },
+    {
+      "name": "1024 keys",
+      "pass": true,
+      "expected_acceptance": true
+    },
+    {
+      "name": "1025 keys",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Dictionary limit exceeded"
+    },
+    {
+      "name": "1024 with duplicate tail",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Invalid or duplicate dictionary key"
+    },
+    {
+      "name": "1024 with numeric names",
+      "pass": true,
+      "expected_acceptance": true
+    },
+    {
+      "name": "1025 numeric names",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Dictionary limit exceeded"
+    },
+    {
+      "name": "null-prototype names",
+      "pass": true,
+      "expected_acceptance": true
+    },
+    {
+      "name": "duplicate special name",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Invalid or duplicate dictionary key"
+    },
+    {
+      "name": "escaped duplicate",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Invalid or duplicate dictionary key"
+    },
+    {
+      "name": "independent sibling dictionaries",
+      "pass": true,
+      "expected_acceptance": true
+    },
+    {
+      "name": "nested overflow",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Dictionary limit exceeded"
+    },
+    {
+      "name": "last parent key has nested dictionary",
+      "pass": true,
+      "expected_acceptance": true
+    },
+    {
+      "name": "overflow value parse error precedes size error",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Unexpected token as PDF value"
+    },
+    {
+      "name": "invalid key after bound",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Invalid or duplicate dictionary key"
+    },
+    {
+      "name": "missing dictionary close",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Unterminated dictionary"
+    },
+    {
+      "name": "trailing bytes after accepted dictionary",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Unexpected trailing value data"
+    },
+    {
+      "name": "token bound preserved",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Token limit exceeded"
+    },
+    {
+      "name": "depth bound preserved",
+      "pass": true,
+      "expected_acceptance": false,
+      "error": "Bounded PDF: Value nesting exceeded"
+    }
+  ],
+  "control_count": 20,
+  "full_native_deep_equal": true,
+  "native_sha256": "20ec5f620e7a5685df804fc5e6651feda6dd8d0fddb9cc02f8c9b7cff6ff790c",
+  "values": [
+    125,
+    809,
+    2063,
+    65,
+    3062
+  ],
+  "prior_reader_byte_identical": true,
+  "no_http": true,
+  "no_repository_writes": true
+}
