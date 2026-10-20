@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-20T04:09:42.025Z",
+  "node_tests": 183,
+  "node_pass": 183,
+  "node_fail": 0,
+  "python_tests": 20,
+  "legacy_cases": 315,
+  "us_cases": 8,
+  "schema_responses": 221,
+  "negative_schema_cases": 3,
+  "independent_slots": 13,
+  "live_fault_preview_scenarios": 22,
+  "logs": [
+    {
+      "name": "build",
+      "sha256": "38433934a9418ae538f7976230553296930f9330f9a410b77d582748329c65b8",
+      "tail": "\n\n ⛅️ wrangler 4.151.1 (update available 4.151.2)\n───────────────────────────────────────────────\n[custom build] Running: node scripts/build-info.mjs\nTotal Upload: 278.03 KiB / gzip: 88.24 KiB\nYour Worker has access to the following bindings:\nBinding                    Resource                     \nenv.WORKER_VERSION         Worker Version Metadata      \n\n--dry-run: exiting now.\n"
+    },
+    {
+      "name": "python",
+      "sha256": "31503230e36d8e43e62ace46f2caf83387e5a1dff128bbd85d8ac4daa732ad6a",
+      "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.012s\n\nOK\n"
+    },
+    {
+      "name": "workbook",
+      "sha256": "91cdf815bd292d64f54f9f3507fca044824215f0dd877818b35eae793a4378ce",
+      "tail": "{\"slots\": 13, \"pass\": true}\n"
+    },
+    {
+      "name": "table",
+      "sha256": "91cdf815bd292d64f54f9f3507fca044824215f0dd877818b35eae793a4378ce",
+      "tail": "{\"slots\": 13, \"pass\": true}\n"
+    },
+    {
+      "name": "compat",
+      "sha256": "115d4d23bac1222e76c240ec981dfd38f15218a539fd9df869726c2dc6815660",
+      "tail": "{\"legacy_cases\":315,\"us_cases\":8,\"publisher_cells_equal\":13,\"out\":\"/tmp/mr-paid-contract\"}\n"
+    },
+    {
+      "name": "schema",
+      "sha256": "d0d6d5770b6cfcb427f305b012b25258003ba76187d8741e522c7ebcbf82966b",
+      "tail": "{\"responses_validated\": 221, \"negative_contracts\": 3, \"pass\": true}\n"
+    }
+  ]
+}
