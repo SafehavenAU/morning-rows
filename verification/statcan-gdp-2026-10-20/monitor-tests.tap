@@ -1,0 +1,616 @@
+TAP version 13
+# Subtest: observed ID inversion fails original implementation and selects delivery-test producer after repair
+ok 1 - observed ID inversion fails original implementation and selects delivery-test producer after repair
+  ---
+  duration_ms: 2.222748
+  type: 'test'
+  ...
+# Subtest: newer failed run without checkpoint blocks normal restoration
+ok 2 - newer failed run without checkpoint blocks normal restoration
+  ---
+  duration_ms: 0.357971
+  type: 'test'
+  ...
+# Subtest: only exact reviewed failure can be crossed by explicit manual recovery
+ok 3 - only exact reviewed failure can be crossed by explicit manual recovery
+  ---
+  duration_ms: 1.134995
+  type: 'test'
+  ...
+# Subtest: failed-attempt evidence must still show no state-producing step or artifacts
+ok 4 - failed-attempt evidence must still show no state-producing step or artifacts
+  ---
+  duration_ms: 0.748667
+  type: 'test'
+  ...
+# Subtest: unrelated branches, workflows and PR runs cannot select an artifact
+ok 5 - unrelated branches, workflows and PR runs cannot select an artifact
+  ---
+  duration_ms: 0.32316
+  type: 'test'
+  ...
+# Subtest: run IDs and artifact IDs do not define execution order; conflicting chronology fails
+ok 6 - run IDs and artifact IDs do not define execution order; conflicting chronology fails
+  ---
+  duration_ms: 0.586073
+  type: 'test'
+  ...
+# Subtest: all history pages are read; incomplete or changing history fails closed
+ok 7 - all history pages are read; incomplete or changing history fails closed
+  ---
+  duration_ms: 0.857026
+  type: 'test'
+  ...
+# Subtest: an older incomplete execution cannot be hidden by a newer completed producer
+ok 8 - an older incomplete execution cannot be hidden by a newer completed producer
+  ---
+  duration_ms: 0.260876
+  type: 'test'
+  ...
+# Subtest: expired, missing, duplicate, wrong-revision and wrong-attempt artifacts never fall back
+ok 9 - expired, missing, duplicate, wrong-revision and wrong-attempt artifacts never fall back
+  ---
+  duration_ms: 1.011234
+  type: 'test'
+  ...
+# Subtest: archive corruption and uncompressed malformed state are rejected before restoration
+ok 10 - archive corruption and uncompressed malformed state are rejected before restoration
+  ---
+  duration_ms: 39.740862
+  type: 'test'
+  ...
+# Subtest: real checkpoint chain preserves notification-only change at unchanged collection sequence
+ok 11 - real checkpoint chain preserves notification-only change at unchanged collection sequence
+  ---
+  duration_ms: 46.985197
+  type: 'test'
+  ...
+# Subtest: recovery rehearsal copies every field without acknowledging or resetting; existing file cannot be overwritten
+ok 12 - recovery rehearsal copies every field without acknowledging or resetting; existing file cannot be overwritten
+  ---
+  duration_ms: 21.886833
+  type: 'test'
+  ...
+# Subtest: bootstrap cannot bypass existing incidents or interrupted upload history
+ok 13 - bootstrap cannot bypass existing incidents or interrupted upload history
+  ---
+  duration_ms: 0.319803
+  type: 'test'
+  ...
+# Subtest: actual restoration adapter rehearses recovery with mocked GitHub and original ZIP, without state changes
+ok 14 - actual restoration adapter rehearses recovery with mocked GitHub and original ZIP, without state changes
+  ---
+  duration_ms: 768.471695
+  type: 'test'
+  ...
+# Subtest: five explicit claimant obligations do not silently expand the original or USA monitoring registries
+ok 15 - five explicit claimant obligations do not silently expand the original or USA monitoring registries
+  ---
+  duration_ms: 4.544674
+  type: 'test'
+  ...
+# Subtest: each original national specimen yields 13 exact monthly observations with retrieval-independent versions
+ok 16 - each original national specimen yields 13 exact monthly observations with retrieval-independent versions
+  ---
+  duration_ms: 60.753895
+  type: 'test'
+  ...
+# Subtest: acquisition metadata cannot create a claimant revision but changed counts and publisher revision metadata do
+ok 17 - acquisition metadata cannot create a claimant revision but changed counts and publisher revision metadata do
+  ---
+  duration_ms: 75.955843
+  type: 'test'
+  ...
+# Subtest: wrong national data and partial calendar coverage fail semantically despite healthy transport
+ok 18 - wrong national data and partial calendar coverage fail semantically despite healthy transport
+  ---
+  duration_ms: 2.715047
+  type: 'test'
+  ...
+# Subtest: a claimant transport error stays local and does not reclassify a successful existing source
+ok 19 - a claimant transport error stays local and does not reclassify a successful existing source
+  ---
+  duration_ms: 2.790199
+  type: 'test'
+  ...
+# Subtest: collector rejects incompatible or nonboolean scope before making any read
+ok 20 - collector rejects incompatible or nonboolean scope before making any read
+  ---
+  duration_ms: 1.278919
+  type: 'test'
+  ...
+# Subtest: reviewed claimant collection retains nine desks and 24 probes while checking 114 obligations
+ok 21 - reviewed claimant collection retains nine desks and 24 probes while checking 114 obligations
+  ---
+  duration_ms: 175.100376
+  type: 'test'
+  ...
+# Subtest: partial claimant rows are recorded as a semantic source failure while collection and sibling checks survive
+ok 22 - partial claimant rows are recorded as a semantic source failure while collection and sibling checks survive
+  ---
+  duration_ms: 53.390154
+  type: 'test'
+  ...
+# Subtest: claimant missingness is compared with the same exact month, not numeric values in other retained months
+ok 23 - claimant missingness is compared with the same exact month, not numeric values in other retained months
+  ---
+  duration_ms: 28.523194
+  type: 'test'
+  ...
+# Subtest: retained checkpoint and USA-only review remain exact and independently distinct from constructed runs
+ok 24 - retained checkpoint and USA-only review remain exact and independently distinct from constructed runs
+  ---
+  duration_ms: 2.131505
+  type: 'test'
+  ...
+# Subtest: one explicitly connected continuation selects the final scope without mutating its review or predecessor
+ok 25 - one explicitly connected continuation selects the final scope without mutating its review or predecessor
+  ---
+  duration_ms: 9.188763
+  type: 'test'
+  ...
+# Subtest: malformed, disconnected, cyclic and nested release continuations fail closed
+ok 26 - malformed, disconnected, cyclic and nested release continuations fail closed
+  ---
+  duration_ms: 83.334057
+  type: 'test'
+  ...
+# Subtest: direct durable-old to final release records both reviewed edges but only one actual collection
+ok 27 - direct durable-old to final release records both reviewed edges but only one actual collection
+  ---
+  duration_ms: 10.3798
+  type: 'test'
+  ...
+# Subtest: an actual scheduled final-scope run starts both new scopes at its own completion only
+ok 28 - an actual scheduled final-scope run starts both new scopes at its own completion only
+  ---
+  duration_ms: 5.481374
+  type: 'test'
+  ...
+# Subtest: manual final transition followed by scheduled observation does not repeat its release audit
+ok 29 - manual final transition followed by scheduled observation does not repeat its release audit
+  ---
+  duration_ms: 25.903401
+  type: 'test'
+  ...
+# Subtest: already-USA predecessor applies only the suffix and preserves existing USA observation history
+ok 30 - already-USA predecessor applies only the suffix and preserves existing USA observation history
+  ---
+  duration_ms: 13.916879
+  type: 'test'
+  ...
+# Subtest: USA-only review retains its original transition behavior without starting claimant observation
+ok 31 - USA-only review retains its original transition behavior without starting claimant observation
+  ---
+  duration_ms: 5.105632
+  type: 'test'
+  ...
+# Subtest: incomplete, wrong-scope, missing-domain and nonexact identity evidence cannot authorize the chain
+ok 32 - incomplete, wrong-scope, missing-domain and nonexact identity evidence cannot authorize the chain
+  ---
+  duration_ms: 34.818754
+  type: 'test'
+  ...
+# Subtest: an enabled continuation cannot certify the intermediate USA release as the final target
+ok 33 - an enabled continuation cannot certify the intermediate USA release as the final target
+  ---
+  duration_ms: 3.659276
+  type: 'test'
+  ...
+# Subtest: unknown durable identity cannot skip into the approved release chain
+ok 34 - unknown durable identity cannot skip into the approved release chain
+  ---
+  duration_ms: 4.057337
+  type: 'test'
+  ...
+# Subtest: incomplete collection at the final identity cannot invent new-scope timestamps or another audit
+ok 35 - incomplete collection at the final identity cannot invent new-scope timestamps or another audit
+  ---
+  duration_ms: 5.605316
+  type: 'test'
+  ...
+# Subtest: bounded continuation uses the retained seq5 and original USA/claimant edges without activating a release
+ok 36 - bounded continuation uses the retained seq5 and original USA/claimant edges without activating a release
+  ---
+  duration_ms: 10.690767
+  type: 'test'
+  ...
+# Subtest: old USA and claimant plans retain their scopes and do not enable rent
+ok 37 - old USA and claimant plans retain their scopes and do not enable rent
+  ---
+  duration_ms: 0.765277
+  type: 'test'
+  ...
+# Subtest: direct seq5 to a three-edge final release records one real run and only final identity observation
+ok 38 - direct seq5 to a three-edge final release records one real run and only final identity observation
+  ---
+  duration_ms: 9.996049
+  type: 'test'
+  ...
+# Subtest: constructed scheduled final run starts all included scopes at its own completion, never intermediate edges
+ok 39 - constructed scheduled final run starts all included scopes at its own completion, never intermediate edges
+  ---
+  duration_ms: 4.036395
+  type: 'test'
+  ...
+# Subtest: already-USA durable prefix applies two remaining edges and preserves prior USA scheduled evidence
+ok 40 - already-USA durable prefix applies two remaining edges and preserves prior USA scheduled evidence
+  ---
+  duration_ms: 8.409788
+  type: 'test'
+  ...
+# Subtest: already-claimant durable prefix applies only rent and preserves both earlier scope timestamps
+ok 41 - already-claimant durable prefix applies only rent and preserves both earlier scope timestamps
+  ---
+  duration_ms: 14.143371
+  type: 'test'
+  ...
+# Subtest: manual prefixes do not acquire scheduled starts from release history
+ok 42 - manual prefixes do not acquire scheduled starts from release history
+  ---
+  duration_ms: 14.483979
+  type: 'test'
+  ...
+# Subtest: repeated claimant-scope releases are valid and do not invent rent coverage
+ok 43 - repeated claimant-scope releases are valid and do not invent rent coverage
+  ---
+  duration_ms: 14.991346
+  type: 'test'
+  ...
+# Subtest: repeated rent-scope releases apply only the unapplied suffix and retain established scope starts
+ok 44 - repeated rent-scope releases apply only the unapplied suffix and retain established scope starts
+  ---
+  duration_ms: 9.126494
+  type: 'test'
+  ...
+# Subtest: eight total reviewed edges pass as one collection; a ninth fails closed
+ok 45 - eight total reviewed edges pass as one collection; a ninth fails closed
+  ---
+  duration_ms: 11.419416
+  type: 'test'
+  ...
+# Subtest: later malformed edges, broken identity links, reused Workers and scope downgrades fail closed
+ok 46 - later malformed edges, broken identity links, reused Workers and scope downgrades fail closed
+  ---
+  duration_ms: 59.050825
+  type: 'test'
+  ...
+# Subtest: nonidentity metadata remains compatible but all four identity fields must match at a durable prefix
+ok 47 - nonidentity metadata remains compatible but all four identity fields must match at a durable prefix
+  ---
+  duration_ms: 19.088044
+  type: 'test'
+  ...
+# Subtest: only a complete final-scope collection with both exact domains can consume a longer review chain
+ok 48 - only a complete final-scope collection with both exact domains can consume a longer review chain
+  ---
+  duration_ms: 33.845019
+  type: 'test'
+  ...
+# Subtest: a historical intermediate claimant or rent identity cannot certify the current final target
+ok 49 - a historical intermediate claimant or rent identity cannot certify the current final target
+  ---
+  duration_ms: 6.148742
+  type: 'test'
+  ...
+# Subtest: unknown durable identity cannot enter a valid longer chain at its final target
+ok 50 - unknown durable identity cannot enter a valid longer chain at its final target
+  ---
+  duration_ms: 3.190677
+  type: 'test'
+  ...
+# Subtest: already-final runs do not repeat audit or rewrite starts and duplicate run IDs remain idempotent
+ok 51 - already-final runs do not repeat audit or rewrite starts and duplicate run IDs remain idempotent
+  ---
+  duration_ms: 17.9158
+  type: 'test'
+  ...
+# Subtest: one staged rent source describes possible measures but monitors only the 29 actually reported tuples
+ok 52 - one staged rent source describes possible measures but monitors only the 29 actually reported tuples
+  ---
+  duration_ms: 58.082421
+  type: 'test'
+  ...
+# Subtest: rent observation identities and semantic version survive retrieval and acquisition-only provenance changes
+ok 53 - rent observation identities and semantic version survive retrieval and acquisition-only provenance changes
+  ---
+  duration_ms: 73.15397
+  type: 'test'
+  ...
+# Subtest: real value, published tuple coverage and reference-window changes revise the rent monitor version
+ok 54 - real value, published tuple coverage and reference-window changes revise the rent monitor version
+  ---
+  duration_ms: 107.89321
+  type: 'test'
+  ...
+# Subtest: wrong locality, mixed windows and inconsistent reported-tuple metadata fail semantically
+ok 55 - wrong locality, mixed windows and inconsistent reported-tuple metadata fail semantically
+  ---
+  duration_ms: 5.89684
+  type: 'test'
+  ...
+# Subtest: one locality failure retains successful rows as degraded without inventing missing-place observations
+ok 56 - one locality failure retains successful rows as degraded without inventing missing-place observations
+  ---
+  duration_ms: 20.93965
+  type: 'test'
+  ...
+# Subtest: partial rent retrieval keeps the prior validated contract while successful siblings continue
+ok 57 - partial rent retrieval keeps the prior validated contract while successful siblings continue
+  ---
+  duration_ms: 44.540441
+  type: 'test'
+  ...
+# Subtest: all-locality failure is a source transport error and cannot erase unrelated NZ results
+ok 58 - all-locality failure is a source transport error and cannot erase unrelated NZ results
+  ---
+  duration_ms: 4.523014
+  type: 'test'
+  ...
+# Subtest: rent collection requires explicit compatible boolean scope before any public read
+ok 59 - rent collection requires explicit compatible boolean scope before any public read
+  ---
+  duration_ms: 1.157218
+  type: 'test'
+  ...
+# Subtest: rent adds one obligation and no public probes while preserving all legacy, USA and claimant results
+ok 60 - rent adds one obligation and no public probes while preserving all legacy, USA and claimant results
+  ---
+  duration_ms: 274.535182
+  type: 'test'
+  ...
+# Subtest: collector retains partial rent observations without turning a source failure into a failed collection
+ok 61 - collector retains partial rent observations without turning a source failure into a failed collection
+  ---
+  duration_ms: 70.78595
+  type: 'test'
+  ...
+# Subtest: registry stages rent behind its own reviewed edge and retains earlier contract evidence paths
+ok 62 - registry stages rent behind its own reviewed edge and retains earlier contract evidence paths
+  ---
+  duration_ms: 1.184101
+  type: 'test'
+  ...
+# Subtest: registry covers all 108 unique source obligations including nested England health
+ok 63 - registry covers all 108 unique source obligations including nested England health
+  ---
+  duration_ms: 0.964683
+  type: 'test'
+  ...
+# Subtest: all originally described snapshot sections preserve their actual contracts
+ok 64 - all originally described snapshot sections preserve their actual contracts
+  ---
+  duration_ms: 47.167734
+  type: 'test'
+  ...
+# Subtest: wrong geography, units and partial coverage are semantic failures
+ok 65 - wrong geography, units and partial coverage are semantic failures
+  ---
+  duration_ms: 0.782612
+  type: 'test'
+  ...
+# Subtest: annual unchanged observations remain valid without advancing independent verification
+ok 66 - annual unchanged observations remain valid without advancing independent verification
+  ---
+  duration_ms: 0.767492
+  type: 'test'
+  ...
+# Subtest: revisions are pending until exact evidence approval, retrieval alone cannot approve
+ok 67 - revisions are pending until exact evidence approval, retrieval alone cannot approve
+  ---
+  duration_ms: 0.710281
+  type: 'test'
+  ...
+# Subtest: new period and projection selection rollover are different from a correction
+ok 68 - new period and projection selection rollover are different from a correction
+  ---
+  duration_ms: 0.643028
+  type: 'test'
+  ...
+# Subtest: 429 confirmation deduplicates changing transport errors; recovery needs two spaced good probes
+ok 69 - 429 confirmation deduplicates changing transport errors; recovery needs two spaced good probes
+  ---
+  duration_ms: 0.650784
+  type: 'test'
+  ...
+# Subtest: failed refresh preserves earlier evidence and a successful sibling
+ok 70 - failed refresh preserves earlier evidence and a successful sibling
+  ---
+  duration_ms: 0.746093
+  type: 'test'
+  ...
+# Subtest: valid suppression stays null, numeric coverage loss persists until reviewed
+ok 71 - valid suppression stays null, numeric coverage loss persists until reviewed
+  ---
+  duration_ms: 0.536504
+  type: 'test'
+  ...
+# Subtest: import honors later recovered NZ state and does not emit old acknowledged failures
+ok 72 - import honors later recovered NZ state and does not emit old acknowledged failures
+  ---
+  duration_ms: 0.523928
+  type: 'test'
+  ...
+# Subtest: one missing domain cannot close an incident or become 108 false outages
+ok 73 - one missing domain cannot close an incident or become 108 false outages
+  ---
+  duration_ms: 0.289759
+  type: 'test'
+  ...
+# Subtest: duplicate run and persisted notification receipts are idempotent
+ok 74 - duplicate run and persisted notification receipts are idempotent
+  ---
+  duration_ms: 0.724025
+  type: 'test'
+  ...
+# Subtest: checkpoint integrity and atomic predecessor protect restarts and stale writers
+ok 75 - checkpoint integrity and atomic predecessor protect restarts and stale writers
+  ---
+  duration_ms: 7.534535
+  type: 'test'
+  ...
+# Subtest: live process lock rejects overlaps; interrupted temp file does not replace checkpoint
+ok 76 - live process lock rejects overlaps; interrupted temp file does not replace checkpoint
+  ---
+  duration_ms: 2.486786
+  type: 'test'
+  ...
+# Subtest: elapsed seven days cannot be manufactured by dense fixture runs
+ok 77 - elapsed seven days cannot be manufactured by dense fixture runs
+  ---
+  duration_ms: 21.879806
+  type: 'test'
+  ...
+# Subtest: collector HTTP-200 HTML failure is a probe error and preserves other desks
+ok 78 - collector HTTP-200 HTML failure is a probe error and preserves other desks
+  ---
+  duration_ms: 31.392339
+  type: 'test'
+  ...
+# Subtest: native sources retain observed provenance even without a described semantic contract
+ok 79 - native sources retain observed provenance even without a described semantic contract
+  ---
+  duration_ms: 0.532239
+  type: 'test'
+  ...
+# Subtest: persistent domain divergence opens one incident without validating either candidate
+ok 80 - persistent domain divergence opens one incident without validating either candidate
+  ---
+  duration_ms: 0.278325
+  type: 'test'
+  ...
+# Subtest: clean but unreviewed deployment identity is a release incident
+ok 81 - clean but unreviewed deployment identity is a release incident
+  ---
+  duration_ms: 0.191194
+  type: 'test'
+  ...
+# Subtest: undelivered event survives restart and no delivery claim is manufactured
+ok 82 - undelivered event survives restart and no delivery claim is manufactured
+  ---
+  duration_ms: 0.385498
+  type: 'test'
+  ...
+# Subtest: wrong desk country cannot pass transport success
+ok 83 - wrong desk country cannot pass transport success
+  ---
+  duration_ms: 30.394871
+  type: 'test'
+  ...
+# Subtest: daily fallback shadow requires seven real elapsed days and scheduled checkpoints
+ok 84 - daily fallback shadow requires seven real elapsed days and scheduled checkpoints
+  ---
+  duration_ms: 1.069869
+  type: 'test'
+  ...
+# Subtest: invalid non-main workflow installation does not masquerade as prior monitor state
+ok 85 - invalid non-main workflow installation does not masquerade as prior monitor state
+  ---
+  duration_ms: 0.91362
+  type: 'test'
+  ...
+# Subtest: GDP strengthens its existing obligation without changing the 108 or expanded 115 source counts
+ok 86 - GDP strengthens its existing obligation without changing the 108 or expanded 115 source counts
+  ---
+  duration_ms: 3.126671
+  type: 'test'
+  ...
+# Subtest: original GDP specimen yields exactly two quarterly levels and ordinary derived growth
+ok 87 - original GDP specimen yields exactly two quarterly levels and ordinary derived growth
+  ---
+  duration_ms: 25.007142
+  type: 'test'
+  ...
+# Subtest: legacy numeric GDP body cannot pass the new contract merely because transport succeeded
+ok 88 - legacy numeric GDP body cannot pass the new contract merely because transport succeeded
+  ---
+  duration_ms: 0.510317
+  type: 'test'
+  ...
+# Subtest: wrong metadata, geography, periods, flags and derived meanings fail before numeric acceptance
+ok 89 - wrong metadata, geography, periods, flags and derived meanings fail before numeric acceptance
+  ---
+  duration_ms: 13.866437
+  type: 'test'
+  ...
+# Subtest: acquisition timestamps and hashes cannot create revisions; raw input ordering is normalized
+ok 90 - acquisition timestamps and hashes cannot create revisions; raw input ordering is normalized
+  ---
+  duration_ms: 9.446426
+  type: 'test'
+  ...
+# Subtest: public GDP validation requires a real retrieval clock and refuses future quarters even without acquisition entries
+ok 91 - public GDP validation requires a real retrieval clock and refuses future quarters even without acquisition entries
+  ---
+  duration_ms: 2.174515
+  type: 'test'
+  ...
+# Subtest: publisher release and revision symbols change versions even when the numeric levels stay identical
+ok 92 - publisher release and revision symbols change versions even when the numeric levels stay identical
+  ---
+  duration_ms: 8.396011
+  type: 'test'
+  ...
+# Subtest: a prior-quarter revision changes source and growth evidence even when growth still rounds to 0.82
+ok 93 - a prior-quarter revision changes source and growth evidence even when growth still rounds to 0.82
+  ---
+  duration_ms: 8.045039
+  type: 'test'
+  ...
+# Subtest: a structurally valid revision remains pending until its exact independent approval exists
+ok 94 - a structurally valid revision remains pending until its exact independent approval exists
+  ---
+  duration_ms: 5.936807
+  type: 'test'
+  ...
+# Subtest: GDP metadata failure preserves validated evidence and deduplicates its incident while Canadian exchange succeeds
+ok 95 - GDP metadata failure preserves validated evidence and deduplicates its incident while Canadian exchange succeeds
+  ---
+  duration_ms: 5.996429
+  type: 'test'
+  ...
+# Subtest: metadata retrieval failures are transport failures and retain earlier GDP without invented numeric success
+ok 96 - metadata retrieval failures are transport failures and retain earlier GDP without invented numeric success
+  ---
+  duration_ms: 3.451703
+  type: 'test'
+  ...
+# Subtest: unchanged quarterly observations remain valid without an age-since-change rule or renewed independent verification
+ok 97 - unchanged quarterly observations remain valid without an age-since-change rule or renewed independent verification
+  ---
+  duration_ms: 7.59478
+  type: 'test'
+  ...
+# Subtest: US monitor retains 13 months and known unavailable October without a false outage
+ok 98 - US monitor retains 13 months and known unavailable October without a false outage
+  ---
+  duration_ms: 2.284472
+  type: 'test'
+  ...
+# Subtest: US monitor distinguishes real revision, new month, same-month loss and transport failure
+ok 99 - US monitor distinguishes real revision, new month, same-month loss and transport failure
+  ---
+  duration_ms: 10.039584
+  type: 'test'
+  ...
+# Subtest: reviewed identity transition preserves incidents, repair queue, receipt state and original shadow start
+ok 100 - reviewed identity transition preserves incidents, repair queue, receipt state and original shadow start
+  ---
+  duration_ms: 3.207291
+  type: 'test'
+  ...
+# Subtest: staged nine-desk collection preserves every legacy obligation and checks both catalogues
+ok 101 - staged nine-desk collection preserves every legacy obligation and checks both catalogues
+  ---
+  duration_ms: 98.507675
+  type: 'test'
+  ...
+1..101
+# tests 101
+# suites 0
+# pass 101
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1324.511318

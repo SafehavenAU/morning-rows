@@ -1,4 +1,66 @@
-# Operational state — 20 October 2026
+# Operational state — GDP release, 20 October 2026
+
+Both domains serve clean source `a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b`,
+Worker `775bfe2d-491b-4bf5-a257-4d3465003351`, fingerprint `fc27e14328f2c397`.
+Deployment `5b9bb834-4aef-4f2f-8dd5-bc5d6614951e` promoted it at
+`2026-10-20T08:11:15.420461Z`. The current rollback target is the prior rent
+Worker `b2a562a7-d137-4376-a6ca-54f29f1415ad`, source
+`f85224e6a9ee601d9e706ffab2cd133d3697c272`, fingerprint `d06c032d78d73a12`.
+See [GDP release evidence](../verification/statcan-gdp-2026-10-20/README.md).
+
+The existing `canada/product` obligation now validates the exact selected GDP
+identity, metadata, two adjacent current-cube quarters and one ordinary derived
+growth observation. The levels are millions of chained (2017) dollars,
+seasonally adjusted at annual rates; the derived percentage is not annualized.
+Legacy numeric fields remain compatible. This strengthens existing coverage and
+adds no desk or series. Current Q1/Q2 2026 levels are 2,503,604 and 2,524,127,
+with derived growth 0.82%; the independent evidence is specific to that vintage.
+
+Release validation passed **429 Node tests**, the build, **23 protected
+scenarios**, **151 general checks / 104 requests**, **24 existing schemas,
+26 BLS slots and 100 semantic checks**. Both-domain claimant checks passed
+**366 / 112 requests, 130 cells, 50 schemas and 370 negative cases**; rent checks
+passed **224 / 62 requests, 232 native cells, 268 selected cells, 42 schemas and
+48 negative cases**. Smoke checks passed **18 apex / 17 www**. CPU samples were
+**15 ms USA, 26 ms Canada and 170 ms maximum across legacy desks**, within the
+100 / 500 ms gates under the unchanged 1,000 ms Worker ceiling.
+
+## Current collector and checkpoint boundary
+
+The reviewed chain preserves the first three edges, old baseline → USA →
+claimant → rent, and adds GDP as a fourth edge in the same scope. The serialized
+daily collector retains **115 source obligations / 24 public probes**. Its next
+normal run may apply the remaining approved suffix once; no intermediate review
+is presented as an observed collection. Independent evidence approvals and
+contract validation remain distinct. Nine-desk v2 and eight-desk v1 discovery,
+the hourly checkpoint watchdog and disabled ordinary source alerts are unchanged.
+
+Maintenance acceptance remains **incomplete**; see [acceptance.json](acceptance.json).
+The actual durable checkpoint is still **sequence 5**, scheduled run
+`39341442350`, completed `2026-10-19T23:26:10.163Z`, digest
+`665f9d491c95c54f01a0d168b573300900f2665b614bc214e357d4e7545b132f`,
+retaining **33 incidents and 36 pending repairs**. It records **two actual
+legacy scheduled cycles and zero expanded-scope scheduled cycles**. Scheduled
+validation of the strengthened GDP contract remains pending. Releases and
+constructed replays neither write a checkpoint nor count as scheduled evidence.
+SHADOW retains `2026-10-18T23:22:22.161Z`; the next complete checkpoint deadline
+is `2026-10-21T01:26:10.163Z`. The delivery receipt remains unresolved; do not
+repeat the test or treat build instructions as acknowledgment.
+
+The daily fallback remains 23:17 UTC, with the existing 26-hour complete-checkpoint
+budget. Acceptance needs at least eight complete daily scheduled checkpoints,
+seven days spanned by actual scheduled completions, no gap over 26 hours and
+genuine delivery evidence. NZ-PRICES remains blocked on separate evidence for
+the selected 17 October specimen; UK CPI remains parked. Credentials and
+disconnected automatic Builds are preserved. Routine monitoring stays read-only
+apart from a real acknowledgment through the existing serialized workflow.
+
+## Historical claimant-release operational snapshot
+
+The next two sections retain the earlier claimant release and its then-current
+114-obligation scope. Their identity, scope and release measurements are
+historical; the GDP release and 115-obligation boundary above supersede them.
+The standing incident, recovery and delivery policies that follow still apply.
 
 The national claimant-count reader is deployed on both domains at clean source
 `983904912d512b054ae3a7fa1cd1e6a65c353036`, Worker
@@ -35,7 +97,7 @@ the checkpoint or count as scheduled evidence. SHADOW retains its actual start
 the already-announced test. NZ-PRICES remains blocked on separate official
 evidence for the selected 17 October specimen, and UK CPI remains parked.
 
-## What runs
+## Historical claimant collector scope
 
 The reviewed two-step release chain preserves the prior eight-desk identity, its USA transition and the subsequent claimant-count transition. It configures `node scripts/monitor.mjs` to check both health and v1/v2 catalogue pairs and all nine desks in **24 public requests**, concurrency two, reusing desk responses for **114 source obligations**. It takes effect only through enabled exact-identity reviews and the existing serialized collection; the latest actual checkpoint above still records the prior eight-desk scope of 20 requests / 108 obligations. Existing 93 described observations plus the five NZ nodes retain their semantic checks. The release chain adds the single USA CPI contract and five national claimant contracts with thirteen exact periods each. It preserves incidents, repairs, outbox and the original SHADOW start; new-scope scheduled evidence is tracked separately and remains absent. Native sections receive availability, parse, presence and observed-provenance-loss checks. They are not independently certified by their HTTP status. No collector request needs a publisher key or Cloudflare write access.
 

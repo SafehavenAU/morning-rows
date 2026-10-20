@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-10-20T07:40:49.489780+00:00",
-  "scope": "Original eight desks and original ten targets, plus separately authorized USA CPI, five-nation claimant history and two-locality NZ rent; broader acceptance incomplete",
+  "updated_at": "2026-10-20T08:19:35.726Z",
+  "scope": "Original eight desks and original ten targets, plus separately authorized USA CPI, five-nation claimant history and two-locality NZ rent; existing Canada GDP correctness release; broader acceptance incomplete",
   "complete": false,
   "worktree": "/workspace/morning-rows-operations",
   "source_base": "7231aab",
   "roles": {
     "implementation": "Codex in this task",
     "release": "Codex after verified gates within user authorization",
-    "monitor": "Daily GitHub collector with independent hourly Codex watchdog; first scheduled cycle verified",
+    "monitor": "Daily GitHub collector with independent hourly Codex watchdog; two legacy scheduled cycles verified, expanded-scope scheduled proof pending",
     "scope_and_unresolved_decisions": "Project owner in this chat; no staffed on-call SLA assumed"
   },
   "tasks": [
@@ -459,7 +459,7 @@
       "digest": "aba5cf8b893790843e6d92468cb6d09c67b286c90edc2f70443d8fcf977f68a0"
     },
     "source_registry_109": {
-      "state": "109 obligations configured after validated USA release; first actual collection under expanded scope pending",
+      "state": "Historical USA release configured109 obligations; current reviewed configuration has115. No actual expanded-scope collection is claimed.",
       "evidence": [
         "operations/source-contract-registry.json",
         "operations/us-release-review.json",
@@ -467,7 +467,7 @@
       ]
     },
     "source_registry_114": {
-      "state": "114 obligations configured for reviewed claimant release; first actual collection under expanded scope pending",
+      "state": "Historical claimant release configured114 obligations; current reviewed configuration has115. No actual expanded-scope collection is claimed.",
       "evidence": [
         "operations/source-contract-registry.json",
         "operations/us-release-review.json",
@@ -475,11 +475,11 @@
       ]
     },
     "source_registry_115": {
-      "state": "115 obligations configured for exact reviewed NZ rent release; actual expanded-scope collection pending",
+      "state": "115 obligations remain configured; GDP now has two typed measures and three observations. Fourth reviewed edge awaits the normal serialized collection; no actual expanded-scope run claimed",
       "evidence": [
         "operations/source-contract-registry.json",
         "operations/us-release-review.json",
-        "verification/nz-market-rent-2026-10-20/monitor-transition-replay.json"
+        "verification/statcan-gdp-2026-10-20/monitor-transition-replay.json"
       ]
     }
   },
@@ -487,7 +487,7 @@
     "Period mismatch risk is in England UK-labelled CPI; UK native section currently contains index only. Shared reader will preserve legacy fields and explicitly qualify both.",
     "Remote main is 2cb3ffd; no Actions workflows/runs installed. Do not push main until Workers Builds delivery safety is established."
   ],
-  "status": "Two legacy scheduled cycles verified; USA, claimant and NZ rent implementations released; expanded-scope actual scheduled observations, seven-day SHADOW and delivery remain incomplete; NZ-PRICES evidence blocked",
+  "status": "Two legacy scheduled cycles verified; USA, claimant, NZ rent and existing Canada GDP implementations released; actual expanded-scope observations, seven-day SHADOW and delivery remain incomplete; NZ-PRICES evidence blocked",
   "bounded_verification_continuation": {
     "task_id": "scheduled-cycle-and-one-verification-gap-2026-10-18",
     "phase": "blocked_external_evidence",
@@ -606,7 +606,7 @@
       "traffic_percent": 0,
       "final_deployment_id": "916e97b8-e062-4fe9-9a21-a12a8f713fe9",
       "promoted_at": "2026-10-20T04:16:49.474606Z",
-      "historical_note": "The original USA release was100% at its recorded deployment. Claimant release now serves100%; retain original deployment metadata as history."
+      "historical_note": "The original USA release was100% at its recorded deployment. Later compatible releases superseded it; current accepted production identity is recorded in statcan_gdp_release. Original deployment evidence remains historical."
     },
     "checkpoint_transition": "review enabled in repository only; next normal serialized run must apply it; predecessor sequence5 remains unchanged",
     "us_complete_scheduled_runs": 0,
@@ -789,6 +789,118 @@
       "At least eight complete daily scheduled checkpoints spanning seven elapsed days, no gap over26h",
       "Independent watchdog proof and genuine delivery receipt; existing NZ-PRICES/CPI evidence gates remain unresolved"
     ],
-    "resume_condition": "Observe normal serialized daily collector; routine monitoring does not authorize repeated release or new implementation."
+    "resume_condition": "Observe normal serialized daily collector; routine monitoring does not authorize repeated release or new implementation.",
+    "superseded_by_compatible_release": {
+      "identity": {
+        "source_revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+        "source_dirty": false,
+        "build_fingerprint": "fc27e14328f2c397",
+        "worker_version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+      },
+      "evidence": "verification/statcan-gdp-2026-10-20/README.md",
+      "note": "Rent reader, accepted window and prior approvals are preserved; all rent contracts pass on the accepted GDP Worker."
+    }
+  },
+  "statcan_gdp_release": {
+    "task_id": "canada-gdp-correctness-2026-10-20",
+    "phase": "released_observing",
+    "authorization": "User: keep building dont stop; find all gaps and keep filling them",
+    "scope": "Existing canada/product only: two latest adjacent quarterly Canada real-GDP levels and one ordinary derived growth observation; no new source, desk or arbitrary history",
+    "contract": "verification/statcan-gdp-2026-10-20/CONTRACT.md",
+    "evidence": "verification/statcan-gdp-2026-10-20/README.md",
+    "release_accepted": true,
+    "deployed": true,
+    "identity": {
+      "source_revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+      "source_dirty": false,
+      "build_fingerprint": "fc27e14328f2c397",
+      "worker_version": "775bfe2d-491b-4bf5-a257-4d3465003351"
+    },
+    "deployment_id": "5b9bb834-4aef-4f2f-8dd5-bc5d6614951e",
+    "promoted_at": "2026-10-20T08:11:15.420461Z",
+    "accepted_at": "2026-10-20T08:19:35.726Z",
+    "rollback_identity": {
+      "source_revision": "f85224e6a9ee601d9e706ffab2cd133d3697c272",
+      "source_dirty": false,
+      "build_fingerprint": "d06c032d78d73a12",
+      "worker_version": "b2a562a7-d137-4376-a6ca-54f29f1415ad"
+    },
+    "initial_verified_release": {
+      "quarters": [
+        "2026-Q1",
+        "2026-Q2"
+      ],
+      "levels": [
+        2503604,
+        2524127
+      ],
+      "unit": "millions of chained (2017) dollars",
+      "adjustment": "Seasonally adjusted at annual rates",
+      "ordinary_growth_percent": 0.82,
+      "annualized": false,
+      "release_timestamp_raw": "2026-08-28T08:30",
+      "release_timezone": null
+    },
+    "independence_limit": "All presentations share Statistics Canada national-accounts lineage; extraction and presentation independence only.",
+    "validation": {
+      "node_tests": 429,
+      "protected_fault_cases": 23,
+      "general_interface_checks": 151,
+      "general_requests": 104,
+      "production_GDP": {
+        "transport": 38,
+        "native_comparisons": 6,
+        "selected_comparisons": 22,
+        "schema_checks": 18,
+        "schema_negative_controls": 36
+      },
+      "staged_interface_checks": 137,
+      "existing_schema_documents": 24,
+      "usa_reference_slots": 26,
+      "existing_semantic_checks": 100,
+      "claimant_interface_checks": 366,
+      "claimant_requests": 112,
+      "claimant_production_cells": 130,
+      "claimant_schema_documents": 50,
+      "claimant_schema_negatives": 370,
+      "rent_interface_checks": 224,
+      "rent_requests": 62,
+      "rent_native_cells": 232,
+      "rent_selected_cells": 268,
+      "rent_schema_documents": 42,
+      "rent_schema_negatives": 48,
+      "apex_smoke_checks": 18,
+      "www_smoke_checks": 17,
+      "usa_cold_ms": 15,
+      "canada_cold_ms": 26,
+      "cold_legacy_max_ms": 170,
+      "legacy_cpu_gate_ms": 500,
+      "usa_cpu_gate_ms": 100,
+      "worker_cpu_ceiling_ms": 1000
+    },
+    "monitoring": {
+      "obligations": 115,
+      "public_probes": 24,
+      "reviewed_edges": 4,
+      "same_existing_scope": true,
+      "source_alerts_enabled": false,
+      "checkpoint_mutated": false,
+      "actual_checkpoint_sequence": 5,
+      "actual_legacy_scheduled_cycles": 2,
+      "actual_new_scope_scheduled_cycles": 0,
+      "delivery_acknowledgment_received": false,
+      "actual_GDP_contract_scheduled_observations": 0
+    },
+    "remaining_operational_gates": [
+      "Next actual normal serialized daily collection must apply the reviewed chain and independently verify its checkpoint",
+      "At least eight complete daily scheduled checkpoints over seven elapsed days with no gap over26h for applicable scope",
+      "Independent watchdog and genuine delivery receipt; NZ-PRICES and UK CPI gates remain unresolved"
+    ],
+    "resume_condition": "Observe normal daily collector with independent hourly watchdog; routine monitoring does not authorize a repeated release or new implementation",
+    "retained_limitations": [
+      "Original current GDP values were numerically correct; this release strengthens explicit semantics, exact identity/metadata and refusal behavior",
+      "Initial staged GDP cache-check harness failure and initial semantic filename-copy precondition failure remain retained and are not hidden runtime failures",
+      "All replays remain constructed and do not establish real scheduled operation"
+    ]
   }
 }

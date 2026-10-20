@@ -1,0 +1,73 @@
+{
+  "kind": "Constructed offline capture-verifier controls; no HTTP, protected preview, publisher freshness or release proof",
+  "created_at": "2026-10-20T08:03:28.121988+00:00",
+  "pass": true,
+  "code_and_reference_sha256": {
+    "verification/statcan-gdp-2026-10-20/reproduce-verifier-controls.py": "5393d434a9eb41ebf435d934eb198c08aca3b92e7abdb6e898ee7d11eae12dda",
+    "scripts/verify-statcan-gdp-captures.py": "06ac0af0c86663d1bfe759cf68a666f90c61512b2645b325d758002683962825",
+    "verification/statcan-gdp-2026-10-20/independent-report.json": "b53ec1b446b7c3406d09e100468208653914dd13bfc9625474c12a365b7c3f3f",
+    "lib/statcan-gdp.js": "5fcc856095d0da517678abc242fdffdd96cdb9dc066fba0e28b98e4f466b7bc1",
+    "lib/information.js": "b7cb8d1de1d682bc7df43d697175b52ca3f7acd815d67f4bf0e4fe60c264e811",
+    "lib/sources.js": "8ad7f50bbc7ed5d51becff4be9c579d6ff097c277ec840c8f576ea7b1d383a5a",
+    "lib/inventory.js": "f6aad3fe68a3f13cfad9546e113480a90a1d655ad054400825606901f3814527",
+    "verification/statcan-gdp-2026-10-20/original/wds-selected.json": "e3c20cbdeb0ed93d4a6f98ae8bade37fac15e13e9a15f454ea0ee6f781c23e3b",
+    "verification/statcan-gdp-2026-10-20/original/series-metadata.json": "0c98df397e57183755581ab4bdbddd667493929eaf3f8d05b58d525670c86f36",
+    "verification/statcan-gdp-2026-10-20/original/cube-metadata.json": "ce8ce914dcb403ce1c42ea6a65640d1fe37e3f59e023f422004bd46a3ee7d277"
+  },
+  "temporary_files_retained": false,
+  "fixture_identity_is_constructed": true,
+  "controls": [
+    {
+      "case": "wrong_identity",
+      "rejected": true,
+      "reason": "Wrong response identity: https://morningrows.com GET /health.json"
+    },
+    {
+      "case": "modified_hash",
+      "rejected": true,
+      "reason": "Body hash/length mismatch: 003.body"
+    },
+    {
+      "case": "missing_route",
+      "rejected": true,
+      "reason": "Missing/extra/unknown captured route"
+    },
+    {
+      "case": "negative_status_200",
+      "rejected": true,
+      "reason": "Wrong status: https://morningrows.com GET /canada.json?source=product&source=price_index"
+    },
+    {
+      "case": "changed_level",
+      "rejected": true,
+      "reason": "Level/reference semantics mismatch 2026-Q1"
+    },
+    {
+      "case": "wrong_release",
+      "rejected": true,
+      "reason": "Cube/release anchor changed"
+    },
+    {
+      "case": "invalid_datetime",
+      "rejected": true,
+      "reason": "day is out of range for month"
+    },
+    {
+      "case": "refused_body_substitution",
+      "rejected": true,
+      "reason": "Refusal substituted observations"
+    }
+  ],
+  "baseline": {
+    "pass": true,
+    "counts": {
+      "transport": 19,
+      "native_comparisons": 3,
+      "selected_comparisons": 11,
+      "schema_checks": 9,
+      "schema_negative_controls": 18
+    },
+    "error": null
+  },
+  "code_unchanged": true
+}

@@ -1,0 +1,66 @@
+{
+  "checked_at": "2026-10-20T08:10:23.129454+00:00",
+  "all_required_checks_pass": true,
+  "source_revision": "a6f3ab6d00de70a08bc304f2ae54a0fb46c7069b",
+  "worker_version": "775bfe2d-491b-4bf5-a257-4d3465003351",
+  "required_outputs": [
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-semantic.json",
+      "bytes": 23336,
+      "sha256": "f7331bcaac57ef3225bdd052f0e7920f3bd0a883495cfea59ec2e3e54a490d2d",
+      "pass": true
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-desk-schemas.json",
+      "bytes": 4864,
+      "sha256": "3742d2217c9df75fc2ae9f6d75dd983bd867a3e869f8d1b510f26e7e2ee81379",
+      "pass": true
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-claimant-comparison.json",
+      "bytes": 57796,
+      "sha256": "7bd87a368052473ba76949b069b581231857599db0f5ee079e4870223ae470e1",
+      "pass": true
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-claimant-schemas.json",
+      "bytes": 48845,
+      "sha256": "9ba1345e82cb65312b540bf417f3ea22d725852704fc085a9af08ceec567436e",
+      "pass": true
+    },
+    {
+      "file": "verification/statcan-gdp-2026-10-20/staged-rent-comparison.json",
+      "bytes": 57381,
+      "sha256": "0c69b8f13c65d2932d031cb1cbdc05effedc3660e239603589f0a001645ebc9f",
+      "pass": true
+    }
+  ],
+  "counts": {
+    "core_semantic_checks": 50,
+    "actual_desk_schemas": 9,
+    "claimant_native_cells": 65,
+    "claimant_selected_checks": 20,
+    "claimant_refusals": 15,
+    "claimant_transport_checks": 51,
+    "claimant_schema_responses": 25,
+    "claimant_schema_negative_controls": 185,
+    "rent_requests": 31,
+    "rent_native_tuples": 29,
+    "rent_native_cells": 116,
+    "rent_selected_responses": 19,
+    "rent_selected_observation_cells": 134,
+    "rent_schema_documents": 21,
+    "rent_schema_negative_controls": 24
+  },
+  "retained_extra_failure": {
+    "file": "verification/statcan-gdp-2026-10-20/staged-core-claimant-comparison.json",
+    "bytes": 16492,
+    "sha256": "c629c6f2249f5b1282fdb2f35fbc944095f4ab86d4558f89d7ef2ace38e8bf58",
+    "pass": false,
+    "reason": "Existing claimant comparator expects one GET metadata record for /health.json; combined staged-core legitimately retains imported CPU health and a later health GET. Their full bodies differ (uptime), while candidate identities match. No deduplication, capture rewrite or validation-tool change was made. All65 native numeric comparisons passed. Dedicated staged-claimants capture is the required claimant acceptance record."
+  },
+  "limitations": [
+    "All work was offline against retained actual candidate captures. No HTTP requests, runtime changes, validation-tool edits, release promotion or monitoring writes occurred.",
+    "The known extra comparator failure is retained as failed tooling evidence and is not relabelled as a pass."
+  ]
+}
