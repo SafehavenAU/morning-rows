@@ -1,6 +1,13 @@
 export const CPU_PATHS = ['/health.json','/united-states.json?source=cpi&measure=CUUR0000SA0','/united-states.json','/catalog.v2.json'];
 export const PRODUCTION_ORIGINS = ['https://morningrows.com','https://www.morningrows.com'];
 
+// Acceptance budgets are reviewed choices, not a value supplied by evidence.
+// Keep the original Free gate as the default for historical callers.
+export function validateCpuBudget(cpuLimitMs=10) {
+ if(cpuLimitMs!==10&&cpuLimitMs!==100)throw Error('invalid_cpu_budget');
+ return cpuLimitMs;
+}
+
 export function latestDeployment(deployments) {
  if (!Array.isArray(deployments) || !deployments.length || deployments.some(d=>!d.id||!Number.isFinite(Date.parse(d.created_on)))) throw Error('invalid_deployments');
  const sorted=[...deployments].sort((a,b)=>Date.parse(b.created_on)-Date.parse(a.created_on));
@@ -19,7 +26,9 @@ export function identityMatches(check,expected) {
   h['x-worker-version']===expected.worker_version&&h['x-source-revision']===expected.source_revision&&
   (h['x-source-dirty']===undefined||h['x-source-dirty']==='false')&&(h['x-build-fingerprint']===undefined||h['x-build-fingerprint']===expected.build_fingerprint);
 }
-export function evaluateCpuEvidence(report,approved) {
+export function evaluateCpuEvidence(report,approved,cpuLimitMs=10) {
+ const cpu_limit_ms=validateCpuBudget(cpuLimitMs);
+ const budget_label_matches=!Object.hasOwn(report,'cpu_limit_ms')||report.cpu_limit_ms===cpu_limit_ms;
  const target=report.checks.filter(c=>c.override),cold=target.find(c=>c.path===CPU_PATHS[1]);
  const fresh=Date.parse(cold?.body?.retrieval?.retrieved_at);
  const cold_retrieval_confirmed=Boolean(cold?.body?.retrieval?.status==='ok'&&fresh>=Date.parse(cold.started_at)&&fresh<=Date.parse(cold.at));
@@ -32,8 +41,8 @@ export function evaluateCpuEvidence(report,approved) {
  const health=target.find(c=>c.path==='/health.json');
  const candidate={...health?.body,worker_version:report.version};
  const candidate_identity_confirmed=Boolean(/^[a-f0-9]{40}$/.test(candidate.source_revision||'')&&/^[a-f0-9]{16}$/.test(candidate.build_fingerprint||'')&&identityMatches(health||{},candidate)&&target.every(c=>c.status===200&&c.headers?.['x-worker-version']===report.version&&c.headers?.['x-source-revision']===candidate.source_revision&&(c.headers?.['x-source-dirty']===undefined||c.headers['x-source-dirty']==='false')&&(c.headers?.['x-build-fingerprint']===undefined||c.headers['x-build-fingerprint']===candidate.build_fingerprint)));
- const events_valid=report.events.length===CPU_PATHS.length&&report.events.every(e=>Number.isFinite(e.cpu_ms)&&e.cpu_ms>=0&&e.cpu_ms<=10&&e.outcome==='ok'&&Array.isArray(e.exception_names)&&e.exception_names.length===0);
+ const events_valid=report.events.length===CPU_PATHS.length&&report.events.every(e=>Number.isFinite(e.cpu_ms)&&e.cpu_ms>=0&&e.cpu_ms<=cpu_limit_ms&&e.outcome==='ok'&&Array.isArray(e.exception_names)&&e.exception_names.length===0);
  const data_valid=target.find(c=>c.path==='/united-states.json')?.body?.sources?.cpi?.status==='ok';
- return {cold_retrieval_confirmed,complete_event_coverage,deployment_unchanged,production_identity_confirmed,candidate_identity_confirmed,
-  budget_pass:Boolean(!report.error&&!report.tail_command_error&&cold_retrieval_confirmed&&complete_event_coverage&&deployment_unchanged&&production_identity_confirmed&&candidate_identity_confirmed&&events_valid&&data_valid)};
+ return {cpu_limit_ms,budget_label_matches,cold_retrieval_confirmed,complete_event_coverage,deployment_unchanged,production_identity_confirmed,candidate_identity_confirmed,
+  budget_pass:Boolean(budget_label_matches&&!report.error&&!report.tail_command_error&&cold_retrieval_confirmed&&complete_event_coverage&&deployment_unchanged&&production_identity_confirmed&&candidate_identity_confirmed&&events_valid&&data_valid)};
 }

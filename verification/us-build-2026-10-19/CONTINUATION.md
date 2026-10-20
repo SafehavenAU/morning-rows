@@ -1,3 +1,14 @@
+# Current continuation — user confirmed Workers upgrade
+
+The user replied “worker upgraded” on20October2026. The same USA CPI reader now
+continues under the [paid-plan contract](../us-paid-2026-10-20/CONTRACT.md):100ms
+USA acceptance,1,000ms whole-Worker ceiling, three fresh captures and complete
+release validation. Billing API access remains403; operational Paid entitlement
+will be checked through the staged custom limit. USA is not yet released.
+Prior Free measurements below remain historical failures under10ms.
+
+---
+
 # USA CPI continuation — release blocked by measured Free CPU budget
 
 The user confirmed Workers Free, 10 ms CPU. The original BLS access failure is

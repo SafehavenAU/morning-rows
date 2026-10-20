@@ -1,13 +1,17 @@
 // Requires an already reviewed 0%-traffic version; this script does not upload or deploy.
 // Tail is filtered to that version. Store only allowlisted numeric metadata, never raw events.
+// Usage: node scripts/verify-us-version-cpu.mjs VERSION OUTPUT [10|100]
 import {spawn,execFile} from 'node:child_process';
 import {promisify} from 'node:util';
-import {CPU_PATHS,PRODUCTION_ORIGINS,latestDeployment,stagingMatches,identityMatches,evaluateCpuEvidence} from './lib/us-cpu-evidence.mjs';
+import {CPU_PATHS,PRODUCTION_ORIGINS,latestDeployment,stagingMatches,identityMatches,evaluateCpuEvidence,validateCpuBudget} from './lib/us-cpu-evidence.mjs';
 import {writeFile,readFile} from 'node:fs/promises';
 const version=process.argv[2],output=process.argv[3]||'/tmp/morning-rows-version-cpu.json';
 if(!/^[a-f0-9-]{36}$/.test(version||''))throw Error('Exact staged version ID required');
+const budgetArgument=process.argv[4];
+if(process.argv.length>5||(budgetArgument!==undefined&&!/^(10|100)$/.test(budgetArgument)))throw Error('invalid_cpu_budget');
+const cpuLimitMs=validateCpuBudget(budgetArgument===undefined?10:Number(budgetArgument));
 const approved=JSON.parse(await readFile(new URL('../verification/monitoring-baseline.json',import.meta.url),'utf8')).identity;
-const report={started_at:new Date().toISOString(),version,events:[],checks:[]};
+const report={started_at:new Date().toISOString(),version,cpu_limit_ms:cpuLimitMs,events:[],checks:[]};
 const deployment=async()=>{
  const {stdout}=await promisify(execFile)('/workspace/.morning-rows-tools/node_modules/.bin/wrangler',['deployments','list','--name','morning-rows','--json'],{cwd:new URL('..',import.meta.url),env:{...process.env,XDG_CONFIG_HOME:'/workspace/.morning-rows-tools/config',WRANGLER_LOG:'log'},timeout:30000,maxBuffer:1048576});
  return latestDeployment(JSON.parse(stdout));
@@ -24,8 +28,8 @@ try{for(const origin of PRODUCTION_ORIGINS)report.checks.push(await read('/healt
  child.kill('SIGINT');
  try{for(const origin of PRODUCTION_ORIGINS)report.checks.push(await read('/health.json',false,origin,'after'));report.deployment_after=await deployment();}
  catch{report.error ||= 'production_postflight_failed';}
- report.finished_at=new Date().toISOString();Object.assign(report,evaluateCpuEvidence(report,approved));
+ report.finished_at=new Date().toISOString();Object.assign(report,evaluateCpuEvidence(report,approved,cpuLimitMs));
  await writeFile(output,JSON.stringify(report,null,2)+'\n');
- console.log(JSON.stringify({complete_event_coverage:report.complete_event_coverage,cold_retrieval_confirmed:report.cold_retrieval_confirmed,production_identity_confirmed:report.production_identity_confirmed,deployment_unchanged:report.deployment_unchanged,budget_pass:report.budget_pass}));
+ console.log(JSON.stringify({cpu_limit_ms:report.cpu_limit_ms,complete_event_coverage:report.complete_event_coverage,cold_retrieval_confirmed:report.cold_retrieval_confirmed,production_identity_confirmed:report.production_identity_confirmed,deployment_unchanged:report.deployment_unchanged,budget_pass:report.budget_pass}));
  if(!report.budget_pass)process.exitCode=1;
 }

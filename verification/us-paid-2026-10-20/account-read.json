@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-10-20T04:03:42.722Z",
+  "account_expected": "98e8f36b15163e82f66addaf6b9ee976",
+  "user_statement": "worker upgraded",
+  "reads": [
+    {
+      "path": "subscriptions",
+      "status": 403,
+      "success": false,
+      "plans": null
+    },
+    {
+      "path": "workers/account-settings",
+      "status": 200,
+      "success": true,
+      "default_usage_model": "standard"
+    },
+    {
+      "path": "workers/scripts/morning-rows/settings",
+      "status": 200,
+      "success": true,
+      "usage_model": "standard",
+      "binding_types": [
+        {
+          "name": "STATSNZ_KEY",
+          "type": "secret_text"
+        },
+        {
+          "name": "WORKER_VERSION",
+          "type": "version_metadata"
+        }
+      ]
+    }
+  ]
+}

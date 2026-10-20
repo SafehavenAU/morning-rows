@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {CPU_PATHS,PRODUCTION_ORIGINS,latestDeployment,identityMatches,evaluateCpuEvidence} from '../scripts/lib/us-cpu-evidence.mjs';
+import {spawnSync} from 'node:child_process';
+import {CPU_PATHS,PRODUCTION_ORIGINS,latestDeployment,identityMatches,evaluateCpuEvidence,validateCpuBudget} from '../scripts/lib/us-cpu-evidence.mjs';
 const approved={worker_version:'production',source_revision:'a'.repeat(40),source_dirty:false,build_fingerprint:'1'.repeat(16)};
 const candidate={...approved,worker_version:'candidate',source_revision:'b'.repeat(40)};
 const headers=id=>({'x-worker-version':id.worker_version,'x-source-revision':id.source_revision});
@@ -11,10 +12,11 @@ function fixture(){
   ...['before','after'].flatMap(phase=>PRODUCTION_ORIGINS.map(origin=>({path:'/health.json',override:false,phase,origin,status:200,body:approved,headers:headers(approved)}))),
  ],events:CPU_PATHS.map(request_path=>({request_path,script_version:{id:'candidate'},event_timestamp:Date.parse('2026-10-20T00:00:01Z'),cpu_ms:10,outcome:'ok',exception_names:[]}))};
 }
-test('complete correlated CPU evidence requires clean candidate, zero traffic and unchanged production',()=>{
- assert.equal(evaluateCpuEvidence(fixture(),approved).budget_pass,true);
+for(const cpuLimitMs of [10,100])test(`complete ${cpuLimitMs} ms CPU evidence requires clean candidate, zero traffic and unchanged production`,()=>{
+ const passing=fixture();passing.cpu_limit_ms=cpuLimitMs;for(const e of passing.events)e.cpu_ms=cpuLimitMs;
+ assert.equal(evaluateCpuEvidence(passing,approved,cpuLimitMs).budget_pass,true);
  for(const mutate of [
-  r=>r.events[1].cpu_ms=11,r=>r.events[1].cpu_ms=-1,r=>r.events[1].cpu_ms=NaN,
+  r=>r.events[1].cpu_ms=cpuLimitMs+1,r=>r.events[1].cpu_ms=-1,r=>r.events[1].cpu_ms=NaN,
   r=>r.events.pop(),r=>r.events.push(r.events[0]),r=>r.events[1].script_version.id='other',
   r=>r.events[1].exception_names=['Error'],r=>r.events[1].outcome='exception',
   r=>r.checks[1].body.retrieval.retrieved_at='2026-10-19T00:00:00Z',
@@ -24,7 +26,31 @@ test('complete correlated CPU evidence requires clean candidate, zero traffic an
   r=>r.checks.at(-1).headers['x-worker-version']='other',r=>r.checks.at(-1).body.source_dirty=true,
   r=>r.deployment_after.id='changed',r=>r.deployment_before.versions[1].percentage=1,
   r=>r.checks[3].path=CPU_PATHS[2],r=>r.tail_command_error=true,
- ]){const r=structuredClone(fixture());mutate(r);assert.equal(evaluateCpuEvidence(r,approved).budget_pass,false,String(mutate));}
+ ]){const r=structuredClone(passing);mutate(r);assert.equal(evaluateCpuEvidence(r,approved,cpuLimitMs).budget_pass,false,String(mutate));}
+});
+test('Paid budget must be explicit and evidence cannot select or mislabel its own budget',()=>{
+ const r=fixture();r.events[1].cpu_ms=100;
+ assert.equal(evaluateCpuEvidence(r,approved).cpu_limit_ms,10);
+ assert.equal(evaluateCpuEvidence(r,approved).budget_pass,false);
+ assert.equal(evaluateCpuEvidence(r,approved,100).budget_pass,true);
+ r.events[1].cpu_ms=101;assert.equal(evaluateCpuEvidence(r,approved,100).budget_pass,false);
+ r.events[1].cpu_ms=100;r.cpu_limit_ms=100;
+ assert.equal(evaluateCpuEvidence(r,approved).budget_pass,false);
+ assert.equal(evaluateCpuEvidence(r,approved,100).budget_pass,true);
+ r.cpu_limit_ms=10;assert.equal(evaluateCpuEvidence(r,approved,100).budget_pass,false);
+ assert.equal(evaluateCpuEvidence(fixture(),approved).budget_pass,true);
+});
+test('unsupported CPU budgets fail before evidence evaluation or CLI remote work',()=>{
+ assert.equal(validateCpuBudget(),10);
+ for(const value of [null,false,true,0,-1,11,99,101,1000,10.5,NaN,Infinity,'10','100',{},[]]){
+  assert.throws(()=>validateCpuBudget(value),/invalid_cpu_budget/);
+  assert.throws(()=>evaluateCpuEvidence(fixture(),approved,value),/invalid_cpu_budget/);
+ }
+ for(const value of ['','0','-1','11','99','101','1000','100.0','1e2',' 100','100 ','NaN','Infinity']){
+  const result=spawnSync(process.execPath,[new URL('../scripts/verify-us-version-cpu.mjs',import.meta.url).pathname,'11111111-1111-1111-1111-111111111111','/tmp/mr-invalid-budget-unused.json',value],{encoding:'utf8'});
+  assert.notEqual(result.status,0,value);
+  assert.match(result.stderr,/invalid_cpu_budget/,value);
+ }
 });
 test('deployment ordering uses timestamps and rejects ambiguous metadata',()=>{
  const a={id:'new',created_on:'2026-10-20T00:00:00Z',versions:[]},b={id:'old',created_on:'2026-10-19T00:00:00Z',versions:[]};

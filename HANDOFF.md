@@ -1,3 +1,12 @@
+# USA paid-plan continuation — 20 October2026
+
+User confirmed “worker upgraded”. Resume the same simpler CPI reader under
+[the explicit paid-plan contract](verification/us-paid-2026-10-20/CONTRACT.md).
+USA100ms acceptance and whole-Worker1,000ms safety ceiling are separate.
+Release remains gated on fresh actual CPU and full final acceptance.
+All Free failures below remain valid historical evidence. No monitoring state,
+source alerts, credentials or automatic Builds changes.
+
 # USA cold-path edge trial — 20 October 2026
 
 The combined exact-JSON-fragment/table-boundary candidate at clean source

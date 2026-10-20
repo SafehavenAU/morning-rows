@@ -485,7 +485,7 @@
   "us_desk_candidate": {
     "task_id": "US-CPI-resumption-2026-10-19",
     "authorization": "User explicitly asked can you build the USA data; previous US parking instruction superseded for this candidate only",
-    "phase": "blocked_runtime_cpu",
+    "phase": "validating_paid_runtime",
     "contract": "research/us-onboarding-2026-10-17/CONTRACT.md",
     "evidence": "verification/us-build-2026-10-19/CONTINUATION.md",
     "source": "BLS CUUR0000SA0, national urban all-items NSA CPI-U, 13 calendar months",
@@ -539,7 +539,13 @@
       "cold_cpu_ms": 21,
       "runtime_optimization_retained": false,
       "production_restoration_evidence": "verification/us-build-2026-10-19/runtime-budget/cold-fragments-production-restored.json"
-    }
+    },
+    "user_decision": "worker upgraded",
+    "paid_plan_contract": "verification/us-paid-2026-10-20/CONTRACT.md",
+    "cpu_acceptance_ms": 100,
+    "worker_cpu_ceiling_ms": 1000,
+    "candidate_released": false,
+    "paid_plan_verification": "user confirmed; Standard read; custom-limit entitlement verification pending"
   },
   "shadow_audit_tooling": {
     "state": "implemented; not operational acceptance",
