@@ -1,3 +1,23 @@
+# USA cold-path edge trial — 20 October 2026
+
+The combined exact-JSON-fragment/table-boundary candidate at clean source
+0447e490c5d8fed1550d6c4b359db1f1aaab7d9a / Worker
+61bb5ada-00cb-48b9-b6b5-fc173fbcf082 measured **21 ms cold CPU**, above the Free
+10 ms gate. All four traces, exact routing, fresh retrieval, unchanged staging
+and both-domain production identity passed. This is a valid failed budget test,
+not a reliable improvement over the earlier variable 12–29 ms observations.
+
+The added runtime complexity is removed. Retain the pinned prototypes, portable
+local workerd profiler, independent hash regression tests and all evidence.
+180 Node tests, independent 13-slot extractions, 315 legacy cases, 221 schema
+responses and 22 protected Cloudflare scenarios passed for the candidate.
+See `verification/us-build-2026-10-19/CONTINUATION.md`.
+
+Testing ended at deployment baebe78f-5094-41c8-aa46-8a96d2b131cf with approved
+Worker739b9031 as the sole active version at100%. Both domains independently
+match clean source7d614e2 and fingerprint44967a5319167783. USA remains unreleased;
+no billing, credentials, routes, Builds, collector, outbox or alert-scope change.
+
 # Further USA investigation — 20 October 2026 Brisbane
 
 PR10 merged at936e552 and passed main build/production verification. This branch

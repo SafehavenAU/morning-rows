@@ -506,22 +506,22 @@
     "staging": {
       "complete": true,
       "candidate_in_active_deployment": false,
-      "final_test_version": "b8c7eb23-bade-40d0-a35d-5496165ecde1",
+      "final_test_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
       "approved_version": "739b9031-305c-4bc7-afc5-79a82c654ac7",
       "approved_traffic_percent": 100,
-      "final_deployment_id": "99833025-0360-45e2-9a2f-700de2c1c4b3",
-      "ended_at": "2026-10-19T00:07:43.583441Z"
+      "final_deployment_id": "baebe78f-5094-41c8-aa46-8a96d2b131cf",
+      "ended_at": "2026-10-20T03:42:38.694344Z"
     },
-    "final_cold_cpu_ms": 29,
+    "final_cold_cpu_ms": 21,
     "release_accepted": false,
-    "updated_at": "2026-10-19T00:09:09.908294+00:00",
+    "updated_at": "2026-10-20T03:43:26.449Z",
     "optimization_decision": "Actual user reply: Keep Free; pursue further optimization",
     "optimization_pass_complete": true,
     "best_observed_cold_cpu_ms": 12,
-    "final_test_source": "e48695d",
+    "final_test_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
     "cpu_evidence": "verification/us-build-2026-10-19/runtime-budget/optimization-summary.json",
     "validation": {
-      "node_tests": 169,
+      "node_tests": 180,
       "independent_python_tests": 20,
       "actual_cloudflare_scenarios": 22,
       "legacy_cases": 315,
@@ -529,10 +529,16 @@
       "publisher_slots": 13
     },
     "latest_optimization_investigation": {
-      "state": "blocked_runtime_cpu unchanged",
+      "state": "blocked_runtime_cpu",
       "date": "2026-10-20",
-      "result": "request-local canonical-string experiment rejected; no runtime change or edge acceptance claim",
-      "evidence": "verification/us-build-2026-10-19/runtime-budget/serialization-experiment/README.md"
+      "result": "Combined exact-fragment/table-boundary candidate measured21ms cold; failed10ms gate. Runtime experiment removed, evidence and generic fingerprint regression coverage retained.",
+      "evidence": "verification/us-build-2026-10-19/runtime-budget/version-cold-fragments-probe.json",
+      "candidate_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
+      "worker_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
+      "edge_cpu_measurement": true,
+      "cold_cpu_ms": 21,
+      "runtime_optimization_retained": false,
+      "production_restoration_evidence": "verification/us-build-2026-10-19/runtime-budget/cold-fragments-production-restored.json"
     }
   },
   "shadow_audit_tooling": {

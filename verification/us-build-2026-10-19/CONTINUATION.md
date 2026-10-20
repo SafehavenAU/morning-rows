@@ -10,18 +10,21 @@ quota-limited API, a proxy, an older edition, or an embedded specimen.
 
 Implementation and data/interface verification pass. **Production release does
 not pass.** The user explicitly chose **“Keep Free; pursue further optimization”**.
-This additional optimization pass is complete, with the same one-series candidate
-still blocked. No plan upgrade is requested or authorized.
+The same one-series candidate remains blocked. No plan upgrade is requested or
+authorized.
 
-The final clean candidate `e48695d` / Worker
+The latest clean experimental candidate `0447e490` / Worker
+`61bb5ada-00cb-48b9-b6b5-fc173fbcf082` measured **21 ms cold CPU** on20October.
+Its exact canonical-fragment/table-boundary optimizations are removed after the
+failed gate. The previous simplified clean candidate `e48695d` / Worker
 `b8c7eb23-bade-40d0-a35d-5496165ecde1` measured **29 ms cold CPU**, with complete
 version/path/time-correlated traces and a confirmed fresh publisher retrieval.
-The best earlier sample was12ms; the later29ms confirmation prevents claiming a
-reliable27→12ms reduction. No measured cold sample met the10ms gate. Cached full
-output measured2ms in the final capture; it is not cold-budget evidence.
+The best earlier sample was12ms. These sparse, variable observations do not prove
+a reliable reduction. No measured cold sample met the10ms gate. Cached full
+output measured5ms in the latest trial; it is not cold-budget evidence.
 
 [All measurements and file hashes](runtime-budget/optimization-summary.json)
-retain15 captures, including incomplete results. Main experiments:
+retain16 captures, including incomplete results. Main experiments:
 
 | Candidate | Cold selected CPU | Disposition |
 |---|---:|---|
@@ -36,6 +39,7 @@ retain15 captures, including incomplete results. Main experiments:
 | Generic hash helper / direct byte hashing |14 /17ms|Removed|
 | Composed response fingerprints |19ms|Removed; later override traces incomplete|
 | Final simplified runtime confirmation |29ms|Release still blocked|
+| Exact canonical fragments + guarded table boundaries |21ms|Removed; release still blocked|
 
 The runtime keeps the original all-years table/index acquisition, published
 statistical semantics and fingerprint algorithm. Official CSV formatting was
@@ -51,15 +55,17 @@ sampling-rate setting of1 was rejected before collection and removed. Samples
 are not percentiles or a sustained load test; all outcomes are retained.
 
 Testing ended with approved Worker739b9031-305c-4bc7-afc5-79a82c654ac7 as the
-**sole active version at100%**, deployment99833025-0360-45e2-9a2f-700de2c1c4b3,
-2026-10-19T00:07:43.583441Z. Both domains independently match source7d614e2,
-clean build44967a5319167783 ([identity proof](runtime-budget/final-production-identity.json)).
+**sole active version at100%**, deploymentbaebe78f-5094-41c8-aa46-8a96d2b131cf,
+2026-10-20T03:42:38.694344Z. Both domains independently match source7d614e2,
+clean build44967a5319167783
+([identity proof](runtime-budget/cold-fragments-production-restored.json)).
 No plan, credential, binding, route, automatic Builds or collector checkpoint
 change. No whole-site sweep or ordinary source alert was triggered by these tests.
 
 ## Verification
 
-- 169 Node tests and20 independent Python tests and dry-run build pass.
+- 180 Node tests and dry-run build pass. The latest separate Python extractions
+  each match all13 slots; the earlier20 independent Python tests remain retained.
 - Final actual Cloudflare table-reader preview:22/22 integration scenarios
   (`runtime-budget/integration-final-preview.json`).
   Correct original data, cached/expired/conditional/HEAD responses, exact missing
@@ -159,3 +165,38 @@ PR10's scheduled-span arithmetic and offline audit are merged at936e552; its mai
 build and production verification passed. This branch includes that merge.
 Operational SHADOW, delivery acknowledgment and data-verification gates remain
 independent of these implementation checks.
+
+## Exact fragments and table boundaries — 20 October 2026 UTC
+
+[Contract](runtime-budget/COLD-PATH-CONTRACT.md) preceded runtime edits.
+The [portable diagnostic bundle](runtime-budget/cold-path-2026-10-20/README.md)
+pins the baseline source, retained inputs, candidate prototypes, direct workerd
+profiles and equivalence checks. Node and local workerd results differ; sampling
+deltas include descheduling and cannot establish edge CPU. The combined prototype
+reduced repeated-read non-idle sample count by about21%, supporting one bounded
+edge investigation. It did not establish reliable cold performance.
+
+Independent review found and fixed three canonical-construction traps: nested
+footnote keys, additional row keys sorting after `version`, and object-valued
+timing notes.104 pinned-baseline fragment comparisons and38 structural comparisons
+pass. Two new repository tests independently reconstruct public fingerprints and
+exercise table identity/coverage; they remain useful after removing the experiment.
+
+The corrected experimental reader passed180 Node tests, a dry-run build,
+315 unchanged legacy cases, eight US interface cases,221 schema-valid responses
+and three negative schemas. Separate Python extractions matched13 publisher
+slots. The final protected Cloudflare preview passed22 scenarios
+([report](runtime-budget/integration-cold-fragments.json)).
+
+The clean pushed candidate `0447e490` was uploaded and staged at0%, with approved
+production at100%. The [complete actual capture](runtime-budget/version-cold-fragments-probe.json)
+ran2026-10-20T03:42:10.098Z–03:42:18.749Z. Health/cold selection/cached full
+desk/catalogue CPU was4/21/5/1ms. All four version/path/time-correlated traces,
+fresh retrieval, clean candidate identity, unchanged staging and both-domain
+approved production identity passed. The21ms cold request failed the10ms gate.
+There were no unchanged retries or confirmation attempts after that failure.
+
+The three experimental runtime modules are restored byte-identically tobb41f961.
+The prototype and failed result remain retained. Approved production is the sole
+active version again, with both-domain identity verified at03:43:26.449Z.
+No USA release, wider source verification, monitoring mutation or completion claim.

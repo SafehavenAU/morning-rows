@@ -1,13 +1,13 @@
 {
-  "verified_at": "2026-10-19T00:08:02.924170+00:00",
+  "verified_at": "2026-10-20T03:43:26.449Z",
   "user_decision": "Keep Free; pursue further optimization",
   "cpu_limit_ms": 10,
-  "final_source": "e48695d",
-  "final_worker_version": "b8c7eb23-bade-40d0-a35d-5496165ecde1",
-  "final_cold_cpu_ms": 29,
+  "final_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
+  "final_worker_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
+  "final_cold_cpu_ms": 21,
   "best_observed_cold_ms": 12,
   "release_accepted": false,
-  "interpretation": "No complete measured cold candidate met the 10ms limit. Best12ms does not establish reproducible reduction: final same simplified runtime measured29ms. HTTP success and transient burst allowance do not pass capacity acceptance. Samples are not percentiles.",
+  "interpretation": "No complete measured cold candidate met the 10ms limit. Latest exact-fragment/table-boundary trial measured21ms; the earlier simplified confirmation measured29ms and best12ms. These sparse results do not establish a reproducible improvement or a percentile. HTTP success does not pass capacity acceptance.",
   "retained_changes": [
     "ASCII ordering of validated YYYY-MM strings",
     "JSON response fingerprinting without Response-text-JSON roundtrip",
@@ -18,11 +18,12 @@
     "bounded-year acquisition29ms",
     "generic hash helper14ms",
     "direct validated-byte hashing17ms",
-    "composed selected fingerprints19ms/incomplete later routing capture"
+    "composed selected fingerprints19ms/incomplete later routing capture",
+    "exact canonical fragments plus guarded table-boundary extraction21ms"
   ],
   "rejected_transport": "Official CSV formatting omits catalogue dimensions; cannot replace runtime semantic checks without another metadata acquisition. No CSV runtime implementation.",
   "tests": {
-    "node": 169,
+    "node": 180,
     "independent_python": 20,
     "actual_preview_scenarios": 22,
     "legacy_cases": 315,
@@ -224,6 +225,24 @@
       "complete_event_coverage": "not recorded by earlier verifier; inspect serial trace",
       "cold_retrieval_confirmed": "not recorded by earlier verifier; inspect retrieval timestamp",
       "budget_pass": false
+    },
+    {
+      "file": "version-cold-fragments-probe.json",
+      "sha256": "4aac6ab78ac01a0050e3f5fa0425704b992dee4b8e7eae16b9238f4224240693",
+      "worker_version": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
+      "source_revision": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
+      "started_at": "2026-10-20T03:42:10.098Z",
+      "finished_at": "2026-10-20T03:42:18.749Z",
+      "cold_selected_cpu_ms": [
+        21
+      ],
+      "complete_event_coverage": true,
+      "cold_retrieval_confirmed": true,
+      "production_identity_confirmed": true,
+      "deployment_unchanged": true,
+      "budget_pass": false,
+      "runtime_retained": false
     }
-  ]
+  ],
+  "final_runtime_disposition": "Exact-fragment/table-boundary runtime changes removed after the failed gate; simpler runtime restored byte-identically to bb41f961 for the three changed modules."
 }

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {parseCpi,CPI_SERIES,CPI_DEFINITION,CPI_URLS} from '../lib/us-cpi.js';
-import {digest,semantic} from '../lib/information.js';
+import {digest} from '../lib/information.js';
 import {selectedUsResponse,observationUrl,US_MEASURE_URL} from '../lib/information-v2.js';
 import {handleUsRequest} from '../lib/us-desk.js';
 import {parseCpiTable} from '../lib/us-cpi-table.js';
@@ -19,12 +19,11 @@ async function verify(input,selection){
   assert.equal(observation.version,await digest(expected));
  }
  assert.equal(result.content_version,await digest({data:result.data,context:result.context,retrieval:result.retrieval,observations:result.observations}));
- assert.equal(selected.canonical,JSON.stringify(semantic(result)));
  const path='/united-states.json?source=cpi'+(selection.measure?'&measure='+CPI_SERIES:'')+(selection.observation?'&observation='+selection.observation:'');
  const response=await handleUsRequest(new Request('https://morningrows.com'+path),{read:async()=>input,cache:null});
  assert.equal(response.headers.get('etag'),'W/"'+await digest(result)+'"');
 }
-test('cold fragments preserve hashes for additional row properties, nested qualifications and arbitrary provenance',async()=>{
+test('CPI fingerprints preserve additional properties, qualifications and semantic normalization',async()=>{
  for(const mutate of [
   b=>{},
   b=>{Object.assign(b.cpi.rows.at(-1),{zz:'later than version',aaa:'earlier',2:'numeric',10:'numeric',version:'publisher-addition',retrieved_at:'excluded'});},
@@ -37,14 +36,13 @@ test('cold fragments preserve hashes for additional row properties, nested quali
   for(const selection of [{source:'cpi'},{source:'cpi',measure:CPI_SERIES},{source:'cpi',measure:CPI_SERIES,observation:'2025-10'},{source:'cpi',measure:CPI_SERIES,observation:input.cpi.rows.at(-1).period}])await verify(input,selection);
  }
 });
-test('target-table slicing rejects ambiguous identity and broken boundaries while ignoring unrelated tables',()=>{
+test('CPI table identity and coverage reject substitution and broken boundaries',()=>{
  const {table}=JSON.parse(readFileSync(new URL('./fixtures/us-cpi-table.json',import.meta.url)));
  const expected=parseCpi(files);
  assert.deepEqual(parseCpiTable('<table id="unrelated"><tr><td>not CPI</td></tr></table>'+table,'2026-09'),expected);
  for(const html of [
   table+table,
   table.replace('id="table0"','id="table0" id="catalog0"'),
-  table.replace('id="catalog0"','id="catalog0" id="catalog0"'),
   table.replace(/<\/table>/gi,''),
   table.replace('id="catalog0"','id="other"'),
   table.replace('id="table0"','id="other"'),

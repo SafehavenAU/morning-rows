@@ -1462,7 +1462,7 @@
     "production_baseline_changed": false,
     "active_scope": "eight desks",
     "source_alerts_enabled": false,
-    "candidate_cpu_ms": 29,
+    "candidate_cpu_ms": 21,
     "confirmed_limit_ms": 10,
     "candidate_released": false,
     "evidence": "verification/us-build-2026-10-19/CONTINUATION.md",
@@ -1474,16 +1474,19 @@
     "best_observed_cold_cpu_ms": 12,
     "user_decision": "Keep Free; pursue further optimization",
     "optimization_pass_complete": true,
-    "final_candidate_source": "e48695d",
-    "production_identity_verified_at": "2026-10-19T00:08:18.996882+00:00",
+    "final_candidate_source": "0447e490c5d8fed1550d6c4b359db1f1aaab7d9a",
+    "production_identity_verified_at": "2026-10-20T03:43:26.449Z",
     "staging_ended": true,
     "sole_active_worker": "739b9031-305c-4bc7-afc5-79a82c654ac7",
     "latest_optimization_investigation": {
       "date": "2026-10-20",
-      "result": "canonical-string reuse rejected: no reliable local cold benefit",
-      "edge_cpu_measurement": false,
+      "result": "Combined exact-fragment/table-boundary edge trial failed21ms; experimental runtime changes removed",
+      "edge_cpu_measurement": true,
       "runtime_changed": false,
-      "evidence": "verification/us-build-2026-10-19/runtime-budget/serialization-experiment/README.md"
+      "evidence": "verification/us-build-2026-10-19/runtime-budget/version-cold-fragments-probe.json",
+      "cold_cpu_ms": 21,
+      "candidate_worker": "61bb5ada-00cb-48b9-b6b5-fc173fbcf082",
+      "sole_active_deployment": "baebe78f-5094-41c8-aa46-8a96d2b131cf"
     }
   },
   "shadow_audit_tooling": {
